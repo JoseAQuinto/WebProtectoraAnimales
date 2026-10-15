@@ -1,0 +1,9 @@
+Entrega de viabilidad: no contiene bibliotecas de ejecución de terceros.
+
+Playwright, Node.js y los navegadores se usan únicamente en desarrollo,
+desde instalaciones locales o herramientas ignoradas por Git. No forman
+parte de la aplicación ni se redistribuyen en esta entrega.
+
+Papa Parse y js-sha256 están previstos en los requisitos, pero todavía no
+se han incorporado. Sus versiones, licencias, avisos de seguridad y hashes
+se verificarán antes de incluirlos en una fase posterior.

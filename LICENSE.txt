@@ -1,0 +1,11 @@
+PENDIENTE DE REVISIÓN POR EL TITULAR
+
+Este proyecto se encuentra en desarrollo. No se han definido todavía los
+términos de licencia comercial, distribución o uso del producto final.
+
+La presencia del código en un repositorio no constituye una licencia
+comercial ni una autorización adicional de redistribución. El titular debe
+revisar y sustituir este aviso antes de publicar el paquete comercial.
+
+Las bibliotecas de terceros, cuando se incorporen, conservarán sus propias
+licencias y avisos en THIRD_PARTY_NOTICES.txt.

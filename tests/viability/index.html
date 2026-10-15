@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>Rescue Manager · Diagnóstico sin conexión</title>
+  <link rel="stylesheet" href="probe.css">
+  <script src="probe-storage.js" defer></script>
+  <script src="probe.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">RESCUE MANAGER / FASE 0</p>
+      <h1>Diagnóstico sin conexión</h1>
+      <p class="lead">Una prueba pequeña antes de confiarle los datos de una protectora.</p>
+      <p>Solo usa datos sintéticos. No es una copia de seguridad ni una aplicación de gestión terminada.</p>
+    </header>
+    <section class="card" aria-labelledby="storage-title">
+      <div class="section-heading"><h2 id="storage-title">Almacenamiento local</h2><span class="tag">file://</span></div>
+      <p id="summary" role="status" aria-live="polite">Comprobando capacidades…</p>
+      <ul id="checks" class="checks"></ul>
+      <button id="run" type="button" disabled>Repetir comprobación</button>
+      <p>Un resultado correcto aquí no demuestra por sí solo que los datos sobrevivan al cierre del navegador. Esa prueba se registra por separado.</p>
+    </section>
+    <div class="columns">
+      <section class="card" aria-labelledby="persistence-title">
+        <h2 id="persistence-title">Comprobar la reapertura</h2>
+        <p>Guarda un texto de prueba, cierra el navegador por completo y vuelve a abrir exactamente este archivo con el mismo perfil.</p>
+        <label for="marker">Texto de prueba</label>
+        <input id="marker" value="Prueba de persistencia · ñ" maxlength="200">
+        <button id="save-marker" type="button" disabled>Guardar texto de prueba</button>
+        <button id="read-marker" class="secondary" type="button" disabled>Leer texto guardado</button>
+        <p id="marker-result" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card" aria-labelledby="file-title">
+        <h2 id="file-title">Descargar y seleccionar JSON</h2>
+        <p>Descarga el informe y vuelve a seleccionarlo. La aplicación no puede confirmar por sí sola que la descarga quedó guardada en disco.</p>
+        <button id="download" type="button" disabled>Descargar informe de diagnóstico</button>
+        <label for="json-file">Seleccionar informe descargado</label>
+        <input id="json-file" type="file" accept=".json,application/json">
+        <p id="json-result" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+    <section class="card" aria-labelledby="tabs-title">
+      <h2 id="tabs-title">Dos pestañas</h2>
+      <p id="lease-result" role="status" aria-live="polite">Comprobando control de escritura…</p>
+      <button id="claim" class="secondary" type="button" disabled>Solicitar control si está libre</button>
+      <button id="release" class="secondary" type="button" disabled>Liberar control</button>
+      <p>Abre este mismo archivo en una segunda pestaña. El control se adquiere en IndexedDB; solo una pestaña puede conservarlo mientras el arrendamiento siga vigente.</p>
+    </section>
+    <section class="card">
+      <h2>Dónde se guardan estos datos</h2>
+      <p>En el perfil de este navegador, en una base de prueba llamada <code>rescue-manager-viability</code>. Otro perfil, otro navegador o un cambio de carpeta puede mostrar un almacenamiento distinto. Limpiar los datos del navegador puede borrarlo. Las ventanas privadas pueden no conservarlo.</p>
+      <p>Copiar esta carpeta no traslada la base del navegador. La aplicación comercial necesitará copias externas verificadas para mover o recuperar información.</p>
+    </section>
+    <details class="card"><summary>Detalles del diagnóstico</summary><pre id="details"></pre></details>
+    <footer><a href="../../index.html">Volver al estado de desarrollo</a> · No introducir información personal.</footer>
+  </main>
+</body>
+</html>

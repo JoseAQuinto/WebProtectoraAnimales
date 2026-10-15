@@ -1,0 +1,8 @@
+.tmp/
+.tools/
+node_modules/
+*.log
+*.zip
+Thumbs.db
+.DS_Store
+
