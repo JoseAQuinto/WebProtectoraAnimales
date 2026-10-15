@@ -1,6 +1,6 @@
 # Arquitectura propuesta
 
-Estado: diseño previo, fase 0 de viabilidad en curso. Este documento no acredita que el producto ni sus módulos estén implementados o verificados. El documento íntegro recibido se conserva en [REQUIREMENTS.es.md](REQUIREMENTS.es.md).
+Estado: diseño objetivo; fase 0 de escritorio superada y fase 1 en desarrollo. Este documento no acredita que el producto ni sus módulos estén implementados o verificados. El documento íntegro recibido se conserva en [REQUIREMENTS.es.md](REQUIREMENTS.es.md).
 
 ## Decisiones esenciales
 

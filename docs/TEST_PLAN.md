@@ -39,7 +39,7 @@ No sustituir un fallo por un cambio a servidor, LocalStorage o memoria.
 - `node tests/static-checks.cjs`: recursos locales, CSP, sintaxis, sin módulos de navegador,
   sin sinks de HTML no seguros ni dependencias de almacenamiento alternativas.
 - `node tests/e2e/chromium.cjs`: Chrome y Edge locales; ver opciones y requisitos en el archivo.
-- `python tests/e2e/firefox.py`: Firefox aislado; ver opciones y requisitos en el archivo.
+- `python tests/e2e/firefox_viability.py --executable <ruta-firefox-estable>`: Firefox aislado; ver opciones en el archivo.
 
 Los ejecutores requieren herramientas del desarrollador, **nunca del comprador**.
 No iniciar un servidor de aplicación. El transporte local de automatización

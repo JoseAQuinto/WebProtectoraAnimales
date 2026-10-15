@@ -20,7 +20,7 @@
       return li;
     }));
     byId('details').textContent = JSON.stringify(report, null, 2);
-    ready = report.storageAvailable;
+    ready = report.storageAvailable && report.passed;
     ['run', 'download'].forEach(id => { byId(id).disabled = false; });
     ['read-marker', 'claim', 'release'].forEach(id => { byId(id).disabled = !ready; });
     byId('save-marker').disabled = !ready || !hasControl;
@@ -32,7 +32,11 @@
       byId('lease-result').textContent = hasControl ? 'Esta pestaña tiene control de escritura durante 30 segundos; lo renueva mientras está activa.' :
         (ready ? 'Modo lectura: otra pestaña tiene el control. Puedes solicitarlo cuando quede libre.' : 'El control no está disponible porque falló el almacenamiento.');
       byId('save-marker').disabled = !hasControl;
-    } catch (error) { failure('lease-result', error); }
+    } catch (error) {
+      hasControl = false;
+      byId('save-marker').disabled = true;
+      failure('lease-result', error);
+    }
   }
   function failure(id, error) {
     byId(id).textContent = 'La operación no se ha completado. ' + error.name + ': ' + error.message;

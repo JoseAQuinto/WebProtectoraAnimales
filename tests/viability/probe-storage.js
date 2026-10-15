@@ -9,17 +9,19 @@
     if (connection) return Promise.resolve(connection);
     return new Promise((resolve, reject) => {
       let request;
+      let abandoned = false;
       try { request = indexedDB.open(name, 1); } catch (error) { reject(error); return; }
-      const timeout = setTimeout(() => reject(new Error('IndexedDB open timed out')), 8000);
+      const timeout = setTimeout(() => { abandoned = true; reject(new Error('IndexedDB open timed out')); }, 8000);
       request.onupgradeneeded = () => {
         const db = request.result;
         if (!db.objectStoreNames.contains('records')) db.createObjectStore('records', { keyPath: 'id' });
         if (!db.objectStoreNames.contains('meta')) db.createObjectStore('meta', { keyPath: 'key' });
       };
-      request.onerror = () => { clearTimeout(timeout); reject(request.error); };
-      request.onblocked = () => { clearTimeout(timeout); reject(new Error('IndexedDB upgrade blocked by another tab')); };
+      request.onerror = () => { clearTimeout(timeout); abandoned = true; reject(request.error); };
+      request.onblocked = () => { clearTimeout(timeout); abandoned = true; reject(new Error('IndexedDB upgrade blocked by another tab')); };
       request.onsuccess = () => {
         clearTimeout(timeout);
+        if (abandoned) { request.result.close(); return; }
         connection = request.result;
         connection.onversionchange = () => { connection.close(); connection = null; };
         resolve(connection);

@@ -1,0 +1,667 @@
+{
+  "test": "Firefox direct file:// viability",
+  "dateUTC": "2026-10-15T14:08:44.307779+00:00",
+  "os": "Windows-11-10.0.26200-SP0",
+  "executable": "C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tools\\firefox-stable\\core\\firefox.exe",
+  "channel": "stable",
+  "profile": "C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\firefox-6fd6f91392f1\\profile",
+  "offlineRequestedAtLaunch": true,
+  "normalProfileSecurityPoliciesChanged": false,
+  "steps": {
+    "independentIndexedDB": {
+      "ok": true,
+      "value": {
+        "url": "file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/.tmp/firefox-6fd6f91392f1/independent.html",
+        "origin": "null",
+        "online": false,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "value": {
+          "text": "verified",
+          "blob": "real blob"
+        },
+        "committed": true,
+        "ok": true
+      }
+    },
+    "probeReady": {
+      "ok": true,
+      "value": {
+        "format": "rescue-manager-viability-report",
+        "version": 1,
+        "createdAt": "2026-10-15T14:08:48.081Z",
+        "url": "file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/index.html",
+        "protocol": "file:",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "capabilities": {
+          "indexedDB": true,
+          "secureContext": true,
+          "randomUUID": true,
+          "getRandomValues": true,
+          "subtleCrypto": true,
+          "storageEstimate": true,
+          "persist": true,
+          "broadcastChannel": true,
+          "fileReader": true,
+          "showSaveFilePicker": false
+        },
+        "checks": [
+          {
+            "id": "file-protocol",
+            "passed": true,
+            "detail": "file:"
+          },
+          {
+            "id": "classic-script",
+            "passed": true,
+            "detail": "External classic script executed"
+          },
+          {
+            "id": "local-css",
+            "passed": true,
+            "detail": "External CSS marker"
+          },
+          {
+            "id": "indexeddb-open",
+            "passed": true,
+            "detail": "rescue-manager-viability"
+          },
+          {
+            "id": "transaction-complete",
+            "passed": true,
+            "detail": "Resolved only after transaction complete"
+          },
+          {
+            "id": "record-roundtrip",
+            "passed": true,
+            "detail": "Unicode record roundtrip"
+          },
+          {
+            "id": "blob-roundtrip",
+            "passed": true,
+            "detail": "Blob bytes decoded after transaction"
+          },
+          {
+            "id": "atomic-rollback",
+            "passed": true,
+            "detail": "AbortError"
+          }
+        ],
+        "storageAvailable": true,
+        "quota": {
+          "quota": 10737418240,
+          "usage": 114840
+        },
+        "passed": true
+      }
+    },
+    "probeRun": {
+      "ok": true,
+      "value": {
+        "format": "rescue-manager-viability-report",
+        "version": 1,
+        "createdAt": "2026-10-15T14:08:48.198Z",
+        "url": "file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/index.html",
+        "protocol": "file:",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "capabilities": {
+          "indexedDB": true,
+          "secureContext": true,
+          "randomUUID": true,
+          "getRandomValues": true,
+          "subtleCrypto": true,
+          "storageEstimate": true,
+          "persist": true,
+          "broadcastChannel": true,
+          "fileReader": true,
+          "showSaveFilePicker": false
+        },
+        "checks": [
+          {
+            "id": "file-protocol",
+            "passed": true,
+            "detail": "file:"
+          },
+          {
+            "id": "classic-script",
+            "passed": true,
+            "detail": "External classic script executed"
+          },
+          {
+            "id": "local-css",
+            "passed": true,
+            "detail": "External CSS marker"
+          },
+          {
+            "id": "indexeddb-open",
+            "passed": true,
+            "detail": "rescue-manager-viability"
+          },
+          {
+            "id": "transaction-complete",
+            "passed": true,
+            "detail": "Resolved only after transaction complete"
+          },
+          {
+            "id": "record-roundtrip",
+            "passed": true,
+            "detail": "Unicode record roundtrip"
+          },
+          {
+            "id": "blob-roundtrip",
+            "passed": true,
+            "detail": "Blob bytes decoded after transaction"
+          },
+          {
+            "id": "atomic-rollback",
+            "passed": true,
+            "detail": "AbortError"
+          }
+        ],
+        "storageAvailable": true,
+        "quota": {
+          "quota": 10737418240,
+          "usage": 127215
+        },
+        "passed": true
+      }
+    },
+    "firstOpenOffline": {
+      "online": false,
+      "protocol": "file:"
+    },
+    "writeMarker": {
+      "ok": true,
+      "value": null
+    },
+    "optionalAPIs": {
+      "ok": true,
+      "value": {
+        "uuid": "c434b484-916d-4cf7-9db0-186f31c41589",
+        "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+        "estimate": {
+          "quota": 10737418240,
+          "usage": 139590
+        },
+        "persisted": false,
+        "persist": "unanswered-prompt",
+        "fileReader": "FileReader ñ",
+        "broadcast": "delivered",
+        "showSaveFilePicker": "undefined"
+      }
+    },
+    "jsonDownload": {
+      "ok": true,
+      "bytes": 1625,
+      "file": "C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\firefox-6fd6f91392f1\\downloads\\rescue-manager-diagnostico.json"
+    },
+    "jsonFileSelection": {
+      "ok": true,
+      "value": {
+        "text": "JSON seleccionado y leído correctamente. Esto verifica la selección, no la integridad de un backup comercial.",
+        "files": 1
+      }
+    },
+    "firstTabAcquire": {
+      "ok": true,
+      "value": true
+    },
+    "secondTabReady": {
+      "ok": true,
+      "value": {
+        "format": "rescue-manager-viability-report",
+        "version": 1,
+        "createdAt": "2026-10-15T14:08:50.925Z",
+        "url": "file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/index.html",
+        "protocol": "file:",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "capabilities": {
+          "indexedDB": true,
+          "secureContext": true,
+          "randomUUID": true,
+          "getRandomValues": true,
+          "subtleCrypto": true,
+          "storageEstimate": true,
+          "persist": true,
+          "broadcastChannel": true,
+          "fileReader": true,
+          "showSaveFilePicker": false
+        },
+        "checks": [
+          {
+            "id": "file-protocol",
+            "passed": true,
+            "detail": "file:"
+          },
+          {
+            "id": "classic-script",
+            "passed": true,
+            "detail": "External classic script executed"
+          },
+          {
+            "id": "local-css",
+            "passed": true,
+            "detail": "External CSS marker"
+          },
+          {
+            "id": "indexeddb-open",
+            "passed": true,
+            "detail": "rescue-manager-viability"
+          },
+          {
+            "id": "transaction-complete",
+            "passed": true,
+            "detail": "Resolved only after transaction complete"
+          },
+          {
+            "id": "record-roundtrip",
+            "passed": true,
+            "detail": "Unicode record roundtrip"
+          },
+          {
+            "id": "blob-roundtrip",
+            "passed": true,
+            "detail": "Blob bytes decoded after transaction"
+          },
+          {
+            "id": "atomic-rollback",
+            "passed": true,
+            "detail": "AbortError"
+          }
+        ],
+        "storageAvailable": true,
+        "quota": {
+          "quota": 10737418240,
+          "usage": 110765
+        },
+        "passed": true
+      }
+    },
+    "secondTabAcquireDenied": {
+      "ok": true,
+      "value": false
+    },
+    "secondTabWriteDenied": {
+      "ok": false,
+      "error": {
+        "name": "AbortError",
+        "message": "Transaction aborted",
+        "stack": "transaction/</tx.onabort@file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/probe-storage.js:38:45\n"
+      }
+    },
+    "secondTabReadsSameMarker": {
+      "ok": true,
+      "value": {
+        "value": "persistencia Firefox ñ 🐾 ace9f709606d4c51a0e65e990062e3c7",
+        "blob": "offline-blob-ñ"
+      }
+    },
+    "firstTabRelease": {
+      "ok": true,
+      "value": true
+    },
+    "secondTabAcquireAfterRelease": {
+      "ok": true,
+      "value": true
+    },
+    "shortLeaseAcquired": {
+      "ok": true,
+      "value": true
+    },
+    "leaseAcquiredAfterExpiry": {
+      "ok": true,
+      "value": true
+    },
+    "expiredOwnerWriteDenied": {
+      "ok": false,
+      "error": {
+        "name": "AbortError",
+        "message": "Transaction aborted",
+        "stack": "transaction/</tx.onabort@file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/probe-storage.js:38:45\n"
+      }
+    },
+    "completeBrowserClose": {
+      "pid": 41380,
+      "exitCode": 0,
+      "waitedForProcessExit": true
+    },
+    "persistAfterCompleteClose": {
+      "ok": true,
+      "value": {
+        "value": "persistencia Firefox ñ 🐾 ace9f709606d4c51a0e65e990062e3c7",
+        "expected": "persistencia Firefox ñ 🐾 ace9f709606d4c51a0e65e990062e3c7",
+        "blob": "offline-blob-ñ",
+        "matched": true,
+        "online": false
+      }
+    },
+    "copiedFolderMarkerBeforeWrite": {
+      "ok": true,
+      "value": {
+        "id": "marker",
+        "value": "persistencia Firefox ñ 🐾 ace9f709606d4c51a0e65e990062e3c7",
+        "blob": {
+          "slice": {},
+          "stream": {},
+          "text": {},
+          "arrayBuffer": {},
+          "bytes": {},
+          "size": 15,
+          "type": "text/plain",
+          "blobImplType": "StreamBlobImpl[FileBlobImpl]"
+        }
+      }
+    },
+    "renamedFolderReady": {
+      "ok": true,
+      "value": {
+        "format": "rescue-manager-viability-report",
+        "version": 1,
+        "createdAt": "2026-10-15T14:09:01.310Z",
+        "url": "file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/.tmp/firefox-6fd6f91392f1/probe-renamed/index.html",
+        "protocol": "file:",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "capabilities": {
+          "indexedDB": true,
+          "secureContext": true,
+          "randomUUID": true,
+          "getRandomValues": true,
+          "subtleCrypto": true,
+          "storageEstimate": true,
+          "persist": true,
+          "broadcastChannel": true,
+          "fileReader": true,
+          "showSaveFilePicker": false
+        },
+        "checks": [
+          {
+            "id": "file-protocol",
+            "passed": true,
+            "detail": "file:"
+          },
+          {
+            "id": "classic-script",
+            "passed": true,
+            "detail": "External classic script executed"
+          },
+          {
+            "id": "local-css",
+            "passed": true,
+            "detail": "External CSS marker"
+          },
+          {
+            "id": "indexeddb-open",
+            "passed": true,
+            "detail": "rescue-manager-viability"
+          },
+          {
+            "id": "transaction-complete",
+            "passed": true,
+            "detail": "Resolved only after transaction complete"
+          },
+          {
+            "id": "record-roundtrip",
+            "passed": true,
+            "detail": "Unicode record roundtrip"
+          },
+          {
+            "id": "blob-roundtrip",
+            "passed": true,
+            "detail": "Blob bytes decoded after transaction"
+          },
+          {
+            "id": "atomic-rollback",
+            "passed": true,
+            "detail": "AbortError"
+          }
+        ],
+        "storageAvailable": true,
+        "quota": {
+          "quota": 10737418240,
+          "usage": 106660
+        },
+        "passed": true
+      }
+    },
+    "renamedFolderMarker": {
+      "ok": true,
+      "value": {
+        "value": "folder-local-marker-bafea26aa98647b2aa46d509f294c10d",
+        "expectedBeforeRename": "folder-local-marker-bafea26aa98647b2aa46d509f294c10d",
+        "preserved": true
+      }
+    },
+    "movedFolderReady": {
+      "ok": true,
+      "value": {
+        "format": "rescue-manager-viability-report",
+        "version": 1,
+        "createdAt": "2026-10-15T14:09:02.552Z",
+        "url": "file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/.tmp/firefox-6fd6f91392f1/nested-moved/probe-renamed/index.html",
+        "protocol": "file:",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+        "capabilities": {
+          "indexedDB": true,
+          "secureContext": true,
+          "randomUUID": true,
+          "getRandomValues": true,
+          "subtleCrypto": true,
+          "storageEstimate": true,
+          "persist": true,
+          "broadcastChannel": true,
+          "fileReader": true,
+          "showSaveFilePicker": false
+        },
+        "checks": [
+          {
+            "id": "file-protocol",
+            "passed": true,
+            "detail": "file:"
+          },
+          {
+            "id": "classic-script",
+            "passed": true,
+            "detail": "External classic script executed"
+          },
+          {
+            "id": "local-css",
+            "passed": true,
+            "detail": "External CSS marker"
+          },
+          {
+            "id": "indexeddb-open",
+            "passed": true,
+            "detail": "rescue-manager-viability"
+          },
+          {
+            "id": "transaction-complete",
+            "passed": true,
+            "detail": "Resolved only after transaction complete"
+          },
+          {
+            "id": "record-roundtrip",
+            "passed": true,
+            "detail": "Unicode record roundtrip"
+          },
+          {
+            "id": "blob-roundtrip",
+            "passed": true,
+            "detail": "Blob bytes decoded after transaction"
+          },
+          {
+            "id": "atomic-rollback",
+            "passed": true,
+            "detail": "AbortError"
+          }
+        ],
+        "storageAvailable": true,
+        "quota": {
+          "quota": 10737418240,
+          "usage": 106690
+        },
+        "passed": true
+      }
+    },
+    "movedFolderMarker": {
+      "ok": true,
+      "value": {
+        "value": "folder-local-marker-bafea26aa98647b2aa46d509f294c10d",
+        "expectedBeforeMove": "folder-local-marker-bafea26aa98647b2aa46d509f294c10d",
+        "preserved": true
+      }
+    },
+    "storageBlockedByBrowserSetting": {
+      "method": "Separate profile; network.cookie.cookieBehavior=2 (block all cookies/site data)",
+      "report": {
+        "ok": true,
+        "value": {
+          "format": "rescue-manager-viability-report",
+          "version": 1,
+          "createdAt": "2026-10-15T14:09:07.910Z",
+          "url": "file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/index.html",
+          "protocol": "file:",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+          "capabilities": {
+            "indexedDB": true,
+            "secureContext": true,
+            "randomUUID": true,
+            "getRandomValues": true,
+            "subtleCrypto": true,
+            "storageEstimate": true,
+            "persist": true,
+            "broadcastChannel": true,
+            "fileReader": true,
+            "showSaveFilePicker": false
+          },
+          "checks": [
+            {
+              "id": "file-protocol",
+              "passed": true,
+              "detail": "file:"
+            },
+            {
+              "id": "classic-script",
+              "passed": true,
+              "detail": "External classic script executed"
+            },
+            {
+              "id": "local-css",
+              "passed": true,
+              "detail": "External CSS marker"
+            },
+            {
+              "id": "storage-unavailable",
+              "passed": false,
+              "detail": {
+                "name": "SecurityError",
+                "message": "IDBFactory.open: The operation is insecure",
+                "stack": "open/<@file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/probe-storage.js:13:33\nopen@file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/probe-storage.js:10:12\nprobe.run@file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/probe-storage.js:95:13\nprobe.ready<@file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/probe.js:93:59\n@file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/probe.js:93:116\n@file:///C:/Users/Jose%20Angel/Desktop/Herramientas/cosas%20sueltas/weban/tests/viability/probe.js:95:2\n"
+              }
+            }
+          ],
+          "storageAvailable": false,
+          "quota": {
+            "quota": 10737418240,
+            "usage": 0
+          },
+          "passed": false
+        }
+      },
+      "ui": {
+        "summary": "Esta combinación no ha superado la comprobación. No introduzcas datos reales; conserva el informe para revisar el motivo.",
+        "saveDisabled": true
+      }
+    }
+  },
+  "capabilities": {
+    "sessionId": "2affeaaf-920e-45ee-9434-cc58facaa360",
+    "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "firefox",
+      "browserVersion": "158.0",
+      "platformName": "windows",
+      "setWindowRect": true,
+      "unhandledPromptBehavior": "dismiss and notify",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "moz:buildID": "20261007201254",
+      "moz:headless": true,
+      "moz:platformVersion": "10.0",
+      "moz:processID": 28876,
+      "moz:profile": "C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\firefox-6fd6f91392f1\\profile",
+      "moz:shutdownTimeout": 60000,
+      "pageLoadStrategy": "normal",
+      "timeouts": {
+        "implicit": 0,
+        "pageLoad": 300000,
+        "script": 30000
+      },
+      "strictFileInteractability": false,
+      "moz:accessibilityChecks": false,
+      "moz:webdriverClick": true,
+      "moz:windowless": false,
+      "proxy": {}
+    }
+  },
+  "assertions": [
+    {
+      "name": "No harness error",
+      "passed": true
+    },
+    {
+      "name": "Independent local-file IndexedDB and Blob",
+      "passed": true
+    },
+    {
+      "name": "Local CSS/scripts, IndexedDB, Blob, commit and rollback",
+      "passed": true
+    },
+    {
+      "name": "First open offline",
+      "passed": true
+    },
+    {
+      "name": "JSON saved to disk",
+      "passed": true
+    },
+    {
+      "name": "Real JSON input selection/read",
+      "passed": true
+    },
+    {
+      "name": "Second tab cannot acquire active lease",
+      "passed": true
+    },
+    {
+      "name": "Second tab write rejected without ownership",
+      "passed": true
+    },
+    {
+      "name": "Lease transfers after release",
+      "passed": true
+    },
+    {
+      "name": "Lease transfers after expiry",
+      "passed": true
+    },
+    {
+      "name": "Expired writer is rejected",
+      "passed": true
+    },
+    {
+      "name": "Complete browser shutdown",
+      "passed": true
+    },
+    {
+      "name": "Text and Blob persist after restart",
+      "passed": true
+    },
+    {
+      "name": "Folder rename and move exercised",
+      "passed": true
+    },
+    {
+      "name": "Actual storage denial produces safe UI",
+      "passed": true
+    }
+  ],
+  "desktopCorePassed": true
+}

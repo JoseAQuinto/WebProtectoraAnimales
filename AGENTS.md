@@ -1,0 +1,47 @@
+# Instrucciones de continuidad
+
+Leer primero `docs/PROJECT_STATUS.md` y `docs/REQUIREMENTS.es.md` completos;
+el alcance original no puede recortarse para aparentar producto terminado.
+
+## Autorización del usuario
+
+- Trabajar en este repositorio y hacer commits/push de avances coherentes a
+  `https://github.com/JoseAQuinto/WebProtectoraAnimales.git`.
+- Comprobar el cupo de la ventana de 5 horas cuando la herramienta de uso esté
+  disponible. Es restante = `100 - usedPercent` para `windowDurationMins=300`.
+  Si es **menor que 20 %**, detener desarrollo y trabajo delegado; actualizar
+  estado, guardar commit y hacer push. No consumir un reinicio de cuota.
+- Dejar el proyecto continuable desde otro equipo: código, decisiones,
+  evidencias de pruebas, defectos y siguiente acción concreta en Git.
+
+## Restricciones técnicas
+
+- El comprador abre `index.html` por `file://`, sin servidor, red ni instalación.
+- HTML/CSS/JS vanilla; scripts clásicos `defer`, IIFE y solo `window.RescueManager`.
+- Ningún `fetch` de archivos locales, módulos ES en navegador, CDN o recursos remotos.
+- IndexedDB es la única fuente de verdad. Nada de alternativa silenciosa a
+  LocalStorage o memoria. La UI de negocio nunca accede a IndexedDB directamente.
+- Confirmar guardados solo en `transaction.complete`. Preparar imágenes/hashes
+  y esperar interacción del usuario fuera de transacciones.
+- Relaciones por UUID dentro del mismo dataset, revisión optimista e idempotencia.
+- Cada escritura de negocio comprueba lease, conjunto activo y revisión en
+  la misma transacción. Pestañas sin control son de lectura.
+- Dinero/cantidades en enteros seguros, fechas de calendario como cadenas ISO.
+- Restaurar mediante dataset separado y activación atómica; nunca vaciar primero.
+- Datos del usuario en `textContent`, sin eval, HTML activo ni ejecución importada.
+
+## Orden y calidad
+
+Seguir fases 0–12. No construir sobre una incompatibilidad de la matriz
+obligatoria sin documentar y resolver. La fase 2 de protección de datos precede
+a los formularios de negocio. Ampliar backup y validadores con cada entidad.
+No crear archivos vacíos, botones sin comportamiento ni éxitos simulados.
+
+Probar la distribución real bajo `file://`. Herramientas de desarrollo sí
+pueden instalarse, pero no deben entrar en el paquete comercial. No declarar
+pruebas pendientes como aprobadas ni emulación de viewport como dispositivo real.
+Revisar archivos propios grandes y dividirlos por responsabilidad cuando ayude.
+
+Documentar limitaciones reales y los cuatro números de versión. La licencia
+comercial está pendiente de revisión; no publicar Etsy ni inventar condiciones.
+Mantener `docs/PROJECT_STATUS.md` y `CHANGELOG.md` por cada avance significativo.

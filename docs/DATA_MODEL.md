@@ -1,6 +1,6 @@
 # Contrato propuesto del modelo de datos
 
-Estado: diseño previo para `schemaVersion = 1`; fase 0 en curso. No es un esquema implementado ni validado por pruebas. Debe convertirse en validadores y fixtures antes de construir formularios. Los límites elegidos aquí concretan campos que el requisito deja abiertos; cualquier cambio posterior exige actualizar este contrato, validadores, importadores y backup.
+Estado: diseño previo para `schemaVersion = 1`; fase 0 de escritorio superada. No es un esquema implementado ni validado por pruebas. Debe convertirse en validadores y fixtures antes de construir formularios. Los límites elegidos aquí concretan campos que el requisito deja abiertos; cualquier cambio posterior exige actualizar este contrato, validadores, importadores y backup.
 
 ## Tipos y convenciones
 
@@ -98,7 +98,7 @@ Catálogos base y sus códigos/etiquetas se incorporarán como datos locales ver
 | `sex` | Enum(male, female, unknown) | Sí, `unknown` | |
 | `birthDate` | Date? | No | No posterior a hoy de la organización |
 | `birthPrecision` | Enum(exact, estimated, unknown) | Sí, `unknown` | Ver combinación exclusiva más abajo |
-| `estimatedAgeMonths` | Entero 0–1200? | No | Estimación administrativa; 100 años es límite de captura, no regla veterinaria |
+| `estimatedAgeMonths` | Entero 0–12000? | No | Límite técnico amplio de captura, no longevidad veterinaria por especie |
 | `estimatedAgeReferenceDate` | Date? | No | Necesaria con edad estimada sin fecha fiable; no futura |
 | `sizeId` | Option(size)? | No | |
 | `color` | Texto ≤ 120? | No | |
@@ -111,6 +111,7 @@ Catálogos base y sus códigos/etiquetas se incorporarán como datos locales ver
 | `description`, `character`, `behavior` | Notes cada uno | No, `""` | Campos distintos |
 | `specialNeeds`, `notes` | Notes cada uno | No, `""` | |
 | `managementStatus` | Enum(under_care, adopted, deceased, other_exit) | Sí, fijado por servicio de entrada | Consistente con episodio abierto |
+| `deceasedOn` | Date? | Solo fallecido | Fecha del hecho; permite conservar adopción anterior aunque no exista episodio abierto |
 | `adoptionAvailability` | Enum(unavailable, available, reserved) | Sí, elegido en entrada | Solo disponible/reservado bajo cuidado |
 | `locationKind` | Enum(shelter, foster, temporary_external)? | Entrada requiere valor | Fuera de cuidado `null` |
 | `locationId` | Ref(locations)? | Según tipo | Obligatorio en refugio, nulo en acogida |

@@ -4,7 +4,7 @@ Actualizado: 2026-10-15. Versión de trabajo: `0.0.1-dev`.
 
 ## Fase actual
 
-**Fase 0: viabilidad en ejecución.** No hay aplicación comercial terminada ni
+**Fase 0 de escritorio superada; fase 1 en desarrollo.** No hay aplicación comercial terminada ni
 módulos de gestión habilitados. El punto de entrada conduce al diagnóstico.
 
 ## Trabajo conservado
@@ -16,7 +16,8 @@ módulos de gestión habilitados. El punto de entrada conduce al diagnóstico.
 - IndexedDB, Blob, commit, rollback, marcador persistente, control de pestañas,
   descarga y selección de JSON implementados en la prueba.
 - Política CSP sin conexiones, objetos ni formularios externos.
-- Ejecutores de pruebas reales en perfiles aislados; resultados en preparación.
+- Ejecutores de pruebas reales en perfiles aislados; Chrome y Edge 12/12,
+  Firefox estable 15/15, con resultados originales conservados.
 - 23 comprobaciones estáticas superadas el 2026-10-15.
 
 ## Decisiones
@@ -31,18 +32,16 @@ y las verificaciones de dependencias quedan pendientes antes de distribución.
 
 ## Pruebas y límites actuales
 
-Resultados de navegador aún en ejecución. Consultar `COMPATIBILITY.md` y
-los JSON originales cuando se cierre la fase. La emulación de tamaño no
+Consultar `COMPATIBILITY.md` y los JSON originales. La emulación de tamaño no
 acredita móviles/tablets reales. Las pruebas posteriores de negocio, backup,
 restauración e importación siguen pendientes.
 
 ## Siguiente acción concreta
 
-Cerrar los resultados de Chrome/Edge/Firefox estables bajo `file://`, incluido
-cierre completo y reapertura con bytes del Blob, denegación de almacenamiento,
-segunda pestaña y cambio de carpeta. Si la matriz obligatoria pasa, comenzar
-fase 1 con el núcleo persistente y pruebas de integridad; después fase 2 antes
-de formularios de negocio. Si falla, documentar evidencia y resolver el bloqueo.
+Completar fase 1: utilidades y núcleo persistente con pruebas de integridad,
+esquemas y validadores de las entidades de negocio. Fase 2 de backup/restauración
+antes de formularios. La puerta inicial de escritorio está superada; no se
+anuncia compatibilidad comercial ni de dispositivos todavía no comprobados.
 
 ## Continuidad entre equipos y cupo
 
