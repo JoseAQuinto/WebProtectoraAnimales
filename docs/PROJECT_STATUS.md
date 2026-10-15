@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-15. Versión de trabajo: `0.0.1-dev`.
+Actualizado: 2026-10-15. Versión de trabajo: `0.1.0-dev`.
 
 ## Fase actual
 
@@ -19,6 +19,13 @@ módulos de gestión habilitados. El punto de entrada conduce al diagnóstico.
 - Ejecutores de pruebas reales en perfiles aislados; Chrome y Edge 12/12,
   Firefox estable 15/15, con resultados originales conservados.
 - 23 comprobaciones estáticas superadas el 2026-10-15.
+- Utilidades de UUID criptográfico, calendario/edad/zonas, dinero exacto para
+  ocho monedas, cantidades escaladas y normalización; 14/14 pruebas unitarias.
+- Base de traducciones EN/ES con paridad/plurales y mapa de errores.
+- JSON canónico determinista con rechazo de valores corruptos/ejecutables;
+  pruebas del núcleo superadas. No implementa aún hash ni backup.
+- Núcleo de almacenamiento coordinado en desarrollo y revisión, sin habilitar
+  formularios ni uso real.
 
 ## Decisiones
 

@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## 0.1.0-dev — 2026-10-15 (en desarrollo)
+
+- Inicio de fase 1 después de superar viabilidad de escritorio en tres motores.
+- Utilidades de UUID v4, fechas, edad, cantidades y dinero exacto, incluidas JPY y KWD.
+- Normalización de búsqueda, email, teléfonos y microchips sin perder ceros.
+- Traducciones base EN/ES, plurales, cambio de idioma y clasificación de errores.
+- Serialización JSON canónica con rechazo de datos corruptos y accesores.
+- Pruebas unitarias significativas y contratos del núcleo documentados.
+- Núcleo persistente coordinado en construcción; entidades y backup pendientes.
+
 ## 0.0.1-dev — 2026-10-15
 
 - Repositorio inicial y requisitos completos preservados.

@@ -310,7 +310,7 @@ Lista, agenda y calendario consultan estas mismas filas. No se crean eventos de 
 | line `materialTypeId` | Option(material_type) | Sí | |
 | line `description` | Title | Sí | |
 | line `quantityScaled` | Quantity > 0 | Sí | Escala explicitada |
-| line `quantityPrecision` | Entero 0–6 | Sí, `0` | Igual a artículo si existe |
+| line `quantityPrecision` | Entero 0–3 | Sí, `0` | Igual a artículo si existe; hasta milésimas |
 | line `unitId` | Option(unit) | Sí | Igual a artículo al incorporar stock |
 | line `inventoryItemId` | Ref(inventoryItems)? | No | |
 | line `inventoryMovementId` | Ref(inventoryMovements)? | No | Movimiento único por línea; artículo coherente |
@@ -325,7 +325,7 @@ La agrupación CSV de líneas usa identificador externo de donación documentado
 | item `name` | Name | Sí | |
 | item `categoryId` | Option(inventory_category) | Sí | |
 | item `unitId` | Option(unit) | Sí | No cambiar unidad reinterpretando movimientos existentes |
-| item `quantityPrecision` | Entero 0–6 | Sí, `0` | No cambiar escala reinterpretando historia |
+| item `quantityPrecision` | Entero 0–3 | Sí, `0` | No cambiar escala reinterpretando historia; límite inicial de producto hasta milésimas |
 | item `minimumStockScaled` | Quantity ≥ 0 | Sí, `0` | Escala del artículo |
 | item `supplierContactId` | Ref(contacts)? | No | Rol proveedor |
 | item `status` | Enum(active, archived) | Sí, `active` | Coherente con `archivedAt` |

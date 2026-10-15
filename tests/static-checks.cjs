@@ -6,6 +6,16 @@ const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
 const files = ['index.html', 'tests/viability/index.html', 'tests/viability/probe.css',
   'tests/viability/probe-storage.js', 'tests/viability/probe.js'];
+function addRuntimeFiles(directory) {
+  const absolute = path.join(root, directory);
+  if (!fs.existsSync(absolute)) return;
+  for (const entry of fs.readdirSync(absolute, { withFileTypes: true })) {
+    const relative = path.join(directory, entry.name);
+    if (entry.isDirectory()) addRuntimeFiles(relative);
+    else if (/\.(?:js|html|css)$/.test(entry.name)) files.push(relative);
+  }
+}
+['js', 'locales', 'tests/integration'].forEach(addRuntimeFiles);
 let checks = 0;
 for (const relative of files) {
   const absolute = path.join(root, relative);
