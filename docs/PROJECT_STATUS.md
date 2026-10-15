@@ -4,7 +4,10 @@ Actualizado: 2026-10-15. Versión de trabajo: `0.1.0-dev`.
 
 ## Fase actual
 
-**Fase 0 de escritorio superada; fase 1 en desarrollo.** No hay aplicación comercial terminada ni
+**EN PAUSA POR CUPO: 19 % restante en la ventana de 5 horas (81 % consumido).**
+Comprobado el 2026-10-15. No se ha usado ningún reinicio de cuota.
+
+Fase 0 de escritorio superada; fase 1 parcialmente implementada. No hay aplicación comercial terminada ni
 módulos de gestión habilitados. El punto de entrada conduce al diagnóstico.
 
 ## Trabajo conservado
@@ -24,8 +27,13 @@ módulos de gestión habilitados. El punto de entrada conduce al diagnóstico.
 - Base de traducciones EN/ES con paridad/plurales y mapa de errores.
 - JSON canónico determinista con rechazo de valores corruptos/ejecutables;
   pruebas del núcleo superadas. No implementa aún hash ni backup.
-- Núcleo de almacenamiento coordinado en desarrollo y revisión, sin habilitar
-  formularios ni uso real.
+- Núcleo de almacenamiento coordinado implementado y probado en Chrome real
+  por `file://`: 9 comprobaciones internas y 6 de navegador, todas correctas.
+  Incluye commit/rollback multi-almacén, Blob, revisión obsoleta, operación
+  idempotente con conflicto de intención, rechazo de callbacks asíncronos,
+  escritura en conjunto ajeno, dos pestañas, lease caducado, activación atómica
+  y rechazo de versión futura conservando registros. Sin formularios ni uso real.
+- Comprobación estática ampliada durante integración: 104 verificaciones correctas.
 
 ## Decisiones
 
@@ -45,10 +53,26 @@ restauración e importación siguen pendientes.
 
 ## Siguiente acción concreta
 
-Completar fase 1: utilidades y núcleo persistente con pruebas de integridad,
-esquemas y validadores de las entidades de negocio. Fase 2 de backup/restauración
-antes de formularios. La puerta inicial de escritorio está superada; no se
-anuncia compatibilidad comercial ni de dispositivos todavía no comprobados.
+1. Revisar este punto de pausa y comprobar el cupo antes de reanudar.
+2. Completar fase 1 convirtiendo `DATA_MODEL.md` en esquemas y validadores
+   ejecutables de todas las entidades, con enumeraciones e índices de negocio.
+3. Añadir repositorios que usen el coordinador, revisión por registro y
+   validación relacional; ampliar las pruebas reales a Edge y Firefox para
+   este núcleo concreto (la sonda inicial sí pasó en ambos).
+4. Armonizar nombres de almacenes/estados con el contrato definitivo. El núcleo
+   actual usa `meta`, `staging` y `retired`; el diseño habla de appMeta,
+   preparing y recovery. Fijar un vocabulario antes del esquema definitivo.
+5. Después fase 2 de backup/restauración: incorporar dependencias locales
+   verificadas, hashes, snapshot consistente, validador completo y staging
+   validado antes de activar. No abrir formularios de negocio hasta proteger datos.
+
+No hay fallo crítico conocido en los casos ejecutados. La fase 1 sigue
+incompleta: no hay almacenes/servicios de negocio, esquema completo, backup,
+restauración o migraciones operativas. `activateDataset` es una primitiva de
+infraestructura probada con fixtures, no un restaurador validado. Antes de
+usarla con datos de negocio debe exigir validación completa y comprobación
+de la revisión del conjunto preparado. Las pruebas usan una base con prefijo
+`animal-rescue-manager-test-`; la entrada no abre la base de producción.
 
 ## Continuidad entre equipos y cupo
 
@@ -65,3 +89,9 @@ Para continuar desde otro PC: clonar/pull del repositorio y leer este archivo,
 `COMPATIBILITY.md` y los requisitos. `.tmp` y `.tools` son herramientas y perfiles
 locales ignorados; no contienen avances de código necesarios. Los datos de una
 futura organización no viajarán con Git: será necesario backup y restauración.
+
+Avances guardados: `9317dd9` (diagnóstico/documento), `8ce0e70` (viabilidad
+comprobada), `384e65f` (utilidades y base), y el commit de pausa que contiene
+este estado junto al núcleo transaccional y su evidencia. Consultar `git log`
+para el identificador del último commit. No hay configuración personal necesaria
+para continuar; las rutas de ejecutables de pruebas se ajustan en el nuevo PC.

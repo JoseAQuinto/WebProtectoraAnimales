@@ -56,3 +56,33 @@ verificada pertenecen a la fase 2, aún pendiente.
 
 Los resultados de Node no sustituyen las pruebas reales de IndexedDB por
 `file://`. La aplicación final requerirá su propia matriz de aceptación.
+
+## Persistencia inicial implementada
+
+`storage.database.open/close` abre un nombre estable sin crear organizaciones
+automáticamente y rechaza versiones incompatibles sin borrar registros.
+`storage.transactions.run(stores, mode, work)` resuelve solo al confirmar la
+transacción y rechaza callbacks asíncronos: las esperas externas se preparan antes.
+Es una primitiva interna; los servicios de negocio deberán usar el coordinador.
+
+`storage.writeCoordinator` ofrece inicialización explícita, adquisición/liberación
+de lease, consulta activa, `mutate` y activación de conjunto. `mutate` recibe
+datasetId/owner/expectedRevision/operationId/fingerprint/stores y un callback
+síncrono con acceso limitado al conjunto. Comprueba control, vigencia, conjunto
+y revisión dentro de la transacción; registra idempotencia junto con los cambios.
+Los IDs de conjunto, operación y registro exigen UUID v4. Los registros deberán
+pasar esquemas y validación relacional antes de llegar a este nivel.
+
+La revisión de `meta.active` es global y monotónica entre activaciones. La
+`dataRevision` de cada dataset cuenta cambios propios: no son intercambiables.
+La primitiva de activación cambia el puntero y retira el escritor anterior de
+forma atómica. Todavía no valida contenido de negocio, no importa archivos ni
+implementa restauración. Se prueba con conjuntos sintéticos independientes.
+
+`tests/integration/index.html` carga el núcleo con configuración exclusiva de
+prueba. `node tests/e2e/storage.cjs` añade dos pestañas, caducidad del lease,
+activación y versión futura; usa Chrome instalado y el lanzador exportado de
+`chromium.cjs`. Evidencia: `tests/results/storage-core.json`, 9 casos internos
+y 6 de navegador correctos, sin peticiones HTTP de página ni errores de script.
+La ampliación de este núcleo a Edge/Firefox queda pendiente; la sonda inicial
+de viabilidad de ambos navegadores ya pasó.

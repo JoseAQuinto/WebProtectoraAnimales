@@ -6,6 +6,10 @@ Aplicación de gestión offline para protectoras. **Proyecto en desarrollo; no e
 
 La primera entrega valida los riesgos de `file://`, IndexedDB, binarios, confirmación de transacciones y reapertura. La pantalla de entrada solo conduce a un diagnóstico con datos sintéticos. No introduzcas información real.
 
+La viabilidad inicial pasó en Chrome, Edge y Firefox estables. Hay un avance
+de núcleo probado, pero la fase 1 continúa incompleta. **Trabajo pausado al
+quedar 19 % del cupo de 5 horas**, con siguiente paso en PROJECT_STATUS.md.
+
 Abre `index.html` directamente después de descargar y descomprimir la carpeta completa. No hace falta iniciar un servidor ni instalar herramientas para ejecutar el diagnóstico. Las herramientas de pruebas son exclusivas del desarrollo.
 
 - [Estado y siguiente paso](docs/PROJECT_STATUS.md)

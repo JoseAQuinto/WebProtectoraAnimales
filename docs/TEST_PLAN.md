@@ -40,6 +40,10 @@ No sustituir un fallo por un cambio a servidor, LocalStorage o memoria.
   sin sinks de HTML no seguros ni dependencias de almacenamiento alternativas.
 - `node tests/e2e/chromium.cjs`: Chrome y Edge locales; ver opciones y requisitos en el archivo.
 - `python tests/e2e/firefox_viability.py --executable <ruta-firefox-estable>`: Firefox aislado; ver opciones en el archivo.
+- `node --test tests/unit/utils.cjs`: UUID, calendario, importes/cantidades y normalización (14 casos).
+- `node tests/unit/core.cjs`: traducciones, errores y JSON canónico.
+- `node tests/e2e/storage.cjs`: núcleo transaccional de fase 1 en Chrome real,
+  con 9 casos internos y 6 de navegador; evidencia en `tests/results/storage-core.json`.
 
 Los ejecutores requieren herramientas del desarrollador, **nunca del comprador**.
 No iniciar un servidor de aplicación. El transporte local de automatización

@@ -346,7 +346,9 @@ async function runBrowser(name) {
   return result;
 }
 
-(async () => {
+module.exports = { launch };
+
+if (require.main === module) (async () => {
   const requested = process.argv.slice(2);
   if (requested.length === 1 && requested[0] === '--cleanup-owned') {
     const prefix = path.join(root, '.tmp', 'chromium-').toLowerCase();
