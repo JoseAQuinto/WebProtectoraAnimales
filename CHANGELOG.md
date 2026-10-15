@@ -1,5 +1,25 @@
 # Historial de cambios
 
+## 0.2.0-dev — 2026-10-15 (avance funcional parcial)
+
+- 28 esquemas de negocio, enumeraciones, fábrica y validación estructural y
+  relacional; entradas hostiles, fechas, estados, importes, intervalos y stock.
+- Almacenes e índices, migración física aditiva 1→2, repositorios con revisión
+  y lease/token, idempotencia y asignación transaccional de códigos de animales.
+- Backup JSON completo con SHA-256 nativo/alternativo, recursos Blob/Base64,
+  manifiesto, archivos validados y rechazo de corrupción/versiones futuras.
+- Preparación de restauración separada, validación de lo escrito y activación
+  atómica; datos previos conservados; recibos generado/solicitado/verificado.
+- Servicios de animales/acogidas/adopciones, salud/tareas, finanzas/donaciones
+  e inventario, con pruebas de lógica y cambios coordinados. Todavía sin interfaz.
+- Primera interfaz EN/ES para configuración, copias, ayuda y resumen real básico.
+- Evidencia real de núcleo y recuperación en Chrome, Edge y Firefox estables
+  de este equipo, incluido cierre y reapertura con comparación de datos/binarios.
+- El umbral de continuidad vigente pasa a **5 % o menos**, según el usuario.
+
+No es aún un producto comercial terminado. Ver pendientes y evidencia exacta
+en `docs/PROJECT_STATUS.md` y `docs/ENVIRONMENT_TESTS.md`.
+
 ## 0.1.0-dev — 2026-10-15 (avance parcial; pausa por cupo)
 
 - Inicio de fase 1 después de superar viabilidad de escritorio en tres motores.

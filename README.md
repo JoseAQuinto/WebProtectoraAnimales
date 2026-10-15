@@ -4,13 +4,19 @@ Aplicación de gestión offline para protectoras. **Proyecto en desarrollo; no e
 
 ## Estado actual
 
-La primera entrega valida los riesgos de `file://`, IndexedDB, binarios, confirmación de transacciones y reapertura. La pantalla de entrada solo conduce a un diagnóstico con datos sintéticos. No introduzcas información real.
+El núcleo ya incorpora esquemas, validación relacional, persistencia coordinada,
+copias completas y restauración con conjunto separado. La interfaz permite
+configurar una organización de prueba, generar/verificar/restaurar copias y
+consultar ayuda. **Los módulos de gestión siguen pendientes de interfaz e
+integración completa. Utiliza únicamente datos de prueba.**
 
-La viabilidad inicial pasó en Chrome, Edge y Firefox estables. Hay un avance
-de núcleo probado, pero la fase 1 continúa incompleta. **Trabajo pausado al
-quedar 19 % del cupo de 5 horas**, con siguiente paso en PROJECT_STATUS.md.
+La viabilidad inicial pasó en Chrome, Edge y Firefox estables. El desarrollo
+se ha reanudado en este equipo; el estado y las verificaciones actuales se
+conservan en PROJECT_STATUS.md.
 
-Abre `index.html` directamente después de descargar y descomprimir la carpeta completa. No hace falta iniciar un servidor ni instalar herramientas para ejecutar el diagnóstico. Las herramientas de pruebas son exclusivas del desarrollo.
+Abre `index.html` directamente después de descargar y descomprimir la carpeta
+completa. No hace falta servidor ni instalar herramientas. La sonda anterior
+sigue disponible en `tests/viability/index.html`, solo para desarrollo.
 
 - [Estado y siguiente paso](docs/PROJECT_STATUS.md)
 - [Requisitos originales completos](docs/REQUIREMENTS.es.md)
@@ -26,7 +32,11 @@ Los datos de prueba residen en el perfil del navegador, no junto al HTML. Copiar
 
 ## Desarrollo y continuidad
 
-Se conserva cada avance coherente con commits en este repositorio. Antes de detener el trabajo se actualiza `docs/PROJECT_STATUS.md` y se suben los cambios. Si queda **menos del 20 % del cupo de 5 horas**, se detiene el desarrollo y se deja la continuidad documentada. No se consume un reinicio de cuota sin petición expresa.
+Se conserva cada avance coherente con commits en este repositorio. La instrucción
+vigente del usuario es guardar y subir los avances cuando quede **un 5 % o menos**
+del cupo de 5 horas. Se actualiza `docs/PROJECT_STATUS.md` con pruebas, límites y
+siguiente paso para continuar desde otro PC. No se consume un reinicio de cuota
+sin petición expresa.
 
 Las fases funcionales solo comienzan después de resolver los bloqueos de viabilidad del documento. La compatibilidad anunciada se limitará a combinaciones realmente comprobadas. La licencia comercial está pendiente de revisión; no se ha publicado el producto en Etsy.
 

@@ -1,0 +1,385 @@
+{
+  "format": "rescue-manager-storage-core-test",
+  "version": 1,
+  "browser": "firefox",
+  "channel": "stable",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-15T17:38:22.752561+00:00",
+  "operatingSystem": "Windows-11-10.0.26300-SP0",
+  "executable": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-stable\\core\\firefox.exe",
+  "sourceFiles": [
+    {
+      "file": "tests/integration/index.html",
+      "sha256": "d3c689f4ec7d5411f5d5b366536321a8af06d54f59637059af86d9df2f616d68"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "58e212de199470b8d18d4473a6915ac537f99663634be5f9b6f267db6210c8bd"
+    },
+    {
+      "file": "tests/integration/config.js",
+      "sha256": "bc11229bae03955bfa3bb5f32f1d7f03de9a8c48994c685c9d0676c488bcde94"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "a9ef2ca9594359947cb82c52c4b0cf409de75a82f71b8c62998a6b0ef82aab3f"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "b111e450f32254b6ab1328018a19e8105a98bdbc18630297379ac9822c97e434"
+    },
+    {
+      "file": "tests/integration/storage.js",
+      "sha256": "2d1992baf8e6656947b5d3da5ec8368d9732e75e79501aaf87f8f834dc05fce8"
+    }
+  ],
+  "mode": "Native headless; isolated profile; offline before first file navigation",
+  "normalProfileSecurityPoliciesChanged": false,
+  "checks": [
+    {
+      "id": "file-offline-and-integration-suite",
+      "passed": true,
+      "evidence": {
+        "url": "file:///C:/Users/Quinto/OneDrive/Escritorio/WIP/WebProtectoraAnimales/tests/integration/index.html",
+        "online": false,
+        "report": {
+          "startedAt": "2026-10-15T17:38:32.447Z",
+          "dbName": "animal-rescue-manager-test-integration",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+          "checks": [
+            {
+              "id": "open-does-not-create-dataset",
+              "passed": true,
+              "evidence": {
+                "database": "animal-rescue-manager-test-integration",
+                "version": 2,
+                "stores": [
+                  "datasets",
+                  "meta",
+                  "operations",
+                  "testRecords",
+                  "testRelated"
+                ],
+                "active": null
+              }
+            },
+            {
+              "id": "explicit-dataset-initialization-and-writer",
+              "passed": true,
+              "evidence": {
+                "active": {
+                  "key": "active",
+                  "datasetId": "5df693ae-f6d6-40ad-91b1-591222cef03c",
+                  "revision": 0
+                },
+                "acquired": true
+              }
+            },
+            {
+              "id": "multi-store-confirmed-commit",
+              "passed": true,
+              "evidence": {
+                "revision": 1,
+                "recordId": "bfcc18ef-910d-4d33-968c-f2a3abee8941",
+                "blobText": "kernel-blob-ñ"
+              }
+            },
+            {
+              "id": "intermediate-failure-rolls-back-all-stores-and-log",
+              "passed": true,
+              "evidence": {
+                "survivingValues": [
+                  null,
+                  null,
+                  null
+                ]
+              }
+            },
+            {
+              "id": "obsolete-revision-is-rejected-without-write",
+              "passed": true,
+              "evidence": "RevisionConflictError"
+            },
+            {
+              "id": "concurrent-identical-operation-id-is-applied-once",
+              "passed": true,
+              "evidence": {
+                "results": [
+                  {
+                    "operationId": "cb79a046-ba6e-436e-b8d3-82bd08de85a1",
+                    "revision": 2,
+                    "activeRevision": 2,
+                    "duplicate": false,
+                    "result": "one-result"
+                  },
+                  {
+                    "operationId": "cb79a046-ba6e-436e-b8d3-82bd08de85a1",
+                    "revision": 2,
+                    "activeRevision": 2,
+                    "duplicate": true,
+                    "result": "one-result"
+                  }
+                ],
+                "conflictingIntent": "IdempotencyConflictError"
+              }
+            },
+            {
+              "id": "synchronous-request-callbacks-can-read-then-write",
+              "passed": true,
+              "evidence": {
+                "operationId": "522b5238-a0db-4f73-82ce-bb04660d27f9",
+                "revision": 3,
+                "activeRevision": 3,
+                "duplicate": false,
+                "result": {
+                  "observed": "ñ 🐾"
+                }
+              }
+            },
+            {
+              "id": "async-mutation-callback-is-aborted",
+              "passed": true,
+              "evidence": "AsyncTransactionCallbackError"
+            },
+            {
+              "id": "cross-dataset-write-is-rejected",
+              "passed": true,
+              "evidence": "InvalidInputError"
+            }
+          ],
+          "passed": true,
+          "completedAt": "2026-10-15T17:38:32.600Z"
+        }
+      }
+    },
+    {
+      "id": "second-tab-exclusion-expiry-and-stale-owner-rejection",
+      "passed": true,
+      "evidence": {
+        "owner": "2d191033-89f1-431f-bccd-6a83dff35b80",
+        "initiallyAllowed": false,
+        "afterExpiry": true,
+        "staleWrite": "LeaseLostError"
+      }
+    },
+    {
+      "id": "atomic-dataset-activation-invalidates-previous-writer",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "key": "active",
+          "datasetId": "5df693ae-f6d6-40ad-91b1-591222cef03c",
+          "revision": 3
+        },
+        "active": {
+          "key": "active",
+          "datasetId": "2fa71dbe-eaa9-48c9-8870-d093d7ecd859",
+          "revision": 4
+        },
+        "writer": null,
+        "previous": {
+          "id": "5df693ae-f6d6-40ad-91b1-591222cef03c",
+          "state": "retired",
+          "schemaVersion": 1,
+          "dataRevision": 3,
+          "createdAt": "2026-10-15T17:38:32.567Z",
+          "updatedAt": "2026-10-15T17:38:33.286Z"
+        },
+        "target": {
+          "id": "2fa71dbe-eaa9-48c9-8870-d093d7ecd859",
+          "state": "active",
+          "schemaVersion": 1,
+          "dataRevision": 0,
+          "createdAt": "2026-10-15T17:38:32.569Z",
+          "updatedAt": "2026-10-15T17:38:33.286Z"
+        },
+        "staleWrite": "DatasetChangedError",
+        "restoreImplemented": false
+      }
+    },
+    {
+      "id": "future-database-version-rejected-without-data-loss",
+      "passed": true,
+      "evidence": {
+        "rejection": "VersionError",
+        "before": 2,
+        "after": 2,
+        "version": 3
+      }
+    },
+    {
+      "id": "dedicated-test-database",
+      "passed": true,
+      "evidence": {
+        "databases": [
+          {
+            "name": "animal-rescue-manager-test-integration",
+            "version": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "complete-owned-browser-root-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 11408,
+        "exitCode": 0,
+        "method": "Marionette:Quit; waited for root process exit",
+        "subprocessTreeInspected": false
+      }
+    }
+  ],
+  "limitations": [
+    "Core coordinator coverage only; not business-schema or backup acceptance.",
+    "No real mobile/tablet coverage.",
+    "No complete browser/page network trace was instrumented by Marionette."
+  ],
+  "capabilities": {
+    "sessionId": "e01f1767-a471-48a8-b260-0d2dcc908400",
+    "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "firefox",
+      "browserVersion": "158.0",
+      "platformName": "windows",
+      "setWindowRect": true,
+      "unhandledPromptBehavior": "dismiss and notify",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "moz:buildID": "20261007201254",
+      "moz:headless": true,
+      "moz:platformVersion": "10.0",
+      "moz:processID": 17336,
+      "moz:profile": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-storage-4477831c5836\\profile",
+      "moz:shutdownTimeout": 60000,
+      "pageLoadStrategy": "normal",
+      "timeouts": {
+        "implicit": 0,
+        "pageLoad": 300000,
+        "script": 30000
+      },
+      "strictFileInteractability": false,
+      "moz:accessibilityChecks": false,
+      "moz:webdriverClick": true,
+      "moz:windowless": false,
+      "proxy": {}
+    }
+  },
+  "integrationReport": {
+    "startedAt": "2026-10-15T17:38:32.447Z",
+    "dbName": "animal-rescue-manager-test-integration",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+    "checks": [
+      {
+        "id": "open-does-not-create-dataset",
+        "passed": true,
+        "evidence": {
+          "database": "animal-rescue-manager-test-integration",
+          "version": 2,
+          "stores": [
+            "datasets",
+            "meta",
+            "operations",
+            "testRecords",
+            "testRelated"
+          ],
+          "active": null
+        }
+      },
+      {
+        "id": "explicit-dataset-initialization-and-writer",
+        "passed": true,
+        "evidence": {
+          "active": {
+            "key": "active",
+            "datasetId": "5df693ae-f6d6-40ad-91b1-591222cef03c",
+            "revision": 0
+          },
+          "acquired": true
+        }
+      },
+      {
+        "id": "multi-store-confirmed-commit",
+        "passed": true,
+        "evidence": {
+          "revision": 1,
+          "recordId": "bfcc18ef-910d-4d33-968c-f2a3abee8941",
+          "blobText": "kernel-blob-ñ"
+        }
+      },
+      {
+        "id": "intermediate-failure-rolls-back-all-stores-and-log",
+        "passed": true,
+        "evidence": {
+          "survivingValues": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      {
+        "id": "obsolete-revision-is-rejected-without-write",
+        "passed": true,
+        "evidence": "RevisionConflictError"
+      },
+      {
+        "id": "concurrent-identical-operation-id-is-applied-once",
+        "passed": true,
+        "evidence": {
+          "results": [
+            {
+              "operationId": "cb79a046-ba6e-436e-b8d3-82bd08de85a1",
+              "revision": 2,
+              "activeRevision": 2,
+              "duplicate": false,
+              "result": "one-result"
+            },
+            {
+              "operationId": "cb79a046-ba6e-436e-b8d3-82bd08de85a1",
+              "revision": 2,
+              "activeRevision": 2,
+              "duplicate": true,
+              "result": "one-result"
+            }
+          ],
+          "conflictingIntent": "IdempotencyConflictError"
+        }
+      },
+      {
+        "id": "synchronous-request-callbacks-can-read-then-write",
+        "passed": true,
+        "evidence": {
+          "operationId": "522b5238-a0db-4f73-82ce-bb04660d27f9",
+          "revision": 3,
+          "activeRevision": 3,
+          "duplicate": false,
+          "result": {
+            "observed": "ñ 🐾"
+          }
+        }
+      },
+      {
+        "id": "async-mutation-callback-is-aborted",
+        "passed": true,
+        "evidence": "AsyncTransactionCallbackError"
+      },
+      {
+        "id": "cross-dataset-write-is-rejected",
+        "passed": true,
+        "evidence": "InvalidInputError"
+      }
+    ],
+    "passed": true,
+    "completedAt": "2026-10-15T17:38:32.600Z"
+  },
+  "completedAt": "2026-10-15T17:38:35.784977+00:00",
+  "status": "passed"
+}

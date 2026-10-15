@@ -1,6 +1,10 @@
 # Contrato propuesto del modelo de datos
 
-Estado: diseño previo para `schemaVersion = 1`; fase 0 de escritorio superada. No es un esquema implementado ni validado por pruebas. Debe convertirse en validadores y fixtures antes de construir formularios. Los límites elegidos aquí concretan campos que el requisito deja abiertos; cualquier cambio posterior exige actualizar este contrato, validadores, importadores y backup.
+Estado: contrato de `schemaVersion = 1` implementado en `js/domain/` y cubierto
+por pruebas de dominio y persistencia. Consultar `DOMAIN_API.md` para el contrato
+ejecutable, límites y responsabilidades de verificación binaria. Los límites
+elegidos aquí concretan campos que el requisito deja abiertos; cualquier cambio
+posterior exige actualizar contrato, validadores, importadores y backup.
 
 ## Tipos y convenciones
 

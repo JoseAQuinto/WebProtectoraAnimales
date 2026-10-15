@@ -1,97 +1,129 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-15. Versión de trabajo: `0.1.0-dev`.
+Actualizado: 2026-10-15. Versión de trabajo: `0.2.0-dev`.
 
 ## Fase actual
 
-**EN PAUSA POR CUPO: 19 % restante en la ventana de 5 horas (81 % consumido).**
-Comprobado el 2026-10-15. No se ha usado ningún reinicio de cuota.
+Desarrollo reanudado en el PC de continuación. Núcleo de fase 1 implementado;
+protección de datos de fase 2 operativa con aceptación parcial; fase 3 de
+interfaz en verificación. Hay servicios posteriores implementados y probados
+como lógica, todavía sin pantallas de gestión. **No es un producto comercial
+terminado. Utilizar únicamente datos de prueba.**
 
-Fase 0 de escritorio superada; fase 1 parcialmente implementada. No hay aplicación comercial terminada ni
-módulos de gestión habilitados. El punto de entrada conduce al diagnóstico.
+Instrucción vigente: cuando quede **un 5 % o menos** del cupo de 5 horas,
+detener desarrollo y trabajo delegado, actualizar documentación, hacer commit
+y push. El anterior límite del 20 % y el agotamiento total están revocados.
+No consumir un reinicio de cuota sin petición expresa. Última comprobación
+durante esta preparación de continuidad: 10 % restante (90 % consumido).
 
-## Trabajo conservado
+## Funcionalidades conservadas
 
-- Repositorio remoto del usuario clonado; inicialmente vacío.
-- Requisitos originales completos conservados sin recortar alcance.
-- Diseño de arquitectura, entidades, relaciones e invariantes en documentación.
-- Diagnóstico independiente con datos sintéticos, CSS y scripts clásicos locales.
-- IndexedDB, Blob, commit, rollback, marcador persistente, control de pestañas,
-  descarga y selección de JSON implementados en la prueba.
-- Política CSP sin conexiones, objetos ni formularios externos.
-- Ejecutores de pruebas reales en perfiles aislados; Chrome y Edge 12/12,
-  Firefox estable 15/15, con resultados originales conservados.
-- 23 comprobaciones estáticas superadas el 2026-10-15.
-- Utilidades de UUID criptográfico, calendario/edad/zonas, dinero exacto para
-  ocho monedas, cantidades escaladas y normalización; 14/14 pruebas unitarias.
-- Base de traducciones EN/ES con paridad/plurales y mapa de errores.
-- JSON canónico determinista con rechazo de valores corruptos/ejecutables;
-  pruebas del núcleo superadas. No implementa aún hash ni backup.
-- Núcleo de almacenamiento coordinado implementado y probado en Chrome real
-  por `file://`: 9 comprobaciones internas y 6 de navegador, todas correctas.
-  Incluye commit/rollback multi-almacén, Blob, revisión obsoleta, operación
-  idempotente con conflicto de intención, rechazo de callbacks asíncronos,
-  escritura en conjunto ajeno, dos pestañas, lease caducado, activación atómica
-  y rechazo de versión futura conservando registros. Sin formularios ni uso real.
-- Comprobación estática ampliada durante integración: 104 verificaciones correctas.
+- Requisitos originales completos en REQUIREMENTS.es.md; alcance sin recortes.
+- Viabilidad inicial de escritorio conservada, con evidencia del primer PC.
+- 28 esquemas ejecutables, enumeraciones, fábrica y validadores estructurales
+  y relacionales: UUID, desconocidos, fechas, intervalos, estados, roles,
+  referencias, unicidad, dinero exacto, donaciones y stock histórico.
+- Validación de entradas hostiles con límite de errores; escenario de dominio
+  de 2000 animales, 5000 contactos y 50000 registros relacionados.
+- Almacenes e índices, migración física aditiva 1 a 2, repositorios, revisión
+  global/por registro, lease con token, toma de control e idempotencia.
+- Códigos de animal asignados con contador en la misma transacción; mínimo
+  reconstruible desde animales e historial de actividad al restaurar.
+- SHA-256 nativo y alternativo, Base64 estricto, límites, inspección de archivos,
+  preparación de imágenes y dependencias locales fijas con licencias MIT.
+- Backup completo de todas las tablas y Blob, manifiesto, validación propia,
+  rechazo de daños, tablas/campos/claves inválidos y versiones futuras.
+- Restauración con staging separado, lectura/validación de lo escrito,
+  comprobación de bytes/hashes y activación atómica. El conjunto anterior
+  permanece retirado para recuperación. No se vacía primero el activo.
+- Recibos de copia generada, descarga solicitada y verificación por reselección;
+  reemplazar datos existentes exige copia verificada de su revisión actual.
+- Servicios de entradas/salidas/fallecimiento, acogidas, solicitudes, reservas,
+  adopciones y devoluciones; cierres coordinados de relaciones, historial y tareas.
+- Servicios de finanzas, donaciones monetarias/materiales, inventario,
+  correcciones/anulaciones/compensaciones; salud, planes y tareas clínicas.
+- Primera interfaz EN/ES: creación de organización de prueba, configuración,
+  resumen básico calculado, generar/verificar/restaurar copia y ayuda local.
+  Las pantallas de gestión de animales/personas/recursos aún no están conectadas.
 
-## Decisiones
+## Versiones y vocabulario
 
-No servidor ni hosting; sin módulos ES ni peticiones a JSON local. IndexedDB
-será la única persistencia de negocio. No se aceptan datos reales antes de
-completar núcleo, protección de datos e interfaz funcional. Los diagnósticos
-y perfiles de desarrollo nunca se confunden con una copia comercial.
+- appVersion: 0.2.0-dev.
+- dbVersion: 2.
+- schemaVersion: 1.
+- backupFormatVersion: 1.
 
-El desarrollo sigue las fases 0–12 del documento fuente. La licencia comercial
-y las verificaciones de dependencias quedan pendientes antes de distribución.
+Vocabulario implementado: meta (active/writer/esquema/contador), datasets,
+operations, backupReceipts; estados staging/active/retired. No duplicar los
+nombres propuestos appMeta/writeLease/preparing/recovery. Ver PERSISTENCE_API.md.
+La base estable de producción sigue siendo animal-rescue-manager; las pruebas
+usan bases/perfiles separados. No hay datos personales necesarios en Git.
 
-## Pruebas y límites actuales
+## Pruebas y evidencia
 
-Consultar `COMPATIBILITY.md` y los JSON originales. La emulación de tamaño no
-acredita móviles/tablets reales. Las pruebas posteriores de negocio, backup,
-restauración e importación siguen pendientes.
+- Node: 93 subpruebas correctas en la ronda conjunta de tests/unit/*.cjs.
+  La prueba de backup incluye además 144 comprobaciones internas de vectores,
+  binarios, corrupción y límites. Dominio 48, ciclo animal 10, recursos 10 y
+  salud/tareas 9; sus pruebas de servicios usan contexto simulado y validador real.
+- Núcleo real file:// en Chrome 155.0.8059.79, Edge 155.0.4283.45 y Firefox
+  estable 158.0: 9 comprobaciones internas y 7 externas por motor.
+- Repositorios/backup/recuperación: 11 internas más 6 externas en Chrome/Edge,
+  11 más 7 en Firefox. Incluyen Blob, copia/reselección, revisión vieja,
+  relación rota, cancelación, activación, datos previos conservados y migración.
+- Las ejecuciones comparan digest de registros y bytes tras cerrar completamente
+  y reabrir el navegador con el mismo perfil. Registran cierres/procesos y fuentes.
+- Tras el último endurecimiento de validación hay una ronda final adicional
+  en curso; consultar ENVIRONMENT_TESTS.md y JSON con huellas, no asumir que
+  una evidencia anterior con fuentes distintas prueba las modificaciones nuevas.
+- UI y recorrido real integrado de servicios en verificación durante este
+  checkpoint. Solo se consideran aprobados los casos que figuren como ejecutados
+  en ENVIRONMENT_TESTS.md y sus JSON; no convertir casos pendientes en aprobados.
+- 280 comprobaciones estáticas antes de incorporar las últimas pruebas.
+
+## Límites, defectos y aceptación pendiente
+
+- Persistencia y validación de escritura capturan el dataset completo: O(N).
+  La prueba de volumen en Node no acredita rendimiento/memoria del producto
+  en navegador. Migrar listas/resumen a índices y carga diferida de binarios.
+- Falta completar la aceptación de cuota agotada, cierre forzado durante
+  preparación/activación y fallos inyectados en puntos adicionales. La
+  cancelación cooperativa no equivale a matar el proceso en cada etapa.
+- La recuperación local existe como servicio; falta selección visible y
+  retención/limpieza explícita de conjuntos retirados. No borrar automáticamente.
+- Faltan UI y aceptación integral de todos los módulos: contactos/fusión,
+  voluntariado/horas, animales/fotografías/documentos, salud/calendario,
+  acogidas/adopciones, finanzas/donaciones/inventario, informes, buscador,
+  importación/exportación, demo y retirada segura.
+- Faltan guías completas EN/ES del producto, impresión final, accesibilidad
+  integral, pruebas reales de dispositivos, mediciones de límites y ZIP comercial.
+- Android/iOS/iPadOS/macOS/Linux sin aceptación real. Emular viewport no demuestra
+  compatibilidad de dispositivos. Licencia comercial pendiente de revisión;
+  no publicar en Etsy ni inventar condiciones definitivas.
 
 ## Siguiente acción concreta
 
-1. Revisar este punto de pausa y comprobar el cupo antes de reanudar.
-2. Completar fase 1 convirtiendo `DATA_MODEL.md` en esquemas y validadores
-   ejecutables de todas las entidades, con enumeraciones e índices de negocio.
-3. Añadir repositorios que usen el coordinador, revisión por registro y
-   validación relacional; ampliar las pruebas reales a Edge y Firefox para
-   este núcleo concreto (la sonda inicial sí pasó en ambos).
-4. Armonizar nombres de almacenes/estados con el contrato definitivo. El núcleo
-   actual usa `meta`, `staging` y `retired`; el diseño habla de appMeta,
-   preparing y recovery. Fijar un vocabulario antes del esquema definitivo.
-5. Después fase 2 de backup/restauración: incorporar dependencias locales
-   verificadas, hashes, snapshot consistente, validador completo y staging
-   validado antes de activar. No abrir formularios de negocio hasta proteger datos.
+1. Leer AGENTS.md, este estado y REQUIREMENTS.es.md completos; comprobar cupo.
+2. Revisar la última evidencia UI/lifecycle y los defectos explícitos pendientes
+   en ENVIRONMENT_TESTS.md. Reproducir solo los casos que cambien o falten.
+3. Completar fase 3 y la protección/recuperación antes de habilitar información real.
+4. Implementar servicios centrales de contactos y fusión, voluntariado/horas,
+   documentos e imágenes; conectar pantallas de fase 4 reutilizando context.execute.
+5. Conectar y verificar en navegador los servicios de ciclo animal, salud/tareas
+   y recursos ya implementados. APIs en DOMAIN/LIFECYCLE/RESOURCES/HEALTH_API.md.
+6. Continuar fases 5 a 12 sin omitir módulos ni reducir criterios de aceptación.
 
-No hay fallo crítico conocido en los casos ejecutados. La fase 1 sigue
-incompleta: no hay almacenes/servicios de negocio, esquema completo, backup,
-restauración o migraciones operativas. `activateDataset` es una primitiva de
-infraestructura probada con fixtures, no un restaurador validado. Antes de
-usarla con datos de negocio debe exigir validación completa y comprobación
-de la revisión del conjunto preparado. Las pruebas usan una base con prefijo
-`animal-rescue-manager-test-`; la entrada no abre la base de producción.
-
-## Continuidad entre equipos y cupo
+## Continuidad entre equipos
 
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 
-Hacer commits y push de avances coherentes. Comprobar periódicamente el cupo
-de la ventana de **300 minutos**. `usedPercent` es lo consumido: detener el
-desarrollo cuando `100 - usedPercent < 20`. Guardar estado, pruebas, defectos
-y siguiente paso, hacer commit y push antes de terminar. No usar un reinicio
-de cuota sin indicación del usuario. Este umbral se aplica también al trabajo
-delegado. No es necesario esperar al umbral si existe un bloqueo real.
+Clonar o hacer pull, leer este archivo y AGENTS.md. Abrir index.html directamente
+para la interfaz parcial; tests/viability/index.html conserva la sonda técnica.
+Node/Python/Playwright/Firefox extraído son herramientas del desarrollador;
+.tools, .tmp, node_modules y perfiles están ignorados y no son necesarios para
+usar la distribución. Los ejecutores aceptan rutas locales de binarios:
+consultar ENVIRONMENT_TESTS.md. No conservar rutas privadas como dependencia.
 
-Para continuar desde otro PC: clonar/pull del repositorio y leer este archivo,
-`COMPATIBILITY.md` y los requisitos. `.tmp` y `.tools` son herramientas y perfiles
-locales ignorados; no contienen avances de código necesarios. Los datos de una
-futura organización no viajarán con Git: será necesario backup y restauración.
-
-Avances guardados: `9317dd9` (diagnóstico/documento), `8ce0e70` (viabilidad
-comprobada), `384e65f` (utilidades y base), y el commit de pausa que contiene
-este estado junto al núcleo transaccional y su evidencia. Consultar `git log`
-para el identificador del último commit. No hay configuración personal necesaria
-para continuar; las rutas de ejecutables de pruebas se ajustan en el nuevo PC.
+Los datos del navegador no viajan con Git ni al copiar esta carpeta. Para
+trasladar una organización se necesita una copia externa verificada y restaurada.
+El último commit y su publicación se comprueban con git log y git status;
+la documentación no fija el hash de su propio commit.

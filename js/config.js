@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   window.RescueManager.config = Object.freeze({
-    appVersion: '0.1.0-dev', dbName: 'animal-rescue-manager', dbVersion: 1,
+    appVersion: '0.2.0-dev', dbName: 'animal-rescue-manager', dbVersion: 2,
     schemaVersion: 1, backupFormatVersion: 1,
     limits: Object.freeze({ embeddedAssetBytes: 64 * 1024 * 1024,
       backupBytes: 128 * 1024 * 1024, documentBytes: 8 * 1024 * 1024,

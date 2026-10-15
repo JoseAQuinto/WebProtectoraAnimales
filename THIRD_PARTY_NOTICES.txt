@@ -1,9 +1,95 @@
-Entrega de viabilidad: no contiene bibliotecas de ejecución de terceros.
+THIRD PARTY NOTICES — ANIMAL RESCUE & SHELTER MANAGER
+Verified: 2026-10-15. Runtime dependencies are bundled locally, with fixed versions.
 
-Playwright, Node.js y los navegadores se usan únicamente en desarrollo,
-desde instalaciones locales o herramientas ignoradas por Git. No forman
-parte de la aplicación ni se redistribuyen en esta entrega.
+Papa Parse 5.7.0 — Matthew Holt — MIT
+Source: https://github.com/mholt/PapaParse/releases/tag/5.7.0
+Original distribution: https://raw.githubusercontent.com/mholt/PapaParse/5.7.0/papaparse.min.js
+Original license: https://raw.githubusercontent.com/mholt/PapaParse/5.7.0/LICENSE
+Original SHA-256: 4d5d2d6e3282b66aafaa5e6de8ca3ae06f8d3440111ae99c6a30f6c00cfac33e
+Packaged SHA-256: 3a509437d423ed29d9175fdd01de8bcdcd50e8ffb883ae7daa91c0acd151d1a7
+Files: vendor/papaparse/papaparse.min.js and LICENSE.
+Security review: https://github.com/mholt/PapaParse/security/advisories
+https://github.com/advisories?query=ecosystem%3Anpm+affects%3Apapaparse
+The reviewed CVE-2020-36649 / GHSA-qvjc-g5vr-mfgr affects versions below 5.2.0;
+5.7.0 is outside that range. The other listed advisory is its withdrawn duplicate.
+https://github.com/advisories/GHSA-qvjc-g5vr-mfgr
+The upstream maintainer advisory page had no published advisories at review time.
+Use is restricted by the application to local text, without network or workers.
 
-Papa Parse y js-sha256 están previstos en los requisitos, pero todavía no
-se han incorporado. Sus versiones, licencias, avisos de seguridad y hashes
-se verificarán antes de incluirlos en una fase posterior.
+js-sha256 1.0.0 — Chen, Yi-Cyuan — MIT
+Source: https://github.com/emn178/js-sha256/releases/tag/v1.0.0
+Original distribution: https://raw.githubusercontent.com/emn178/js-sha256/v1.0.0/build/sha256.min.js
+Original license: https://raw.githubusercontent.com/emn178/js-sha256/v1.0.0/LICENSE.txt
+Original SHA-256: a050d794e170699bd1a69d33908d0942c68901cb88347016064b60b240f0067e
+Packaged SHA-256: aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7
+Files: vendor/js-sha256/sha256.min.js and LICENSE.txt.
+Security review: https://github.com/emn178/js-sha256/security/advisories
+The upstream maintainer advisory page had no published advisories at review time.
+This observation is not a guarantee that a package has no defects. Both native
+Web Crypto and this implementation are checked against standard SHA-256 vectors.
+
+Packaging adaptation
+Each *.original.min.js file retains the upstream distribution bytes. The loaded
+*.min.js file encloses those unchanged bytes in an application IIFE. A private
+CommonJS module object selects the upstream export branch. A private globalThis
+object catches js-sha256's compatibility export of sha224. Only the exports at
+window.RescueManager.vendor.Papa / .sha256 are retained. No hashing or CSV parsing
+algorithm is modified. Load js/namespace.js before these files. Workers and
+remote/download parsing are not used by the application. Third-party source
+URLs are license/provenance text and are never requested at application runtime.
+
+Development tools
+Node.js, Playwright, Python and browsers are development-only tools. They are
+not runtime dependencies and must not enter the purchaser's distribution.
+
+Full license texts follow; individual copies are retained beside each library.
+
+============================================================
+Papa Parse — MIT license
+============================================================
+The MIT License (MIT)
+
+Copyright (c) 2015 Matthew Holt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+============================================================
+js-sha256 — MIT license
+============================================================
+Copyright (c) 2014-2026 Chen, Yi-Cyuan
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

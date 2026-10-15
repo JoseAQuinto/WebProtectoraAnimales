@@ -1,0 +1,27 @@
+{
+  "format": "rescue-manager-storage-core-test",
+  "version": 1,
+  "browser": "chrome",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-15T17:36:49.343Z",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26300",
+    "version": "Windows 11 Home"
+  },
+  "launches": [],
+  "closures": [],
+  "checks": [],
+  "pageErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Core infrastructure only; business schemas, recovery and backup restoration are not implemented.",
+    "Desktop installed browser in headless mode; no real mobile/tablet coverage."
+  ],
+  "fatalError": {
+    "message": "Browser exited before connection: 4294930433: [1015/193649.830:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: Ha terminado la canalización. (0x6D)\r\n[1015/193649.884:ERROR:third_party\\crashpad\\crashpad\\client\\crashpad_client_win.cc:144] crash server failed to launch, self-terminating\r\n",
+    "stack": "Error: Browser exited before connection: 4294930433: [1015/193649.830:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: Ha terminado la canalización. (0x6D)\r\n[1015/193649.884:ERROR:third_party\\crashpad\\crashpad\\client\\crashpad_client_win.cc:144] crash server failed to launch, self-terminating\r\n\n    at launch (C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\chromium.cjs:78:40)\n    at async C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\storage.cjs:28:15"
+  },
+  "completedAt": "2026-10-15T17:36:49.941Z",
+  "status": "failed"
+}

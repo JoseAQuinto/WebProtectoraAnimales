@@ -6,12 +6,15 @@ Firefox origin, storage and security policies are left at their defaults.
 """
 
 import argparse
+import base64
 import datetime
 import json
+import os
 from pathlib import Path
 import platform
 import shutil
 import socket
+import signal
 import subprocess
 import time
 import traceback
@@ -21,6 +24,24 @@ import uuid
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def windows_processes():
+    source = "@((Get-CimInstance Win32_Process -ErrorAction Stop) | Select-Object ProcessId,ParentProcessId,@{Name='CreatedAt';Expression={$_.CreationDate.ToUniversalTime().ToString('o')}}) | ConvertTo-Json -Compress"
+    encoded = base64.b64encode(source.encode('utf-16le')).decode('ascii')
+    output = subprocess.check_output(['powershell.exe', '-NoProfile', '-NonInteractive', '-EncodedCommand', encoded],
+                                     stderr=subprocess.PIPE, creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0), timeout=20)
+    rows = json.loads(output.decode('utf-8-sig'))
+    return rows if isinstance(rows, list) else [rows] if rows else []
+
+
+def descendants(rows, pid):
+    identities = {pid}
+    previous = -1
+    while previous != len(identities):
+        previous = len(identities)
+        identities.update(row['ProcessId'] for row in rows if row['ParentProcessId'] in identities)
+    return [row for row in rows if row['ProcessId'] in identities]
+
+
 class MarionetteError(RuntimeError):
     def __init__(self, payload):
         self.payload = payload
@@ -28,7 +49,7 @@ class MarionetteError(RuntimeError):
 
 
 class Firefox:
-    def __init__(self, executable, profile, offline=False, extra_preferences=None):
+    def __init__(self, executable, profile, offline=False, extra_preferences=None, page_load_strategy="normal"):
         self.executable = Path(executable).resolve()
         self.profile = Path(profile).resolve()
         self.offline = offline
@@ -37,8 +58,10 @@ class Firefox:
         self.process = None
         self.capabilities = None
         self.extra_preferences = extra_preferences or {}
+        self.page_load_strategy = page_load_strategy
 
     def start(self):
+        self.last_closure = None
         self.profile.mkdir(parents=True, exist_ok=True)
         download = self.profile.parent / "downloads"
         download.mkdir(exist_ok=True)
@@ -82,7 +105,8 @@ class Firefox:
                 time.sleep(0.2)
         else:
             raise RuntimeError("Firefox Marionette port did not open")
-        self.capabilities = self.command("WebDriver:NewSession", {})
+        session_options = {} if self.page_load_strategy == 'normal' else {"capabilities": {"alwaysMatch": {"pageLoadStrategy": self.page_load_strategy}}}
+        self.capabilities = self.command("WebDriver:NewSession", session_options)
         self.command("WebDriver:SetTimeouts", {"script": 30000, "pageLoad": 30000})
         return self
 
@@ -134,20 +158,61 @@ class Firefox:
         """.replace("EXPRESSION", expression), args, asynchronous=True)
 
     def close(self):
+        if self.sock is None and getattr(self, 'last_closure', None):
+            return self.last_closure
+        tracked = []
+        inspection_error = None
+        if self.process and os.name == 'nt':
+            try:
+                tracked = descendants(windows_processes(), self.process.pid)
+            except Exception as error:
+                inspection_error = str(error)
         if self.sock:
             try:
                 self.command("Marionette:Quit", {"flags": ["eAttemptQuit"]})
             except (OSError, EOFError, MarionetteError):
                 pass
             self.sock.close()
+            self.sock = None
+        forced = False
         if self.process:
             try:
                 self.process.wait(timeout=15)
             except subprocess.TimeoutExpired:
+                forced = True
                 self.process.terminate()
                 self.process.wait(timeout=10)
         if hasattr(self, "log"):
             self.log.close()
+        remaining = []
+        if tracked:
+            try:
+                identities = {(row['ProcessId'], row['CreatedAt']) for row in tracked}
+                deadline = time.monotonic() + 5
+                while True:
+                    remaining = [row for row in windows_processes() if (row['ProcessId'], row['CreatedAt']) in identities]
+                    if not remaining or time.monotonic() >= deadline:
+                        break
+                    time.sleep(0.1)
+                if remaining:
+                    forced = True
+                    for row in remaining:
+                        try:
+                            os.kill(row['ProcessId'], signal.SIGTERM)
+                        except ProcessLookupError:
+                            pass
+                    time.sleep(0.1)
+                    remaining = [row for row in windows_processes() if (row['ProcessId'], row['CreatedAt']) in identities]
+            except Exception as error:
+                inspection_error = str(error)
+        self.last_closure = {"rootPid": self.process.pid if self.process else None,
+                             "exitCode": self.process.returncode if self.process else None,
+                             "trackedProcesses": tracked, "remainingProcesses": remaining,
+                             "forcedTermination": forced, "inspectionError": inspection_error,
+                             "subprocessTreeInspected": os.name == 'nt' and inspection_error is None}
+        if inspection_error or remaining:
+            raise RuntimeError('Could not verify complete owned Firefox process closure: ' + str(self.last_closure))
+        return self.last_closure
 
 
 MINIMAL = """<!doctype html><meta charset=utf-8><title>Independent file IDB test</title>

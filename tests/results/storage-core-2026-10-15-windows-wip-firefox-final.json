@@ -1,0 +1,457 @@
+{
+  "format": "rescue-manager-storage-core-test",
+  "version": 1,
+  "browser": "firefox",
+  "channel": "stable",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-15T17:47:33.773367+00:00",
+  "operatingSystem": "Windows-11-10.0.26300-SP0",
+  "executable": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-stable\\core\\firefox.exe",
+  "sourceFiles": [
+    {
+      "file": "tests/integration/index.html",
+      "sha256": "d3c689f4ec7d5411f5d5b366536321a8af06d54f59637059af86d9df2f616d68"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "58e212de199470b8d18d4473a6915ac537f99663634be5f9b6f267db6210c8bd"
+    },
+    {
+      "file": "tests/integration/config.js",
+      "sha256": "bc11229bae03955bfa3bb5f32f1d7f03de9a8c48994c685c9d0676c488bcde94"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "38323c835a41537c62f421d1581ae200e65841eeb3c88ff17ac6af8b9fc91dbb"
+    },
+    {
+      "file": "tests/integration/storage.js",
+      "sha256": "2d1992baf8e6656947b5d3da5ec8368d9732e75e79501aaf87f8f834dc05fce8"
+    }
+  ],
+  "mode": "Native headless; isolated profile; offline before first file navigation",
+  "normalProfileSecurityPoliciesChanged": false,
+  "checks": [
+    {
+      "id": "file-offline-and-integration-suite",
+      "passed": true,
+      "evidence": {
+        "url": "file:///C:/Users/Quinto/OneDrive/Escritorio/WIP/WebProtectoraAnimales/tests/integration/index.html",
+        "online": false,
+        "report": {
+          "startedAt": "2026-10-15T17:47:44.714Z",
+          "dbName": "animal-rescue-manager-test-integration",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+          "checks": [
+            {
+              "id": "open-does-not-create-dataset",
+              "passed": true,
+              "evidence": {
+                "database": "animal-rescue-manager-test-integration",
+                "version": 2,
+                "stores": [
+                  "datasets",
+                  "meta",
+                  "operations",
+                  "testRecords",
+                  "testRelated"
+                ],
+                "active": null
+              }
+            },
+            {
+              "id": "explicit-dataset-initialization-and-writer",
+              "passed": true,
+              "evidence": {
+                "active": {
+                  "key": "active",
+                  "datasetId": "364c19b0-992f-4ccd-86ba-e71d3a46dbaf",
+                  "revision": 0
+                },
+                "acquired": true
+              }
+            },
+            {
+              "id": "multi-store-confirmed-commit",
+              "passed": true,
+              "evidence": {
+                "revision": 1,
+                "recordId": "12c5e87e-bdc4-4e2c-a45e-17c070077ba5",
+                "blobText": "kernel-blob-ñ"
+              }
+            },
+            {
+              "id": "intermediate-failure-rolls-back-all-stores-and-log",
+              "passed": true,
+              "evidence": {
+                "survivingValues": [
+                  null,
+                  null,
+                  null
+                ]
+              }
+            },
+            {
+              "id": "obsolete-revision-is-rejected-without-write",
+              "passed": true,
+              "evidence": "RevisionConflictError"
+            },
+            {
+              "id": "concurrent-identical-operation-id-is-applied-once",
+              "passed": true,
+              "evidence": {
+                "results": [
+                  {
+                    "operationId": "2799e60a-da44-4e40-91a0-59eeb5c622c3",
+                    "revision": 2,
+                    "activeRevision": 2,
+                    "duplicate": false,
+                    "result": "one-result"
+                  },
+                  {
+                    "operationId": "2799e60a-da44-4e40-91a0-59eeb5c622c3",
+                    "revision": 2,
+                    "activeRevision": 2,
+                    "duplicate": true,
+                    "result": "one-result"
+                  }
+                ],
+                "conflictingIntent": "IdempotencyConflictError"
+              }
+            },
+            {
+              "id": "synchronous-request-callbacks-can-read-then-write",
+              "passed": true,
+              "evidence": {
+                "operationId": "34304672-421d-4aa3-a862-a5d16c4b2070",
+                "revision": 3,
+                "activeRevision": 3,
+                "duplicate": false,
+                "result": {
+                  "observed": "ñ 🐾"
+                }
+              }
+            },
+            {
+              "id": "async-mutation-callback-is-aborted",
+              "passed": true,
+              "evidence": "AsyncTransactionCallbackError"
+            },
+            {
+              "id": "cross-dataset-write-is-rejected",
+              "passed": true,
+              "evidence": "InvalidInputError"
+            }
+          ],
+          "passed": true,
+          "completedAt": "2026-10-15T17:47:44.873Z"
+        }
+      }
+    },
+    {
+      "id": "second-tab-exclusion-expiry-and-stale-owner-rejection",
+      "passed": true,
+      "evidence": {
+        "owner": "e41c69f2-de71-467c-ba41-d791aee479da",
+        "initiallyAllowed": false,
+        "afterExpiry": true,
+        "staleWrite": "LeaseLostError"
+      }
+    },
+    {
+      "id": "atomic-dataset-activation-invalidates-previous-writer",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "key": "active",
+          "datasetId": "364c19b0-992f-4ccd-86ba-e71d3a46dbaf",
+          "revision": 3
+        },
+        "active": {
+          "key": "active",
+          "datasetId": "92173e1a-a60c-484e-8876-1c1ea1f06e4e",
+          "revision": 4
+        },
+        "writer": null,
+        "previous": {
+          "id": "364c19b0-992f-4ccd-86ba-e71d3a46dbaf",
+          "state": "retired",
+          "schemaVersion": 1,
+          "dataRevision": 3,
+          "createdAt": "2026-10-15T17:47:44.823Z",
+          "updatedAt": "2026-10-15T17:47:45.464Z"
+        },
+        "target": {
+          "id": "92173e1a-a60c-484e-8876-1c1ea1f06e4e",
+          "state": "active",
+          "schemaVersion": 1,
+          "dataRevision": 0,
+          "createdAt": "2026-10-15T17:47:44.825Z",
+          "updatedAt": "2026-10-15T17:47:45.464Z"
+        },
+        "staleWrite": "DatasetChangedError",
+        "restoreImplemented": false
+      }
+    },
+    {
+      "id": "future-database-version-rejected-without-data-loss",
+      "passed": true,
+      "evidence": {
+        "rejection": "VersionError",
+        "before": 2,
+        "after": 2,
+        "version": 3
+      }
+    },
+    {
+      "id": "dedicated-test-database",
+      "passed": true,
+      "evidence": {
+        "databases": [
+          {
+            "name": "animal-rescue-manager-test-integration",
+            "version": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "complete-owned-browser-root-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 20916,
+        "exitCode": 0,
+        "trackedProcesses": [
+          {
+            "ProcessId": 20916,
+            "ParentProcessId": 20644,
+            "CreatedAt": "2026-10-15T17:47:33.9716670Z"
+          },
+          {
+            "ProcessId": 20952,
+            "ParentProcessId": 20916,
+            "CreatedAt": "2026-10-15T17:47:34.0024380Z"
+          },
+          {
+            "ProcessId": 21000,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:34.0916150Z"
+          },
+          {
+            "ProcessId": 21464,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:34.8982330Z"
+          },
+          {
+            "ProcessId": 10980,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:35.3889800Z"
+          },
+          {
+            "ProcessId": 12420,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:35.5878530Z"
+          },
+          {
+            "ProcessId": 20488,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:37.0023310Z"
+          },
+          {
+            "ProcessId": 1220,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:37.0429930Z"
+          },
+          {
+            "ProcessId": 21244,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:44.5594360Z"
+          },
+          {
+            "ProcessId": 3068,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:45.5765270Z"
+          },
+          {
+            "ProcessId": 7624,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:45.6015540Z"
+          },
+          {
+            "ProcessId": 11244,
+            "ParentProcessId": 20952,
+            "CreatedAt": "2026-10-15T17:47:45.6528120Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "forcedTermination": false,
+        "inspectionError": null,
+        "subprocessTreeInspected": true
+      }
+    },
+    {
+      "id": "tested-source-files-remained-unchanged",
+      "passed": true,
+      "evidence": {
+        "count": 8,
+        "hashesMatch": true
+      }
+    }
+  ],
+  "limitations": [
+    "Core coordinator coverage only; not business-schema or backup acceptance.",
+    "No real mobile/tablet coverage.",
+    "No complete browser/page network trace was instrumented by Marionette."
+  ],
+  "capabilities": {
+    "sessionId": "ca20d705-942b-4818-94d6-73d6fa94318f",
+    "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "firefox",
+      "browserVersion": "158.0",
+      "platformName": "windows",
+      "setWindowRect": true,
+      "unhandledPromptBehavior": "dismiss and notify",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+      "moz:buildID": "20261007201254",
+      "moz:headless": true,
+      "moz:platformVersion": "10.0",
+      "moz:processID": 20952,
+      "moz:profile": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-storage-8298c43f0321\\profile",
+      "moz:shutdownTimeout": 60000,
+      "pageLoadStrategy": "normal",
+      "timeouts": {
+        "implicit": 0,
+        "pageLoad": 300000,
+        "script": 30000
+      },
+      "strictFileInteractability": false,
+      "moz:accessibilityChecks": false,
+      "moz:webdriverClick": true,
+      "moz:windowless": false,
+      "proxy": {}
+    }
+  },
+  "integrationReport": {
+    "startedAt": "2026-10-15T17:47:44.714Z",
+    "dbName": "animal-rescue-manager-test-integration",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+    "checks": [
+      {
+        "id": "open-does-not-create-dataset",
+        "passed": true,
+        "evidence": {
+          "database": "animal-rescue-manager-test-integration",
+          "version": 2,
+          "stores": [
+            "datasets",
+            "meta",
+            "operations",
+            "testRecords",
+            "testRelated"
+          ],
+          "active": null
+        }
+      },
+      {
+        "id": "explicit-dataset-initialization-and-writer",
+        "passed": true,
+        "evidence": {
+          "active": {
+            "key": "active",
+            "datasetId": "364c19b0-992f-4ccd-86ba-e71d3a46dbaf",
+            "revision": 0
+          },
+          "acquired": true
+        }
+      },
+      {
+        "id": "multi-store-confirmed-commit",
+        "passed": true,
+        "evidence": {
+          "revision": 1,
+          "recordId": "12c5e87e-bdc4-4e2c-a45e-17c070077ba5",
+          "blobText": "kernel-blob-ñ"
+        }
+      },
+      {
+        "id": "intermediate-failure-rolls-back-all-stores-and-log",
+        "passed": true,
+        "evidence": {
+          "survivingValues": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      {
+        "id": "obsolete-revision-is-rejected-without-write",
+        "passed": true,
+        "evidence": "RevisionConflictError"
+      },
+      {
+        "id": "concurrent-identical-operation-id-is-applied-once",
+        "passed": true,
+        "evidence": {
+          "results": [
+            {
+              "operationId": "2799e60a-da44-4e40-91a0-59eeb5c622c3",
+              "revision": 2,
+              "activeRevision": 2,
+              "duplicate": false,
+              "result": "one-result"
+            },
+            {
+              "operationId": "2799e60a-da44-4e40-91a0-59eeb5c622c3",
+              "revision": 2,
+              "activeRevision": 2,
+              "duplicate": true,
+              "result": "one-result"
+            }
+          ],
+          "conflictingIntent": "IdempotencyConflictError"
+        }
+      },
+      {
+        "id": "synchronous-request-callbacks-can-read-then-write",
+        "passed": true,
+        "evidence": {
+          "operationId": "34304672-421d-4aa3-a862-a5d16c4b2070",
+          "revision": 3,
+          "activeRevision": 3,
+          "duplicate": false,
+          "result": {
+            "observed": "ñ 🐾"
+          }
+        }
+      },
+      {
+        "id": "async-mutation-callback-is-aborted",
+        "passed": true,
+        "evidence": "AsyncTransactionCallbackError"
+      },
+      {
+        "id": "cross-dataset-write-is-rejected",
+        "passed": true,
+        "evidence": "InvalidInputError"
+      }
+    ],
+    "passed": true,
+    "completedAt": "2026-10-15T17:47:44.873Z"
+  },
+  "completedAt": "2026-10-15T17:47:47.684794+00:00",
+  "status": "passed"
+}

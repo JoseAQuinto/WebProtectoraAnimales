@@ -7,10 +7,12 @@ el alcance original no puede recortarse para aparentar producto terminado.
 
 - Trabajar en este repositorio y hacer commits/push de avances coherentes a
   `https://github.com/JoseAQuinto/WebProtectoraAnimales.git`.
-- Comprobar el cupo de la ventana de 5 horas cuando la herramienta de uso esté
-  disponible. Es restante = `100 - usedPercent` para `windowDurationMins=300`.
-  Si es **menor que 20 %**, detener desarrollo y trabajo delegado; actualizar
-  estado, guardar commit y hacer push. No consumir un reinicio de cuota.
+- Instrucción vigente del usuario el 2026-10-15: comprobar el cupo disponible
+  y, cuando quede un 5 % o menos de la ventana de 5 horas, detener desarrollo
+  y trabajo delegado, guardar avances coherentes, actualizar documentación,
+  hacer commit y push para continuar desde otro equipo. Los antiguos umbrales
+  del 20 % y de agotamiento total quedan revocados.
+- No consumir un reinicio de cuota sin indicación expresa del usuario.
 - Dejar el proyecto continuable desde otro equipo: código, decisiones,
   evidencias de pruebas, defectos y siguiente acción concreta en Git.
 

@@ -2,10 +2,19 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const os = require('node:os');
+const crypto = require('node:crypto');
 const { pathToFileURL } = require('node:url');
 const { launch } = require('./chromium.cjs');
 const root = path.resolve(__dirname, '../..');
-const result = { format: 'rescue-manager-storage-core-test', version: 1, browser: 'chrome',
+const argumentsList = process.argv.slice(2);
+const options = { browser: 'chrome', output: 'storage-core.json', machine: 'unspecified' };
+for (let index = 0; index < argumentsList.length; index += 2) {
+  const key = argumentsList[index].replace(/^--/, '');
+  if (!['browser', 'executable', 'output', 'machine'].includes(key) || !argumentsList[index + 1]) throw new Error('Use --browser chrome|edge, --executable PATH, --output NAME.json, --machine LABEL');
+  options[key] = argumentsList[index + 1];
+}
+if (!['chrome', 'edge'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output filename');
+const result = { format: 'rescue-manager-storage-core-test', version: 1, browser: options.browser, machine: options.machine,
   startedAt: new Date().toISOString(), operatingSystem: { type: os.type(), release: os.release(), version: os.version() },
   launches: [], closures: [], checks: [], pageErrors: [], externalRequests: [],
   limitations: ['Core infrastructure only; business schemas, recovery and backup restoration are not implemented.', 'Desktop installed browser in headless mode; no real mobile/tablet coverage.'] };
@@ -14,10 +23,16 @@ async function check(id, work) {
   try { const evidence = await work(); result.checks.push({ id, passed: true, evidence }); console.log('PASS ' + id); }
   catch (error) { result.checks.push({ id, passed: false, error: { name: error.name, message: error.message, stack: error.stack } }); console.log('FAIL ' + id + ': ' + error.message); }
 }
+async function sources() {
+  const html = path.join(root, 'tests/integration/index.html');
+  const files = [html, ...Array.from((await fs.readFile(html, 'utf8')).matchAll(/<script[^>]+src="([^"]+)"/g), match => path.resolve(path.dirname(html), match[1]))];
+  return Promise.all(files.map(async file => ({ file: path.relative(root, file).replaceAll('\\', '/'), sha256: crypto.createHash('sha256').update(await fs.readFile(file)).digest('hex') })));
+}
 (async () => {
   let session;
   try {
-    session = await launch('chrome', path.join(root, '.tmp', 'storage-core-' + Date.now(), 'profile'), result);
+    result.sourceFiles = await sources();
+    session = await launch(options.browser, path.join(root, '.tmp', 'storage-core-' + options.browser + '-' + Date.now(), 'profile'), result, false, { executable: options.executable });
     async function open(peer) {
       const page = await session.context.newPage();
       page.on('pageerror', error => result.pageErrors.push(String(error)));
@@ -91,12 +106,16 @@ async function check(id, work) {
       return { databases, pageErrors: result.pageErrors, externalRequests: result.externalRequests };
     });
     await check('complete-owned-browser-process-close', () => session.close());
+    await check('tested-source-files-remained-unchanged', async () => {
+      assert(JSON.stringify(result.sourceFiles) === JSON.stringify(await sources()), 'Source files changed during the run');
+      return { count: result.sourceFiles.length, hashesMatch: true };
+    });
   } catch (error) { result.fatalError = { message: error.message, stack: error.stack }; }
   finally {
     if (session) { try { await session.close(); } catch (error) { result.cleanupError = String(error); } }
     result.completedAt = new Date().toISOString();
     result.status = result.fatalError || result.cleanupError || result.checks.some(check => !check.passed) ? 'failed' : 'passed';
-    await fs.writeFile(path.join(root, 'tests/results/storage-core.json'), JSON.stringify(result, null, 2) + '\n');
+    await fs.writeFile(path.join(root, 'tests/results', options.output), JSON.stringify(result, null, 2) + '\n');
     console.log(result.status.toUpperCase());
     if (result.status !== 'passed') process.exitCode = 1;
   }

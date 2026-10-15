@@ -20,7 +20,8 @@
     api.request(meta.get('active'), active => {
       if (!active || active.datasetId !== options.datasetId) throw error('DatasetChangedError', 'The active dataset has changed');
       api.request(meta.get('writer'), lease => {
-        if (!lease || lease.owner !== options.owner || lease.datasetId !== active.datasetId || lease.expiresAt <= Date.now()) {
+        if (!lease || lease.owner !== options.owner || lease.datasetId !== active.datasetId || lease.expiresAt <= Date.now() ||
+            (!root.config.integrationTestStores && lease.token !== options.leaseToken)) {
           throw error('LeaseLostError', 'This tab no longer has write control');
         }
         next(active);
@@ -31,6 +32,18 @@
   const coordinator = {
     readActive() {
       return run(['meta'], 'readonly', (tx, api) => api.request(tx.objectStore('meta').get('active'), value => api.setResult(value || null)));
+    },
+    readLease() {
+      return run(['meta'], 'readonly', (tx, api) => api.request(tx.objectStore('meta').get('writer'), value => api.setResult(value || null)));
+    },
+    replay(options) {
+      requireInput(options && uuid(options.operationId) && token(options.fingerprint), 'Operation and intent fingerprint are required');
+      return run(['meta','operations'], 'readonly', (tx, api) => guard(tx, api, options, active => {
+        api.request(tx.objectStore('operations').get([options.datasetId, options.operationId]), operation => {
+          if (operation && operation.fingerprint !== options.fingerprint) throw error('IdempotencyConflictError', 'Operation id was already used for another intent');
+          api.setResult(operation ? { operationId: operation.id, revision: operation.revisionAfter, activeRevision: active.revision, duplicate: true, result: operation.result } : null);
+        });
+      }));
     },
     // Explicit lifecycle calls only; merely opening a database never creates a dataset.
     initializeDataset(datasetId) {
@@ -66,11 +79,33 @@
           api.request(meta.get('writer'), lease => {
             const now = Date.now();
             const allowed = !lease || lease.expiresAt <= now || (lease.owner === owner && lease.datasetId === datasetId);
-            if (allowed) meta.put({ key: 'writer', owner, datasetId, expiresAt: now + ttl });
+            if (allowed) meta.put({ key: 'writer', owner, datasetId,
+              token: lease && lease.owner === owner && lease.datasetId === datasetId && lease.expiresAt > now ? lease.token : crypto.randomUUID(), expiresAt: now + ttl });
             api.setResult(allowed);
           });
         });
       });
+    },
+    takeControl(options, ttl = 30000) {
+      requireInput(options && token(options.owner) && uuid(options.datasetId) && revision(options.expectedRevision) && Number.isSafeInteger(ttl) && ttl > 0 && ttl <= 120000, 'Invalid writer takeover');
+      return run(['meta'], 'readwrite', (tx, api) => {
+        const meta = tx.objectStore('meta');
+        api.request(meta.get('active'), active => {
+          if (!active || active.datasetId !== options.datasetId) throw error('DatasetChangedError', 'The active dataset has changed');
+          if (active.revision !== options.expectedRevision) throw error('RevisionConflictError', 'Data changed before taking control');
+          const lease = { key: 'writer', owner: options.owner, datasetId: options.datasetId, token: crypto.randomUUID(), expiresAt: Date.now() + ttl };
+          meta.put(lease); api.setResult(lease);
+        });
+      });
+    },
+    renew(options, ttl = 30000) {
+      requireInput(Number.isSafeInteger(ttl) && ttl > 0 && ttl <= 120000, 'Invalid lease duration');
+      return run(['meta'], 'readwrite', (tx, api) => guard(tx, api, options, () => {
+        api.request(tx.objectStore('meta').get('writer'), lease => {
+          const updated = { ...lease, expiresAt: Date.now() + ttl };
+          tx.objectStore('meta').put(updated); api.setResult(updated);
+        });
+      }));
     },
     release(owner, datasetId) {
       requireInput(token(owner) && uuid(datasetId), 'Owner and dataset are required');
@@ -135,6 +170,14 @@
             }
             function record(value) { requireInput(value && value.datasetId === options.datasetId && uuid(value.id), 'Record must belong to the active dataset'); return value; }
             const access = Object.freeze({
+              advanceAnimalSequence(expected, next) {
+                requireInput(revision(expected) && revision(next) && next > expected, 'Invalid animal sequence');
+                const key = 'animalSequence:' + options.datasetId;
+                track(tx.objectStore('meta').get(key), sequence => {
+                  if ((sequence?.value || 0) !== expected) throw error('RevisionConflictError', 'Animal code sequence changed');
+                  track(tx.objectStore('meta').put({ key, value: next }));
+                });
+              },
               get(name, id, callback) { requireInput(uuid(id) && typeof callback === 'function', 'Record id and callback are required'); track(store(name).get([options.datasetId, id]), callback); },
               put(name, value) { track(store(name).put(record(value))); },
               add(name, value) { track(store(name).add(record(value))); },
@@ -163,6 +206,9 @@
         const datasets = tx.objectStore('datasets');
         api.request(datasets.get(targetId), target => {
           if (!target || target.state !== 'staging' || target.schemaVersion !== root.config.schemaVersion) throw error('DatasetChangedError', 'Target dataset is not ready for activation');
+          if (!root.config.integrationTestStores && (!target.validation || target.validation.stagingRevision !== target.stagingRevision || target.validation.stagingRevision !== options.expectedTargetRevision)) {
+            throw error('DatasetNotValidatedError', 'Prepared dataset has not passed validation at this revision');
+          }
           api.request(datasets.get(active.datasetId), previous => {
             if (!previous) throw error('DatasetChangedError', 'Previous dataset is missing');
             const now = new Date().toISOString();

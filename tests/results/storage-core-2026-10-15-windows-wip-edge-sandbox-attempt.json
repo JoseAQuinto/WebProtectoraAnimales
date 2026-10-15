@@ -1,0 +1,27 @@
+{
+  "format": "rescue-manager-storage-core-test",
+  "version": 1,
+  "browser": "edge",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-15T17:36:49.342Z",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26300",
+    "version": "Windows 11 Home"
+  },
+  "launches": [],
+  "closures": [],
+  "checks": [],
+  "pageErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Core infrastructure only; business schemas, recovery and backup restoration are not implemented.",
+    "Desktop installed browser in headless mode; no real mobile/tablet coverage."
+  ],
+  "fatalError": {
+    "message": "browserType.connectOverCDP: connect EACCES 127.0.0.1:53130\nCall log:\n\u001b[2m  - <ws preparing> retrieving websocket url from http://127.0.0.1:53130\u001b[22m\n",
+    "stack": "browserType.connectOverCDP: connect EACCES 127.0.0.1:53130\nCall log:\n\u001b[2m  - <ws preparing> retrieving websocket url from http://127.0.0.1:53130\u001b[22m\n\n    at launch (C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\chromium.cjs:85:34)\n    at async C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\storage.cjs:28:15"
+  },
+  "completedAt": "2026-10-15T17:36:52.204Z",
+  "status": "failed"
+}

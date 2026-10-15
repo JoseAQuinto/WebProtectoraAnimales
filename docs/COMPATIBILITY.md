@@ -1,5 +1,13 @@
 # Compatibilidad
 
+## Continuación 0.2.0-dev en otro equipo
+
+La matriz más reciente de núcleo, repositorios, backup y recuperación está en
+[ENVIRONMENT_TESTS.md](ENVIRONMENT_TESTS.md), con resultados reales de Windows
+11 Home 10.0.26300, Chrome 155.0.8059.79, Edge 155.0.4283.45 y Firefox 158.0.
+Se conserva debajo la evidencia histórica de viabilidad del primer equipo.
+Ninguna matriz parcial acredita todavía el producto comercial completo.
+
 Fecha: 2026-10-15. Estado: **fase 0 de escritorio superada para el diagnóstico**.
 
 No se anuncia aún compatibilidad comercial de la aplicación final. Resultados

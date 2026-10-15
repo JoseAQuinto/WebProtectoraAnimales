@@ -11,7 +11,7 @@
     return error;
   };
 
-  // Core schema only. Business stores require reviewed schemas and migrations.
+  // Physical migration 1 -> 2 is additive. Business data is never rewritten here.
   function requestOpen() {
     const config = root.config;
     if (!config.dbName || !Number.isSafeInteger(config.dbVersion) || config.dbVersion < 1) {
@@ -37,20 +37,34 @@
       request.onblocked = () => fail(storage.error('DatabaseBlockedError', 'Another tab is blocking the database upgrade'));
       request.onupgradeneeded = event => {
         if (settled) { request.transaction.abort(); return; }
-        if (event.oldVersion !== 0) {
+        if (event.oldVersion > 1) {
           upgradeError = storage.error('MigrationRequiredError', 'No migration is implemented for this database version');
           request.transaction.abort();
           return;
         }
         const db = request.result;
-        const meta = db.createObjectStore('meta', { keyPath: 'key' });
-        db.createObjectStore('datasets', { keyPath: 'id' });
-        db.createObjectStore('operations', { keyPath: ['datasetId', 'id'] });
-        if (config.integrationTestStores) {
-          db.createObjectStore('testRecords', { keyPath: ['datasetId', 'id'] });
-          db.createObjectStore('testRelated', { keyPath: ['datasetId', 'id'] });
+        const meta = event.oldVersion === 0 ? db.createObjectStore('meta', { keyPath: 'key' }) : request.transaction.objectStore('meta');
+        function install() {
+          if (!db.objectStoreNames.contains('datasets')) db.createObjectStore('datasets', { keyPath: 'id' });
+          if (!db.objectStoreNames.contains('operations')) db.createObjectStore('operations', { keyPath: ['datasetId', 'id'] });
+          if (storage.schema) storage.schema.install(db);
+          if (config.integrationTestStores) {
+            for (const name of ['testRecords', 'testRelated']) {
+              if (!db.objectStoreNames.contains(name)) db.createObjectStore(name, { keyPath: ['datasetId', 'id'] });
+            }
+          }
+          meta.put({ key: 'coreSchema', version: config.schemaVersion, createdWith: config.appVersion });
         }
-        meta.put({ key: 'coreSchema', version: config.schemaVersion, createdWith: config.appVersion });
+        if (event.oldVersion === 0) install();
+        else {
+          const check = meta.get('coreSchema');
+          check.onsuccess = () => {
+            if (!check.result || check.result.version !== config.schemaVersion) {
+              upgradeError = storage.error('VersionError', 'The stored schema is not supported');
+              request.transaction.abort();
+            } else install();
+          };
+        }
       };
       request.onsuccess = () => {
         const db = request.result;
@@ -68,6 +82,9 @@
             db.close();
             fail(storage.error('VersionError', 'The stored schema is not supported; existing data was not removed'));
             return;
+          }
+          if (storage.schema && storage.schema.tables.some(name => !db.objectStoreNames.contains(name))) {
+            db.close(); fail(storage.error('MigrationRequiredError', 'Business stores are missing; no records were changed')); return;
           }
           settled = true;
           clearTimeout(timeout);

@@ -14,8 +14,8 @@ const runtime = process.env.PLAYWRIGHT_PATH || path.join(os.homedir(), '.cache/c
 const { chromium } = require(runtime);
 const pause = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 const binaries = {
-  chrome: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  edge: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
+  chrome: process.env.RM_CHROME_BINARY || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  edge: process.env.RM_EDGE_BINARY || 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
 };
 
 async function powershell(source) {
@@ -54,7 +54,10 @@ function requireThat(condition, message) {
   if (!condition) throw new Error(message);
 }
 
-async function launch(name, profile, result, denyStorage = false) {
+async function launch(name, profile, result, denyStorage = false, options = {}) {
+  const executable = options.executable || binaries[name];
+  requireThat(executable, 'Unsupported browser; use chrome or edge');
+  await fs.access(executable);
   await fs.mkdir(profile, { recursive: true });
   const activePort = path.join(profile, 'DevToolsActivePort');
   await fs.rm(activePort, { force: true });
@@ -63,7 +66,7 @@ async function launch(name, profile, result, denyStorage = false) {
     await fs.writeFile(path.join(profile, 'Default', 'Preferences'), JSON.stringify({ profile: { default_content_setting_values: { cookies: 2 } } }));
   }
   const args = ['--headless=new', '--remote-debugging-port=0', '--user-data-dir=' + profile, '--no-first-run', '--no-default-browser-check', 'about:blank'];
-  const child = spawn(binaries[name], args, { windowsHide: true, stdio: ['ignore', 'ignore', 'pipe'] });
+  const child = spawn(executable, args, { windowsHide: true, stdio: ['ignore', 'ignore', 'pipe'] });
   let stderr = '';
   child.stderr.on('data', chunk => { stderr = (stderr + String(chunk)).slice(-12000); });
   let launchError;
@@ -85,7 +88,7 @@ async function launch(name, profile, result, denyStorage = false) {
   await context.setOffline(true);
   const session = await browser.newBrowserCDPSession();
   const version = await session.send('Browser.getVersion');
-  result.launches.push({ startedAt: new Date(startedAt).toISOString(), profile: path.relative(root, profile), pid: child.pid, args, version, storageDeniedPreference: denyStorage });
+  result.launches.push({ startedAt: new Date(startedAt).toISOString(), executable, profile: path.relative(root, profile), pid: child.pid, args, version, storageDeniedPreference: denyStorage });
   let closed = false;
   return {
     browser, context, child, version,
@@ -170,7 +173,7 @@ async function check(result, id, operation) {
   }
 }
 
-async function runBrowser(name) {
+async function runBrowser(name, options = {}) {
   const runDirectory = path.join(root, '.tmp', 'chromium-' + name + '-' + Date.now());
   await fs.mkdir(runDirectory, { recursive: true });
   const html = path.join(root, 'tests/viability/index.html');
@@ -340,7 +343,7 @@ async function runBrowser(name) {
     result.completedAt = new Date().toISOString();
     result.status = result.fatalError || result.checks.some(item => item.status === 'failed') || result.cleanupErrors ? 'failed' : 'passed';
     await fs.mkdir(path.join(root, 'tests/results'), { recursive: true });
-    await fs.writeFile(path.join(root, 'tests/results', name + '.json'), JSON.stringify(result, null, 2) + '\n');
+    await fs.writeFile(path.join(root, 'tests/results', options.outputPrefix ? options.outputPrefix + '-' + name + '.json' : name + '.json'), JSON.stringify(result, null, 2) + '\n');
   }
   console.log(name + ': ' + result.status.toUpperCase());
   return result;
@@ -356,9 +359,16 @@ if (require.main === module) (async () => {
     for (const row of roots) { console.log('Closing abandoned isolated test root ' + row.ProcessId); await terminateTree(row.ProcessId); }
     return;
   }
+  let outputPrefix;
+  const prefixIndex = requested.indexOf('--output-prefix');
+  if (prefixIndex !== -1) {
+    outputPrefix = requested[prefixIndex + 1];
+    requireThat(/^[a-zA-Z0-9._-]+$/.test(outputPrefix || ''), 'Output prefix must be a safe filename component');
+    requested.splice(prefixIndex, 2);
+  }
   const names = requested.length ? requested : Object.keys(binaries);
   for (const name of names) requireThat(binaries[name], 'Supported arguments are chrome and edge');
   const results = [];
-  for (const name of names) results.push(await runBrowser(name));
+  for (const name of names) results.push(await runBrowser(name, { outputPrefix }));
   if (results.some(result => result.status !== 'passed')) process.exitCode = 1;
 })().catch(error => { console.error(error); process.exitCode = 1; });

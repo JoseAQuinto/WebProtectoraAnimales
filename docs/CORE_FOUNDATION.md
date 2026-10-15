@@ -1,5 +1,10 @@
 # Núcleo en construcción
 
+**Nota de continuidad 0.2.0-dev:** este texto conserva el avance inicial.
+La entrada actual ya carga núcleo, dominio y copias; el estado vigente se
+describe en PROJECT_STATUS.md, DOMAIN_API.md y PERSISTENCE_API.md. SHA-256,
+backup y restauración están implementados; matriz actual en ENVIRONMENT_TESTS.md.
+
 Estado: avance de fase 1, sin interfaz de negocio habilitada. Estos módulos
 no se cargan todavía desde la entrada del producto. Las pruebas de desarrollo
 los cargan como scripts clásicos locales, en orden explícito.

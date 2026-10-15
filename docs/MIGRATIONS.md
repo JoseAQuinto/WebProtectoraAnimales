@@ -1,8 +1,16 @@
 # Contrato propuesto de migraciones
 
-Estado: **diseño previo a las fases 1 y 2**. No hay migrador de negocio
-implementado ni versiones antiguas de datos declaradas compatibles. El diagnóstico
-de fase 0 usa una base desechable y no constituye la versión inicial del producto.
+Estado: la migración física **1→2** está implementada de forma aditiva en
+`js/storage/database.js`: incorpora almacenes/índices sin reescribir registros
+existentes. Comprueba el esquema lógico antes de modificar la base; una versión
+lógica futura aborta la actualización conservando incluso la versión física.
+Ambos casos se prueban en `tests/integration/business.js` bajo `file://` en los
+tres navegadores; evidencia en `ENVIRONMENT_TESTS.md`.
+
+Versiones actuales: app `0.2.0-dev`, DB `2`, esquema `1`, backup `1`. No existen
+versiones de esquema de negocio anteriores publicadas: solo se admite esquema
+1/formato 1. Las transformaciones lógicas futuras siguen el contrato siguiente;
+no se declara un migrador de versiones antiguas que aún no existen.
 
 Este contrato desarrolla el requisito 13 y debe mantenerse coherente con
 [ARCHITECTURE.md](ARCHITECTURE.md), [DATA_MODEL.md](DATA_MODEL.md) y

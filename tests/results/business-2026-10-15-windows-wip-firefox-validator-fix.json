@@ -1,0 +1,887 @@
+{
+  "format": "rescue-manager-browser-suite-test",
+  "version": 1,
+  "browser": "firefox",
+  "channel": "stable",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-15T17:59:30.160385+00:00",
+  "operatingSystem": "Windows-11-10.0.26300-SP0",
+  "executable": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-stable\\core\\firefox.exe",
+  "sourceFiles": [
+    {
+      "file": "tests/integration/business.html",
+      "sha256": "11cd94034b5effc46fbe56750a75c980ffcd7263da6b5327fa891b3b9e13fc34"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "58e212de199470b8d18d4473a6915ac537f99663634be5f9b6f267db6210c8bd"
+    },
+    {
+      "file": "tests/integration/business-config.js",
+      "sha256": "521782075d3e6c47399aa9fa927627cb9ac30fa979aaa7e30f1f7040af003d08"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "4b67ab901efc4d8f18dd929319ac7a46ac7c296c4c2e9df4605f0eecd46d5fc0"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "1e863f91fb969b2025d10577950485023ae5eb38d6f0ae2f8ac9a82d990831de"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "ad6f3045aaa091bf786caa7a00871920a65cf2643b41fa60d9c0de4edb6ff915"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "38323c835a41537c62f421d1581ae200e65841eeb3c88ff17ac6af8b9fc91dbb"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "280dfb46e0dbedb6d8d3fef4de7e8b1c1de1f37659b8149e1109981bf58e3e3e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "6abc52c995ce8094c04915973d60b807a38a146f9aea8bd3c9a64e1115780770"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "0a6d43c5b06c1206dcab470a036e0219645151bb3317df89e90c08db647bec07"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "a0a514d30d392e6a6c760292054058b0a00f611adb5ec213f694d2dc3252f128"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "efd2530bda729ea10671615d43ebaa6d997a95ff5b93179f76b3f9a9e59bfaf6"
+    },
+    {
+      "file": "tests/integration/business.js",
+      "sha256": "8a94260763a1794bf392233f741078ff86bd8487859f7493f3053f086925731f"
+    }
+  ],
+  "checks": [
+    {
+      "id": "suite-passes-offline-from-local-file",
+      "passed": true,
+      "evidence": {
+        "protocol": "file:",
+        "online": false,
+        "config": {
+          "appVersion": "0.2.0-dev",
+          "dbName": "animal-rescue-manager-test-business",
+          "dbVersion": 2,
+          "schemaVersion": 1,
+          "backupFormatVersion": 1,
+          "limits": {
+            "embeddedAssetBytes": 67108864,
+            "backupBytes": 134217728,
+            "documentBytes": 8388608,
+            "photoInputBytes": 15728640,
+            "photoPixels": 40000000,
+            "csvBytes": 10485760,
+            "csvRows": 10000
+          }
+        },
+        "report": {
+          "startedAt": "2026-10-15T17:59:36.217Z",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+          "checks": [
+            {
+              "id": "business-schema-and-explicit-atomic-initialization",
+              "passed": true,
+              "evidence": {
+                "version": 2,
+                "businessStores": 28,
+                "active": {
+                  "key": "active",
+                  "datasetId": "05874016-4a6d-416e-9e15-f4e4486db6ad",
+                  "revision": 0
+                }
+              }
+            },
+            {
+              "id": "repository-confirmed-commit-and-idempotent-replay",
+              "passed": true,
+              "evidence": {
+                "revision": 1,
+                "replayed": true
+              }
+            },
+            {
+              "id": "stale-record-and-invalid-reference-leave-current-data-intact",
+              "passed": true,
+              "evidence": {
+                "invalid": "ValidationError",
+                "stale": "RevisionConflictError"
+              }
+            },
+            {
+              "id": "blob-and-document-are-committed-together",
+              "passed": true,
+              "evidence": {
+                "byteLength": 38,
+                "sha256": "c1dad9f9c00b8ce855748478d9eb0fd95522bfcfcc797e7c3be82113eae8e4f5"
+              }
+            },
+            {
+              "id": "full-backup-self-validation-and-binary-roundtrip",
+              "passed": true,
+              "evidence": {
+                "organizationName": "Refugio Sintético ñ 🐾",
+                "backupId": "cbf7f93a-c015-42fa-ab1b-7623d92a36b2",
+                "createdAt": "2026-10-15T17:59:36.539Z",
+                "appVersion": "0.2.0-dev",
+                "schemaVersion": 1,
+                "dataRevision": 2,
+                "recordCounts": {
+                  "activityLog": 0,
+                  "adoptionApplications": 0,
+                  "adoptions": 0,
+                  "animalEvents": 0,
+                  "animals": 0,
+                  "assets": 1,
+                  "carePlans": 0,
+                  "catalogOptions": 1,
+                  "contacts": 1,
+                  "documentLinks": 0,
+                  "documents": 1,
+                  "donationLines": 0,
+                  "donations": 0,
+                  "financialMovements": 0,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "importIdentityMap": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "locations": 0,
+                  "organizationSettings": 1,
+                  "reservations": 0,
+                  "stayEpisodes": 0,
+                  "tasks": 0,
+                  "veterinaryRecords": 0,
+                  "volunteerHours": 0,
+                  "volunteerProfiles": 0,
+                  "weightMeasurements": 0
+                },
+                "embeddedAssetCount": 1,
+                "embeddedAssetBytes": 38,
+                "externalReferenceCount": 0
+              }
+            },
+            {
+              "id": "corrupt-truncated-and-future-backups-never-touch-active-data",
+              "passed": true,
+              "evidence": [
+                "BackupValidationError",
+                "BackupValidationError",
+                "VersionError"
+              ]
+            },
+            {
+              "id": "cancelled-preparation-retains-active-dataset",
+              "passed": true,
+              "evidence": {
+                "failure": "AbortError",
+                "preparations": 1
+              }
+            },
+            {
+              "id": "validated-restoration-switches-atomically-and-invalidates-old-writer",
+              "passed": true,
+              "evidence": {
+                "before": "05874016-4a6d-416e-9e15-f4e4486db6ad",
+                "after": "58c76e4e-ff81-4637-9fae-7867a51b097f",
+                "rejected": "DatasetChangedError"
+              }
+            },
+            {
+              "id": "unvalidated-target-and-active-cleanup-are-rejected",
+              "passed": true,
+              "evidence": {
+                "invalidActivation": "DatasetNotValidatedError",
+                "invalidCleanup": "DatasetChangedError"
+              }
+            },
+            {
+              "id": "backup-receipts-and-verified-current-copy-before-replacement",
+              "passed": true,
+              "evidence": {
+                "generated": true,
+                "requested": true,
+                "verified": true,
+                "beforeVerification": "VerifiedBackupRequiredError",
+                "restored": true
+              }
+            },
+            {
+              "id": "physical-migration-preserves-core-and-aborts-future-logical-schema",
+              "passed": true,
+              "evidence": {
+                "migrated": {
+                  "rejected": null,
+                  "physicalVersion": 2,
+                  "stores": 32,
+                  "preserved": "conservar ñ"
+                },
+                "future": {
+                  "rejected": "VersionError",
+                  "physicalVersion": 1,
+                  "stores": 3,
+                  "preserved": "conservar ñ"
+                }
+              }
+            }
+          ],
+          "passed": true,
+          "completedAt": "2026-10-15T17:59:36.892Z"
+        }
+      }
+    },
+    {
+      "id": "no-first-open-errors-or-external-resources",
+      "passed": true,
+      "evidence": {
+        "listenersPresent": true,
+        "runtimeErrors": [],
+        "connectionViolations": [],
+        "externalResources": []
+      }
+    },
+    {
+      "id": "complete-first-owned-browser-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 21932,
+        "exitCode": 0,
+        "trackedProcesses": [
+          {
+            "ProcessId": 21932,
+            "ParentProcessId": 21324,
+            "CreatedAt": "2026-10-15T17:59:30.6660120Z"
+          },
+          {
+            "ProcessId": 22220,
+            "ParentProcessId": 21932,
+            "CreatedAt": "2026-10-15T17:59:30.8396600Z"
+          },
+          {
+            "ProcessId": 21864,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:31.2687350Z"
+          },
+          {
+            "ProcessId": 24320,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:32.9994130Z"
+          },
+          {
+            "ProcessId": 23012,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:33.7285790Z"
+          },
+          {
+            "ProcessId": 24632,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:33.9811140Z"
+          },
+          {
+            "ProcessId": 24652,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:35.6723330Z"
+          },
+          {
+            "ProcessId": 24400,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:35.8454830Z"
+          },
+          {
+            "ProcessId": 22108,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:35.9201270Z"
+          },
+          {
+            "ProcessId": 24192,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:36.9376520Z"
+          },
+          {
+            "ProcessId": 25016,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:37.0353180Z"
+          },
+          {
+            "ProcessId": 25060,
+            "ParentProcessId": 22220,
+            "CreatedAt": "2026-10-15T17:59:37.0672670Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "forcedTermination": false,
+        "inspectionError": null,
+        "subprocessTreeInspected": true
+      }
+    },
+    {
+      "id": "all-snapshot-data-persists-after-complete-close",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "sha256": "aecfc5552afc00dd16f921e729dff14b354d739ed73eea37713f31d59a2d7808",
+          "serializedBytes": 145,
+          "datasetDigest": "e6a968e08cb93e415b4a19c453bd4170e5ceed1fabe8f9c5b2607c5970d59cb2",
+          "recordCounts": null
+        },
+        "after": {
+          "sha256": "aecfc5552afc00dd16f921e729dff14b354d739ed73eea37713f31d59a2d7808",
+          "serializedBytes": 145,
+          "datasetDigest": "e6a968e08cb93e415b4a19c453bd4170e5ceed1fabe8f9c5b2607c5970d59cb2",
+          "recordCounts": null
+        },
+        "context": {
+          "protocol": "file:",
+          "online": false
+        },
+        "profileReused": true
+      }
+    },
+    {
+      "id": "no-reopen-errors-or-external-resources",
+      "passed": true,
+      "evidence": {
+        "listenersPresent": true,
+        "runtimeErrors": [],
+        "connectionViolations": [],
+        "externalResources": []
+      }
+    },
+    {
+      "id": "complete-reopened-owned-browser-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 23140,
+        "exitCode": 0,
+        "trackedProcesses": [
+          {
+            "ProcessId": 23140,
+            "ParentProcessId": 21324,
+            "CreatedAt": "2026-10-15T17:59:43.4775000Z"
+          },
+          {
+            "ProcessId": 23344,
+            "ParentProcessId": 23140,
+            "CreatedAt": "2026-10-15T17:59:43.5039660Z"
+          },
+          {
+            "ProcessId": 23348,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:43.5903540Z"
+          },
+          {
+            "ProcessId": 21840,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:43.8790500Z"
+          },
+          {
+            "ProcessId": 12696,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:44.1879480Z"
+          },
+          {
+            "ProcessId": 17448,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:44.2012750Z"
+          },
+          {
+            "ProcessId": 18972,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:44.5348390Z"
+          },
+          {
+            "ProcessId": 25452,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:44.7929640Z"
+          },
+          {
+            "ProcessId": 22460,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:44.9130540Z"
+          },
+          {
+            "ProcessId": 25396,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:45.2008210Z"
+          },
+          {
+            "ProcessId": 23700,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:45.2127760Z"
+          },
+          {
+            "ProcessId": 24728,
+            "ParentProcessId": 23344,
+            "CreatedAt": "2026-10-15T17:59:45.2265540Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "forcedTermination": false,
+        "inspectionError": null,
+        "subprocessTreeInspected": true
+      }
+    },
+    {
+      "id": "tested-source-files-remained-unchanged",
+      "passed": true,
+      "evidence": {
+        "count": 29,
+        "hashesMatch": true
+      }
+    }
+  ],
+  "launches": [
+    {
+      "capabilities": {
+        "sessionId": "c8099933-9ab8-4304-835c-069e2849de0c",
+        "capabilities": {
+          "acceptInsecureCerts": false,
+          "browserName": "firefox",
+          "browserVersion": "158.0",
+          "platformName": "windows",
+          "setWindowRect": true,
+          "unhandledPromptBehavior": "dismiss and notify",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+          "moz:buildID": "20261007201254",
+          "moz:headless": true,
+          "moz:platformVersion": "10.0",
+          "moz:processID": 22220,
+          "moz:profile": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-suite-e826b16066e0\\profile",
+          "moz:shutdownTimeout": 60000,
+          "pageLoadStrategy": "normal",
+          "timeouts": {
+            "implicit": 0,
+            "pageLoad": 300000,
+            "script": 30000
+          },
+          "strictFileInteractability": false,
+          "moz:accessibilityChecks": false,
+          "moz:webdriverClick": true,
+          "moz:windowless": false,
+          "capabilities": {
+            "alwaysMatch": {
+              "pageLoadStrategy": "none"
+            }
+          },
+          "proxy": {}
+        }
+      },
+      "profile": ".tmp\\firefox-suite-e826b16066e0\\profile",
+      "offlineRequestedAtLaunch": true
+    },
+    {
+      "capabilities": {
+        "sessionId": "503e4c6e-caff-4a8e-a53b-2f264558ebd2",
+        "capabilities": {
+          "acceptInsecureCerts": false,
+          "browserName": "firefox",
+          "browserVersion": "158.0",
+          "platformName": "windows",
+          "setWindowRect": true,
+          "unhandledPromptBehavior": "dismiss and notify",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+          "moz:buildID": "20261007201254",
+          "moz:headless": true,
+          "moz:platformVersion": "10.0",
+          "moz:processID": 23344,
+          "moz:profile": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-suite-e826b16066e0\\profile",
+          "moz:shutdownTimeout": 60000,
+          "pageLoadStrategy": "normal",
+          "timeouts": {
+            "implicit": 0,
+            "pageLoad": 300000,
+            "script": 30000
+          },
+          "strictFileInteractability": false,
+          "moz:accessibilityChecks": false,
+          "moz:webdriverClick": true,
+          "moz:windowless": false,
+          "capabilities": {
+            "alwaysMatch": {
+              "pageLoadStrategy": "none"
+            }
+          },
+          "proxy": {}
+        }
+      },
+      "profile": ".tmp\\firefox-suite-e826b16066e0\\profile",
+      "offlineRequestedAtLaunch": true
+    }
+  ],
+  "closures": [
+    {
+      "rootPid": 21932,
+      "exitCode": 0,
+      "trackedProcesses": [
+        {
+          "ProcessId": 21932,
+          "ParentProcessId": 21324,
+          "CreatedAt": "2026-10-15T17:59:30.6660120Z"
+        },
+        {
+          "ProcessId": 22220,
+          "ParentProcessId": 21932,
+          "CreatedAt": "2026-10-15T17:59:30.8396600Z"
+        },
+        {
+          "ProcessId": 21864,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:31.2687350Z"
+        },
+        {
+          "ProcessId": 24320,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:32.9994130Z"
+        },
+        {
+          "ProcessId": 23012,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:33.7285790Z"
+        },
+        {
+          "ProcessId": 24632,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:33.9811140Z"
+        },
+        {
+          "ProcessId": 24652,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:35.6723330Z"
+        },
+        {
+          "ProcessId": 24400,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:35.8454830Z"
+        },
+        {
+          "ProcessId": 22108,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:35.9201270Z"
+        },
+        {
+          "ProcessId": 24192,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:36.9376520Z"
+        },
+        {
+          "ProcessId": 25016,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:37.0353180Z"
+        },
+        {
+          "ProcessId": 25060,
+          "ParentProcessId": 22220,
+          "CreatedAt": "2026-10-15T17:59:37.0672670Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "forcedTermination": false,
+      "inspectionError": null,
+      "subprocessTreeInspected": true
+    },
+    {
+      "rootPid": 23140,
+      "exitCode": 0,
+      "trackedProcesses": [
+        {
+          "ProcessId": 23140,
+          "ParentProcessId": 21324,
+          "CreatedAt": "2026-10-15T17:59:43.4775000Z"
+        },
+        {
+          "ProcessId": 23344,
+          "ParentProcessId": 23140,
+          "CreatedAt": "2026-10-15T17:59:43.5039660Z"
+        },
+        {
+          "ProcessId": 23348,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:43.5903540Z"
+        },
+        {
+          "ProcessId": 21840,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:43.8790500Z"
+        },
+        {
+          "ProcessId": 12696,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:44.1879480Z"
+        },
+        {
+          "ProcessId": 17448,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:44.2012750Z"
+        },
+        {
+          "ProcessId": 18972,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:44.5348390Z"
+        },
+        {
+          "ProcessId": 25452,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:44.7929640Z"
+        },
+        {
+          "ProcessId": 22460,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:44.9130540Z"
+        },
+        {
+          "ProcessId": 25396,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:45.2008210Z"
+        },
+        {
+          "ProcessId": 23700,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:45.2127760Z"
+        },
+        {
+          "ProcessId": 24728,
+          "ParentProcessId": 23344,
+          "CreatedAt": "2026-10-15T17:59:45.2265540Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "forcedTermination": false,
+      "inspectionError": null,
+      "subprocessTreeInspected": true
+    }
+  ],
+  "mode": "Native headless; isolated profile; offline before first file navigation",
+  "normalProfileSecurityPoliciesChanged": false,
+  "limitations": [
+    "No real mobile/tablet coverage.",
+    "Marionette diagnostics use page error/CSP listeners and resource timing, not a complete network trace."
+  ],
+  "suiteReport": {
+    "startedAt": "2026-10-15T17:59:36.217Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+    "checks": [
+      {
+        "id": "business-schema-and-explicit-atomic-initialization",
+        "passed": true,
+        "evidence": {
+          "version": 2,
+          "businessStores": 28,
+          "active": {
+            "key": "active",
+            "datasetId": "05874016-4a6d-416e-9e15-f4e4486db6ad",
+            "revision": 0
+          }
+        }
+      },
+      {
+        "id": "repository-confirmed-commit-and-idempotent-replay",
+        "passed": true,
+        "evidence": {
+          "revision": 1,
+          "replayed": true
+        }
+      },
+      {
+        "id": "stale-record-and-invalid-reference-leave-current-data-intact",
+        "passed": true,
+        "evidence": {
+          "invalid": "ValidationError",
+          "stale": "RevisionConflictError"
+        }
+      },
+      {
+        "id": "blob-and-document-are-committed-together",
+        "passed": true,
+        "evidence": {
+          "byteLength": 38,
+          "sha256": "c1dad9f9c00b8ce855748478d9eb0fd95522bfcfcc797e7c3be82113eae8e4f5"
+        }
+      },
+      {
+        "id": "full-backup-self-validation-and-binary-roundtrip",
+        "passed": true,
+        "evidence": {
+          "organizationName": "Refugio Sintético ñ 🐾",
+          "backupId": "cbf7f93a-c015-42fa-ab1b-7623d92a36b2",
+          "createdAt": "2026-10-15T17:59:36.539Z",
+          "appVersion": "0.2.0-dev",
+          "schemaVersion": 1,
+          "dataRevision": 2,
+          "recordCounts": {
+            "activityLog": 0,
+            "adoptionApplications": 0,
+            "adoptions": 0,
+            "animalEvents": 0,
+            "animals": 0,
+            "assets": 1,
+            "carePlans": 0,
+            "catalogOptions": 1,
+            "contacts": 1,
+            "documentLinks": 0,
+            "documents": 1,
+            "donationLines": 0,
+            "donations": 0,
+            "financialMovements": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "importIdentityMap": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "locations": 0,
+            "organizationSettings": 1,
+            "reservations": 0,
+            "stayEpisodes": 0,
+            "tasks": 0,
+            "veterinaryRecords": 0,
+            "volunteerHours": 0,
+            "volunteerProfiles": 0,
+            "weightMeasurements": 0
+          },
+          "embeddedAssetCount": 1,
+          "embeddedAssetBytes": 38,
+          "externalReferenceCount": 0
+        }
+      },
+      {
+        "id": "corrupt-truncated-and-future-backups-never-touch-active-data",
+        "passed": true,
+        "evidence": [
+          "BackupValidationError",
+          "BackupValidationError",
+          "VersionError"
+        ]
+      },
+      {
+        "id": "cancelled-preparation-retains-active-dataset",
+        "passed": true,
+        "evidence": {
+          "failure": "AbortError",
+          "preparations": 1
+        }
+      },
+      {
+        "id": "validated-restoration-switches-atomically-and-invalidates-old-writer",
+        "passed": true,
+        "evidence": {
+          "before": "05874016-4a6d-416e-9e15-f4e4486db6ad",
+          "after": "58c76e4e-ff81-4637-9fae-7867a51b097f",
+          "rejected": "DatasetChangedError"
+        }
+      },
+      {
+        "id": "unvalidated-target-and-active-cleanup-are-rejected",
+        "passed": true,
+        "evidence": {
+          "invalidActivation": "DatasetNotValidatedError",
+          "invalidCleanup": "DatasetChangedError"
+        }
+      },
+      {
+        "id": "backup-receipts-and-verified-current-copy-before-replacement",
+        "passed": true,
+        "evidence": {
+          "generated": true,
+          "requested": true,
+          "verified": true,
+          "beforeVerification": "VerifiedBackupRequiredError",
+          "restored": true
+        }
+      },
+      {
+        "id": "physical-migration-preserves-core-and-aborts-future-logical-schema",
+        "passed": true,
+        "evidence": {
+          "migrated": {
+            "rejected": null,
+            "physicalVersion": 2,
+            "stores": 32,
+            "preserved": "conservar ñ"
+          },
+          "future": {
+            "rejected": "VersionError",
+            "physicalVersion": 1,
+            "stores": 3,
+            "preserved": "conservar ñ"
+          }
+        }
+      }
+    ],
+    "passed": true,
+    "completedAt": "2026-10-15T17:59:36.892Z"
+  },
+  "completedAt": "2026-10-15T17:59:47.417740+00:00",
+  "status": "passed"
+}

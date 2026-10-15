@@ -1,24 +1,20 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; connect-src 'none'">
-  <title>Rescue Manager · En desarrollo</title>
-  <link rel="stylesheet" href="tests/viability/probe.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Rescue Manager</title><link rel="stylesheet" href="css/app.css">
+  <script src="js/namespace.js" defer></script><script src="js/config.js" defer></script>
+  <script src="vendor/js-sha256/sha256.min.js" defer></script><script src="vendor/papaparse/papaparse.min.js" defer></script>
+  <script src="locales/en.js" defer></script><script src="locales/es.js" defer></script><script src="js/core/i18n.js" defer></script><script src="js/core/errors.js" defer></script>
+  <script src="js/utils/ids.js" defer></script><script src="js/utils/dates.js" defer></script><script src="js/utils/quantities.js" defer></script><script src="js/utils/money.js" defer></script><script src="js/utils/strings.js" defer></script><script src="js/utils/canonical-json.js" defer></script><script src="js/utils/integrity.js" defer></script><script src="js/utils/files.js" defer></script><script src="js/utils/images.js" defer></script>
+  <script src="js/domain/enums.js" defer></script><script src="js/domain/schemas.js" defer></script><script src="js/domain/validators.js" defer></script><script src="js/domain/dataset-validator.js" defer></script>
+  <script src="js/storage/schema.js" defer></script><script src="js/storage/database.js" defer></script><script src="js/storage/transactions.js" defer></script><script src="js/storage/write-coordinator.js" defer></script><script src="js/storage/repositories.js" defer></script><script src="js/storage/dataset-manager.js" defer></script>
+  <script src="js/services/backup-codec.js" defer></script><script src="js/services/context.js" defer></script><script src="js/services/catalogs.js" defer></script><script src="js/services/settings.js" defer></script><script src="js/services/backup.js" defer></script>
+  <script src="js/components/ui.js" defer></script><script src="js/bootstrap.js" defer></script>
 </head>
 <body>
-  <main class="welcome">
-    <p class="eyebrow">RESCUE MANAGER / DESARROLLO</p>
-    <h1>Primero, proteger los datos.</h1>
-    <p class="lead">Estamos comprobando que la aplicación pueda funcionar abriendo este archivo, sin Internet y sin servidor.</p>
-    <section class="card">
-      <h2>Fase 0 · Viabilidad</h2>
-      <p>Esta entrega contiene un diagnóstico técnico. Todavía no permite gestionar una protectora ni guardar datos reales.</p>
-      <a class="button" href="tests/viability/index.html">Abrir comprobación local</a>
-      <p>El diagnóstico utiliza una base independiente y solo datos sintéticos.</p>
-    </section>
-    <p>El estado y los resultados se conservan en <a href="docs/PROJECT_STATUS.md">PROJECT_STATUS.md</a> y <a href="docs/COMPATIBILITY.md">COMPATIBILITY.md</a>.</p>
-  </main>
+  <div id="app"></div><noscript>Enable JavaScript to use this offline application. / Activa JavaScript para utilizar esta aplicación sin conexión.</noscript>
 </body>
 </html>
