@@ -91,6 +91,10 @@ necesarias en lugar de declarar que un JSON antiguo prueba archivos distintos.
 
 ## Siguiente trabajo cuando el usuario pida reanudar
 
+**Primero:** servicio de documentos incorporados/externos y fotografías
+(`js/services/documents.js`), por decisión del usuario del 2026-10-16. Firefox
+queda pendiente y no se descarga su instalador sin nueva indicación.
+
 Los hallazgos R1–R4 de `REVIEW_HANDOFF.md` ya están resueltos y el servicio de
 contactos con fusión atómica existe (`CONTACTS_API.md`). Siguiente: completar
 aceptación de protección/recuperación (recuperación visible, cuota, cierre

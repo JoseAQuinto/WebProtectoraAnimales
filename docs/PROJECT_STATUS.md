@@ -141,8 +141,11 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
 
 1. Leer AGENTS.md, este estado y REQUIREMENTS.es.md completos; comprobar cupo
    de 5 horas y semanal.
-2. Si hay Firefox estable disponible, repetir negocio/lifecycle/UI con el código
-   actual (comandos en ENVIRONMENT_TESTS.md). No repetir Chrome/Edge sin cambios.
+2. **Decisión del usuario (2026-10-16):** Firefox queda pendiente por ahora (no
+   descargar su instalador sin nueva indicación). La próxima sesión empieza por
+   el servicio de documentos y fotografías (punto 4). Cuando haya Firefox estable
+   disponible, repetir negocio/lifecycle/UI con el código actual (comandos en
+   ENVIRONMENT_TESTS.md). No repetir Chrome/Edge sin cambios.
 3. Completar fase 3 y la protección/recuperación antes de habilitar información
    real: recuperación visible de conjuntos retirados, cuota agotada y cierre
    forzado durante preparación.
