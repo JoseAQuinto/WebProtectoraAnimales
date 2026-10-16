@@ -91,11 +91,11 @@ necesarias en lugar de declarar que un JSON antiguo prueba archivos distintos.
 
 ## Siguiente trabajo cuando el usuario pida reanudar
 
-Los hallazgos R1–R4 de `REVIEW_HANDOFF.md` ya están resueltos. Siguiente:
-completar aceptación de protección/recuperación (recuperación visible, cuota,
-cierre forzado) y continuar fase 3 y fase 4: servicio de contactos con
-duplicados y fusión atómica, voluntariado/horas, documentos e interfaz de
-animales. Reutilizar `context.execute` y los servicios existentes, sin duplicar
+Los hallazgos R1–R4 de `REVIEW_HANDOFF.md` ya están resueltos y el servicio de
+contactos con fusión atómica existe (`CONTACTS_API.md`). Siguiente: completar
+aceptación de protección/recuperación (recuperación visible, cuota, cierre
+forzado) y continuar fase 4: perfiles de acogida/voluntariado, horas,
+documentos/fotografías e interfaz de agenda y animales. Reutilizar `context.execute` y los servicios existentes, sin duplicar
 reglas. Recorridos negocio/lifecycle/UI en Firefox pendientes con el código
 actual. Seguir después fases 5–12, manteniendo copias y validadores.
 

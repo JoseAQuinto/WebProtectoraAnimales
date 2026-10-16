@@ -126,6 +126,26 @@
       });
       return { ...result.result, byteLength: blob.size, sha256 };
     });
+    await test('duplicate-contact-is-detected-and-merged-atomically-keeping-money-history', async () => {
+      const candidate = { name: 'Persona ficticia (duplicada)', roles: ['adopter'], email: 'FIXTURE@example.invalid' };
+      let blocked = null;
+      try { await v.contacts.create(candidate); } catch (error) { blocked = error.name; }
+      const keepId = (await v.contacts.create(candidate, { confirmDuplicates: true })).result.id;
+      const before = await integration.snapshot(); let unconfirmed = null;
+      try { await v.contacts.merge({ keepId, mergeId: contactId, resolution: { name: 'keep' }, confirmed: false }); } catch (error) { unconfirmed = error.name; }
+      assert(blocked === 'PossibleDuplicateError' && unconfirmed === 'ConfirmationRequiredError' && before.digest === (await integration.snapshot()).digest, 'Duplicate or unconfirmed merge was not stopped');
+      // The emails differ only in case: still a textual difference that must be resolved explicitly.
+      const command = { operationId: id() }, input = { keepId, mergeId: contactId, resolution: { name: 'keep', email: 'merge' }, confirmed: true };
+      const merged = await v.contacts.merge(input, command), replay = await v.contacts.merge(input, command);
+      const data = (await v.context.snapshot()).tables, keep = data.contacts.find(row => row.id === keepId);
+      assert(replay.duplicate && merged.result.reassigned === 5, 'Merge was not idempotent or missed relations');
+      assert(data.contacts.find(row => row.id === contactId).mergedIntoContactId === keepId && ['foster', 'donor', 'veterinarian', 'supplier'].every(role => keep.roles.includes(role)), 'Roles or merge marker missing');
+      assert(data.fosterProfiles[0].contactId === keepId && data.adoptionApplications[0].contactId === keepId && data.adoptions[0].adopterContactId === keepId &&
+        data.inventoryItems[0].supplierContactId === keepId && data.veterinaryRecords[0].veterinarianContactId === keepId, 'Operational relations were not reassigned');
+      assert(data.donations.every(row => row.donorContactId === contactId) && data.financialMovements.filter(row => row.contactId).every(row => row.contactId === contactId), 'Money history was rewritten');
+      assert(v.contacts.resolve(data, contactId).id === keepId && root.domain.validateDataset(data, { datasetId: (await v.context.snapshot()).datasetId, today }).length === 0, 'Merged dataset is not coherent');
+      return { keepId, mergedId: contactId, reassigned: merged.result.reassigned, blocked, unconfirmed, duplicate: replay.duplicate };
+    });
     await test('full-service-dataset-backup-verifies-roundtrip-and-all-business-totals', async () => {
       const before = await v.context.snapshot(), encoded = await v.backup.create(), decoded = await v.backup.verify(encoded.blob);
       assert(await s.datasetManager.digest(before) === await s.datasetManager.digest(decoded), 'Full service backup changed records, references or blobs');

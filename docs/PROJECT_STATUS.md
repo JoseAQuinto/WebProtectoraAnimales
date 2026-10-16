@@ -45,6 +45,10 @@ petición expresa. El 2026-10-15 se detuvo al observar 4 % restante.
   adopciones y devoluciones; cierres coordinados de relaciones, historial y tareas.
 - Servicios de finanzas, donaciones monetarias/materiales, inventario,
   correcciones/anulaciones/compensaciones; salud, planes y tareas clínicas.
+- Servicio central de contactos (fase 4, sin interfaz): normalización,
+  duplicados por email/teléfono con confirmación, archivo, papelera sin
+  relaciones, búsqueda y fusión atómica con reasignación y historia económica
+  conservada. Ver CONTACTS_API.md.
 - Primera interfaz EN/ES: creación de organización de prueba, configuración,
   resumen básico calculado, generar/verificar/restaurar copia y ayuda local.
   Las pantallas de gestión de animales/personas/recursos aún no están conectadas.
@@ -94,6 +98,8 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
   Edge 155.0.4283.45 por file://: negocio 12+6, lifecycle 11+6 y UI 11, con
   huellas de fuentes vigentes. Lifecycle y UI en Edge dejan de estar pendientes.
   Detalle y enlaces en ENVIRONMENT_TESTS.md; política en REVIEW_HANDOFF.md.
+- Contactos: 335 estáticas y **99 subpruebas** Node correctas; lifecycle real
+  con fusión 12 internas + 6 externas en Chrome y en Edge.
 
 ## Límites, defectos y aceptación pendiente
 
@@ -131,11 +137,13 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
 3. Completar fase 3 y la protección/recuperación antes de habilitar información
    real: recuperación visible de conjuntos retirados, cuota agotada y cierre
    forzado durante preparación.
-4. Implementar el servicio central de contactos (`js/services/contacts.js`:
-   alta/edición con normalización, roles, detección de duplicados por email,
-   teléfono y nombre, fusión atómica con reasignación de todas las referencias
-   y `mergedIntoContactId`), después voluntariado/horas y documentos/imágenes;
-   conectar pantallas de fase 4 reutilizando context.execute.
+4. Servicio de contactos hecho (CONTACTS_API.md). Siguiente en fase 4:
+   servicio de perfiles de acogida y voluntariado ligados al contacto (alta,
+   edición, capacidad/especies/tamaños, estado), horas de voluntariado con
+   totales por periodo, documentos incorporados/externos y fotografías usando
+   `utils/files.js` e `utils/images.js`; después pantallas de agenda (lista,
+   ficha, selector "elegir existente antes de crear", comparación y fusión) y
+   de animales, cargando los servicios en `index.html` solo con su interfaz.
 5. Conectar y verificar en navegador los servicios de ciclo animal, salud/tareas
    y recursos ya implementados. APIs en DOMAIN/LIFECYCLE/RESOURCES/HEALTH_API.md.
 6. Continuar fases 5 a 12 sin omitir módulos ni reducir criterios de aceptación.

@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Servicio central de contactos — 2026-10-16 (0.2.0-dev)
+
+- `js/services/contacts.js`: alta/edición con normalización, bloqueo de
+  duplicados por email/teléfono con confirmación explícita, archivo, papelera
+  solo sin relaciones, búsqueda sin acentos y fusión atómica con resolución de
+  campos, unión de roles/teléfonos, reasignación de relaciones operativas e
+  historia económica conservada. Contrato en `docs/CONTACTS_API.md`.
+- 4 pruebas Node nuevas (99 en total) y paso de fusión en el recorrido real
+  lifecycle, correcto en Chrome y Edge. Interfaz de agenda aún pendiente.
+
 ## Correcciones de revisión R1–R4 — 2026-10-16 (0.2.0-dev)
 
 - R1: las tareas con origen conservan el animal del origen y no preceden al

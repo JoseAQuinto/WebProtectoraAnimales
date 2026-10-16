@@ -200,6 +200,13 @@ node tests/e2e/suite.cjs --browser chrome --page tests/integration/business.html
 node tests/e2e/ui.cjs --browser edge --machine NUEVO-PC --output ui-FECHA-edge.json
 ```
 
+Servicio de contactos (mismo día y equipo): el recorrido lifecycle añade
+duplicado bloqueado, fusión sin confirmar rechazada con digest intacto y fusión
+real con 5 reasignaciones e historia económica conservada.
+[Chrome 12 internas + 6 externas](../tests/results/lifecycle-2026-10-16-windows-wip-chrome-contacts.json),
+[Edge 12 internas + 6 externas](../tests/results/lifecycle-2026-10-16-windows-wip-edge-contacts.json).
+`suite.cjs` guarda ahora el informe interno también cuando falla una comprobación.
+
 Pendiente: los tres recorridos en Firefox (no instalado en este PC; requiere
 descargar el instalador oficial), dispositivos reales y aceptación completa.
 Un recorrido correcto no verifica todos los módulos del producto.

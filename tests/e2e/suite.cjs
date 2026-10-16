@@ -66,6 +66,7 @@ async function check(id, work) {
     await check('suite-passes-offline-from-local-file', async () => {
       const evidence = await first.page.evaluate(() => ({ protocol: location.protocol, online: navigator.onLine,
         config: window.RescueManager.config, report: window.RescueManager.integration.report }));
+      result.suiteReport = evidence.report; // kept even when an internal check fails, for diagnosis
       assert(evidence.protocol === 'file:' && evidence.online === false, 'Not offline file://');
       assert(evidence.config.dbName.startsWith('animal-rescue-manager-test-'), 'Suite is not using a dedicated test database');
       assert(evidence.report?.passed && evidence.report.checks?.length > 0 && evidence.report.checks.every(check => check.passed), 'Integration suite reported a failure');
