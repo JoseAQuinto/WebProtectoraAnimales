@@ -1,5 +1,21 @@
 # Historial de cambios
 
+## Interfaz de gestión, documentos y recuperación — 2026-10-16 (0.2.0-dev)
+
+- Documentos incorporados/externos, vínculos, descargas verificadas y comparación
+  SHA-256; fotografías/miniaturas/logotipo y pesos, con presupuesto de 64 MiB.
+- Agenda y ficha de contactos, duplicados/fusión, perfiles de acogida y
+  voluntariado/horas; ficha animal, alta/reentrada, edición, pesos/fotos,
+  traslados/disponibilidad y salidas con tareas decididas explícitamente.
+- Archivo/papelera/restauración animal protegen el cuidado y las tareas actuales.
+- Recuperación visible de conjuntos anteriores, staging interrumpido informativo,
+  cancelación y revisión capturada al revisar una copia de restauración.
+- Pruebas IndexedDB de perfiles, medios, rollback inyectado y cierres reales;
+  nuevo ejecutor de formularios/archivos/descargas por file://. Fallos de entorno
+  y herramienta conservados y separados de la aceptación. Detalles en estado.
+- 115 subpruebas Node y 541 estáticas correctas. Relevo actualizado para otro
+  equipo; umbral vigente: menos del 10 % restante de la ventana de cinco horas.
+
 ## Perfiles de acogida, voluntariado y horas — 2026-10-16 (0.2.0-dev)
 
 - `fosters.createProfile/updateProfile/occupancy`: un perfil por contacto, rol

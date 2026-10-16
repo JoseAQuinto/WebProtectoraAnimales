@@ -9,7 +9,8 @@ const base = ['namespace', 'utils/ids', 'utils/dates', 'utils/strings', 'utils/c
   'domain/schemas', 'domain/validators', 'domain/dataset-validator'];
 function harness({ datasetId, today, services, catalogKinds }) {
   const now = today + 'T12:00:00.000Z';
-  const sandbox = vm.createContext({ window: { crypto: webcrypto }, Intl, Date, Blob, Uint8Array });
+  const sandbox = vm.createContext({ window: { crypto: webcrypto }, Intl, Date, Blob, Uint8Array,
+    TextDecoder, TextEncoder, ArrayBuffer, DataView });
   function load(file) { const name = path.resolve(__dirname, '../../../js/' + file + '.js'); vm.runInContext(fs.readFileSync(name, 'utf8'), sandbox, { filename: name }); }
   base.forEach(load);
   const root = sandbox.window.RescueManager, d = root.domain, id = () => root.utils.ids.uuidV4();
@@ -21,7 +22,9 @@ function harness({ datasetId, today, services, catalogKinds }) {
   for (const kind of catalogKinds) catalog[kind] = seed('catalogOptions', { kind, code: kind + '_example', customLabel: kind });
   const location = seed('locations', { name: 'Refugio' });
   const fail = (name, message) => { const error = new Error(message); error.name = name; throw error; };
-  root.services.context = { async execute(type, intent, build, command = {}) {
+  root.services.context = {
+    async snapshot() { return { datasetId, globalRevision: revision, tables: structuredClone(tables) }; },
+    async execute(type, intent, build, command = {}) {
     const operationId = command.operationId || id(), fingerprint = root.utils.canonicalJson.stringify({ type, intent });
     if (replay.has(operationId)) {
       const previous = replay.get(operationId); if (previous.fingerprint !== fingerprint) fail('IdempotencyConflictError', 'Intent changed');
@@ -49,7 +52,7 @@ function harness({ datasetId, today, services, catalogKinds }) {
     const result = { operationId, activeRevision: revision, duplicate: false, result: prepared.result }; replay.set(operationId, { fingerprint, result }); return result;
   } };
   services.forEach(file => load('services/' + file));
-  return { root, id, seed, catalog, location, get tables() { return tables; }, get revision() { return revision; },
+  return { root, id, seed, load, catalog, location, get tables() { return tables; }, get revision() { return revision; },
     row(table, rowId) { return tables[table].find(value => value.id === rowId); }, state() { return JSON.stringify(tables); } };
 }
 module.exports = { harness };

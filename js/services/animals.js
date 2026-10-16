@@ -158,8 +158,23 @@
       return { changes, result: { animalId: animal.id, episodeId: episode ? episode.id : null } };
     }, command);
   }
+  function disposition(id, mode, command) {
+    return context.execute('animal.' + mode, { id }, (data, h) => {
+      const previous = h.find('animals', id);
+      if (mode !== 'restore' && (previous.managementStatus === 'under_care' ||
+          data.tasks.some(task => task.animalId === id && !task.deletedAt && ['pending','in_progress'].includes(task.status)))) {
+        fail(h, 'Resolve current care and pending tasks before archiving or moving the animal to trash');
+      }
+      if (mode !== 'restore' && previous.deletedAt) fail(h, 'The animal is already in trash');
+      const patch = mode === 'restore' ? { archivedAt: null, deletedAt: null } : mode === 'archive' ? { archivedAt: h.now } : { deletedAt: h.now };
+      const updated = h.edit('animals', previous, patch), changes = [h.replace('animals', updated)];
+      log(h, changes, mode, id, previous.code);
+      return { changes, result: { animalId: id } };
+    }, command);
+  }
   root.services.lifecycle = Object.freeze({ fail, date, reason, active, underCare, option, destination, availability, event, log,
     openEpisode, closeFoster, decideTasks, closeApplications, closeReservations });
   root.services.animals = Object.freeze({ registerEntry, update, changeLocation, setAvailability,
+    archive: (id, command) => disposition(id, 'archive', command), trash: (id, command) => disposition(id, 'trash', command), restore: (id, command) => disposition(id, 'restore', command),
     recordDeath: (input, command) => departure(input, command, true), recordExit: (input, command) => departure(input, command, false) });
 }(window.RescueManager));

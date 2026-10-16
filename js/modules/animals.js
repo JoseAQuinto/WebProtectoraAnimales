@@ -1,0 +1,95 @@
+(function (root) {
+  'use strict';
+  const ui=root.components.ui,el=ui.el,t=(...args)=>root.core.i18n.t(...args),pageSize=20;
+  const view={search:'',species:'',status:'',location:'',mode:'active',sort:'name',page:1};
+  let urls=[],generation=0,searchTimer=null;
+  function dispose(){generation++;clearTimeout(searchTimer);urls.forEach(url=>URL.revokeObjectURL(url));urls=[];}
+  const cat=(tables,id)=>{const row=tables.catalogOptions.find(item=>item.id===id);return row?root.services.catalogs.label(row):t('ui.unknown');};
+  const field=(key,value)=>el('div',{},el('dt',{},t(key)),el('dd',{class:'preserve-lines'},value||t('ui.unknown')));
+  const table=(keys,rows)=>rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},keys.map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows.map(values=>el('tr',{},values.map(value=>el('td',{},value??t('ui.unknown')))))))):el('p',{class:'muted'},t('a.emptySection'));
+  function image(tables,assetId,alt,large=false){
+    const img=el('img',{alt,class:large?'animal-photo':'animal-thumbnail',loading:'lazy'}),token=generation;
+    const row=tables.assets.find(item=>item.id===assetId);
+    if(!row)return el('span',{class:'no-photo','aria-label':t('a.noPhoto')},'◇');
+    root.services.assetFiles.validateAsset(row).then(file=>{if(token!==generation)return;const url=URL.createObjectURL(file.blob);urls.push(url);img.src=url;}).catch(()=>{img.replaceWith(el('span',{class:'muted'},t('a.photoError')));});
+    return img;
+  }
+  function render(ctx){
+    const tables=ctx.snapshot.tables,forms=root.modules.animalForms;
+    const civilToday=root.utils.dates.today(tables.organizationSettings[0].timeZone);
+    const date=value=>{if(!value)return null;const format=tables.organizationSettings[0].dateFormat;return format==='day_first'?value.slice(8)+'/'+value.slice(5,7)+'/'+value.slice(0,4):format==='month_first'?value.slice(5,7)+'/'+value.slice(8)+'/'+value.slice(0,4):value;};
+    const grams=value=>new Intl.NumberFormat(root.core.i18n.language,{style:'unit',unit:'gram',unitDisplay:'short'}).format(value);
+    const command=()=>({expectedRevision:ctx.snapshot.globalRevision});
+    const action=(key,work,secondary=true)=>{const node=ui.button(t(key),work,secondary);node.disabled=!root.services.context.status().canWrite;return node;};
+    const optionLabel=id=>cat(tables,id);
+    function photo(animal){ui.form(t('a.setPhoto'),[{key:'file',labelKey:'a.photo',type:'file',required:true,accept:'.png,.jpg,.jpeg,.webp',help:'a.photoHelp'}],{},async({file},cmd)=>{await root.services.photos.set(animal.id,file,cmd);ctx.notify(t('ui.saved'));await ctx.refresh();},command());}
+    function location(animal){
+      const shelters=tables.locations.filter(row=>!row.deletedAt&&!row.archivedAt&&row.active);
+      const episode=tables.stayEpisodes.find(row=>row.animalId===animal.id&&!row.exitDate),openFoster=tables.fosterStays.some(row=>row.animalId===animal.id&&!row.endDate);
+      const dialog=ui.form(t('a.changeLocation'),[{key:'date',labelKey:'a.date',type:'date',required:true,min:episode?.entryDate,max:civilToday},{key:'kind',labelKey:'a.location',required:true,options:['shelter','temporary_external'].map(value=>({value,label:t('a.location.'+value)}))},
+        {key:'locationId',labelKey:'a.shelter',options:shelters.map(row=>({value:row.id,label:row.name}))},{key:'description',labelKey:'a.externalLocation',type:'textarea',maxLength:2000},
+        {key:'reason',labelKey:'a.reason',required:true,maxLength:200},{key:'fosterEndReason',labelKey:'a.fosterEndReason',required:openFoster,maxLength:200}],
+      {date:root.utils.dates.today(tables.organizationSettings[0].timeZone),kind:animal.locationKind==='foster'?'shelter':animal.locationKind,locationId:animal.locationId,description:animal.externalLocationDescription},async(input,cmd)=>{
+        await root.services.animals.changeLocation({animalId:animal.id,date:input.date,reason:input.reason,fosterEndReason:input.fosterEndReason,
+          location:input.kind==='shelter'?{kind:'shelter',id:input.locationId}:{kind:'temporary_external',description:input.description}},cmd);ctx.notify(t('ui.saved'));await ctx.refresh();
+      },command());
+      const kind=dialog.querySelector('[name=kind]'),place=dialog.querySelector('[name=locationId]'),external=dialog.querySelector('[name=description]');
+      const paint=()=>{const shelter=kind.value==='shelter';place.required=shelter;place.closest('.field').hidden=!shelter;external.required=!shelter;external.closest('.field').hidden=shelter;};kind.addEventListener('change',paint);paint();
+    }
+    function availability(animal){ui.form(t('a.setAvailability'),[{key:'availability',labelKey:'a.availability',required:true,options:['available','unavailable'].map(value=>({value,label:t('a.availability.'+value)}))}],{availability:animal.adoptionAvailability},async(input,cmd)=>{
+      await root.services.animals.setAvailability({animalId:animal.id,...input},cmd);ctx.notify(t('ui.saved'));await ctx.refresh();},command());}
+    function where(animal){if(animal.locationKind==='shelter')return tables.locations.find(row=>row.id===animal.locationId)?.name||t('ui.unknown');
+      if(animal.locationKind==='temporary_external')return animal.externalLocationDescription;
+      if(animal.locationKind==='foster'){const stay=tables.fosterStays.find(row=>row.animalId===animal.id&&!row.endDate),profile=tables.fosterProfiles.find(row=>row.id===stay?.fosterProfileId);return root.services.contacts.resolve(tables,profile?.contactId)?.name||t('a.location.foster');}return t('ui.unknown');}
+    function details(animal){
+      const active=!animal.archivedAt&&!animal.deletedAt,underCare=animal.managementStatus==='under_care';
+      const latest=root.services.weights.latest(tables,animal.id),actions=el('div',{class:'actions'});
+      if(active){actions.append(action('a.edit',()=>forms.edit(ctx,animal)),action('a.setPhoto',()=>photo(animal)),action('a.addWeight',()=>forms.weight(ctx,animal)));
+        if(underCare)actions.append(action('a.changeLocation',()=>location(animal)),action('a.setAvailability',()=>availability(animal)),action('a.exit',()=>forms.exit(ctx,animal)));
+        if(animal.managementStatus==='other_exit')actions.append(action('a.reenter',()=>forms.entry(ctx,animal)));
+        if(!underCare)actions.append(action('a.archive',()=>forms.disposition(ctx,animal,'archive')),action('a.trash',()=>forms.disposition(ctx,animal,'trash')));
+      }else actions.append(action('a.restore',()=>forms.disposition(ctx,animal,'restore')));
+      if(active&&animal.photoAssetId)actions.append(action('a.removePhoto',()=>{if(confirm(t('a.removePhotoConfirm')))ctx.action(async()=>{await root.services.photos.remove(animal.id,{...command(),operationId:root.utils.ids.uuidV4()});ctx.notify(t('ui.saved'));});}));
+      const tabs=el('div',{class:'tabs','aria-label':t('a.sections')}),body=el('div',{class:'stack'});
+      const sections={
+        info:()=>el('div',{class:'stack'},el('dl',{class:'detail-grid'},field('a.code',animal.code),field('a.species',optionLabel(animal.speciesId)),field('a.breed',animal.breed),field('a.sex',t('a.sex.'+animal.sex)),
+          field('a.birthDate',date(animal.birthDate)),field('a.birthPrecision',t('a.precision.'+animal.birthPrecision)),field('af.estimatedAgeMonths',animal.estimatedAgeMonths===null?null:new Intl.NumberFormat(root.core.i18n.language).format(animal.estimatedAgeMonths)),field('af.estimatedAgeReferenceDate',date(animal.estimatedAgeReferenceDate)),field('a.microchip',animal.microchipOriginal),field('a.size',animal.sizeId?optionLabel(animal.sizeId):null),
+          field('a.color',animal.color),field('a.sterilization',t('a.sterilization.'+animal.sterilizationStatus)),field('a.location',where(animal)),field('a.lastWeight',latest?grams(latest.grams)+' · '+date(latest.date):null)),
+          ...['description','character','behavior','specialNeeds','notes'].filter(key=>animal[key]).map(key=>el('section',{},el('h3',{},t('a.'+key)),el('p',{class:'preserve-lines'},animal[key]))),
+          el('h3',{},t('a.weights')),table(['a.date','a.weight','a.notes','a.actions'],root.services.weights.list(tables,animal.id).map(row=>[date(row.date),grams(row.grams),row.notes,
+            active?action('a.edit',()=>ui.form(t('a.editWeight'),[{key:'date',labelKey:'a.date',type:'date',required:true,max:civilToday},{key:'grams',labelKey:'a.grams',type:'number',numeric:true,required:true,min:1,max:Number.MAX_SAFE_INTEGER,step:1},{key:'notes',labelKey:'a.notes',type:'textarea',keepEmpty:true}],row,async(input,cmd)=>{await root.services.weights.update(row.id,input,cmd);ctx.notify(t('ui.saved'));await ctx.refresh();},command())):null]))),
+        health:()=>el('div',{class:'stack'},table(['a.date','a.title','a.type','a.notes'],tables.veterinaryRecords.filter(row=>row.animalId===animal.id&&!row.deletedAt).sort((a,b)=>b.date.localeCompare(a.date)).map(row=>[row.date,row.title,t('a.vet.'+row.type),row.description])),
+          el('h3',{},t('a.carePlans')),table(['a.title','a.date','a.state','a.notes'],tables.carePlans.filter(row=>row.animalId===animal.id&&!row.deletedAt).map(row=>[row.name,row.startDate,t('a.plan.'+row.status),row.doseInstructions])),
+          el('h3',{},t('a.tasks')),table(['a.title','a.date','a.state'],tables.tasks.filter(row=>row.animalId===animal.id&&!row.deletedAt).map(row=>[row.title,row.dueDate,t('a.task.'+row.status)]))),
+        foster:()=>table(['a.contact','a.start','a.end','a.reason'],tables.fosterStays.filter(row=>row.animalId===animal.id).sort((a,b)=>b.startDate.localeCompare(a.startDate)).map(row=>{const profile=tables.fosterProfiles.find(item=>item.id===row.fosterProfileId),contact=root.services.contacts.resolve(tables,profile?.contactId);return[contact?ui.button(contact.name,()=>root.modules.people.openContact(contact.id,{context:ctx}),true):null,date(row.startDate),date(row.endDate),row.endReason];})),
+        adoption:()=>el('div',{class:'stack'},table(['a.contact','a.date','a.state','a.notes'],tables.adoptionApplications.filter(row=>row.animalId===animal.id).map(row=>{const contact=root.services.contacts.resolve(tables,row.contactId);return[contact?ui.button(contact.name,()=>root.modules.people.openContact(contact.id,{context:ctx}),true):null,date(row.applicationDate),t('a.application.'+row.status),row.notes];})),
+          el('h3',{},t('a.adoptions')),table(['a.contact','a.date','a.return'],tables.adoptions.filter(row=>row.animalId===animal.id).map(row=>[root.services.contacts.resolve(tables,row.adopterContactId)?.name,date(row.adoptionDate),date(row.returnDate)]))),
+        expenses:()=>table(['a.date','a.title','a.amount','a.state'],tables.financialMovements.filter(row=>row.animalId===animal.id).sort((a,b)=>b.date.localeCompare(a.date)).map(row=>[row.date,row.concept,root.utils.money.format(row.amountMinor,row.currencyCode,{locale:root.core.i18n.language}),t('a.finance.'+row.status)])),
+        documents:()=>ctx.documents({entityType:'animal',entityId:animal.id}),
+        history:()=>table(['a.date','a.event','a.reason'],tables.animalEvents.filter(row=>row.animalId===animal.id).sort((a,b)=>b.eventDate.localeCompare(a.eventDate)||b.recordedAt.localeCompare(a.recordedAt)).map(row=>[row.eventDate,t('a.event.'+row.type),row.parameters.reason||'']))
+      };
+      let selected=ctx.route.tab&&sections[ctx.route.tab]?ctx.route.tab:'info';
+      const choose=key=>{selected=key;for(const control of tabs.children)control.setAttribute('aria-pressed',String(control.dataset.tab===key));body.replaceChildren(sections[key]());};
+      for(const key of Object.keys(sections)){const control=ui.button(t('a.tab.'+key),()=>{window.location.hash='animals/'+animal.id+'/'+key;},true);control.dataset.tab=key;tabs.append(control);}choose(selected);
+      return [el('header',{class:'page-heading'},el('div',{},el('a',{href:'#animals'},t('a.back')),el('p',{class:'eyebrow'},animal.code),el('h1',{},animal.name),el('p',{},t('a.status.'+animal.managementStatus)+' · '+t('a.availability.'+animal.adoptionAvailability)))),
+        el('section',{class:'card animal-summary'},image(tables,animal.photoAssetId,animal.name,true),el('div',{class:'stack'},actions,el('p',{class:'muted'},t('a.recordHelp')))),tabs,el('section',{class:'card'},body)];
+    }
+    if(ctx.route.id){const row=tables.animals.find(item=>item.id===ctx.route.id);return row?details(row):[el('h1',{},t('a.notFound')),el('a',{href:'#animals'},t('a.back'))];}
+    const results=el('div');
+    const label=(key,control)=>{const id='animal-filter-'+key;control.id=id;return el('div',{class:'field'},el('label',{for:id},t('a.'+key)),control);};
+    function paint(){dispose();const query=root.utils.strings.normalizeSearch(view.search);
+      const rows=tables.animals.filter(row=>(view.mode==='trash'?!!row.deletedAt:!row.deletedAt&&(view.mode==='all'||!row.archivedAt))&&(!view.species||row.speciesId===view.species)&&(!view.status||row.managementStatus===view.status)&&(!view.location||row.locationKind===view.location)&&
+        (!query||root.utils.strings.normalizeSearch([row.code,row.name,row.microchipOriginal,row.breed,row.notes].join(' ')).includes(query))).sort((a,b)=>String(a[view.sort]||'').localeCompare(String(b[view.sort]||''),root.core.i18n.language));
+      const pages=Math.max(1,Math.ceil(rows.length/pageSize));view.page=Math.min(view.page,pages);
+      const previous=ui.button(t('a.previous'),()=>{view.page--;paint();},true),next=ui.button(t('a.next'),()=>{view.page++;paint();},true);previous.disabled=view.page<=1;next.disabled=view.page>=pages;
+      results.replaceChildren(table(['a.photo','a.code','a.name','a.species','a.state','a.location','a.actions'],rows.slice((view.page-1)*pageSize,view.page*pageSize).map(row=>[
+        image(tables,row.thumbnailAssetId,row.name),row.code,row.name,optionLabel(row.speciesId),t('a.status.'+row.managementStatus),where(row),el('a',{class:'button secondary',href:'#animals/'+row.id},t('a.open'))])),
+        el('div',{class:'actions'},previous,el('span',{},t('a.page',{page:view.page,pages,count:rows.length})),next));
+    }
+    const search=el('input',{type:'search',maxlength:200,value:view.search}),filters=el('div',{class:'people-filters'},label('search',search));search.addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{view.search=search.value;view.page=1;paint();},180);});
+    for(const [key,options]of [['species',tables.catalogOptions.filter(row=>row.kind==='species').map(row=>[row.id,root.services.catalogs.label(row)])],['status',root.domain.enums.managementStatus.map(value=>[value,t('a.status.'+value)])],['location',root.domain.enums.locationKind.map(value=>[value,t('a.location.'+value)])],['mode',['active','all','trash'].map(value=>[value,t('a.'+value)])],['sort',['name','code','createdAt'].map(value=>[value,t('a.'+value)])]]){
+      const select=el('select',{},!['mode','sort'].includes(key)?el('option',{value:''},t('a.all')):null,options.map(([value,text])=>el('option',{value},text)));select.value=view[key];select.addEventListener('change',()=>{view[key]=select.value;view.page=1;paint();});filters.append(label(key,select));}
+    paint();return[el('header',{class:'page-heading'},el('div',{},el('h1',{},t('nav.animals')),el('p',{class:'muted'},t('a.help'))),action('a.new',()=>forms.entry(ctx),false)),el('section',{class:'card stack'},filters,results)];
+  }
+  root.modules.animals=Object.freeze({render,dispose});
+}(window.RescueManager));

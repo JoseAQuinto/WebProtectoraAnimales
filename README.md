@@ -9,9 +9,11 @@ el trabajo desde otro PC, empezar por [CONTINUE_HERE.md](docs/CONTINUE_HERE.md).
 
 El núcleo ya incorpora esquemas, validación relacional, persistencia coordinada,
 copias completas y restauración con conjunto separado. La interfaz permite
-configurar una organización de prueba, generar/verificar/restaurar copias y
-consultar ayuda. **Los módulos de gestión siguen pendientes de interfaz e
-integración completa. Utiliza únicamente datos de prueba.**
+gestionar animales, contactos y duplicados, perfiles de acogida, voluntariado
+y horas, fotografías/pesos y documentos incorporados o externos. Incluye
+copias verificadas y recuperación local visible. **Faltan acciones completas
+de acogidas/adopciones, salud/tareas, recursos y otros módulos. Utiliza solo
+datos de prueba.**
 
 La viabilidad y el núcleo se han probado en Chrome, Edge y Firefox estables.
 El desarrollo queda preparado para relevo; el estado vigente y la siguiente
@@ -39,7 +41,7 @@ y los módulos de gestión siguen pendientes. Utilizar datos sintéticos.
 ## Desarrollo y continuidad
 
 Se conserva cada avance coherente con commits en este repositorio. La instrucción
-vigente del usuario es guardar y subir los avances cuando quede **un 5 % o menos**
+vigente del usuario es guardar y subir los avances cuando quede **menos del 10 %**
 del cupo de 5 horas. Se actualiza `docs/PROJECT_STATUS.md` con pruebas, límites y
 siguiente paso para continuar desde otro PC. No se consume un reinicio de cuota
 sin petición expresa.

@@ -11,11 +11,12 @@ que ya tengan evidencia vigente ni dar por implementados los módulos sin UI.
 
 - Trabajar en este repositorio y hacer commits/push de avances coherentes a
   `https://github.com/JoseAQuinto/WebProtectoraAnimales.git`.
-- Instrucción vigente del usuario el 2026-10-15: comprobar el cupo disponible
-  y, cuando quede un 5 % o menos de la ventana de 5 horas, detener desarrollo
-  y trabajo delegado, guardar avances coherentes, actualizar documentación,
-  hacer commit y push para continuar desde otro equipo. Los antiguos umbrales
-  del 20 % y de agotamiento total quedan revocados.
+- Instrucción vigente del usuario el 2026-10-16: comprobar el cupo disponible
+  y, cuando quede menos del 10 % de la ventana de 5 horas, cerrar el avance
+  de desarrollo y trabajo delegado, actualizar documentación y pruebas,
+  hacer commit y push y preparar el relevo para otra IA en otro equipo.
+  Se pueden guardar checkpoints coherentes antes. Los anteriores umbrales
+  del 20 %, del 5 % y de agotamiento total quedan revocados.
 - Instrucción del usuario el 2026-10-16: comprobar también el cupo **semanal**
   total. Cuando quede **un 3 % o menos** (97 % o más consumido), detener el
   desarrollo, hacer commit y push de los avances coherentes y dejar indicado en

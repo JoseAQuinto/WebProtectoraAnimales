@@ -1,15 +1,12 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint revisado: **2026-10-16**, aplicación **0.2.0-dev**.
+Checkpoint: **2026-10-16**, aplicación **0.2.0-dev**.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 
-El commit del usuario `4c5554c` conserva el avance previo; el relevo del
-2026-10-16 añadió revisión y evidencia, y después se corrigieron los defectos
-R1–R4 (ver `REVIEW_HANDOFF.md`). El producto sigue incompleto.
-Todo lo necesario para continuar está en Git; no hace falta este chat.
-
-**Reglas de cupo:** parar, documentar, commit y push con 5 % o menos de la
-ventana de 5 horas o con 3 % o menos del cupo semanal total.
+El desarrollo continúa desde `c44831b`, obtenido del remoto antes de editar.
+Se han añadido servicios de medios/documentos/pesos, interfaz de animales y
+personas y recuperación visible. El producto sigue incompleto. El estado y
+las decisiones necesarios para continuar están en Git; este chat no es necesario.
 
 ## Primeros pasos
 
@@ -19,35 +16,41 @@ cd WebProtectoraAnimales
 git status
 ```
 
-Si ya existe un checkout limpio, utilizar `git pull --ff-only`. Si hay cambios
-locales, revisarlos antes de actualizar; no resetear ni sobrescribir trabajo.
+Checkout existente limpio: `git pull --ff-only`. Si hay cambios locales,
+revisarlos y conservarlos; no resetear ni sobrescribir trabajo ajeno.
 
-Leer en este orden:
+Leer en orden:
 
-1. `AGENTS.md`: restricciones y reglas de cupo (5 h: 5 % o menos; semanal: 3 % o menos).
-2. `docs/PROJECT_STATUS.md`: estado real, pruebas, pendientes y siguiente paso.
-3. `docs/REQUIREMENTS.es.md` completo: prompt original, sin recortes.
-4. `docs/REVIEW_HANDOFF.md`: hallazgos y riesgos que atender antes de datos reales.
-5. `docs/ENVIRONMENT_TESTS.md`: evidencia ejecutada y comandos de navegador.
-6. Arquitectura/modelo/reglas y APIs del área que se vaya a modificar.
+1. `AGENTS.md`: restricciones. Guardar/documentar/commit/push con **menos del
+   10 % restante de 5 horas**; se conserva el límite semanal del 3 % restante.
+   No consumir un reinicio de cuota sin petición expresa.
+2. `docs/PROJECT_STATUS.md`: funciones actuales, pruebas, límites y próximos pasos.
+3. `docs/REQUIREMENTS.es.md` completo: prompt original sin recortes.
+4. `docs/REVIEW_HANDOFF.md`: R1–R4 corregidos y riesgos conservados.
+5. `docs/ENVIRONMENT_TESTS.md`, `docs/RECOVERY_EVIDENCE.md` y últimos JSON de QA.
+6. APIs del área: DOCUMENTS, CONTACTS, LIFECYCLE, VOLUNTEERS, HEALTH, RESOURCES.
 
 ## Qué puede abrirse ahora
 
-Abrir `index.html` directamente por `file://`. Se puede crear una organización
-**de prueba**, ver un resumen básico, editar configuración, generar y verificar
-copias, restaurarlas y consultar ayuda EN/ES. La interfaz no ofrece aún gestión
-de animales, contactos, salud, adopciones ni recursos. Sus servicios existentes
-están en `js/services/` y tienen contratos en los documentos `*_API.md`.
+Abrir `index.html` directamente por **file://**. Crear una organización de
+prueba o restaurar una copia. Hay resumen/configuración/ayuda/copias; agenda
+con duplicados y fusión; perfiles de acogida y voluntariado/horas; animales
+con ficha, altas, pesos, fotografías, traslados y salidas; documentos incorporados
+/externos y vínculos; recuperación de conjuntos retirados.
 
-No cambiar a servidor, framework, CDN, módulos ES o LocalStorage para salvar
-una dificultad. No añadir módulos vacíos, éxitos simulados ni datos ficticios
-permanentes. La aplicación no transmite datos ni necesita herramientas instaladas.
+Las secciones sanitarias, acogidas, adopción y movimientos de la ficha muestran
+registros reales, pero aún faltan sus acciones completas. El próximo bloque
+concreto es asignar/finalizar acogidas y solicitudes/reservas/adopciones/
+devoluciones usando servicios existentes. Después salud/tareas/calendario y
+recursos/finanzas. Consultar PROJECT_STATUS para el resto del alcance.
 
-## Verificaciones rápidas de desarrollo
+No cambiar a servidor/framework/CDN/módulos ES/LocalStorage. Sin botones de
+éxito simulado ni datos ficticios permanentes. **Usar solo datos sintéticos.**
+Las escrituras pasan por servicios/contexto, nunca IndexedDB desde módulos UI.
+Documentos precede a fotografías en el orden de scripts. Traducciones solo en
+locales/en.js y locales/es.js; ya no hay fragmentos suplementarios.
 
-Herramientas utilizadas en la revisión: Node **22.16.0**, Playwright **1.62.1**;
-Firefox se controla con Python y su biblioteca estándar. Son herramientas del
-desarrollador y no forman parte de la aplicación ni del futuro ZIP comercial.
+## Comprobaciones
 
 ```powershell
 node tests/static-checks.cjs
@@ -55,63 +58,37 @@ node --test --test-reporter=dot tests/unit/*.cjs
 git diff --check
 ```
 
-Resultado tras R1–R4: **330 comprobaciones estáticas y 95 subpruebas Node
-correctas**. Las pruebas de servicios con contexto simulado no equivalen a
-IndexedDB real. Los recorridos reales negocio, lifecycle y UI pasaron en Chrome
-y Edge con el código actual; Firefox queda pendiente.
+Última ronda conjunta: **115 subpruebas Node correctas**, estática **541**.
+Pruebas reales adicionales: perfiles 9+6 y medios 10+6 en Chrome/Edge.
+Recuperación/cierres y pantallas: ver resultados finales y detalles en
+RECOVERY_EVIDENCE/PROJECT_STATUS/ENVIRONMENT_TESTS. Las primeras rondas fallidas
+por entorno o ejecutor se conservan sin contarlas como aceptación.
 
-No reescribir archivos de texto con `Get-Content`/`Set-Content` de Windows
-PowerShell 5.1: lee ANSI y añade BOM, corrompiendo `—`, `…`, `ñ`, etc. Editar
-con herramientas que conserven UTF-8 sin BOM y revisar `git diff`.
-
-Para preparar Playwright cuando este PC no tenga el runtime de Codex, una
-instalación de desarrollo aislada, con la versión que se ha probado:
+Ejecutores portables:
 
 ```powershell
-npm install --prefix .tools --no-audit --no-fund --save-exact playwright@1.62.1
-$env:PLAYWRIGHT_PATH = Join-Path (Get-Location).Path '.tools\node_modules\playwright'
+node tests/e2e/suite.cjs --browser chrome --page tests/integration/media.html --output media-NUEVA-RONDA.json
+node tests/e2e/suite.cjs --browser chrome --page tests/integration/profiles.html --output profiles-NUEVA-RONDA.json
+node tests/e2e/workspace-ui.cjs --browser chrome --machine MI-EQUIPO --output workspace-ui-NUEVA-RONDA.json
 ```
 
-Los ejecutores Chrome/Edge usan navegadores estables instalados, perfiles nuevos
-y `file://`, sin bajar protecciones. Configurar `RM_CHROME_BINARY` o
-`RM_EDGE_BINARY` si las rutas por defecto no existen. Firefox admite `--firefox`.
-No confundir Developer Edition con estable. `.tools`, `.tmp`, perfiles y
-dependencias están ignorados: deben recrearse en cada equipo.
+Para Edge u otras rutas usar `--executable` según ENVIRONMENT_TESTS. Las rutas
+privadas son opciones de desarrollo, no dependencias de la aplicación.
+Firefox actual queda pendiente por decisión previa: no descargar instalador
+sin nueva indicación. Las ventanas estrechas no acreditan dispositivos reales.
 
-```powershell
-node tests/e2e/suite.cjs --browser chrome --page tests/integration/business.html --machine NUEVO-PC --output business-NUEVA-FECHA-chrome.json
-node tests/e2e/suite.cjs --browser chrome --page tests/integration/lifecycle.html --machine NUEVO-PC --output lifecycle-NUEVA-FECHA-chrome.json
-node tests/e2e/ui.cjs --machine NUEVO-PC --output ui-NUEVA-FECHA-chrome.json
-```
+Node/Python/Playwright y perfiles de QA no se distribuyen. `.tmp`, `.tools` y
+node_modules se ignoran. No reescribir texto con Get-Content/Set-Content de
+Windows PowerShell 5.1; conservar UTF-8 sin BOM.
 
-Conservar el resultado anterior: elegir nuevos nombres y registrar versiones.
-Los hashes de evidencia corresponden a bytes concretos; una conversión de fin
-de línea al clonar también puede cambiarlos. En otro PC ejecutar las pruebas
-necesarias en lugar de declarar que un JSON antiguo prueba archivos distintos.
+## Guardar el siguiente relevo
 
-## Siguiente trabajo cuando el usuario pida reanudar
+Cerrar solo navegadores/perfiles de prueba propios, actualizar estado/pruebas/
+pendientes y CHANGELOG, revisar diff/secretos/archivos temporales, commit y push
+sin force y verificar remoto y árbol limpio. No afirmar que una prueba pasó
+si solo se preparó o si falló el cierre del ejecutor.
 
-**Primero:** servicio de documentos incorporados/externos y fotografías
-(`js/services/documents.js`), por decisión del usuario del 2026-10-16. Firefox
-queda pendiente y no se descarga su instalador sin nueva indicación.
-
-Los hallazgos R1–R4 de `REVIEW_HANDOFF.md` ya están resueltos y el servicio de
-contactos con fusión atómica existe (`CONTACTS_API.md`). Siguiente: completar
-aceptación de protección/recuperación (recuperación visible, cuota, cierre
-forzado) y continuar fase 4: perfiles de acogida/voluntariado y horas ya
-tienen servicio (falta su recorrido IndexedDB); siguen documentos/fotografías,
-pesos e interfaz de agenda y animales. El arnés de servicios para pruebas Node
-está en `tests/unit/support/service-harness.cjs`. Reutilizar `context.execute` y los servicios existentes, sin duplicar
-reglas. Recorridos negocio/lifecycle/UI en Firefox pendientes con el código
-actual. Seguir después fases 5–12, manteniendo copias y validadores.
-
-## Qué no se traslada con Git
-
-Los registros de una organización y sus Blob viven en el perfil del navegador.
-Clonar Git o copiar HTML no los traslada. Para moverlos se necesita un backup
-externo generado, descargado, reseleccionado y verificado, y su restauración.
-Este repositorio solo conserva código, fixtures sintéticos, decisiones y pruebas.
-
-Antes de detener trabajo futuro: actualizar PROJECT_STATUS/CHANGELOG, registrar
-fallos y siguiente acción concreta, ejecutar comprobaciones pertinentes y hacer
-commit/push. Comprobar que HEAD está publicado y el árbol queda limpio.
+Git lleva código y documentación. **Los datos del navegador no viajan con Git**:
+trasladarlos exige descargar, volver a seleccionar/verificar y conservar una
+copia externa y restaurarla en el otro equipo. Los archivos externos deben
+trasladarse por separado. No publicar en Etsy; licencia comercial pendiente.

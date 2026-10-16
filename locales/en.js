@@ -19,6 +19,13 @@
     'records.count': { one: '{count} record', other: '{count} records' }
   });
 }());
+(function(root){
+  'use strict';
+  const labels={back:'Back to animals',help:'Animals, their care and their full history in one place.',new:'Register an animal',edit:'Edit record',open:'Open',notFound:'This animal is not available.',emptySection:'No records to show.',photo:'Photo',noPhoto:'No photo',photoError:'The photo could not be verified.',setPhoto:'Add or replace photo',photoHelp:'JPEG, PNG or WebP. Up to 15 MiB and 40 megapixels. A resized photo and thumbnail will be stored.',removePhoto:'Remove photo',removePhotoConfirm:'Remove the current photo? Its stored files are preserved in the history and backups.',code:'Code',name:'Name',species:'Species',breed:'Breed',sex:'Sex',birthDate:'Birth date',birthPrecision:'Birth date precision',microchip:'Microchip',size:'Size',color:'Colour',sterilization:'Sterilisation',location:'Location',shelter:'Shelter location',externalLocation:'External location description',lastWeight:'Latest weight',weights:'Weight history',weight:'Weight',grams:'Grams',addWeight:'Record weight',editWeight:'Edit weight',date:'Date',title:'Title',type:'Type',state:'Status',status:'Care status',changeLocation:'Move animal',reason:'Reason',fosterEndReason:'Reason for closing the foster stay (if applicable)',availability:'Adoption availability',setAvailability:'Change availability',exit:'Record departure or death',reenter:'Register a new entry',archive:'Archive',trash:'Move to trash',restore:'Restore record',description:'Description',character:'Character',behavior:'Behaviour',specialNeeds:'Special needs',notes:'Notes',actions:'Actions',recordHelp:'Archived and trashed records retain their history. Complete current care and resolve pending tasks before archiving.',sections:'Animal record sections',carePlans:'Care plans',tasks:'Tasks',contact:'Contact',start:'Start',end:'End',adoptions:'Adoptions',return:'Return date',amount:'Amount',event:'Event',search:'Search name, code, microchip or notes',mode:'Record visibility',active:'Current records',all:'All records',sort:'Sort by',createdAt:'Date created',previous:'Previous',next:'Next',page:'Page {page} of {pages} · {count} animals'};
+  const enums={tab:{info:'Information',health:'Health and tasks',foster:'Foster stays',adoption:'Adoption',expenses:'Financial movements',documents:'Documents',history:'History'},status:{under_care:'Under care',adopted:'Adopted',deceased:'Deceased',other_exit:'Other departure'},availability:{available:'Available',unavailable:'Unavailable',reserved:'Reserved'},location:{shelter:'Shelter',foster:'Foster home',temporary_external:'Temporary external location'},sex:{male:'Male',female:'Female',unknown:'Unknown'},precision:{exact:'Exact',estimated:'Estimated',unknown:'Unknown'},sterilization:{yes:'Yes',no:'No',unknown:'Unknown'},plan:{planned:'Planned',active:'Active',completed:'Completed',cancelled:'Cancelled'},task:{pending:'Pending',in_progress:'In progress',completed:'Completed',cancelled:'Cancelled'},application:{pending:'Pending',under_review:'Under review',approved:'Approved',rejected:'Rejected',completed:'Completed',cancelled:'Cancelled'},finance:{posted:'Posted',voided:'Voided'},vet:{vaccination:'Vaccination',deworming:'Deworming',checkup:'Check-up',sterilization:'Sterilisation',surgery:'Surgery',test:'Test',diagnosis:'Diagnosis',disease:'Disease',allergy:'Allergy',medication_administration:'Medication administration',other:'Other'},event:{entry:'Entry',return:'Return',checkup:'Check-up',vaccination:'Vaccination',deworming:'Deworming',treatment:'Treatment',sterilization:'Sterilisation',foster_start:'Foster stay started',foster_end:'Foster stay ended',application:'Adoption application',reservation:'Reservation',adoption:'Adoption',transfer:'Transfer',deceased:'Death',document:'Document'}};
+  const additions=Object.fromEntries(Object.entries(labels).map(([key,value])=>['a.'+key,value]));for(const[kind,values]of Object.entries(enums))for(const[key,value]of Object.entries(values))additions['a.'+kind+'.'+key]=value;
+  root.locales.en=Object.freeze({...root.locales.en,...additions,'nav.animals':'Animals','nav.contacts':'Contacts','nav.fosters':'Foster homes','nav.volunteers':'Volunteers','errors.possibleDuplicate':'Review possible duplicates and explicitly confirm before saving.','errors.mergeConflict':'Review conflicting fields and existing profiles before merging.','errors.invalidState':'This action is not available in the current state. Refresh and review the related records.','errors.fileOrValue':'Review the selected file or value. The changes have not been saved.','errors.businessRule':'Review the animal’s current care, related records, dates and pending tasks before continuing.','errors.assetBudget':'The dataset would exceed its 64 MiB embedded file limit. Archived and trashed files count towards this limit.','errors.assetIntegrity':'The file failed its integrity checks. It has not been opened.'});
+}(window.RescueManager));
 (function () {
   'use strict';
   const root = window.RescueManager;
@@ -58,3 +65,116 @@
   for (const [kind, entries] of Object.entries(catalog)) for (const [code,label] of Object.entries(entries)) additions['catalog.'+kind+'.'+code] = label;
   root.locales.en = Object.freeze({ ...root.locales.en, ...additions });
 }());
+
+(function (root) {
+  'use strict';
+  root.locales.en = Object.freeze({ ...root.locales.en,
+    'nav.contacts':'Contacts','nav.fosters':'Foster families','nav.volunteers':'Volunteers',
+    'p.contacts':'Your central address book','p.contactsHelp':'Keep each person or organization in one contact, with all their roles and profiles.',
+    'p.fosters':'Foster families','p.fostersHelp':'Capacity and occupancy come from profiles and open foster stays. Availability applies to new placements.',
+    'p.volunteers':'Volunteers and hours','p.volunteersHelp':'Contact details stay in the address book. Totals come from activity records within the selected period.',
+    'p.newContact':'New contact','p.editContact':'Edit contact','p.newFoster':'New foster profile','p.editFoster':'Edit foster profile',
+    'p.newVolunteer':'New volunteer profile','p.editVolunteer':'Edit volunteer profile','p.open':'Open record','p.edit':'Edit','p.search':'Search by name, email or phone',
+    'p.searchPeople':'Find an existing contact','p.chooseContact':'Choose an existing contact','p.chooseHelp':'Select someone from the address book first. Create a contact if they are not already listed.',
+    'p.select':'Use this contact','p.back':'Previous','p.next':'Next','p.page':'Page {page} of {pages} · {count} records','p.empty':'There are no records yet.',
+    'p.noMatches':'No records match these filters.','p.clear':'Clear filters','p.all':'All','p.role':'Role','p.roles':'Roles','p.type':'Type','p.name':'Name',
+    'p.type.person':'Person','p.type.organization':'Organization','p.role.adopter':'Adopter','p.role.foster':'Foster family','p.role.volunteer':'Volunteer',
+    'p.role.donor':'Donor','p.role.veterinarian':'Veterinarian','p.role.supplier':'Supplier','p.role.collaborator':'Collaborator',
+    'p.state':'Records','p.active':'Active','p.archived':'Archived','p.trash':'Trash','p.inactive':'Inactive','p.allRecords':'Active and archived',
+    'p.email':'Email','p.address':'Address','p.notes':'Notes','p.phones':'Phones','p.phone':'Phone number','p.phoneLabel':'Phone label','p.addPhone':'Add phone',
+    'p.removePhone':'Remove phone','p.noValue':'Not specified','p.required':'Fields marked * are required.','p.roleLocked':'Roles used by profiles are retained. Edit the profile to change its availability or status.',
+    'p.duplicates':'Check these possible matches','p.nameMatch':'Matching name only','p.possibleMatch':'Matching email or phone','p.match.name':'Name','p.match.email':'Email','p.match.phone':'Phone',
+    'p.matchReason':'Matching data','p.duplicateHelp':'A name alone does not establish that these are the same person. Review the contact details before deciding.',
+    'p.confirmDuplicate':'I reviewed these matches and want to save a separate contact.','p.confirmDuplicateNeeded':'Review the matching contacts and confirm if this is a separate contact.',
+    'p.archive':'Archive contact','p.unarchive':'Return to active contacts','p.sendTrash':'Move contact to trash','p.restore':'Restore contact',
+    'p.archiveConfirm':'Archive {name}? Their history and relationships will be retained.','p.unarchiveConfirm':'Return {name} to the active address book?',
+    'p.trashConfirm':'Move {name} to trash? You can restore the contact later.','p.restoreConfirm':'Restore {name} from trash?',
+    'p.related':'Related records','p.relatedCount':'{count} related records','p.relatedHelp':'This contact has related records. Archive it to retain those relationships.',
+    'p.merge':'Compare and merge','p.mergeTitle':'Compare contacts before merging','p.mergeHelp':'Choose the contact to keep, resolve every different field and review the combined roles and phones.',
+    'p.keep':'Keep this contact','p.mergeOther':'Contact to merge into it','p.useKeep':'Use retained value','p.useMerge':'Use other value','p.combineNotes':'Combine notes',
+    'p.field':'Field','p.retained':'Retained contact','p.other':'Other contact','p.resolution':'Value to retain','p.mergeRoles':'Combined roles','p.mergePhones':'Combined phones',
+    'p.mergeHistory':'Operational relationships move to the retained contact. Financial, donation and stock history keeps its original reference and resolves to the retained person.',
+    'p.mergeConflict':'Both contacts have the same kind of profile. These contacts cannot currently be merged; review their foster or volunteer profiles first.',
+    'p.mergeConfirm':'I reviewed the comparison and want to merge these contacts.','p.applyMerge':'Merge contacts','p.confirmNeeded':'Review and confirm this action first.',
+    'p.fosterProfile':'Foster profile','p.volunteerProfile':'Volunteer profile','p.capacity':'Total capacity','p.occupancy':'Current occupancy','p.free':'Free places',
+    'p.occupancyValue':'{occupied} occupied / {capacity} places · {free} free','p.overCapacity':'Capacity exceeded with recorded exceptions','p.species':'Accepted species',
+    'p.sizes':'Accepted sizes','p.availability':'Availability','p.availability.available':'Available','p.availability.unavailable':'Unavailable','p.availability.conditional':'Conditional',
+    'p.restrictions':'Conditions or restrictions','p.currentAnimals':'Current animals','p.stayHistory':'Foster stay history','p.animal':'Animal','p.start':'Start date','p.end':'End date',
+    'p.openStay':'Open stay','p.reason':'End reason','p.exception':'Recorded exception','p.stayDateHelp':'The end date is the day the animal changed location; intervals include the start and exclude the end.',
+    'p.functions':'Functions','p.specialties':'Specialties','p.status':'Status','p.volunteerAvailability':'Availability details','p.hours':'Activity and hours',
+    'p.logHours':'Record activity','p.editHours':'Edit activity record','p.activity':'Activity','p.date':'Date','p.durationMinutes':'Duration in minutes',
+    'p.minutesHelp':'Enter whole minutes, between 1 and 1440 (24 hours).','p.duration':'{hours} h {minutes} min','p.total':'Total time','p.entries':'Activity records',
+    'p.period':'Activity period','p.from':'From','p.to':'To','p.periodError':'The end date must not be before the start date.','p.periodTotals':'{duration} across {count} activity records',
+    'p.trashHours':'Move activity to trash','p.restoreHours':'Restore activity','p.trashHoursConfirm':'Move this activity record to trash? It will stop contributing to totals.',
+    'p.restoreHoursConfirm':'Restore this activity record and include it in totals again?','p.hoursTrashHelp':'Trashed records do not count towards totals.',
+    'p.error.state':'The current record or related history does not allow this change. Review the record and its related profiles before trying again.',
+    'p.error.input':'Review the values and selected records. Changes have not been saved.','p.saved':'Changes saved.',
+    'p.sort':'Sort by name','p.ascending':'A to Z','p.descending':'Z to A','p.contactDetails':'Contact details','p.actions':'Actions',
+    'p.profileExists':'This contact already has that profile. Open the existing contact to edit it.','p.availableContacts':'Available contacts',
+    'p.durationColumn':'Duration','p.confirmAction':'Confirm action'
+  });
+}(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.en = Object.freeze({ ...root.locales.en,
+    'af.entry':'Register animal entry','af.reentry':'Register a new entry','af.edit':'Edit animal details','af.weight':'Record weight',
+    'af.name':'Name','af.species':'Species','af.size':'Size','af.sex':'Sex','af.sex.male':'Male','af.sex.female':'Female','af.sex.unknown':'Unknown',
+    'af.more':'Additional animal details','af.birth':'Birth and age','af.birthKind':'Known birth information','af.birthKind.unknown':'Unknown',
+    'af.birthKind.exact':'Exact birth date','af.birthKind.estimated_date':'Estimated birth date','af.birthKind.estimated_age':'Estimated age at a reference date',
+    'af.birthDate':'Birth date','af.estimatedAgeMonths':'Estimated age in whole months','af.estimatedAgeReferenceDate':'Age reference date',
+    'af.breed':'Breed','af.color':'Color','af.microchip':'Microchip or identifier','af.sterilization':'Sterilization status',
+    'af.sterilization.yes':'Yes','af.sterilization.no':'No','af.sterilization.unknown':'Unknown','af.sterilizationDate':'Sterilization date',
+    'af.code':'Optional manual code','af.codeHelp':'Leave empty for an automatic code. The A-number format is reserved for the automatic sequence. An assigned code cannot be edited.',
+    'af.description':'Description','af.character':'Character','af.behavior':'Behavior','af.specialNeeds':'Special needs','af.notes':'Animal notes',
+    'af.entryDate':'Entry date','af.entryReason':'Entry reason','af.origin':'Origin or previous location','af.episodeNotes':'Entry notes',
+    'af.locationKind':'Initial location','af.location.shelter':'Shelter location','af.location.temporary_external':'Temporary external location',
+    'af.locationId':'Shelter location','af.externalDescription':'Describe the temporary external location','af.availability':'Availability for adoption',
+    'af.availability.available':'Available','af.availability.unavailable':'Unavailable','af.availabilityHelp':'Select adoption availability explicitly. Location does not determine it.',
+    'af.grams':'Weight in grams','af.gramsHelp':'Use a positive whole number of grams (for example 12500 for 12.5 kg). The current weight derives from dated measurements.',
+    'af.date':'Date','af.measurementNotes':'Measurement notes','af.archive':'Archive animal','af.trash':'Move animal to trash','af.restore':'Restore animal',
+    'af.dispositionConfirm':'I reviewed the record and want to apply this action.','af.archiveHelp':'The animal leaves operational lists; its episodes, documents and history are retained. Current care and pending tasks must be resolved first.',
+    'af.trashHelp':'This is reversible logical deletion. Related history is retained. Current care and pending tasks must be resolved first.',
+    'af.restoreHelp':'Restore this animal from archive or trash. This does not reopen episodes or change its current management situation.',
+    'af.exit':'Record departure or death','af.exitMode':'What happened?','af.choose':'Choose an option','af.exitMode.death':'Death',
+    'af.exitMode.transfer':'Transfer to another organization','af.exitMode.other':'Other documented departure','af.reason':'Reason',
+    'af.departureDetails':'Departure and related records','af.fosterEndReason':'Reason for ending the open foster stay','af.reservationClosureReason':'Reason for closing the active reservation',
+    'af.applicationClosureReason':'Reason for closing the open applications','af.taskDecision':'Decision for this pending task',
+    'af.task.keep':'Keep this task pending','af.task.cancel':'Cancel this task with a reason','af.taskReason':'Task cancellation reason',
+    'af.tasksHelp':'Decide individually which pending tasks still apply. Kept tasks retain their current status. Cancelled tasks require a reason.',
+    'af.exitConfirm':'I reviewed the date, reasons, related closures and every pending task, and want to record this event.',
+    'af.exitHelp':'The event closes the current episode and any open foster stay, reservation and applications together. All history is retained. Tasks follow your explicit decisions.',
+    'af.entryUnavailable':'Restore the animal first. Adopted animals return through the adoption return workflow; deceased animals require a historical correction.',
+    'af.saved':'Changes saved.','af.invalidCode':'Choose a manual code outside the reserved A-number format, or leave the field empty.',
+    'af.taskReasonRequired':'Enter a cancellation reason for every task you chose to cancel.','af.confirmRequired':'Review and confirm the action first.'
+  });
+}(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.en = Object.freeze({ ...root.locales.en,
+    'nav.documents':'Documents',
+    'd.title':'Title','d.type':'Document type','d.date':'Date','d.notes':'Notes','d.additional':'Additional information',
+    'd.externalName':'External file name','d.location':'Where the external file is kept','d.fileType':'File format or type',
+    'd.originalFile':'Select the original file to record its hash (optional)','d.file':'File',
+    'd.externalHelp':'This file is outside the application. Its content is not included in backups; keep the original file too.',
+    'd.hashHelp':'The file is read to calculate a SHA-256 hash. Its content is not stored. Maximum 128 MiB for hash comparison.',
+    'd.fileHelp':'PDF, JPEG, PNG, WebP or UTF-8 TXT, up to 8 MiB. The application stores and backs up the file. Documents are downloaded without embedding active content.',
+    'd.edit':'Edit document','d.newExternal':'New external reference','d.newEmbedded':'Add embedded document',
+    'd.preserve':'The file, relationships and history are retained. You can restore archived or trashed documents.',
+    'd.compare':'Compare selected external file','d.compareHelp':'Select the original file again to compare its hash. This does not update the reference or store the file.',
+    'd.noOriginalHash':'This reference has no original hash to compare. The selected file was not stored.',
+    'd.matches':'The selected file matches the recorded original hash.','d.differs':'The selected file differs from the recorded original hash. Check which original file you need.',
+    'd.links':'Linked records','d.unlink':'Remove link','d.noLinks':'This document has no linked records.',
+    'd.linkType':'Record type','d.linkTarget':'Record to link','d.link':'Link document','d.linkExisting':'Choose an existing document',
+    'd.external':'External reference','d.embedded':'Embedded file','d.noNotes':'No notes','d.download':'Download file',
+    'd.archive':'Archive document','d.unarchive':'Return document to active records','d.restore':'Restore document','d.trash':'Trash',
+    'd.active':'Active','d.archived':'Archived','d.open':'Open document','d.actions':'Actions','d.mode':'Storage mode','d.state':'Records',
+    'd.previous':'Previous','d.next':'Next','d.empty':'No documents match these filters.','d.page':'Page {page} of {pages} · {count} documents',
+    'd.help':'Keep small files in the application or record a reference to files stored separately. Links let you reuse one document across records.',
+    'd.budget':'Embedded files: {used} MiB of {limit} MiB. Replacing a photo keeps earlier resources; files are not removed automatically.',
+    'd.search':'Search by title, notes or external file name','d.all':'Active and archived','d.allModes':'All storage modes',
+    'r.title':'Local recovery','r.help':'Earlier datasets remain in this browser profile. Before recovering one, create and reselect a verified backup of the current revision. Recovery validates and prepares a separate dataset and preserves the current one.',
+    'r.recover':'Review recovery','r.unnamed':'Dataset without an organisation','r.retired':'Earlier dataset','r.staging':'Interrupted preparation','r.records':'{count} records · {bytes} embedded bytes','r.incomplete':'This preparation is not active. It is never activated automatically. The earlier active data are preserved.','r.empty':'No earlier datasets or interrupted preparations are available here.'
+  });
+}(window.RescueManager));
