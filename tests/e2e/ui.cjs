@@ -6,9 +6,17 @@ const crypto = require('node:crypto');
 const { pathToFileURL } = require('node:url');
 const { launch } = require('./chromium.cjs');
 const root = path.resolve(__dirname, '../..');
-const output = process.argv[2] || 'ui-chrome.json';
+const args = process.argv.slice(2);
+let output = 'ui-chrome.json', machine = 'unspecified';
+// Preserve the original positional filename while accepting portable handoff flags.
+if (args[0] && !args[0].startsWith('--')) output = args.shift();
+for (let index = 0; index < args.length; index += 2) {
+  if (!['--output', '--machine'].includes(args[index]) || !args[index + 1]) throw new Error('Use [filename.json] or --output filename.json --machine alias');
+  if (args[index] === '--output') output = args[index + 1]; else machine = args[index + 1];
+}
 if (!/^[a-zA-Z0-9._-]+\.json$/.test(output)) throw new Error('Output must be a plain JSON filename');
-const result = { format: 'rescue-manager-foundation-ui-test', version: 1, browser: 'chrome', machine: 'windows-wip',
+if (!/^[a-zA-Z0-9._-]{1,80}$/.test(machine)) throw new Error('Machine must be a short alias');
+const result = { format: 'rescue-manager-foundation-ui-test', version: 1, browser: 'chrome', machine,
   startedAt: new Date().toISOString(), checks: [], launches: [], closures: [], pageErrors: [], consoleErrors: [], externalRequests: [], screenshots: [],
   limitations: ['Foundation UI only; business module forms are not implemented.', 'Viewport emulation is not a real mobile/tablet device.', 'Page request trace does not cover browser-internal traffic.'] };
 const assert = (condition, message) => { if (!condition) throw new Error(message); };

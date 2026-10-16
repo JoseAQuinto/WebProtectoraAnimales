@@ -4,15 +4,18 @@ Aplicación de gestión offline para protectoras. **Proyecto en desarrollo; no e
 
 ## Estado actual
 
+**Checkpoint de continuidad revisado el 2026-10-16.** Para que otra IA retome
+el trabajo desde otro PC, empezar por [CONTINUE_HERE.md](docs/CONTINUE_HERE.md).
+
 El núcleo ya incorpora esquemas, validación relacional, persistencia coordinada,
 copias completas y restauración con conjunto separado. La interfaz permite
 configurar una organización de prueba, generar/verificar/restaurar copias y
 consultar ayuda. **Los módulos de gestión siguen pendientes de interfaz e
 integración completa. Utiliza únicamente datos de prueba.**
 
-La viabilidad inicial pasó en Chrome, Edge y Firefox estables. El desarrollo
-se ha reanudado en este equipo; el estado y las verificaciones actuales se
-conservan en PROJECT_STATUS.md.
+La viabilidad y el núcleo se han probado en Chrome, Edge y Firefox estables.
+El desarrollo queda preparado para relevo; el estado vigente y la siguiente
+acción se conservan en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 Abre `index.html` directamente después de descargar y descomprimir la carpeta
 completa. No hace falta servidor ni instalar herramientas. La sonda anterior
@@ -21,14 +24,17 @@ sigue disponible en `tests/viability/index.html`, solo para desarrollo.
 - [Estado y siguiente paso](docs/PROJECT_STATUS.md)
 - [Requisitos originales completos](docs/REQUIREMENTS.es.md)
 - [Arquitectura](docs/ARCHITECTURE.md)
-- [Modelo de datos propuesto](docs/DATA_MODEL.md)
+- [Modelo de datos implementado](docs/DATA_MODEL.md)
 - [Reglas e invariantes](docs/BUSINESS_RULES.md)
 - [Compatibilidad y evidencia](docs/COMPATIBILITY.md)
 - [Procedimiento de pruebas](docs/TEST_PLAN.md)
 
 ## Datos y traslado
 
-Los datos de prueba residen en el perfil del navegador, no junto al HTML. Copiar la carpeta o clonar este repositorio en otro ordenador no traslada el almacenamiento del navegador. El producto deberá incorporar backup completo y restauración verificada antes de aceptar datos de negocio.
+Los datos de prueba residen en el perfil del navegador, no junto al HTML.
+Copiar la carpeta o clonar este repositorio no traslada el almacenamiento del
+navegador. La copia completa y su restauración ya existen; su aceptación final
+y los módulos de gestión siguen pendientes. Utilizar datos sintéticos.
 
 ## Desarrollo y continuidad
 

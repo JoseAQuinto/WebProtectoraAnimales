@@ -1,5 +1,10 @@
 # Pruebas de navegador en el equipo de continuación
 
+Revisión de relevo: **2026-10-16**. No se ha ampliado funcionalidad del producto.
+La revisión de fuentes confirma que deben usarse las evidencias `validator-fix`
+para negocio; las primeras `business-final` son históricas y anteriores al
+último endurecimiento de `validators.js` y `dataset-validator.js`.
+
 Fecha: 2026-10-15. Alias del equipo: `windows-wip`. Sistema observado por los
 ejecutores: Windows 11 Home, Windows NT 10.0.26300, x64. Los JSON anteriores
 de Windows 11 Pro 10.0.26200 pertenecen al otro equipo y se conservan.
@@ -37,9 +42,9 @@ descendientes pendientes.
 
 | Navegador | Coordinador | Repositorios, backup y recuperación |
 |---|---|---|
-| Chrome 155.0.8059.79 | [9 internas + 7 externas correctas](../tests/results/storage-core-2026-10-15-windows-wip-chrome-final.json) | [11 internas + 6 externas correctas](../tests/results/business-2026-10-15-windows-wip-chrome-final.json) |
-| Edge 155.0.4283.45 | [9 internas + 7 externas correctas](../tests/results/storage-core-2026-10-15-windows-wip-edge-final.json) | [11 internas + 6 externas correctas](../tests/results/business-2026-10-15-windows-wip-edge-final.json) |
-| Firefox estable 158.0 | [9 internas + 7 externas correctas](../tests/results/storage-core-2026-10-15-windows-wip-firefox-final.json) | [11 internas + 7 externas correctas](../tests/results/business-2026-10-15-windows-wip-firefox-final.json) |
+| Chrome 155.0.8059.79 | [9 internas + 7 externas correctas](../tests/results/storage-core-2026-10-15-windows-wip-chrome-final.json) | [11 internas + 6 externas correctas](../tests/results/business-2026-10-15-windows-wip-chrome-validator-fix.json) |
+| Edge 155.0.4283.45 | [9 internas + 7 externas correctas](../tests/results/storage-core-2026-10-15-windows-wip-edge-final.json) | [11 internas + 6 externas correctas](../tests/results/business-2026-10-15-windows-wip-edge-validator-fix.json) |
+| Firefox estable 158.0 | [9 internas + 7 externas correctas](../tests/results/storage-core-2026-10-15-windows-wip-firefox-final.json) | [11 internas + 7 externas correctas](../tests/results/business-2026-10-15-windows-wip-firefox-validator-fix.json) |
 
 La suite de negocio comprueba inicialización explícita, idempotencia, rechazo
 de revisión obsoleta y relación rota, documento con Blob, copia autocontenida
@@ -130,3 +135,41 @@ Todo se prueba mediante `file://`, sin servidor y sin modificar protecciones
 de origen. El modo headless de escritorio no acredita un teléfono o tablet
 real ni completa la aceptación comercial del producto. La matriz final y sus
 pendientes siguen documentados en `COMPATIBILITY.md`.
+
+## Recorrido integrado de servicios y UI revisados el 2026-10-16
+
+Chrome se actualizó a **155.0.8059.80**; no se reetiquetan con esa versión
+las pruebas históricas del día 15. Sistema Windows 11 Home 10.0.26300.
+
+- [Lifecycle real: 11 casos internos y 6 externos correctos](../tests/results/lifecycle-2026-10-16-windows-wip-chrome-review.json).
+  Crea organización/catálogos/contacto/perfil, asigna código animal, registra
+  acogida, solicitud, aprobación, reserva, adopción e ingreso, devolución,
+  donaciones, stock, acto sanitario con tarea/gasto, TXT con vínculo y backup
+  verificado. Conserva digest de registros/bytes tras cierre completo y reapertura.
+- [UI inicial: 11 comprobaciones correctas](../tests/results/ui-2026-10-16-windows-wip-chrome-review.json).
+  Inglés inicial/español, Escape/foco, cambios sin guardar, alta y recarga,
+  segunda pestaña, copia descargada y reseleccionada, restauración real,
+  anchos 360/768/1024/1440 sin overflow y menús con estado accesible coherente.
+  Capturas finales de [1440 px](../tests/results/ui-2026-10-16-windows-wip-chrome-review-1440.png)
+  y [360 px](../tests/results/ui-2026-10-16-windows-wip-chrome-review-360.png).
+- Cero errores de página/peticiones externas observadas por ambos ejecutores,
+  cierre normal de los procesos propios y huellas de fuentes sin cambios.
+  No se afirma ausencia de tráfico interno del navegador.
+- En ambos casos se usan perfiles aislados y datos sintéticos. No se abre el
+  perfil personal ni se cambia la política de seguridad/origen del navegador.
+
+Comandos usados para esta revisión:
+
+```powershell
+node tests/e2e/suite.cjs --browser chrome --page tests/integration/lifecycle.html --machine windows-wip --output lifecycle-2026-10-16-windows-wip-chrome-review.json
+node tests/e2e/ui.cjs --machine windows-wip-review --output ui-2026-10-16-windows-wip-chrome-review.json
+```
+
+El ejecutor UI también conserva el argumento posicional original para el nombre
+de JSON. `--machine` evita fijar el alias de este PC en resultados futuros.
+Los comandos de portabilidad están en CONTINUE_HERE.md. Node 22.16.0 y
+Playwright 1.62.1 son las versiones de herramientas observadas.
+
+Pendiente: este recorrido lifecycle y UI en Edge/Firefox; dispositivos reales,
+aceptación completa y los casos adversos de REVIEW_HANDOFF.md. Un recorrido feliz
+correcto no verifica los defectos documentados ni todos los módulos del producto.

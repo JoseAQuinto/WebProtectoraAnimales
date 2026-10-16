@@ -1,5 +1,16 @@
 # Historial de cambios
 
+## Checkpoint de continuidad — 2026-10-16
+
+- Revisión del estado parcial de 0.2.0-dev conservado en el commit 4c5554c.
+- Reejecutadas 330 comprobaciones estáticas y 93 subpruebas unitarias, correctas.
+- Recorrido integrado pendiente ejecutado por file:// en Chrome 155.0.8059.80:
+  11 casos internos y 6 externos correctos, con persistencia tras cierre completo.
+- Auditadas las huellas de las evidencias: la ronda `validator-fix` sustituye
+  las primeras rondas `business-final` tras el endurecimiento del dominio.
+- Documentación de relevo, límites, defectos conocidos, herramientas portables
+  y primera acción concreta para otra IA. Sin ampliar funcionalidad del producto.
+
 ## 0.2.0-dev — 2026-10-15 (avance funcional parcial)
 
 - 28 esquemas de negocio, enumeraciones, fábrica y validación estructural y

@@ -1,10 +1,13 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-15. Versión de trabajo: `0.2.0-dev`.
+Actualizado: 2026-10-16. Versión de trabajo: `0.2.0-dev`.
+Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
 ## Fase actual
 
-Desarrollo reanudado en el PC de continuación. Núcleo de fase 1 implementado;
+**Checkpoint de relevo revisado; desarrollo detenido por petición del usuario.**
+El cometido del 2026-10-16 ha sido revisar y preparar la continuidad, sin
+completar ni ampliar el producto. Núcleo de fase 1 implementado;
 protección de datos de fase 2 operativa con aceptación parcial; fase 3 de
 interfaz en verificación. Hay servicios posteriores implementados y probados
 como lógica, todavía sin pantallas de gestión. **No es un producto comercial
@@ -13,8 +16,9 @@ terminado. Utilizar únicamente datos de prueba.**
 Instrucción vigente: cuando quede **un 5 % o menos** del cupo de 5 horas,
 detener desarrollo y trabajo delegado, actualizar documentación, hacer commit
 y push. El anterior límite del 20 % y el agotamiento total están revocados.
-No consumir un reinicio de cuota sin petición expresa. Última comprobación
-durante esta preparación de continuidad: 10 % restante (90 % consumido).
+No consumir un reinicio de cuota sin petición expresa. El trabajo de desarrollo
+del 2026-10-15 se detuvo al observar 4 % restante (96 % consumido). La revisión
+de relevo del 2026-10-16 no reanuda el desarrollo funcional.
 
 ## Funcionalidades conservadas
 
@@ -72,15 +76,27 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
   relación rota, cancelación, activación, datos previos conservados y migración.
 - Las ejecuciones comparan digest de registros y bytes tras cerrar completamente
   y reabrir el navegador con el mismo perfil. Registran cierres/procesos y fuentes.
-- Tras el último endurecimiento de validación hay una ronda final adicional
-  en curso; consultar ENVIRONMENT_TESTS.md y JSON con huellas, no asumir que
-  una evidencia anterior con fuentes distintas prueba las modificaciones nuevas.
-- UI y recorrido real integrado de servicios en verificación durante este
-  checkpoint. Solo se consideran aprobados los casos que figuren como ejecutados
-  en ENVIRONMENT_TESTS.md y sus JSON; no convertir casos pendientes en aprobados.
-- 280 comprobaciones estáticas antes de incorporar las últimas pruebas.
+- La ronda `business-*-validator-fix.json` pasó en los tres navegadores y sus
+  huellas coinciden con el código revisado. Las primeras rondas `business-final`
+  conservan un dominio anterior; se mantienen solo como evidencia histórica.
+- UI inicial en Chrome: 11 casos correctos, descarga y reselección reales,
+  restauración, segunda pestaña, teclado y anchos 360/768/1024/1440 sin overflow.
+  Reejecutada el 2026-10-16 en Chrome 155.0.8059.80, con resultado correcto en
+  `ui-2026-10-16-windows-wip-chrome-review.json` y huellas vigentes.
+- Recorrido real de servicios que había quedado pendiente: ejecutado el
+  2026-10-16 en Chrome 155.0.8059.80, 11 casos internos y 6 externos correctos,
+  incluyendo cierre completo, reapertura y digest de datos/binarios idéntico.
+  Evidencia `lifecycle-2026-10-16-windows-wip-chrome-review.json`; Edge/Firefox
+  siguen pendientes para este recorrido concreto.
+- Revisión de relevo: 330 comprobaciones estáticas y 93 subpruebas Node correctas;
+  `git diff --check` sin errores. Sin cambios de producción en esta revisión.
 
 ## Límites, defectos y aceptación pendiente
+
+- Revisar primero `REVIEW_HANDOFF.md`: tarea de plan que puede perder animal
+  y coherencia temporal (reproducida con contexto simulado), creación tras
+  dataset restaurado vacío y código manual que agota el contador (inspección),
+  además del modo lectura temporal tras recarga (observado en UI).
 
 - Persistencia y validación de escritura capturan el dataset completo: O(N).
   La prueba de volumen en Node no acredita rendimiento/memoria del producto
@@ -104,7 +120,8 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
 
 1. Leer AGENTS.md, este estado y REQUIREMENTS.es.md completos; comprobar cupo.
 2. Revisar la última evidencia UI/lifecycle y los defectos explícitos pendientes
-   en ENVIRONMENT_TESTS.md. Reproducir solo los casos que cambien o falten.
+   en ENVIRONMENT_TESTS.md y REVIEW_HANDOFF.md. Reproducir solo casos que cambien
+   o falten: el recorrido lifecycle en Chrome ya pasó, no está pendiente.
 3. Completar fase 3 y la protección/recuperación antes de habilitar información real.
 4. Implementar servicios centrales de contactos y fusión, voluntariado/horas,
    documentos e imágenes; conectar pantallas de fase 4 reutilizando context.execute.
