@@ -15,6 +15,14 @@
     return h.insert('activityLog', h.create('activityLog', { operation, occurredAt: h.now, operationId: h.operationId,
       target: { type: 'task', id }, summaryParameters: reason ? { reason } : {} }));
   }
+  // A generated task keeps the animal and the earliest date of the record that originated it.
+  function origin(h, input) {
+    const types = root.domain.entityTables, type = input.source && input.source.type;
+    if (typeof type !== 'string' || !Object.prototype.hasOwnProperty.call(types, type)) h.fail('InvalidInputError', 'Unknown task origin');
+    const target = h.find(types[type], input.source.id), owner = type === 'animal' ? target.id : target.animalId;
+    if (owner !== undefined && input.animalId !== owner) h.fail('InvalidInputError', 'The task must stay linked to the animal of its origin');
+    if (type === 'care_plan' && input.dueDate < target.startDate) h.fail('InvalidInputError', 'Task cannot precede the care plan');
+  }
   function buildTask(data, h, input) {
     only(input, fields, h);
     const type = h.find('catalogOptions', input.typeId);
@@ -28,6 +36,7 @@
       const volunteer = h.find('volunteerProfiles', input.responsibleVolunteerId);
       if (volunteer.status !== 'active' || volunteer.deletedAt || volunteer.archivedAt) h.fail('InvalidInputError', 'Select an active volunteer');
     }
+    if (input.source) origin(h, input);
     const organization = data.organizationSettings[0];
     return h.create('tasks', { ...input,
       ...(input.dueLocalTime && !input.timeZone ? { timeZone: organization.timeZone } : {}),

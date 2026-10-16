@@ -93,6 +93,8 @@
       } else {
         const details = profile(h, input.animal);
         option(h, details.speciesId, 'species'); if (details.sizeId) option(h, details.sizeId, 'size');
+        // The A-<number> shape belongs to the transactional sequence; manual codes use any other text.
+        if (details.code && /^a-\d+$/i.test(details.code)) fail(h, 'Codes in the A-number format are assigned automatically');
         if (!details.code) details.code = h.allocateAnimalCode();
         if (data.animals.some(row => row.code === details.code) || data.activityLog.some(row => row.summaryParameters.code === details.code)) fail(h, 'The animal code was already assigned and cannot be reused');
         animal = h.create('animals', Object.assign({}, details, location, { managementStatus: 'under_care', adoptionAvailability: selected }));

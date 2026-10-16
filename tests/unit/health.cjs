@@ -153,6 +153,27 @@ test('care plan tasks are finite and closing a plan requires resolving the remai
   assert.equal(f.tables().veterinaryRecords[0].carePlanId, planId);
   await assert.rejects(() => root.services.health.updatePlan(planId, { status: 'active' }), { name: 'InvalidStateError' });
 });
+test('R1 regression: plan tasks keep the plan animal and cannot be moved before the plan start', async () => {
+  const f = fixture(); const planId = (await root.services.health.createPlan({ animalId: f.animal.id, typeId: f.planType.id,
+    name: 'Written treatment', startDate: '2026-10-10', status: 'active' })).result.id;
+  const input = task(f, { typeId: f.medicationType.id, dueDate: '2026-10-12' }); delete input.animalId;
+  const taskId = (await root.services.health.scheduleTask(planId, input)).result.id, before = f.state();
+  await assert.rejects(() => root.services.tasks.edit(taskId, { animalId: null, dueDate: '2026-10-01' }), { name: 'InvalidInputError' });
+  await assert.rejects(() => root.services.tasks.edit(taskId, { animalId: null }), { name: 'InvalidInputError' });
+  await assert.rejects(() => root.services.tasks.edit(taskId, { dueDate: '2026-10-09' }), { name: 'InvalidInputError' });
+  await assert.rejects(() => root.services.tasks.create({ ...input, source: { type: 'care_plan', id: planId } }), { name: 'InvalidInputError' });
+  await assert.rejects(() => root.services.tasks.create({ ...input, animalId: f.animal.id, source: { type: 'constructor', id: planId } }), { name: 'InvalidInputError' });
+  await assert.rejects(() => root.services.health.updatePlan(planId, { startDate: '2026-10-13' }), { name: 'InvalidInputError' });
+  assert.equal(f.state(), before);
+  await root.services.tasks.edit(taskId, { dueDate: '2026-10-11', notes: 'Rescheduled by the veterinarian' });
+  await root.services.health.record(act(f, { type: 'medication_administration', date: '2026-10-11' }), { completeTaskId: taskId });
+  assert.equal(f.record('tasks', taskId).status, 'completed');
+  // Restore and import share this validator: the inconsistent rows are rejected before activation.
+  const tables = structuredClone(f.tables()), row = tables.tasks.find(value => value.id === taskId);
+  row.animalId = null; row.dueDate = '2026-10-01';
+  const codes = d.validateDataset(tables, { datasetId, today }).map(error => error.code);
+  assert.ok(codes.includes('task.animalMismatch')); assert.ok(codes.includes('task.beforeOrigin'));
+});
 test('task filters and urgency derive from the same rows without changing their status', async () => {
   const f = fixture();
   await root.services.tasks.create(task(f, { dueDate: today, priority: 'urgent' }));

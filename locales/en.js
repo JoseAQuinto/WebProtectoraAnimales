@@ -31,7 +31,7 @@
     'ui.welcome':'Your shelter at a glance','ui.overviewHelp':'Figures are calculated from the current records. Location and adoption availability can overlap.',
     'ui.underCare':'Animals under care','ui.foster':'In foster care','ui.available':'Available for adoption','ui.contacts':'Contacts','ui.pendingTasks':'Pending tasks','ui.assets':'Embedded files',
     'ui.nextSteps':'Data protection is ready','ui.nextStepsHelp':'Create and verify an external backup before moving data to another computer. Business modules are being connected in the following development phases.',
-    'ui.readOnly':'This tab is read only. Another tab may have write control.','ui.takeControl':'Take write control','ui.takeControlConfirm':'Give this tab write control? Other tabs will become read only.',
+    'ui.readOnly':'This tab is read only. Another tab may have write control.','ui.readOnlyReload':'If you just reloaded or reopened this page, control returns automatically when the previous session expires (about 15 seconds).','ui.takeControl':'Take write control','ui.takeControlConfirm':'Give this tab write control? Other tabs will become read only.',
     'ui.backupTitle':'Your data, recoverable','ui.backupHelp':'Keep external copies. Browser storage can be removed by browser settings, another profile or storage cleanup.',
     'ui.createBackup':'Create backup','ui.createBackupHelp':'Includes records, history and embedded files. Referenced external files must be kept separately.',
     'ui.generateDownload':'Generate and download','ui.verifyBackup':'Verify a downloaded copy','ui.verifyHelp':'Select the downloaded JSON again to check its structure, hashes and relationships.',

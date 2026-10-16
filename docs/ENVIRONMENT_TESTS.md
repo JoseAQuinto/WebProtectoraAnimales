@@ -170,6 +170,36 @@ de JSON. `--machine` evita fijar el alias de este PC en resultados futuros.
 Los comandos de portabilidad están en CONTINUE_HERE.md. Node 22.16.0 y
 Playwright 1.62.1 son las versiones de herramientas observadas.
 
-Pendiente: este recorrido lifecycle y UI en Edge/Firefox; dispositivos reales,
-aceptación completa y los casos adversos de REVIEW_HANDOFF.md. Un recorrido feliz
-correcto no verifica los defectos documentados ni todos los módulos del producto.
+## Corrección de R1–R4 verificada el 2026-10-16 (segundo PC)
+
+Windows 11 Pro 10.0.26200, Node 22.19.0, Playwright 1.62.1 instalado en `.tools`
+(ignorado). Chrome **155.0.8059.81** y Edge **155.0.4283.45** estables, perfiles
+nuevos, `file://`, sin red ni cambios de seguridad. Huellas SHA-256 de las
+fuentes comprobadas después de la ejecución: coinciden con los archivos actuales.
+
+| Recorrido | Chrome | Edge |
+|---|---|---|
+| Negocio/recuperación (incluye R2) | [12 internas + 6 externas](../tests/results/business-2026-10-16-windows-wip-chrome-review-fixes.json) | [12 internas + 6 externas](../tests/results/business-2026-10-16-windows-wip-edge-review-fixes.json) |
+| Lifecycle de servicios | [11 internas + 6 externas](../tests/results/lifecycle-2026-10-16-windows-wip-chrome-review-fixes.json) | [11 internas + 6 externas](../tests/results/lifecycle-2026-10-16-windows-wip-edge-review-fixes.json) |
+| UI inicial (incluye R4) | [11 comprobaciones](../tests/results/ui-2026-10-16-windows-wip-chrome-r4.json) | [11 comprobaciones](../tests/results/ui-2026-10-16-windows-wip-edge-r4.json) |
+
+- R2: una copia realmente vacía se restaura como conjunto activo vacío; crear
+  la organización escribe en ese mismo conjunto. Revisión antigua rechazada,
+  reintento con el mismo `operationId` devuelto como duplicado y segunda
+  creación rechazada sin alterar el digest.
+- R4: tras recargar, la página queda en lectura con explicación y recupera el
+  control sola en 14 976 ms (Chrome) y 14 983 ms (Edge), sin "Tomar el control".
+  La segunda pestaña sigue en lectura. Medición previa: ninguna escritura
+  IndexedDB lanzada en `pagehide` (una sola o lectura+escritura) se confirmó en
+  tres recargas de Chrome; por eso no se usa liberación al descargar ni
+  `window.name` (lo asignado durante `pagehide` tampoco sobrevive).
+- `tests/e2e/ui.cjs` admite ahora `--browser chrome|edge`.
+
+```powershell
+node tests/e2e/suite.cjs --browser chrome --page tests/integration/business.html --machine NUEVO-PC --output business-FECHA-chrome.json
+node tests/e2e/ui.cjs --browser edge --machine NUEVO-PC --output ui-FECHA-edge.json
+```
+
+Pendiente: los tres recorridos en Firefox (no instalado en este PC; requiere
+descargar el instalador oficial), dispositivos reales y aceptación completa.
+Un recorrido correcto no verifica todos los módulos del producto.

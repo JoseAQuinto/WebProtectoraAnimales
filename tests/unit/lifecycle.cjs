@@ -108,9 +108,26 @@ test('entry replay is idempotent and sequence survives removed animal through re
   assert.equal(h.tables.animals.length, 1); assert.equal(h.tables.stayEpisodes.length, 1);
   // Simulated prior permanent deletion with its required dependency removal; retain activity code.
   h.tables.animals.length = 0; h.tables.stayEpisodes.length = 0; h.tables.animalEvents.length = 0; h.tables.activityLog[0].target = null;
-  await assert.rejects(h.root.services.animals.registerEntry(h.entryInput({ animal: { code: 'A-000001', name: 'Otro', speciesId: h.catalog.species.id } })), /cannot be reused/);
+  await assert.rejects(h.root.services.animals.registerEntry(h.entryInput({ animal: { code: 'A-000001', name: 'Otro', speciesId: h.catalog.species.id } })), /assigned automatically/);
   await h.root.services.animals.registerEntry(h.entryInput({ animal: { name: 'Sol', speciesId: h.catalog.species.id } }));
   assert.equal(h.tables.animals[0].code, 'A-000002');
+});
+test('R3 regression: manual codes cannot take the automatic shape or exhaust the sequence', async () => {
+  const h = harness(), manual = code => h.entryInput({ animal: { code, name: 'Manual', speciesId: h.catalog.species.id } });
+  for (const code of ['A-9007199254740992', 'A-000010', 'a-000003']) {
+    const before = JSON.stringify(h.tables);
+    await assert.rejects(h.root.services.animals.registerEntry(manual(code)), /assigned automatically/);
+    assert.equal(JSON.stringify(h.tables), before);
+  }
+  await h.root.services.animals.registerEntry(manual('PERRO-07'));
+  await assert.rejects(h.root.services.animals.registerEntry(manual('PERRO-07')), /cannot be reused/);
+  await createAnimal(h);
+  assert.deepEqual(h.tables.animals.map(row => row.code), ['PERRO-07', 'A-000001']);
+  // A restored or imported dataset with an exhausting code is rejected before activation.
+  const tables = structuredClone(h.tables); tables.animals[1].code = 'A-9007199254740992';
+  assert.ok(h.root.domain.validateDataset(tables, { datasetId, today }).some(error => error.code === 'animal.codeSequence'));
+  tables.animals[1].code = 'A-999999999999999';
+  assert.equal(h.root.domain.validateDataset(tables, { datasetId, today }).length, 0);
 });
 test('builder rejects omitted task decisions and simulated mid-write failure leaves every source record intact', async () => {
   const h = harness(), animalId = await createAnimal(h), applicationId = await application(h, animalId);

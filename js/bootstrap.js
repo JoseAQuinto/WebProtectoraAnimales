@@ -23,9 +23,9 @@
     const org = state.snapshot?.tables.organizationSettings[0];
     const values = create ? {language:root.core.i18n.language,currencyCode:'EUR',dateFormat:'day_first',timeZone:Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC'} : org;
     ui.form(t(create?'ui.createOrganization':'ui.editSettings'),fields(),values,async(input,command)=>{
-      if(create) await root.services.settings.create(input); else await root.services.settings.update(input,command);
+      if(create) await root.services.settings.create(input,command); else await root.services.settings.update(input,command);
       root.core.i18n.setLanguage(input.language); state.message = {text:t('ui.saved')}; await render();
-    },{expectedRevision:state.snapshot?.globalRevision});
+    },{expectedRevision:create?state.activeRevision:state.snapshot?.globalRevision});
   }
   function pick(label,restore) {
     const input = el('input',{type:'file',accept:'.json,application/json',class:'file-picker','aria-label':label});
@@ -102,7 +102,9 @@
   async function render() {
     const token=++routeToken;
     try {
-      state.snapshot=await root.services.context.snapshot();if(!state.snapshot?.tables.organizationSettings.length)state.snapshot=null;
+      // An active but empty dataset (restored empty backup) still needs control and revision checks.
+      const capture=await root.services.context.snapshot();state.activeRevision=capture?capture.globalRevision:undefined;
+      state.snapshot=capture?.tables.organizationSettings.length?capture:null;
       const page=location.hash.slice(1)||'dashboard';
       const children=page==='help'?help():page==='backup'?await backups():!state.snapshot?[
         el('section',{class:'card empty'},el('p',{class:'eyebrow'},t('app.name')),el('h1',{},t('ui.noOrganization')),el('p',{class:'muted'},t('ui.noOrganizationHelp')),
@@ -110,9 +112,9 @@
       if(token!==routeToken)return;
       const main=shell(page);
       if(state.message){main.append(notice(state.message.text,state.message.error));state.message=null;}
-      if(state.snapshot&&!root.services.context.status().canWrite)main.append(el('div',{class:'notice warning'},el('p',{},t('ui.readOnly')),
+      if(capture&&!root.services.context.status().canWrite)main.append(el('div',{class:'notice warning'},el('p',{},t('ui.readOnly')),el('p',{},t('ui.readOnlyReload')),
         button(t('ui.takeControl'),()=>act(async()=>{if(confirm(t('ui.takeControlConfirm')))await root.services.context.takeControl();}),true)));
-      main.append(...children.filter(Boolean));document.documentElement.lang=root.core.i18n.language;document.title=t('app.name');
+      main.append(...children.filter(Boolean));document.documentElement.lang=root.core.i18n.language;document.title=t('app.name');schedule();
     }catch(error){document.getElementById('app').replaceChildren(el('main',{class:'content'},notice(ui.message(error),true)));}
   }
   window.addEventListener('hashchange',()=>{if(location.hash!=='#main')render();});
@@ -120,7 +122,14 @@
   window.addEventListener('keydown',event=>{if(event.key==='Escape'&&sidebar?.classList.contains('visible')){
     sidebar.classList.remove('visible');const menu=document.querySelector('.menu-toggle');menu?.setAttribute('aria-expanded','false');menu?.focus();
   }});
-  setInterval(()=>{if(!document.hidden&&root.services.context.status().canWrite)root.services.context.renew().catch(()=>render());},10000);
+  let retryTimer=null;
+  function reclaim(){root.services.context.retry().then(next=>{if(next.canWrite)render();else schedule();}).catch(()=>{});}
+  // Read-only after a reload: try again exactly when the previous lease expires.
+  function schedule(){const status=root.services.context.status();clearTimeout(retryTimer);
+    if(!status.canWrite&&status.blockedUntil)retryTimer=setTimeout(reclaim,Math.min(31000,Math.max(250,status.blockedUntil-Date.now()+250)));}
+  // Hidden tabs stop renewing (another visible tab may then take over) unless a long operation is running.
+  setInterval(()=>{const status=root.services.context.status();if(document.hidden&&!(state.busy&&status.canWrite))return;
+    if(status.canWrite)root.services.context.renew().catch(()=>render());else if(status.active)reclaim();},root.config.leaseRenewMs);
   async function start(){try{await root.services.context.open();const capture=await root.services.context.snapshot();if(capture?.tables.organizationSettings[0])root.core.i18n.setLanguage(capture.tables.organizationSettings[0].language);await render();}catch(error){document.getElementById('app').replaceChildren(el('main',{class:'content'},notice(ui.message(error),true)));}}
   root.core.app=Object.freeze({ready:start(),render});
 }());

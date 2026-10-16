@@ -3,9 +3,13 @@
 Checkpoint revisado: **2026-10-16**, aplicación **0.2.0-dev**.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 
-El commit del usuario `4c5554c` conserva el avance previo; este checkpoint añade
-revisión, evidencia y documentación de relevo. El producto sigue incompleto.
+El commit del usuario `4c5554c` conserva el avance previo; el relevo del
+2026-10-16 añadió revisión y evidencia, y después se corrigieron los defectos
+R1–R4 (ver `REVIEW_HANDOFF.md`). El producto sigue incompleto.
 Todo lo necesario para continuar está en Git; no hace falta este chat.
+
+**Reglas de cupo:** parar, documentar, commit y push con 5 % o menos de la
+ventana de 5 horas o con 3 % o menos del cupo semanal total.
 
 ## Primeros pasos
 
@@ -20,7 +24,7 @@ locales, revisarlos antes de actualizar; no resetear ni sobrescribir trabajo.
 
 Leer en este orden:
 
-1. `AGENTS.md`: restricciones y regla de continuidad del cupo (5 % o menos).
+1. `AGENTS.md`: restricciones y reglas de cupo (5 h: 5 % o menos; semanal: 3 % o menos).
 2. `docs/PROJECT_STATUS.md`: estado real, pruebas, pendientes y siguiente paso.
 3. `docs/REQUIREMENTS.es.md` completo: prompt original, sin recortes.
 4. `docs/REVIEW_HANDOFF.md`: hallazgos y riesgos que atender antes de datos reales.
@@ -51,9 +55,14 @@ node --test --test-reporter=dot tests/unit/*.cjs
 git diff --check
 ```
 
-Resultado de revisión: **330 comprobaciones estáticas y 93 subpruebas Node
+Resultado tras R1–R4: **330 comprobaciones estáticas y 95 subpruebas Node
 correctas**. Las pruebas de servicios con contexto simulado no equivalen a
-IndexedDB real. El recorrido real `lifecycle.html` sí pasó en Chrome.
+IndexedDB real. Los recorridos reales negocio, lifecycle y UI pasaron en Chrome
+y Edge con el código actual; Firefox queda pendiente.
+
+No reescribir archivos de texto con `Get-Content`/`Set-Content` de Windows
+PowerShell 5.1: lee ANSI y añade BOM, corrompiendo `—`, `…`, `ñ`, etc. Editar
+con herramientas que conserven UTF-8 sin BOM y revisar `git diff`.
 
 Para preparar Playwright cuando este PC no tenga el runtime de Codex, una
 instalación de desarrollo aislada, con la versión que se ha probado:
@@ -82,12 +91,13 @@ necesarias en lugar de declarar que un JSON antiguo prueba archivos distintos.
 
 ## Siguiente trabajo cuando el usuario pida reanudar
 
-Primero resolver los hallazgos priorizados de `REVIEW_HANDOFF.md` y completar
-aceptación de protección/recuperación. Después continuar fase 3 y fase 4:
-contactos/fusión, voluntariado/horas, documentos e interfaz de animales.
-Reutilizar `context.execute` y los servicios existentes, sin duplicar reglas.
-El recorrido lifecycle en Edge/Firefox está pendiente; Chrome ya está verificado.
-Seguir después fases 5–12 del prompt completo, manteniendo copias y validadores.
+Los hallazgos R1–R4 de `REVIEW_HANDOFF.md` ya están resueltos. Siguiente:
+completar aceptación de protección/recuperación (recuperación visible, cuota,
+cierre forzado) y continuar fase 3 y fase 4: servicio de contactos con
+duplicados y fusión atómica, voluntariado/horas, documentos e interfaz de
+animales. Reutilizar `context.execute` y los servicios existentes, sin duplicar
+reglas. Recorridos negocio/lifecycle/UI en Firefox pendientes con el código
+actual. Seguir después fases 5–12, manteniendo copias y validadores.
 
 ## Qué no se traslada con Git
 

@@ -98,6 +98,7 @@
       if (['completed', 'cancelled'].includes(plan.status) && data.tasks.some(task => task.source?.type === 'care_plan' &&
           task.source.id === id && !task.deletedAt && ['pending', 'in_progress'].includes(task.status))) h.fail('InvalidStateError', 'Complete or explicitly cancel pending plan tasks first');
       if (data.veterinaryRecords.some(row => row.carePlanId === id && row.date < plan.startDate)) h.fail('InvalidInputError', 'Plan start cannot follow an existing performed act');
+      if (data.tasks.some(task => task.source?.type === 'care_plan' && task.source.id === id && task.dueDate < plan.startDate)) h.fail('InvalidInputError', 'Plan start cannot follow its scheduled tasks');
       return { changes: [h.replace('carePlans', plan), log(h, 'update', 'care_plan', id)], result: { id } };
     }, command);
   }

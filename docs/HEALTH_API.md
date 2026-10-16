@@ -78,10 +78,15 @@ preciso, consultable desde el registro de origen.
   cambiarlo de estado. No devuelve un activo a previsto ni reabre un cerrado.
   No mueve su inicio después de un acto ya documentado. Para cerrar o cancelar
   primero se completan o cancelan expresamente sus tareas pendientes.
+  Tampoco mueve su inicio después de la fecha prevista de una tarea del plan.
 - `health.scheduleTask(planId,input,command)` crea una tarea finita a partir
   de un plan abierto, fijando animal y origen del plan. La fecha prevista no
   puede preceder al comienzo del plan. Cada llamada crea una tarea identificada,
   sin series infinitas ni ejecución al cerrar la aplicación.
+- Toda tarea con `source` (alta, edición, importación o restauración) conserva el
+  animal de su registro de origen (`task.animalMismatch`, también si se quita el
+  animal) y, si procede de un plan, no puede preceder a su inicio
+  (`task.beforeOrigin`). Así nunca queda una tarea clínica imposible de completar.
 
 Las instrucciones de dosis, vía y frecuencia son texto proporcionado por el
 usuario o profesional. El servicio las conserva; no calcula dosis, recomienda

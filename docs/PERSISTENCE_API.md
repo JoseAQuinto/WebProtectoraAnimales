@@ -27,12 +27,28 @@ o `writeLease`. Todos los almacenes de negocio usan `[datasetId,id]`.
 - El lease tiene token de generación. `acquire` conserva la interfaz booleana;
   `readLease` devuelve el token, `renew` lo exige, `takeControl` requiere revisión
   vigente. Solo la sonda de infraestructura admite su contrato antiguo de prueba.
+- Duración: `config.leaseMs` (15 s) y renovación cada `config.leaseRenewMs` (5 s)
+  mientras la pestaña es visible, o mientras ejecuta una operación larga aunque
+  esté oculta. `context.retry()` reclama el control solo si el lease anterior ha
+  caducado; una pestaña viva que renueva nunca lo pierde así. Tras recargar, el
+  documento anterior deja su lease vigente (en Chrome no se confirma ninguna
+  escritura IndexedDB iniciada en `pagehide`, medido el 2026-10-16), por lo que la
+  página nueva queda en lectura como máximo un periodo y lo recupera sola.
+  `status().blockedUntil` indica cuándo caduca el lease ajeno.
 - `context.execute(type,intent,build,command)` prepara un fingerprint SHA-256,
   comprueba replay, obtiene snapshot, construye cambios, valida y confirma.
   La UI solo usa servicios. Conserva operationId al reintentar la misma intención.
 - Código animal: contador en meta avanzado en la misma transacción. Tras
   restauración se deriva un mínimo de códigos actuales y activityLog (también
   exportado); no borrar el historial que impide reutilizar códigos anteriores.
+  El formato `A-<dígitos>` está reservado a la secuencia automática; el validador
+  rechaza `A-` con 16 o más dígitos (`animal.codeSequence`) en restauraciones e
+  importaciones para que el siguiente código siga siendo un entero seguro.
+- El constructor de `context.execute` recibe también `h.datasetId`.
+- `settings.create(input,command)`: sin conjunto activo, prepara y activa uno
+  nuevo; con un conjunto activo completamente vacío (copia vacía restaurada),
+  escribe organización, catálogos y ubicación inicial en ese conjunto mediante
+  `context.execute` (lease, revisión e idempotencia). Con datos, se rechaza.
 
 ## Restauración y recuperación
 

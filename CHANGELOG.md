@@ -1,5 +1,21 @@
 # Historial de cambios
 
+## Correcciones de revisión R1–R4 — 2026-10-16 (0.2.0-dev)
+
+- R1: las tareas con origen conservan el animal del origen y no preceden al
+  inicio de su plan, en servicios y en el validador de restauración/importación.
+- R2: crear organización sobre un conjunto activo vacío (copia vacía restaurada)
+  mediante escritura protegida por lease, revisión e idempotencia.
+- R3: la forma `A-<número>` queda reservada a la secuencia automática; se
+  rechazan secuencias de 16 o más dígitos en datos restaurados o importados.
+- R4: lease de 15 s renovado cada 5 s; tras recargar, el control vuelve solo al
+  caducar el anterior, con aviso EN/ES. Medido que `pagehide` no confirma
+  escrituras IndexedDB en Chrome, por lo que no se depende de él.
+- Ejecutor UI con `--browser chrome|edge`. Evidencia nueva en Chrome
+  155.0.8059.81 y Edge 155.0.4283.45; 330 estáticas y 95 subpruebas Node.
+- Nueva regla de continuidad: detener y publicar también con 3 % o menos del
+  cupo semanal.
+
 ## Checkpoint de continuidad — 2026-10-16
 
 - Revisión del estado parcial de 0.2.0-dev conservado en el commit 4c5554c.

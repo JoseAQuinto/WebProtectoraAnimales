@@ -7,16 +7,17 @@ const { pathToFileURL } = require('node:url');
 const { launch } = require('./chromium.cjs');
 const root = path.resolve(__dirname, '../..');
 const args = process.argv.slice(2);
-let output = 'ui-chrome.json', machine = 'unspecified';
+let output = 'ui-chrome.json', machine = 'unspecified', browser = 'chrome';
 // Preserve the original positional filename while accepting portable handoff flags.
 if (args[0] && !args[0].startsWith('--')) output = args.shift();
 for (let index = 0; index < args.length; index += 2) {
-  if (!['--output', '--machine'].includes(args[index]) || !args[index + 1]) throw new Error('Use [filename.json] or --output filename.json --machine alias');
-  if (args[index] === '--output') output = args[index + 1]; else machine = args[index + 1];
+  if (!['--output', '--machine', '--browser'].includes(args[index]) || !args[index + 1]) throw new Error('Use [filename.json] or --output filename.json --machine alias --browser chrome|edge');
+  if (args[index] === '--output') output = args[index + 1]; else if (args[index] === '--machine') machine = args[index + 1]; else browser = args[index + 1];
 }
 if (!/^[a-zA-Z0-9._-]+\.json$/.test(output)) throw new Error('Output must be a plain JSON filename');
 if (!/^[a-zA-Z0-9._-]{1,80}$/.test(machine)) throw new Error('Machine must be a short alias');
-const result = { format: 'rescue-manager-foundation-ui-test', version: 1, browser: 'chrome', machine,
+if (!['chrome', 'edge'].includes(browser)) throw new Error('Browser must be chrome or edge');
+const result = { format: 'rescue-manager-foundation-ui-test', version: 1, browser, machine,
   startedAt: new Date().toISOString(), checks: [], launches: [], closures: [], pageErrors: [], consoleErrors: [], externalRequests: [], screenshots: [],
   limitations: ['Foundation UI only; business module forms are not implemented.', 'Viewport emulation is not a real mobile/tablet device.', 'Page request trace does not cover browser-internal traffic.'] };
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
@@ -34,7 +35,7 @@ async function check(id, work) {
   try {
     result.sourceFiles = await sources();
     const folder = path.join(root, '.tmp', 'ui-' + Date.now());
-    session = await launch('chrome', path.join(folder, 'profile'), result);
+    session = await launch(browser, path.join(folder, 'profile'), result);
     const context = session.context;
     async function open() {
       const page = await context.newPage();
@@ -105,13 +106,15 @@ async function check(id, work) {
       const before = await observe(); assert(before?.name === 'Refugio QA sintético ñ 🐾', 'Organization not committed');
       await page.reload({ waitUntil: 'load' }); await page.evaluate(() => window.RescueManager.core.app.ready);
       const after = await observe(); assert(before.businessHash === after.businessHash, 'Reload changed organization data');
+      // R4: the reloaded page regains control by itself when the previous document's lease expires.
       const readOnlyAfterReload = await page.getByRole('button', { name: 'Tomar el control de escritura', exact: true }).count() > 0;
-      if (readOnlyAfterReload) {
-        page.once('dialog', dialog => dialog.accept());
-        await page.getByRole('button', { name: 'Tomar el control de escritura', exact: true }).click();
-        await page.waitForFunction(() => window.RescueManager.services.context.status().canWrite);
-      }
-      return { before, after, readOnlyAfterReload, languageAfterReload: await page.locator('html').getAttribute('lang') };
+      const explained = await page.getByText('Si acabas de recargar o reabrir la página', { exact: false }).count() > 0;
+      const started = Date.now(), leaseMs = await page.evaluate(() => window.RescueManager.config.leaseMs);
+      await page.waitForFunction(() => window.RescueManager.services.context.status().canWrite, null, { timeout: leaseMs + 10000 });
+      const controlRecoveredMs = Date.now() - started;
+      await page.getByRole('button', { name: 'Tomar el control de escritura', exact: true }).waitFor({ state: 'detached', timeout: 5000 });
+      assert(controlRecoveredMs <= leaseMs + 2000 && (!readOnlyAfterReload || explained), 'Reloaded page did not regain control within one lease period');
+      return { before, after, readOnlyAfterReload, controlRecoveredMs, takeoverUsed: false, languageAfterReload: await page.locator('html').getAttribute('lang') };
     });
     await check('viewport-navigation-and-overflow', async () => {
       const widths = [];

@@ -57,6 +57,8 @@ un contador transaccional y deriva mínimos de animales/historial. La creación
 registra el código en `activityLog.summaryParameters.code`; restauraciones y
 eliminaciones deben conservar esta historia necesaria para no reutilizarlo.
 Un código explícito que ya figure en animales o actividad se rechaza también.
+Un código manual no puede tener la forma `A-<número>` (sin distinguir mayúsculas):
+esa forma pertenece a la secuencia y no puede colisionar ni agotarla.
 
 ## Acogidas
 

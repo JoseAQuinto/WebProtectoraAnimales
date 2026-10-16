@@ -2,26 +2,39 @@
   'use strict';
   const root = window.RescueManager, s = root.storage, w = s.writeCoordinator;
   const owner = root.utils.ids.uuidV4();
-  let active = null, lease = null;
+  let active = null, lease = null, blockedUntil = null;
   function fail(name, message) { throw s.error(name, message); }
+  const ttl = () => root.config.leaseMs;
+  async function claim() {
+    lease = null; blockedUntil = null;
+    if (!active) return;
+    if (await w.acquire(owner, active.datasetId, ttl())) { lease = await w.readLease(); return; }
+    blockedUntil = (await w.readLease())?.expiresAt ?? null;
+  }
   async function open() {
-    await s.database.open(); active = await w.readActive(); lease = null;
-    if (active && await w.acquire(owner, active.datasetId)) lease = await w.readLease();
+    await s.database.open(); active = await w.readActive(); await claim();
+    return status();
+  }
+  // A reload or crash leaves the old lease until it expires (pagehide writes do not commit in Chrome);
+  // a live controlling tab keeps renewing, so its lease is never taken here.
+  async function retry() {
+    if (lease && lease.expiresAt > Date.now()) return status();
+    active = await w.readActive(); await claim();
     return status();
   }
   function status() {
-    return { active, canWrite: !!lease && lease.expiresAt > Date.now(), owner,
+    return { active, canWrite: !!lease && lease.expiresAt > Date.now(), owner, blockedUntil,
       datasetId: active?.datasetId || null, leaseToken: lease?.token || null };
   }
   async function renew() {
     if (!lease || !active) return false;
-    try { lease = await w.renew({ owner, datasetId: active.datasetId, leaseToken: lease.token }); return true; }
+    try { lease = await w.renew({ owner, datasetId: active.datasetId, leaseToken: lease.token }, ttl()); return true; }
     catch (error) { lease = null; throw error; }
   }
   async function takeControl() {
     active = await w.readActive();
     if (!active) fail('DatasetChangedError', 'No organization is active');
-    lease = await w.takeControl({ owner, datasetId: active.datasetId, expectedRevision: active.revision });
+    lease = await w.takeControl({ owner, datasetId: active.datasetId, expectedRevision: active.revision }, ttl());
     return status();
   }
   async function snapshot() {
@@ -48,7 +61,7 @@
     const today = root.utils.dates.today(capture.tables.organizationSettings[0]?.timeZone || 'UTC');
     let sequence = null;
     const helpers = {
-      now, operationId, today,
+      now, operationId, today, datasetId: capture.datasetId,
       find(table, id) { const value = capture.tables[table].find(row => row.id === id); if (!value) fail('RecordNotFoundError', 'The record no longer exists'); return value; },
       create(table, input) {
         return root.domain.createRecord(table, input, { datasetId: capture.datasetId, now, today });
@@ -78,5 +91,5 @@
     active = { key: 'active', datasetId: capture.datasetId, revision: result.activeRevision };
     return result;
   }
-  root.services.context = Object.freeze({ open, status, renew, takeControl, snapshot, options, execute });
+  root.services.context = Object.freeze({ open, status, renew, retry, takeControl, snapshot, options, execute });
 }());

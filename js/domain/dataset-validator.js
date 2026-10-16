@@ -111,6 +111,8 @@
       const history = episodes.get(animal.id) || [], open = history.filter(row => !row.exitDate);
       const currentStays = (stays.get(animal.id) || []).filter(row => !row.endDate);
       const currentReservations = (reservations.get(animal.id) || []).filter(row => row.status === 'active');
+      // Sequence-shaped codes must leave room for the next automatic code.
+      if (/^A-\d{16,}$/.test(animal.code)) add('animals', animal, 'code', 'animal.codeSequence');
       if ((animal.managementStatus === 'under_care') !== (open.length === 1)) add('animals', animal, 'managementStatus', 'animal.episodeState');
       if (history.filter(row => row.entryType === 'first_entry').length > 1) add('animals', animal, 'id', 'episode.multipleFirstEntry');
       if (history.some(row => animal.birthDate && row.entryDate < animal.birthDate)) add('animals', animal, 'birthDate', 'animal.entryBeforeBirth');
@@ -195,7 +197,10 @@
     valid.tasks.forEach(task => {
       if (task.source) {
         const target = get(d.entityTables[task.source.type], task, task.source.id);
-        if (target && task.animalId && ((task.source.type === 'animal' ? target.id : target.animalId) !== task.animalId)) add('tasks', task, 'source', 'task.animalMismatch');
+        const owner = target && (task.source.type === 'animal' ? target.id : target.animalId);
+        // An unlinked animal would make a generated clinical task impossible to complete.
+        if (target && owner !== undefined && owner !== task.animalId) add('tasks', task, 'animalId', 'task.animalMismatch');
+        if (target && task.source.type === 'care_plan' && task.dueDate < target.startDate) add('tasks', task, 'dueDate', 'task.beforeOrigin');
       }
     });
     const organization = valid.organizationSettings[0];

@@ -16,6 +16,10 @@ que ya tengan evidencia vigente ni dar por implementados los módulos sin UI.
   y trabajo delegado, guardar avances coherentes, actualizar documentación,
   hacer commit y push para continuar desde otro equipo. Los antiguos umbrales
   del 20 % y de agotamiento total quedan revocados.
+- Instrucción del usuario el 2026-10-16: comprobar también el cupo **semanal**
+  total. Cuando quede **un 3 % o menos** (97 % o más consumido), detener el
+  desarrollo, hacer commit y push de los avances coherentes y dejar indicado en
+  `docs/PROJECT_STATUS.md` y `docs/CONTINUE_HERE.md` cómo continuar desde otro PC.
 - No consumir un reinicio de cuota sin indicación expresa del usuario.
 - Dejar el proyecto continuable desde otro equipo: código, decisiones,
   evidencias de pruebas, defectos y siguiente acción concreta en Git.

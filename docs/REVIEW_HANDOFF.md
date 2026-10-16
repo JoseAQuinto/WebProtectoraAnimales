@@ -1,69 +1,52 @@
 # Revisión de continuidad — 2026-10-16
 
-Alcance: revisar el avance parcial de `4c5554c` y preparar un relevo reproducible.
-No se amplía la aplicación ni se cierra la aceptación comercial. Los defectos
-siguientes se conservan explícitamente para la próxima fase de desarrollo.
-Los recorridos correctos existentes no cubren estos casos adversos.
+Alcance original: revisar el avance parcial de `4c5554c` y preparar un relevo
+reproducible. Los cuatro defectos priorizados se **corrigieron el mismo día**
+en el segundo PC, cada uno con regresión; evidencia en `ENVIRONMENT_TESTS.md`.
 
-## R1. Tareas de planes pueden quedar sin vía normal de finalización
+## R1. Tareas de planes sin vía normal de finalización — resuelto
 
-Prioridad alta antes de datos reales. Archivos:
-`js/services/tasks.js` (`edit`, `complete`), `js/domain/dataset-validator.js`
-(validación de `tasks.source`), `js/services/health.js` (`record`).
+Antes: editar una tarea de plan con `{animalId:null,dueDate:'2026-10-01'}` se
+aceptaba y luego ni `tasks.complete` ni `health.record` podían cerrarla.
 
-Reproducido durante la revisión con servicios y validador reales, utilizando
-el contexto simulado del fixture de `tests/unit/health.cjs`; **no** se ejecutó
-esta reproducción contra IndexedDB ni se añadió como una prueba ya aprobada.
+Corrección: `tasks.buildTask` (alta, edición y `health.scheduleTask`) exige el
+animal del registro de origen y, para planes, fecha no anterior a su inicio.
+El validador compartido —el mismo de restauración e importación— rechaza
+`task.animalMismatch` (también con animal nulo) y `task.beforeOrigin`.
+`health.updatePlan` no adelanta el inicio por encima de tareas del plan.
+Regresión: `tests/unit/health.cjs`, caso «R1 regression».
 
-1. Crear un plan que empiece el 2026-10-10 y programar una tarea para el día 12.
-2. Editar la tarea con `{animalId:null,dueDate:'2026-10-01'}`.
-3. La operación se acepta y la validación devuelve cero errores.
-4. `tasks.complete` la rechaza con `ClinicalRecordRequiredError` por pertenecer
-   a un plan, y `health.record` la rechaza con `InvalidStateError` por no estar
-   ligada al animal. Se permite además una fecha anterior al inicio del plan.
+## R2. Un dataset restaurado vacío impedía crear organización — resuelto
 
-Siguiente acción: añadir regresión que reproduzca este caso y exigir animal
-y fechas coherentes con el origen desde el validador compartido y los servicios
-de alta/edición. Probar importación/restauración con el mismo registro inválido.
+Corrección: `settings.create` detecta un conjunto activo completamente vacío y
+escribe organización, catálogos y ubicación en él con `context.execute`
+(lease, revisión global e idempotencia). Con datos se rechaza; sin conjunto
+activo sigue el camino prepare/activate. La UI pasa la revisión observada.
+Regresión real IndexedDB: `tests/integration/business.js`, caso
+`empty-restored-dataset-accepts-one-guarded-organization-creation`.
 
-## R2. Un dataset restaurado vacío impide crear organización
+## R3. Un código manual podía bloquear altas automáticas — resuelto
 
-Hallazgo por inspección de contratos, **pendiente de reproducción en navegador**.
-`backup-codec.js` admite `allowEmpty:true`; la restauración puede activar todas
-las tablas vacías. `bootstrap.js` lo presenta como ausencia de organización.
-Sin embargo, `settings.create` utiliza prepare/activate sin `datasetId`, y
-el guard de `dataset-manager.js` rechaza cualquier conjunto activo existente.
-La acción ofrecida de crear organización falla con `DatasetChangedError`.
+Corrección: la forma `A-<número>` (sin distinguir mayúsculas) queda reservada a
+la secuencia automática; los códigos manuales usan cualquier otro texto y no se
+reutilizan. El validador rechaza `A-` con 16 o más dígitos (`animal.codeSequence`)
+en restauraciones/importaciones. Regresión: `tests/unit/lifecycle.cjs`, «R3».
 
-Siguiente acción: fixture de backup realmente vacío, restauración y creación
-de organización desde UI. Definir una transición protegida del activo vacío
-que no borre registros ni eluda control/revisión si otra pestaña lo modifica.
+## R4. Modo lectura tras recarga hasta renovar el control — resuelto
 
-## R3. Un código manual puede bloquear altas automáticas posteriores
+Medición: en Chrome ninguna escritura IndexedDB lanzada en `pagehide` se
+confirma, y `window.name` asignado en `pagehide` no sobrevive a la recarga.
+No hay forma fiable de liberar el lease al descargar sin debilitar la exclusión.
 
-Hallazgo estático, **pendiente de reproducción con persistencia**. En
-`animals.registerEntry` se acepta un código de texto como
-`A-9007199254740992`, pero `context.allocateAnimalCode` interpreta todos los
-sufijos `A-<dígitos>` como enteros seguros de la secuencia y lanza
-`RevisionOverflowError` en la próxima alta automática. El código y su actividad
-histórica impiden simplemente ignorar el registro sin revisar la política.
-
-Siguiente acción: probar esos límites y definir el prefijo reservado/manual
-sin reutilizar códigos históricos ni reinterpretar identificadores externos.
-
-## R4. Una recarga puede dejar modo lectura hasta renovar el control
-
-Limitación demostrada en la evidencia UI de Chrome del 2026-10-15:
-`organization-form-save-and-reload-persists` informa `readOnlyAfterReload:true`.
-La recarga crea un owner nuevo mientras el lease anterior sigue vigente.
-La toma explícita de control funciona; falta una política de recarga/caducidad
-que mantenga la exclusión entre pestañas y resulte clara para el usuario.
+Política adoptada: lease de 15 s renovado cada 5 s (también oculta si hay una
+operación larga). Una pestaña sin control reintenta exactamente al caducar el
+lease ajeno y cada 5 s; nunca quita el control a una pestaña viva que renueva.
+La UI explica que tras recargar el control vuelve solo; la toma explícita sigue
+disponible con confirmación. Medido: 14 976 ms (Chrome) y 14 983 ms (Edge).
 
 ## Pendientes de aceptación y rendimiento
 
-- El recorrido integrado de servicios pasó en Chrome 155.0.8059.80 el
-  2026-10-16; ese recorrido concreto sigue pendiente en Edge y Firefox.
-- UI inicial probada en Chrome, no UI completa en tres motores ni dispositivos.
+- Recorridos negocio/lifecycle/UI en Firefox (no instalado en el segundo PC).
 - Cuota agotada, terminación forzada durante preparación y puntos adicionales
   de fallo/recuperación necesitan aceptación real; cancelar cooperativamente
   no demuestra esos escenarios.
@@ -72,16 +55,3 @@ que mantenga la exclusión entre pestañas y resulte clara para el usuario.
   filas/recursos en vistas operativas cuando se conecten los módulos.
 - Ver `PROJECT_STATUS.md` para módulos sin completar, recuperación visible,
   importación/exportación, demo, guías, licencias y paquete comercial.
-
-## Verificación efectuada para el relevo
-
-- 330 comprobaciones estáticas, 93 subpruebas Node y `git diff --check`: correctos.
-- `lifecycle.html`: 11 internas y 6 externas correctas en Chrome por file://,
-  sin red de la página; datos y bytes conservados al cerrar/reabrir perfil.
-- Se auditó SHA-256 de los archivos de las evidencias: las rondas business
-  `validator-fix`, core `final`, UI `final` y lifecycle `review` corresponden a
-  fuentes actuales. Las primeras business `final` son históricas y anteriores
-  al endurecimiento de validación.
-- El ejecutor UI admite ahora `--machine` y `--output`, manteniendo el nombre
-  posicional anterior. Es una mejora de portabilidad del ejecutor, sin cambios
-  de producción; se comprueba sintaxis y ejecución en la revisión.

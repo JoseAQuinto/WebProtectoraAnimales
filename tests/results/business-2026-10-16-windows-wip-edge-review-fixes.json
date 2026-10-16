@@ -1,0 +1,944 @@
+{
+  "format": "rescue-manager-browser-suite-test",
+  "version": 1,
+  "browser": "edge",
+  "machine": "WIN-JOSEANGEL",
+  "startedAt": "2026-10-16T10:56:02.965Z",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26200",
+    "version": "Windows 11 Pro"
+  },
+  "applicationPage": "tests/integration/business.html",
+  "launches": [
+    {
+      "startedAt": "2026-10-16T10:56:03.002Z",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+      "profile": ".tmp\\suite-edge-1792148162978\\profile",
+      "pid": 29520,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Edg/155.0.4283.45",
+        "revision": "@50f24ef2aa5369a074b8888b7db82d9c0652d642",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "jsVersion": "15.5.9.4"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-16T10:56:08.936Z",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+      "profile": ".tmp\\suite-edge-1792148162978\\profile",
+      "pid": 21944,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Edg/155.0.4283.45",
+        "revision": "@50f24ef2aa5369a074b8888b7db82d9c0652d642",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "jsVersion": "15.5.9.4"
+      },
+      "storageDeniedPreference": false
+    }
+  ],
+  "closures": [
+    {
+      "rootPid": 29520,
+      "exitCode": 0,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 29520,
+          "ParentProcessId": 22604,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --headless=new --remote-debugging-port=0 \"--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-16T10:56:03.0031060Z"
+        },
+        {
+          "ProcessId": 1516,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=crashpad-handler \"--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler \"--database=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\\Crashpad\" --annotation=IsOfficialBuild=1 --annotation=channel= --annotation=chromium-version=155.0.8059.40 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.45 --initial-client-data=0x168,0x190,0x194,0x144,0x19c,0x7ffced5783e0,0x7ffced5783f0,0x7ffced578400",
+          "CreatedAt": "2026-10-16T10:56:03.0516500Z"
+        },
+        {
+          "ProcessId": 46928,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1904 /prefetch:2",
+          "CreatedAt": "2026-10-16T10:56:03.2351370Z"
+        },
+        {
+          "ProcessId": 18740,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --startup-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2200 /prefetch:11",
+          "CreatedAt": "2026-10-16T10:56:03.2374420Z"
+        },
+        {
+          "ProcessId": 1436,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --startup-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2704 /prefetch:13",
+          "CreatedAt": "2026-10-16T10:56:03.2931800Z"
+        },
+        {
+          "ProcessId": 11652,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=103693427810 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=4040 /prefetch:1",
+          "CreatedAt": "2026-10-16T10:56:03.4687280Z"
+        },
+        {
+          "ProcessId": 18612,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=103693487016 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4960 /prefetch:9",
+          "CreatedAt": "2026-10-16T10:56:03.5278560Z"
+        },
+        {
+          "ProcessId": 35028,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --skip-read-main-dll --launch-time-ticks=103693500702 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5292 /prefetch:9",
+          "CreatedAt": "2026-10-16T10:56:03.5444280Z"
+        },
+        {
+          "ProcessId": 45624,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --skip-read-main-dll --launch-time-ticks=103693513800 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5328 /prefetch:9",
+          "CreatedAt": "2026-10-16T10:56:03.5553090Z"
+        },
+        {
+          "ProcessId": 21136,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --skip-read-main-dll --launch-time-ticks=103693525429 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=5704 /prefetch:9",
+          "CreatedAt": "2026-10-16T10:56:03.5665380Z"
+        },
+        {
+          "ProcessId": 22112,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --skip-read-main-dll --launch-time-ticks=103693532958 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=6088 /prefetch:1",
+          "CreatedAt": "2026-10-16T10:56:03.5745300Z"
+        },
+        {
+          "ProcessId": 34532,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --skip-read-main-dll --launch-time-ticks=103693537575 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6264 /prefetch:9",
+          "CreatedAt": "2026-10-16T10:56:03.5794510Z"
+        },
+        {
+          "ProcessId": 10716,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --skip-read-main-dll --launch-time-ticks=103693713791 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=5020 /prefetch:9",
+          "CreatedAt": "2026-10-16T10:56:03.7552500Z"
+        },
+        {
+          "ProcessId": 22508,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=PooledProcess2 --lang=es --service-sandbox-type=utility --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --skip-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709004115666625 --mojo-platform-channel-handle=7104 /prefetch:14",
+          "CreatedAt": "2026-10-16T10:56:03.8284580Z"
+        },
+        {
+          "ProcessId": 29140,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=20 --skip-read-main-dll --launch-time-ticks=103693798102 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709005052708474 --mojo-platform-channel-handle=5068 /prefetch:1",
+          "CreatedAt": "2026-10-16T10:56:03.8384730Z"
+        },
+        {
+          "ProcessId": 42472,
+          "ParentProcessId": 29520,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=PooledProcess2 --lang=es --service-sandbox-type=utility --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --skip-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709006926792172 --mojo-platform-channel-handle=7300 /prefetch:14",
+          "CreatedAt": "2026-10-16T10:56:04.0697140Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-16T10:56:08.925Z"
+    },
+    {
+      "rootPid": 21944,
+      "exitCode": 0,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 21944,
+          "ParentProcessId": 22604,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --headless=new --remote-debugging-port=0 \"--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-16T10:56:08.9390480Z"
+        },
+        {
+          "ProcessId": 16744,
+          "ParentProcessId": 21944,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=crashpad-handler \"--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler \"--database=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\\Crashpad\" --annotation=IsOfficialBuild=1 --annotation=channel= --annotation=chromium-version=155.0.8059.40 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.45 --initial-client-data=0x18c,0x190,0x194,0xac,0x19c,0x7ffced5783e0,0x7ffced5783f0,0x7ffced578400",
+          "CreatedAt": "2026-10-16T10:56:08.9725340Z"
+        },
+        {
+          "ProcessId": 8808,
+          "ParentProcessId": 21944,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1920 /prefetch:2",
+          "CreatedAt": "2026-10-16T10:56:09.1032090Z"
+        },
+        {
+          "ProcessId": 26508,
+          "ParentProcessId": 21944,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2128 /prefetch:11",
+          "CreatedAt": "2026-10-16T10:56:09.1070860Z"
+        },
+        {
+          "ProcessId": 13572,
+          "ParentProcessId": 21944,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2660 /prefetch:13",
+          "CreatedAt": "2026-10-16T10:56:09.1747090Z"
+        },
+        {
+          "ProcessId": 30100,
+          "ParentProcessId": 21944,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --ssd-no-pressure-read-main-dll --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3840 /prefetch:14",
+          "CreatedAt": "2026-10-16T10:56:09.3062410Z"
+        },
+        {
+          "ProcessId": 19008,
+          "ParentProcessId": 21944,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --skip-read-main-dll --launch-time-ticks=103699267078 --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=3936 /prefetch:1",
+          "CreatedAt": "2026-10-16T10:56:09.3123250Z"
+        },
+        {
+          "ProcessId": 22320,
+          "ParentProcessId": 21944,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=103699272485 --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=4028 /prefetch:1",
+          "CreatedAt": "2026-10-16T10:56:09.3129410Z"
+        },
+        {
+          "ProcessId": 41360,
+          "ParentProcessId": 21944,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=103699446602 --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=5788 /prefetch:1",
+          "CreatedAt": "2026-10-16T10:56:09.4868640Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-16T10:56:12.400Z"
+    }
+  ],
+  "checks": [
+    {
+      "id": "suite-passes-offline-from-local-file",
+      "passed": true,
+      "evidence": {
+        "protocol": "file:",
+        "online": false,
+        "config": {
+          "appVersion": "0.2.0-dev",
+          "dbName": "animal-rescue-manager-test-business",
+          "dbVersion": 2,
+          "schemaVersion": 1,
+          "backupFormatVersion": 1,
+          "leaseMs": 15000,
+          "leaseRenewMs": 5000,
+          "limits": {
+            "embeddedAssetBytes": 67108864,
+            "backupBytes": 134217728,
+            "documentBytes": 8388608,
+            "photoInputBytes": 15728640,
+            "photoPixels": 40000000,
+            "csvBytes": 10485760,
+            "csvRows": 10000
+          }
+        },
+        "report": {
+          "startedAt": "2026-10-16T10:56:04.055Z",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+          "checks": [
+            {
+              "id": "business-schema-and-explicit-atomic-initialization",
+              "passed": true,
+              "evidence": {
+                "version": 2,
+                "businessStores": 28,
+                "active": {
+                  "key": "active",
+                  "datasetId": "3c10977f-6324-4201-92d1-10e04e318d42",
+                  "revision": 0
+                }
+              }
+            },
+            {
+              "id": "repository-confirmed-commit-and-idempotent-replay",
+              "passed": true,
+              "evidence": {
+                "revision": 1,
+                "replayed": true
+              }
+            },
+            {
+              "id": "stale-record-and-invalid-reference-leave-current-data-intact",
+              "passed": true,
+              "evidence": {
+                "invalid": "ValidationError",
+                "stale": "RevisionConflictError"
+              }
+            },
+            {
+              "id": "blob-and-document-are-committed-together",
+              "passed": true,
+              "evidence": {
+                "byteLength": 38,
+                "sha256": "c1dad9f9c00b8ce855748478d9eb0fd95522bfcfcc797e7c3be82113eae8e4f5"
+              }
+            },
+            {
+              "id": "full-backup-self-validation-and-binary-roundtrip",
+              "passed": true,
+              "evidence": {
+                "organizationName": "Refugio Sintético ñ 🐾",
+                "backupId": "dce589db-14c9-4637-8cf8-af65333ef256",
+                "createdAt": "2026-10-16T10:56:04.211Z",
+                "appVersion": "0.2.0-dev",
+                "schemaVersion": 1,
+                "dataRevision": 2,
+                "recordCounts": {
+                  "activityLog": 0,
+                  "adoptionApplications": 0,
+                  "adoptions": 0,
+                  "animalEvents": 0,
+                  "animals": 0,
+                  "assets": 1,
+                  "carePlans": 0,
+                  "catalogOptions": 1,
+                  "contacts": 1,
+                  "documentLinks": 0,
+                  "documents": 1,
+                  "donationLines": 0,
+                  "donations": 0,
+                  "financialMovements": 0,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "importIdentityMap": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "locations": 0,
+                  "organizationSettings": 1,
+                  "reservations": 0,
+                  "stayEpisodes": 0,
+                  "tasks": 0,
+                  "veterinaryRecords": 0,
+                  "volunteerHours": 0,
+                  "volunteerProfiles": 0,
+                  "weightMeasurements": 0
+                },
+                "embeddedAssetCount": 1,
+                "embeddedAssetBytes": 38,
+                "externalReferenceCount": 0
+              }
+            },
+            {
+              "id": "corrupt-truncated-and-future-backups-never-touch-active-data",
+              "passed": true,
+              "evidence": [
+                "BackupValidationError",
+                "BackupValidationError",
+                "VersionError"
+              ]
+            },
+            {
+              "id": "cancelled-preparation-retains-active-dataset",
+              "passed": true,
+              "evidence": {
+                "failure": "AbortError",
+                "preparations": 1
+              }
+            },
+            {
+              "id": "validated-restoration-switches-atomically-and-invalidates-old-writer",
+              "passed": true,
+              "evidence": {
+                "before": "3c10977f-6324-4201-92d1-10e04e318d42",
+                "after": "aef293c5-7f4b-48a4-b82f-9ed29fc87a07",
+                "rejected": "DatasetChangedError"
+              }
+            },
+            {
+              "id": "unvalidated-target-and-active-cleanup-are-rejected",
+              "passed": true,
+              "evidence": {
+                "invalidActivation": "DatasetNotValidatedError",
+                "invalidCleanup": "DatasetChangedError"
+              }
+            },
+            {
+              "id": "backup-receipts-and-verified-current-copy-before-replacement",
+              "passed": true,
+              "evidence": {
+                "generated": true,
+                "requested": true,
+                "verified": true,
+                "beforeVerification": "VerifiedBackupRequiredError",
+                "restored": true
+              }
+            },
+            {
+              "id": "physical-migration-preserves-core-and-aborts-future-logical-schema",
+              "passed": true,
+              "evidence": {
+                "migrated": {
+                  "rejected": null,
+                  "physicalVersion": 2,
+                  "stores": 32,
+                  "preserved": "conservar ñ"
+                },
+                "future": {
+                  "rejected": "VersionError",
+                  "physicalVersion": 1,
+                  "stores": 3,
+                  "preserved": "conservar ñ"
+                }
+              }
+            },
+            {
+              "id": "empty-restored-dataset-accepts-one-guarded-organization-creation",
+              "passed": true,
+              "evidence": {
+                "datasetId": "6bf2d269-9515-429d-96f3-73de13788e67",
+                "stale": "RevisionConflictError",
+                "replayed": true,
+                "second": "DatasetChangedError",
+                "catalogOptions": 70
+              }
+            }
+          ],
+          "passed": true,
+          "completedAt": "2026-10-16T10:56:04.467Z"
+        }
+      }
+    },
+    {
+      "id": "complete-first-owned-browser-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 29520,
+        "exitCode": 0,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 29520,
+            "ParentProcessId": 22604,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --headless=new --remote-debugging-port=0 \"--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-16T10:56:03.0031060Z"
+          },
+          {
+            "ProcessId": 1516,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=crashpad-handler \"--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler \"--database=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\\Crashpad\" --annotation=IsOfficialBuild=1 --annotation=channel= --annotation=chromium-version=155.0.8059.40 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.45 --initial-client-data=0x168,0x190,0x194,0x144,0x19c,0x7ffced5783e0,0x7ffced5783f0,0x7ffced578400",
+            "CreatedAt": "2026-10-16T10:56:03.0516500Z"
+          },
+          {
+            "ProcessId": 46928,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1904 /prefetch:2",
+            "CreatedAt": "2026-10-16T10:56:03.2351370Z"
+          },
+          {
+            "ProcessId": 18740,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --startup-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2200 /prefetch:11",
+            "CreatedAt": "2026-10-16T10:56:03.2374420Z"
+          },
+          {
+            "ProcessId": 1436,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --startup-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2704 /prefetch:13",
+            "CreatedAt": "2026-10-16T10:56:03.2931800Z"
+          },
+          {
+            "ProcessId": 11652,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=103693427810 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=4040 /prefetch:1",
+            "CreatedAt": "2026-10-16T10:56:03.4687280Z"
+          },
+          {
+            "ProcessId": 18612,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=103693487016 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4960 /prefetch:9",
+            "CreatedAt": "2026-10-16T10:56:03.5278560Z"
+          },
+          {
+            "ProcessId": 35028,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --skip-read-main-dll --launch-time-ticks=103693500702 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5292 /prefetch:9",
+            "CreatedAt": "2026-10-16T10:56:03.5444280Z"
+          },
+          {
+            "ProcessId": 45624,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --skip-read-main-dll --launch-time-ticks=103693513800 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5328 /prefetch:9",
+            "CreatedAt": "2026-10-16T10:56:03.5553090Z"
+          },
+          {
+            "ProcessId": 21136,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --skip-read-main-dll --launch-time-ticks=103693525429 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=5704 /prefetch:9",
+            "CreatedAt": "2026-10-16T10:56:03.5665380Z"
+          },
+          {
+            "ProcessId": 22112,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --skip-read-main-dll --launch-time-ticks=103693532958 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=6088 /prefetch:1",
+            "CreatedAt": "2026-10-16T10:56:03.5745300Z"
+          },
+          {
+            "ProcessId": 34532,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --skip-read-main-dll --launch-time-ticks=103693537575 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6264 /prefetch:9",
+            "CreatedAt": "2026-10-16T10:56:03.5794510Z"
+          },
+          {
+            "ProcessId": 10716,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --skip-read-main-dll --launch-time-ticks=103693713791 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=5020 /prefetch:9",
+            "CreatedAt": "2026-10-16T10:56:03.7552500Z"
+          },
+          {
+            "ProcessId": 22508,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=PooledProcess2 --lang=es --service-sandbox-type=utility --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --skip-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709004115666625 --mojo-platform-channel-handle=7104 /prefetch:14",
+            "CreatedAt": "2026-10-16T10:56:03.8284580Z"
+          },
+          {
+            "ProcessId": 29140,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=20 --skip-read-main-dll --launch-time-ticks=103693798102 --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709005052708474 --mojo-platform-channel-handle=5068 /prefetch:1",
+            "CreatedAt": "2026-10-16T10:56:03.8384730Z"
+          },
+          {
+            "ProcessId": 42472,
+            "ParentProcessId": 29520,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=PooledProcess2 --lang=es --service-sandbox-type=utility --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --skip-read-main-dll --field-trial-handle=1980,i,15893525322570233865,9525060909230001889,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1984,i,1706118641353080317,8631730535865282135,4 --trace-process-track-uuid=3190709006926792172 --mojo-platform-channel-handle=7300 /prefetch:14",
+            "CreatedAt": "2026-10-16T10:56:04.0697140Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-16T10:56:08.925Z"
+      }
+    },
+    {
+      "id": "all-snapshot-data-persists-after-complete-close",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "sha256": "ebba47e3640781a18903cf9ae442967ab4ba6a8ff22eb2932868a84eb34a5270",
+          "serializedBytes": 145,
+          "datasetDigest": "11e2b65db20f4c239e4e7570123b594e301f085198431bde1cfab9ffd123e1c5",
+          "recordCounts": null
+        },
+        "after": {
+          "sha256": "ebba47e3640781a18903cf9ae442967ab4ba6a8ff22eb2932868a84eb34a5270",
+          "serializedBytes": 145,
+          "datasetDigest": "11e2b65db20f4c239e4e7570123b594e301f085198431bde1cfab9ffd123e1c5",
+          "recordCounts": null
+        },
+        "context": {
+          "protocol": "file:",
+          "online": false
+        },
+        "profileReused": true
+      }
+    },
+    {
+      "id": "no-runtime-errors-or-external-page-requests",
+      "passed": true,
+      "evidence": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "externalRequests": [],
+        "diagnostics": {
+          "runtimeErrors": [],
+          "connectionViolations": []
+        }
+      }
+    },
+    {
+      "id": "complete-reopened-owned-browser-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 21944,
+        "exitCode": 0,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 21944,
+            "ParentProcessId": 22604,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --headless=new --remote-debugging-port=0 \"--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-16T10:56:08.9390480Z"
+          },
+          {
+            "ProcessId": 16744,
+            "ParentProcessId": 21944,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=crashpad-handler \"--user-data-dir=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler \"--database=C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\\Crashpad\" --annotation=IsOfficialBuild=1 --annotation=channel= --annotation=chromium-version=155.0.8059.40 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.45 --initial-client-data=0x18c,0x190,0x194,0xac,0x19c,0x7ffced5783e0,0x7ffced5783f0,0x7ffced578400",
+            "CreatedAt": "2026-10-16T10:56:08.9725340Z"
+          },
+          {
+            "ProcessId": 8808,
+            "ParentProcessId": 21944,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1920 /prefetch:2",
+            "CreatedAt": "2026-10-16T10:56:09.1032090Z"
+          },
+          {
+            "ProcessId": 26508,
+            "ParentProcessId": 21944,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2128 /prefetch:11",
+            "CreatedAt": "2026-10-16T10:56:09.1070860Z"
+          },
+          {
+            "ProcessId": 13572,
+            "ParentProcessId": 21944,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2660 /prefetch:13",
+            "CreatedAt": "2026-10-16T10:56:09.1747090Z"
+          },
+          {
+            "ProcessId": 30100,
+            "ParentProcessId": 21944,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --ssd-no-pressure-read-main-dll --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3840 /prefetch:14",
+            "CreatedAt": "2026-10-16T10:56:09.3062410Z"
+          },
+          {
+            "ProcessId": 19008,
+            "ParentProcessId": 21944,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --skip-read-main-dll --launch-time-ticks=103699267078 --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=3936 /prefetch:1",
+            "CreatedAt": "2026-10-16T10:56:09.3123250Z"
+          },
+          {
+            "ProcessId": 22320,
+            "ParentProcessId": 21944,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=103699272485 --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=4028 /prefetch:1",
+            "CreatedAt": "2026-10-16T10:56:09.3129410Z"
+          },
+          {
+            "ProcessId": 41360,
+            "ParentProcessId": 21944,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Jose Angel\\Desktop\\Herramientas\\cosas sueltas\\weban\\.tmp\\suite-edge-1792148162978\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=103699446602 --field-trial-handle=1936,i,14830332170968564826,3976797208266750115,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,14160089436296572109,6617080983761249031,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=5788 /prefetch:1",
+            "CreatedAt": "2026-10-16T10:56:09.4868640Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-16T10:56:12.400Z"
+      }
+    },
+    {
+      "id": "tested-source-files-remained-unchanged",
+      "passed": true,
+      "evidence": {
+        "count": 29,
+        "hashesMatch": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Native headless desktop automation; no real mobile/tablet coverage.",
+    "Only page-originated HTTP requests are observed; browser-internal traffic is outside this trace."
+  ],
+  "sourceFiles": [
+    {
+      "file": "tests/integration/business.html",
+      "sha256": "11cd94034b5effc46fbe56750a75c980ffcd7263da6b5327fa891b3b9e13fc34"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "113da40932bee80fea4ac4e7d492a8154a6c1875b8e335fef5cff2d3cb643a6b"
+    },
+    {
+      "file": "tests/integration/business-config.js",
+      "sha256": "521782075d3e6c47399aa9fa927627cb9ac30fa979aaa7e30f1f7040af003d08"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "4b67ab901efc4d8f18dd929319ac7a46ac7c296c4c2e9df4605f0eecd46d5fc0"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "1e863f91fb969b2025d10577950485023ae5eb38d6f0ae2f8ac9a82d990831de"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "6e1ba1082a9d185c95c24d1210b09305aa0ecf0ecde834a84fd2cdac1b916c69"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "38323c835a41537c62f421d1581ae200e65841eeb3c88ff17ac6af8b9fc91dbb"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "280dfb46e0dbedb6d8d3fef4de7e8b1c1de1f37659b8149e1109981bf58e3e3e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "6abc52c995ce8094c04915973d60b807a38a146f9aea8bd3c9a64e1115780770"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "f2f283095f8bcea6313cc5f5333ffcd9e512b4382b44e7f2f60a31be9457e8fd"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "86842c4ec5adf62f6f6b6b37e55252a873514f8c88361a05f69d0deb548edc7b"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "efd2530bda729ea10671615d43ebaa6d997a95ff5b93179f76b3f9a9e59bfaf6"
+    },
+    {
+      "file": "tests/integration/business.js",
+      "sha256": "616ca475924f24ce6b2543bbddab7f18a4d6fe986d4ce0d6def8ad0a211daa58"
+    }
+  ],
+  "suiteReport": {
+    "startedAt": "2026-10-16T10:56:04.055Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+    "checks": [
+      {
+        "id": "business-schema-and-explicit-atomic-initialization",
+        "passed": true,
+        "evidence": {
+          "version": 2,
+          "businessStores": 28,
+          "active": {
+            "key": "active",
+            "datasetId": "3c10977f-6324-4201-92d1-10e04e318d42",
+            "revision": 0
+          }
+        }
+      },
+      {
+        "id": "repository-confirmed-commit-and-idempotent-replay",
+        "passed": true,
+        "evidence": {
+          "revision": 1,
+          "replayed": true
+        }
+      },
+      {
+        "id": "stale-record-and-invalid-reference-leave-current-data-intact",
+        "passed": true,
+        "evidence": {
+          "invalid": "ValidationError",
+          "stale": "RevisionConflictError"
+        }
+      },
+      {
+        "id": "blob-and-document-are-committed-together",
+        "passed": true,
+        "evidence": {
+          "byteLength": 38,
+          "sha256": "c1dad9f9c00b8ce855748478d9eb0fd95522bfcfcc797e7c3be82113eae8e4f5"
+        }
+      },
+      {
+        "id": "full-backup-self-validation-and-binary-roundtrip",
+        "passed": true,
+        "evidence": {
+          "organizationName": "Refugio Sintético ñ 🐾",
+          "backupId": "dce589db-14c9-4637-8cf8-af65333ef256",
+          "createdAt": "2026-10-16T10:56:04.211Z",
+          "appVersion": "0.2.0-dev",
+          "schemaVersion": 1,
+          "dataRevision": 2,
+          "recordCounts": {
+            "activityLog": 0,
+            "adoptionApplications": 0,
+            "adoptions": 0,
+            "animalEvents": 0,
+            "animals": 0,
+            "assets": 1,
+            "carePlans": 0,
+            "catalogOptions": 1,
+            "contacts": 1,
+            "documentLinks": 0,
+            "documents": 1,
+            "donationLines": 0,
+            "donations": 0,
+            "financialMovements": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "importIdentityMap": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "locations": 0,
+            "organizationSettings": 1,
+            "reservations": 0,
+            "stayEpisodes": 0,
+            "tasks": 0,
+            "veterinaryRecords": 0,
+            "volunteerHours": 0,
+            "volunteerProfiles": 0,
+            "weightMeasurements": 0
+          },
+          "embeddedAssetCount": 1,
+          "embeddedAssetBytes": 38,
+          "externalReferenceCount": 0
+        }
+      },
+      {
+        "id": "corrupt-truncated-and-future-backups-never-touch-active-data",
+        "passed": true,
+        "evidence": [
+          "BackupValidationError",
+          "BackupValidationError",
+          "VersionError"
+        ]
+      },
+      {
+        "id": "cancelled-preparation-retains-active-dataset",
+        "passed": true,
+        "evidence": {
+          "failure": "AbortError",
+          "preparations": 1
+        }
+      },
+      {
+        "id": "validated-restoration-switches-atomically-and-invalidates-old-writer",
+        "passed": true,
+        "evidence": {
+          "before": "3c10977f-6324-4201-92d1-10e04e318d42",
+          "after": "aef293c5-7f4b-48a4-b82f-9ed29fc87a07",
+          "rejected": "DatasetChangedError"
+        }
+      },
+      {
+        "id": "unvalidated-target-and-active-cleanup-are-rejected",
+        "passed": true,
+        "evidence": {
+          "invalidActivation": "DatasetNotValidatedError",
+          "invalidCleanup": "DatasetChangedError"
+        }
+      },
+      {
+        "id": "backup-receipts-and-verified-current-copy-before-replacement",
+        "passed": true,
+        "evidence": {
+          "generated": true,
+          "requested": true,
+          "verified": true,
+          "beforeVerification": "VerifiedBackupRequiredError",
+          "restored": true
+        }
+      },
+      {
+        "id": "physical-migration-preserves-core-and-aborts-future-logical-schema",
+        "passed": true,
+        "evidence": {
+          "migrated": {
+            "rejected": null,
+            "physicalVersion": 2,
+            "stores": 32,
+            "preserved": "conservar ñ"
+          },
+          "future": {
+            "rejected": "VersionError",
+            "physicalVersion": 1,
+            "stores": 3,
+            "preserved": "conservar ñ"
+          }
+        }
+      },
+      {
+        "id": "empty-restored-dataset-accepts-one-guarded-organization-creation",
+        "passed": true,
+        "evidence": {
+          "datasetId": "6bf2d269-9515-429d-96f3-73de13788e67",
+          "stale": "RevisionConflictError",
+          "replayed": true,
+          "second": "DatasetChangedError",
+          "catalogOptions": 70
+        }
+      }
+    ],
+    "passed": true,
+    "completedAt": "2026-10-16T10:56:04.467Z"
+  },
+  "completedAt": "2026-10-16T10:56:12.420Z",
+  "status": "passed"
+}

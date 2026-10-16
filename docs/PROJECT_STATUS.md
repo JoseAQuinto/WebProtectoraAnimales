@@ -5,20 +5,19 @@ Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
 ## Fase actual
 
-**Checkpoint de relevo revisado; desarrollo detenido por petición del usuario.**
-El cometido del 2026-10-16 ha sido revisar y preparar la continuidad, sin
-completar ni ampliar el producto. Núcleo de fase 1 implementado;
-protección de datos de fase 2 operativa con aceptación parcial; fase 3 de
-interfaz en verificación. Hay servicios posteriores implementados y probados
-como lógica, todavía sin pantallas de gestión. **No es un producto comercial
-terminado. Utilizar únicamente datos de prueba.**
+**Desarrollo reanudado el 2026-10-16 en un segundo PC; defectos R1–R4 de la
+revisión corregidos con regresiones y evidencia real en Chrome y Edge.**
+Núcleo de fase 1 implementado; protección de datos de fase 2 operativa con
+aceptación parcial; fase 3 de interfaz en verificación. Hay servicios
+posteriores implementados y probados como lógica, todavía sin pantallas de
+gestión. **No es un producto comercial terminado. Utilizar únicamente datos de
+prueba.**
 
-Instrucción vigente: cuando quede **un 5 % o menos** del cupo de 5 horas,
-detener desarrollo y trabajo delegado, actualizar documentación, hacer commit
-y push. El anterior límite del 20 % y el agotamiento total están revocados.
-No consumir un reinicio de cuota sin petición expresa. El trabajo de desarrollo
-del 2026-10-15 se detuvo al observar 4 % restante (96 % consumido). La revisión
-de relevo del 2026-10-16 no reanuda el desarrollo funcional.
+Instrucciones vigentes de cupo: detener desarrollo y trabajo delegado,
+actualizar documentación, hacer commit y push cuando quede **un 5 % o menos**
+de la ventana de 5 horas **o un 3 % o menos del cupo semanal total** (97 %
+consumido; instrucción del 2026-10-16). No consumir un reinicio de cuota sin
+petición expresa. El 2026-10-15 se detuvo al observar 4 % restante.
 
 ## Funcionalidades conservadas
 
@@ -90,13 +89,20 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
   siguen pendientes para este recorrido concreto.
 - Revisión de relevo: 330 comprobaciones estáticas y 93 subpruebas Node correctas;
   `git diff --check` sin errores. Sin cambios de producción en esta revisión.
+- Correcciones R1–R4 (2026-10-16, Windows 11 Pro 10.0.26200, Node 22.19.0):
+  330 estáticas y **95 subpruebas** Node correctas. En Chrome 155.0.8059.81 y
+  Edge 155.0.4283.45 por file://: negocio 12+6, lifecycle 11+6 y UI 11, con
+  huellas de fuentes vigentes. Lifecycle y UI en Edge dejan de estar pendientes.
+  Detalle y enlaces en ENVIRONMENT_TESTS.md; política en REVIEW_HANDOFF.md.
 
 ## Límites, defectos y aceptación pendiente
 
-- Revisar primero `REVIEW_HANDOFF.md`: tarea de plan que puede perder animal
-  y coherencia temporal (reproducida con contexto simulado), creación tras
-  dataset restaurado vacío y código manual que agota el contador (inspección),
-  además del modo lectura temporal tras recarga (observado en UI).
+- R1–R4 de `REVIEW_HANDOFF.md` resueltos. Límite conocido de R4: tras recargar,
+  la página está en lectura hasta 15 s (caducidad del lease) y lo recupera sola;
+  ningún navegador probado confirma escrituras IndexedDB durante `pagehide`.
+- Firefox: los recorridos negocio/lifecycle/UI con el código actual no se han
+  ejecutado en el segundo PC (Firefox no instalado). La evidencia Firefox del
+  2026-10-15 corresponde a fuentes anteriores.
 
 - Persistencia y validación de escritura capturan el dataset completo: O(N).
   La prueba de volumen en Node no acredita rendimiento/memoria del producto
@@ -118,13 +124,18 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
 
 ## Siguiente acción concreta
 
-1. Leer AGENTS.md, este estado y REQUIREMENTS.es.md completos; comprobar cupo.
-2. Revisar la última evidencia UI/lifecycle y los defectos explícitos pendientes
-   en ENVIRONMENT_TESTS.md y REVIEW_HANDOFF.md. Reproducir solo casos que cambien
-   o falten: el recorrido lifecycle en Chrome ya pasó, no está pendiente.
-3. Completar fase 3 y la protección/recuperación antes de habilitar información real.
-4. Implementar servicios centrales de contactos y fusión, voluntariado/horas,
-   documentos e imágenes; conectar pantallas de fase 4 reutilizando context.execute.
+1. Leer AGENTS.md, este estado y REQUIREMENTS.es.md completos; comprobar cupo
+   de 5 horas y semanal.
+2. Si hay Firefox estable disponible, repetir negocio/lifecycle/UI con el código
+   actual (comandos en ENVIRONMENT_TESTS.md). No repetir Chrome/Edge sin cambios.
+3. Completar fase 3 y la protección/recuperación antes de habilitar información
+   real: recuperación visible de conjuntos retirados, cuota agotada y cierre
+   forzado durante preparación.
+4. Implementar el servicio central de contactos (`js/services/contacts.js`:
+   alta/edición con normalización, roles, detección de duplicados por email,
+   teléfono y nombre, fusión atómica con reasignación de todas las referencias
+   y `mergedIntoContactId`), después voluntariado/horas y documentos/imágenes;
+   conectar pantallas de fase 4 reutilizando context.execute.
 5. Conectar y verificar en navegador los servicios de ciclo animal, salud/tareas
    y recursos ya implementados. APIs en DOMAIN/LIFECYCLE/RESOURCES/HEALTH_API.md.
 6. Continuar fases 5 a 12 sin omitir módulos ni reducir criterios de aceptación.

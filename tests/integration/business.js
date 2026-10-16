@@ -170,6 +170,29 @@
       assert(future.rejected === 'VersionError' && future.physicalVersion === 1 && future.preserved === 'conservar ñ', 'Future logical schema was modified during upgrade');
       return { migrated, future };
     });
+    await test('empty-restored-dataset-accepts-one-guarded-organization-creation', async () => {
+      await root.services.context.open(); await root.services.context.takeControl();
+      const current = await s.repositories.snapshot();
+      const emptyTables = Object.fromEntries(s.schema.tables.map(name => [name, []]));
+      const emptyBackup = await root.services.backupCodec.decode((await root.services.backupCodec.encode({ ...current, tables: emptyTables })).text);
+      const copy = await root.services.backup.create(); await root.services.backup.verify(copy.blob);
+      await root.services.backup.restore(emptyBackup, { confirmed: true, expectedRevision: current.globalRevision });
+      const restored = await s.repositories.snapshot();
+      assert(restored.datasetId !== current.datasetId && Object.values(restored.tables).every(rows => !rows.length), 'Empty backup was not activated as an empty dataset');
+      const input = { name: 'Refugio tras copia vacía', currencyCode: 'JPY', dateFormat: 'iso', timeZone: 'UTC', language: 'en' };
+      const stale = await reject(() => root.services.settings.create(input, { expectedRevision: restored.globalRevision - 1, operationId: id() }));
+      const cmd = { expectedRevision: restored.globalRevision, operationId: id() };
+      await root.services.settings.create(input, cmd);
+      const created = await s.repositories.snapshot();
+      const replay = await root.services.context.execute('settings.create', input, () => { throw new Error('Replay rebuilt the change set'); }, cmd);
+      const second = await reject(() => root.services.settings.create(input, { operationId: id() }));
+      const after = await s.repositories.snapshot();
+      assert(created.datasetId === restored.datasetId && created.tables.organizationSettings.length === 1 && created.tables.catalogOptions.length > 0 && created.tables.locations.length === 1, 'Organization was not created inside the active empty dataset');
+      assert(stale === 'RevisionConflictError' && replay.duplicate && second === 'DatasetChangedError', 'Creation was not guarded, idempotent and single');
+      assert(await s.datasetManager.digest(after) === await s.datasetManager.digest(created), 'Rejected creation changed data');
+      assert(root.domain.validateDataset(after.tables, { datasetId: after.datasetId }).length === 0, 'Created organization is invalid');
+      return { datasetId: created.datasetId, stale, replayed: replay.duplicate, second, catalogOptions: created.tables.catalogOptions.length };
+    });
     report.passed = report.checks.every(row => row.passed); report.completedAt = new Date().toISOString(); draw(); return report;
   }
   integration.ready = new URLSearchParams(location.search).has('peer') ? s.database.open() : run();
