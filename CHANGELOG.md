@@ -1,5 +1,18 @@
 # Historial de cambios
 
+## Perfiles de acogida, voluntariado y horas — 2026-10-16 (0.2.0-dev)
+
+- `fosters.createProfile/updateProfile/occupancy`: un perfil por contacto, rol
+  concedido en la misma transacción, opciones de catálogo activas y ocupación
+  derivada de estancias abiertas.
+- Validador: la disponibilidad del perfil solo rige nuevas asignaciones, y la
+  capacidad se exige a las estancias sin excepción (antes, un exceso
+  documentado invalidaba también la estancia regular previa).
+- `js/services/volunteers.js`: perfiles, horas con corrección y papelera, y
+  totales calculados por periodo y voluntario. Contrato en `VOLUNTEERS_API.md`.
+- Arnés de pruebas compartido en `tests/unit/support/`; 102 pruebas Node y
+  339 estáticas correctas; lifecycle real 12+6 en Chrome y Edge.
+
 ## Servicio central de contactos — 2026-10-16 (0.2.0-dev)
 
 - `js/services/contacts.js`: alta/edición con normalización, bloqueo de

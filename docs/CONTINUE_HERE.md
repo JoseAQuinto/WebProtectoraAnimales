@@ -94,8 +94,10 @@ necesarias en lugar de declarar que un JSON antiguo prueba archivos distintos.
 Los hallazgos R1–R4 de `REVIEW_HANDOFF.md` ya están resueltos y el servicio de
 contactos con fusión atómica existe (`CONTACTS_API.md`). Siguiente: completar
 aceptación de protección/recuperación (recuperación visible, cuota, cierre
-forzado) y continuar fase 4: perfiles de acogida/voluntariado, horas,
-documentos/fotografías e interfaz de agenda y animales. Reutilizar `context.execute` y los servicios existentes, sin duplicar
+forzado) y continuar fase 4: perfiles de acogida/voluntariado y horas ya
+tienen servicio (falta su recorrido IndexedDB); siguen documentos/fotografías,
+pesos e interfaz de agenda y animales. El arnés de servicios para pruebas Node
+está en `tests/unit/support/service-harness.cjs`. Reutilizar `context.execute` y los servicios existentes, sin duplicar
 reglas. Recorridos negocio/lifecycle/UI en Firefox pendientes con el código
 actual. Seguir después fases 5–12, manteniendo copias y validadores.
 

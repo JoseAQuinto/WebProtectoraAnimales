@@ -6,7 +6,10 @@ Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 ## Fase actual
 
 **Desarrollo reanudado el 2026-10-16 en un segundo PC; defectos R1–R4 de la
-revisión corregidos con regresiones y evidencia real en Chrome y Edge.**
+revisión corregidos con regresiones y evidencia real en Chrome y Edge; fase 4
+iniciada con los servicios de contactos, perfiles de acogida y voluntariado.**
+La sesión se cerró en un punto coherente con el cupo semanal al 92 % usado,
+antes del umbral, para dejar margen; todo está publicado en `main`.
 Núcleo de fase 1 implementado; protección de datos de fase 2 operativa con
 aceptación parcial; fase 3 de interfaz en verificación. Hay servicios
 posteriores implementados y probados como lógica, todavía sin pantallas de
@@ -49,6 +52,8 @@ petición expresa. El 2026-10-15 se detuvo al observar 4 % restante.
   duplicados por email/teléfono con confirmación, archivo, papelera sin
   relaciones, búsqueda y fusión atómica con reasignación y historia económica
   conservada. Ver CONTACTS_API.md.
+- Perfiles de acogida (alta/edición/ocupación) y servicio de voluntariado con
+  horas y totales derivados, sin interfaz. Ver LIFECYCLE_API.md y VOLUNTEERS_API.md.
 - Primera interfaz EN/ES: creación de organización de prueba, configuración,
   resumen básico calculado, generar/verificar/restaurar copia y ayuda local.
   Las pantallas de gestión de animales/personas/recursos aún no están conectadas.
@@ -100,6 +105,10 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
   Detalle y enlaces en ENVIRONMENT_TESTS.md; política en REVIEW_HANDOFF.md.
 - Contactos: 335 estáticas y **99 subpruebas** Node correctas; lifecycle real
   con fusión 12 internas + 6 externas en Chrome y en Edge.
+- Perfiles y voluntariado: 339 estáticas y **102 subpruebas** Node correctas;
+  lifecycle real repetido tras el cambio del validador de acogidas, 12 + 6 en
+  Chrome y en Edge (`lifecycle-2026-10-16-windows-wip-*-profiles.json`).
+  Perfiles y horas aún sin recorrido IndexedDB propio.
 
 ## Límites, defectos y aceptación pendiente
 
@@ -137,13 +146,14 @@ usan bases/perfiles separados. No hay datos personales necesarios en Git.
 3. Completar fase 3 y la protección/recuperación antes de habilitar información
    real: recuperación visible de conjuntos retirados, cuota agotada y cierre
    forzado durante preparación.
-4. Servicio de contactos hecho (CONTACTS_API.md). Siguiente en fase 4:
-   servicio de perfiles de acogida y voluntariado ligados al contacto (alta,
-   edición, capacidad/especies/tamaños, estado), horas de voluntariado con
-   totales por periodo, documentos incorporados/externos y fotografías usando
-   `utils/files.js` e `utils/images.js`; después pantallas de agenda (lista,
-   ficha, selector "elegir existente antes de crear", comparación y fusión) y
-   de animales, cargando los servicios en `index.html` solo con su interfaz.
+4. Hechos sin interfaz: contactos (CONTACTS_API.md), perfiles de acogida
+   (LIFECYCLE_API.md) y voluntariado/horas (VOLUNTEERS_API.md). Siguiente en
+   fase 4: añadir perfiles y horas al recorrido real `lifecycle.html`; servicio
+   de documentos incorporados/externos y fotografías (`js/services/documents.js`)
+   usando `utils/files.js` e `utils/images.js`, con presupuesto de 64 MiB y
+   vínculos validados; pesos (`weightMeasurements`); después pantallas de agenda
+   (lista, ficha, "elegir existente antes de crear", comparación y fusión) y de
+   animales, cargando los servicios en `index.html` solo con su interfaz.
 5. Conectar y verificar en navegador los servicios de ciclo animal, salud/tareas
    y recursos ya implementados. APIs en DOMAIN/LIFECYCLE/RESOURCES/HEALTH_API.md.
 6. Continuar fases 5 a 12 sin omitir módulos ni reducir criterios de aceptación.

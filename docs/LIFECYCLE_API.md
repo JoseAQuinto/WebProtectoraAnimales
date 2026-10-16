@@ -66,9 +66,15 @@ esa forma pertenece a la secuencia y no puede colisionar ni agotarla.
 |---|---|
 | `fosters.assign(input, command)` | `animalId`, `fosterProfileId`, `startDate`, `notes?`. Comprueba episodio, ninguna otra acogida abierta, rol de contacto, disponibilidad, capacidad y especies/tamaños. Ante excepción requiere `confirmException:true` y `exceptionReason` persistido. Conserva disponibilidad de adopción. |
 | `fosters.end(input, command)` | `fosterStayId`, `endDate`, `endReason`, `location`. Cierra estancia y fija el destino, conservando disponibilidad y reserva si existe. |
+| `fosters.createProfile(input, command)` | `contactId`, `totalCapacity`, `acceptedSpeciesIds`, `acceptedSizeIds`, `availability`, `restrictions`, `notes`. Un perfil por contacto; opciones activas del catálogo correcto; añade el rol `foster` al contacto en la misma transacción si faltaba. |
+| `fosters.updateProfile(id, patch, command)` | Mismos campos salvo `contactId`. La disponibilidad solo afecta a nuevas asignaciones. Rechaza reducir capacidad o compatibilidad si las estancias abiertas sin excepción dejarían de caber. |
+| `fosters.occupancy(tables, profileId)` | Consulta pura: capacidad, ocupadas, libres, animales actuales y `overCapacity`. |
 
 No se permite superar la prohibición de dos acogidas abiertas, ni siquiera
-mediante una excepción. La ocupación deriva de estancias abiertas.
+mediante una excepción. La ocupación deriva de estancias abiertas. El validador
+exige que las estancias abiertas **sin** motivo de excepción quepan en la
+capacidad y sean compatibles; las estancias con excepción son el exceso
+documentado. La disponibilidad del perfil no invalida animales ya acogidos.
 
 ## Solicitudes, reservas y adopciones
 

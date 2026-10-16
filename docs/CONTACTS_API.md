@@ -52,6 +52,9 @@ confirmar. La interfaz todavía no está conectada; el servicio no se carga en
   informes y vistas deben usarlo para atribuir hechos históricos.
 - `list(tables, {search, role, includeArchived, trash})`: excluye fusionados;
   busca por nombre sin acentos, email y dígitos de teléfono; orden por nombre.
+- `withRole(h, contact, role)`: dentro de un constructor de `context.execute`,
+  devuelve el cambio que añade el rol (o `null` si ya lo tiene). Lo usan los
+  perfiles de acogida y voluntariado para conceder el rol en su misma transacción.
 
 ## Pruebas
 
@@ -64,5 +67,6 @@ confirmar. La interfaz todavía no está conectada; el servicio no se carga en
   reasignaciones, historia económica intacta, reintento idempotente y backup
   verificado posterior.
 
-Pendiente: interfaz de agenda y comparación, perfiles de acogida/voluntariado
-como servicio propio, eliminación permanente con análisis de dependencias.
+Pendiente: interfaz de agenda y comparación y eliminación permanente con
+análisis de dependencias. Perfiles: `LIFECYCLE_API.md` (acogida) y
+`VOLUNTEERS_API.md` (voluntariado y horas).

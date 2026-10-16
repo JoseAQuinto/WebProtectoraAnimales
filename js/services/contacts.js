@@ -144,5 +144,11 @@
         (number && row.phones.some(phone => phone.normalized.includes(number)))))
       .sort((a, b) => a.name.localeCompare(b.name) || a.id.localeCompare(b.id));
   }
-  root.services.contacts = Object.freeze({ create, update, archive, unarchive, trash, restore, merge, findDuplicates, references, resolve, list });
+  // Profiles live on the central contact: creating one grants its role in the same transaction.
+  function withRole(h, contact, role) {
+    available(h, contact);
+    if (contact.roles.includes(role)) return null;
+    return h.replace('contacts', h.edit('contacts', contact, { roles: d.enums.contactRole.filter(code => code === role || contact.roles.includes(code)) }));
+  }
+  root.services.contacts = Object.freeze({ create, update, archive, unarchive, trash, restore, merge, findDuplicates, references, resolve, list, withRole });
 }(window.RescueManager));

@@ -134,13 +134,15 @@
       if (episode.exitReason === 'deceased' && animal && (animal.managementStatus !== 'deceased' || animal.deceasedOn !== episode.exitDate)) add('stayEpisodes', episode, 'exitReason', 'episode.deathMismatch');
     });
     const profileOccupancy = new Map();
-    valid.fosterStays.forEach(stay => { if (!stay.endDate) profileOccupancy.set(stay.fosterProfileId, (profileOccupancy.get(stay.fosterProfileId) || 0) + 1); });
+    // Stays without a recorded exception must fit the capacity; exception stays are the documented overflow.
+    valid.fosterStays.forEach(stay => { if (!stay.endDate && !stay.exceptionReason) profileOccupancy.set(stay.fosterProfileId, (profileOccupancy.get(stay.fosterProfileId) || 0) + 1); });
     valid.fosterStays.forEach(stay => {
       const episode = get('stayEpisodes', stay, stay.episodeId), animal = get('animals', stay, stay.animalId), profile = get('fosterProfiles', stay, stay.fosterProfileId);
       if (episode && (episode.animalId !== stay.animalId || stay.startDate < episode.entryDate || (episode.exitDate && (!stay.endDate || stay.endDate > episode.exitDate)))) add('fosterStays', stay, 'episodeId', 'foster.episodeBounds');
       if (profile && animal && !stay.endDate) {
         const occupancy = profileOccupancy.get(profile.id) || 0;
-        const incompatible = profile.availability !== 'available' || !profile.acceptedSpeciesIds.includes(animal.speciesId) || !animal.sizeId || !profile.acceptedSizeIds.includes(animal.sizeId) || occupancy > profile.totalCapacity;
+        // Availability describes new placements (checked by fosters.assign), not animals already hosted.
+        const incompatible = !profile.acceptedSpeciesIds.includes(animal.speciesId) || !animal.sizeId || !profile.acceptedSizeIds.includes(animal.sizeId) || occupancy > profile.totalCapacity;
         if (incompatible && !stay.exceptionReason) add('fosterStays', stay, 'exceptionReason', 'foster.exceptionRequired');
       }
     });

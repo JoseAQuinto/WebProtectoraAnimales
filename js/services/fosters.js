@@ -34,5 +34,49 @@
       return { changes, result: { animalId: animal.id, fosterStayId: stay.id } };
     }, command);
   }
-  root.services.fosters = Object.freeze({ assign, end });
+  const profileFields = ['totalCapacity', 'acceptedSpeciesIds', 'acceptedSizeIds', 'availability', 'restrictions', 'notes'];
+  function only(input, allowed, h) {
+    if (!input || typeof input !== 'object' || Array.isArray(input) || Object.keys(input).some(key => !allowed.includes(key))) l.fail(h, 'Unexpected foster profile input');
+  }
+  function options(h, ids, kind) {
+    if (ids !== undefined && !Array.isArray(ids)) l.fail(h, 'Accepted options must be a list');
+    (ids || []).forEach(value => l.option(h, value, kind));
+  }
+  function openStays(data, profileId) { return data.fosterStays.filter(row => row.fosterProfileId === profileId && !row.endDate); }
+  function occupancy(tables, profileId) {
+    const profile = tables.fosterProfiles.find(row => row.id === profileId);
+    const current = profile ? openStays(tables, profileId) : [];
+    return { capacity: profile ? profile.totalCapacity : 0, occupied: current.length, free: profile ? Math.max(0, profile.totalCapacity - current.length) : 0,
+      animalIds: current.map(row => row.animalId), overCapacity: !!profile && current.length > profile.totalCapacity };
+  }
+  function createProfile(input, command) {
+    return c.execute('foster.createProfile', input, (data, h) => {
+      only(input, ['contactId', ...profileFields], h);
+      if (data.fosterProfiles.some(row => row.contactId === input.contactId)) l.fail(h, 'This contact already has a foster profile');
+      options(h, input.acceptedSpeciesIds, 'species'); options(h, input.acceptedSizeIds, 'size');
+      const contact = h.find('contacts', input.contactId), role = root.services.contacts.withRole(h, contact, 'foster');
+      const profile = h.create('fosterProfiles', input), changes = [h.insert('fosterProfiles', profile)];
+      if (role) changes.push(role);
+      changes.push(h.insert('activityLog', h.create('activityLog', { operation: 'create', occurredAt: h.now, operationId: h.operationId, target: { type: 'foster_profile', id: profile.id }, summaryParameters: {} })));
+      return { changes, result: { id: profile.id } };
+    }, command);
+  }
+  // Availability only governs new placements; capacity and compatibility must still fit the animals already hosted.
+  function updateProfile(id, patch, command) {
+    return c.execute('foster.updateProfile', { id, patch }, (data, h) => {
+      only(patch, profileFields, h);
+      const previous = l.active(h, h.find('fosterProfiles', id));
+      if (patch.acceptedSpeciesIds) options(h, patch.acceptedSpeciesIds.filter(value => !previous.acceptedSpeciesIds.includes(value)), 'species');
+      if (patch.acceptedSizeIds) options(h, patch.acceptedSizeIds.filter(value => !previous.acceptedSizeIds.includes(value)), 'size');
+      const profile = h.edit('fosterProfiles', previous, patch), regular = openStays(data, id).filter(stay => !stay.exceptionReason);
+      const animals = regular.map(stay => h.find('animals', stay.animalId));
+      if (regular.length > profile.totalCapacity ||
+          animals.some(animal => !profile.acceptedSpeciesIds.includes(animal.speciesId) || !animal.sizeId || !profile.acceptedSizeIds.includes(animal.sizeId))) {
+        l.fail(h, 'The current foster stays would no longer fit; end or review them before reducing capacity or compatibility');
+      }
+      return { changes: [h.replace('fosterProfiles', profile), h.insert('activityLog', h.create('activityLog', { operation: 'update', occurredAt: h.now,
+        operationId: h.operationId, target: { type: 'foster_profile', id }, summaryParameters: {} }))], result: { id } };
+    }, command);
+  }
+  root.services.fosters = Object.freeze({ assign, end, createProfile, updateProfile, occupancy });
 }(window.RescueManager));
