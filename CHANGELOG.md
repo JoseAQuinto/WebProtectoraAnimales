@@ -1,5 +1,16 @@
 # Historial de cambios
 
+## Registro de finanzas — 2026-10-17 (0.2.0-dev)
+
+- Pantalla de ingresos/gastos con moneda de organización, importes exactos y
+  separador explícito, filtros, paginación y totales derivados sin anulados.
+- Anulación y corrección mediante sustituto enlazado, con motivos/confirmación,
+  referencias históricas y origen de movimientos conservados.
+- Importe inválido conserva campos y señala su control. Menú lateral con
+  desplazamiento vertical y métricas adaptadas a pantallas estrechas.
+- Aceptación específica y cualquier límite en FINANCE_UI_ACCEPTANCE.md;
+  versiones de datos y backup conservadas. Estática: 582 comprobaciones.
+
 ## Acogidas, adopciones, salud y calendario — 2026-10-17 (0.2.0-dev)
 
 - Acciones reales de acogida y adopción en ficha animal, excepciones revisadas,

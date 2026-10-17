@@ -308,3 +308,33 @@
     'hw.scheduleTask': 'Programar una tarea del plan', 'hw.tasks': 'Tareas y calendario'
   });
 }(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.es = Object.freeze({ ...root.locales.es,
+    'f.amountInvalid':'Introduce el importe con el separador elegido y los decimales de la moneda, sin separadores de miles.',
+    'nav.finance': 'Finanzas', 'f.create': 'Registrar ingreso o gasto', 'f.correct': 'Corregir mediante sustituto', 'f.void': 'Anular movimiento',
+    'f.date': 'Fecha del movimiento', 'f.direction': 'Dirección', 'f.direction.income': 'Ingreso', 'f.direction.expense': 'Gasto', 'f.categoryId': 'Categoría',
+    'f.concept': 'Concepto', 'f.amount': 'Importe', 'f.decimalSeparator': 'Separador decimal', 'f.separator.dot': 'Punto (.)', 'f.separator.comma': 'Coma (,)',
+    'f.animalId': 'Animal existente', 'f.contactId': 'Contacto existente', 'f.notes': 'Notas', 'f.reason': 'Motivo de corrección o anulación',
+    'f.correctionDate': 'Fecha de corrección', 'f.voidDate': 'Fecha de anulación', 'f.confirmed': 'Confirmo el cambio y sus efectos en los registros vinculados',
+    'f.choose': 'Elige una opción', 'f.inactive': 'Inactivo: revisa la selección',
+    'f.amountHelp': 'Moneda de trabajo: {currency}. Introduce hasta {precision} decimales con el separador elegido, sin separadores de miles. El importe debe ser positivo.',
+    'f.manualHelp': 'Esto crea un movimiento económico. No crea una donación, acto sanitario, adopción ni movimiento de existencias. Registra esos hechos desde su propio módulo.',
+    'f.correctionHelp': 'El original se anula y se conserva. Se crea un sustituto de la misma dirección y se reasignan juntos los registros vinculados. Revisa categorías o contactos inactivos antes de guardar.',
+    'f.originalSummary': 'Original: {concept} · {amount}', 'f.amountPositive': 'Introduce un importe mayor que cero.',
+    'f.confirmRequired': 'Confirma la corrección o anulación antes de guardar.',
+    'f.voidHelp': 'Anular conserva este movimiento y lo excluye de los totales. También anula una donación económica vinculada. Se conservan actos sanitarios, adopciones y movimientos físicos de inventario; no se devuelven existencias automáticamente.',
+    'f.saved': 'Operación económica guardada.', 'f.source': 'Origen', 'f.source.manual': 'Registro económico manual', 'f.source.donation': 'Donación',
+    'f.source.veterinary_record': 'Acto sanitario realizado', 'f.source.adoption': 'Adopción', 'f.source.inventory_movement': 'Movimiento de inventario',
+    'f.sourceDescription': '{type}: {description}', 'f.status': 'Estado', 'f.original': 'Ver original corregido: {concept} · {amount}',
+    'f.replacement': 'Ver sustituto: {concept} · {amount}', 'f.relatedRecords': 'Registros de negocio vinculados',
+    'f.relatedHelp': 'Estas referencias comparten este movimiento económico. Abrirlo o corregirlo no repite la operación de negocio original.',
+    'f.from': 'Desde, incluido', 'f.to': 'Hasta, incluido', 'f.search': 'Buscar concepto, notas, contacto, animal o categoría',
+    'f.all': 'Todos', 'f.periodError': 'La fecha final debe ser igual o posterior a la inicial.',
+    'f.total.income': 'Ingresos filtrados', 'f.total.expense': 'Gastos filtrados', 'f.total.balance': 'Saldo filtrado',
+    'f.totalsHelp': 'Los totales incluyen todos los movimientos coincidentes de todas las páginas y excluyen anulados. Los filtros de dirección, categoría, contacto y animal también afectan al saldo. Al mostrar solo anulados, los totales son cero.',
+    'f.empty': 'No hay movimientos con estos filtros.', 'f.open': 'Abrir movimiento', 'f.actions': 'Acciones', 'f.page': 'Página {page} de {pages} · {count} movimientos',
+    'f.help': 'Ingresos y gastos en la moneda de la organización. Las correcciones conservan el registro original. Este registro no ofrece contabilidad fiscal ni certificación de donativos.'
+  });
+}(window.RescueManager));

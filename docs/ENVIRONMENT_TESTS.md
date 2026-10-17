@@ -224,3 +224,25 @@ por motor: no convertir pasos aprobados en aceptación integral. Los defectos
 reales encontrados (pestañas y ancho de tablas) se corrigieron antes del runtime
 publicado. El helper de cierre de navegadores de pruebas también se corrigió
 para reconocer signalCode y liberar CDP tras salida, con identidades verificadas.
+
+## Rondas posteriores del 2026-10-17
+
+Las notas anteriores de UI fallida describen sus fuentes y fecha históricas;
+no son el resultado vigente de las pantallas ya corregidas. Chrome
+155.0.8059.80 y Edge 155.0.4283.45, Windows 11 Home 10.0.26300, `file://`
+offline en perfiles propios, sin relajar seguridad de origen:
+
+- [UI_ACCEPTANCE.md](UI_ACCEPTANCE.md): 13/13 funcionales más 5/5 visuales
+  dirigidas por navegador, con persistencia y bytes comprobados.
+- [WORKFLOWS_UI_ACCEPTANCE.md](WORKFLOWS_UI_ACCEPTANCE.md): 16 comprobaciones
+  por motor acreditadas en cadena (8+2+6 nuevas), con rondas heredadas etiquetadas.
+- [HEALTH_UI_ACCEPTANCE.md](HEALTH_UI_ACCEPTANCE.md): 12/12 por motor; Chrome
+  tiene una auditoría suplementaria de las 63 fuentes, Edge las compara en su ronda.
+- [FINANCE_UI_ACCEPTANCE.md](FINANCE_UI_ACCEPTANCE.md): 12/12 por motor y 64
+  fuentes intactas, cierres propios y digest/revisión conservados al reabrir.
+
+Cada documento enlaza sus JSON y distingue fallos de entorno o del ejecutor.
+Los cambios posteriores no reescriben hashes ni resultados de rondas anteriores.
+Las herramientas, perfiles y capturas siguen fuera de la distribución. Las
+pruebas de viewport no acreditan dispositivos físicos; Firefox actual, cuota
+física agotada, accesibilidad integral y rendimiento a volumen siguen pendientes.

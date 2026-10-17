@@ -12,7 +12,8 @@ copias completas y restauración con conjunto separado. La interfaz permite
 gestionar animales, contactos y duplicados, perfiles de acogida, voluntariado
 y horas, fotografías/pesos y documentos incorporados o externos. Acogidas y
 adopciones tienen sus transiciones reales; salud/planes y tareas/calendario
-comparten registros. Incluye copias verificadas y recuperación local visible.
+comparten registros. Finanzas permite ingresos/gastos, anulaciones y sustitutos
+enlazados. Incluye copias verificadas y recuperación local visible.
 **Faltan recursos, informes, importación/exportación y aceptación integral.
 Utiliza solo datos de prueba.**
 

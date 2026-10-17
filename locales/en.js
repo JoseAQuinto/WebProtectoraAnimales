@@ -308,3 +308,33 @@
     'hw.scheduleTask': 'Schedule one plan task', 'hw.tasks': 'Tasks and calendar'
   });
 }(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.en = Object.freeze({ ...root.locales.en,
+    'f.amountInvalid':'Enter the amount with the selected decimal separator and currency precision, without thousands separators.',
+    'nav.finance': 'Finances', 'f.create': 'Record income or expense', 'f.correct': 'Correct with a replacement', 'f.void': 'Void movement',
+    'f.date': 'Movement date', 'f.direction': 'Direction', 'f.direction.income': 'Income', 'f.direction.expense': 'Expense', 'f.categoryId': 'Category',
+    'f.concept': 'Description', 'f.amount': 'Amount', 'f.decimalSeparator': 'Decimal separator', 'f.separator.dot': 'Dot (.)', 'f.separator.comma': 'Comma (,)',
+    'f.animalId': 'Existing animal', 'f.contactId': 'Existing contact', 'f.notes': 'Notes', 'f.reason': 'Reason for correction or voiding',
+    'f.correctionDate': 'Correction date', 'f.voidDate': 'Voiding date', 'f.confirmed': 'I confirm the change and its effects on the linked records',
+    'f.choose': 'Choose an option', 'f.inactive': 'Inactive: review the selection',
+    'f.amountHelp': 'Working currency: {currency}. Enter up to {precision} decimals using the selected separator, without thousands separators. Amounts must be positive.',
+    'f.manualHelp': 'This creates one financial movement. It does not create a donation, health act, adoption or stock movement. Record those facts in their own module.',
+    'f.correctionHelp': 'The original is voided and preserved. One replacement of the same direction is created, and linked records are reassigned together. Review inactive categories or contacts before saving.',
+    'f.originalSummary': 'Original: {concept} · {amount}', 'f.amountPositive': 'Enter an amount greater than zero.',
+    'f.confirmRequired': 'Confirm the correction or voiding before saving.',
+    'f.voidHelp': 'Voiding preserves this movement and excludes it from financial totals. A linked monetary donation is also voided. Clinical facts, adoptions and physical stock movements are preserved; no stock is automatically returned.',
+    'f.saved': 'Financial operation saved.', 'f.source': 'Source', 'f.source.manual': 'Manual financial entry', 'f.source.donation': 'Donation',
+    'f.source.veterinary_record': 'Performed health act', 'f.source.adoption': 'Adoption', 'f.source.inventory_movement': 'Stock movement',
+    'f.sourceDescription': '{type}: {description}', 'f.status': 'Status', 'f.original': 'View corrected original: {concept} · {amount}',
+    'f.replacement': 'View replacement: {concept} · {amount}', 'f.relatedRecords': 'Linked business records',
+    'f.relatedHelp': 'These references share this financial movement. Opening or correcting the movement does not repeat the original business operation.',
+    'f.from': 'From date, inclusive', 'f.to': 'To date, inclusive', 'f.search': 'Search description, notes, contact, animal or category',
+    'f.all': 'All', 'f.periodError': 'The end date must be on or after the start date.',
+    'f.total.income': 'Filtered income', 'f.total.expense': 'Filtered expenses', 'f.total.balance': 'Filtered balance',
+    'f.totalsHelp': 'Totals use all matching movements across every page and exclude voided entries. Direction, category, contact and animal filters also affect the balance. Showing only voided entries gives zero financial totals.',
+    'f.empty': 'No movements match these filters.', 'f.open': 'Open movement', 'f.actions': 'Actions', 'f.page': 'Page {page} of {pages} · {count} movements',
+    'f.help': 'Income and expenses in the organization’s working currency. Corrections preserve the original record. This register does not provide tax accounting or donation certification.'
+  });
+}(window.RescueManager));

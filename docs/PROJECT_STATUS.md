@@ -1,6 +1,8 @@
 # Estado del proyecto
 
 Actualizado: 2026-10-17. Versión de trabajo: `0.2.0-dev`.
+Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
+`backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
 ## Fase actual
@@ -59,11 +61,15 @@ sesión anterior. No consumir reinicios de cuota sin petición expresa.
 - Tareas y calendario globales comparten filas y filtros, con paginación de lista,
   navegación gregoriana sin UTC y vencimientos derivados sin ejecutar actos.
   Se conservan referencias históricas/inactivas al editar y la pareja hora/zona.
-- Donaciones e inventario aún sin CRUD de interfaz; finanzas en integración.
+- Finanzas: alta de ingresos/gastos exactos, filtros/totales, anulación y
+  corrección mediante sustituto enlazado, sin sobrescribir el importe original.
+  Su aceptación específica está en FINANCE_UI_ACCEPTANCE.md; no atribuirle
+  los recorridos anteriores. Donaciones e inventario aún sin CRUD de interfaz.
 
 Contratos: CONTACTS_API.md, LIFECYCLE_API.md, VOLUNTEERS_API.md,
 DOCUMENTS_API.md, HEALTH_API.md, RESOURCES_API.md, PEOPLE_UI.md,
-ANIMAL_FORMS_UI.md, FOSTER_UI.md, ADOPTION_UI.md, HEALTH_UI.md y TASKS_UI.md.
+ANIMAL_FORMS_UI.md, FOSTER_UI.md, ADOPTION_UI.md, HEALTH_UI.md, TASKS_UI.md y
+FINANCE_UI.md.
 `index.html` carga servicios clásicos en orden explícito;
 `documents.js` precede a `photos.js`. Las cadenas están en locales/en.js y es.js.
 
@@ -72,7 +78,7 @@ ANIMAL_FORMS_UI.md, FOSTER_UI.md, ADOPTION_UI.md, HEALTH_UI.md y TASKS_UI.md.
 - Node: **117 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **541 comprobaciones correctas** al integrar módulos y recuperación;
+- Estática: **582 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -110,7 +116,8 @@ ANIMAL_FORMS_UI.md, FOSTER_UI.md, ADOPTION_UI.md, HEALTH_UI.md y TASKS_UI.md.
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
 - Faltan vistas globales de solicitudes/adopciones, correcciones de historia,
   interfaz de donaciones/inventario, informes, buscador global,
-  importación/exportación, demo y retirada. Finanzas en integración.
+  importación/exportación, demo y retirada. Finanzas tiene aceptación específica
+  separada, con cualquier caso pendiente registrado en su informe.
 - El historial animal aún no enlaza cada evento con su origen ni distingue
   todos los parámetros de estado de las solicitudes. No equivale a pérdida
   de registros: estos se conservan y consultan en sus secciones específicas.
@@ -129,7 +136,7 @@ ANIMAL_FORMS_UI.md, FOSTER_UI.md, ADOPTION_UI.md, HEALTH_UI.md y TASKS_UI.md.
 2. Revisar UI_ACCEPTANCE.md, WORKFLOWS_UI_ACCEPTANCE.md y HEALTH_UI_ACCEPTANCE.md,
    distinguiendo rondas correctas, cadenas reanudadas e intentos de herramienta.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
-3. Cerrar la aceptación de finanzas y conectar donaciones/inventario usando los
+3. Revisar el resultado específico de finanzas y conectar donaciones/inventario usando los
    servicios existentes, sin duplicar efectos de negocio al vincular operaciones.
 4. Completar navegación/correcciones del historial, vistas globales e informes,
    importación/exportación y demo; conservar todas las fases del prompt.
@@ -187,3 +194,20 @@ coincide en sus 63 fuentes; Edge compara inicio/fin. Los intentos fallidos por
 ruta o selección lógica del ejecutor se conservan en HEALTH_UI_ACCEPTANCE.md.
 El calendario tiene dos
 pruebas Node nuevas; la ronda conjunta suma **117 subpruebas correctas**.
+
+## Finanzas y cierre del avance (2026-10-17)
+
+**12/12 comprobaciones correctas en Chrome y Edge**, 64 fuentes cargadas sin
+cambios durante las rondas, dos cierres completos por motor sin forzar ni
+procesos restantes y digest/revisión conservados al reabrir. Incluye importes
+exactos, rechazos sin escrituras con campos retenidos, filtros/totales,
+anulación y sustituto enlazado, revisión antigua, controles estrechos y menú
+desplazable a 360×640. Ver FINANCE_UI_ACCEPTANCE.md. Los dos primeros fallos
+fueron de preparación/selector del ejecutor; se conservan sin contarlos como
+aceptación. La lectura de tablas estrechas todavía necesita pulido.
+
+Última verificación conjunta: **117 pruebas Node y 582 comprobaciones
+estáticas correctas**, además de `git diff --check`. Solo quedaron perfiles y
+capturas de prueba ignorados bajo `.tmp`; los navegadores propios se cerraron.
+No se consumió ningún reinicio de cuota. Las evidencias y ejecutores viajan con
+Git; los datos del perfil del navegador y herramientas externas no viajan.
