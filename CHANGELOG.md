@@ -1,5 +1,18 @@
 # Historial de cambios
 
+## Acogidas, adopciones, salud y calendario — 2026-10-17 (0.2.0-dev)
+
+- Acciones reales de acogida y adopción en ficha animal, excepciones revisadas,
+  reservas explícitas y formalización con cierres/tareas/motivos y cuota opcional.
+- Actos sanitarios y planes con instrucciones del usuario, programación finita,
+  tarea clínica completada junto al acto y gasto nuevo/existente sin duplicación.
+- Lista/agenda/calendario central de tareas; cálculo gregoriano sin UTC, dos
+  pruebas nuevas y regresión de etiquetas dinámicas. Referencias inactivas se
+  conservan al editar y quitar hora limpia también su zona.
+- Aceptación por navegador y límites en WORKFLOWS_UI_ACCEPTANCE y HEALTH_UI_ACCEPTANCE;
+  rondas anteriores e intentos fallidos permanecen diferenciados. Sin cambios
+  de dbVersion, schemaVersion ni backupFormatVersion; appVersion 0.2.0-dev.
+
 ## Aceptación de formularios y ajustes de pantallas — 2026-10-17
 
 - Contactos, perfiles, animales y documentos: 13/13 comprobaciones funcionales

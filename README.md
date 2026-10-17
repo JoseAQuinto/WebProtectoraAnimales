@@ -10,10 +10,11 @@ el trabajo desde otro PC, empezar por [CONTINUE_HERE.md](docs/CONTINUE_HERE.md).
 El núcleo ya incorpora esquemas, validación relacional, persistencia coordinada,
 copias completas y restauración con conjunto separado. La interfaz permite
 gestionar animales, contactos y duplicados, perfiles de acogida, voluntariado
-y horas, fotografías/pesos y documentos incorporados o externos. Incluye
-copias verificadas y recuperación local visible. **Faltan acciones completas
-de acogidas/adopciones, salud/tareas, recursos y otros módulos. Utiliza solo
-datos de prueba.**
+y horas, fotografías/pesos y documentos incorporados o externos. Acogidas y
+adopciones tienen sus transiciones reales; salud/planes y tareas/calendario
+comparten registros. Incluye copias verificadas y recuperación local visible.
+**Faltan recursos, informes, importación/exportación y aceptación integral.
+Utiliza solo datos de prueba.**
 
 La viabilidad y el núcleo se han probado en Chrome, Edge y Firefox estables.
 El desarrollo queda preparado para relevo; el estado vigente y la siguiente

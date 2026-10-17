@@ -178,3 +178,133 @@
     'r.recover':'Revisar recuperación','r.unnamed':'Conjunto sin organización','r.retired':'Conjunto anterior','r.staging':'Preparación interrumpida','r.records':'{count} registros · {bytes} bytes incorporados','r.incomplete':'Esta preparación no está activa. Nunca se activa automáticamente. Los datos activos anteriores se conservan.','r.empty':'No hay conjuntos anteriores ni preparaciones interrumpidas disponibles aquí.'
   });
 }(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.es = Object.freeze({ ...root.locales.es,
+    'fw.title': 'Estancias en acogida', 'fw.assign': 'Asignar acogida', 'fw.endStay': 'Finalizar acogida',
+    'fw.manageProfiles': 'Gestionar perfiles de acogida', 'fw.profile': 'Perfil de acogida existente', 'fw.choose': 'Elige una opción',
+    'fw.profileOption': '{name} · {occupied} de {capacity} plazas ocupadas', 'fw.startDate': 'Fecha de inicio', 'fw.endDate': 'Fecha de finalización',
+    'fw.notes': 'Notas de la estancia', 'fw.confirmException': 'Confirmo esta acogida como excepción documentada',
+    'fw.exceptionReason': 'Motivo de la excepción', 'fw.exceptionHelp': 'Explica por qué se registra esta acogida a pesar de los avisos. Hasta 200 caracteres.',
+    'fw.assignHelp': 'Elige una familia de acogida existente y revisa su ocupación y condiciones actuales. Se conserva la disponibilidad para adopción.',
+    'fw.noProfiles': 'No hay perfiles de acogida activos vinculados a contactos activos. En Acogidas, selecciona un contacto existente y crea primero su perfil.',
+    'fw.chooseProfile': 'Elige un perfil de acogida existente antes de guardar.', 'fw.exceptionRequired': 'Confirma la excepción e indica el motivo. No se han guardado cambios.',
+    'fw.exceptionWarning': 'Esta acogida necesita una excepción explícita:', 'fw.warningAvailability': 'Este perfil no figura como disponible actualmente.',
+    'fw.warningCapacity': 'El perfil no tiene plazas libres dentro de su capacidad declarada.', 'fw.warningSpecies': 'La especie del animal no figura entre las admitidas.',
+    'fw.warningUnknownSize': 'Se desconoce el tamaño del animal y no se puede confirmar la compatibilidad.', 'fw.warningSize': 'El tamaño del animal no figura entre los admitidos.',
+    'fw.compatible': 'El perfil está disponible y encaja con la capacidad, especie y tamaño registrados. Revisa también las restricciones escritas.',
+    'fw.occupancy': 'Ocupación actual', 'fw.occupancyValue': '{occupied} de {capacity} plazas ocupadas · {free} libres',
+    'fw.availability': 'Disponibilidad para nuevas acogidas', 'fw.availability.available': 'Disponible', 'fw.availability.unavailable': 'No disponible', 'fw.availability.conditional': 'Condicional',
+    'fw.species': 'Especies admitidas', 'fw.sizes': 'Tamaños admitidos', 'fw.restrictions': 'Restricciones', 'fw.profileNotes': 'Notas del perfil',
+    'fw.noneAccepted': 'Ninguno declarado', 'fw.currentAnimals': 'Animales acogidos actualmente', 'fw.noCurrentAnimals': 'No hay animales acogidos actualmente.',
+    'fw.noNotes': 'Sin datos registrados', 'fw.ongoing': 'En curso', 'fw.saved': 'Estancia en acogida guardada.',
+    'fw.endReason': 'Motivo de finalización', 'fw.destination': 'Destino tras esta acogida', 'fw.destination.shelter': 'Refugio',
+    'fw.destination.temporary_external': 'Ubicación externa temporal', 'fw.shelter': 'Ubicación del refugio', 'fw.externalDescription': 'Descripción de la ubicación externa temporal',
+    'fw.endSummary': '{animal} está en acogida con {contact} desde el {date}.',
+    'fw.endHelp': 'Se conserva el historial de la estancia. Elige el destino real; se mantienen la disponibilidad para adopción y cualquier reserva.',
+    'fw.chooseDestination': 'Elige un destino en refugio o una ubicación externa temporal antes de guardar.',
+    'fw.intervalHelp': 'Se incluye la fecha de inicio; la fecha de finalización es el día del cambio de ubicación y no se incluye en la duración de la estancia.',
+    'fw.inactiveAnimal': 'Asignar y finalizar acogidas está disponible para animales activos bajo cuidado. Las estancias anteriores se conservan visibles.',
+    'fw.invalidOpenStays': 'Hay más de una acogida abierta. Revisa la integridad de los datos antes de registrar otra transición.',
+    'fw.currentStay': 'Familia de acogida actual', 'fw.history': 'Historial de estancias', 'fw.empty': 'Este animal todavía no tiene estancias en acogida registradas.',
+    'fw.contact': 'Contacto de acogida', 'fw.noException': 'Sin excepción'
+  });
+}(window.RescueManager));
+
+/* Fragmento de integración: fusionar claves en locales/es.js; no cargar por separado. */
+(function(root){
+  'use strict';
+  root.locales.es=Object.freeze({...root.locales.es,...{
+  'aw.applications': 'Solicitudes de adopción', 'aw.help': 'Aprobar, reservar y formalizar una adopción son pasos distintos. Se conservan los registros anteriores y su historia.',
+  'aw.new': 'Nueva solicitud', 'aw.contactId': 'Contacto existente', 'aw.contactHelp': 'Selecciona un contacto de la agenda central. Al guardar se añade el rol de adoptante.',
+  'aw.noContacts': 'Crea o restaura un contacto activo en la agenda y vuelve para registrar la solicitud.', 'aw.choose': 'Selecciona una opción',
+  'aw.applicationDate': 'Fecha de solicitud', 'aw.interviewNotes': 'Entrevista y observaciones', 'aw.notes': 'Notas', 'aw.review': 'Registrar entrevista / revisión',
+  'aw.reviewHelp': 'Guarda la entrevista y marca la solicitud en revisión. No aprueba ni reserva al animal.',
+  'aw.approve': 'Aprobar solicitud', 'aw.approvalDate': 'Fecha de aprobación', 'aw.approveHelp': 'Aprobar la solicitud no crea una reserva ni formaliza una adopción.',
+  'aw.reject': 'Rechazar solicitud', 'aw.cancel': 'Cancelar solicitud', 'aw.date': 'Fecha del cambio', 'aw.reason': 'Motivo',
+  'aw.closeApplicationHelp': 'La solicitud quedará cerrada con este motivo. Se conservan entrevista, aprobación y demás historia.',
+  'aw.closeApplicationReservedHelp': 'Se cierran juntos la solicitud y su reserva activa. Elige la disponibilidad que tendrá el animal después.',
+  'aw.reserve': 'Reservar para este solicitante', 'aw.reservationDate': 'Fecha de reserva', 'aw.expiresOn': 'Válida hasta (opcional)',
+  'aw.expiryHelp': 'La reserva sigue siendo válida durante todo el día de vencimiento. Su caducidad se registra expresamente desde el día siguiente; no se cierra automáticamente.',
+  'aw.reserveHelp': 'Se crea una reserva activa para este solicitante y el animal pasa a reservado. No formaliza la adopción.',
+  'aw.reservation.cancelled': 'Cancelar reserva', 'aw.reservation.expired': 'Registrar caducidad de reserva',
+  'aw.closeReservationHelp': 'Se cierra la reserva y se establece la disponibilidad elegida. La solicitud aprobada sigue abierta; no se crea una adopción.',
+  'aw.availability': 'Disponibilidad después del cambio', 'aw.availability.available': 'Disponible para adopción', 'aw.availability.unavailable': 'No disponible para adopción',
+  'aw.confirmed': 'He revisado y confirmo las consecuencias descritas arriba', 'aw.confirmRequired': 'Revisa las consecuencias y marca la confirmación antes de guardar. No se ha guardado nada.',
+  'aw.complete': 'Formalizar adopción', 'aw.adoptionDate': 'Fecha de adopción', 'aw.completeHelp': 'Se crea la adopción, se cierran el episodio actual y la acogida/reserva abiertas, y se cancelan las demás solicitudes abiertas con tus motivos. Revisa cada tarea pendiente y confirma. Los cambios se guardan juntos.',
+  'aw.fosterEndReason': 'Motivo para finalizar la acogida abierta', 'aw.reservationClosureReason': 'Motivo para cerrar la reserva activa',
+  'aw.otherApplicationsReason': 'Motivo para cancelar las otras solicitudes abiertas', 'aw.otherApplications': 'Otras solicitudes que se cerrarán: {count}',
+  'aw.taskDecision': 'Decisión para esta tarea pendiente', 'aw.taskReason': 'Motivo para cancelar esta tarea', 'aw.task.keep': 'Conservar como seguimiento pendiente',
+  'aw.task.cancel': 'Cancelar con motivo', 'aw.taskReasonRequired': 'Elige conservar o cancelar cada tarea. Cada cancelación necesita su propio motivo. No se ha guardado nada.',
+  'aw.feeSection': 'Ingreso de adopción opcional', 'aw.recordFee': 'Registrar una cuota de adopción como ingreso en la misma operación', 'aw.categoryId': 'Categoría de ingreso',
+  'aw.concept': 'Concepto del ingreso', 'aw.amount': 'Importe', 'aw.decimalSeparator': 'Separador decimal', 'aw.decimalDot': 'Punto (p. ej., 12.50)', 'aw.decimalComma': 'Coma (p. ej., 12,50)',
+  'aw.feeHelp': 'Moneda de la organización: {currency}. Hasta {precision} decimales, sin separadores de miles. Deja desmarcada la cuota para no crear ningún movimiento económico.',
+  'aw.positiveFee': 'La cuota de adopción debe ser positiva. No se ha guardado nada.', 'aw.invalidFee': 'Introduce un importe positivo con el separador elegido y los decimales de la moneda, sin separadores de miles. No se ha guardado nada.',
+  'aw.return': 'Registrar devolución', 'aw.returnDate': 'Fecha de devolución', 'aw.returnReason': 'Motivo de devolución',
+  'aw.returnHelp': 'Se conserva la adopción, se registra su fecha y motivo de devolución, se crea un nuevo episodio y el animal vuelve a cuidado con la ubicación y disponibilidad elegidas. No se reabren solicitudes ni reservas cerradas.',
+  'aw.locationKind': 'Ubicación actual tras la devolución', 'aw.location.shelter': 'Protectora', 'aw.location.temporary_external': 'Ubicación externa temporal',
+  'aw.locationId': 'Ubicación de la protectora', 'aw.externalDescription': 'Describe la ubicación externa temporal', 'aw.saved': 'El cambio del proceso de adopción se ha guardado.',
+  'aw.empty': 'No hay registros para mostrar.', 'aw.notSpecified': 'Sin especificar', 'aw.restoreFirst': 'Restaura este animal antes de registrar un nuevo cambio del proceso.',
+  'aw.filter': 'Estado de la solicitud', 'aw.allStates': 'Todos los estados', 'aw.previous': 'Anterior', 'aw.next': 'Siguiente', 'aw.page': 'Página {page} de {pages} · {count} solicitudes',
+  'aw.details': 'Entrevista, notas y datos del cierre', 'aw.closureReason': 'Motivo de cierre', 'aw.otherReservation': 'Cierra la reserva del otro solicitante antes de formalizar esta adopción.',
+  'aw.contactUnavailable': 'El contacto está archivado o en la papelera. Restáuralo antes de aprobar, reservar o formalizar la adopción.',
+  'aw.reservations': 'Reservas', 'aw.status': 'Estado', 'aw.closedOn': 'Fecha de cierre', 'aw.reservationStatus.active': 'Activa',
+  'aw.reservationStatus.cancelled': 'Cancelada', 'aw.reservationStatus.expired': 'Caducada', 'aw.reservationStatus.fulfilled': 'Formalizada en adopción',
+  'aw.adoptions': 'Adopciones realizadas y devoluciones', 'aw.historyHelp': 'Cada adopción es un hecho histórico. Una devolución crea un episodio nuevo y no borra la adopción anterior.',
+  'aw.recordedFee': 'Movimiento económico relacionado', 'aw.documents': 'Documentos vinculados a esta adopción'
+  }});
+}(window.RescueManager));
+
+(function(root){
+  'use strict';
+  const labels={title:'Título',dueDate:'Fecha prevista',typeId:'Tipo de tarea',priority:'Prioridad',animalId:'Animal',contactId:'Contacto',responsibleVolunteerId:'Voluntario responsable',dueLocalTime:'Hora local (opcional)',timeZone:'Zona horaria',description:'Descripción',notes:'Notas',status:'Estado',date:'Fecha de realización o cancelación',reason:'Motivo de cancelación',confirmed:'Confirmo esta acción y su fecha.',confirmRequired:'Revisa y confirma la acción antes de continuar.',more:'Más detalles',new:'Nueva tarea',edit:'Editar tarea',complete:'Marcar como realizada',cancelTask:'Cancelar tarea',clinical:'Registrar acto sanitario realizado',needsAnimal:'Selecciona un animal en la tarea antes de registrar el acto sanitario realizado.',timeHelp:'Si indicas hora sin zona horaria, se utiliza la de la organización. Las fechas de calendario no cambian.',noAutomatic:'El vencimiento no realiza actos ni administra medicación. No hay avisos garantizados con la aplicación cerrada.',help:'Las listas, la agenda y el calendario consultan las mismas tareas. Completa o cancela cada tarea expresamente.',open:'Abrir tarea',empty:'No hay tareas con estos filtros.',actions:'Acciones',page:'Página {page} de {pages} · {count} tareas',search:'Buscar título, descripción o notas',openTasks:'Tareas abiertas',all:'Todas',list:'Lista y agenda',calendar:'Calendario',calendarHelp:'Utiliza los mismos filtros de la lista. Desplaza horizontalmente en pantallas estrechas o cambia a la lista. Se muestran hasta tres tareas por día; abre todas para ver el resto.',previousMonth:'Mes anterior',nextMonth:'Mes siguiente',month:'Mes',from:'Desde la fecha',to:'Hasta la fecha',mode:'Vista',today:'Hoy',moreTasks:'Abrir las {count} tareas'};
+  const values={priority:{low:'Baja',medium:'Media',high:'Alta',urgent:'Urgente'},urgency:{overdue:'Vencida',today:'Hoy',next_week:'Próximos siete días',later:'Más adelante',closed:'Cerrada'},day:{mon:'Lun',tue:'Mar',wed:'Mié',thu:'Jue',fri:'Vie',sat:'Sáb',sun:'Dom'}};
+  const additions=Object.fromEntries(Object.entries(labels).map(([key,value])=>['q.'+key,value]));for(const[kind,entries]of Object.entries(values))for(const[key,value]of Object.entries(entries))additions['q.'+kind+'.'+key]=value;
+  root.locales.es=Object.freeze({...root.locales.es,...additions,'q.inactive':'Inactivo','q.reviewAssignedVolunteer':'El voluntario asignado ya no está activo. Selecciona otro o quita expresamente la asignación antes de guardar.','nav.tasks':'Tareas y calendario'});
+}(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.es = Object.freeze({ ...root.locales.es,
+    'hw.title': 'Salud y cuidados', 'hw.record': 'Registrar acto sanitario realizado', 'hw.newPlan': 'Crear plan de cuidados', 'hw.editPlan': 'Editar plan de cuidados',
+    'hw.help': 'Los actos realizados, las instrucciones de cuidados y las tareas previstas utilizan el mismo historial del animal. Alcanzar una fecha prevista no registra el acto como realizado.',
+    'hw.activeAnimalRequired': 'Restaura la ficha del animal como activa antes de añadir actos sanitarios o planes de cuidados.',
+    'hw.type': 'Tipo de acto realizado', 'hw.date': 'Fecha de realización', 'hw.recordTitle': 'Título o motivo', 'hw.description': 'Descripción', 'hw.results': 'Resultados', 'hw.notes': 'Notas',
+    'hw.more': 'Profesional, plan relacionado y detalles adicionales', 'hw.veterinarianContactId': 'Contacto veterinario existente', 'hw.clinicContactId': 'Organización clínica existente',
+    'hw.carePlanId': 'Plan de cuidados abierto relacionado', 'hw.nextReviewTaskId': 'Tarea de próxima revisión existente',
+    'hw.nextTaskHelp': 'Selecciona una tarea ya prevista para este animal. Aquí no se crea una nueva cita.',
+    'hw.taskOption': '{title} · {date}', 'hw.conditionState': 'Estado de enfermedad o alergia', 'hw.condition.unknown': 'Desconocido / sin registrar',
+    'hw.condition.active': 'Activa', 'hw.condition.resolved': 'Resuelta', 'hw.resolvedOn': 'Fecha de resolución, si se conoce',
+    'hw.expenses': 'Gasto relacionado', 'hw.expenseMode': 'Acción sobre el gasto', 'hw.expenseMode.none': 'Sin gasto relacionado',
+    'hw.expenseMode.new': 'Crear un único gasto nuevo', 'hw.expenseMode.existing': 'Vincular un gasto existente',
+    'hw.expenseMovementId': 'Gasto contabilizado existente de este animal', 'hw.choose': 'Elige una opción', 'hw.expenseOption': '{date} · {concept} · {amount}',
+    'hw.existingExpenseHelp': 'Selecciona la factura ya registrada de este animal. Vincularla a otro acto no crea ni suma otro gasto.',
+    'hw.expenseCategoryId': 'Categoría del gasto', 'hw.expenseConcept': 'Concepto del gasto', 'hw.expenseAmount': 'Importe del gasto',
+    'hw.decimalSeparator': 'Separador decimal para este importe', 'hw.separator.dot': 'Punto (.)', 'hw.separator.comma': 'Coma (,)',
+    'hw.expenseContactId': 'Contacto existente del gasto', 'hw.expenseNotes': 'Notas del gasto',
+    'hw.amountHelp': 'Los gastos nuevos usan {currency}, con hasta {precision} decimales y sin separadores de miles. La fecha del gasto será la fecha de realización.',
+    'hw.completePlan': 'Completar el plan de cuidados seleccionado tras este acto',
+    'hw.completePlanHelp': 'Cierra el plan expresamente. Antes hay que completar o cancelar por separado las otras tareas pendientes.',
+    'hw.performedConfirmed': 'Confirmo que este acto previsto se realizó en la fecha indicada',
+    'hw.performedHelp': 'El registro sanitario y la finalización de esta tarea se guardan juntos.', 'hw.performTask': 'Confirmar tarea sanitaria realizada',
+    'hw.performTaskHelp': 'Documenta el acto realizado. Guardar confirma esta tarea prevista como completada; no crea una segunda tarea.',
+    'hw.recordHelp': 'Introduce un acto que ya se haya realizado. Este formulario no programa ni recomienda tratamientos.',
+    'hw.confirmPerformed': 'Confirma la realización del acto antes de completar la tarea.',
+    'hw.pendingPlanTasks': 'Resuelve las otras tareas pendientes antes de completar este plan. No se han guardado cambios.',
+    'hw.amountRequired': 'Introduce el importe del gasto nuevo.', 'hw.expenseRequired': 'Elige el gasto existente que se vinculará.',
+    'hw.planSelected': 'Plan seleccionado: {name}', 'hw.pendingPlanHelp': 'El plan no puede cerrarse mientras estas tareas estén pendientes. Completa o cancela cada una expresamente:',
+    'hw.canCompletePlan': 'No hay otras tareas pendientes que impidan completar expresamente este plan.',
+    'hw.name': 'Nombre del plan', 'hw.typeId': 'Tipo de plan', 'hw.startDate': 'Fecha de inicio del plan', 'hw.plannedEndDate': 'Fecha de fin prevista, si se conoce',
+    'hw.status': 'Estado del plan', 'hw.medication': 'Medicamento, si procede', 'hw.instructions': 'Instrucciones aportadas por el profesional',
+    'hw.doseInstructions': 'Instrucciones de dosis', 'hw.routeInstructions': 'Instrucciones de vía', 'hw.frequencyInstructions': 'Instrucciones de frecuencia',
+    'hw.instructionsHelp': 'Registra instrucciones aportadas por el usuario o profesional veterinario. La aplicación no calcula dosis, recomienda tratamientos ni administra nada automáticamente.',
+    'hw.closeConfirmed': 'Confirmo el cierre o cancelación de este plan', 'hw.confirmClose': 'Confirma el cierre o cancelación del plan.',
+    'hw.saved': 'Información sanitaria guardada.', 'hw.unknown': 'Sin registrar', 'hw.empty': 'Todavía no se han registrado actos sanitarios realizados.',
+    'hw.linkedExpense': '{concept} · {amount} · {status}', 'hw.noExpense': 'Sin gasto vinculado', 'hw.linkedTasks': 'Tareas relacionadas',
+    'hw.activeConditions': 'Enfermedades y alergias registradas como activas', 'hw.performedHistory': 'Historial sanitario realizado', 'hw.actions': 'Acciones',
+    'hw.openRecord': 'Abrir registro sanitario', 'hw.sharedInvoiceHelp': 'Una factura puede vincularse a varios actos. Estas filas no deben sumarse como gastos independientes; los totales económicos cuentan cada movimiento una vez.',
+    'hw.plans': 'Planes de cuidados', 'hw.emptyPlans': 'Todavía no hay planes de cuidados registrados.', 'hw.pendingCount': '{count} tareas pendientes del plan',
+    'hw.scheduleTask': 'Programar una tarea del plan', 'hw.tasks': 'Tareas y calendario'
+  });
+}(window.RescueManager));

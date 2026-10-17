@@ -178,3 +178,133 @@
     'r.recover':'Review recovery','r.unnamed':'Dataset without an organisation','r.retired':'Earlier dataset','r.staging':'Interrupted preparation','r.records':'{count} records · {bytes} embedded bytes','r.incomplete':'This preparation is not active. It is never activated automatically. The earlier active data are preserved.','r.empty':'No earlier datasets or interrupted preparations are available here.'
   });
 }(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.en = Object.freeze({ ...root.locales.en,
+    'fw.title': 'Foster stays', 'fw.assign': 'Assign foster home', 'fw.endStay': 'End foster stay',
+    'fw.manageProfiles': 'Manage foster profiles', 'fw.profile': 'Existing foster profile', 'fw.choose': 'Choose an option',
+    'fw.profileOption': '{name} · {occupied} of {capacity} places occupied', 'fw.startDate': 'Start date', 'fw.endDate': 'End date',
+    'fw.notes': 'Stay notes', 'fw.confirmException': 'I confirm this placement as a documented exception',
+    'fw.exceptionReason': 'Exception reason', 'fw.exceptionHelp': 'Explain why this placement is being recorded despite the warnings. Up to 200 characters.',
+    'fw.assignHelp': 'Choose an existing foster home and review its current occupancy and conditions. Adoption availability remains unchanged.',
+    'fw.noProfiles': 'There are no active foster profiles attached to active contacts. Select an existing contact in Foster homes and create its profile first.',
+    'fw.chooseProfile': 'Choose an existing foster profile before saving.', 'fw.exceptionRequired': 'Confirm the exception and give a reason. No changes have been saved.',
+    'fw.exceptionWarning': 'This placement needs an explicit exception:', 'fw.warningAvailability': 'This profile is not currently marked available.',
+    'fw.warningCapacity': 'The profile has no free places within its declared capacity.', 'fw.warningSpecies': 'This animal’s species is not in the accepted list.',
+    'fw.warningUnknownSize': 'The animal’s size is unknown, so compatibility cannot be confirmed.', 'fw.warningSize': 'This animal’s size is not in the accepted list.',
+    'fw.compatible': 'The profile is available and fits the recorded capacity, species and size. Review its written restrictions as well.',
+    'fw.occupancy': 'Current occupancy', 'fw.occupancyValue': '{occupied} of {capacity} places occupied · {free} free',
+    'fw.availability': 'Availability for new placements', 'fw.availability.available': 'Available', 'fw.availability.unavailable': 'Unavailable', 'fw.availability.conditional': 'Conditional',
+    'fw.species': 'Accepted species', 'fw.sizes': 'Accepted sizes', 'fw.restrictions': 'Restrictions', 'fw.profileNotes': 'Profile notes',
+    'fw.noneAccepted': 'None declared', 'fw.currentAnimals': 'Animals currently hosted', 'fw.noCurrentAnimals': 'No animals currently hosted.',
+    'fw.noNotes': 'None recorded', 'fw.ongoing': 'Ongoing', 'fw.saved': 'Foster stay saved.',
+    'fw.endReason': 'Reason for ending the stay', 'fw.destination': 'Destination after this stay', 'fw.destination.shelter': 'Shelter',
+    'fw.destination.temporary_external': 'Temporary external location', 'fw.shelter': 'Shelter location', 'fw.externalDescription': 'Describe the temporary external location',
+    'fw.endSummary': '{animal} has stayed with {contact} since {date}.',
+    'fw.endHelp': 'The stay history is preserved. Choose the actual destination; adoption availability and any reservation remain unchanged.',
+    'fw.chooseDestination': 'Choose a shelter or temporary external destination before saving.',
+    'fw.intervalHelp': 'The start date is included; the end date is the day the location changes and is excluded from the stay’s duration.',
+    'fw.inactiveAnimal': 'New foster placements and endings are available for active animals under care. Previous stays remain visible.',
+    'fw.invalidOpenStays': 'More than one open foster stay was found. Review data integrity before recording another transition.',
+    'fw.currentStay': 'Current foster home', 'fw.history': 'Stay history', 'fw.empty': 'No foster stays have been recorded for this animal.',
+    'fw.contact': 'Foster contact', 'fw.noException': 'No exception'
+  });
+}(window.RescueManager));
+
+/* Integration fragment: merge these keys into locales/en.js; do not load separately. */
+(function(root){
+  'use strict';
+  root.locales.en=Object.freeze({...root.locales.en,...{
+  'aw.applications': 'Adoption applications', 'aw.help': 'Approval, reservation and adoption are separate steps. Existing records and their history are preserved.',
+  'aw.new': 'New application', 'aw.contactId': 'Existing contact', 'aw.contactHelp': 'Choose a contact from the central address book. The adopter role is added when the application is saved.',
+  'aw.noContacts': 'Create or restore an active contact in the address book, then return to create the application.', 'aw.choose': 'Choose an option',
+  'aw.applicationDate': 'Application date', 'aw.interviewNotes': 'Interview notes', 'aw.notes': 'Notes', 'aw.review': 'Record interview / review',
+  'aw.reviewHelp': 'This saves the interview notes and marks the application as under review. It does not approve or reserve the animal.',
+  'aw.approve': 'Approve application', 'aw.approvalDate': 'Approval date', 'aw.approveHelp': 'Approval does not create a reservation or complete an adoption.',
+  'aw.reject': 'Reject application', 'aw.cancel': 'Cancel application', 'aw.date': 'Date of the change', 'aw.reason': 'Reason',
+  'aw.closeApplicationHelp': 'The application will be closed with this reason. Its interview, approval and other history remain available.',
+  'aw.closeApplicationReservedHelp': 'This closes the application and its active reservation together. Choose the availability that the animal will have afterwards.',
+  'aw.reserve': 'Reserve for this applicant', 'aw.reservationDate': 'Reservation date', 'aw.expiresOn': 'Valid through (optional)',
+  'aw.expiryHelp': 'A reservation remains valid through its expiry date. Expiry must be recorded explicitly from the following day; nothing closes automatically.',
+  'aw.reserveHelp': 'This creates an active reservation for this applicant and marks the animal as reserved. It does not complete adoption.',
+  'aw.reservation.cancelled': 'Cancel reservation', 'aw.reservation.expired': 'Record reservation expiry',
+  'aw.closeReservationHelp': 'This closes the reservation and sets the availability you choose. The approved application remains open; no adoption is created.',
+  'aw.availability': 'Availability after this change', 'aw.availability.available': 'Available for adoption', 'aw.availability.unavailable': 'Unavailable for adoption',
+  'aw.confirmed': 'I have reviewed and confirm the consequences described above', 'aw.confirmRequired': 'Review the consequences and select the confirmation before saving. Nothing has been saved.',
+  'aw.complete': 'Complete adoption', 'aw.adoptionDate': 'Adoption date', 'aw.completeHelp': 'This creates the adoption, closes the current episode and any open foster stay/reservation, and cancels the other open applications with your reasons. Review every pending task and confirm. All changes are saved together.',
+  'aw.fosterEndReason': 'Reason for ending the open foster stay', 'aw.reservationClosureReason': 'Reason for closing the active reservation',
+  'aw.otherApplicationsReason': 'Reason for cancelling the other open applications', 'aw.otherApplications': 'Other applications to close: {count}',
+  'aw.taskDecision': 'Decision for this pending task', 'aw.taskReason': 'Reason for cancelling this task', 'aw.task.keep': 'Keep as pending follow-up',
+  'aw.task.cancel': 'Cancel with a reason', 'aw.taskReasonRequired': 'Choose whether to keep or cancel every task. Each cancellation needs its own reason. Nothing has been saved.',
+  'aw.feeSection': 'Optional adoption income', 'aw.recordFee': 'Record an adoption fee as income in the same operation', 'aw.categoryId': 'Income category',
+  'aw.concept': 'Income description', 'aw.amount': 'Amount', 'aw.decimalSeparator': 'Decimal separator', 'aw.decimalDot': 'Dot (e.g. 12.50)', 'aw.decimalComma': 'Comma (e.g. 12,50)',
+  'aw.feeHelp': 'Organization currency: {currency}. Up to {precision} decimal places; no thousands separators. Leave the fee option unchecked to create no financial movement.',
+  'aw.positiveFee': 'The adoption fee must be positive. Nothing has been saved.', 'aw.invalidFee': 'Enter a positive amount using the selected decimal separator and the currency precision, without thousands separators. Nothing has been saved.',
+  'aw.return': 'Record adoption return', 'aw.returnDate': 'Return date', 'aw.returnReason': 'Return reason',
+  'aw.returnHelp': 'This preserves the adoption and closes it with a return date/reason, creates a new stay episode and puts the animal under care at the location and availability you choose. Closed applications and reservations remain closed.',
+  'aw.locationKind': 'Current location after return', 'aw.location.shelter': 'Shelter', 'aw.location.temporary_external': 'Temporary external location',
+  'aw.locationId': 'Shelter location', 'aw.externalDescription': 'Describe the temporary external location', 'aw.saved': 'The adoption workflow change has been saved.',
+  'aw.empty': 'No records to show.', 'aw.notSpecified': 'Not specified', 'aw.restoreFirst': 'Restore this animal before recording a new workflow change.',
+  'aw.filter': 'Application status', 'aw.allStates': 'All statuses', 'aw.previous': 'Previous', 'aw.next': 'Next', 'aw.page': 'Page {page} of {pages} · {count} applications',
+  'aw.details': 'Interview, notes and closure details', 'aw.closureReason': 'Closure reason', 'aw.otherReservation': 'Close the reservation for the other applicant before completing this adoption.',
+  'aw.contactUnavailable': 'The contact is archived or in trash. Restore the contact before approving, reserving or completing adoption.',
+  'aw.reservations': 'Reservations', 'aw.status': 'Status', 'aw.closedOn': 'Closed on', 'aw.reservationStatus.active': 'Active',
+  'aw.reservationStatus.cancelled': 'Cancelled', 'aw.reservationStatus.expired': 'Expired', 'aw.reservationStatus.fulfilled': 'Fulfilled by adoption',
+  'aw.adoptions': 'Completed adoptions and returns', 'aw.historyHelp': 'Each adoption is a historical fact. A return creates a new episode and does not erase the earlier adoption.',
+  'aw.recordedFee': 'Related financial movement', 'aw.documents': 'Documents linked to this adoption'
+  }});
+}(window.RescueManager));
+
+(function(root){
+  'use strict';
+  const labels={title:'Title',dueDate:'Due date',typeId:'Task type',priority:'Priority',animalId:'Animal',contactId:'Contact',responsibleVolunteerId:'Responsible volunteer',dueLocalTime:'Local time (optional)',timeZone:'Time zone',description:'Description',notes:'Notes',status:'Status',date:'Performed or cancelled on',reason:'Cancellation reason',confirmed:'I confirm this action and date.',confirmRequired:'Review and confirm the action before continuing.',more:'More details',new:'New task',edit:'Edit task',complete:'Mark as performed',cancelTask:'Cancel task',clinical:'Record performed health act',needsAnimal:'Choose an animal in the task before recording the performed health act.',timeHelp:'If a time is set without a time zone, the organisation time zone is used. Calendar dates remain unchanged.',noAutomatic:'A due date does not perform an act or administer medication. There are no guaranteed notifications while the application is closed.',help:'Lists, agenda and calendar use the same task records. Complete or cancel each task explicitly.',open:'Open task',empty:'No tasks match these filters.',actions:'Actions',page:'Page {page} of {pages} · {count} tasks',search:'Search title, description or notes',openTasks:'Open tasks',all:'All',list:'List and agenda',calendar:'Calendar',calendarHelp:'Use the same filters as the list. Scroll horizontally on narrow screens or switch to the list. Up to three tasks are shown per day; open all to see the rest.',previousMonth:'Previous month',nextMonth:'Next month',month:'Month',from:'From date',to:'To date',mode:'View',today:'Today',moreTasks:'Open all {count} tasks'};
+  const values={priority:{low:'Low',medium:'Medium',high:'High',urgent:'Urgent'},urgency:{overdue:'Overdue',today:'Today',next_week:'Next seven days',later:'Later',closed:'Closed'},day:{mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'}};
+  const additions=Object.fromEntries(Object.entries(labels).map(([key,value])=>['q.'+key,value]));for(const[kind,entries]of Object.entries(values))for(const[key,value]of Object.entries(entries))additions['q.'+kind+'.'+key]=value;
+  root.locales.en=Object.freeze({...root.locales.en,...additions,'q.inactive':'Inactive','q.reviewAssignedVolunteer':'The assigned volunteer is no longer active. Select another volunteer or explicitly clear the assignment before saving.','nav.tasks':'Tasks and calendar'});
+}(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.en = Object.freeze({ ...root.locales.en,
+    'hw.title': 'Health and care', 'hw.record': 'Record performed health act', 'hw.newPlan': 'Create care plan', 'hw.editPlan': 'Edit care plan',
+    'hw.help': 'Performed acts, care instructions and scheduled tasks use the same animal history. Reaching a scheduled date does not record an act as performed.',
+    'hw.activeAnimalRequired': 'Restore the animal to an active record before adding health acts or care plans.',
+    'hw.type': 'Performed act type', 'hw.date': 'Performed date', 'hw.recordTitle': 'Title or reason', 'hw.description': 'Description', 'hw.results': 'Results', 'hw.notes': 'Notes',
+    'hw.more': 'Professional, related plan and additional details', 'hw.veterinarianContactId': 'Existing veterinarian contact', 'hw.clinicContactId': 'Existing clinic organization',
+    'hw.carePlanId': 'Related open care plan', 'hw.nextReviewTaskId': 'Existing next review task',
+    'hw.nextTaskHelp': 'Select a task already scheduled for this animal. No new appointment is created here.',
+    'hw.taskOption': '{title} · {date}', 'hw.conditionState': 'Disease or allergy status', 'hw.condition.unknown': 'Unknown / not recorded',
+    'hw.condition.active': 'Active', 'hw.condition.resolved': 'Resolved', 'hw.resolvedOn': 'Resolution date, if known',
+    'hw.expenses': 'Related expense', 'hw.expenseMode': 'Expense action', 'hw.expenseMode.none': 'No related expense',
+    'hw.expenseMode.new': 'Create one new expense', 'hw.expenseMode.existing': 'Link an existing expense',
+    'hw.expenseMovementId': 'Existing posted expense for this animal', 'hw.choose': 'Choose an option', 'hw.expenseOption': '{date} · {concept} · {amount}',
+    'hw.existingExpenseHelp': 'Select the invoice already recorded for this animal. Linking it to another act does not create or add another expense.',
+    'hw.expenseCategoryId': 'Expense category', 'hw.expenseConcept': 'Expense description', 'hw.expenseAmount': 'Expense amount',
+    'hw.decimalSeparator': 'Decimal separator for this amount', 'hw.separator.dot': 'Dot (.)', 'hw.separator.comma': 'Comma (,)',
+    'hw.expenseContactId': 'Existing expense contact', 'hw.expenseNotes': 'Expense notes',
+    'hw.amountHelp': 'New expenses use {currency}, with up to {precision} decimal places and no thousands separators. The expense date is the performed date.',
+    'hw.completePlan': 'Complete the selected care plan after this act',
+    'hw.completePlanHelp': 'Explicitly closes the plan. Other pending tasks must first be completed or cancelled separately.',
+    'hw.performedConfirmed': 'I confirm that this scheduled act was performed on the date entered',
+    'hw.performedHelp': 'The clinical record and this task completion are saved together.', 'hw.performTask': 'Confirm performed health task',
+    'hw.performTaskHelp': 'Document the actual act. Saving confirms this scheduled task as completed; it does not create a second task.',
+    'hw.recordHelp': 'Enter an act that has already occurred. This form does not schedule or recommend treatment.',
+    'hw.confirmPerformed': 'Confirm that the act was performed before completing the task.',
+    'hw.pendingPlanTasks': 'Resolve the other pending tasks before completing this plan. No changes have been saved.',
+    'hw.amountRequired': 'Enter the amount of the new expense.', 'hw.expenseRequired': 'Choose the existing expense to link.',
+    'hw.planSelected': 'Selected plan: {name}', 'hw.pendingPlanHelp': 'The plan cannot close while these tasks are pending. Complete or cancel each task explicitly:',
+    'hw.canCompletePlan': 'No other pending tasks prevent an explicit completion of this plan.',
+    'hw.name': 'Plan name', 'hw.typeId': 'Plan type', 'hw.startDate': 'Plan start date', 'hw.plannedEndDate': 'Planned end date, if known',
+    'hw.status': 'Plan status', 'hw.medication': 'Medication, if applicable', 'hw.instructions': 'Instructions supplied by the professional',
+    'hw.doseInstructions': 'Dose instructions', 'hw.routeInstructions': 'Route instructions', 'hw.frequencyInstructions': 'Frequency instructions',
+    'hw.instructionsHelp': 'Record instructions supplied by the user or veterinary professional. The application does not calculate doses, recommend treatments or administer anything automatically.',
+    'hw.closeConfirmed': 'I confirm closing or cancelling this plan', 'hw.confirmClose': 'Confirm the plan closure or cancellation.',
+    'hw.saved': 'Health information saved.', 'hw.unknown': 'Not recorded', 'hw.empty': 'No performed health acts have been recorded.',
+    'hw.linkedExpense': '{concept} · {amount} · {status}', 'hw.noExpense': 'No linked expense', 'hw.linkedTasks': 'Related tasks',
+    'hw.activeConditions': 'Diseases and allergies recorded as active', 'hw.performedHistory': 'Performed health history', 'hw.actions': 'Actions',
+    'hw.openRecord': 'Open health record', 'hw.sharedInvoiceHelp': 'An invoice may be linked to several acts. These rows must not be added together as independent expenses; financial totals count each movement once.',
+    'hw.plans': 'Care plans', 'hw.emptyPlans': 'No care plans have been recorded.', 'hw.pendingCount': '{count} pending plan tasks',
+    'hw.scheduleTask': 'Schedule one plan task', 'hw.tasks': 'Tasks and calendar'
+  });
+}(window.RescueManager));

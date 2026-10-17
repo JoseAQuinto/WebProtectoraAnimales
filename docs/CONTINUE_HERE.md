@@ -1,6 +1,6 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint: **2026-10-16**, aplicación **0.2.0-dev**.
+Checkpoint: **2026-10-17**, aplicación **0.2.0-dev**.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 
 El desarrollo continúa desde `c44831b`, obtenido del remoto antes de editar.
@@ -38,11 +38,11 @@ con duplicados y fusión; perfiles de acogida y voluntariado/horas; animales
 con ficha, altas, pesos, fotografías, traslados y salidas; documentos incorporados
 /externos y vínculos; recuperación de conjuntos retirados.
 
-Las secciones sanitarias, acogidas, adopción y movimientos de la ficha muestran
-registros reales, pero aún faltan sus acciones completas. El próximo bloque
-concreto es asignar/finalizar acogidas y solicitudes/reservas/adopciones/
-devoluciones usando servicios existentes. Después salud/tareas/calendario y
-recursos/finanzas. Consultar PROJECT_STATUS para el resto del alcance.
+Las secciones sanitarias, acogidas y adopción permiten sus acciones reales:
+asignar/finalizar estancias, revisar/reservar/adoptar/devolver, planes, actos
+realizados y tareas/calendario centrales. El próximo bloque es finanzas y
+recursos, con sus movimientos/correcciones sin duplicar efectos. Consultar
+PROJECT_STATUS y los documentos de aceptación para el resto del alcance.
 
 No cambiar a servidor/framework/CDN/módulos ES/LocalStorage. Sin botones de
 éxito simulado ni datos ficticios permanentes. **Usar solo datos sintéticos.**
@@ -58,10 +58,14 @@ node --test --test-reporter=dot tests/unit/*.cjs
 git diff --check
 ```
 
-Última ronda conjunta: **115 subpruebas Node correctas**, estática **541**.
+Última ronda conjunta: **117 subpruebas Node correctas**. La estática se
+registra con su recuento por checkpoint en PROJECT_STATUS.
 Pruebas reales adicionales: perfiles 9+6 y medios 10+6 en Chrome/Edge.
-Recuperación/cierres y pantallas: ver resultados finales y detalles en
-RECOVERY_EVIDENCE/PROJECT_STATUS/ENVIRONMENT_TESTS. Las primeras rondas fallidas
+Pantallas iniciales 13/13 más visual dirigida 5/5 por motor. Ciclo de acogida/
+adopción 16 comprobaciones por motor acreditadas en cadena; salud/tareas 12/12
+en Chrome y Edge. Ver UI_ACCEPTANCE, WORKFLOWS_UI_ACCEPTANCE y
+HEALTH_UI_ACCEPTANCE, además de recuperación/cierres en RECOVERY_EVIDENCE.
+Las primeras rondas fallidas
 por entorno o ejecutor se conservan sin contarlas como aceptación.
 
 Ejecutores portables:

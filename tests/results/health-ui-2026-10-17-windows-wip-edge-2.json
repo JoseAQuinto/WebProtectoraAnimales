@@ -1,0 +1,1616 @@
+{
+  "format": "rescue-manager-health-ui-test",
+  "version": 1,
+  "browser": "edge",
+  "machine": "windows-wip",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26300",
+    "version": "Windows 11 Home"
+  },
+  "startedAt": "2026-10-17T08:39:09.432Z",
+  "checks": [
+    {
+      "id": "offline-organization-ui-and-labelled-synthetic-service-setup",
+      "passed": true,
+      "evidence": {
+        "environment": {
+          "protocol": "file:",
+          "online": false
+        },
+        "setup": {
+          "contactId": "f988b228-eabd-4d41-87dc-50709e51af39",
+          "volunteerId": "127b593b-d32b-489f-b3b8-0c01a69a403e",
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "today": "2026-10-17",
+          "catalog": {
+            "otherTask": "74377fd8-f6c6-4484-9ac4-78717aef2099",
+            "vaccinationTask": "0f1fdacf-a38a-4dc9-bc63-3fdeb0446d05",
+            "plan": "9826b11c-4369-40ce-97a2-0913ee039338",
+            "expense": "1296f6a5-c37b-4e9b-a2ba-d2683a938a2c"
+          }
+        },
+        "setupUsesServices": true,
+        "snapshot": {
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "globalRevision": 3,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 1,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 0,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 1,
+            "activityLog": 3,
+            "importIdentityMap": 0
+          },
+          "businessHash": "70ef6b36ab6222171d675afeb045afa0642d1ff2c8ee5456bf9c5a311243c933"
+        }
+      }
+    },
+    {
+      "id": "general-task-ui-time-zone-edit-and-removing-time-clears-both-fields",
+      "passed": true,
+      "evidence": {
+        "initial": {
+          "revision": 1,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "title": "Tarea general finalizar ficticia",
+          "description": "",
+          "notes": "",
+          "dueDate": "2026-10-17",
+          "dueLocalTime": "10:30",
+          "timeZone": "Europe/Madrid",
+          "priority": "medium",
+          "status": "pending",
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "contactId": null,
+          "responsibleVolunteerId": null,
+          "typeId": "74377fd8-f6c6-4484-9ac4-78717aef2099",
+          "source": null,
+          "originKey": null,
+          "completedOn": null,
+          "cancelledOn": null,
+          "cancellationReason": null,
+          "id": "7c96931c-55af-4658-a264-b82aaa6f7177",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:12.807Z",
+          "updatedAt": "2026-10-17T08:39:12.807Z"
+        },
+        "updated": {
+          "id": "7c96931c-55af-4658-a264-b82aaa6f7177",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:12.807Z",
+          "updatedAt": "2026-10-17T08:39:13.148Z",
+          "revision": 2,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "title": "Tarea general finalizar ficticia",
+          "description": "Edición sin hora conservada",
+          "notes": "",
+          "dueDate": "2026-10-17",
+          "dueLocalTime": null,
+          "timeZone": null,
+          "priority": "medium",
+          "status": "pending",
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "contactId": null,
+          "responsibleVolunteerId": null,
+          "typeId": "74377fd8-f6c6-4484-9ac4-78717aef2099",
+          "source": null,
+          "originKey": null,
+          "completedOn": null,
+          "cancelledOn": null,
+          "cancellationReason": null
+        }
+      }
+    },
+    {
+      "id": "general-completion-and-cancellation-are-explicit-and-preserve-closure-fields",
+      "passed": true,
+      "evidence": {
+        "tasks": [
+          {
+            "id": "7c96931c-55af-4658-a264-b82aaa6f7177",
+            "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+            "createdAt": "2026-10-17T08:39:12.807Z",
+            "updatedAt": "2026-10-17T08:39:13.366Z",
+            "revision": 3,
+            "archivedAt": null,
+            "deletedAt": null,
+            "origin": "real",
+            "originBatchId": null,
+            "title": "Tarea general finalizar ficticia",
+            "description": "Edición sin hora conservada",
+            "notes": "",
+            "dueDate": "2026-10-17",
+            "dueLocalTime": null,
+            "timeZone": null,
+            "priority": "medium",
+            "status": "completed",
+            "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+            "contactId": null,
+            "responsibleVolunteerId": null,
+            "typeId": "74377fd8-f6c6-4484-9ac4-78717aef2099",
+            "source": null,
+            "originKey": null,
+            "completedOn": "2026-10-17",
+            "cancelledOn": null,
+            "cancellationReason": null
+          },
+          {
+            "id": "f12fba90-a565-4b35-a989-ced4743b445d",
+            "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+            "createdAt": "2026-10-17T08:39:13.559Z",
+            "updatedAt": "2026-10-17T08:39:13.798Z",
+            "revision": 2,
+            "archivedAt": null,
+            "deletedAt": null,
+            "origin": "real",
+            "originBatchId": null,
+            "title": "Tarea general cancelar ficticia",
+            "description": "",
+            "notes": "",
+            "dueDate": "2026-10-17",
+            "dueLocalTime": null,
+            "timeZone": null,
+            "priority": "medium",
+            "status": "cancelled",
+            "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+            "contactId": null,
+            "responsibleVolunteerId": null,
+            "typeId": "74377fd8-f6c6-4484-9ac4-78717aef2099",
+            "source": null,
+            "originKey": null,
+            "completedOn": null,
+            "cancelledOn": "2026-10-17",
+            "cancellationReason": "Cancelación ficticia decidida expresamente"
+          }
+        ]
+      }
+    },
+    {
+      "id": "calendar-and-list-share-task-rows-and-invalid-month-has-no-effects-or-exception",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "globalRevision": 9,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 1,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 3,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 0,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 1,
+            "activityLog": 9,
+            "importIdentityMap": 0
+          },
+          "businessHash": "199bbc877dc02732e9d4956f0b63476d30eb74ac943de096a61a81d07cef71b9"
+        },
+        "invalidMonthRejected": true,
+        "runtimeErrors": 0
+      }
+    },
+    {
+      "id": "inactive-assignee-is-retained-and-edit-rejects-until-explicit-unassignment",
+      "passed": true,
+      "evidence": {
+        "initial": {
+          "revision": 1,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "title": "Responsable inactivo ficticio",
+          "description": "",
+          "notes": "",
+          "dueDate": "2026-10-17",
+          "dueLocalTime": null,
+          "timeZone": null,
+          "priority": "medium",
+          "status": "pending",
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "contactId": null,
+          "responsibleVolunteerId": "127b593b-d32b-489f-b3b8-0c01a69a403e",
+          "typeId": "74377fd8-f6c6-4484-9ac4-78717aef2099",
+          "source": null,
+          "originKey": null,
+          "completedOn": null,
+          "cancelledOn": null,
+          "cancellationReason": null,
+          "id": "489e802a-4f28-484f-944b-b7046c24c72b",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:15.104Z",
+          "updatedAt": "2026-10-17T08:39:15.104Z"
+        },
+        "before": {
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "globalRevision": 11,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 1,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 4,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 0,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 1,
+            "activityLog": 11,
+            "importIdentityMap": 0
+          },
+          "businessHash": "363b2a95246c4c85b0a077c028a1732c78b8cd5dd7c4ba98f49cc8dc8665781d"
+        },
+        "updated": {
+          "id": "489e802a-4f28-484f-944b-b7046c24c72b",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:15.104Z",
+          "updatedAt": "2026-10-17T08:39:15.448Z",
+          "revision": 2,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "title": "Responsable inactivo revisado ficticio",
+          "description": "",
+          "notes": "",
+          "dueDate": "2026-10-17",
+          "dueLocalTime": null,
+          "timeZone": null,
+          "priority": "medium",
+          "status": "pending",
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "contactId": null,
+          "responsibleVolunteerId": null,
+          "typeId": "74377fd8-f6c6-4484-9ac4-78717aef2099",
+          "source": null,
+          "originKey": null,
+          "completedOn": null,
+          "cancelledOn": null,
+          "cancellationReason": null
+        },
+        "serviceSetupInactive": true
+      }
+    },
+    {
+      "id": "care-plan-create-and-edit-through-ui-preserves-human-instructions",
+      "passed": true,
+      "evidence": {
+        "plan": {
+          "id": "8ed82031-33bf-4586-8b77-80f37307bf32",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:15.736Z",
+          "updatedAt": "2026-10-17T08:39:15.929Z",
+          "revision": 2,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "typeId": "9826b11c-4369-40ce-97a2-0913ee039338",
+          "name": "Plan sanitario ficticio",
+          "startDate": "2026-10-17",
+          "plannedEndDate": null,
+          "status": "active",
+          "medication": "Texto ficticio sin medicamento real",
+          "doseInstructions": "Instrucciones ficticias revisadas por usuario",
+          "routeInstructions": "Vía ficticia introducida por usuario",
+          "frequencyInstructions": "Un acto ficticio programado manualmente",
+          "veterinarianContactId": null,
+          "notes": ""
+        }
+      }
+    },
+    {
+      "id": "finite-clinical-plan-task-is-scheduled-through-ui-with-fixed-origin-and-animal",
+      "passed": true,
+      "evidence": {
+        "task": {
+          "revision": 1,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "title": "Vacuna ficticia realizada",
+          "description": "",
+          "notes": "",
+          "dueDate": "2026-10-17",
+          "dueLocalTime": null,
+          "timeZone": null,
+          "priority": "medium",
+          "status": "pending",
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "contactId": null,
+          "responsibleVolunteerId": null,
+          "typeId": "0f1fdacf-a38a-4dc9-bc63-3fdeb0446d05",
+          "source": {
+            "type": "care_plan",
+            "id": "8ed82031-33bf-4586-8b77-80f37307bf32"
+          },
+          "originKey": "task:294db2df-e1e2-4618-8f66-a9e27857464a",
+          "completedOn": null,
+          "cancelledOn": null,
+          "cancellationReason": null,
+          "id": "0e8033fc-da0e-40f1-a3b5-42ec44b16339",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:16.325Z",
+          "updatedAt": "2026-10-17T08:39:16.325Z"
+        },
+        "plannedOnly": true
+      }
+    },
+    {
+      "id": "clinical-task-requires-confirmation-then-commits-single-act-expense-event-and-explicit-plan-close",
+      "passed": true,
+      "evidence": {
+        "record": {
+          "id": "3dbb4a8b-7e1d-477d-9972-cbb0c7bc5496",
+          "revision": 1,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "type": "vaccination",
+          "date": "2026-10-17",
+          "title": "Vacuna ficticia realizada",
+          "description": "",
+          "results": "",
+          "notes": "",
+          "veterinarianContactId": null,
+          "clinicContactId": null,
+          "nextReviewTaskId": null,
+          "carePlanId": "8ed82031-33bf-4586-8b77-80f37307bf32",
+          "sourceTaskId": "0e8033fc-da0e-40f1-a3b5-42ec44b16339",
+          "expenseMovementId": "a2347641-bc4d-478a-b2fe-b67b04dcfe17",
+          "conditionActive": null,
+          "resolvedOn": null,
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:17.557Z",
+          "updatedAt": "2026-10-17T08:39:17.557Z"
+        },
+        "movement": {
+          "revision": 1,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "direction": "expense",
+          "date": "2026-10-17",
+          "categoryId": "1296f6a5-c37b-4e9b-a2ba-d2683a938a2c",
+          "concept": "Factura sanitaria ficticia compartida",
+          "amountMinor": 1250,
+          "currencyCode": "EUR",
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "contactId": null,
+          "source": {
+            "type": "veterinary_record",
+            "id": "3dbb4a8b-7e1d-477d-9972-cbb0c7bc5496"
+          },
+          "originKey": "veterinary:3dbb4a8b-7e1d-477d-9972-cbb0c7bc5496",
+          "status": "posted",
+          "voidReason": null,
+          "voidedOn": null,
+          "correctsMovementId": null,
+          "replacementMovementId": null,
+          "notes": "",
+          "id": "a2347641-bc4d-478a-b2fe-b67b04dcfe17",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:17.557Z",
+          "updatedAt": "2026-10-17T08:39:17.557Z"
+        },
+        "task": {
+          "id": "0e8033fc-da0e-40f1-a3b5-42ec44b16339",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:16.325Z",
+          "updatedAt": "2026-10-17T08:39:17.557Z",
+          "revision": 2,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "title": "Vacuna ficticia realizada",
+          "description": "",
+          "notes": "",
+          "dueDate": "2026-10-17",
+          "dueLocalTime": null,
+          "timeZone": null,
+          "priority": "medium",
+          "status": "completed",
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "contactId": null,
+          "responsibleVolunteerId": null,
+          "typeId": "0f1fdacf-a38a-4dc9-bc63-3fdeb0446d05",
+          "source": {
+            "type": "care_plan",
+            "id": "8ed82031-33bf-4586-8b77-80f37307bf32"
+          },
+          "originKey": "task:294db2df-e1e2-4618-8f66-a9e27857464a",
+          "completedOn": "2026-10-17",
+          "cancelledOn": null,
+          "cancellationReason": null
+        },
+        "plan": {
+          "id": "8ed82031-33bf-4586-8b77-80f37307bf32",
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "createdAt": "2026-10-17T08:39:15.736Z",
+          "updatedAt": "2026-10-17T08:39:17.557Z",
+          "revision": 3,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+          "typeId": "9826b11c-4369-40ce-97a2-0913ee039338",
+          "name": "Plan sanitario ficticio",
+          "startDate": "2026-10-17",
+          "plannedEndDate": null,
+          "status": "completed",
+          "medication": "Texto ficticio sin medicamento real",
+          "doseInstructions": "Instrucciones ficticias revisadas por usuario",
+          "routeInstructions": "Vía ficticia introducida por usuario",
+          "frequencyInstructions": "Un acto ficticio programado manualmente",
+          "veterinarianContactId": null,
+          "notes": ""
+        }
+      }
+    },
+    {
+      "id": "second-performed-record-selects-existing-expense-without-duplicating-finances",
+      "passed": true,
+      "evidence": {
+        "records": [
+          {
+            "id": "1d796390-fca4-4d13-8046-4553da1892e3",
+            "revision": 1,
+            "archivedAt": null,
+            "deletedAt": null,
+            "origin": "real",
+            "originBatchId": null,
+            "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+            "type": "checkup",
+            "date": "2026-10-17",
+            "title": "Revisión ficticia con factura compartida",
+            "description": "",
+            "results": "",
+            "notes": "",
+            "veterinarianContactId": null,
+            "clinicContactId": null,
+            "nextReviewTaskId": null,
+            "carePlanId": null,
+            "sourceTaskId": null,
+            "expenseMovementId": "a2347641-bc4d-478a-b2fe-b67b04dcfe17",
+            "conditionActive": null,
+            "resolvedOn": null,
+            "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+            "createdAt": "2026-10-17T08:39:18.153Z",
+            "updatedAt": "2026-10-17T08:39:18.153Z"
+          },
+          {
+            "id": "3dbb4a8b-7e1d-477d-9972-cbb0c7bc5496",
+            "revision": 1,
+            "archivedAt": null,
+            "deletedAt": null,
+            "origin": "real",
+            "originBatchId": null,
+            "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+            "type": "vaccination",
+            "date": "2026-10-17",
+            "title": "Vacuna ficticia realizada",
+            "description": "",
+            "results": "",
+            "notes": "",
+            "veterinarianContactId": null,
+            "clinicContactId": null,
+            "nextReviewTaskId": null,
+            "carePlanId": "8ed82031-33bf-4586-8b77-80f37307bf32",
+            "sourceTaskId": "0e8033fc-da0e-40f1-a3b5-42ec44b16339",
+            "expenseMovementId": "a2347641-bc4d-478a-b2fe-b67b04dcfe17",
+            "conditionActive": null,
+            "resolvedOn": null,
+            "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+            "createdAt": "2026-10-17T08:39:17.557Z",
+            "updatedAt": "2026-10-17T08:39:17.557Z"
+          }
+        ],
+        "movements": [
+          {
+            "revision": 1,
+            "archivedAt": null,
+            "deletedAt": null,
+            "origin": "real",
+            "originBatchId": null,
+            "direction": "expense",
+            "date": "2026-10-17",
+            "categoryId": "1296f6a5-c37b-4e9b-a2ba-d2683a938a2c",
+            "concept": "Factura sanitaria ficticia compartida",
+            "amountMinor": 1250,
+            "currencyCode": "EUR",
+            "animalId": "0ccf91ad-8c44-4bce-97c0-a620b64a9877",
+            "contactId": null,
+            "source": {
+              "type": "veterinary_record",
+              "id": "3dbb4a8b-7e1d-477d-9972-cbb0c7bc5496"
+            },
+            "originKey": "veterinary:3dbb4a8b-7e1d-477d-9972-cbb0c7bc5496",
+            "status": "posted",
+            "voidReason": null,
+            "voidedOn": null,
+            "correctsMovementId": null,
+            "replacementMovementId": null,
+            "notes": "",
+            "id": "a2347641-bc4d-478a-b2fe-b67b04dcfe17",
+            "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+            "createdAt": "2026-10-17T08:39:17.557Z",
+            "updatedAt": "2026-10-17T08:39:17.557Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "health-layout-at-desktop-and-narrow-width-preserves-state",
+      "passed": true,
+      "evidence": {
+        "size": {
+          "width": 360,
+          "scroll": 360
+        },
+        "snapshot": {
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "globalRevision": 17,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 1,
+            "volunteerHours": 0,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 5,
+            "financialMovements": 1,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 0,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 3,
+            "activityLog": 17,
+            "importIdentityMap": 0
+          },
+          "businessHash": "39e690151b57bb33ba71492750e0a612163c65f5d850dc00eebd2c113bed5a31"
+        },
+        "viewportOnly": true
+      }
+    },
+    {
+      "id": "complete-owned-browser-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 8836,
+        "exitCode": 0,
+        "signalCode": null,
+        "connectionReleasedAfterExit": true,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 8836,
+            "ParentProcessId": 11584,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-17T08:39:09.5458470Z"
+          },
+          {
+            "ProcessId": 17708,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.40 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.45 --initial-client-data=0x188,0x18c,0x190,0x164,0x198,0x7ffd928583e0,0x7ffd928583f0,0x7ffd92858400",
+            "CreatedAt": "2026-10-17T08:39:09.6136520Z"
+          },
+          {
+            "ProcessId": 7812,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1880 /prefetch:2",
+            "CreatedAt": "2026-10-17T08:39:09.8082990Z"
+          },
+          {
+            "ProcessId": 4824,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2176 /prefetch:11",
+            "CreatedAt": "2026-10-17T08:39:09.8144610Z"
+          },
+          {
+            "ProcessId": 14776,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2252 /prefetch:13",
+            "CreatedAt": "2026-10-17T08:39:09.8943680Z"
+          },
+          {
+            "ProcessId": 16768,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=975324564 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3984 /prefetch:1",
+            "CreatedAt": "2026-10-17T08:39:10.1262820Z"
+          },
+          {
+            "ProcessId": 14960,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=975400941 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4632 /prefetch:9",
+            "CreatedAt": "2026-10-17T08:39:10.2026890Z"
+          },
+          {
+            "ProcessId": 5224,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --skip-read-main-dll --launch-time-ticks=975429526 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5368 /prefetch:9",
+            "CreatedAt": "2026-10-17T08:39:10.2360520Z"
+          },
+          {
+            "ProcessId": 11104,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --skip-read-main-dll --launch-time-ticks=975448117 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5608 /prefetch:9",
+            "CreatedAt": "2026-10-17T08:39:10.2501200Z"
+          },
+          {
+            "ProcessId": 5808,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --skip-read-main-dll --launch-time-ticks=975453478 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=5920 /prefetch:9",
+            "CreatedAt": "2026-10-17T08:39:10.2552220Z"
+          },
+          {
+            "ProcessId": 10460,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --skip-read-main-dll --launch-time-ticks=975463331 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=6128 /prefetch:1",
+            "CreatedAt": "2026-10-17T08:39:10.2649690Z"
+          },
+          {
+            "ProcessId": 16776,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --skip-read-main-dll --launch-time-ticks=975467040 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6300 /prefetch:9",
+            "CreatedAt": "2026-10-17T08:39:10.2688160Z"
+          },
+          {
+            "ProcessId": 14464,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --skip-read-main-dll --launch-time-ticks=975568895 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=4192 /prefetch:9",
+            "CreatedAt": "2026-10-17T08:39:10.3705600Z"
+          },
+          {
+            "ProcessId": 9208,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=20 --skip-read-main-dll --launch-time-ticks=975857491 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709005052708474 --mojo-platform-channel-handle=7076 /prefetch:1",
+            "CreatedAt": "2026-10-17T08:39:10.6597100Z"
+          },
+          {
+            "ProcessId": 5504,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --skip-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709007863834021 --mojo-platform-channel-handle=7264 /prefetch:14",
+            "CreatedAt": "2026-10-17T08:39:11.3536720Z"
+          },
+          {
+            "ProcessId": 17568,
+            "ParentProcessId": 8836,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=entity_extraction_service.mojom.Extractor --lang=es --service-sandbox-type=entity_extraction --onnx-enabled-for-ee --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --skip-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709008800875870 --mojo-platform-channel-handle=7448 /prefetch:14",
+            "CreatedAt": "2026-10-17T08:39:12.8042500Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-17T08:39:20.829Z"
+      }
+    },
+    {
+      "id": "health-task-plan-money-state-persists-after-complete-reopen-with-no-runtime-or-network-errors",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "globalRevision": 17,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 1,
+            "volunteerHours": 0,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 5,
+            "financialMovements": 1,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 0,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 3,
+            "activityLog": 17,
+            "importIdentityMap": 0
+          },
+          "businessHash": "39e690151b57bb33ba71492750e0a612163c65f5d850dc00eebd2c113bed5a31"
+        },
+        "after": {
+          "datasetId": "fc150c61-cf5a-4435-abd1-802bdb3d1e6d",
+          "globalRevision": 17,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 1,
+            "volunteerHours": 0,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 5,
+            "financialMovements": 1,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 0,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 3,
+            "activityLog": 17,
+            "importIdentityMap": 0
+          },
+          "businessHash": "39e690151b57bb33ba71492750e0a612163c65f5d850dc00eebd2c113bed5a31"
+        },
+        "errors": [],
+        "consoleErrors": [],
+        "externalRequests": [],
+        "sourcesUnchanged": true
+      }
+    }
+  ],
+  "launches": [
+    {
+      "startedAt": "2026-10-17T08:39:09.561Z",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe",
+      "profile": ".tmp\\health-ui-edge-1792226349448\\profile",
+      "pid": 8836,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Edg/155.0.4283.45",
+        "revision": "@50f24ef2aa5369a074b8888b7db82d9c0652d642",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "jsVersion": "15.5.9.4"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-17T08:39:20.838Z",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe",
+      "profile": ".tmp\\health-ui-edge-1792226349448\\profile",
+      "pid": 7428,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Edg/155.0.4283.45",
+        "revision": "@50f24ef2aa5369a074b8888b7db82d9c0652d642",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "jsVersion": "15.5.9.4"
+      },
+      "storageDeniedPreference": false
+    }
+  ],
+  "closures": [
+    {
+      "rootPid": 8836,
+      "exitCode": 0,
+      "signalCode": null,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 8836,
+          "ParentProcessId": 11584,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-17T08:39:09.5458470Z"
+        },
+        {
+          "ProcessId": 17708,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.40 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.45 --initial-client-data=0x188,0x18c,0x190,0x164,0x198,0x7ffd928583e0,0x7ffd928583f0,0x7ffd92858400",
+          "CreatedAt": "2026-10-17T08:39:09.6136520Z"
+        },
+        {
+          "ProcessId": 7812,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1880 /prefetch:2",
+          "CreatedAt": "2026-10-17T08:39:09.8082990Z"
+        },
+        {
+          "ProcessId": 4824,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2176 /prefetch:11",
+          "CreatedAt": "2026-10-17T08:39:09.8144610Z"
+        },
+        {
+          "ProcessId": 14776,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2252 /prefetch:13",
+          "CreatedAt": "2026-10-17T08:39:09.8943680Z"
+        },
+        {
+          "ProcessId": 16768,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=975324564 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3984 /prefetch:1",
+          "CreatedAt": "2026-10-17T08:39:10.1262820Z"
+        },
+        {
+          "ProcessId": 14960,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=975400941 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4632 /prefetch:9",
+          "CreatedAt": "2026-10-17T08:39:10.2026890Z"
+        },
+        {
+          "ProcessId": 5224,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --skip-read-main-dll --launch-time-ticks=975429526 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5368 /prefetch:9",
+          "CreatedAt": "2026-10-17T08:39:10.2360520Z"
+        },
+        {
+          "ProcessId": 11104,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --skip-read-main-dll --launch-time-ticks=975448117 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5608 /prefetch:9",
+          "CreatedAt": "2026-10-17T08:39:10.2501200Z"
+        },
+        {
+          "ProcessId": 5808,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --skip-read-main-dll --launch-time-ticks=975453478 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=5920 /prefetch:9",
+          "CreatedAt": "2026-10-17T08:39:10.2552220Z"
+        },
+        {
+          "ProcessId": 10460,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --skip-read-main-dll --launch-time-ticks=975463331 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=6128 /prefetch:1",
+          "CreatedAt": "2026-10-17T08:39:10.2649690Z"
+        },
+        {
+          "ProcessId": 16776,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --skip-read-main-dll --launch-time-ticks=975467040 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6300 /prefetch:9",
+          "CreatedAt": "2026-10-17T08:39:10.2688160Z"
+        },
+        {
+          "ProcessId": 14464,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --skip-read-main-dll --launch-time-ticks=975568895 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=4192 /prefetch:9",
+          "CreatedAt": "2026-10-17T08:39:10.3705600Z"
+        },
+        {
+          "ProcessId": 9208,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=20 --skip-read-main-dll --launch-time-ticks=975857491 --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709005052708474 --mojo-platform-channel-handle=7076 /prefetch:1",
+          "CreatedAt": "2026-10-17T08:39:10.6597100Z"
+        },
+        {
+          "ProcessId": 5504,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --skip-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709007863834021 --mojo-platform-channel-handle=7264 /prefetch:14",
+          "CreatedAt": "2026-10-17T08:39:11.3536720Z"
+        },
+        {
+          "ProcessId": 17568,
+          "ParentProcessId": 8836,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=entity_extraction_service.mojom.Extractor --lang=es --service-sandbox-type=entity_extraction --onnx-enabled-for-ee --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --skip-read-main-dll --field-trial-handle=1936,i,9456972975244411872,6130273077766344495,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1948,i,12745375890673843743,7999237501025484012,4 --trace-process-track-uuid=3190709008800875870 --mojo-platform-channel-handle=7448 /prefetch:14",
+          "CreatedAt": "2026-10-17T08:39:12.8042500Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-17T08:39:20.829Z"
+    },
+    {
+      "rootPid": 7428,
+      "exitCode": 0,
+      "signalCode": null,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 7428,
+          "ParentProcessId": 11584,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-17T08:39:20.8360510Z"
+        },
+        {
+          "ProcessId": 17376,
+          "ParentProcessId": 7428,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.40 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.45 --initial-client-data=0x188,0x18c,0x190,0x164,0x198,0x7ffd928583e0,0x7ffd928583f0,0x7ffd92858400",
+          "CreatedAt": "2026-10-17T08:39:20.8548250Z"
+        },
+        {
+          "ProcessId": 8712,
+          "ParentProcessId": 7428,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1936,i,11999574020724590211,18116817825544152144,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,2218161103202977238,3013748974015423036,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1920 /prefetch:2",
+          "CreatedAt": "2026-10-17T08:39:20.9921440Z"
+        },
+        {
+          "ProcessId": 7888,
+          "ParentProcessId": 7428,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,11999574020724590211,18116817825544152144,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,2218161103202977238,3013748974015423036,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2168 /prefetch:11",
+          "CreatedAt": "2026-10-17T08:39:20.9979610Z"
+        },
+        {
+          "ProcessId": 18248,
+          "ParentProcessId": 7428,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --startup-read-main-dll --field-trial-handle=1936,i,11999574020724590211,18116817825544152144,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,2218161103202977238,3013748974015423036,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2724 /prefetch:13",
+          "CreatedAt": "2026-10-17T08:39:21.0739830Z"
+        },
+        {
+          "ProcessId": 1816,
+          "ParentProcessId": 7428,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --ssd-no-pressure-read-main-dll --launch-time-ticks=986432092 --field-trial-handle=1936,i,11999574020724590211,18116817825544152144,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,2218161103202977238,3013748974015423036,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3856 /prefetch:1",
+          "CreatedAt": "2026-10-17T08:39:21.2360500Z"
+        },
+        {
+          "ProcessId": 14092,
+          "ParentProcessId": 7428,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=986435796 --field-trial-handle=1936,i,11999574020724590211,18116817825544152144,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,2218161103202977238,3013748974015423036,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=4092 /prefetch:1",
+          "CreatedAt": "2026-10-17T08:39:21.2375750Z"
+        },
+        {
+          "ProcessId": 6408,
+          "ParentProcessId": 7428,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --skip-read-main-dll --field-trial-handle=1936,i,11999574020724590211,18116817825544152144,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,2218161103202977238,3013748974015423036,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4564 /prefetch:14",
+          "CreatedAt": "2026-10-17T08:39:21.3131830Z"
+        },
+        {
+          "ProcessId": 7248,
+          "ParentProcessId": 7428,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.45\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\health-ui-edge-1792226349448\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=986599487 --field-trial-handle=1936,i,11999574020724590211,18116817825544152144,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1940,i,2218161103202977238,3013748974015423036,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=5532 /prefetch:1",
+          "CreatedAt": "2026-10-17T08:39:21.4011500Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-17T08:39:24.378Z"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": ".tmp\\health-ui-edge-1792226349448\\clinical-complete.png",
+      "sha256": "b341147cf1c44c2aba3286fb0ac883de20510c85e47b2be27d83d40f7ef7665a"
+    },
+    {
+      "file": ".tmp\\health-ui-edge-1792226349448\\health-desktop.png",
+      "sha256": "67e8a7d1bcf6cdc206aadbe16c36ec47c2dcaba8b51d4947d46cb8af1a0a5f60"
+    },
+    {
+      "file": ".tmp\\health-ui-edge-1792226349448\\health-narrow.png",
+      "sha256": "de0d0b5999d2e3e25f181c8b1811374de5d2a5fa0fe25ba88e9a2308c7b7a26d"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Synthetic organization in an isolated desktop browser profile.",
+    "Organization is created through UI; animal/contact/volunteer setup and changing the volunteer status use real services explicitly as test preparation.",
+    "Task/plan/health operations are exercised through actual forms, without service mocks.",
+    "Viewport emulation does not verify physical devices.",
+    "Page request observation does not cover browser-internal traffic.",
+    "No clinical advice is provided: instructions are deliberately fictitious user text."
+  ],
+  "sourceFiles": [
+    {
+      "file": "index.html",
+      "sha256": "482ea0678f75e3b6155d620977385cf42f1a182d14d7fc5d9c5bcc8f5462179c"
+    },
+    {
+      "file": "css/app.css",
+      "sha256": "06e5f2e9fe9a0ce54fb7937892bdfd7db0b3bc82a7d064a5de0392ee5b7b42cb"
+    },
+    {
+      "file": "css/people.css",
+      "sha256": "e943ffaf0e319ecdbc5797cd2988a061010948a4eb01d51cd564e5fce6ad3d1e"
+    },
+    {
+      "file": "css/calendar.css",
+      "sha256": "459a1f6c1493cf7c33724515d7d677daff6a6a327d7a84bd10e7e233b08dc461"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "113da40932bee80fea4ac4e7d492a8154a6c1875b8e335fef5cff2d3cb643a6b"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "vendor/papaparse/papaparse.min.js",
+      "sha256": "3a509437d423ed29d9175fdd01de8bcdcd50e8ffb883ae7daa91c0acd151d1a7"
+    },
+    {
+      "file": "locales/en.js",
+      "sha256": "cd8d0c95f67b5027f11d51a90da792a964668dc778d2ce74309b665714fa0220"
+    },
+    {
+      "file": "locales/es.js",
+      "sha256": "bdb2eef0a953d3b6ffa61a3a910aafe1686bee11124cd5631a5944395dceff5d"
+    },
+    {
+      "file": "js/core/i18n.js",
+      "sha256": "476cfe00ee29f80823f61257154fc55100f0676edd9906021f8cf3b23920b71a"
+    },
+    {
+      "file": "js/core/errors.js",
+      "sha256": "37c33488870563c50aaae8b507722e6e9924903d5c54420f01a3957b5ae45895"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "4b67ab901efc4d8f18dd929319ac7a46ac7c296c4c2e9df4605f0eecd46d5fc0"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/utils/images.js",
+      "sha256": "8da4cc7e29e82e00e2249ff0e98b18a4dfd9c980d461473e4a51729fb525c7b4"
+    },
+    {
+      "file": "js/utils/calendar.js",
+      "sha256": "cb5f5048dc4f6cfca7735e0ac7f493afac218a6985e7161536343f4726abf86f"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "1e863f91fb969b2025d10577950485023ae5eb38d6f0ae2f8ac9a82d990831de"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "b89a54c86755089219b79bc56829a71182175f0bf7efb4fde9d82fccc9f3c23b"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "38323c835a41537c62f421d1581ae200e65841eeb3c88ff17ac6af8b9fc91dbb"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "280dfb46e0dbedb6d8d3fef4de7e8b1c1de1f37659b8149e1109981bf58e3e3e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "6abc52c995ce8094c04915973d60b807a38a146f9aea8bd3c9a64e1115780770"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "f2f283095f8bcea6313cc5f5333ffcd9e512b4382b44e7f2f60a31be9457e8fd"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "86842c4ec5adf62f6f6b6b37e55252a873514f8c88361a05f69d0deb548edc7b"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "efd2530bda729ea10671615d43ebaa6d997a95ff5b93179f76b3f9a9e59bfaf6"
+    },
+    {
+      "file": "js/services/contacts.js",
+      "sha256": "40bdc267f05d5909ad18381503a0ba02bd4348e89c568c2324b961af89b30f04"
+    },
+    {
+      "file": "js/services/animals.js",
+      "sha256": "d0cb56687d56c2cc49043eb6232de003860b66d9f9cc3a95b75f5c250a8a8451"
+    },
+    {
+      "file": "js/services/fosters.js",
+      "sha256": "06640fe7babf0ed2d347a7c6e4f737e4b3fbcb48ec0a74de941f00cc1d006bdd"
+    },
+    {
+      "file": "js/services/volunteers.js",
+      "sha256": "64b0b3903e419df39f33179a7a866c6b8dffee31555947b77417344c11335039"
+    },
+    {
+      "file": "js/services/finance.js",
+      "sha256": "fa07bb07107ccb5bdad1fc6a89bd83e2e44458eb9998d8e1416ff9e7ae0e2724"
+    },
+    {
+      "file": "js/services/inventory.js",
+      "sha256": "0d8d9f2ac1d22192bec5f59ed94a67ef1926c10cc8cea1b0d169d1b1aab0525f"
+    },
+    {
+      "file": "js/services/donations.js",
+      "sha256": "82c97bde7218dc1d704a9d0209bea2bc231ae89d675295dd1694b074db43795f"
+    },
+    {
+      "file": "js/services/adoptions.js",
+      "sha256": "fc742565b4ab6858aa943838179ff68794d09b1763aed6ef59a62c61101c1978"
+    },
+    {
+      "file": "js/services/tasks.js",
+      "sha256": "1af038dd67918c70d8bfa0554f75ddfe772b05387fdf5ea34c401667c8c81e1b"
+    },
+    {
+      "file": "js/services/health.js",
+      "sha256": "ca73cf5910cf1eb0c42a02e12762db7b233d714870949671fb70da9100d8bfe9"
+    },
+    {
+      "file": "js/services/documents.js",
+      "sha256": "e59d0d06fcc921b798b332cf27a970886acf139ee1cabda1e6549163cee3ed37"
+    },
+    {
+      "file": "js/services/photos.js",
+      "sha256": "ab19e2dea088f628ad4c98748ba33eab5756b2d9399db25e362f4a95b15c547d"
+    },
+    {
+      "file": "js/services/weights.js",
+      "sha256": "d234ca3e511f6e6ac1a8ca9e7b0ddd65ea108f92ddfb8bc53ff07991665f2266"
+    },
+    {
+      "file": "js/services/recovery.js",
+      "sha256": "503373a6aee8acd3dcbf4c5f2034a53f75ef90d3f4ddf78d6b3e0b8dc2bfe16f"
+    },
+    {
+      "file": "js/components/ui.js",
+      "sha256": "7c55563a669f4344f0320f61d9d8e46e49f3d08e8fb0de0200208ee693fb0eac"
+    },
+    {
+      "file": "js/modules/documents.js",
+      "sha256": "deecf94290afe025d2b40a1230bbb810b76c3c39910bc164aa133b761d14f457"
+    },
+    {
+      "file": "js/modules/people.js",
+      "sha256": "e7b19c9e0ed43c6182d4276e866e8b61175c4d95d66f7eedcc8104f6db20c34d"
+    },
+    {
+      "file": "js/modules/animal-forms.js",
+      "sha256": "8b768ec9653ade40f7fe1171d311bef3a061746ce45de9fe5203c6feae16a26a"
+    },
+    {
+      "file": "js/modules/foster-workflow.js",
+      "sha256": "d0103eeb5d1d11185b8f4ded3d3242253fb10fa03d48c78b67ef08ea58a90cea"
+    },
+    {
+      "file": "js/modules/adoption-forms.js",
+      "sha256": "dddc88e5150698a3e7dd58a9e37dc4a110fed2b58ebd260aed947e7e18dc92b2"
+    },
+    {
+      "file": "js/modules/adoption-workflow.js",
+      "sha256": "c2d5097070266f1b39d2b9dbed79274b6dace8611817a032e36dcc80b190f1ff"
+    },
+    {
+      "file": "js/modules/tasks.js",
+      "sha256": "ae3234749368dd8547b8bafd2f6d6770d4319b4256274617b3a985a405d10284"
+    },
+    {
+      "file": "js/modules/health-forms.js",
+      "sha256": "bf4170679a7f26cebe7fd0e6683666f8465c032676ab23a34d9fa10a686c81be"
+    },
+    {
+      "file": "js/modules/health-workflow.js",
+      "sha256": "18ed68c7be5915b1fd3ba21d165a3d929bb735e9744ce5ae06deba10e2ff0262"
+    },
+    {
+      "file": "js/modules/animals.js",
+      "sha256": "4b6bf49ba7550611c3a66164dcce05f6a4a90bdc69a533f112037f92a40e50c2"
+    },
+    {
+      "file": "js/bootstrap.js",
+      "sha256": "563f0d24e31dd191f3ade2c955181ebac3ecb3bda81431806771ca5164d90b3c"
+    }
+  ],
+  "sourceFilesAfter": [
+    {
+      "file": "index.html",
+      "sha256": "482ea0678f75e3b6155d620977385cf42f1a182d14d7fc5d9c5bcc8f5462179c"
+    },
+    {
+      "file": "css/app.css",
+      "sha256": "06e5f2e9fe9a0ce54fb7937892bdfd7db0b3bc82a7d064a5de0392ee5b7b42cb"
+    },
+    {
+      "file": "css/people.css",
+      "sha256": "e943ffaf0e319ecdbc5797cd2988a061010948a4eb01d51cd564e5fce6ad3d1e"
+    },
+    {
+      "file": "css/calendar.css",
+      "sha256": "459a1f6c1493cf7c33724515d7d677daff6a6a327d7a84bd10e7e233b08dc461"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "113da40932bee80fea4ac4e7d492a8154a6c1875b8e335fef5cff2d3cb643a6b"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "vendor/papaparse/papaparse.min.js",
+      "sha256": "3a509437d423ed29d9175fdd01de8bcdcd50e8ffb883ae7daa91c0acd151d1a7"
+    },
+    {
+      "file": "locales/en.js",
+      "sha256": "cd8d0c95f67b5027f11d51a90da792a964668dc778d2ce74309b665714fa0220"
+    },
+    {
+      "file": "locales/es.js",
+      "sha256": "bdb2eef0a953d3b6ffa61a3a910aafe1686bee11124cd5631a5944395dceff5d"
+    },
+    {
+      "file": "js/core/i18n.js",
+      "sha256": "476cfe00ee29f80823f61257154fc55100f0676edd9906021f8cf3b23920b71a"
+    },
+    {
+      "file": "js/core/errors.js",
+      "sha256": "37c33488870563c50aaae8b507722e6e9924903d5c54420f01a3957b5ae45895"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "4b67ab901efc4d8f18dd929319ac7a46ac7c296c4c2e9df4605f0eecd46d5fc0"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/utils/images.js",
+      "sha256": "8da4cc7e29e82e00e2249ff0e98b18a4dfd9c980d461473e4a51729fb525c7b4"
+    },
+    {
+      "file": "js/utils/calendar.js",
+      "sha256": "cb5f5048dc4f6cfca7735e0ac7f493afac218a6985e7161536343f4726abf86f"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "1e863f91fb969b2025d10577950485023ae5eb38d6f0ae2f8ac9a82d990831de"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "b89a54c86755089219b79bc56829a71182175f0bf7efb4fde9d82fccc9f3c23b"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "38323c835a41537c62f421d1581ae200e65841eeb3c88ff17ac6af8b9fc91dbb"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "280dfb46e0dbedb6d8d3fef4de7e8b1c1de1f37659b8149e1109981bf58e3e3e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "6abc52c995ce8094c04915973d60b807a38a146f9aea8bd3c9a64e1115780770"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "f2f283095f8bcea6313cc5f5333ffcd9e512b4382b44e7f2f60a31be9457e8fd"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "86842c4ec5adf62f6f6b6b37e55252a873514f8c88361a05f69d0deb548edc7b"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "efd2530bda729ea10671615d43ebaa6d997a95ff5b93179f76b3f9a9e59bfaf6"
+    },
+    {
+      "file": "js/services/contacts.js",
+      "sha256": "40bdc267f05d5909ad18381503a0ba02bd4348e89c568c2324b961af89b30f04"
+    },
+    {
+      "file": "js/services/animals.js",
+      "sha256": "d0cb56687d56c2cc49043eb6232de003860b66d9f9cc3a95b75f5c250a8a8451"
+    },
+    {
+      "file": "js/services/fosters.js",
+      "sha256": "06640fe7babf0ed2d347a7c6e4f737e4b3fbcb48ec0a74de941f00cc1d006bdd"
+    },
+    {
+      "file": "js/services/volunteers.js",
+      "sha256": "64b0b3903e419df39f33179a7a866c6b8dffee31555947b77417344c11335039"
+    },
+    {
+      "file": "js/services/finance.js",
+      "sha256": "fa07bb07107ccb5bdad1fc6a89bd83e2e44458eb9998d8e1416ff9e7ae0e2724"
+    },
+    {
+      "file": "js/services/inventory.js",
+      "sha256": "0d8d9f2ac1d22192bec5f59ed94a67ef1926c10cc8cea1b0d169d1b1aab0525f"
+    },
+    {
+      "file": "js/services/donations.js",
+      "sha256": "82c97bde7218dc1d704a9d0209bea2bc231ae89d675295dd1694b074db43795f"
+    },
+    {
+      "file": "js/services/adoptions.js",
+      "sha256": "fc742565b4ab6858aa943838179ff68794d09b1763aed6ef59a62c61101c1978"
+    },
+    {
+      "file": "js/services/tasks.js",
+      "sha256": "1af038dd67918c70d8bfa0554f75ddfe772b05387fdf5ea34c401667c8c81e1b"
+    },
+    {
+      "file": "js/services/health.js",
+      "sha256": "ca73cf5910cf1eb0c42a02e12762db7b233d714870949671fb70da9100d8bfe9"
+    },
+    {
+      "file": "js/services/documents.js",
+      "sha256": "e59d0d06fcc921b798b332cf27a970886acf139ee1cabda1e6549163cee3ed37"
+    },
+    {
+      "file": "js/services/photos.js",
+      "sha256": "ab19e2dea088f628ad4c98748ba33eab5756b2d9399db25e362f4a95b15c547d"
+    },
+    {
+      "file": "js/services/weights.js",
+      "sha256": "d234ca3e511f6e6ac1a8ca9e7b0ddd65ea108f92ddfb8bc53ff07991665f2266"
+    },
+    {
+      "file": "js/services/recovery.js",
+      "sha256": "503373a6aee8acd3dcbf4c5f2034a53f75ef90d3f4ddf78d6b3e0b8dc2bfe16f"
+    },
+    {
+      "file": "js/components/ui.js",
+      "sha256": "7c55563a669f4344f0320f61d9d8e46e49f3d08e8fb0de0200208ee693fb0eac"
+    },
+    {
+      "file": "js/modules/documents.js",
+      "sha256": "deecf94290afe025d2b40a1230bbb810b76c3c39910bc164aa133b761d14f457"
+    },
+    {
+      "file": "js/modules/people.js",
+      "sha256": "e7b19c9e0ed43c6182d4276e866e8b61175c4d95d66f7eedcc8104f6db20c34d"
+    },
+    {
+      "file": "js/modules/animal-forms.js",
+      "sha256": "8b768ec9653ade40f7fe1171d311bef3a061746ce45de9fe5203c6feae16a26a"
+    },
+    {
+      "file": "js/modules/foster-workflow.js",
+      "sha256": "d0103eeb5d1d11185b8f4ded3d3242253fb10fa03d48c78b67ef08ea58a90cea"
+    },
+    {
+      "file": "js/modules/adoption-forms.js",
+      "sha256": "dddc88e5150698a3e7dd58a9e37dc4a110fed2b58ebd260aed947e7e18dc92b2"
+    },
+    {
+      "file": "js/modules/adoption-workflow.js",
+      "sha256": "c2d5097070266f1b39d2b9dbed79274b6dace8611817a032e36dcc80b190f1ff"
+    },
+    {
+      "file": "js/modules/tasks.js",
+      "sha256": "ae3234749368dd8547b8bafd2f6d6770d4319b4256274617b3a985a405d10284"
+    },
+    {
+      "file": "js/modules/health-forms.js",
+      "sha256": "bf4170679a7f26cebe7fd0e6683666f8465c032676ab23a34d9fa10a686c81be"
+    },
+    {
+      "file": "js/modules/health-workflow.js",
+      "sha256": "18ed68c7be5915b1fd3ba21d165a3d929bb735e9744ce5ae06deba10e2ff0262"
+    },
+    {
+      "file": "js/modules/animals.js",
+      "sha256": "4b6bf49ba7550611c3a66164dcce05f6a4a90bdc69a533f112037f92a40e50c2"
+    },
+    {
+      "file": "js/bootstrap.js",
+      "sha256": "563f0d24e31dd191f3ade2c955181ebac3ecb3bda81431806771ca5164d90b3c"
+    }
+  ],
+  "completed": true,
+  "completedAt": "2026-10-17T08:39:24.378Z",
+  "status": "passed"
+}

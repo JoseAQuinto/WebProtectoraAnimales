@@ -7,8 +7,9 @@ Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
 Desarrollo reanudado desde `c44831b`, incorporado con `git pull --ff-only`
 antes de editar. Se conservan las correcciones R1–R4 y los servicios existentes.
-Ahora hay pantallas operativas de animales, contactos, perfiles de acogida,
-voluntariado y documentos. **Producto incompleto: utilizar datos sintéticos.**
+Ahora hay pantallas operativas de animales, contactos, perfiles/estancias de
+acogida, adopciones, voluntariado, documentos, salud/planes y tareas/calendario.
+**Producto incompleto: utilizar datos sintéticos.**
 No se han reducido los requisitos originales ni publicado un producto comercial.
 
 Regla vigente del usuario: cuando quede **menos del 10 % de la ventana de
@@ -48,18 +49,27 @@ sesión anterior. No consumir reinicios de cuota sin petición expresa.
   preparación nueva y copia verificada; staging nunca se activa automáticamente.
   Restauración permite cancelación cooperativa antes de activar y conserva la
   revisión capturada al revisar la copia, sin actualizarla silenciosamente.
-- Servicios todavía sin CRUD completo de interfaz: acogidas/asignaciones,
-  solicitudes/reservas/adopciones/devoluciones, salud/planes/tareas,
-  finanzas/donaciones/inventario. La ficha animal ya consulta su historia real.
+- Acogidas: asignación a perfiles existentes con ocupación/restricciones,
+  excepciones explícitas y finalización con destino. Adopciones: solicitud,
+  entrevista, aprobación, reserva/cierre, formalización con cuota opcional,
+  motivos y decisiones de cada tarea, documentos y devolución con nuevo episodio.
+- Salud/planes: actos realizados, condiciones, instrucciones humanas, programación
+  finita y finalización clínica de la misma tarea. Gasto nuevo o factura existente
+  explícitos, sin duplicar movimientos. No calcula ni recomienda dosis.
+- Tareas y calendario globales comparten filas y filtros, con paginación de lista,
+  navegación gregoriana sin UTC y vencimientos derivados sin ejecutar actos.
+  Se conservan referencias históricas/inactivas al editar y la pareja hora/zona.
+- Donaciones e inventario aún sin CRUD de interfaz; finanzas en integración.
 
 Contratos: CONTACTS_API.md, LIFECYCLE_API.md, VOLUNTEERS_API.md,
-DOCUMENTS_API.md, HEALTH_API.md, RESOURCES_API.md, PEOPLE_UI.md y
-ANIMAL_FORMS_UI.md. `index.html` carga servicios clásicos en orden explícito;
+DOCUMENTS_API.md, HEALTH_API.md, RESOURCES_API.md, PEOPLE_UI.md,
+ANIMAL_FORMS_UI.md, FOSTER_UI.md, ADOPTION_UI.md, HEALTH_UI.md y TASKS_UI.md.
+`index.html` carga servicios clásicos en orden explícito;
 `documents.js` precede a `photos.js`. Las cadenas están en locales/en.js y es.js.
 
 ## Verificación del avance
 
-- Node: **115 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **117 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
 - Estática: **541 comprobaciones correctas** al integrar módulos y recuperación;
@@ -98,9 +108,12 @@ ANIMAL_FORMS_UI.md. `index.html` carga servicios clásicos en orden explícito;
 - Un error QuotaExceededError inyectado no demuestra cuota real agotada.
   Documentar por separado ambas pruebas. Retención/limpieza explícita de
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
-- Faltan UI y aceptación de asignar/finalizar acogidas; solicitudes, reservas,
-  adopciones y devoluciones; salud, calendario/tareas; finanzas, donaciones e
-  inventario; informes, buscador global, importación/exportación, demo y retirada.
+- Faltan vistas globales de solicitudes/adopciones, correcciones de historia,
+  interfaz de donaciones/inventario, informes, buscador global,
+  importación/exportación, demo y retirada. Finanzas en integración.
+- El historial animal aún no enlaza cada evento con su origen ni distingue
+  todos los parámetros de estado de las solicitudes. No equivale a pérdida
+  de registros: estos se conservan y consultan en sus secciones específicas.
 - Pesos permiten alta/edición en interfaz; papelera/restauración existen en
   servicio pero todavía no tienen recorrido visible completo. Logotipo solo API.
 - Faltan correcciones de historias, guías completas EN/ES, impresión final,
@@ -113,13 +126,13 @@ ANIMAL_FORMS_UI.md. `index.html` carga servicios clásicos en orden explícito;
 ## Siguiente acción concreta
 
 1. Leer AGENTS.md, este documento y REQUIREMENTS.es.md completo; comprobar cupos.
-2. Revisar el último workspace-ui JSON y RECOVERY_EVIDENCE.md y resolver cualquier
-   caso no aprobado antes de extender interfaz. No declarar todas las fases completas.
-3. Conectar asignación/finalización de acogidas y solicitudes/reservas/adopción/
-   devolución a las secciones ya visibles de la ficha animal, usando los servicios
-   existentes y decisiones explícitas de tareas/cierres. Ver LIFECYCLE_API.md.
-4. Conectar salud/planes/tareas y calendario, después recursos/finanzas e informes;
-   conservar las fases completas del prompt, importación/exportación y demo.
+2. Revisar UI_ACCEPTANCE.md, WORKFLOWS_UI_ACCEPTANCE.md y HEALTH_UI_ACCEPTANCE.md,
+   distinguiendo rondas correctas, cadenas reanudadas e intentos de herramienta.
+   No repetir como pendientes los recorridos acreditados ni declarar fases completas.
+3. Cerrar la aceptación de finanzas y conectar donaciones/inventario usando los
+   servicios existentes, sin duplicar efectos de negocio al vincular operaciones.
+4. Completar navegación/correcciones del historial, vistas globales e informes,
+   importación/exportación y demo; conservar todas las fases del prompt.
 5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de
    plataformas antes de habilitar datos reales o preparar distribución comercial.
 
@@ -156,3 +169,21 @@ se corrigieron filtros recortados y tablas demasiado comprimidas a 360 px;
 **5/5 comprobaciones visuales dirigidas por motor**, sin modificar registros,
 revisión ni bytes. Ver [UI_ACCEPTANCE.md](UI_ACCEPTANCE.md). Esta ronda no
 acredita los módulos de acogida/adopción/salud/tareas conectados posteriormente.
+
+## Flujos de cuidado y adopción (2026-10-17)
+
+Acogida/adopción: **16 comprobaciones acreditadas por motor** en Chrome/Edge,
+en una cadena de tres rondas (8+2+6 nuevas). Las aprobadas se heredan de su
+evidencia anterior y se etiquetan; no se afirma haber ejecutado las 16 en una
+sola ronda. Incluyen revisión obsoleta, excepción, vigencia inclusiva de reserva,
+cierre coordinado/tareas/cuota, documentos, devolución, backup y reapertura.
+Fuentes intactas y cierres propios verificados; los fallos de selección del
+ejecutor se conservan. Ver WORKFLOWS_UI_ACCEPTANCE.md.
+
+Salud/tareas: **12 comprobaciones correctas en Chrome y Edge**, incluyendo plan y
+tarea clínica, acto/gasto/evento únicos, factura existente, referencias
+inactivas, hora/zona y persistencia. La auditoría suplementaria de Chrome
+coincide en sus 63 fuentes; Edge compara inicio/fin. Los intentos fallidos por
+ruta o selección lógica del ejecutor se conservan en HEALTH_UI_ACCEPTANCE.md.
+El calendario tiene dos
+pruebas Node nuevas; la ronda conjunta suma **117 subpruebas correctas**.
