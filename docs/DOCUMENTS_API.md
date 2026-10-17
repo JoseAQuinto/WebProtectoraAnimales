@@ -149,6 +149,28 @@ con 64 MiB de archivos. La prueba no verifica la orientación EXIF de todas las
 cámaras, dispositivos físicos ni PDF viewer; el PDF se mantiene como descarga
 de bytes y no se ejecuta. Firefox con estas fuentes sigue pendiente.
 
+### Aceptación parcial de formularios de fase 4
+
+`tests/e2e/workspace-ui.cjs` se ejecutó contra `index.html` real offline en
+Chrome y Edge. Las últimas rondas
+`workspace-ui-2026-10-16-windows-wip-{chrome,edge}-final-2.json` confirman **8
+recorridos de negocio correctos por motor**: organización, contacto y duplicado
+sin confirmar, perfiles compartidos y horas, entrada de animal y peso,
+foto seleccionada/optimizada/visualizada, archivo inválido con campos conservados
+y ninguna escritura, TXT con descarga de bytes y vínculos, referencia externa,
+y copia descargada/reseleccionada/restaurada con registros y bytes idénticos.
+
+**El resultado global de ambas rondas es fallido.** El noveno caso recorre
+anchos 360/768/1440 de los módulos y cambia a inglés, pero su selector de título
+`getByRole('heading', { name: 'Documents', exact: true })` encuentra el `h1` y el
+`h2` y Playwright lo rechaza por ambiguo. La siguiente sesión debe limitar ese
+selector a `level: 1` y repetir la suite. Debido al fallo, la aceptación final de
+idioma, runtime, comparación de fuentes y cierre/reapertura de esta suite UI no
+se da por aprobada. Los procesos de prueba se cerraron en `finally`.
+La persistencia completa de los servicios multimedia sí está acreditada por
+la suite `media.html` anterior. Las capturas de interfaz sintética se conservan
+en `.tmp` y sus rutas/huellas figuran en los JSON; no son recursos del producto.
+
 Los datos, archivos, relaciones, estados y actividad ya están contemplados por
 el esquema y backup generales; esta implementación no cambia sus versiones.
 La lectura de recursos usa actualmente `context.snapshot`, que captura todos

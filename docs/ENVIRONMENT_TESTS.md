@@ -210,3 +210,17 @@ real con 5 reasignaciones e historia económica conservada.
 Pendiente: los tres recorridos en Firefox (no instalado en este PC; requiere
 descargar el instalador oficial), dispositivos reales y aceptación completa.
 Un recorrido correcto no verifica todos los módulos del producto.
+
+## Cierre del checkpoint de pantallas (2026-10-16)
+
+Runtime publicado en `47e6c11`. La ronda workspace-ui final-2 verifica los
+recorridos de negocio en Chrome/Edge (contactos/duplicados, perfiles/horas,
+animal/peso/foto, documento inválido sin escrituras, TXT/vínculos/externo,
+descarga y backup/restauración de bytes). El informe global de UI **no está
+aprobado**: el ejecutor encuentra dos encabezados Documents (h1 y h2) en un
+selector estricto del siguiente paso. Ajustar ese selector y completar
+reapertura/anchos sin repetir rondas opcionales. Consultar el JSON final-2
+por motor: no convertir pasos aprobados en aceptación integral. Los defectos
+reales encontrados (pestañas y ancho de tablas) se corrigieron antes del runtime
+publicado. El helper de cierre de navegadores de pruebas también se corrigió
+para reconocer signalCode y liberar CDP tras salida, con identidades verificadas.

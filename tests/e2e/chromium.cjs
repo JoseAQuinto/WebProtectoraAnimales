@@ -90,6 +90,7 @@ async function launch(name, profile, result, denyStorage = false, options = {}) 
   const version = await session.send('Browser.getVersion');
   result.launches.push({ startedAt: new Date(startedAt).toISOString(), executable, profile: path.relative(root, profile), pid: child.pid, args, version, storageDeniedPreference: denyStorage });
   let closed = false;
+  const exited = () => child.exitCode !== null || child.signalCode !== null;
   return {
     browser, context, child, version,
     async close() {
@@ -98,16 +99,24 @@ async function launch(name, profile, result, denyStorage = false, options = {}) 
       let before = [];
       let inspectionError = null;
       try { before = descendants(await processes(), child.pid); } catch (error) { inspectionError = String(error); }
-      await session.send('Browser.close').catch(() => {});
+      await Promise.race([session.send('Browser.close').catch(() => {}), pause(5000)]);
       const deadline = Date.now() + 10000;
-      while (child.exitCode === null && Date.now() < deadline) await pause(100);
+      while (!exited() && Date.now() < deadline) await pause(100);
       let forcedTermination = false;
       let terminationAttempts = [];
-      if (child.exitCode === null) {
+      if (!exited()) {
         forcedTermination = true;
         terminationAttempts = await terminateTree(child.pid);
         const terminationDeadline = Date.now() + 5000;
-        while (child.exitCode === null && Date.now() < terminationDeadline) await pause(100);
+        while (!exited() && Date.now() < terminationDeadline) await pause(100);
+      }
+      // A process terminated by signal has null exitCode. Release CDP/pipe handles only after its exit is confirmed;
+      // Windows can otherwise retain its process row while automation is still attached.
+      let connectionReleasedAfterExit = false;
+      if (exited()) {
+        child.stderr.destroy();
+        await Promise.race([browser.close().catch(() => {}), pause(3000)]);
+        connectionReleasedAfterExit = true;
       }
       let remaining = [];
       try {
@@ -126,11 +135,20 @@ async function launch(name, profile, result, denyStorage = false, options = {}) 
           }
         }
       } catch (error) { inspectionError = String(error); }
-      const closure = { rootPid: child.pid, exitCode: child.exitCode, forcedTermination, terminationAttempts, method: forcedTermination ? 'Browser.close followed by forced termination of individually verified owned process identities' : 'Browser.close', trackedProcesses: before, remainingProcesses: remaining, inspectionError, checkedAt: new Date().toISOString() };
+      if (!inspectionError && exited() && !connectionReleasedAfterExit) {
+        child.stderr.destroy();
+        await Promise.race([browser.close().catch(() => {}), pause(3000)]);
+        connectionReleasedAfterExit = true;
+        try {
+          const identities = new Set(before.map(row => row.ProcessId + ':' + row.CreatedAt));
+          remaining = (await processes()).filter(row => identities.has(row.ProcessId + ':' + row.CreatedAt));
+        } catch (error) { inspectionError = String(error); }
+      }
+      const closure = { rootPid: child.pid, exitCode: child.exitCode, signalCode: child.signalCode, connectionReleasedAfterExit, forcedTermination, terminationAttempts, method: forcedTermination ? 'Browser.close followed by forced termination of individually verified owned process identities' : 'Browser.close', trackedProcesses: before, remainingProcesses: remaining, inspectionError, checkedAt: new Date().toISOString() };
       result.closures.push(closure);
-      if (child.exitCode === null) child.kill();
+      if (!exited()) child.kill();
       requireThat(!inspectionError, 'Could not inspect complete owned browser process tree: ' + inspectionError);
-      requireThat(child.exitCode !== null && remaining.length === 0, 'Owned browser processes remained after close');
+      requireThat(exited() && remaining.length === 0, 'Owned browser processes remained after close');
       return closure;
     }
   };

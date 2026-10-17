@@ -1,0 +1,2619 @@
+{
+  "format": "rescue-manager-recovery-test",
+  "version": 1,
+  "browser": "chrome",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-16T18:13:56.094Z",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26300",
+    "version": "Windows 11 Home"
+  },
+  "mode": "crashes",
+  "launches": [
+    {
+      "startedAt": "2026-10-16T18:13:57.111Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\recovery-chrome-1792174436094\\preparing-profile",
+      "pid": 21084,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.80",
+        "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.23"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-16T18:14:30.247Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\recovery-chrome-1792174436094\\preparing-profile",
+      "pid": 5684,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.80",
+        "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.23"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-16T18:14:40.274Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\recovery-chrome-1792174436094\\prepared-profile",
+      "pid": 22012,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.80",
+        "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.23"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-16T18:14:58.694Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\recovery-chrome-1792174436094\\prepared-profile",
+      "pid": 17068,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.80",
+        "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.23"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-16T18:15:06.072Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\recovery-chrome-1792174436094\\activated-profile",
+      "pid": 6180,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.80",
+        "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.23"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-16T18:15:14.721Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\recovery-chrome-1792174436094\\activated-profile",
+      "pid": 5348,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.80",
+        "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.23"
+      },
+      "storageDeniedPreference": false
+    }
+  ],
+  "closures": [
+    {
+      "rootPid": 5684,
+      "exitCode": 0,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 5684,
+          "ParentProcessId": 20312,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-16T18:14:30.2314380Z"
+        },
+        {
+          "ProcessId": 14320,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0x138,0x13c,0x140,0x100,0x144,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+          "CreatedAt": "2026-10-16T18:14:30.3006030Z"
+        },
+        {
+          "ProcessId": 18320,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=2420 /prefetch:2",
+          "CreatedAt": "2026-10-16T18:14:31.0127220Z"
+        },
+        {
+          "ProcessId": 18812,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=3236 /prefetch:11",
+          "CreatedAt": "2026-10-16T18:14:31.0167900Z"
+        },
+        {
+          "ProcessId": 21888,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=3824 /prefetch:13",
+          "CreatedAt": "2026-10-16T18:14:31.1384640Z"
+        },
+        {
+          "ProcessId": 22688,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7948355550 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3880 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:31.1401440Z"
+        },
+        {
+          "ProcessId": 21960,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --launch-time-ticks=7948359088 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4008 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:31.1500990Z"
+        },
+        {
+          "ProcessId": 21588,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7948359729 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4028 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:31.1505900Z"
+        },
+        {
+          "ProcessId": 12424,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7948468046 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4664 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:14:31.2530820Z"
+        },
+        {
+          "ProcessId": 8420,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7948530722 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5184 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:14:31.3140070Z"
+        },
+        {
+          "ProcessId": 19664,
+          "ParentProcessId": 5684,
+          "CommandLine": null,
+          "CreatedAt": "2026-10-16T18:14:32.0699420Z"
+        },
+        {
+          "ProcessId": 20556,
+          "ParentProcessId": 5684,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=7950470465 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5784 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:33.2554940Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-16T18:14:40.245Z"
+    },
+    {
+      "rootPid": 17068,
+      "exitCode": 0,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 17068,
+          "ParentProcessId": 20312,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-16T18:14:58.6889330Z"
+        },
+        {
+          "ProcessId": 22760,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0xb0,0xbc,0xd0,0x110,0x10c,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+          "CreatedAt": "2026-10-16T18:14:58.7202260Z"
+        },
+        {
+          "ProcessId": 10132,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=2120 /prefetch:2",
+          "CreatedAt": "2026-10-16T18:14:59.0628940Z"
+        },
+        {
+          "ProcessId": 20276,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2188 /prefetch:11",
+          "CreatedAt": "2026-10-16T18:14:59.0731070Z"
+        },
+        {
+          "ProcessId": 15792,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2628 /prefetch:13",
+          "CreatedAt": "2026-10-16T18:14:59.1011540Z"
+        },
+        {
+          "ProcessId": 21512,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7976447058 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3688 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:59.2324500Z"
+        },
+        {
+          "ProcessId": 13196,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --launch-time-ticks=7976528320 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4172 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:59.3126670Z"
+        },
+        {
+          "ProcessId": 12940,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7976528873 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4196 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:59.3144020Z"
+        },
+        {
+          "ProcessId": 12120,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7976641392 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=5096 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:14:59.4254500Z"
+        },
+        {
+          "ProcessId": 19512,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7976651164 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5148 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:14:59.4343550Z"
+        },
+        {
+          "ProcessId": 23196,
+          "ParentProcessId": 17068,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=7978378894 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5872 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:01.1697770Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-16T18:15:06.053Z"
+    },
+    {
+      "rootPid": 5348,
+      "exitCode": 0,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 5348,
+          "ParentProcessId": 20312,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-16T18:15:14.7134250Z"
+        },
+        {
+          "ProcessId": 23064,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0x130,0x134,0x138,0x110,0x13c,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+          "CreatedAt": "2026-10-16T18:15:14.7543250Z"
+        },
+        {
+          "ProcessId": 22420,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1864 /prefetch:2",
+          "CreatedAt": "2026-10-16T18:15:15.0196850Z"
+        },
+        {
+          "ProcessId": 22140,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2012 /prefetch:11",
+          "CreatedAt": "2026-10-16T18:15:15.0496020Z"
+        },
+        {
+          "ProcessId": 21364,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2724 /prefetch:13",
+          "CreatedAt": "2026-10-16T18:15:15.0913560Z"
+        },
+        {
+          "ProcessId": 23272,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7992430254 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3636 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:15.2183070Z"
+        },
+        {
+          "ProcessId": 21712,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7992539766 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4164 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:15.3230610Z"
+        },
+        {
+          "ProcessId": 5664,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7992589600 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4424 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:15.3728820Z"
+        },
+        {
+          "ProcessId": 8136,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7992596343 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=4464 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:15:15.3797330Z"
+        },
+        {
+          "ProcessId": 8976,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=7992607111 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4528 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:15:15.3915570Z"
+        },
+        {
+          "ProcessId": 22208,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=7994107061 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5660 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:16.8906330Z"
+        },
+        {
+          "ProcessId": 22240,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=es --service-sandbox-type=none --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708998493415531 --mojo-platform-channel-handle=6488 /prefetch:14",
+          "CreatedAt": "2026-10-16T18:15:19.3090220Z"
+        },
+        {
+          "ProcessId": 22680,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --launch-time-ticks=7996953599 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=6396 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:19.7399400Z"
+        },
+        {
+          "ProcessId": 19212,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --launch-time-ticks=7996958089 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=6424 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:19.7415500Z"
+        },
+        {
+          "ProcessId": 21664,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --launch-time-ticks=7997476603 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6432 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:20.2602380Z"
+        },
+        {
+          "ProcessId": 16024,
+          "ParentProcessId": 5348,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --launch-time-ticks=7998012589 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=6880 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:20.7988190Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-16T18:15:27.512Z"
+    }
+  ],
+  "forcedClosures": [
+    {
+      "phase": "preparing",
+      "method": "Real process.kill/TerminateProcess before any connection cleanup, restricted to verified PID and creation-time identities of the isolated profile tree",
+      "rootPid": 21084,
+      "exitCodeBeforeDisconnect": 1,
+      "disconnectedAfterProcessExit": true,
+      "profile": ".tmp\\recovery-chrome-1792174436094\\preparing-profile",
+      "trackedProcesses": [
+        {
+          "ProcessId": 21084,
+          "ParentProcessId": 20312,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-16T18:13:57.0938640Z"
+        },
+        {
+          "ProcessId": 23388,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0x130,0x134,0x138,0xb0,0x13c,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+          "CreatedAt": "2026-10-16T18:13:57.2210570Z"
+        },
+        {
+          "ProcessId": 22448,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1952 /prefetch:2",
+          "CreatedAt": "2026-10-16T18:13:57.8012250Z"
+        },
+        {
+          "ProcessId": 11844,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2004 /prefetch:11",
+          "CreatedAt": "2026-10-16T18:13:57.8381520Z"
+        },
+        {
+          "ProcessId": 22056,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2780 /prefetch:13",
+          "CreatedAt": "2026-10-16T18:13:57.9336310Z"
+        },
+        {
+          "ProcessId": 12684,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7915217207 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3288 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:13:58.0224570Z"
+        },
+        {
+          "ProcessId": 23276,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7915341044 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3764 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:13:58.1310530Z"
+        },
+        {
+          "ProcessId": 23028,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7915394797 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4056 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:13:58.1791720Z"
+        },
+        {
+          "ProcessId": 22408,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7915401849 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=4144 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:13:58.1886970Z"
+        },
+        {
+          "ProcessId": 5608,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=7915532621 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=3696 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:13:58.3211040Z"
+        },
+        {
+          "ProcessId": 21492,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --launch-time-ticks=7925760542 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5592 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:08.5474430Z"
+        },
+        {
+          "ProcessId": 10428,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=es --service-sandbox-type=none --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190708998493415531 --mojo-platform-channel-handle=6580 /prefetch:14",
+          "CreatedAt": "2026-10-16T18:14:08.6428520Z"
+        },
+        {
+          "ProcessId": 10324,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --launch-time-ticks=7926035591 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=5428 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:08.8225440Z"
+        },
+        {
+          "ProcessId": 11936,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --launch-time-ticks=7926558292 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6612 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:09.3429480Z"
+        },
+        {
+          "ProcessId": 15032,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=es --service-sandbox-type=service --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=6676 /prefetch:14",
+          "CreatedAt": "2026-10-16T18:14:09.3594570Z"
+        },
+        {
+          "ProcessId": 14228,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=es --service-sandbox-type=service --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709003178624776 --mojo-platform-channel-handle=7052 /prefetch:14",
+          "CreatedAt": "2026-10-16T18:14:09.5910990Z"
+        },
+        {
+          "ProcessId": 16488,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=19 --launch-time-ticks=7927474498 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709004115666625 --mojo-platform-channel-handle=6616 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:10.2598150Z"
+        },
+        {
+          "ProcessId": 20612,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=20 --launch-time-ticks=7928548347 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709005052708474 --mojo-platform-channel-handle=4368 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:11.3372630Z"
+        },
+        {
+          "ProcessId": 2172,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=21 --launch-time-ticks=7929039960 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709005989750323 --mojo-platform-channel-handle=7404 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:11.8240220Z"
+        },
+        {
+          "ProcessId": 16388,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=22 --launch-time-ticks=7929900453 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709006926792172 --mojo-platform-channel-handle=5552 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:12.6844860Z"
+        },
+        {
+          "ProcessId": 21180,
+          "ParentProcessId": 21084,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23 --launch-time-ticks=7930515023 --field-trial-handle=1956,i,15352399494819084698,2053999727657922434,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1960,i,1435406617415733630,6799168062307003628,4 --trace-process-track-uuid=3190709007863834021 --mojo-platform-channel-handle=7472 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:13.3100650Z"
+        }
+      ],
+      "terminationAttempts": [
+        {
+          "pid": 21084,
+          "createdAt": "2026-10-16T18:13:57.0938640Z",
+          "signalled": true
+        },
+        {
+          "pid": 21180,
+          "createdAt": "2026-10-16T18:14:13.3100650Z",
+          "signalled": true
+        },
+        {
+          "pid": 16388,
+          "createdAt": "2026-10-16T18:14:12.6844860Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 2172,
+          "createdAt": "2026-10-16T18:14:11.8240220Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 20612,
+          "createdAt": "2026-10-16T18:14:11.3372630Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 10428,
+          "createdAt": "2026-10-16T18:14:08.6428520Z",
+          "signalled": true
+        },
+        {
+          "pid": 21492,
+          "createdAt": "2026-10-16T18:14:08.5474430Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 5608,
+          "createdAt": "2026-10-16T18:13:58.3211040Z",
+          "signalled": true
+        },
+        {
+          "pid": 22408,
+          "createdAt": "2026-10-16T18:13:58.1886970Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 23028,
+          "createdAt": "2026-10-16T18:13:58.1791720Z",
+          "signalled": true
+        },
+        {
+          "pid": 23276,
+          "createdAt": "2026-10-16T18:13:58.1310530Z",
+          "signalled": true
+        },
+        {
+          "pid": 12684,
+          "createdAt": "2026-10-16T18:13:58.0224570Z",
+          "signalled": true
+        },
+        {
+          "pid": 22056,
+          "createdAt": "2026-10-16T18:13:57.9336310Z",
+          "signalled": true
+        },
+        {
+          "pid": 11844,
+          "createdAt": "2026-10-16T18:13:57.8381520Z",
+          "signalled": true
+        },
+        {
+          "pid": 22448,
+          "createdAt": "2026-10-16T18:13:57.8012250Z",
+          "signalled": true
+        },
+        {
+          "pid": 23388,
+          "createdAt": "2026-10-16T18:13:57.2210570Z",
+          "signalled": true
+        }
+      ],
+      "remainingProcesses": [],
+      "checkedAt": "2026-10-16T18:14:30.207Z"
+    },
+    {
+      "phase": "prepared",
+      "method": "Real process.kill/TerminateProcess before any connection cleanup, restricted to verified PID and creation-time identities of the isolated profile tree",
+      "rootPid": 22012,
+      "exitCodeBeforeDisconnect": 1,
+      "disconnectedAfterProcessExit": true,
+      "profile": ".tmp\\recovery-chrome-1792174436094\\prepared-profile",
+      "trackedProcesses": [
+        {
+          "ProcessId": 22012,
+          "ParentProcessId": 20312,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-16T18:14:40.2584260Z"
+        },
+        {
+          "ProcessId": 21952,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0x134,0x138,0x13c,0x100,0x140,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+          "CreatedAt": "2026-10-16T18:14:40.3141580Z"
+        },
+        {
+          "ProcessId": 8856,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1800 /prefetch:2",
+          "CreatedAt": "2026-10-16T18:14:40.6590250Z"
+        },
+        {
+          "ProcessId": 18248,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=1964 /prefetch:11",
+          "CreatedAt": "2026-10-16T18:14:40.6733080Z"
+        },
+        {
+          "ProcessId": 22160,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2416 /prefetch:13",
+          "CreatedAt": "2026-10-16T18:14:40.7528350Z"
+        },
+        {
+          "ProcessId": 10364,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7958087832 --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3336 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:40.8897440Z"
+        },
+        {
+          "ProcessId": 12160,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7958349166 --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3832 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:41.1394580Z"
+        },
+        {
+          "ProcessId": 13588,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7958388033 --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=3888 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:41.1724590Z"
+        },
+        {
+          "ProcessId": 9064,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7958391061 --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=4152 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:14:41.1785820Z"
+        },
+        {
+          "ProcessId": 13420,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=7958918579 --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=3940 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:14:41.7020730Z"
+        },
+        {
+          "ProcessId": 23468,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --launch-time-ticks=7963315516 --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=6256 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:46.0989390Z"
+        },
+        {
+          "ProcessId": 23120,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=es --service-sandbox-type=none --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708998493415531 --mojo-platform-channel-handle=6860 /prefetch:14",
+          "CreatedAt": "2026-10-16T18:14:49.8851730Z"
+        },
+        {
+          "ProcessId": 10336,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --launch-time-ticks=7967116500 --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=5996 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:49.9004080Z"
+        },
+        {
+          "ProcessId": 22276,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --launch-time-ticks=7967118092 --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=5924 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:14:49.9015370Z"
+        },
+        {
+          "ProcessId": 22000,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=es --service-sandbox-type=service --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6936 /prefetch:14",
+          "CreatedAt": "2026-10-16T18:14:50.1227570Z"
+        },
+        {
+          "ProcessId": 17184,
+          "ParentProcessId": 22012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=unzip.mojom.Unzipper --lang=es --service-sandbox-type=service --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,13396091640181799159,7673638104895021288,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1820,i,10728810515504875247,11021330853743890261,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=7228 /prefetch:14",
+          "CreatedAt": "2026-10-16T18:14:50.2921400Z"
+        }
+      ],
+      "terminationAttempts": [
+        {
+          "pid": 22012,
+          "createdAt": "2026-10-16T18:14:40.2584260Z",
+          "signalled": true
+        },
+        {
+          "pid": 17184,
+          "createdAt": "2026-10-16T18:14:50.2921400Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 22000,
+          "createdAt": "2026-10-16T18:14:50.1227570Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 22276,
+          "createdAt": "2026-10-16T18:14:49.9015370Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 10336,
+          "createdAt": "2026-10-16T18:14:49.9004080Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 23120,
+          "createdAt": "2026-10-16T18:14:49.8851730Z",
+          "signalled": true
+        },
+        {
+          "pid": 23468,
+          "createdAt": "2026-10-16T18:14:46.0989390Z",
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 13420,
+          "createdAt": "2026-10-16T18:14:41.7020730Z",
+          "signalled": true
+        },
+        {
+          "pid": 9064,
+          "createdAt": "2026-10-16T18:14:41.1785820Z",
+          "signalled": true
+        },
+        {
+          "pid": 13588,
+          "createdAt": "2026-10-16T18:14:41.1724590Z",
+          "signalled": true
+        },
+        {
+          "pid": 12160,
+          "createdAt": "2026-10-16T18:14:41.1394580Z",
+          "signalled": true
+        },
+        {
+          "pid": 10364,
+          "createdAt": "2026-10-16T18:14:40.8897440Z",
+          "signalled": true
+        },
+        {
+          "pid": 22160,
+          "createdAt": "2026-10-16T18:14:40.7528350Z",
+          "signalled": true
+        },
+        {
+          "pid": 18248,
+          "createdAt": "2026-10-16T18:14:40.6733080Z",
+          "signalled": true
+        },
+        {
+          "pid": 8856,
+          "createdAt": "2026-10-16T18:14:40.6590250Z",
+          "signalled": true
+        },
+        {
+          "pid": 21952,
+          "createdAt": "2026-10-16T18:14:40.3141580Z",
+          "signalled": true
+        }
+      ],
+      "remainingProcesses": [],
+      "checkedAt": "2026-10-16T18:14:58.674Z"
+    },
+    {
+      "phase": "activated",
+      "method": "Real process.kill/TerminateProcess before any connection cleanup, restricted to verified PID and creation-time identities of the isolated profile tree",
+      "rootPid": 6180,
+      "exitCodeBeforeDisconnect": 1,
+      "disconnectedAfterProcessExit": true,
+      "profile": ".tmp\\recovery-chrome-1792174436094\\activated-profile",
+      "trackedProcesses": [
+        {
+          "ProcessId": 6180,
+          "ParentProcessId": 20312,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-16T18:15:06.0624080Z"
+        },
+        {
+          "ProcessId": 15856,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0x138,0x13c,0x140,0x108,0x144,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+          "CreatedAt": "2026-10-16T18:15:06.0961680Z"
+        },
+        {
+          "ProcessId": 21560,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1836 /prefetch:2",
+          "CreatedAt": "2026-10-16T18:15:06.3752280Z"
+        },
+        {
+          "ProcessId": 22100,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2020 /prefetch:11",
+          "CreatedAt": "2026-10-16T18:15:06.3927140Z"
+        },
+        {
+          "ProcessId": 23132,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2576 /prefetch:13",
+          "CreatedAt": "2026-10-16T18:15:06.4446170Z"
+        },
+        {
+          "ProcessId": 6668,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7983783965 --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3500 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:06.5826910Z"
+        },
+        {
+          "ProcessId": 8200,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7983922173 --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3968 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:06.7072090Z"
+        },
+        {
+          "ProcessId": 21832,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7983988796 --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4300 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:06.7734580Z"
+        },
+        {
+          "ProcessId": 14060,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7983991856 --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=4380 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:15:06.7813880Z"
+        },
+        {
+          "ProcessId": 8000,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=7984407815 --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5388 /prefetch:9",
+          "CreatedAt": "2026-10-16T18:15:07.1916250Z"
+        },
+        {
+          "ProcessId": 8668,
+          "ParentProcessId": 6180,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=7984783139 --field-trial-handle=1756,i,2293780890977232363,4825721511836562348,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1840,i,17141985418672909167,16232382460414738311,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5316 /prefetch:1",
+          "CreatedAt": "2026-10-16T18:15:07.5676550Z"
+        }
+      ],
+      "terminationAttempts": [
+        {
+          "pid": 6180,
+          "createdAt": "2026-10-16T18:15:06.0624080Z",
+          "signalled": true
+        },
+        {
+          "pid": 8668,
+          "createdAt": "2026-10-16T18:15:07.5676550Z",
+          "signalled": true
+        },
+        {
+          "pid": 8000,
+          "createdAt": "2026-10-16T18:15:07.1916250Z",
+          "signalled": true
+        },
+        {
+          "pid": 14060,
+          "createdAt": "2026-10-16T18:15:06.7813880Z",
+          "signalled": true
+        },
+        {
+          "pid": 21832,
+          "createdAt": "2026-10-16T18:15:06.7734580Z",
+          "signalled": true
+        },
+        {
+          "pid": 8200,
+          "createdAt": "2026-10-16T18:15:06.7072090Z",
+          "signalled": true
+        },
+        {
+          "pid": 6668,
+          "createdAt": "2026-10-16T18:15:06.5826910Z",
+          "signalled": true
+        },
+        {
+          "pid": 23132,
+          "createdAt": "2026-10-16T18:15:06.4446170Z",
+          "signalled": true
+        },
+        {
+          "pid": 22100,
+          "createdAt": "2026-10-16T18:15:06.3927140Z",
+          "signalled": true
+        },
+        {
+          "pid": 21560,
+          "createdAt": "2026-10-16T18:15:06.3752280Z",
+          "signalled": true
+        },
+        {
+          "pid": 15856,
+          "createdAt": "2026-10-16T18:15:06.0961680Z",
+          "signalled": true
+        }
+      ],
+      "remainingProcesses": [],
+      "checkedAt": "2026-10-16T18:15:14.690Z"
+    }
+  ],
+  "checks": [
+    {
+      "id": "real-forced-close-preparing",
+      "passed": true,
+      "evidence": {
+        "rootPid": 21084,
+        "terminated": 11,
+        "remaining": 0,
+        "profileVerified": true
+      }
+    },
+    {
+      "id": "durable-dataset-state-after-real-forced-close-preparing",
+      "passed": true,
+      "evidence": {
+        "phase": "preparing",
+        "checkpoint": {
+          "phase": "preparing",
+          "baseline": {
+            "datasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "2b57f84ca552a73bef03ee1a6e52477260e4ec9bc66e5bffbc0219e09a6ffc53",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "progress": {
+            "phase": "preparing",
+            "completed": 1,
+            "total": 77
+          },
+          "schedulingHook": "Pause the next zero-delay yield after a completed IndexedDB batch; no production change"
+        },
+        "before": {
+          "active": {
+            "datasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "2b57f84ca552a73bef03ee1a6e52477260e4ec9bc66e5bffbc0219e09a6ffc53",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "datasets": [
+            {
+              "id": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+              "state": "active",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 3,
+              "createdAt": "2026-10-16T18:14:10.563Z",
+              "updatedAt": "2026-10-16T18:14:10.700Z",
+              "previousDatasetId": null,
+              "sourceDatasetId": "deb77ed2-cd5c-4de2-be94-b6083d62841f",
+              "preparation": "initialize",
+              "validation": {
+                "stagingRevision": 3,
+                "digest": "a3d061323e4a4513801171da73fd370c9e2d2cd51799feae7cab745b7080bd4b",
+                "validatedAt": "2026-10-16T18:14:10.639Z"
+              },
+              "snapshot": {
+                "datasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+                "dataRevision": 1,
+                "globalRevision": 1,
+                "digest": "2b57f84ca552a73bef03ee1a6e52477260e4ec9bc66e5bffbc0219e09a6ffc53",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            },
+            {
+              "id": "f5e2cf47-248e-44f4-a5f9-ff16ae687c05",
+              "state": "staging",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 1,
+              "createdAt": "2026-10-16T18:14:11.332Z",
+              "updatedAt": "2026-10-16T18:14:11.334Z",
+              "previousDatasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+              "sourceDatasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+              "preparation": "restore",
+              "snapshot": {
+                "datasetId": "f5e2cf47-248e-44f4-a5f9-ff16ae687c05",
+                "dataRevision": 1,
+                "globalRevision": 1,
+                "digest": "d74c20f9096b39b4c4c02ff71cdfe410198cc216f0f4322b7451164737ad798b",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 0,
+                  "locations": 0,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 0,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 0,
+                  "documents": 0,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            }
+          ]
+        },
+        "after": {
+          "active": {
+            "datasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "2b57f84ca552a73bef03ee1a6e52477260e4ec9bc66e5bffbc0219e09a6ffc53",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "datasets": [
+            {
+              "id": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+              "state": "active",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 3,
+              "createdAt": "2026-10-16T18:14:10.563Z",
+              "updatedAt": "2026-10-16T18:14:10.700Z",
+              "previousDatasetId": null,
+              "sourceDatasetId": "deb77ed2-cd5c-4de2-be94-b6083d62841f",
+              "preparation": "initialize",
+              "validation": {
+                "stagingRevision": 3,
+                "digest": "a3d061323e4a4513801171da73fd370c9e2d2cd51799feae7cab745b7080bd4b",
+                "validatedAt": "2026-10-16T18:14:10.639Z"
+              },
+              "snapshot": {
+                "datasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+                "dataRevision": 1,
+                "globalRevision": 1,
+                "digest": "2b57f84ca552a73bef03ee1a6e52477260e4ec9bc66e5bffbc0219e09a6ffc53",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            },
+            {
+              "id": "f5e2cf47-248e-44f4-a5f9-ff16ae687c05",
+              "state": "staging",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 1,
+              "createdAt": "2026-10-16T18:14:11.332Z",
+              "updatedAt": "2026-10-16T18:14:11.334Z",
+              "previousDatasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+              "sourceDatasetId": "d359da75-cc29-4d8f-9e19-5633e372f0c9",
+              "preparation": "restore",
+              "snapshot": {
+                "datasetId": "f5e2cf47-248e-44f4-a5f9-ff16ae687c05",
+                "dataRevision": 1,
+                "globalRevision": 1,
+                "digest": "d74c20f9096b39b4c4c02ff71cdfe410198cc216f0f4322b7451164737ad798b",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 0,
+                  "locations": 0,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 0,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 0,
+                  "documents": 0,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            }
+          ]
+        },
+        "previousDigestIntact": true,
+        "stagedBecameActiveOnReopen": false
+      }
+    },
+    {
+      "id": "complete-close-after-crash-reopen-preparing",
+      "passed": true,
+      "evidence": {
+        "rootPid": 5684,
+        "exitCode": 0,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 5684,
+            "ParentProcessId": 20312,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-16T18:14:30.2314380Z"
+          },
+          {
+            "ProcessId": 14320,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0x138,0x13c,0x140,0x100,0x144,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+            "CreatedAt": "2026-10-16T18:14:30.3006030Z"
+          },
+          {
+            "ProcessId": 18320,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=2420 /prefetch:2",
+            "CreatedAt": "2026-10-16T18:14:31.0127220Z"
+          },
+          {
+            "ProcessId": 18812,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=3236 /prefetch:11",
+            "CreatedAt": "2026-10-16T18:14:31.0167900Z"
+          },
+          {
+            "ProcessId": 21888,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=3824 /prefetch:13",
+            "CreatedAt": "2026-10-16T18:14:31.1384640Z"
+          },
+          {
+            "ProcessId": 22688,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7948355550 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3880 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:14:31.1401440Z"
+          },
+          {
+            "ProcessId": 21960,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --launch-time-ticks=7948359088 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4008 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:14:31.1500990Z"
+          },
+          {
+            "ProcessId": 21588,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7948359729 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4028 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:14:31.1505900Z"
+          },
+          {
+            "ProcessId": 12424,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7948468046 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4664 /prefetch:9",
+            "CreatedAt": "2026-10-16T18:14:31.2530820Z"
+          },
+          {
+            "ProcessId": 8420,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7948530722 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5184 /prefetch:9",
+            "CreatedAt": "2026-10-16T18:14:31.3140070Z"
+          },
+          {
+            "ProcessId": 19664,
+            "ParentProcessId": 5684,
+            "CommandLine": null,
+            "CreatedAt": "2026-10-16T18:14:32.0699420Z"
+          },
+          {
+            "ProcessId": 20556,
+            "ParentProcessId": 5684,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\preparing-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=7950470465 --field-trial-handle=2424,i,11985422130103696506,9912015993746250333,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2432,i,18440773452199666707,4892630235502117277,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5784 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:14:33.2554940Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-16T18:14:40.245Z"
+      }
+    },
+    {
+      "id": "real-forced-close-prepared",
+      "passed": true,
+      "evidence": {
+        "rootPid": 22012,
+        "terminated": 11,
+        "remaining": 0,
+        "profileVerified": true
+      }
+    },
+    {
+      "id": "durable-dataset-state-after-real-forced-close-prepared",
+      "passed": true,
+      "evidence": {
+        "phase": "prepared",
+        "checkpoint": {
+          "phase": "prepared",
+          "baseline": {
+            "datasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "dbcec836bf9dde8b14a50ddc9858cc93cb94a0bf324539b020f23b6417b95eaa",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "target": {
+            "datasetId": "79bd7718-0989-494c-af3b-0f782911c978",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "c84ffbc24985c4f9c51330720b5520322ca5ebb76a9e80208c772d1127275317",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "prepared": {
+            "targetId": "79bd7718-0989-494c-af3b-0f782911c978",
+            "stagingRevision": 6,
+            "digest": "c84ffbc24985c4f9c51330720b5520322ca5ebb76a9e80208c772d1127275317",
+            "total": 77
+          },
+          "schedulingHook": "Pause before calling activation"
+        },
+        "before": {
+          "active": {
+            "datasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "dbcec836bf9dde8b14a50ddc9858cc93cb94a0bf324539b020f23b6417b95eaa",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "datasets": [
+            {
+              "id": "79bd7718-0989-494c-af3b-0f782911c978",
+              "state": "staging",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 6,
+              "createdAt": "2026-10-16T18:14:48.197Z",
+              "updatedAt": "2026-10-16T18:14:48.394Z",
+              "previousDatasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+              "sourceDatasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+              "preparation": "restore",
+              "validation": {
+                "stagingRevision": 6,
+                "digest": "c84ffbc24985c4f9c51330720b5520322ca5ebb76a9e80208c772d1127275317",
+                "validatedAt": "2026-10-16T18:14:48.432Z"
+              },
+              "snapshot": {
+                "datasetId": "79bd7718-0989-494c-af3b-0f782911c978",
+                "dataRevision": 1,
+                "globalRevision": 1,
+                "digest": "c84ffbc24985c4f9c51330720b5520322ca5ebb76a9e80208c772d1127275317",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            },
+            {
+              "id": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+              "state": "active",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 3,
+              "createdAt": "2026-10-16T18:14:47.751Z",
+              "updatedAt": "2026-10-16T18:14:48.123Z",
+              "previousDatasetId": null,
+              "sourceDatasetId": "fe20374c-51fb-4ee3-8ba0-a8011340cd55",
+              "preparation": "initialize",
+              "validation": {
+                "stagingRevision": 3,
+                "digest": "762f359c07a112bbdbb97d54a2b3ef3f2eab915a0a321360442516a3ab5869a8",
+                "validatedAt": "2026-10-16T18:14:47.954Z"
+              },
+              "snapshot": {
+                "datasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+                "dataRevision": 1,
+                "globalRevision": 1,
+                "digest": "dbcec836bf9dde8b14a50ddc9858cc93cb94a0bf324539b020f23b6417b95eaa",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            }
+          ]
+        },
+        "after": {
+          "active": {
+            "datasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "dbcec836bf9dde8b14a50ddc9858cc93cb94a0bf324539b020f23b6417b95eaa",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "datasets": [
+            {
+              "id": "79bd7718-0989-494c-af3b-0f782911c978",
+              "state": "staging",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 6,
+              "createdAt": "2026-10-16T18:14:48.197Z",
+              "updatedAt": "2026-10-16T18:14:48.394Z",
+              "previousDatasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+              "sourceDatasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+              "preparation": "restore",
+              "validation": {
+                "stagingRevision": 6,
+                "digest": "c84ffbc24985c4f9c51330720b5520322ca5ebb76a9e80208c772d1127275317",
+                "validatedAt": "2026-10-16T18:14:48.432Z"
+              },
+              "snapshot": {
+                "datasetId": "79bd7718-0989-494c-af3b-0f782911c978",
+                "dataRevision": 1,
+                "globalRevision": 1,
+                "digest": "c84ffbc24985c4f9c51330720b5520322ca5ebb76a9e80208c772d1127275317",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            },
+            {
+              "id": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+              "state": "active",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 3,
+              "createdAt": "2026-10-16T18:14:47.751Z",
+              "updatedAt": "2026-10-16T18:14:48.123Z",
+              "previousDatasetId": null,
+              "sourceDatasetId": "fe20374c-51fb-4ee3-8ba0-a8011340cd55",
+              "preparation": "initialize",
+              "validation": {
+                "stagingRevision": 3,
+                "digest": "762f359c07a112bbdbb97d54a2b3ef3f2eab915a0a321360442516a3ab5869a8",
+                "validatedAt": "2026-10-16T18:14:47.954Z"
+              },
+              "snapshot": {
+                "datasetId": "f1fd6861-dc5c-496d-b243-01d984aaa0ad",
+                "dataRevision": 1,
+                "globalRevision": 1,
+                "digest": "dbcec836bf9dde8b14a50ddc9858cc93cb94a0bf324539b020f23b6417b95eaa",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            }
+          ]
+        },
+        "previousDigestIntact": true,
+        "stagedBecameActiveOnReopen": false
+      }
+    },
+    {
+      "id": "complete-close-after-crash-reopen-prepared",
+      "passed": true,
+      "evidence": {
+        "rootPid": 17068,
+        "exitCode": 0,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 17068,
+            "ParentProcessId": 20312,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-16T18:14:58.6889330Z"
+          },
+          {
+            "ProcessId": 22760,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0xb0,0xbc,0xd0,0x110,0x10c,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+            "CreatedAt": "2026-10-16T18:14:58.7202260Z"
+          },
+          {
+            "ProcessId": 10132,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=2120 /prefetch:2",
+            "CreatedAt": "2026-10-16T18:14:59.0628940Z"
+          },
+          {
+            "ProcessId": 20276,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2188 /prefetch:11",
+            "CreatedAt": "2026-10-16T18:14:59.0731070Z"
+          },
+          {
+            "ProcessId": 15792,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2628 /prefetch:13",
+            "CreatedAt": "2026-10-16T18:14:59.1011540Z"
+          },
+          {
+            "ProcessId": 21512,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7976447058 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3688 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:14:59.2324500Z"
+          },
+          {
+            "ProcessId": 13196,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --launch-time-ticks=7976528320 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4172 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:14:59.3126670Z"
+          },
+          {
+            "ProcessId": 12940,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7976528873 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4196 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:14:59.3144020Z"
+          },
+          {
+            "ProcessId": 12120,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7976641392 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=5096 /prefetch:9",
+            "CreatedAt": "2026-10-16T18:14:59.4254500Z"
+          },
+          {
+            "ProcessId": 19512,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7976651164 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5148 /prefetch:9",
+            "CreatedAt": "2026-10-16T18:14:59.4343550Z"
+          },
+          {
+            "ProcessId": 23196,
+            "ParentProcessId": 17068,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\prepared-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=7978378894 --field-trial-handle=2124,i,4319071001037268699,8518381589329729427,262144 --disable-features=PaintHolding --variations-seed-version=20261016-010032.487000-production --pseudonymization-salt-handle=2136,i,6934910257311455028,17869838269411438935,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5872 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:01.1697770Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-16T18:15:06.053Z"
+      }
+    },
+    {
+      "id": "real-forced-close-activated",
+      "passed": true,
+      "evidence": {
+        "rootPid": 6180,
+        "terminated": 11,
+        "remaining": 0,
+        "profileVerified": true
+      }
+    },
+    {
+      "id": "durable-dataset-state-after-real-forced-close-activated",
+      "passed": true,
+      "evidence": {
+        "phase": "activated",
+        "checkpoint": {
+          "phase": "activated",
+          "baseline": {
+            "datasetId": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "227242b00a5c0171e0ccf8349a84197a9a661c7a61f838c0ae5dde52af132a92",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "target": {
+            "datasetId": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+            "dataRevision": 1,
+            "globalRevision": 1,
+            "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "prepared": {
+            "targetId": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+            "stagingRevision": 6,
+            "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+            "total": 77
+          },
+          "activeAfterComplete": {
+            "datasetId": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+            "dataRevision": 1,
+            "globalRevision": 2,
+            "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "schedulingHook": "Checkpoint only after activation transaction.complete resolved"
+        },
+        "before": {
+          "active": {
+            "datasetId": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+            "dataRevision": 1,
+            "globalRevision": 2,
+            "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "datasets": [
+            {
+              "id": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+              "state": "active",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 6,
+              "createdAt": "2026-10-16T18:15:08.667Z",
+              "updatedAt": "2026-10-16T18:15:08.773Z",
+              "previousDatasetId": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+              "sourceDatasetId": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+              "preparation": "restore",
+              "validation": {
+                "stagingRevision": 6,
+                "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+                "validatedAt": "2026-10-16T18:15:08.761Z"
+              },
+              "snapshot": {
+                "datasetId": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+                "dataRevision": 1,
+                "globalRevision": 2,
+                "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            },
+            {
+              "id": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+              "state": "retired",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 3,
+              "createdAt": "2026-10-16T18:15:08.449Z",
+              "updatedAt": "2026-10-16T18:15:08.773Z",
+              "previousDatasetId": null,
+              "sourceDatasetId": "7462253c-ef1c-4f23-bc65-15bf5f5ea74b",
+              "preparation": "initialize",
+              "validation": {
+                "stagingRevision": 3,
+                "digest": "bd72aca056a16c148cc8cec4b620334f32c9c6e29d0f46674abb4fc0517f50ca",
+                "validatedAt": "2026-10-16T18:15:08.514Z"
+              },
+              "snapshot": {
+                "datasetId": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+                "dataRevision": 1,
+                "globalRevision": 2,
+                "digest": "227242b00a5c0171e0ccf8349a84197a9a661c7a61f838c0ae5dde52af132a92",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            }
+          ]
+        },
+        "after": {
+          "active": {
+            "datasetId": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+            "dataRevision": 1,
+            "globalRevision": 2,
+            "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+            "counts": {
+              "organizationSettings": 1,
+              "catalogOptions": 70,
+              "locations": 1,
+              "animals": 0,
+              "stayEpisodes": 0,
+              "weightMeasurements": 0,
+              "contacts": 3,
+              "fosterProfiles": 0,
+              "fosterStays": 0,
+              "adoptionApplications": 0,
+              "reservations": 0,
+              "adoptions": 0,
+              "volunteerProfiles": 0,
+              "volunteerHours": 0,
+              "veterinaryRecords": 0,
+              "carePlans": 0,
+              "tasks": 0,
+              "financialMovements": 0,
+              "donations": 0,
+              "donationLines": 0,
+              "inventoryItems": 0,
+              "inventoryMovements": 0,
+              "assets": 1,
+              "documents": 1,
+              "documentLinks": 0,
+              "animalEvents": 0,
+              "activityLog": 0,
+              "importIdentityMap": 0
+            }
+          },
+          "datasets": [
+            {
+              "id": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+              "state": "active",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 6,
+              "createdAt": "2026-10-16T18:15:08.667Z",
+              "updatedAt": "2026-10-16T18:15:08.773Z",
+              "previousDatasetId": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+              "sourceDatasetId": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+              "preparation": "restore",
+              "validation": {
+                "stagingRevision": 6,
+                "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+                "validatedAt": "2026-10-16T18:15:08.761Z"
+              },
+              "snapshot": {
+                "datasetId": "26adce5d-db3d-414b-b4c0-6a115f8f8e6b",
+                "dataRevision": 1,
+                "globalRevision": 2,
+                "digest": "6a7eabc0bd870ec64320db1e4bfe2496d1387182052d7e3bc6cf6f5aac6f5f37",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            },
+            {
+              "id": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+              "state": "retired",
+              "schemaVersion": 1,
+              "dataRevision": 1,
+              "stagingRevision": 3,
+              "createdAt": "2026-10-16T18:15:08.449Z",
+              "updatedAt": "2026-10-16T18:15:08.773Z",
+              "previousDatasetId": null,
+              "sourceDatasetId": "7462253c-ef1c-4f23-bc65-15bf5f5ea74b",
+              "preparation": "initialize",
+              "validation": {
+                "stagingRevision": 3,
+                "digest": "bd72aca056a16c148cc8cec4b620334f32c9c6e29d0f46674abb4fc0517f50ca",
+                "validatedAt": "2026-10-16T18:15:08.514Z"
+              },
+              "snapshot": {
+                "datasetId": "e1906bc9-b74b-4d02-8a9b-14a39d1ed0d5",
+                "dataRevision": 1,
+                "globalRevision": 2,
+                "digest": "227242b00a5c0171e0ccf8349a84197a9a661c7a61f838c0ae5dde52af132a92",
+                "counts": {
+                  "organizationSettings": 1,
+                  "catalogOptions": 70,
+                  "locations": 1,
+                  "animals": 0,
+                  "stayEpisodes": 0,
+                  "weightMeasurements": 0,
+                  "contacts": 3,
+                  "fosterProfiles": 0,
+                  "fosterStays": 0,
+                  "adoptionApplications": 0,
+                  "reservations": 0,
+                  "adoptions": 0,
+                  "volunteerProfiles": 0,
+                  "volunteerHours": 0,
+                  "veterinaryRecords": 0,
+                  "carePlans": 0,
+                  "tasks": 0,
+                  "financialMovements": 0,
+                  "donations": 0,
+                  "donationLines": 0,
+                  "inventoryItems": 0,
+                  "inventoryMovements": 0,
+                  "assets": 1,
+                  "documents": 1,
+                  "documentLinks": 0,
+                  "animalEvents": 0,
+                  "activityLog": 0,
+                  "importIdentityMap": 0
+                }
+              }
+            }
+          ]
+        },
+        "previousDigestIntact": true,
+        "stagedBecameActiveOnReopen": false
+      }
+    },
+    {
+      "id": "complete-close-after-crash-reopen-activated",
+      "passed": true,
+      "evidence": {
+        "rootPid": 5348,
+        "exitCode": 0,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 5348,
+            "ParentProcessId": 20312,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-16T18:15:14.7134250Z"
+          },
+          {
+            "ProcessId": 23064,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.80 --initial-client-data=0x130,0x134,0x138,0x110,0x13c,0x7ff82e2a3ed0,0x7ff82e2a3ee0,0x7ff82e2a3ef0",
+            "CreatedAt": "2026-10-16T18:15:14.7543250Z"
+          },
+          {
+            "ProcessId": 22420,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1864 /prefetch:2",
+            "CreatedAt": "2026-10-16T18:15:15.0196850Z"
+          },
+          {
+            "ProcessId": 22140,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2012 /prefetch:11",
+            "CreatedAt": "2026-10-16T18:15:15.0496020Z"
+          },
+          {
+            "ProcessId": 21364,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2724 /prefetch:13",
+            "CreatedAt": "2026-10-16T18:15:15.0913560Z"
+          },
+          {
+            "ProcessId": 23272,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=7992430254 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3636 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:15.2183070Z"
+          },
+          {
+            "ProcessId": 21712,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=7992539766 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4164 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:15.3230610Z"
+          },
+          {
+            "ProcessId": 5664,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=7992589600 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4424 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:15.3728820Z"
+          },
+          {
+            "ProcessId": 8136,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=7992596343 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=4464 /prefetch:9",
+            "CreatedAt": "2026-10-16T18:15:15.3797330Z"
+          },
+          {
+            "ProcessId": 8976,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=7992607111 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4528 /prefetch:9",
+            "CreatedAt": "2026-10-16T18:15:15.3915570Z"
+          },
+          {
+            "ProcessId": 22208,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=7994107061 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5660 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:16.8906330Z"
+          },
+          {
+            "ProcessId": 22240,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=es --service-sandbox-type=none --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708998493415531 --mojo-platform-channel-handle=6488 /prefetch:14",
+            "CreatedAt": "2026-10-16T18:15:19.3090220Z"
+          },
+          {
+            "ProcessId": 22680,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --launch-time-ticks=7996953599 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=6396 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:19.7399400Z"
+          },
+          {
+            "ProcessId": 19212,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --launch-time-ticks=7996958089 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=6424 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:19.7415500Z"
+          },
+          {
+            "ProcessId": 21664,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --launch-time-ticks=7997476603 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6432 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:20.2602380Z"
+          },
+          {
+            "ProcessId": 16024,
+            "ParentProcessId": 5348,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\recovery-chrome-1792174436094\\activated-profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --launch-time-ticks=7998012589 --field-trial-handle=1868,i,11311235284523370465,36386816936450034,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1872,i,2921165687958191978,2100611963033800102,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=6880 /prefetch:1",
+            "CreatedAt": "2026-10-16T18:15:20.7988190Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-16T18:15:27.512Z"
+      }
+    },
+    {
+      "id": "no-runtime-errors-or-external-page-requests",
+      "passed": true,
+      "evidence": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "externalRequests": []
+      }
+    },
+    {
+      "id": "tested-source-files-remained-unchanged",
+      "passed": true,
+      "evidence": {
+        "count": 40,
+        "hashesMatch": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Quota and activation failures are explicitly injected into real IndexedDB transactions; this does not exhaust physical disk quota.",
+    "Forced browser termination is real; deterministic test-only scheduling pauses after a committed preparation batch, before activation, or after activation complete.",
+    "No kill while an IndexedDB transaction is mid-commit or physical power-loss durability is claimed.",
+    "Desktop headless Chrome/Edge only; Firefox deferred by user instruction; no real mobile/tablet coverage.",
+    "Only page-originated HTTP requests are observed; browser-internal traffic is outside this trace."
+  ],
+  "sourceFiles": [
+    {
+      "file": "tests/integration/recovery.html",
+      "sha256": "515bb7a3c4ba60263b502047feaaf2596d227f6d46efb2d6f497b68633d0cb6b"
+    },
+    {
+      "file": "tests/e2e/recovery.cjs",
+      "sha256": "65c240708e1f9c58941715398f30406c2ad5eca999c2fdc8eeeac77f565d4de5"
+    },
+    {
+      "file": "tests/e2e/chromium.cjs",
+      "sha256": "0eef19d9d6987a7bea6ae5737c72bb7f4f9e741cdbd8dfed6d2ee8114c42f735"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "113da40932bee80fea4ac4e7d492a8154a6c1875b8e335fef5cff2d3cb643a6b"
+    },
+    {
+      "file": "tests/integration/recovery-config.js",
+      "sha256": "0e2a09838d4b84cdcf37ac86e5d1fe5e73ca0293b6332b4ba3d9af92d9e19eec"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "4b67ab901efc4d8f18dd929319ac7a46ac7c296c4c2e9df4605f0eecd46d5fc0"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "1e863f91fb969b2025d10577950485023ae5eb38d6f0ae2f8ac9a82d990831de"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "b89a54c86755089219b79bc56829a71182175f0bf7efb4fde9d82fccc9f3c23b"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "38323c835a41537c62f421d1581ae200e65841eeb3c88ff17ac6af8b9fc91dbb"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "280dfb46e0dbedb6d8d3fef4de7e8b1c1de1f37659b8149e1109981bf58e3e3e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "6abc52c995ce8094c04915973d60b807a38a146f9aea8bd3c9a64e1115780770"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "f2f283095f8bcea6313cc5f5333ffcd9e512b4382b44e7f2f60a31be9457e8fd"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "86842c4ec5adf62f6f6b6b37e55252a873514f8c88361a05f69d0deb548edc7b"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "efd2530bda729ea10671615d43ebaa6d997a95ff5b93179f76b3f9a9e59bfaf6"
+    },
+    {
+      "file": "js/services/animals.js",
+      "sha256": "d0cb56687d56c2cc49043eb6232de003860b66d9f9cc3a95b75f5c250a8a8451"
+    },
+    {
+      "file": "js/services/fosters.js",
+      "sha256": "06640fe7babf0ed2d347a7c6e4f737e4b3fbcb48ec0a74de941f00cc1d006bdd"
+    },
+    {
+      "file": "js/services/adoptions.js",
+      "sha256": "fc742565b4ab6858aa943838179ff68794d09b1763aed6ef59a62c61101c1978"
+    },
+    {
+      "file": "js/services/finance.js",
+      "sha256": "fa07bb07107ccb5bdad1fc6a89bd83e2e44458eb9998d8e1416ff9e7ae0e2724"
+    },
+    {
+      "file": "js/services/inventory.js",
+      "sha256": "0d8d9f2ac1d22192bec5f59ed94a67ef1926c10cc8cea1b0d169d1b1aab0525f"
+    },
+    {
+      "file": "js/services/donations.js",
+      "sha256": "82c97bde7218dc1d704a9d0209bea2bc231ae89d675295dd1694b074db43795f"
+    },
+    {
+      "file": "js/services/tasks.js",
+      "sha256": "1af038dd67918c70d8bfa0554f75ddfe772b05387fdf5ea34c401667c8c81e1b"
+    },
+    {
+      "file": "js/services/health.js",
+      "sha256": "ca73cf5910cf1eb0c42a02e12762db7b233d714870949671fb70da9100d8bfe9"
+    },
+    {
+      "file": "js/services/contacts.js",
+      "sha256": "40bdc267f05d5909ad18381503a0ba02bd4348e89c568c2324b961af89b30f04"
+    },
+    {
+      "file": "tests/integration/recovery.js",
+      "sha256": "365f1857096410b14cab512b73e760259285d567f0e82d3655982c91384825cb"
+    }
+  ],
+  "completedAt": "2026-10-16T18:15:27.560Z",
+  "status": "passed"
+}
