@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-16. Versión de trabajo: `0.2.0-dev`.
+Actualizado: 2026-10-17. Versión de trabajo: `0.2.0-dev`.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
 ## Fase actual
@@ -146,3 +146,13 @@ por motor: no convertir pasos aprobados en aceptación integral. Los defectos
 reales encontrados (pestañas y ancho de tablas) se corrigieron antes del runtime
 publicado. El helper de cierre de navegadores de pruebas también se corrigió
 para reconocer signalCode y liberar CDP tras salida, con identidades verificadas.
+
+## Aceptación posterior de pantallas (2026-10-17)
+
+El selector del ejecutor ya exige encabezado de nivel 1. Los recorridos de
+contactos, perfiles, animales y documentos han pasado **13/13 en Chrome y
+Edge**, incluidos backup/restauración de bytes y cierre/reapertura. Después
+se corrigieron filtros recortados y tablas demasiado comprimidas a 360 px;
+**5/5 comprobaciones visuales dirigidas por motor**, sin modificar registros,
+revisión ni bytes. Ver [UI_ACCEPTANCE.md](UI_ACCEPTANCE.md). Esta ronda no
+acredita los módulos de acogida/adopción/salud/tareas conectados posteriormente.

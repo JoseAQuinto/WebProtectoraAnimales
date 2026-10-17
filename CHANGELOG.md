@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Aceptación de formularios y ajustes de pantallas — 2026-10-17
+
+- Contactos, perfiles, animales y documentos: 13/13 comprobaciones funcionales
+  reales en Chrome y Edge, con copia/restauración y persistencia tras reapertura.
+- Corregido el selector ambiguo Documents del ejecutor y preservados intentos
+  anteriores. Filtros adaptados a pantallas estrechas y tablas con desplazamiento
+  delimitado: 5/5 comprobaciones dirigidas por navegador, sin escribir negocio.
+- Ejecutor visual permite retomar solo perfiles sintéticos verificados bajo
+  `.tmp`, rechaza sobrescribir evidencias y comprueba controles recortados.
+
 ## Interfaz de gestión, documentos y recuperación — 2026-10-16 (0.2.0-dev)
 
 - Documentos incorporados/externos, vínculos, descargas verificadas y comparación
