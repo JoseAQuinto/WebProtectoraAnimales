@@ -1,6 +1,6 @@
 (function(root){
   'use strict';
-  const plans=new WeakMap(),identities=new WeakMap(),adapter=root.services.importContacts;
+  const identities=new WeakMap(),adapter=root.services.importContacts;
   const error=(name,message)=>{throw root.storage.error(name,message);};
   async function preview(snapshot,parsed,mapping,options={},decisions={}){
     if(!root.utils.ids.isUuidV4(options.batchId)||!Array.isArray(mapping)||mapping.length!==parsed.headers.length||mapping.some(key=>key&&!adapter.fields.includes(key))||new Set(mapping.filter(Boolean)).size!==mapping.filter(Boolean).length)throw new TypeError('Invalid import mapping');
@@ -57,33 +57,7 @@
     let globalErrors=parsed.errors.slice();
     if(changes.size){const log=create('activityLog',{operation:'import',occurredAt:now,operationId,target:null,summaryParameters:{code:'contacts.csv:'+parsed.sha256,count:counts.create+counts.update+counts.link},origin:'import',originBatchId:options.batchId});tables.activityLog.push(log);changes.set('activityLog/'+log.id,{table:'activityLog',record:log,expectedRevision:null});}
     const validation=root.domain.validateDataset(tables,{datasetId:snapshot.datasetId,today});globalErrors=globalErrors.concat(validation.map(issue=>({field:issue.table+'.'+issue.path,code:issue.code})));
-    function freeze(value){if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;}
-    const publicPlan=freeze({module:'contacts',rows,counts,unknown,unknownColumns:parsed.headers.filter((_,index)=>!mapping[index]),globalErrors,revision:snapshot.globalRevision,records:changes.size,staged:changes.size>1000,sha256:parsed.sha256,repeatedFile:snapshot.tables.activityLog.some(row=>row.operation==='import'&&row.summaryParameters.code==='contacts.csv:'+parsed.sha256)});
-    plans.set(publicPlan,{snapshot,changes:[...changes.values()],tables,operationId,batchId:options.batchId,source:options.source||'',result:null,prepared:null});return publicPlan;
+    return root.services.importBatches.register({module:'contacts',rows,counts,unknown,unknownColumns:parsed.headers.filter((_,index)=>!mapping[index]),globalErrors,revision:snapshot.globalRevision,records:changes.size,staged:changes.size>1000,sha256:parsed.sha256,repeatedFile:snapshot.tables.activityLog.some(row=>row.operation==='import'&&row.summaryParameters.code==='contacts.csv:'+parsed.sha256)},{snapshot,changes:[...changes.values()],tables,operationId,batchId:options.batchId,source:options.source||''});
   }
-  async function apply(report,confirmation={}){
-    const plan=plans.get(report);if(!plan)error('InvalidInputError','Preview this import first');
-    if(confirmation.confirmed!==true)error('ConfirmationRequiredError','Confirm the import scope');
-    if(report.globalErrors.length)error('InvalidInputError','Resolve dataset validation errors');
-    if((report.counts.skip||report.counts.error||report.counts.conflict)&&confirmation.confirmedSubset!==true)error('ConfirmationRequiredError','Confirm the exact valid subset');
-    if(report.unknown&&confirmation.ignoreUnknown!==true)error('ConfirmationRequiredError','Review unmapped columns');
-    if(plan.result)return{...plan.result,duplicate:true};
-    if(!plan.changes.length)return{duplicate:false,noChanges:true,counts:report.counts};
-    const intent={batchId:plan.batchId,sourceHash:report.sha256,source:plan.source,changes:await root.utils.integrity.sha256(root.utils.canonicalJson.stringify(plan.changes)),counts:report.counts};
-    if(!report.staged){
-      const result=await root.services.context.execute('import.contacts.csv',intent,(data,h)=>{if(h.datasetId!==plan.snapshot.datasetId)h.fail('DatasetChangedError','Import source dataset changed');return{changes:plan.changes,result:{batchId:plan.batchId,counts:report.counts}};},{operationId:plan.operationId,expectedRevision:report.revision});plan.result=result;return result;
-    }
-    const current=await root.services.context.snapshot();
-    if(plan.prepared&&current.datasetId===plan.prepared.targetId){plan.result={duplicate:true,counts:report.counts,batchId:plan.batchId};return plan.result;}
-    if(current.datasetId!==plan.snapshot.datasetId)error('DatasetChangedError','Import source dataset changed');
-    if(current.globalRevision!==report.revision)error('RevisionConflictError','Data changed after preview');
-    const options={...root.services.context.options(current),reason:'import',signal:confirmation.signal,onProgress:confirmation.onProgress};
-    const receipts=await root.services.backup.list();if(!receipts.some(row=>row.state==='verified'&&row.dataRevision===current.dataRevision))error('VerifiedBackupRequiredError','Verify a current copy before preparing a large import');
-    if(current.dataRevision===Number.MAX_SAFE_INTEGER)error('RevisionOverflowError','Dataset revision exhausted');
-    plan.prepared=await root.storage.datasetManager.prepare({datasetId:current.datasetId,dataRevision:current.dataRevision+1,tables:plan.tables},options);
-    if(confirmation.signal?.aborted)error('AbortError','Import cancelled before activation');
-    confirmation.onProgress?.({phase:'activating',completed:plan.prepared.total,total:plan.prepared.total});
-    const result=await root.storage.datasetManager.activate(plan.prepared,options);await root.services.context.open();plan.result={...result,counts:report.counts,batchId:plan.batchId};return plan.result;
-  }
-  root.services.contactImport=Object.freeze({preview,apply});
+  root.services.contactImport=Object.freeze({preview,apply:(report,confirmation)=>root.services.importBatches.apply(report,confirmation)});
 }(window.RescueManager));

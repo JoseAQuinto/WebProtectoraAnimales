@@ -1,13 +1,15 @@
 (function(root){
   'use strict';
-  const ui=root.components.ui,el=ui.el,t=(...args)=>root.core.i18n.t(...args),adapter=root.services.importContacts;
-  const view={file:null,parsed:null,mapping:[],source:'',remember:false,delimiter:'',encoding:'utf-8',batchId:null,decisions:{},report:null,result:null,page:1};let generation=0,controller=null;
-  const fieldLabel=key=>t('im.field.'+key);
+  const ui=root.components.ui,el=ui.el,translate=(...args)=>root.core.i18n.t(...args);
+  const t=(key,...args)=>translate(view.kind==='animals'&&Object.hasOwn(root.locales.en,key.replace(/^im\./,'ia.'))?key.replace(/^im\./,'ia.'):key,...args);
+  const view={kind:'contacts',dateFormat:'iso',file:null,parsed:null,mapping:[],source:'',remember:false,delimiter:'',encoding:'utf-8',batchId:null,decisions:{},report:null,result:null,page:1};let generation=0,controller=null;
+  const fieldLabel=key=>t('im.field.'+({microchipNormalized:'microchip',microchipOriginal:'microchip',estimatedAgeReferenceDate:'age_reference_date',estimatedAgeMonths:'estimated_age_months',speciesId:'species_id',sizeId:'size_id',birthDate:'birth_date',birthPrecision:'birth_precision',sterilizationStatus:'sterilization_status',sterilizationDate:'sterilization_date',specialNeeds:'special_needs'}[key]||key));
   function reason(issue){
-    const codes={'value.email':'email','value.phone':'phone','value.enum':'enum','array.duplicate':'duplicate','array.limit':'list','text.lengthOrWhitespace':'text','field.required':'required','csv.columnCount':'columns','csv.cellLength':'length','import.phoneJSON':'phones','import.uuid':'uuid','import.externalId':'external'};
+    const codes={'value.email':'email','value.phone':'phone','value.enum':'enum','array.duplicate':'duplicate','array.limit':'list','text.lengthOrWhitespace':'text','field.required':'required','csv.columnCount':'columns','csv.cellLength':'length','import.phoneJSON':'phones','import.uuid':'uuid','import.externalId':'external','import.date':'date','value.date':'date','date.future':'date','import.integer':'integer','import.reference':'reference','import.lifecycle':'lifecycle','import.location':'location','import.uniqueAnimal':'unique','import.existingUUID':'existing','import.target':'target','import.repeatedUpdate':'repeated','import.identityConflict':'identity','animal.entryBeforeBirth':'birth'};
     return t('im.error.'+(codes[issue.code]||'invalid'));
   }
   function render(ctx){
+    const adapter=view.kind==='animals'?root.services.importAnimals:root.services.importContacts,service=view.kind==='animals'?root.services.animalImport:root.services.contactImport;
     const status=el('p',{role:'status'}),details=el('div',{class:'stack'});
     function reset(){generation++;controller?.abort();Object.assign(view,{file:null,parsed:null,mapping:[],batchId:null,decisions:{},report:null,result:null,page:1});ctx.refresh();}
     function invalidate(){view.report=null;view.decisions={};view.result=null;view.page=1;}
@@ -18,13 +20,13 @@
     }
     async function validate(){
       if(!view.parsed)return;const token=++generation;controller?.abort();controller=new AbortController();view.report=null;details.replaceChildren(el('p',{},t('im.validating')));status.textContent=t('im.validating');
-      try{const report=await root.services.contactImport.preview(ctx.snapshot,view.parsed,view.mapping,{batchId:view.batchId,source:view.source,remember:view.remember,signal:controller.signal,onProgress:value=>{if(token===generation)status.textContent=t('im.progress',value);}},view.decisions);if(token!==generation)return;view.report=report;view.result=null;await ctx.refresh();}
+      try{const report=await service.preview(ctx.snapshot,view.parsed,view.mapping,{batchId:view.batchId,dateFormat:view.dateFormat,source:view.source,remember:view.remember,signal:controller.signal,onProgress:value=>{if(token===generation)status.textContent=t('im.progress',value);}},view.decisions);if(token!==generation)return;view.report=report;view.result=null;await ctx.refresh();}
       catch(error){if(token===generation){status.textContent=ui.message(error);status.setAttribute('role','alert');details.replaceChildren(el('p',{role:'alert'},ui.message(error)));}}
     }
     function reportFile(){
       const report=view.report,rows=[];for(const row of report.rows){const issues=row.errors.length?row.errors:[{field:'',code:row.action==='undecided'?'duplicate.unresolved':row.warnings.join('|')}];for(const issue of issues)rows.push([row.line,row.name,issue.field||'',issue.code||'',row.action,row.targetId||'',row.matches.map(match=>match.id).join('|')]);}
       for(const issue of report.globalErrors)rows.push([0,'',issue.field||'',issue.code,'dataset_error','','']);
-      ui.download(new Blob([root.utils.tabular.csv(['row','name','field','reason_code','action','target_id','matching_ids'],rows,{delimiter:view.delimiter||';',bom:true})],{type:'text/csv;charset=utf-8'}),'rescue-manager-contact-import-report.csv');
+      ui.download(new Blob([root.utils.tabular.csv(['row','name','field','reason_code','action','target_id','matching_ids'],rows,{delimiter:view.delimiter||';',bom:true})],{type:'text/csv;charset=utf-8'}),'rescue-manager-'+view.kind+'-import-report.csv');
     }
     function apply(){
       const report=view.report;if(!report)return;const subset=!!(report.counts.error||report.counts.conflict||report.counts.skip),fields=[{key:'confirmed',labelKey:'im.confirm',type:'checkbox',required:true}];
@@ -32,22 +34,28 @@
       const progress=el('p',{role:'status'});let abort;const cancel=ui.button(t('im.cancelPreparation'),()=>abort?.abort(),true);cancel.hidden=true;
       const dialog=ui.form(t('im.apply'),fields,{},async input=>{
         abort=new AbortController();cancel.hidden=false;cancel.disabled=false;
-        try{const result=await root.services.contactImport.apply(report,{...input,signal:abort.signal,onProgress:value=>{progress.textContent=t(value.phase==='activating'?'im.activating':'im.progress',value);if(value.phase==='activating')cancel.disabled=true;}});view.result={...report.counts,noChanges:!!result.noChanges};view.report=null;view.decisions={};ctx.notify(t('im.applied',report.counts));await ctx.refresh();}
+        try{const result=await service.apply(report,{...input,signal:abort.signal,onProgress:value=>{progress.textContent=t(value.phase==='activating'?'im.activating':'im.progress',value);if(value.phase==='activating')cancel.disabled=true;}});view.result={...report.counts,noChanges:!!result.noChanges};view.report=null;view.decisions={};ctx.notify(t('im.applied',report.counts));await ctx.refresh();}
         finally{cancel.hidden=true;}
       });
       dialog.querySelector('h2').after(el('p',{class:'notice'},t('im.summary',report.counts)),el('p',{class:'muted'},t(report.staged?'im.largeHelp':'im.atomicHelp')),progress,cancel);
     }
+    const kind=el('select',{id:'import-kind'},['contacts','animals'].map(value=>el('option',{value},translate('im.kind.'+value))));kind.value=view.kind;kind.addEventListener('change',()=>{view.kind=kind.value;reset();});
+    const dates=el('select',{id:'import-date-format'},['iso','day_first','month_first'].map(value=>el('option',{value},translate('ia.date.'+value))));dates.value=view.dateFormat;dates.addEventListener('change',()=>{view.dateFormat=dates.value;invalidate();details.replaceChildren(el('p',{},t('im.revalidate')));});
     const input=el('input',{type:'file',accept:'.csv,text/csv',id:'import-file'});input.addEventListener('change',()=>{if(input.files[0])read(input.files[0]);});
     const delimiter=el('select',{id:'import-delimiter'},el('option',{value:''},t('im.auto')),el('option',{value:','},t('rp.comma')),el('option',{value:';'},t('rp.semicolon')));delimiter.value=view.delimiter;
     const encoding=el('select',{id:'import-encoding'},['utf-8','windows-1252','iso-8859-15'].map(value=>el('option',{value},value)));encoding.value=view.encoding;
     for(const[key,control]of[['delimiter',delimiter],['encoding',encoding]])control.addEventListener('change',()=>{view[key]=control.value;if(view.file)read(view.file);});
     const source=el('input',{id:'import-source',maxlength:120,value:view.source}),remember=el('input',{id:'import-remember',type:'checkbox'});remember.checked=view.remember;
     source.addEventListener('input',()=>{view.source=source.value;invalidate();details.replaceChildren(el('p',{},t('im.revalidate')));});remember.addEventListener('change',()=>{view.remember=remember.checked;invalidate();ctx.refresh();});
-    const template=ui.button(t('im.template'),()=>ui.download(new Blob([root.utils.tabular.csv(adapter.fields,[],{delimiter:view.delimiter||(root.core.i18n.language==='es'?';':','),bom:true})],{type:'text/csv;charset=utf-8'}),'rescue-manager-contacts-import-template.csv'),true);
+    const template=ui.button(t('im.template'),()=>ui.download(new Blob([root.utils.tabular.csv(adapter.fields,[],{delimiter:view.delimiter||(root.core.i18n.language==='es'?';':','),bom:true})],{type:'text/csv;charset=utf-8'}),'rescue-manager-'+view.kind+'-import-template.csv'),true);
     const validateButton=ui.button(t('im.validate'),validate);validateButton.disabled=!view.parsed;
-    const controls=el('section',{class:'card stack'},el('p',{},t('im.help')),el('a',{href:'#backup'},t('ui.createBackup')),template,el('label',{for:'import-file'},t('im.file')),input,
+    const controls=el('section',{class:'card stack'},el('label',{for:'import-kind'},translate('im.kind')),kind,view.kind==='animals'?el('div',{class:'field'},el('label',{for:'import-date-format'},translate('ia.dateFormat')),dates,el('p',{class:'muted'},translate('ia.dateHelp'))):null,el('p',{},t('im.help')),el('a',{href:'#backup'},t('ui.createBackup')),template,el('label',{for:'import-file'},t('im.file')),input,
       view.file?el('p',{class:'muted preserve-lines'},view.file.name):null,el('div',{class:'people-filters'},el('div',{class:'field'},el('label',{for:'import-delimiter'},t('rp.separator')),delimiter),el('div',{class:'field'},el('label',{for:'import-encoding'},t('im.encoding')),encoding),el('div',{class:'field'},el('label',{for:'import-source'},t('im.source')),source)),
       el('label',{for:'import-remember'},remember,t('im.remember')),el('p',{class:'muted'},t('im.sourceHelp')),el('div',{class:'actions'},validateButton,ui.button(t('im.reset'),reset,true),ui.button(t('im.cancelPreview'),()=>{generation++;controller?.abort();status.textContent=t('im.cancelled');},true)),status);
+    if(view.kind==='animals'){
+      const references=[...ctx.snapshot.tables.locations.filter(row=>row.active&&!row.deletedAt&&!row.archivedAt).map(row=>[translate('ia.field.location_id'),row.id,row.name]),...ctx.snapshot.tables.catalogOptions.filter(row=>['species','size'].includes(row.kind)&&row.active&&!row.deletedAt&&!row.archivedAt).map(row=>[translate('ia.field.'+row.kind+'_code'),row.code+' / '+row.id,row.customLabel||translate(row.labelKey)])];
+      controls.append(el('details',{},el('summary',{},translate('ia.references')),el('p',{class:'muted'},translate('ia.referencesHelp')),el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['ia.referenceKind','ia.referenceCode','ia.referenceName'].map(key=>el('th',{scope:'col'},translate(key))))),el('tbody',{},references.map(row=>el('tr',{},row.map(value=>el('td',{},value)))))))));
+    }
     if(view.parsed){
       const mappingRows=view.parsed.headers.map((header,index)=>{const select=el('select',{'aria-label':t('im.mapColumn',{column:header||String(index+1)})},el('option',{value:''},t('im.unmapped')),adapter.fields.map(value=>el('option',{value},value+' · '+fieldLabel(value))));select.value=view.mapping[index];select.addEventListener('change',()=>{view.mapping[index]=select.value;invalidate();details.replaceChildren(el('p',{},t('im.revalidate')));});
         return el('tr',{},el('th',{scope:'row'},header||String(index+1)),el('td',{},select),el('td',{class:'preserve-lines'},(view.parsed.rows.find(row=>row.cells[index])?.cells[index]||'').slice(0,200)));});
@@ -59,8 +67,8 @@
       const rows=report.rows.slice((view.page-1)*20,view.page*20).map(row=>{
         const requested=view.decisions[row.line]?.action||row.action;
         const decision=el('select',{'aria-label':t('im.decisionRow',{row:row.line})},['undecided','create','update','link','skip'].map(value=>el('option',{value},t('im.action.'+value))));decision.value=['create','update','link','skip'].includes(requested)?requested:'undecided';
-        const contacts=['update','link'].includes(decision.value)?ctx.snapshot.tables.contacts:[];
-        const targets=new Map([...contacts.map(item=>[item.id,item.name+' · '+(item.email||item.phones[0]?.original||item.id)]),...row.matches.filter(item=>!contacts.some(contact=>contact.id===item.id)).map(item=>[item.id,item.name+' · '+item.id])]);
+        const contacts=['update','link'].includes(decision.value)?ctx.snapshot.tables[view.kind]:[];
+        const targets=new Map([...contacts.map(item=>[item.id,item.name+' · '+(item.code||item.email||item.phones?.[0]?.original||item.id)]),...row.matches.filter(item=>!contacts.some(contact=>contact.id===item.id)).map(item=>[item.id,item.name+' · '+item.id])]);
         const target=el('select',{'aria-label':t('im.targetRow',{row:row.line})},el('option',{value:''},t('aw.choose')),[...targets].map(([value,label])=>el('option',{value},label)));target.value=row.targetId||row.matches[0]?.id||'';target.disabled=!['link','update'].includes(decision.value);
         const change=()=>{view.decisions[row.line]={action:decision.value,targetId:target.value||null};validate();};decision.addEventListener('change',change);target.addEventListener('change',change);
         return el('tr',{},el('th',{scope:'row'},String(row.line)),el('td',{},row.name),el('td',{},row.errors.map(issue=>el('p',{},(issue.field?fieldLabel(issue.field.split('.')[0])+': ':'')+reason(issue))),row.warnings.length?el('p',{class:'muted'},t('im.nameWarning')):null,row.matches.map(match=>el('p',{},match.name+' · '+match.reasons.map(key=>t('im.match.'+key)).join(', ')))),el('td',{},t('im.action.'+row.action)),el('td',{},decision,target));

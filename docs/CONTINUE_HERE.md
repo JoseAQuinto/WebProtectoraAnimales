@@ -9,7 +9,8 @@ Se conservaron donaciones/inventario y se corrigieron/completaron informes en
 `21f9f56`. Después se publicaron bloques separados: buscador/historial,
 registro global de adopciones, configuración/catálogos/logotipo, exportaciones,
 importación CSV de contactos, filtros de animales, mediciones y panel operativo.
-Consultar `git log -12 --oneline` para el commit final de este checkpoint.
+Después del corte se añadió CSV de animales (ANIMAL_IMPORT.md): 15/15 por
+motor y regresión de contactos 13/13. Consultar `git log -12 --oneline` para el commit final de este checkpoint.
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
 ## Inicio
@@ -53,6 +54,7 @@ Los servicios, formularios y transiciones anteriores siguen disponibles.
 | Configuración, catálogos, ubicaciones, logo, copias | CONFIGURATION.md | 13/13 por motor |
 | Exportaciones CSV/JSON de los 9 tipos obligatorios | MODULE_EXPORTS.md | 10/10 por motor |
 | Asistente CSV **de contactos** y lotes grandes | CONTACT_IMPORT.md | 13/13 por motor |
+| Asistente CSV de animales/entradas | ANIMAL_IMPORT.md | 15/15 por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
 | Panel, 17 tarjetas/listas y tres gráficos | DASHBOARD.md | 10/10 por motor |
@@ -63,7 +65,7 @@ Los JSON están en `tests/results`; los intentos fallidos se conservan y explica
 revisión/recuentos/digest de tablas y hashes reales de Blob conservados al reabrir.
 Sin errores de página/consola ni HTTP de la página. Anchos emulados no son hardware.
 
-Verificación conjunta final: **175 pruebas Node, 712 estáticas**, diff sin errores:
+Verificación conjunta final: **184 pruebas Node, 727 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -90,7 +92,7 @@ nueva indicación. No instalar herramientas dentro del producto comercial.
 1. Extender fase 10 desde CONTACT_IMPORT.md. **Contactos CSV ya está completo y
    probado en su alcance**, incluido mapeo, duplicados explícitos, campos sin
    mapear, actualizaciones parciales, identidades externas y 1.001 contactos
-   mediante dataset separado. Faltan CSV de animales, solicitudes, movimientos,
+   mediante dataset separado. Animales CSV ya tiene entradas/fichas y aceptación propia. Faltan solicitudes, movimientos,
    perfiles voluntarios y donaciones, además de JSON v1 de módulos. Añadir
    interpretación explícita de fechas/importes, conflicto microchip/código,
    asociación por IDs/códigos y agrupación de líneas materiales. No resolver
@@ -135,3 +137,7 @@ Git transporta código y documentación, **no los datos del perfil del navegador
 Para trasladar una organización: generar, descargar y reseleccionar/verificar
 copia completa; conservarla externamente y restaurar en el otro PC. Los archivos
 registrados como referencias externas se trasladan por separado.
+
+Continuación posterior al corte: se reanudó con cupo renovado ordinariamente;
+CSV de animales y regresión contactos publicados con alcance ANIMAL_IMPORT.md.
+El corte del 9 % anterior es histórico, no una lectura de esta nueva sesión.

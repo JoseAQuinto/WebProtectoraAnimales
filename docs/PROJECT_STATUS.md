@@ -88,10 +88,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **175 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **184 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **712 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **727 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -320,3 +320,15 @@ CONTINUE_HERE.md. El producto sigue incompleto y solo admite pruebas sintéticas
 horas (9 % restante) y 14 % semanal consumido. Se detiene el desarrollo por el
 umbral vigente, se publican los bloques probados y se deja el siguiente trabajo
 en CONTINUE_HERE.md. No se ha usado un crédito de reinicio ni modificado secretos.
+
+## Importación CSV de animales (2026-10-18, continuación)
+
+Se reanuda desde f146b54 con árbol limpio y cupo disponible (sin reinicio).
+Selector Contactos/Animales; altas bajo cuidado con episodio/evento únicos,
+conflictos de identidad/código/microchip, fechas explícitas y actualización solo
+de ficha. Chrome/Edge 15/15 por motor con 251 animales mediante staging;
+regresión completa contactos 13/13 por motor. Ver ANIMAL_IMPORT.md.
+184 pruebas Node y 727 estáticas correctas, formatos sin cambios.
+Siguiente bloque: CSV de solicitudes/perfiles voluntarios, después movimientos,
+donaciones agrupadas y JSON. No falta repetir como pendiente el CSV de animales
+acreditado en su alcance; historia completa sigue requiriendo flujos/JSON.

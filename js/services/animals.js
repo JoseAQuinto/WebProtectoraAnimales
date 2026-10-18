@@ -80,8 +80,7 @@
     Object.keys(input).forEach(key => { if (!profileFields.includes(key)) fail(h, 'The animal field cannot be edited through this operation: ' + key); result[key] = input[key]; });
     return result;
   }
-  function registerEntry(input, command) {
-    return context.execute('animal.entry', input, (data, h) => {
+  function buildEntry(data, h, input, importing = false) {
       const changes = [], on = date(h, input.date), location = destination(h, input.location), selected = availability(h, input.availability);
       let animal;
       if (input.animalId) {
@@ -94,9 +93,9 @@
         const details = profile(h, input.animal);
         option(h, details.speciesId, 'species'); if (details.sizeId) option(h, details.sizeId, 'size');
         // The A-<number> shape belongs to the transactional sequence; manual codes use any other text.
-        if (details.code && /^a-\d+$/i.test(details.code)) fail(h, 'Codes in the A-number format are assigned automatically');
+        if (details.code && /^a-\d+$/i.test(details.code) && !importing) fail(h, 'Codes in the A-number format are assigned automatically');
         if (!details.code) details.code = h.allocateAnimalCode();
-        if (data.animals.some(row => row.code === details.code) || data.activityLog.some(row => row.summaryParameters.code === details.code)) fail(h, 'The animal code was already assigned and cannot be reused');
+        if (h.hasAnimalCode ? h.hasAnimalCode(details.code) : data.animals.some(row => row.code === details.code) || data.activityLog.some(row => row.summaryParameters.code === details.code)) fail(h, 'The animal code was already assigned and cannot be reused');
         animal = h.create('animals', Object.assign({}, details, location, { managementStatus: 'under_care', adoptionAvailability: selected }));
         changes.push(h.insert('animals', animal));
       }
@@ -106,17 +105,20 @@
       event(h, changes, animal.id, 'entry', on, { type: 'stay_episode', id: episode.id });
       log(h, changes, 'create', animal.id, animal.code);
       return { changes, result: { animalId: animal.id, episodeId: episode.id } };
-    }, command);
   }
-  function update(input, command) {
-    return context.execute('animal.update', input, (data, h) => {
+  function registerEntry(input, command) {
+    return context.execute('animal.entry', input, (data, h) => buildEntry(data, h, input), command);
+  }
+  function buildUpdate(data, h, input) {
       const previous = active(h, h.find('animals', input.animalId)), patch = profile(h, input.patch);
       if (patch.speciesId && patch.speciesId !== previous.speciesId) option(h, patch.speciesId, 'species');
       if (patch.sizeId && patch.sizeId !== previous.sizeId) option(h, patch.sizeId, 'size');
       if (patch.code && patch.code !== previous.code) fail(h, 'The assigned animal code is immutable');
       const updated = h.edit('animals', previous, patch), changes = [h.replace('animals', updated)];
       log(h, changes, 'update', previous.id, 'animal.update'); return { changes, result: { animalId: previous.id } };
-    }, command);
+  }
+  function update(input, command) {
+    return context.execute('animal.update', input, (data, h) => buildUpdate(data, h, input), command);
   }
   function changeLocation(input, command) {
     return context.execute('animal.location', input, (data, h) => {
@@ -178,4 +180,6 @@
   root.services.animals = Object.freeze({ registerEntry, update, changeLocation, setAvailability,
     archive: (id, command) => disposition(id, 'archive', command), trash: (id, command) => disposition(id, 'trash', command), restore: (id, command) => disposition(id, 'restore', command),
     recordDeath: (input, command) => departure(input, command, true), recordExit: (input, command) => departure(input, command, false) });
+  // Pure change builders shared by forms and reviewed imports; persistence remains in context/batches.
+  root.services.animalCommands = Object.freeze({ entry: buildEntry, update: buildUpdate });
 }(window.RescueManager));

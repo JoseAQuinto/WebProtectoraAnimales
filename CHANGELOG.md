@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Importación CSV de animales — 2026-10-18
+
+- Selector de tipo, plantilla, referencias por UUID/código e interpretación
+  explícita de fechas; perfiles/entradas con episodios/eventos coordinados.
+- Conflictos de UUID/microchip/código, enlace, actualización parcial, identidades,
+  subconjuntos, revisión y lotes atómicos; aplicación compartida con contactos.
+- Chrome/Edge 15/15 por motor, 251 animales con historia y bytes conservados;
+  regresión contactos 13/13 por motor. 184 Node y 727 estáticas. ANIMAL_IMPORT.md.
+
 ## Panel operativo y continuidad — 2026-10-18
 
 - 17 indicadores con listas coincidentes: cuidado/ubicación/disponibilidad,

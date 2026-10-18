@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict');
 const {harness}=require('./support/service-harness.cjs');
-function setup(){const h=harness({datasetId:'91000000-0000-4000-8000-000000000001',today:'2026-10-18',catalogKinds:[],services:['contacts']});for(const name of['config','utils/integrity','../vendor/papaparse/papaparse.min','storage/database','services/import-parser','services/import-contacts','services/contact-import'])h.load(name);return h;}
+function setup(){const h=harness({datasetId:'91000000-0000-4000-8000-000000000001',today:'2026-10-18',catalogKinds:[],services:['contacts']});for(const name of['config','utils/integrity','../vendor/papaparse/papaparse.min','storage/database','services/import-parser','services/import-contacts','services/import-batches','services/contact-import'])h.load(name);return h;}
 async function parse(h,text,opts){return h.root.services.importParser.csv(new File([text],'contacts.csv',{type:'text/csv'}),opts);}
 async function preview(h,file,decisions={},extra={}){const snapshot={...await h.root.services.context.snapshot(),dataRevision:h.revision};return h.root.services.contactImport.preview(snapshot,file,h.root.services.importContacts.mapping(file.headers),{batchId:h.id(),now:'2026-10-18T12:10:00.000Z',...extra},decisions);}
 test('parser keeps identifiers, UTF-8/BOM, quoted delimiters and newlines as text with an exact source hash',async()=>{
