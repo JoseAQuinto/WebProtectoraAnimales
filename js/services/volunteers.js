@@ -18,25 +18,27 @@
     return h.insert('activityLog', h.create('activityLog', { operation, occurredAt: h.now, operationId: h.operationId, target: { type, id }, summaryParameters: {} }));
   }
   // The person's phone and email stay on the central contact; the profile only adds volunteering data.
-  function createProfile(input, command) {
-    return c.execute('volunteers.createProfile', input, (data, h) => {
+  function buildCreate(data, h, input) {
       only(input, ['contactId', ...profileFields], h); functions(h, input.functionIds);
       if (data.volunteerProfiles.some(row => row.contactId === input.contactId)) h.fail('InvalidStateError', 'This contact already has a volunteer profile');
       const role = root.services.contacts.withRole(h, h.find('contacts', input.contactId), 'volunteer');
       const profile = h.create('volunteerProfiles', input), changes = [h.insert('volunteerProfiles', profile), log(h, 'create', 'volunteer_profile', profile.id)];
       if (role) changes.push(role);
       return { changes, result: { id: profile.id } };
-    }, command);
   }
-  function updateProfile(id, patch, command) {
-    return c.execute('volunteers.updateProfile', { id, patch }, (data, h) => {
+  function createProfile(input, command) {
+    return c.execute('volunteers.createProfile', input, (data, h) => buildCreate(data, h, input), command);
+  }
+  function buildUpdate(data, h, id, patch) {
       only(patch, profileFields, h);
       const previous = h.find('volunteerProfiles', id);
       if (previous.deletedAt || previous.archivedAt) h.fail('InvalidStateError', 'Restore the volunteer profile before editing it');
       if (patch.functionIds) functions(h, patch.functionIds.filter(value => !previous.functionIds.includes(value)));
       const profile = h.edit('volunteerProfiles', previous, patch);
       return { changes: [h.replace('volunteerProfiles', profile), log(h, patch.status && patch.status !== previous.status ? 'state_change' : 'update', 'volunteer_profile', id)], result: { id } };
-    }, command);
+  }
+  function updateProfile(id, patch, command) {
+    return c.execute('volunteers.updateProfile', { id, patch }, (data, h) => buildUpdate(data, h, id, patch), command);
   }
   function hoursProfile(h, id) {
     const profile = h.find('volunteerProfiles', id);
@@ -85,4 +87,5 @@
   }
   root.services.volunteers = Object.freeze({ createProfile, updateProfile, logHours, editHours,
     trashHours: (id, command) => setHoursTrash(id, true, command), restoreHours: (id, command) => setHoursTrash(id, false, command), totals, list });
+  root.services.volunteerCommands = Object.freeze({ create: buildCreate, update: buildUpdate });
 }(window.RescueManager));

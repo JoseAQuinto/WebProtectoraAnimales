@@ -17,8 +17,9 @@ enlazados; donaciones e inventario conectan sus operaciones a los movimientos
 económicos y de existencias. Incluye copias verificadas y recuperación local
 visible. Incluye panel operativo, informes, buscador global, filtros combinados,
 exportaciones CSV/JSON por módulo y asistente CSV de contactos con lotes grandes
-atómicos. **Animales CSV también tiene altas/fichas verificadas (docs/ANIMAL_IMPORT.md).
-Faltan los otros tipos de importación CSV/JSON, correcciones de
+atómicos. Animales, perfiles voluntarios y solicitudes también tienen CSV
+verificado (docs/ANIMAL_IMPORT.md y docs/RELATED_IMPORT.md).
+**Faltan CSV de movimientos y donaciones, JSON por módulos, correcciones de
 hechos, demo y aceptación integral. Utiliza solo datos de prueba.**
 
 La evidencia inicial de viabilidad incluye Chrome, Edge y Firefox. Los últimos

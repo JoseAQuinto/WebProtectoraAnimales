@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## CSV de voluntariado y solicitudes — 2026-10-18
+
+- Perfiles relacionados con contactos y funciones por UUID/código; solicitudes
+  con relaciones explícitas, fechas elegidas y estados históricos coordinados.
+- Espacio privado por fila, consolidación de revisiones/roles y aplicación
+  compartida; referencias con búsqueda/paginación, plantillas e informes.
+- Chrome/Edge 16/16 por motor con 334 solicitudes mediante staging, bytes y
+  reapertura; 194 Node y 742 estáticas. Ver RELATED_IMPORT.md.
+
 ## Importación CSV de animales — 2026-10-18
 
 - Selector de tipo, plantilla, referencias por UUID/código e interpretación

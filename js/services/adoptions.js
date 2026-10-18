@@ -1,8 +1,7 @@
 (function (root) {
   'use strict';
   const c = root.services.context, l = root.services.lifecycle;
-  function createApplication(input, command) {
-    return c.execute('adoption.application.create', input, (data, h) => {
+  function buildApplication(data, h, input) {
       const animal = l.underCare(h, h.find('animals', input.animalId)), contact = l.active(h, h.find('contacts', input.contactId));
       const on = l.date(h, input.applicationDate);
       const application = h.create('adoptionApplications', { animalId: animal.id, contactId: contact.id, applicationDate: on,
@@ -12,22 +11,25 @@
       l.event(h, changes, animal.id, 'application', on, { type: 'adoption_application', id: application.id }, { code: 'pending' });
       l.log(h, changes, 'create', animal.id, 'adoption.application.create');
       return { changes, result: { applicationId: application.id, animalId: animal.id } };
-    }, command);
   }
-  function review(input, command) {
-    return c.execute('adoption.application.review', input, (data, h) => {
+  function createApplication(input, command) {
+    return c.execute('adoption.application.create', input, (data, h) => buildApplication(data, h, input), command);
+  }
+  function buildReview(data, h, input) {
       const application = h.find('adoptionApplications', input.applicationId);
       l.underCare(h, h.find('animals', application.animalId));
       if (!['pending', 'under_review'].includes(application.status)) l.fail(h, 'Only a pending application can be reviewed');
       const patch = { status: 'under_review' }; if (input.interviewNotes !== undefined) patch.interviewNotes = input.interviewNotes;
       const changes = [h.replace('adoptionApplications', h.edit('adoptionApplications', application, patch))];
-      l.event(h, changes, application.animalId, 'application', h.today, { type: 'adoption_application', id: application.id }, { code: 'under_review' });
+      const on = input.reviewDate ? l.date(h, input.reviewDate, application.applicationDate) : h.today;
+      l.event(h, changes, application.animalId, 'application', on, { type: 'adoption_application', id: application.id }, { code: 'under_review' });
       l.log(h, changes, 'state_change', application.animalId, 'adoption.application.review');
       return { changes, result: { applicationId: application.id } };
-    }, command);
   }
-  function approve(input, command) {
-    return c.execute('adoption.application.approve', input, (data, h) => {
+  function review(input, command) {
+    return c.execute('adoption.application.review', input, (data, h) => buildReview(data, h, input), command);
+  }
+  function buildApprove(data, h, input) {
       const application = h.find('adoptionApplications', input.applicationId);
       l.underCare(h, h.find('animals', application.animalId)); l.active(h, h.find('contacts', application.contactId));
       if (!['pending', 'under_review'].includes(application.status)) l.fail(h, 'Only pending or reviewed applications can be approved');
@@ -36,13 +38,14 @@
       l.event(h, changes, application.animalId, 'application', on, { type: 'adoption_application', id: application.id }, { code: 'approved' });
       l.log(h, changes, 'state_change', application.animalId, 'adoption.application.approve');
       return { changes, result: { applicationId: application.id } };
-    }, command);
   }
-  function closeApplication(input, command, status) {
-    return c.execute('adoption.application.' + status, input, (data, h) => {
+  function approve(input, command) {
+    return c.execute('adoption.application.approve', input, (data, h) => buildApprove(data, h, input), command);
+  }
+  function buildClose(data, h, input, status) {
       const application = h.find('adoptionApplications', input.applicationId), animal = l.underCare(h, h.find('animals', application.animalId));
       if (!['pending', 'under_review', 'approved'].includes(application.status)) l.fail(h, 'The application is already closed');
-      const on = l.date(h, input.date, application.applicationDate), closureReason = l.reason(h, input.reason), changes = [];
+      const on = l.date(h, input.date, application.approvalDate || application.applicationDate), closureReason = l.reason(h, input.reason), changes = [];
       const reservation = data.reservations.find(row => row.applicationId === application.id && row.status === 'active');
       if (reservation) {
         l.closeReservations(data, h, changes, animal.id, on, input.reservationClosureReason, 'cancelled');
@@ -52,7 +55,9 @@
       l.event(h, changes, animal.id, 'application', on, { type: 'adoption_application', id: application.id }, { code: status, reason: closureReason });
       l.log(h, changes, 'state_change', animal.id, 'adoption.application.' + status);
       return { changes, result: { applicationId: application.id, animalId: animal.id } };
-    }, command);
+  }
+  function closeApplication(input, command, status) {
+    return c.execute('adoption.application.' + status, input, (data, h) => buildClose(data, h, input, status), command);
   }
   function reserve(input, command) {
     return c.execute('adoption.reserve', input, (data, h) => {
@@ -129,4 +134,12 @@
   }
   root.services.adoptions = Object.freeze({ createApplication, review, approve, reserve, closeReservation, complete, returnAdoption,
     reject: (input, command) => closeApplication(input, command, 'rejected'), cancel: (input, command) => closeApplication(input, command, 'cancelled') });
+  function buildNotes(data, h, id, patch) {
+    if (!patch || Object.keys(patch).some(key => !['interviewNotes', 'notes'].includes(key))) l.fail(h, 'Only application notes can be edited here');
+    const previous = l.active(h, h.find('adoptionApplications', id));
+    const changes = [h.replace('adoptionApplications', h.edit('adoptionApplications', previous, patch))];
+    l.log(h, changes, 'update', previous.animalId, 'adoption.application.notes');
+    return { changes, result: { applicationId: id } };
+  }
+  root.services.applicationCommands = Object.freeze({ create: buildApplication, review: buildReview, approve: buildApprove, close: buildClose, notes: buildNotes });
 }(window.RescueManager));
