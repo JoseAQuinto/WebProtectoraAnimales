@@ -20,7 +20,8 @@ exportaciones CSV/JSON por módulo y asistente CSV de contactos con lotes grande
 atómicos. Animales, perfiles voluntarios y solicitudes también tienen CSV
 verificado (docs/ANIMAL_IMPORT.md y docs/RELATED_IMPORT.md).
 Los movimientos CSV incluyen correcciones enlazadas verificadas
-(docs/FINANCE_IMPORT.md). **Faltan CSV de donaciones, JSON por módulos, correcciones de
+(docs/FINANCE_IMPORT.md). Donaciones CSV agrupan materiales con ingreso/stock únicos (docs/DONATION_IMPORT.md).
+**Falta JSON por módulos, correcciones de
 hechos, demo y aceptación integral. Utiliza solo datos de prueba.**
 
 La evidencia inicial de viabilidad incluye Chrome, Edge y Firefox. Los últimos

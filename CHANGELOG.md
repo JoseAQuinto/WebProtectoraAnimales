@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## CSV de donaciones agrupadas — 2026-10-18
+
+- Económicas con un ingreso único; materiales agrupados con una transacción
+  lógica por donación y stock único por línea, cantidades/estimaciones exactas.
+- Grupo inválido se excluye entero; identidades, repetición, corrección monetaria
+  conservadora e informes con filas de origen y errores globales completos.
+- Chrome/Edge 16/16 por motor, una donación de 501 líneas con staging y bytes;
+  211 Node / 752 estáticas. DONATION_IMPORT.md. Los seis CSV iniciales tienen
+  aceptación en su alcance; sigue pendiente JSON y el resto del producto.
+
 ## CSV económico con correcciones enlazadas — 2026-10-18
 
 - Importes exactos con interpretación decimal/moneda y relaciones explícitas.

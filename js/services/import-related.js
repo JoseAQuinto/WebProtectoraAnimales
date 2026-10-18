@@ -14,9 +14,11 @@
   const definitions={
     volunteers:{table:'volunteerProfiles',entity:'volunteer_profile',fields:[...common,...contact,'availability','function_ids','function_codes','specialties','status','notes']},
     movements:root.services.importFinance.definition,
+    donations:root.services.importDonations.definition,
     applications:{table:'adoptionApplications',entity:'adoption_application',fields:[...common,'animal_id','animal_code','animal_external_id',...contact,'application_date','status','review_date','approval_date','closure_date','closure_reason','interview_notes','notes']}
   };
-  function normalize(kind,raw,tables,options){
+  function normalize(kind,raw,tables,options,source){
+    if(kind==='donations')return root.services.importDonations.normalize(raw,tables,options,source);
     if(kind==='movements')return root.services.importFinance.normalize(raw,tables,options);
     const def=definitions[kind];if(!def)throw new TypeError('Unsupported related CSV');const id=uuid(raw.id,'id');if(raw.external_id?.length>200)invalid('external_id','import.externalId');
     const value={id,externalId:raw.external_id||null,contactId:reference(raw,'contact',tables,options),contactMapped:owns(raw,'contact_id')||owns(raw,'contact_external_id'),patch:{},raw};
@@ -37,11 +39,13 @@
     return value;
   }
   function matches(kind,value,tables){
+    if(kind==='donations')return root.services.importDonations.matches(value,tables);
     if(kind==='movements')return root.services.importFinance.matches(value,tables);
     const def=definitions[kind];return tables[def.table].filter(row=>kind==='volunteers'?value.contactId&&row.contactId===value.contactId:value.animalId&&value.contactId&&value.applicationDate&&row.animalId===value.animalId&&row.contactId===value.contactId&&row.applicationDate===value.applicationDate).map(row=>({id:row.id,reasons:[kind==='volunteers'?'contact':'application'],strong:true}));
   }
-  function label(kind,row,tables){if(kind==='movements')return root.services.importFinance.label(row);const contact=root.services.contacts.resolve(tables,row.contactId);return kind==='volunteers'?contact?.name||'':(tables.animals.find(animal=>animal.id===row.animalId)?.name||'')+' · '+(contact?.name||'');}
+  function label(kind,row,tables){if(kind==='donations')return root.services.importDonations.label(row);if(kind==='movements')return root.services.importFinance.label(row);const contact=root.services.contacts.resolve(tables,row.contactId);return kind==='volunteers'?contact?.name||'':(tables.animals.find(animal=>animal.id===row.animalId)?.name||'')+' · '+(contact?.name||'');}
   function build(kind,normalized,transaction,action,targetId){
+    if(kind==='donations')return root.services.importDonations.build(normalized,transaction,action,targetId);
     if(kind==='movements')return root.services.importFinance.build(normalized,transaction,action,targetId);
     const{h,data,stage}=transaction,def=definitions[kind],previous=action==='update'?h.find(def.table,targetId):null;
     if(kind==='volunteers'){
@@ -89,6 +93,6 @@
     const final=h.find(def.table,targetId);if(normalized.raw.closure_reason&&final.closureReason!==normalized.raw.closure_reason)invalid('closure_reason','import.lifecycle');
     return targetId;
   }
-  function mapping(kind,headers){if(kind==='movements')return root.services.importFinance.mapping(headers);const fields=definitions[kind].fields,aliases={functions:'function_codes'};return headers.map(header=>{const key=header.toLowerCase().trim();if(fields.includes(key))return key;if(aliases[key]&&fields.includes(aliases[key]))return aliases[key];for(const field of fields)for(const language of['en','es'])if(root.locales[language]?.['ex.column.'+field]===header)return field;return'';});}
+  function mapping(kind,headers){if(kind==='donations')return root.services.importDonations.mapping(headers);if(kind==='movements')return root.services.importFinance.mapping(headers);const fields=definitions[kind].fields,aliases={functions:'function_codes'};return headers.map(header=>{const key=header.toLowerCase().trim();if(fields.includes(key))return key;if(aliases[key]&&fields.includes(aliases[key]))return aliases[key];for(const field of fields)for(const language of['en','es'])if(root.locales[language]?.['ex.column.'+field]===header)return field;return'';});}
   root.services.importRelated=Object.freeze({definitions,normalize,matches,label,build,mapping,reference});
 }(window.RescueManager));

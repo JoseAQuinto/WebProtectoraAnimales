@@ -57,6 +57,7 @@ Los servicios, formularios y transiciones anteriores siguen disponibles.
 | Asistente CSV de animales/entradas | ANIMAL_IMPORT.md | 15/15 por motor |
 | CSV de perfiles voluntarios y solicitudes | RELATED_IMPORT.md | 16/16 por motor |
 | CSV económico/correcciones enlazadas | FINANCE_IMPORT.md | 16/16 por motor |
+| CSV donaciones/materiales agrupados | DONATION_IMPORT.md | 16/16 por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
 | Panel, 17 tarjetas/listas y tres gráficos | DASHBOARD.md | 10/10 por motor |
@@ -67,7 +68,7 @@ Los JSON están en `tests/results`; los intentos fallidos se conservan y explica
 revisión/recuentos/digest de tablas y hashes reales de Blob conservados al reabrir.
 Sin errores de página/consola ni HTTP de la página. Anchos emulados no son hardware.
 
-Verificación conjunta final: **202 pruebas Node, 747 estáticas**, diff sin errores:
+Verificación conjunta final: **211 pruebas Node, 752 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -95,8 +96,8 @@ nueva indicación. No instalar herramientas dentro del producto comercial.
    probado en su alcance**, incluido mapeo, duplicados explícitos, campos sin
    mapear, actualizaciones parciales, identidades externas y 1.001 contactos
    mediante dataset separado. Animales CSV ya tiene entradas/fichas y aceptación propia. Perfiles voluntarios/solicitudes ya tienen aceptación en RELATED_IMPORT.md.
-   Movimientos ya tienen aceptación en FINANCE_IMPORT.md. Faltan donaciones
-   CSV y JSON v1 de módulos. Añadir
+   Movimientos ya tienen aceptación en FINANCE_IMPORT.md. Donaciones ya tienen aceptación en DONATION_IMPORT.md.
+   Falta JSON v1 de módulos; seis tipos CSV iniciales ya disponibles en su alcance. Añadir
    interpretación explícita de fechas/importes, conflicto microchip/código,
    asociación por IDs/códigos y agrupación de líneas materiales. No resolver
    relaciones solo por nombre ni duplicar efectos al reconstruir datos.
@@ -153,3 +154,8 @@ los cuatro tipos CSV ya acreditados en su alcance.
 CSV económico publicado: 202 Node / 747 estáticas y 16/16 por motor con
 501 movimientos, correcciones/donación única y bytes. Continuar donaciones
 CSV agrupadas y JSON; no usar correcciones como sobrescritura de importes.
+
+Último bloque: CSV donaciones/materiales agrupados, 211 Node / 752 estáticas,
+16/16 por motor y una donación de 501 líneas con stock único/bytes conservados.
+Continuar JSON v1 por módulos; no reutilizar importadores CSV para reconstruir
+efectos históricos desde JSON. Leer MODULE_EXPORTS.md y exports.container.

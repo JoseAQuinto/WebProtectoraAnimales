@@ -14,10 +14,9 @@
     return h.insert('activityLog', h.create('activityLog', { operation, occurredAt: h.now, operationId: h.operationId,
       target: { type: 'donation', id }, summaryParameters: reason ? { reason } : {} }));
   }
-  function createMonetary(input, command) {
-    return root.services.context.execute('donations.createMonetary', input, (data, h) => {
+  function buildMonetary(data, h, input) {
       inputOnly(input, ['date', 'donorContactId', 'categoryId', 'concept', 'amountMinor', 'notes'], h); donor(input, h);
-      const donationId = root.utils.ids.uuidV4();
+      const donationId = h.id ? h.id('donations') : root.utils.ids.uuidV4();
       const movement = root.services.finance.buildMovement(data, h, { direction: 'income', date: input.date,
         categoryId: input.categoryId, concept: input.concept, amountMinor: input.amountMinor,
         contactId: input.donorContactId || null, notes: input.notes || '' },
@@ -26,10 +25,11 @@
         type: 'monetary', financialMovementId: movement.id, notes: input.notes || '' });
       return { changes: [h.insert('donations', donation), h.insert('financialMovements', movement), log(h, 'create', donation.id)],
         result: { id: donation.id, financialMovementId: movement.id } };
-    }, command);
   }
-  function createMaterial(input, command) {
-    return root.services.context.execute('donations.createMaterial', input, (data, h) => {
+  function createMonetary(input, command) {
+    return root.services.context.execute('donations.createMonetary', input, (data, h) => buildMonetary(data, h, input), command);
+  }
+  function buildMaterial(data, h, input) {
       inputOnly(input, ['date', 'donorContactId', 'notes', 'lines'], h); donor(input, h);
       if (!Array.isArray(input.lines) || !input.lines.length || input.lines.length > 1000) h.fail('InvalidInputError', 'A material donation requires 1–1000 lines');
       const donation = h.create('donations', { date: input.date, donorContactId: input.donorContactId || null,
@@ -54,7 +54,9 @@
       }
       changes.push(log(h, 'create', donation.id));
       return { changes, result: { id: donation.id, lineIds } };
-    }, command);
+  }
+  function createMaterial(input, command) {
+    return root.services.context.execute('donations.createMaterial', input, (data, h) => buildMaterial(data, h, input), command);
   }
   function voidDonation(id, input, command) {
     return root.services.context.execute('donations.void', { id, input }, (data, h) => {
@@ -84,4 +86,5 @@
     }, command);
   }
   root.services.donations = Object.freeze({ createMonetary, createMaterial, void: voidDonation });
+  root.services.donationCommands = Object.freeze({ monetary: buildMonetary, material: buildMaterial });
 }());

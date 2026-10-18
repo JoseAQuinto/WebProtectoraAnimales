@@ -10,6 +10,7 @@
       const data=new Proxy(tables,{get(target,table){if(typeof table!=='string'||!Object.hasOwn(target,table))return target[table];if(!cache.has(table)){const result=target[table].slice(),at=new Map(result.map((record,index)=>[record.id,index]));for(const change of pending.values())if(change.table===table){const index=at.get(change.record.id);if(index===undefined){at.set(change.record.id,result.length);result.push(change.record);}else result[index]=change.record;}cache.set(table,result);}return cache.get(table);}});
       const context={datasetId:snapshot.datasetId,now,today};
       const h={now,today,operationId:root.utils.ids.uuidV4(),datasetId:snapshot.datasetId,fail,
+        id:table=>table===primaryTable?primaryId:root.utils.ids.uuidV4(),
         find(table,id){const record=pending.get(table+'/'+id)?.record||get(table,id);if(!record)fail('RecordNotFoundError','Choose an existing relation');return record;},
         create(table,input){return root.domain.createRecord(table,{...input,...(table===primaryTable?{id:primaryId}:{}),origin:'import',originBatchId:options.batchId},context);},
         edit(table,previous,patch){const original=originals.get(table+'/'+previous.id);if(original?.revision===Number.MAX_SAFE_INTEGER)fail('RevisionOverflowError','Record revision exhausted');return root.domain.createRecord(table,{...previous,...patch,revision:original?original.revision+1:1,updatedAt:now},context);},
