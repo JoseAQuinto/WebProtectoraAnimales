@@ -21,8 +21,8 @@ precisión y decimal. Minutos de voluntariado son enteros. Teléfonos se
 conservan en una celda JSON estructurada; roles usan códigos separados por `|`.
 Una donación material tiene una fila por línea con el mismo ID de donación;
 la económica tiene una fila. Estimaciones cero y desconocidas se distinguen.
-Los encabezados de exportación son legibles; las plantillas de importación
-con campos estables todavía deben añadirse al asistente de importación.
+Los encabezados de exportación son legibles; las plantillas estables de los seis
+tipos CSV iniciales ya existen (DONATION_IMPORT.md resume su alcance).
 
 Se utiliza `utils.tabular`/Papa Parse ya incluido: comillas, separadores,
 saltos de línea y protección de prefijos ejecutables y controles. CSV no
@@ -38,7 +38,7 @@ nombre/moneda/zona de organización, `records` y `references` por tabla.
 `includesFiles: false`, `notBackup: true`, `assetPolicy: metadata-only`.
 No se codifican bytes Blob. No se acepta como copia completa.
 
-Política `selected-related-and-forward-v1`:
+Política inicial `selected-related-and-forward-v1` (se conserva como formato leído):
 
 - Animales: episodios, pesos, acogidas, solicitudes, reservas, adopciones,
   actos/planes, tareas/eventos y enlaces de documentos del animal/adopción/acto.
@@ -94,3 +94,14 @@ Asistente de importación y plantillas estables, decisiones de duplicados y
 relaciones, correspondencias externas y lotes grandes. La exportación no los
 simula. Faltan volumen de navegador, reapertura en hojas de cálculo concretas
 y aceptación de plataformas físicas. La captura sigue teniendo coste O(N).
+
+## Cierre de referencias ampliado (continuación 2026-10-18)
+
+La exportación actual mantiene formatVersion 1 y usa
+`selected-related-and-forward-v2`. Añade las relaciones inversas necesarias
+para preservar invariantes de animales (episodios/acogidas/reservas/adopciones),
+donaciones (todas sus líneas) y artículos (todo su libro de movimientos).
+Evita JSON incompleto para una adopción devuelta o un consumo de inventario.
+Los nueve módulos se descargan e importan por UI real en MODULE_JSON_IMPORT.md
+(22/22 por motor). Incluye imágenes/documentos por hash reseleccionados, sin
+repetir efectos de negocio. JSON sigue siendo distinto del backup completo.

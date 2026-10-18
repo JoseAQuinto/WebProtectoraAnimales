@@ -46,6 +46,7 @@
   }
   function container(snapshot,selection,exportedAt=new Date().toISOString()){
     const primary=definition(selection.kind).table,main=new Set(selection.rows.map(item=>item.row.id)),queued=new Set(),pending=[],references={};
+    const inverse=new Map();for(const[table,field]of[['stayEpisodes','animalId'],['fosterStays','animalId'],['reservations','animalId'],['adoptions','animalId'],['donationLines','donationId'],['inventoryMovements','itemId']]){const grouped=new Map();for(const row of snapshot.tables[table]){if(!grouped.has(row[field]))grouped.set(row[field],[]);grouped.get(row[field]).push(row.id);}inverse.set(table,grouped);}
     const add=(table,id)=>{if(!id)return;const key=table+'/'+id;if(queued.has(key))return;if(queued.size>=100000)throw new RangeError('Export exceeds 100000 related records');queued.add(key);pending.push([table,id]);};
     selection.rows.forEach(item=>add(primary,item.row.id));related(selection).forEach(([name,id])=>add(name,id));
     function scan(spec,value){
@@ -61,12 +62,16 @@
       if(name!==primary||!main.has(id)){if(!references[name])references[name]=[];const copy={...row};if(name==='assets')delete copy.blob;references[name].push(copy);}
       for(const[key,field]of Object.entries(root.domain.schemas[name].fields))scan(field,row[key]);
       if(name==='documentLinks')add(root.domain.entityTables[row.entityType],row.entityId);
+      // Include inverse records needed to reconstruct the referenced entity's invariants.
+      if(name==='animals')for(const table of['stayEpisodes','fosterStays','reservations','adoptions'])for(const child of inverse.get(table).get(id)||[])add(table,child);
+      if(name==='donations')for(const child of inverse.get('donationLines').get(id)||[])add('donationLines',child);
+      if(name==='inventoryItems')for(const child of inverse.get('inventoryMovements').get(id)||[])add('inventoryMovements',child);
     }
     for(const rows of Object.values(references))rows.sort((a,b)=>a.id.localeCompare(b.id));
     const org=snapshot.tables.organizationSettings[0];
     return{format:'rescue-manager-module-export',formatVersion:1,appVersion:root.config.appVersion,schemaVersion:root.config.schemaVersion,module:selection.kind,exportedAt,
       source:{datasetId:snapshot.datasetId,dataRevision:snapshot.dataRevision,globalRevision:snapshot.globalRevision},scope:{mode:selection.scope,filters:selection.filters},
-      organization:{name:org.name,currencyCode:org.currencyCode,timeZone:org.timeZone},includesFiles:false,assetPolicy:'metadata-only',notBackup:true,referencePolicy:'selected-related-and-forward-v1',
+      organization:{name:org.name,currencyCode:org.currencyCode,timeZone:org.timeZone},includesFiles:false,assetPolicy:'metadata-only',notBackup:true,referencePolicy:'selected-related-and-forward-v2',
       records:selection.rows.map(item=>item.row),references};
   }
   root.services.exports=Object.freeze({definition,select,table,container});

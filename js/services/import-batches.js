@@ -7,14 +7,15 @@
     const plan=plans.get(report);if(!plan)fail('InvalidInputError','Preview this import first');
     if(confirmation.confirmed!==true)fail('ConfirmationRequiredError','Confirm the import scope');
     if(report.requiresCorrections&&confirmation.confirmedCorrections!==true)fail('ConfirmationRequiredError','Confirm linked financial corrections');
+    if(report.requiresUpdates&&confirmation.confirmedUpdates!==true)fail('ConfirmationRequiredError','Confirm explicit profile updates');
     if(report.globalErrors.length)fail('InvalidInputError','Resolve dataset validation errors');
     if((report.counts.skip||report.counts.error||report.counts.conflict)&&confirmation.confirmedSubset!==true)fail('ConfirmationRequiredError','Confirm the exact valid subset');
     if(report.unknown&&confirmation.ignoreUnknown!==true)fail('ConfirmationRequiredError','Review unmapped columns');
     if(plan.result)return{...plan.result,duplicate:true};
     if(!plan.changes.length)return{duplicate:false,noChanges:true,counts:report.counts};
     if(confirmation.signal?.aborted)fail('AbortError','Import cancelled before application');
-    const intent={batchId:plan.batchId,sourceHash:report.sha256,source:plan.source,changes:await root.utils.integrity.sha256(root.utils.canonicalJson.stringify(plan.changes)),counts:report.counts};
     if(!report.staged){
+      const intent={batchId:plan.batchId,sourceHash:report.sha256,source:plan.source,changes:await root.utils.integrity.sha256(root.utils.canonicalJson.stringify(plan.changes)),counts:report.counts};
       const result=await root.services.context.execute('import.'+report.module+'.csv',intent,(data,h)=>{if(h.datasetId!==plan.snapshot.datasetId)h.fail('DatasetChangedError','Import source dataset changed');return{changes:plan.changes,result:{batchId:plan.batchId,counts:report.counts}};},{operationId:plan.operationId,expectedRevision:report.revision});plan.result=result;return result;
     }
     const current=await root.services.context.snapshot();

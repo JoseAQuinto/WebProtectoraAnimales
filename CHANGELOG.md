@@ -1,5 +1,16 @@
 # Historial de cambios
 
+## Importación JSON por módulos — 2026-10-18
+
+- Lector estricto versionado, revisión por registro/tabla, asociaciones UUID,
+  comparación, actualizaciones de ficha permitidas y protección de historia.
+- Archivos exactos por hash, preparación separada/copia verificada y activación
+  atómica sin reproducir ingresos, stock, actos o eventos. Grafo idéntico no escribe.
+- Exportaciones amplían cierre de referencias a política v2, con devoluciones
+  y libros de inventario coherentes; formato de módulo 1 conservado y lector v1.
+- Chrome/Edge 22/22 funcionales, nueve módulos reales; 4/4 dirigidas para tabla
+  legible y acciones móviles. 221 Node / 772 estáticas. MODULE_JSON_IMPORT.md.
+
 ## CSV de donaciones agrupadas — 2026-10-18
 
 - Económicas con un ingreso único; materiales agrupados con una transacción

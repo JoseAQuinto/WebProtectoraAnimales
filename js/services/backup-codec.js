@@ -213,5 +213,5 @@
       backup: { backupId: content.backupId, createdAt: content.createdAt, appVersion: content.appVersion, schemaVersion: content.schemaVersion },
       summary: summaryFor(content) };
   }
-  root.services.backupCodec = Object.freeze({ encode, decode, tableNames, maximumRecords, maximumTableRecords });
+  root.services.backupCodec = Object.freeze({ encode, decode, tableNames, maximumRecords, maximumTableRecords, parseStrict });
 }());

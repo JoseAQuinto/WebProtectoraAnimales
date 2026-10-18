@@ -58,6 +58,7 @@ Los servicios, formularios y transiciones anteriores siguen disponibles.
 | CSV de perfiles voluntarios y solicitudes | RELATED_IMPORT.md | 16/16 por motor |
 | CSV económico/correcciones enlazadas | FINANCE_IMPORT.md | 16/16 por motor |
 | CSV donaciones/materiales agrupados | DONATION_IMPORT.md | 16/16 por motor |
+| JSON por módulos/archivos/reconstrucción | MODULE_JSON_IMPORT.md | 22 funcionales + 4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
 | Panel, 17 tarjetas/listas y tres gráficos | DASHBOARD.md | 10/10 por motor |
@@ -68,7 +69,7 @@ Los JSON están en `tests/results`; los intentos fallidos se conservan y explica
 revisión/recuentos/digest de tablas y hashes reales de Blob conservados al reabrir.
 Sin errores de página/consola ni HTTP de la página. Anchos emulados no son hardware.
 
-Verificación conjunta final: **211 pruebas Node, 752 estáticas**, diff sin errores:
+Verificación conjunta final: **221 pruebas Node, 772 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -159,3 +160,11 @@ CSV agrupadas y JSON; no usar correcciones como sobrescritura de importes.
 16/16 por motor y una donación de 501 líneas con stock único/bytes conservados.
 Continuar JSON v1 por módulos; no reutilizar importadores CSV para reconstruir
 efectos históricos desde JSON. Leer MODULE_EXPORTS.md y exports.container.
+
+JSON por módulos ya tiene UI/aceptación: MODULE_JSON_IMPORT.md. Nueve
+exportaciones/importaciones reales en Chrome/Edge sin duplicar efectos;
+221 Node / 772 estáticas. La política de cierre v2 conserva formatVersion 1.
+V1 leído con validación, recursos ausentes no se inventan. Continuar correcciones
+coordinadas de historia y demo/retirada; no enumerar otra vez como inexistentes
+los CSV ni JSON ya documentados. Mantener pendientes rendimiento, limpieza,
+guías y plataformas físicas.

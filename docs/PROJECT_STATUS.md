@@ -88,10 +88,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **211 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **221 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **752 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **772 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -358,3 +358,16 @@ Chrome/Edge 16/16 por motor con un grupo de 501 líneas, staging, bytes e inform
 de errores globales verificado. DONATION_IMPORT.md. 211 Node / 752 estáticas.
 Los seis tipos iniciales CSV tienen UI/evidencia en su alcance; continuar JSON
 v1 de módulos y luego correcciones históricas/demo/limpieza/guías/aceptación.
+
+## JSON por módulos (2026-10-18)
+
+Lector estricto, asociaciones/decisiones explícitas, actualización conservadora
+de fichas y protección de historia; archivos reseleccionados por bytes/hash;
+preparación/activación sin volver a ejecutar efectos. Cierre de referencias v2
+con invariantes de devoluciones/materiales/stock, lector de v1 mantenido.
+Chrome/Edge 22/22 por motor y 4/4 dirigidas de presentación, con nueve módulos,
+fotos/TXT, copias, cancelación y reapertura. Ver MODULE_JSON_IMPORT.md: detalla
+huellas de cada ronda y endurecimiento fotográfico posterior probado en Node.
+221 Node / 772 estáticas. CSV/JSON tienen funciones de fase 10 en su alcance,
+no aceptación comercial o de máximos. Siguiente: correcciones coordinadas
+de historia, demo/retirada, limpieza controlada, guías y rendimiento/plataformas.
