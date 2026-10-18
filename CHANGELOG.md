@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Demostración opcional y retirada segura — 2026-10-18
+
+- Lote EN/ES explícito de 90 registros, fechas relativas, todos los ejemplos
+  requeridos y cifras derivadas, conservando organización/configuración/logo.
+- Retirada por lote con grafo de dependencias: conserva trabajo real y permite
+  convertir componentes conectados antes de retirar otros ejemplos.
+- Copia verificada, staging/activación, revisión y cancelación; banner y revisión
+  de nombres/fechas/acciones. Chrome/Edge 15/15 por motor. 229 Node / 802 estáticas.
+  Ver DEMO.md. Producto completo y aceptación comercial siguen pendientes.
+
 ## Importación JSON por módulos — 2026-10-18
 
 - Lector estricto versionado, revisión por registro/tabla, asociaciones UUID,

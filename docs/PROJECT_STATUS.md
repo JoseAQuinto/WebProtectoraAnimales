@@ -88,10 +88,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **221 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **229 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **772 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **802 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -127,8 +127,9 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 - Un error QuotaExceededError inyectado no demuestra cuota real agotada.
   Documentar por separado ambas pruebas. Retención/limpieza explícita de
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
-- Faltan correcciones coordinadas de historia,
-  importación de los otros tipos CSV/JSON, demo y retirada. Contactos CSV ya
+- Faltan correcciones coordinadas de historia y aceptación integral.
+  CSV/JSON y demo/retirada ya tienen UI y evidencias en su alcance
+  (MODULE_JSON_IMPORT.md y DEMO.md). Contactos CSV ya
   tiene aceptación en CONTACT_IMPORT.md. Exportaciones por módulo ya
   tienen aceptación en MODULE_EXPORTS.md. Finanzas
   tiene aceptación específica separada, con cualquier caso pendiente registrado
@@ -371,3 +372,14 @@ huellas de cada ronda y endurecimiento fotográfico posterior probado en Node.
 221 Node / 772 estáticas. CSV/JSON tienen funciones de fase 10 en su alcance,
 no aceptación comercial o de máximos. Siguiente: correcciones coordinadas
 de historia, demo/retirada, limpieza controlada, guías y rendimiento/plataformas.
+
+## Demostración y retirada segura (2026-10-18)
+
+Lote ficticio opcional EN/ES (90 filas estándar) y fechas relativas; no carga
+sobre negocio real/importado. Retirada por lote detecta dependencias reales
+y conserva componentes conectados mediante conversión expresa. Logo/configuración
+y trabajo ajeno al lote se mantienen. Chrome/Edge 15/15 por motor con carga,
+retirada intacta, recarga, revisión concurrente, 71 retirados/19 convertidos,
+bytes y reapertura; DEMO.md. 229 Node / 802 estáticas.
+Siguiente: correcciones coordinadas de historia, guías completas EN/ES, limpieza
+controlada, rendimiento/accesibilidad/plataformas y paquete/licencias.

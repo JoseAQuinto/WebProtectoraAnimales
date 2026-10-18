@@ -848,3 +848,45 @@
 });}(window.RescueManager));
 
 (function(r){r.locales.es=Object.freeze({...r.locales.es,"mj.scrollHint":"Desplaza la tabla horizontalmente para revisar sus cuatro columnas y acceder a decisiones y comparación."});}(window.RescueManager));
+
+(function(r){r.locales.es=Object.freeze({...r.locales.es,
+ "nav.demo": "Demostración opcional",
+ "dm.manage": "Revisar datos de demostración",
+ "dm.banner": "Esta organización contiene ejemplos ficticios marcados. El trabajo nuevo es real y queda protegido por la revisión de dependencias antes de retirar ejemplos.",
+ "dm.help": "Carga ejemplos ficticios opcionales solo si no hay registros reales/importados de negocio, incluidos archivo y papelera. Muestran cuidados, acogidas, reserva, adopción/devolución, salud, tareas, voluntariado, dinero, stock y documentos. Las fechas son relativas a la carga. Se conserva la configuración existente de la organización.",
+ "dm.workIsReal": "Los registros que creas al explorar son trabajo real. La retirada nunca los borra. Si referencian ejemplos, deberás conservar expresamente como reales los ejemplos conectados antes de retirar los que no se usen. Revisa nombres e importes ficticios antes de tratar registros convertidos como datos operativos.",
+ "dm.language": "Idioma de los registros ficticios",
+ "dm.reviewLoad": "Vista previa de ejemplos opcionales",
+ "dm.load": "Cargar ejemplos revisados",
+ "dm.reviewClear": "Revisar retirada de este lote",
+ "dm.clear": "Retirar ejemplos sin uso revisados",
+ "dm.discardReview": "Descartar esta revisión",
+ "dm.preparing": "Preparando los cambios de demostración para revisar…",
+ "dm.revalidate": "Vuelve a revisar después de cambiar el idioma de los ejemplos.",
+ "dm.alreadyLoaded": "Ya hay un lote de demostración. Revisa su retirada antes de cargar otro.",
+ "dm.businessBlocked": "Carga desactivada: existen {count} registros reales/importados de negocio. Nunca se sustituyen para hacer sitio a ejemplos.",
+ "dm.loadBlocked": "La demostración solo se carga sin registros de negocio ni otro lote de ejemplo. Archivo/papelera también cuentan como datos.",
+ "dm.noBatch": "Este lote de demostración ya no existe. Actualiza la revisión.",
+ "dm.backupHelp": "Se exige una copia completa actual verificada. Los cambios se preparan aparte y se activan una vez; los conjuntos actual y anterior permanecen intactos hasta activar. Cancelar antes de activar conserva los datos activos.",
+ "dm.batches": "Lotes de demostración marcados",
+ "dm.batch": "Creado {date} · {count} registros marcados.",
+ "dm.review": "Cambios de demostración revisados",
+ "dm.reference": "Fecha de referencia de los ejemplos: {date}. Sus fechas no se desplazan automáticamente después de cargar.",
+ "dm.loadSummary": "Crear {create} registros de ejemplo marcados. No se sobrescriben registros existentes de negocio.",
+ "dm.clearSummary": "Retirar {remove} registros de ejemplo sin uso; conservar {update} ejemplos conectados como reales. Todos los registros ajenos al lote permanecen sin cambios.",
+ "dm.confirmLoad": "Elijo añadir este lote ficticio de ejemplo a la organización actual sin negocio.",
+ "dm.confirmClear": "He revisado el lote de ejemplo y la lista exacta de retirada. Retirar solo sus registros marcados sin uso.",
+ "dm.confirmConversion": "Conservo expresamente como reales los ejemplos conectados protegidos, incluida su historia/archivos/dinero/stock. Revisaré su contenido ficticio antes del uso operativo.",
+ "dm.conversionHelp": "Registros reales referencian este lote. Cada componente de ejemplos conectado debe conservarse completo para mantener historia y referencias. Sus ID, importes y bytes no cambian; su origen pasa a real. Los componentes sin uso sí se pueden retirar.",
+ "dm.dependencies": "Referencias externas directas (primeras 20)",
+ "dm.validationError": "Los cambios revisados incumplen la validación del conjunto. No se han modificado datos. Actualiza y revisa dependencias.",
+ "dm.action.create": "Crear ejemplo marcado",
+ "dm.action.remove": "Retirar ejemplo sin uso",
+ "dm.action.convert": "Conservar como real, con historia conectada",
+ "dm.loaded": "Cargados {create} registros ficticios de ejemplo.",
+ "dm.cleared": "Retirados {remove} ejemplos sin uso; conservados {update} registros conectados como reales. Se ha preservado el resto del trabajo."
+});}(window.RescueManager));
+
+(function(r){r.locales.es=Object.freeze({...r.locales.es,"dm.language.en":"English","dm.language.es":"Español"});}(window.RescueManager));
+
+(function(r){r.locales.es=Object.freeze({...r.locales.es,"ui.recordPage":"Página {page} de {pages} · {count} registros","dm.record":"Registro de ejemplo"});}(window.RescueManager));

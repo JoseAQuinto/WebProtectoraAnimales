@@ -15,7 +15,7 @@ function addRuntimeFiles(directory) {
     else if (/\.(?:js|html|css)$/.test(entry.name)) files.push(relative);
   }
 }
-['js', 'locales', 'tests/integration'].forEach(addRuntimeFiles);
+['js', 'data', 'locales', 'tests/integration'].forEach(addRuntimeFiles);
 let checks = 0;
 for (const relative of files) {
   const absolute = path.join(root, relative);

@@ -848,3 +848,45 @@
 });}(window.RescueManager));
 
 (function(r){r.locales.en=Object.freeze({...r.locales.en,"mj.scrollHint":"Scroll the table horizontally to review all four columns and reach the decisions and comparison controls."});}(window.RescueManager));
+
+(function(r){r.locales.en=Object.freeze({...r.locales.en,
+ "nav.demo": "Optional demonstration",
+ "dm.manage": "Review demonstration data",
+ "dm.banner": "This organization contains tagged fictional examples. New work is real and is protected by the dependency review before removing examples.",
+ "dm.help": "Load optional fictional examples only when there are no real/imported business records, including archive and trash. Examples cover care, foster families, reservation, completed adoption/return, health, tasks, volunteers, money, stock and documents. Dates are relative to the load date. Organization settings and existing configuration remain in place.",
+ "dm.workIsReal": "Records you create while exploring are real work. Removal never deletes them. If they refer to examples, you must explicitly keep the connected example records as real before removing unused examples. Review fictional names and amounts before treating converted records as operational data.",
+ "dm.language": "Language of the fictional sample records",
+ "dm.reviewLoad": "Preview optional examples",
+ "dm.load": "Load reviewed examples",
+ "dm.reviewClear": "Review removal of this batch",
+ "dm.clear": "Remove reviewed unused examples",
+ "dm.discardReview": "Discard this preview",
+ "dm.preparing": "Preparing the reviewed demonstration changes…",
+ "dm.revalidate": "Review again after changing the example language.",
+ "dm.alreadyLoaded": "A demonstration batch is already present. Review its removal before loading another.",
+ "dm.businessBlocked": "Loading is disabled: {count} real/imported business records remain. Existing data is never replaced to make room for examples.",
+ "dm.loadBlocked": "Demonstration can only load into an organization with no business records and no existing demo batch. Archive/trash still count as data.",
+ "dm.noBatch": "This demonstration batch no longer exists. Refresh the review.",
+ "dm.backupHelp": "A current verified full backup is required. The changes are prepared separately and activated once; current and prior datasets remain intact until activation. Cancellation before activation preserves active data.",
+ "dm.batches": "Tagged demonstration batches",
+ "dm.batch": "Created {date} · {count} tagged records.",
+ "dm.review": "Reviewed demonstration changes",
+ "dm.reference": "Example reference date: {date}. The dates will not move automatically after loading.",
+ "dm.loadSummary": "Create {create} tagged example records. No existing business records are overwritten.",
+ "dm.clearSummary": "Remove {remove} unused example records; keep {update} connected example records as real. All non-demo records stay unchanged.",
+ "dm.confirmLoad": "I choose to add this fictional example batch to the current empty organization.",
+ "dm.confirmClear": "I reviewed the exact example batch and removal list. Remove only its unused tagged records.",
+ "dm.confirmConversion": "I explicitly keep the connected protected examples as real records, including their history/files/money/stock. I will review their fictional content before operational use.",
+ "dm.conversionHelp": "Real records refer to this batch. Every connected example component must be kept together to preserve history and references. Its IDs, amounts and bytes stay the same; its origin becomes real. Unused components can still be removed.",
+ "dm.dependencies": "Direct external references (first 20)",
+ "dm.validationError": "The reviewed changes fail dataset validation. No data has been changed. Refresh and review dependencies.",
+ "dm.action.create": "Create tagged example",
+ "dm.action.remove": "Remove unused example",
+ "dm.action.convert": "Keep as real, with connected history",
+ "dm.loaded": "Loaded {create} fictional example records.",
+ "dm.cleared": "Removed {remove} unused examples; kept {update} connected records as real. Other work was preserved."
+});}(window.RescueManager));
+
+(function(r){r.locales.en=Object.freeze({...r.locales.en,"dm.language.en":"English","dm.language.es":"Español"});}(window.RescueManager));
+
+(function(r){r.locales.en=Object.freeze({...r.locales.en,"ui.recordPage":"Page {page} of {pages} · {count} records","dm.record":"Sample record"});}(window.RescueManager));

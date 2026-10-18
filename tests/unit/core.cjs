@@ -25,6 +25,7 @@ assert.equal(warnings.length, 2);
 // Dynamic section/enum labels once escaped literal-string checks and broke all animal tabs.
 const dynamicGroups = { 'a.tab.':['info','health','foster','adoption','expenses','documents','history'],
   'q.priority.':['low','medium','high','urgent'], 'q.urgency.':['overdue','today','next_week','later','closed'],
+  'dm.language.':['en','es'],
   'q.day.':['mon','tue','wed','thu','fri','sat','sun'] };
 for (const locale of ['en','es']) {
   for (const [prefix, values] of Object.entries(dynamicGroups)) for (const value of values) {
@@ -32,7 +33,7 @@ for (const locale of ['en','es']) {
   }
   for (const name of fs.readdirSync(path.join(__dirname, '../../js/modules')).filter(name=>name.endsWith('.js'))) {
     const source = fs.readFileSync(path.join(__dirname, '../../js/modules', name),'utf8');
-    for (const match of source.matchAll(/['"]((?:a|af|aw|fw|hw|q|p|d|f|dn|iv|rp|gs|hi|ag|st|ex|im|ia|imv|imp|imf|imd|mj|aq|wt|db|ui|nav|common)\.[a-zA-Z][a-zA-Z0-9._-]*)['"]/g)) {
+    for (const match of source.matchAll(/['"]((?:a|af|aw|fw|hw|q|p|d|f|dn|iv|rp|gs|hi|ag|st|ex|im|ia|imv|imp|imf|imd|mj|dm|aq|wt|db|ui|nav|common)\.[a-zA-Z][a-zA-Z0-9._-]*)['"]/g)) {
       if (!match[1].endsWith('.')) assert.equal(typeof root.locales[locale][match[1]],'string',locale+' '+name+': missing '+match[1]);
     }
   }

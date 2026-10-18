@@ -22,8 +22,9 @@ verificado (docs/ANIMAL_IMPORT.md y docs/RELATED_IMPORT.md).
 Los movimientos CSV incluyen correcciones enlazadas verificadas
 (docs/FINANCE_IMPORT.md). Donaciones CSV agrupan materiales con ingreso/stock únicos (docs/DONATION_IMPORT.md).
 JSON por módulos reconstruye relaciones y archivos sin repetir efectos
-(docs/MODULE_JSON_IMPORT.md). **Faltan correcciones coordinadas de
-hechos, demo y aceptación integral. Utiliza solo datos de prueba.**
+(docs/MODULE_JSON_IMPORT.md). La demo opcional EN/ES tiene retirada segura con protección del trabajo real
+(docs/DEMO.md). **Faltan correcciones coordinadas de
+hechos y aceptación integral. Utiliza solo datos de prueba.**
 
 La evidencia inicial de viabilidad incluye Chrome, Edge y Firefox. Los últimos
 recorridos funcionales están acreditados en Chrome y Edge de Windows; no se
