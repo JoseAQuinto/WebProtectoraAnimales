@@ -2,6 +2,9 @@
 
 Aplicación de gestión offline para protectoras. **Proyecto en desarrollo; no es todavía un producto comercial utilizable.**
 
+Inicio rápido: [Español](README.es.md) · [English](README.en.md).
+La guía interna offline está en Ayuda (docs/HELP.md).
+
 ## Estado actual
 
 **Checkpoint de continuidad revisado el 2026-10-18.** Para que otra IA retome

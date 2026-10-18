@@ -1,46 +1,38 @@
 # Continuar desde otro PC o con otra IA
 
 Checkpoint: **2026-10-18**, rama **main**, app **0.2.0-dev**.
-DB **2**, schema **1**, backup **1**. Repositorio:
-https://github.com/JoseAQuinto/WebProtectoraAnimales.git
-
-Se revisó el commit local de otra IA `18e79a9` y todos sus cambios pendientes.
-Se conservaron donaciones/inventario y se corrigieron/completaron informes en
-`21f9f56`. Después se publicaron bloques separados: buscador/historial,
-registro global de adopciones, configuración/catálogos/logotipo, exportaciones,
-importación CSV de contactos, filtros de animales, mediciones y panel operativo.
-Después del corte se añadió CSV de animales (ANIMAL_IMPORT.md): 15/15 por
-motor y regresión de contactos 13/13. Consultar `git log -12 --oneline` para el commit final de este checkpoint.
+DB **2**, schema **1**, backup **1**, sin cambios de formato.
+Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
 ## Inicio
 
-```powershell
-git clone https://github.com/JoseAQuinto/WebProtectoraAnimales.git
-cd WebProtectoraAnimales
-git status
-git log -12 --oneline
-```
+Clonar el repositorio y abrir index.html directamente para usar la aplicación.
+Para desarrollar, ejecutar git status y git log -12 --oneline. En un checkout
+limpio, git pull --ff-only. Si existen cambios locales, revisarlos y conservar
+los válidos; no resetear ni sobrescribirlos. No modificar .env, secretos ni
+credenciales. Commits/push autorizados sobre la rama actual, sin force.
 
-En un checkout limpio, `git pull --ff-only`. Si hay cambios locales, revisarlos
-y conservarlos; no resetear ni sobrescribir avances válidos. No modificar `.env`,
-secretos ni credenciales. Commits/push autorizados en la rama actual, sin force.
+Leer completos AGENTS.md, PROJECT_STATUS.md y REQUIREMENTS.es.md. Los requisitos
+originales permanecen íntegros. El trabajo local de DeepSeek se revisó y conservó:
+18e79a9 y correcciones de informes 21f9f56. No repetir esa revisión como pendiente.
 
-Leer `AGENTS.md`, `docs/PROJECT_STATUS.md` y `docs/REQUIREMENTS.es.md` completos.
-El alcance original permanece íntegro. Mantener las restricciones file://,
-vanilla/IIFE/scripts defer, recursos locales, sin servidor/CDN/fetch local ni
-LocalStorage. UI de negocio usa servicios; IndexedDB es la única verdad.
-Escrituras con lease/dataset/revisión/idempotencia y éxito solo tras completar.
+Regla de continuidad: cuando quede **menos del 10 % de la ventana de 5 horas**
+o **3 % o menos semanal**, cerrar desarrollo, documentar, commit y push.
+No consumir créditos de reinicio sin indicación expresa. El corte anterior al
+reinicio ordinario de cuota es histórico; no usar sus porcentajes como actuales.
 
-Guardar/documentar/commit/push cuando quede **menos del 10 % de 5 horas**, o
-**3 % o menos semanal**. No consumir créditos de reinicio. Esta sesión prepara
-el relevo tras leer 91 % consumido en cinco horas (9 % restante) y 14 % semanal
-consumido. El desarrollo se detiene por ese umbral; no se ha usado reinicio.
+## Bloques recientes ya publicados
 
-## Estado funcional y evidencia vigente
+- ad8e26a: CSV de animales, entradas e identidades revisadas.
+- c4e4d37: CSV de perfiles voluntarios y solicitudes coordinadas.
+- ed49d52: CSV económico con importes exactos y correcciones enlazadas.
+- 4ce3339: CSV de donaciones agrupadas con ingresos/existencias únicos.
+- c041b9b: JSON por módulos, relaciones y archivos sin repetir efectos.
+- c97fd8c: demo opcional EN/ES y retirada/conversión que protege trabajo real.
+- Consultar git log para la guía interna EN/ES y el último relevo documental.
 
-Abrir `index.html` directamente. Crear organización sintética o restaurar copia.
-Los servicios, formularios y transiciones anteriores siguen disponibles.
+## Estado funcional y evidencia
 
 | Área | Documento | Aceptación Chrome/Edge |
 |---|---|---|
@@ -60,17 +52,21 @@ Los servicios, formularios y transiciones anteriores siguen disponibles.
 | CSV donaciones/materiales agrupados | DONATION_IMPORT.md | 16/16 por motor |
 | JSON por módulos/archivos/reconstrucción | MODULE_JSON_IMPORT.md | 22 funcionales + 4 dirigidas por motor |
 | Demostración EN/ES y retirada/conversión | DEMO.md | 15/15 por motor |
+| Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
 | Panel, 17 tarjetas/listas y tres gráficos | DASHBOARD.md | 10/10 por motor |
 
-No volver a presentar estos recorridos como pendientes ni afirmar fases completas.
-Los JSON están en `tests/results`; los intentos fallidos se conservan y explican.
-Último bloque: **90 fuentes cargadas intactas**, dos cierres propios por motor,
-revisión/recuentos/digest de tablas y hashes reales de Blob conservados al reabrir.
-Sin errores de página/consola ni HTTP de la página. Anchos emulados no son hardware.
+Las rondas e intentos anteriores están en tests/results y explicados en cada
+documento. No borrar intentos fallidos ni atribuir nuevas huellas a rondas viejas.
+Última demo: 108 fuentes, 15/15 por motor, archivos/revisiones/digest conservados
+tras dos cierres propios. Última guía: 109 fuentes, 4/4 por motor; recorrido de
+19 capítulos EN/ES, foco, ruta, anchos y visibilidad print, sin escribir negocio.
+La prueba dirigida de guía no repite ni sustituye la aceptación de los módulos.
+Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
+por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta final: **229 pruebas Node, 802 estáticas**, diff sin errores:
+Verificación conjunta: **229 pruebas Node / 807 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -78,100 +74,65 @@ node --test --test-reporter=spec tests/unit/*.cjs
 git diff --check
 ```
 
-Ejecutores nuevos, todos con `--browser`, `--output`, `--machine` y `--executable`
-opcional; no sobrescriben evidencia y cierran solo sus procesos/perfiles:
-
-```powershell
-node tests/e2e/dashboard-ui.cjs --browser chrome --machine MI-EQUIPO --output dashboard-NUEVA-RONDA.json
-node tests/e2e/contact-import-ui.cjs --browser chrome --machine MI-EQUIPO --output contact-import-NUEVA-RONDA.json
-```
-
-Otros: `resources-reports-ui`, `search-history-ui`, `adoption-register-ui`,
-`settings-configuration-ui`, `module-exports-ui`, `animal-filters-ui`,
-`weights-history-ui` (todos `.cjs`). Ver ENVIRONMENT_TESTS.md para runtime y rutas.
-Firefox actual sigue aplazado por decisión previa; no descargar instalador sin
-nueva indicación. No instalar herramientas dentro del producto comercial.
+Ejecutores persistentes en tests/e2e: contact-import-ui, animal-import-ui,
+related-import-ui, finance-import-ui, donation-import-ui, module-import-ui,
+module-import-layout y demo-ui, además de los anteriores por módulo.
+Consultar ENVIRONMENT_TESTS.md y sus argumentos --browser, --machine, --output
+con nombre nuevo y --executable opcional. No sobrescribir evidencia.
+La guía usó una comprobación puntual descrita en HELP.md, sin suite nueva de negocio.
+Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
 
 ## Siguiente acción concreta
 
-1. Extender fase 10 desde CONTACT_IMPORT.md. **Contactos CSV ya está completo y
-   probado en su alcance**, incluido mapeo, duplicados explícitos, campos sin
-   mapear, actualizaciones parciales, identidades externas y 1.001 contactos
-   mediante dataset separado. Animales CSV ya tiene entradas/fichas y aceptación propia. Perfiles voluntarios/solicitudes ya tienen aceptación en RELATED_IMPORT.md.
-   Movimientos ya tienen aceptación en FINANCE_IMPORT.md. Donaciones ya tienen aceptación en DONATION_IMPORT.md.
-   Falta JSON v1 de módulos; seis tipos CSV iniciales ya disponibles en su alcance. Añadir
-   interpretación explícita de fechas/importes, conflicto microchip/código,
-   asociación por IDs/códigos y agrupación de líneas materiales. No resolver
-   relaciones solo por nombre ni duplicar efectos al reconstruir datos.
-2. Reutilizar `import-parser.js`; el planificador `contact-import.js` es específico
-   de contactos. Extraer responsabilidades comunes con pruebas si se generaliza;
-   no copiar sus reglas a finanzas/stock como si fueran simples fichas. Planes
-   privados, revisión revalidada, subconjuntos expresos y activación atómica.
-   JSON de módulo no contiene bytes y no es backup; comprobar referencias/archivos
-   ausentes. Mantener los límites de esquema/formato y todo el alcance original.
-3. Comandos coordinados de corrección de hechos e historial. La consulta ya
-   distingue versiones y abre orígenes; **no existe aún UI de corrección general**.
-4. Demostración opcional completa y retirada segura, solo sin negocio real;
-   detectar dependencias reales y permitir conversión. Retención/limpieza
-   explícita de staging retirado y recursos sin uso, sin borrado automático.
-5. Guías EN/ES, impresión paginada final, accesibilidad, volumen/cuota real,
-   plataformas físicas, revisión legal/licencias y ZIP comercial. No publicar Etsy.
+1. Implementar correcciones coordinadas de hechos históricos. La consulta ya
+   distingue versiones y abre su origen, pero no existe aún comando/UI general.
+   Leer SEARCH_HISTORY.md, BUSINESS_RULES.md, LIFECYCLE_API.md y los campos
+   correctsEventId/supersededBy/voidReason del esquema/validador. Diseñar una
+   corrección acotada de extremo a extremo con motivo, fuente y evento sustituto,
+   revalidando episodio/acogida/adopción/tareas y sin repetir dinero ni stock.
+   Las correcciones económicas enlazadas y compensaciones de inventario existen.
+2. Retención/limpieza explícita de staging/retirados y recursos sin uso, con copia
+   verificada, revisión, dependencias y cancelación. No borrar automáticamente ni
+   confundir retirada de demo con borrado general. Decidir borrado definitivo de
+   negocio con revisión de relaciones, preservando historia válida.
+3. Reducir snapshots/validaciones O(N), lecturas por índices y binarios diferidos.
+   Importación JSON también tiene búsquedas de candidatos O(N*M). Los límites de
+   seguridad del parser no acreditan rendimiento a esos máximos. Probar memoria,
+   volumen y cuota física por separado de errores inyectados.
+4. Completar impresión paginada y opción de datos personales, accesibilidad
+   integral y aceptación por plataformas físicas. La guía EN/ES y README bilingües
+   ya existen (HELP.md); no enumerarlos como inexistentes. Revisar contenido y
+   recorridos con la aceptación final. No hay aceptación Android/iOS/iPadOS,
+   macOS/Linux ni Firefox actual sobre las fuentes actuales.
+5. Revisión comercial/licencias, paquete ZIP y aceptación completa fases 0–12.
+   No publicar Etsy ni inventar términos legales. No declarar producto final.
 
-## Riesgos conservados
+## Decisiones de implementación
 
-Capturas/validación de dataset completo por operación: O(N). La UI no decodifica
-fotos/documentos en el panel; los repositorios aún capturan referencias Blob.
-Hace falta lecturas acotadas/índices/lazy binarios con pruebas reales de memoria.
-Un QuotaExceededError inyectado no acredita agotamiento real. No hay aceptación
-Android/iOS/iPadOS/macOS/Linux ni Firefox actual sobre este runtime.
+- file://, vanilla, IIFE, scripts defer y recursos locales. Sin servidor, CDN,
+  fetch local, módulos ES en navegador ni LocalStorage.
+- UI de negocio usa servicios. IndexedDB es la verdad; toda escritura comprueba
+  lease/dataset/revisión/idempotencia y confirma solo al completar transacción.
+- Planes de importación privados, previsualización pura. CSV simple puede usar
+  transacción; complejo/grande, JSON y demo siempre preparan conjunto separado,
+  validan y activan atómicamente con copia actual verificada. Nunca vaciar primero.
+- CSV crea/transiciona mediante comandos coordinados; JSON reconstruye el grafo
+  sin ejecutar otra vez efectos. Exportación cierre v2 conserva formato módulo 1;
+  lector admite v1/v2 con validación. JSON parcial no es backup y no contiene bytes.
+- Demo marca todas sus filas con lote. Retirada protege componentes conectados
+  referidos desde trabajo real, exige consentimiento para convertirlos y conserva
+  UUID, hechos y bytes. No modificar ni eliminar filas reales externas al lote.
+- Dinero/cantidades enteros seguros, fechas ISO civiles; datos de usuario textContent.
+- Mantener UTF-8 sin BOM. No usar Get-Content/Set-Content para reescribir fuentes
+  con PowerShell 5.1. apply_patch o fs.writeFileSync de Node preservan Unicode.
 
-Los CSV protegen fórmulas y conservan texto en lo que permite el formato; las
-hojas de cálculo pueden transformar tipos/protecciones. JSON conserva tipos.
-Tras recargar puede haber hasta 15 s de lectura por el lease anterior; no se
-confía en escrituras de pagehide. Los conjuntos previos se conservan al activar
-restauraciones/importaciones grandes. Las preparaciones canceladas no se borran
-solas. La licencia comercial sigue pendiente de revisión.
+## Guardar y trasladar
 
-## Guardar o trasladar
+Cerrar solo procesos/perfiles de QA propios. Actualizar estado/changelog/evidencia,
+commit/push sin force, comparar HEAD con refs/heads/main remota y dejar árbol limpio.
+.tmp, .tools, node_modules y perfiles/capturas se ignoran; no son parte del producto.
 
-Cerrar solo navegadores de QA propios. Actualizar estado/changelog/evidencias,
-revisar diff y temporales, commit/push sin force y comprobar HEAD/remoto y árbol
-limpio. `.tmp`, `.tools`, perfiles/capturas y node_modules se ignoran. Conservar
-UTF-8 sin BOM; no reescribir archivos con Get-Content/Set-Content de PowerShell 5.1.
-
-Git transporta código y documentación, **no los datos del perfil del navegador**.
-Para trasladar una organización: generar, descargar y reseleccionar/verificar
-copia completa; conservarla externamente y restaurar en el otro PC. Los archivos
-registrados como referencias externas se trasladan por separado.
-
-Continuación posterior al corte: se reanudó con cupo renovado ordinariamente;
-CSV de animales y regresión contactos publicados con alcance ANIMAL_IMPORT.md.
-El corte del 9 % anterior es histórico, no una lectura de esta nueva sesión.
-
-Siguiente checkpoint: CSV de perfiles voluntarios y solicitudes publicado;
-194 Node / 742 estáticas, 16/16 Chrome/Edge y 334 solicitudes con activación
-atómica. Continuar movimientos/donaciones y JSON, sin repetir como pendientes
-los cuatro tipos CSV ya acreditados en su alcance.
-
-CSV económico publicado: 202 Node / 747 estáticas y 16/16 por motor con
-501 movimientos, correcciones/donación única y bytes. Continuar donaciones
-CSV agrupadas y JSON; no usar correcciones como sobrescritura de importes.
-
-Último bloque: CSV donaciones/materiales agrupados, 211 Node / 752 estáticas,
-16/16 por motor y una donación de 501 líneas con stock único/bytes conservados.
-Continuar JSON v1 por módulos; no reutilizar importadores CSV para reconstruir
-efectos históricos desde JSON. Leer MODULE_EXPORTS.md y exports.container.
-
-JSON por módulos ya tiene UI/aceptación: MODULE_JSON_IMPORT.md. Nueve
-exportaciones/importaciones reales en Chrome/Edge sin duplicar efectos;
-221 Node / 772 estáticas. La política de cierre v2 conserva formatVersion 1.
-V1 leído con validación, recursos ausentes no se inventan. Continuar correcciones
-coordinadas de historia y demo/retirada; no enumerar otra vez como inexistentes
-los CSV ni JSON ya documentados. Mantener pendientes rendimiento, limpieza,
-guías y plataformas físicas.
-
-Demostración/retirada ya están implementadas y acreditadas: DEMO.md.
-90 filas estándar; conservar dependencias reales con conversión explícita.
-229 Node / 802 estáticas, 15/15 por motor. Seguir correcciones de historia,
-guías, limpieza controlada y rendimiento/aceptación. No cargar ejemplos sobre
-trabajo real ni confundir su conversión con borrar registros reales.
+Git transporta código/documentación, **no los datos del perfil del navegador**.
+Para trasladar una organización, generar/descargar/reseleccionar una copia completa
+verificada, conservarla externamente y restaurar en el otro PC. Llevar aparte los
+originales de documentos externos. No retirar el origen hasta verificar el destino.

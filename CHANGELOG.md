@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Guía interna bilingüe e inicio rápido — 2026-10-18
+
+- Ayuda offline con 19 capítulos, índice con foco, datos locales destacados,
+  uso por módulo, copias/traslado/actualización y solución de problemas.
+- README.en.md y README.es.md; compatibilidad y límites actuales explícitos.
+- Revisión dirigida Chrome/Edge 4/4 por motor, sin escrituras de negocio.
+  229 Node / 807 estáticas. Impresión paginada y aceptación final pendientes.
+
+
 ## Demostración opcional y retirada segura — 2026-10-18
 
 - Lote EN/ES explícito de 90 registros, fechas relativas, todos los ejemplos

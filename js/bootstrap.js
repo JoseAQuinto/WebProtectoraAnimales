@@ -86,7 +86,7 @@
       el('section',{class:'card'},el('h2',{},t('ui.lastBackup')),receipts.length?el('ul',{},receipts.slice(0,10).map(row=>el('li',{},row.generatedAt+' · '+t('ui.'+row.state)))):el('p',{class:'muted'},t('ui.noBackups'))),await recovery()];
   }
   function help() {
-    return [heading(t('ui.helpTitle'),''),el('div',{class:'stack help'},['where','copies','privacy','external','limits'].map(key=>el('section',{class:'card'},el('h2',{},t('ui.'+key)),el('p',{},t('ui.'+key+'Text'))))),button(t('ui.print'),()=>window.print(),true)];
+    return root.modules.help.render();
   }
   function shell(page) {
     const org=state.snapshot?.tables.organizationSettings[0];

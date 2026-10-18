@@ -91,7 +91,7 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 - Node: **229 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **802 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **807 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -141,7 +141,7 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   Chrome/Edge, sin escrituras. Los comandos de corrección aún faltan.
 - Pesos: alta/edición/papelera/restauración con aceptación real en
   WEIGHT_HISTORY.md. Logotipo ya tiene UI.
-- Faltan correcciones de historias, guías completas EN/ES, impresión final,
+- Faltan correcciones de historias, aceptación de la guía EN/ES e impresión final,
   pruebas físicas móviles/tabletas y ZIP comercial. No hay aceptación real
   Android/iOS/iPadOS/macOS/Linux. Un viewport estrecho no es un dispositivo real.
 - Licencia comercial pendiente de revisión; no publicar en Etsy.
@@ -156,11 +156,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
    aceptación real. Leer SEARCH_HISTORY.md y ADOPTION_REGISTER.md para lo ya probado.
-4. Extender la importación CSV/JSON desde CONTACT_IMPORT.md y completar demo;
-   exportaciones por módulo ya
-   tienen aceptación en MODULE_EXPORTS.md. Configuración/catálogos
-   ya tienen aceptación en CONFIGURATION.md.
-   conservar todas las fases del prompt. Los informes ya descargan sus tablas.
+4. CSV de seis tipos, JSON por módulos y demo/retirada ya tienen UI y evidencia.
+   Continuar correcciones coordinadas de hechos históricos sin reproducir dinero,
+   stock, entradas ni actos. Guía offline EN/ES disponible: HELP.md. Falta su
+   aceptación integral y la impresión final. Conservar todas las fases del prompt.
 5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de
    plataformas antes de habilitar datos reales o preparar distribución comercial.
 
@@ -173,6 +172,12 @@ Para trasladar una organización: copia externa verificada y restauración.
 son herramientas de desarrollo, no dependencias del producto. No dependa de
 rutas privadas de un PC. Leer ENVIRONMENT_TESTS.md para ejecutar los verificadores.
 La publicación del checkpoint se comprueba con git log/status/ls-remote.
+
+## Registro histórico de avances
+
+Los apartados siguientes conservan los resultados y siguientes pasos de cada
+checkpoint en su momento. Para pendientes vigentes, usar los apartados superiores
+y CONTINUE_HERE.md; no tratar los siguientes pasos históricos como tareas actuales.
 
 ## Cierre del checkpoint de pantallas (2026-10-16)
 
@@ -383,3 +388,11 @@ retirada intacta, recarga, revisión concurrente, 71 retirados/19 convertidos,
 bytes y reapertura; DEMO.md. 229 Node / 802 estáticas.
 Siguiente: correcciones coordinadas de historia, guías completas EN/ES, limpieza
 controlada, rendimiento/accesibilidad/plataformas y paquete/licencias.
+
+## Guía interna e inicio rápido (2026-10-18)
+
+Ayuda EN/ES con 19 capítulos e índice accesible por foco; dónde se guardan los
+datos, uso diario por módulo, copias/traslado/actualización y límites explícitos.
+README.en.md/README.es.md cubren inicio y conservación de datos. HELP.md registra
+4/4 dirigidas por motor Chrome/Edge, 109 fuentes, sin escrituras, errores ni red.
+229 Node / 807 estáticas. No acredita impresión paginada ni accesibilidad integral.
