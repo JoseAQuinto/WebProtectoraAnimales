@@ -396,3 +396,34 @@
     'iv.unitHelp': 'Las unidades y categorías deben ser opciones activas.'
   });
 }(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.es = Object.freeze({ ...root.locales.es,
+    'nav.reports': 'Informes',
+    'rp.help': 'Las cifras derivan de los registros actuales y del periodo elegido. Ubicación y disponibilidad de adopción pueden solaparse; los valores del censo actual no son excluyentes entre sí.',
+    'rp.from': 'Desde, incluido', 'rp.to': 'Hasta, incluido', 'rp.periodError': 'La fecha final debe ser igual o posterior a la inicial.',
+    'rp.census.title': 'Situación actual', 'rp.underCare': 'Animales bajo cuidado', 'rp.inShelter': 'En la protectora', 'rp.inFoster': 'En acogida', 'rp.available': 'Disponibles', 'rp.reserved': 'Reservados',
+    'rp.finances.title': 'Finanzas y donaciones del periodo', 'rp.income': 'Ingresos', 'rp.expense': 'Gastos', 'rp.balance': 'Saldo', 'rp.veterinaryExpenses': 'Gastos veterinarios', 'rp.monetaryDonations': 'Donaciones económicas', 'rp.materialDonations': 'Donaciones materiales',
+    'rp.entriesAdoptions.title': 'Entradas y adopciones por mes', 'rp.entriesAdoptionsHelp': 'Las entradas cuentan episodios iniciados en el periodo, incluidas las devoluciones. Las adopciones cuentan adopciones realizadas; una devolución posterior no borra el hecho.',
+    'rp.entries': 'Entradas', 'rp.adoptions': 'Adopciones',
+    'rp.incomeExpense.title': 'Ingresos y gastos por mes',
+    'rp.distribution.title': 'Distribución actual', 'rp.dimension': 'Grupo', 'rp.records': 'Registros', 'rp.species': 'Por especie', 'rp.sex': 'Por sexo', 'rp.age': 'Por tramo de edad', 'rp.availability': 'Por disponibilidad de adopción', 'rp.situation': 'Por situación de cuidado',
+    'rp.age.under_1': 'Menos de 1 año', 'rp.age.1_to_3': 'De 1 a 3 años', 'rp.age.4_to_7': 'De 4 a 7 años', 'rp.age.8_plus': '8 años o más', 'rp.age.unknown': 'Desconocida',
+    'rp.timeToAdoption.title': 'Tiempo hasta la adopción', 'rp.averageDays': 'Media de {days} días en {cases} episodios cerrados', 'rp.noCases': 'Aún no hay episodios cerrados por adopción.',
+    'rp.costs.title': 'Costes por animal', 'rp.costsByAnimal': 'Gastos vinculados a un animal', 'rp.animal': 'Animal', 'rp.total': 'Total', 'rp.generalExpenses': 'Gastos generales sin animal', 'rp.costsHelp': 'Los gastos generales se muestran aparte y no se reparten entre animales mediante una fórmula oculta.',
+    'rp.empty': 'No hay registros.', 'rp.value': 'Valor'
+  });
+}(window.RescueManager));
+
+(function(root){'use strict';root.locales.es=Object.freeze({...root.locales.es,
+'rp.month':'Mes','rp.year':'Año','rp.annual':'Evolución anual','rp.currentHelp':'Registros actuales a {date}; cambiar el periodo no reconstruye un censo pasado.',
+'rp.materialHelp':'{count} líneas materiales; valor estimado {value}. Este valor no es un ingreso económico.',
+'rp.adoptionTimeHelp':'Adopciones del periodo vinculadas a episodios cerrados por adopción. Días redondeados al entero más cercano. Una devolución conserva el caso original; se excluyen animales aún no adoptados.',
+'rp.ageHelp':'Tramos administrativos en años cumplidos, no clasificaciones veterinarias. Las edades estimadas avanzan desde su fecha de referencia; las desconocidas siguen como desconocidas.',
+'rp.chartHelp':'Gráfico: últimos doce meses del periodo. La tabla y las descargas contienen todo el periodo seleccionado. Verde: primera serie; ámbar: segunda serie.',
+'rp.rangeError':'No se ha podido calcular el informe. Selecciona fechas válidas con un máximo de 100 años y comprueba que los totales económicos caben en enteros seguros.',
+'rp.page':'Página {page} de {pages} · {count} filas','rp.downloadCsv':'Descargar tabla CSV','rp.separator':'Separador CSV','rp.comma':'Coma','rp.semicolon':'Punto y coma','rp.excel':'Incluir BOM UTF-8 para hojas de cálculo',
+'rp.json':'Descargar informe JSON','rp.meanDays':'Media de días','rp.exportHelp':'Las descargas contienen todas las filas de cada informe del periodo elegido. Los importes usan punto decimal sin separador de miles. El CSV protege texto potencialmente ejecutable; una hoja de cálculo puede alterar protecciones o tipos al guardar. JSON conserva los valores del informe. Estas descargas no incluyen archivos ni son una copia completa. La impresión abarca las páginas de tablas visibles.'
+});}(window.RescueManager));
+(function(r){r.locales.es=Object.freeze({...r.locales.es,'dn.amountInvalid':'Introduce un importe positivo con el separador elegido y los decimales de la moneda.','dn.totalOverflow':'El valor estimado total supera el límite de enteros seguros.'});}(window.RescueManager));

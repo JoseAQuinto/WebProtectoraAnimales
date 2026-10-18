@@ -396,3 +396,34 @@
     'iv.unitHelp': 'Units and categories must be active options.'
   });
 }(window.RescueManager));
+
+(function (root) {
+  'use strict';
+  root.locales.en = Object.freeze({ ...root.locales.en,
+    'nav.reports': 'Reports',
+    'rp.help': 'Figures derive from the current records and the chosen period. Location and adoption availability can overlap; current census values are not mutually exclusive.',
+    'rp.from': 'From date, inclusive', 'rp.to': 'To date, inclusive', 'rp.periodError': 'The end date must be on or after the start date.',
+    'rp.census.title': 'Current situation', 'rp.underCare': 'Animals under care', 'rp.inShelter': 'In the shelter', 'rp.inFoster': 'In foster care', 'rp.available': 'Available for adoption', 'rp.reserved': 'Reserved',
+    'rp.finances.title': 'Finances and donations in the period', 'rp.income': 'Income', 'rp.expense': 'Expenses', 'rp.balance': 'Balance', 'rp.veterinaryExpenses': 'Veterinary expenses', 'rp.monetaryDonations': 'Monetary donations', 'rp.materialDonations': 'Material donations',
+    'rp.entriesAdoptions.title': 'Entries and adoptions per month', 'rp.entriesAdoptionsHelp': 'Entries count stay episodes started in the period, including returns. Adoptions count completed adoptions; a later return does not erase the fact.',
+    'rp.entries': 'Entries', 'rp.adoptions': 'Adoptions',
+    'rp.incomeExpense.title': 'Income and expenses per month',
+    'rp.distribution.title': 'Current distribution', 'rp.dimension': 'Group', 'rp.records': 'Records', 'rp.species': 'By species', 'rp.sex': 'By sex', 'rp.age': 'By age band', 'rp.availability': 'By adoption availability', 'rp.situation': 'By care situation',
+    'rp.age.under_1': 'Under 1 year', 'rp.age.1_to_3': '1 to 3 years', 'rp.age.4_to_7': '4 to 7 years', 'rp.age.8_plus': '8 years or more', 'rp.age.unknown': 'Unknown',
+    'rp.timeToAdoption.title': 'Time until adoption', 'rp.averageDays': 'Average {days} days across {cases} closed episodes', 'rp.noCases': 'No episodes closed by adoption yet.',
+    'rp.costs.title': 'Costs per animal', 'rp.costsByAnimal': 'Expenses linked to an animal', 'rp.animal': 'Animal', 'rp.total': 'Total', 'rp.generalExpenses': 'General expenses without an animal', 'rp.costsHelp': 'General expenses are shown separately and are not distributed among animals by a hidden formula.',
+    'rp.empty': 'No records to show.', 'rp.value': 'Value'
+  });
+}(window.RescueManager));
+
+(function(root){'use strict';root.locales.en=Object.freeze({...root.locales.en,
+'rp.month':'Month','rp.year':'Year','rp.annual':'Annual evolution','rp.currentHelp':'Current records as of {date}; changing the period does not reconstruct a past census.',
+'rp.materialHelp':'{count} material lines; estimated value {value}. This value is not cash income.',
+'rp.adoptionTimeHelp':'Adoptions in the selected period, linked to episodes closed by adoption. Days are rounded to the nearest whole day. Returns preserve the original case; animals not yet adopted are excluded.',
+'rp.ageHelp':'Administrative bands in completed years, not veterinary classifications. Estimated ages advance from their recorded reference date; unknown ages remain unknown.',
+'rp.chartHelp':'Chart: latest twelve months of the chosen period. The table and downloads include the full selected period. Green: first series; amber: second series.',
+'rp.rangeError':'The report cannot be calculated. Select valid dates covering at most 100 years and check that financial totals fit safe integers.',
+'rp.page':'Page {page} of {pages} · {count} rows','rp.downloadCsv':'Download table CSV','rp.separator':'CSV separator','rp.comma':'Comma','rp.semicolon':'Semicolon','rp.excel':'Include UTF-8 BOM for spreadsheet applications',
+'rp.json':'Download report JSON','rp.meanDays':'Average days','rp.exportHelp':'Downloads contain all rows of each report for the selected period. Currency values use a decimal point without grouping. CSV protects potentially executable text; spreadsheets can change protections or types when saving. JSON preserves report values. These downloads contain no files and are not a full backup. Printing covers visible table pages.'
+});}(window.RescueManager));
+(function(r){r.locales.en=Object.freeze({...r.locales.en,'dn.amountInvalid':'Enter a positive amount using the selected decimal separator and currency precision.','dn.totalOverflow':'Estimated total exceeds the safe integer limit.'});}(window.RescueManager));

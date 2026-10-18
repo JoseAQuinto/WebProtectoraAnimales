@@ -65,3 +65,10 @@ real por `file://` queda pendiente:
    backup/restauración de donaciones, líneas, artículos y movimientos.
 6. Teclado/foco, EN/ES, ampliación y anchos de pantalla. No equiparar un viewport
    con un dispositivo físico ni esta comprobación con aceptación comercial.
+
+## Aceptación posterior (2026-10-18)
+
+La ronda real de Donaciones/Inventario e Informes pasa 12/12 en Chrome y Edge.
+Ver REVIEW_RESOURCES_REPORTS.md para escenarios, fuentes, límites y los JSON.
+El apartado anterior de aceptación pendiente describe el estado del commit
+18e79a9 antes de esta revisión; no es el resultado vigente de los casos probados.

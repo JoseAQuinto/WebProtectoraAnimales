@@ -35,8 +35,8 @@
     const dialog = ui.form(t('dn.newMonetary'), fields, { date: today(ctx), decimalSeparator: sep, notes: '' }, async (input, command) => {
       let amountMinor;
       try { amountMinor = root.utils.money.parse(input.amount, organization.currencyCode, { decimalSeparator: input.decimalSeparator }); }
-      catch (_) { throw new root.core.errors.AppError('dn.amountHelp', [{ path: 'amount' }]); }
-      if (amountMinor <= 0) throw new root.core.errors.AppError('dn.amountHelp', [{ path: 'amount' }]);
+      catch (_) { throw new root.core.errors.AppError('dn.amountInvalid', [{ path: 'amount' }]); }
+      if (amountMinor <= 0) throw new root.core.errors.AppError('dn.amountInvalid', [{ path: 'amount' }]);
       await service.createMonetary({ date: input.date, donorContactId: input.donorContactId, categoryId: input.categoryId, concept: input.concept, amountMinor, notes: input.notes }, command);
       await saved(ctx);
     }, { expectedRevision: ctx.snapshot.globalRevision });
@@ -63,9 +63,9 @@
     }
     const dateInput = el('input', { type: 'date', required: true, max: today(ctx) }); dateInput.value = today(ctx);
     const donorSelect = el('select', {}, el('option', { value: '' }, t('dn.choose')), ...tables.contacts.filter(row => active(row)).map(row => el('option', { value: row.id }, row.name)));
-    const notesInput = el('input', { type: 'text', maxlength: 20000 });
+    const notesInput = el('textarea', { maxlength: 20000 });
     const decimalSelect = el('select', {}, el('option', { value: '.' }, t('dn.separator.dot')), el('option', { value: ',' }, t('dn.separator.comma'))); decimalSelect.value = sep;
-    const lineArea = el('div', { class: 'stack' }), addLine = button(t('dn.addLine'), () => appendLine());
+    const lineArea = el('div', { class: 'stack' }), addLine = button(t('dn.addLine'), () => {if(lineRows.length<1000){appendLine();changed();}});
     dateInput.addEventListener('input', changed); donorSelect.addEventListener('change', changed); notesInput.addEventListener('input', changed); decimalSelect.addEventListener('change', changed);
     const materialTypes = tables.catalogOptions.filter(row => row.kind === 'material_type' && row.active && !row.deletedAt && !row.archivedAt);
     const units = tables.catalogOptions.filter(row => row.kind === 'unit' && row.active && !row.deletedAt && !row.archivedAt);
@@ -83,13 +83,13 @@
       item.addEventListener('change', () => { itemChanged(); changed(); });
       [materialSelect, description, quantity, precision, unit, estimated].forEach(control => { control.addEventListener('input', changed); control.addEventListener('change', changed); });
       const record = { materialSelect, description, quantity, precision, unit, item, estimated };
-      const remove = button(t('dn.removeLine'), () => { lineRows.splice(lineRows.indexOf(record), 1); row.remove(); changed(); }, true);
+      const remove = button(t('dn.removeLine'), () => { lineRows.splice(lineRows.indexOf(record), 1); row.remove();addLine.disabled=false; changed(); }, true);
       const row = el('div', { class: 'donation-line-row' },
         el('div', { class: 'people-filters' }, label('dn.materialTypeId', materialSelect), label('dn.description', description),
           label('dn.quantity', quantity), label('dn.quantityPrecision', precision), label('dn.unitId', unit),
           label('dn.inventoryItemId', item), label('dn.estimatedValueMinor', estimated, 'dn.estimatedHelp')),
         remove);
-      record.row = row; lineRows.push(record); lineArea.append(row);
+      record.row = row; lineRows.push(record); lineArea.append(row);addLine.disabled=lineRows.length>=1000;
     }
     function collectLines() {
       if (!lineRows.length) throw new root.core.errors.AppError('dn.lineRequired');
@@ -98,11 +98,11 @@
         const precisionValue = Number(line.precision.value);
         let quantityScaled, estimatedValueMinor = null;
         try { quantityScaled = root.utils.quantities.parse(line.quantity.value, precisionValue, { decimalSeparator: decimalSelect.value }); }
-        catch (_) { throw new root.core.errors.AppError('dn.lineInvalid'); }
-        if (quantityScaled <= 0) throw new root.core.errors.AppError('dn.lineInvalid');
+        catch (_) { line.quantity.setAttribute('aria-invalid','true');line.quantity.focus();throw new root.core.errors.AppError('dn.lineInvalid'); }
+        if (quantityScaled <= 0) {line.quantity.setAttribute('aria-invalid','true');throw new root.core.errors.AppError('dn.lineInvalid');}
         if (line.estimated.value) {
           try { estimatedValueMinor = root.utils.money.parse(line.estimated.value, organization.currencyCode, { decimalSeparator: decimalSelect.value }); }
-          catch (_) { throw new root.core.errors.AppError('dn.lineInvalid'); }
+          catch (_) { line.estimated.setAttribute('aria-invalid','true');throw new root.core.errors.AppError('dn.lineInvalid'); }
         }
         result.push({ materialTypeId: line.materialSelect.value, description: line.description.value.trim(), quantityScaled, quantityPrecision: precisionValue, unitId: line.unit.value, inventoryItemId: line.item.value || null, estimatedValueMinor });
       }
@@ -119,7 +119,7 @@
       const save = body.querySelector('button[type="submit"]'); save.textContent = t('common.saving');
       const disabled = [...body.elements].map(control => [control, control.disabled]); disabled.forEach(([control]) => { control.disabled = true; });
       try {
-        await service.createMaterial({ date: dateInput.value, donorContactId: donorSelect.value || null, notes: notesInput.value.trim(), lines: collectLines() }, { ...captured, operationId });
+        await service.createMaterial({ date: dateInput.value, donorContactId: donorSelect.value || null, notes: notesInput.value, lines: collectLines() }, { ...captured, operationId });
         dirty = false; dialog.close(); await saved(ctx);
       } catch (error) {
         errors.append(el('p', {}, ui.message(error))); errors.focus();
@@ -177,12 +177,13 @@
 
   function render(ctx) {
     const tables = ctx.snapshot.tables, results = el('div'), filters = el('div', { class: 'people-filters' });
+    const lineText=new Map();for(const line of tables.donationLines)lineText.set(line.donationId,(lineText.get(line.donationId)||'')+' '+line.description);
     const label = (key, control) => { const id = 'donation-filter-' + root.utils.ids.uuidV4(); control.id = id; return el('div', { class: 'field' }, el('label', { for: id }, t('dn.' + key)), control); };
     function rows() {
       const query = root.utils.strings.normalizeSearch(view.search);
       return tables.donations.filter(row => (!view.type || row.type === view.type) && (!view.status || row.status === view.status) &&
         (!view.from || row.date >= view.from) && (!view.to || row.date <= view.to) && (!query || root.utils.strings.normalizeSearch(
-          [row.notes, income(tables, row)?.concept, contact(tables, row.donorContactId)?.name].join(' ')).includes(query)))
+          [row.notes, income(tables, row)?.concept, contact(tables, row.donorContactId)?.name,lineText.get(row.id)].join(' ')).includes(query)))
         .sort((a, b) => b.date.localeCompare(a.date) || b.createdAt.localeCompare(a.createdAt));
     }
     function summary(donation) {
@@ -191,8 +192,9 @@
     }
     function value(donation) {
       if (donation.type === 'monetary') { const m = income(tables, donation); return m ? money(m.amountMinor, m.currencyCode) : t('ui.unknown'); }
-      const total = lines(tables, donation).reduce((sum, row) => sum + (Number.isSafeInteger(row.estimatedValueMinor) ? row.estimatedValueMinor : 0), 0);
-      return total > 0 ? t('dn.estimatedValue', { value: money(total, organizationCurrency(ctx)) }) : t('dn.estimatedNone');
+      const ls=lines(tables,donation),estimated=ls.filter(row=>row.estimatedValueMinor!==null),total=estimated.reduce((sum,row)=>sum+BigInt(row.estimatedValueMinor),0n);
+      if(total>BigInt(Number.MAX_SAFE_INTEGER))return t('dn.totalOverflow');
+      return estimated.length ? t('dn.estimatedValue', { value: money(Number(total), organizationCurrency(ctx)) }) : t('dn.estimatedNone');
     }
     function paint() {
       if (view.from && view.to && view.from > view.to) { results.replaceChildren(el('p', { role: 'alert' }, t('dn.periodError'))); return; }

@@ -35,7 +35,7 @@
       const precision = Number(input.quantityPrecision);
       let minimumStockScaled;
       try { minimumStockScaled = root.utils.quantities.parse(input.minimumStockScaled || '0', precision, { decimalSeparator: input.decimalSeparator }); }
-      catch (_) { throw new root.core.errors.AppError('iv.minimumHelp'); }
+      catch (_) { throw new root.core.errors.AppError('iv.minimumHelp',[{path:'minimumStockScaled'}]); }
       await service.createItem({ name: input.name, categoryId: input.categoryId, unitId: input.unitId, quantityPrecision: precision, minimumStockScaled, supplierContactId: input.supplierContactId, notes: input.notes }, command);
       await saved(ctx);
     }, { expectedRevision: ctx.snapshot.globalRevision });

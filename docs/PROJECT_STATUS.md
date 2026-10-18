@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-17. Versión de trabajo: `0.2.0-dev`.
+Actualizado: 2026-10-18. Versión de trabajo: `0.2.0-dev`.
 Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
@@ -87,10 +87,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **117 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **133 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **592 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **607 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -127,10 +127,11 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   Documentar por separado ambas pruebas. Retención/limpieza explícita de
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
 - Faltan vistas globales de solicitudes/adopciones, correcciones de historia,
-  informes, buscador global, importación/exportación, demo y retirada. Finanzas
+  buscador global, exportaciones por módulo/importación, demo y retirada. Finanzas
   tiene aceptación específica separada, con cualquier caso pendiente registrado
   en su informe. Donaciones e inventario ya tienen interfaz, pero su aceptación
-  real por navegador queda pendiente (ver DONATIONS_INVENTORY_UI.md).
+  real por navegador tiene 12/12 en Chrome/Edge junto con informes (ver
+  REVIEW_RESOURCES_REPORTS.md para alcance y límites).
 - El historial animal aún no enlaza cada evento con su origen ni distingue
   todos los parámetros de estado de las solicitudes. No equivale a pérdida
   de registros: estos se conservan y consultan en sus secciones específicas.
@@ -149,13 +150,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 2. Revisar UI_ACCEPTANCE.md, WORKFLOWS_UI_ACCEPTANCE.md y HEALTH_UI_ACCEPTANCE.md,
    distinguiendo rondas correctas, cadenas reanudadas e intentos de herramienta.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
-3. Ejecutar la aceptación real por navegador de Donaciones e Inventario
-   (alta económica/material, líneas, anulación, stock, movimientos, compensación
-   y archivo) mediante `file://`, sin repetir efectos de negocio; registrar el
-   resultado en DONATIONS_INVENTORY_UI.md y distinguir rondas correctas de
-   intentos de herramienta.
-4. Completar navegación/correcciones del historial, vistas globales e informes,
-   importación/exportación y demo; conservar todas las fases del prompt.
+3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
+   aceptación real. Continuar buscador global y navegación/correcciones del historial.
+4. Completar vistas globales, exportación/importación por módulo y demo;
+   conservar todas las fases del prompt. Los informes ya descargan sus tablas.
 5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de
    plataformas antes de habilitar datos reales o preparar distribución comercial.
 

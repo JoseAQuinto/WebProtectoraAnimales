@@ -1,5 +1,17 @@
 # Historial de cambios
 
+## Revisión de cambios locales e informes — 2026-10-18
+
+- Conservado el avance local de donaciones/inventario y completado el bloque
+  de informes que quedó sin commit: gráficos, periodos, edades de referencia,
+  promedios por episodio y sumas monetarias seguras.
+- Informes con tablas paginadas, evolución anual, CSV protegido mediante Papa
+  Parse, JSON identificado como informe sin archivos y opciones de impresión.
+- Corregidas notas materiales, búsqueda, cantidades y estimaciones seguras.
+- Donaciones/Inventario/Informes: 12/12 por motor Chrome/Edge, persistencia y
+  descargas reales; 133 subpruebas Node y 607 estáticas. Detalle y límites en
+  REVIEW_RESOURCES_REPORTS.md. Formatos persistidos sin cambios.
+
 ## Donaciones e inventario — 2026-10-18 (0.2.0-dev)
 
 - Pantallas `#donations` y `#inventory` conectadas a los servicios existentes
