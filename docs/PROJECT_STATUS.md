@@ -90,7 +90,7 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 - Node: **171 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **697 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **702 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -137,8 +137,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 - Buscador global e historial ya tienen navegación por origen, periodos,
   paginación y transiciones históricas. Ver SEARCH_HISTORY.md: 10/10 por motor
   Chrome/Edge, sin escrituras. Los comandos de corrección aún faltan.
-- Pesos permiten alta/edición en interfaz; papelera/restauración existen en
-  servicio pero todavía no tienen recorrido visible completo. Logotipo ya tiene UI.
+- Pesos: alta/edición/papelera/restauración con aceptación real en
+  WEIGHT_HISTORY.md. Logotipo ya tiene UI.
 - Faltan correcciones de historias, guías completas EN/ES, impresión final,
   pruebas físicas móviles/tabletas y ZIP comercial. No hay aceptación real
   Android/iOS/iPadOS/macOS/Linux. Un viewport estrecho no es un dispositivo real.
@@ -292,3 +292,9 @@ ubicación/familia/adoptante con OR dentro y AND entre filtros, periodos
 inclusivos de última entrada y del mismo hecho de adopción, archivo/papelera,
 valores retirables y paginación. Chrome/Edge 10/10 por motor, bytes/reapertura
 conservados. ANIMAL_FILTERS.md; 171 Node y 697 estáticas correctas.
+
+## Papelera de mediciones (2026-10-18)
+
+UI paginada, confirmaciones y restauración del mismo UUID con último peso
+derivado. Animales archivados conservan consulta sin escritura. Chrome/Edge
+9/9 por motor y reapertura; WEIGHT_HISTORY.md. 171 Node y 702 estáticas.

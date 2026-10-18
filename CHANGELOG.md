@@ -1,5 +1,12 @@
 # Historial de cambios
 
+## Papelera y restauración de mediciones — 2026-10-18
+
+- Historial paginado de pesos, edición y vista de papelera con confirmación
+  concreta, restauración del mismo UUID y último peso derivado.
+- Archivo del animal conserva lectura y deshabilita escrituras.
+- Chrome/Edge 9/9 por motor y reapertura; 171 Node y 702 estáticas correctas.
+  Ver WEIGHT_HISTORY.md. Servicios y formatos persistidos sin cambios.
 ## Filtros combinados de animales — 2026-10-18
 
 - Selección múltiple OR/AND de los criterios requeridos, periodos de última

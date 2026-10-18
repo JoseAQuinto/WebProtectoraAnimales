@@ -71,7 +71,7 @@ en Chrome y Edge. Ver UI_ACCEPTANCE, WORKFLOWS_UI_ACCEPTANCE y
 HEALTH_UI_ACCEPTANCE, además de recuperación/cierres en RECOVERY_EVIDENCE.
 Finanzas: **12/12 por motor** en Chrome y Edge, con importes/anulación/
 corrección, revisión antigua y cierre/reapertura; ver FINANCE_UI_ACCEPTANCE.
-Última estática del bloque completo: **697 comprobaciones correctas**.
+Última estática del bloque completo: **702 comprobaciones correctas**.
 Las primeras rondas fallidas
 por entorno o ejecutor se conservan sin contarlas como aceptación.
 
@@ -104,6 +104,7 @@ Configuración/catálogos/logotipo: 13/13 por motor en CONFIGURATION.md.
 Exportaciones por módulo: 10/10 por motor en MODULE_EXPORTS.md.
 Contactos CSV: 13/13 por motor, incluido lote de 1.001, en CONTACT_IMPORT.md.
 Filtros combinados de animales: 10/10 por motor en ANIMAL_FILTERS.md.
+Mediciones/papelera/restauración: 9/9 por motor en WEIGHT_HISTORY.md.
 Los siguientes pendientes concretos son
 correcciones coordinadas de hechos, extensión de importación a los otros CSV/JSON y demo
 según el prompt completo. No volver a
