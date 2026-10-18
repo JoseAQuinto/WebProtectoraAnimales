@@ -146,5 +146,5 @@
     return [el('header', { class: 'page-heading' }, el('div', {}, el('h1', {}, t('nav.finance')), el('p', { class: 'muted' }, t('f.help'))), create),
       !writable(ctx) ? el('p', { class: 'notice' }, t('ui.readOnly')) : null, el('section', { class: 'card stack' }, filters, results)];
   }
-  root.modules.finance = Object.freeze({ render });
+  root.modules.finance = Object.freeze({ render, detail });
 }(window.RescueManager));

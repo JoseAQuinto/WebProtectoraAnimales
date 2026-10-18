@@ -5,14 +5,14 @@
   const number=value=>new Intl.NumberFormat(root.core.i18n.language).format(value);
   const view={from:null,to:null};
   function svg(tag,attributes,...children){const node=document.createElementNS(SVG_NS,tag);for(const[key,value]of Object.entries(attributes))node.setAttribute(key,String(value));children.flat().forEach(child=>{if(child!=null)node.append(child instanceof Node?child:document.createTextNode(String(child)));});return node;}
-  function graph(rows,series,format){
+  function graph(rows,series,format,helpKey='rp.chartHelp'){
     const shown=rows.slice(-12),max=Math.max(1,...shown.flatMap(row=>series.map(item=>row[item.key]))),width=720,height=200,slot=width/Math.max(1,shown.length),barWidth=Math.min(20,slot/(series.length+1));
     if(!shown.some(row=>series.some(item=>row[item.key]>0)))return el('p',{class:'muted'},t('rp.empty'));
     const chart=svg('svg',{viewBox:'0 0 '+width+' '+height,'aria-hidden':'true',class:'report-chart'});
     shown.forEach((row,index)=>{series.forEach((item,column)=>{const value=row[item.key],barHeight=value/max*150,x=index*slot+slot/2+(column-series.length/2)*barWidth;
       chart.append(svg('rect',{x,y:172-barHeight,width:barWidth-2,height:barHeight,fill:item.color},svg('title',{},row.month+' · '+t(item.label)+': '+format(value))));});
       chart.append(svg('text',{x:index*slot+slot/2,y:192,'text-anchor':'middle','font-size':10,fill:'#172f32'},row.month));});
-    return el('div',{},el('div',{class:'actions'},series.map(item=>el('span',{class:'badge'},svg('svg',{viewBox:'0 0 12 12',width:12,height:12,'aria-hidden':'true'},svg('rect',{x:0,y:0,width:12,height:12,fill:item.color})),' ',t(item.label)))),chart,el('p',{class:'muted'},t('rp.chartHelp')));
+    return el('div',{},el('div',{class:'actions'},series.map(item=>el('span',{class:'badge'},svg('svg',{viewBox:'0 0 12 12',width:12,height:12,'aria-hidden':'true'},svg('rect',{x:0,y:0,width:12,height:12,fill:item.color})),' ',t(item.label)))),chart,el('p',{class:'muted'},t(helpKey)));
   }
   function render(ctx){
     const org=ctx.snapshot.tables.organizationSettings[0],today=root.utils.dates.today(org.timeZone),currency=org.currencyCode,money=value=>root.utils.money.format(value,currency,{locale:root.core.i18n.language});
@@ -67,5 +67,5 @@
     const json=ui.button(t('rp.json'),()=>{if(!exportData){errors.focus();return;}ui.download(new Blob([JSON.stringify(exportData,null,2)],{type:'application/json'}),'report-'+view.from+'-'+view.to+'.json');},true);
     paint();return[el('header',{class:'page-heading'},el('div',{},el('h1',{},t('nav.reports')),el('p',{class:'muted'},t('rp.help')))),el('section',{class:'card stack'},el('div',{class:'people-filters'},label('from',from),label('to',to)),errors,el('div',{class:'actions'},json,ui.button(t('ui.print'),()=>window.print(),true)),el('p',{class:'muted'},t('rp.exportHelp'))),results];
   }
-  root.modules.reports=Object.freeze({render});
+  root.modules.reports=Object.freeze({render,chart:graph});
 }(window.RescueManager));

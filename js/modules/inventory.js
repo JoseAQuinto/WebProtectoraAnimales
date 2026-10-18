@@ -181,5 +181,5 @@
     return [el('header', { class: 'page-heading' }, el('div', {}, el('h1', {}, t('nav.inventory')), el('p', { class: 'muted' }, t('iv.help'))), create),
       el('section', { class: 'card stack' }, filters, results)];
   }
-  root.modules.inventory = Object.freeze({ render });
+  root.modules.inventory = Object.freeze({ render, detail });
 }(window.RescueManager));

@@ -1,118 +1,137 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint: **2026-10-18**, aplicación **0.2.0-dev**.
-Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
+Checkpoint: **2026-10-18**, rama **main**, app **0.2.0-dev**.
+DB **2**, schema **1**, backup **1**. Repositorio:
+https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 
-El desarrollo continúa desde `c44831b`, obtenido del remoto antes de editar.
-Se han añadido servicios de medios/documentos/pesos, interfaz de animales y
-personas y recuperación visible. El producto sigue incompleto. El estado y
-las decisiones necesarios para continuar están en Git; este chat no es necesario.
+Se revisó el commit local de otra IA `18e79a9` y todos sus cambios pendientes.
+Se conservaron donaciones/inventario y se corrigieron/completaron informes en
+`21f9f56`. Después se publicaron bloques separados: buscador/historial,
+registro global de adopciones, configuración/catálogos/logotipo, exportaciones,
+importación CSV de contactos, filtros de animales, mediciones y panel operativo.
+Consultar `git log -12 --oneline` para el commit final de este checkpoint.
+**Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
-## Primeros pasos
+## Inicio
 
 ```powershell
 git clone https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 cd WebProtectoraAnimales
 git status
+git log -12 --oneline
 ```
 
-Checkout existente limpio: `git pull --ff-only`. Si hay cambios locales,
-revisarlos y conservarlos; no resetear ni sobrescribir trabajo ajeno.
+En un checkout limpio, `git pull --ff-only`. Si hay cambios locales, revisarlos
+y conservarlos; no resetear ni sobrescribir avances válidos. No modificar `.env`,
+secretos ni credenciales. Commits/push autorizados en la rama actual, sin force.
 
-Leer en orden:
+Leer `AGENTS.md`, `docs/PROJECT_STATUS.md` y `docs/REQUIREMENTS.es.md` completos.
+El alcance original permanece íntegro. Mantener las restricciones file://,
+vanilla/IIFE/scripts defer, recursos locales, sin servidor/CDN/fetch local ni
+LocalStorage. UI de negocio usa servicios; IndexedDB es la única verdad.
+Escrituras con lease/dataset/revisión/idempotencia y éxito solo tras completar.
 
-1. `AGENTS.md`: restricciones. Guardar/documentar/commit/push con **menos del
-   10 % restante de 5 horas**; se conserva el límite semanal del 3 % restante.
-   No consumir un reinicio de cuota sin petición expresa.
-2. `docs/PROJECT_STATUS.md`: funciones actuales, pruebas, límites y próximos pasos.
-3. `docs/REQUIREMENTS.es.md` completo: prompt original sin recortes.
-4. `docs/REVIEW_HANDOFF.md`: R1–R4 corregidos y riesgos conservados.
-5. `docs/ENVIRONMENT_TESTS.md`, `docs/RECOVERY_EVIDENCE.md` y últimos JSON de QA.
-6. APIs del área: DOCUMENTS, CONTACTS, LIFECYCLE, VOLUNTEERS, HEALTH, RESOURCES
-   y DONATIONS_INVENTORY_UI; además REPORTS_API y SEARCH_HISTORY.
+Guardar/documentar/commit/push cuando quede **menos del 10 % de 5 horas**, o
+**3 % o menos semanal**. No consumir créditos de reinicio. Esta sesión prepara
+el relevo tras leer 91 % consumido en cinco horas (9 % restante) y 14 % semanal
+consumido. El desarrollo se detiene por ese umbral; no se ha usado reinicio.
 
-## Qué puede abrirse ahora
+## Estado funcional y evidencia vigente
 
-Abrir `index.html` directamente por **file://**. Crear una organización de
-prueba o restaurar una copia. Hay resumen/configuración/ayuda/copias; agenda
-con duplicados y fusión; perfiles de acogida y voluntariado/horas; animales
-con ficha, altas, pesos, fotografías, traslados y salidas; documentos incorporados
-/externos y vínculos; recuperación de conjuntos retirados.
+Abrir `index.html` directamente. Crear organización sintética o restaurar copia.
+Los servicios, formularios y transiciones anteriores siguen disponibles.
 
-Las secciones sanitarias, acogidas y adopción permiten sus acciones reales:
-asignar/finalizar estancias, revisar/reservar/adoptar/devolver, planes, actos
-realizados y tareas/calendario centrales. Finanzas tiene interfaz de movimientos,
-anulación y corrección; revisar FINANCE_UI_ACCEPTANCE antes de extenderla.
-Donaciones/Inventario e Informes tienen aceptación 12/12 por motor; ver
-REVIEW_RESOURCES_REPORTS.md. Buscador global e historial por origen: 10/10 por
-motor en SEARCH_HISTORY.md. Los informes exportan sus tablas en CSV y JSON.
-Consultar PROJECT_STATUS y los documentos de aceptación para el resto del alcance.
+| Área | Documento | Aceptación Chrome/Edge |
+|---|---|---|
+| Personas, animales, medios y documentos | UI_ACCEPTANCE.md | 13 + 5 dirigidas por motor |
+| Acogida/adopción coordinada | WORKFLOWS_UI_ACCEPTANCE.md | 16 por motor, cadena documentada |
+| Salud, planes, tareas y calendario | HEALTH_UI_ACCEPTANCE.md | 12/12 por motor |
+| Finanzas, anulación y sustitutos | FINANCE_UI_ACCEPTANCE.md | 12/12 por motor |
+| Donaciones, inventario e informes | REVIEW_RESOURCES_REPORTS.md | 12/12 por motor |
+| Buscador y origen del historial | SEARCH_HISTORY.md | 10/10 por motor |
+| Registro global solicitudes/reservas/adopciones | ADOPTION_REGISTER.md | 10/10 por motor |
+| Configuración, catálogos, ubicaciones, logo, copias | CONFIGURATION.md | 13/13 por motor |
+| Exportaciones CSV/JSON de los 9 tipos obligatorios | MODULE_EXPORTS.md | 10/10 por motor |
+| Asistente CSV **de contactos** y lotes grandes | CONTACT_IMPORT.md | 13/13 por motor |
+| Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
+| Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
+| Panel, 17 tarjetas/listas y tres gráficos | DASHBOARD.md | 10/10 por motor |
 
-No cambiar a servidor/framework/CDN/módulos ES/LocalStorage. Sin botones de
-éxito simulado ni datos ficticios permanentes. **Usar solo datos sintéticos.**
-Las escrituras pasan por servicios/contexto, nunca IndexedDB desde módulos UI.
-Documentos precede a fotografías en el orden de scripts. Traducciones solo en
-locales/en.js y locales/es.js; ya no hay fragmentos suplementarios.
+No volver a presentar estos recorridos como pendientes ni afirmar fases completas.
+Los JSON están en `tests/results`; los intentos fallidos se conservan y explican.
+Último bloque: **90 fuentes cargadas intactas**, dos cierres propios por motor,
+revisión/recuentos/digest de tablas y hashes reales de Blob conservados al reabrir.
+Sin errores de página/consola ni HTTP de la página. Anchos emulados no son hardware.
 
-## Comprobaciones
+Verificación conjunta final: **175 pruebas Node, 712 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
-node --test --test-reporter=dot tests/unit/*.cjs
+node --test --test-reporter=spec tests/unit/*.cjs
 git diff --check
 ```
 
-Última ronda conjunta: **171 subpruebas Node correctas**. La estática se
-registra con su recuento por checkpoint en PROJECT_STATUS.
-Pruebas reales adicionales: perfiles 9+6 y medios 10+6 en Chrome/Edge.
-Pantallas iniciales 13/13 más visual dirigida 5/5 por motor. Ciclo de acogida/
-adopción 16 comprobaciones por motor acreditadas en cadena; salud/tareas 12/12
-en Chrome y Edge. Ver UI_ACCEPTANCE, WORKFLOWS_UI_ACCEPTANCE y
-HEALTH_UI_ACCEPTANCE, además de recuperación/cierres en RECOVERY_EVIDENCE.
-Finanzas: **12/12 por motor** en Chrome y Edge, con importes/anulación/
-corrección, revisión antigua y cierre/reapertura; ver FINANCE_UI_ACCEPTANCE.
-Última estática del bloque completo: **702 comprobaciones correctas**.
-Las primeras rondas fallidas
-por entorno o ejecutor se conservan sin contarlas como aceptación.
-
-Ejecutores portables:
+Ejecutores nuevos, todos con `--browser`, `--output`, `--machine` y `--executable`
+opcional; no sobrescriben evidencia y cierran solo sus procesos/perfiles:
 
 ```powershell
-node tests/e2e/suite.cjs --browser chrome --page tests/integration/media.html --output media-NUEVA-RONDA.json
-node tests/e2e/suite.cjs --browser chrome --page tests/integration/profiles.html --output profiles-NUEVA-RONDA.json
-node tests/e2e/workspace-ui.cjs --browser chrome --machine MI-EQUIPO --output workspace-ui-NUEVA-RONDA.json
+node tests/e2e/dashboard-ui.cjs --browser chrome --machine MI-EQUIPO --output dashboard-NUEVA-RONDA.json
+node tests/e2e/contact-import-ui.cjs --browser chrome --machine MI-EQUIPO --output contact-import-NUEVA-RONDA.json
 ```
 
-Para Edge u otras rutas usar `--executable` según ENVIRONMENT_TESTS. Las rutas
-privadas son opciones de desarrollo, no dependencias de la aplicación.
-Firefox actual queda pendiente por decisión previa: no descargar instalador
-sin nueva indicación. Las ventanas estrechas no acreditan dispositivos reales.
+Otros: `resources-reports-ui`, `search-history-ui`, `adoption-register-ui`,
+`settings-configuration-ui`, `module-exports-ui`, `animal-filters-ui`,
+`weights-history-ui` (todos `.cjs`). Ver ENVIRONMENT_TESTS.md para runtime y rutas.
+Firefox actual sigue aplazado por decisión previa; no descargar instalador sin
+nueva indicación. No instalar herramientas dentro del producto comercial.
 
-Node/Python/Playwright y perfiles de QA no se distribuyen. `.tmp`, `.tools` y
-node_modules se ignoran. No reescribir texto con Get-Content/Set-Content de
-Windows PowerShell 5.1; conservar UTF-8 sin BOM.
+## Siguiente acción concreta
 
-## Guardar el siguiente relevo
+1. Extender fase 10 desde CONTACT_IMPORT.md. **Contactos CSV ya está completo y
+   probado en su alcance**, incluido mapeo, duplicados explícitos, campos sin
+   mapear, actualizaciones parciales, identidades externas y 1.001 contactos
+   mediante dataset separado. Faltan CSV de animales, solicitudes, movimientos,
+   perfiles voluntarios y donaciones, además de JSON v1 de módulos. Añadir
+   interpretación explícita de fechas/importes, conflicto microchip/código,
+   asociación por IDs/códigos y agrupación de líneas materiales. No resolver
+   relaciones solo por nombre ni duplicar efectos al reconstruir datos.
+2. Reutilizar `import-parser.js`; el planificador `contact-import.js` es específico
+   de contactos. Extraer responsabilidades comunes con pruebas si se generaliza;
+   no copiar sus reglas a finanzas/stock como si fueran simples fichas. Planes
+   privados, revisión revalidada, subconjuntos expresos y activación atómica.
+   JSON de módulo no contiene bytes y no es backup; comprobar referencias/archivos
+   ausentes. Mantener los límites de esquema/formato y todo el alcance original.
+3. Comandos coordinados de corrección de hechos e historial. La consulta ya
+   distingue versiones y abre orígenes; **no existe aún UI de corrección general**.
+4. Demostración opcional completa y retirada segura, solo sin negocio real;
+   detectar dependencias reales y permitir conversión. Retención/limpieza
+   explícita de staging retirado y recursos sin uso, sin borrado automático.
+5. Guías EN/ES, impresión paginada final, accesibilidad, volumen/cuota real,
+   plataformas físicas, revisión legal/licencias y ZIP comercial. No publicar Etsy.
 
-Cerrar solo navegadores/perfiles de prueba propios, actualizar estado/pruebas/
-pendientes y CHANGELOG, revisar diff/secretos/archivos temporales, commit y push
-sin force y verificar remoto y árbol limpio. No afirmar que una prueba pasó
-si solo se preparó o si falló el cierre del ejecutor.
+## Riesgos conservados
 
-El registro global ya tiene aceptación 10/10 por motor (ADOPTION_REGISTER.md).
-Configuración/catálogos/logotipo: 13/13 por motor en CONFIGURATION.md.
-Exportaciones por módulo: 10/10 por motor en MODULE_EXPORTS.md.
-Contactos CSV: 13/13 por motor, incluido lote de 1.001, en CONTACT_IMPORT.md.
-Filtros combinados de animales: 10/10 por motor en ANIMAL_FILTERS.md.
-Mediciones/papelera/restauración: 9/9 por motor en WEIGHT_HISTORY.md.
-Los siguientes pendientes concretos son
-correcciones coordinadas de hechos, extensión de importación a los otros CSV/JSON y demo
-según el prompt completo. No volver a
-implementar desde cero los flujos ya verificados. El rendimiento O(N), cuota
-física real y aceptación de plataformas continúan pendientes antes de datos
-reales.
+Capturas/validación de dataset completo por operación: O(N). La UI no decodifica
+fotos/documentos en el panel; los repositorios aún capturan referencias Blob.
+Hace falta lecturas acotadas/índices/lazy binarios con pruebas reales de memoria.
+Un QuotaExceededError inyectado no acredita agotamiento real. No hay aceptación
+Android/iOS/iPadOS/macOS/Linux ni Firefox actual sobre este runtime.
 
-Git lleva código y documentación. **Los datos del navegador no viajan con Git**:
-trasladarlos exige descargar, volver a seleccionar/verificar y conservar una
-copia externa y restaurarla en el otro equipo. Los archivos externos deben
-trasladarse por separado. No publicar en Etsy; licencia comercial pendiente.
+Los CSV protegen fórmulas y conservan texto en lo que permite el formato; las
+hojas de cálculo pueden transformar tipos/protecciones. JSON conserva tipos.
+Tras recargar puede haber hasta 15 s de lectura por el lease anterior; no se
+confía en escrituras de pagehide. Los conjuntos previos se conservan al activar
+restauraciones/importaciones grandes. Las preparaciones canceladas no se borran
+solas. La licencia comercial sigue pendiente de revisión.
+
+## Guardar o trasladar
+
+Cerrar solo navegadores de QA propios. Actualizar estado/changelog/evidencias,
+revisar diff y temporales, commit/push sin force y comprobar HEAD/remoto y árbol
+limpio. `.tmp`, `.tools`, perfiles/capturas y node_modules se ignoran. Conservar
+UTF-8 sin BOM; no reescribir archivos con Get-Content/Set-Content de PowerShell 5.1.
+
+Git transporta código y documentación, **no los datos del perfil del navegador**.
+Para trasladar una organización: generar, descargar y reseleccionar/verificar
+copia completa; conservarla externamente y restaurar en el otro PC. Los archivos
+registrados como referencias externas se trasladan por separado.

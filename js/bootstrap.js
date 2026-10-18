@@ -85,13 +85,6 @@
       state.pending?summary():null,
       el('section',{class:'card'},el('h2',{},t('ui.lastBackup')),receipts.length?el('ul',{},receipts.slice(0,10).map(row=>el('li',{},row.generatedAt+' · '+t('ui.'+row.state)))):el('p',{class:'muted'},t('ui.noBackups'))),await recovery()];
   }
-  function overview() {
-    const data=state.snapshot.tables,current=data.animals.filter(row=>!row.deletedAt&&row.managementStatus==='under_care');
-    const stats=[['ui.underCare',current.length],['ui.foster',current.filter(row=>row.locationKind==='foster').length],['ui.available',current.filter(row=>row.adoptionAvailability==='available').length],
-      ['ui.contacts',data.contacts.filter(row=>!row.deletedAt&&!row.archivedAt&&!row.mergedIntoContactId).length],['ui.pendingTasks',data.tasks.filter(row=>['pending','in_progress'].includes(row.status)).length],['ui.assets',data.assets.length]];
-    return [heading(t('ui.welcome'),t('ui.overviewHelp')),el('section',{class:'stats'},stats.map(([key,value])=>el('article',{class:'card stat'},el('span',{},t(key)),el('strong',{},new Intl.NumberFormat(root.core.i18n.language).format(value))))),
-      el('section',{class:'card'},el('h2',{},t('ui.nextSteps')),el('p',{class:'muted'},t('ui.nextStepsHelp')),el('a',{class:'button',href:'#backup'},t('ui.createBackup')))];
-  }
   function help() {
     return [heading(t('ui.helpTitle'),''),el('div',{class:'stack help'},['where','copies','privacy','external','limits'].map(key=>el('section',{class:'card'},el('h2',{},t('ui.'+key)),el('p',{},t('ui.'+key+'Text'))))),button(t('ui.print'),()=>window.print(),true)];
   }
@@ -122,10 +115,10 @@
         canWrite:()=>root.services.context.status().canWrite,notify:(text,error)=>{state.message={text,error};},
         afterSave:id=>{if(page==='animals'&&parts[1]!==id)location.hash='animals/'+id;}};
       ctx.documents=entity=>root.modules.documents.render(ctx,entity);
-      root.modules.animals.dispose();root.modules.adoptionRegister.dispose();root.modules.settings.dispose();
+      root.modules.animals.dispose();root.modules.adoptionRegister.dispose();root.modules.settings.dispose();root.modules.dashboard.dispose();
       const children=page==='help'?help():page==='backup'?await backups():!state.snapshot?[
         el('section',{class:'card empty'},el('p',{class:'eyebrow'},t('app.name')),el('h1',{},t('ui.noOrganization')),el('p',{class:'muted'},t('ui.noOrganizationHelp')),
-          el('div',{class:'actions'},button(t('ui.createOrganization'),()=>editOrganization(true)),el('a',{class:'button secondary',href:'#backup'},t('ui.restore'))))]:page==='settings'?root.modules.settings.render(ctx,()=>editOrganization(false)):page==='search'?root.modules.search.render(ctx):page==='animals'?root.modules.animals.render(ctx):page==='adoptions'?root.modules.adoptionRegister.render(ctx):page==='finance'?root.modules.finance.render(ctx):page==='donations'?root.modules.donations.render(ctx):page==='inventory'?root.modules.inventory.render(ctx):page==='reports'?root.modules.reports.render(ctx):page==='exports'?root.modules.exports.render(ctx):page==='imports'?root.modules.imports.render(ctx):page==='tasks'?[heading(t('nav.tasks'),t('q.help')),root.modules.tasks.render(ctx)]:['contacts','fosters','volunteers'].includes(page)?root.modules.people.render(page,ctx):page==='documents'?[heading(t('nav.documents'),t('d.help')),root.modules.documents.render(ctx)]:overview();
+          el('div',{class:'actions'},button(t('ui.createOrganization'),()=>editOrganization(true)),el('a',{class:'button secondary',href:'#backup'},t('ui.restore'))))]:page==='settings'?root.modules.settings.render(ctx,()=>editOrganization(false)):page==='search'?root.modules.search.render(ctx):page==='animals'?root.modules.animals.render(ctx):page==='adoptions'?root.modules.adoptionRegister.render(ctx):page==='finance'?root.modules.finance.render(ctx):page==='donations'?root.modules.donations.render(ctx):page==='inventory'?root.modules.inventory.render(ctx):page==='reports'?root.modules.reports.render(ctx):page==='exports'?root.modules.exports.render(ctx):page==='imports'?root.modules.imports.render(ctx):page==='tasks'?[heading(t('nav.tasks'),t('q.help')),root.modules.tasks.render(ctx)]:['contacts','fosters','volunteers'].includes(page)?root.modules.people.render(page,ctx):page==='documents'?[heading(t('nav.documents'),t('d.help')),root.modules.documents.render(ctx)]:await root.modules.dashboard.render(ctx);
       const reminder=state.snapshot&&page!=='backup'?await root.modules.settings.reminder(ctx):null;
       if(token!==routeToken)return;
       const main=shell(page);

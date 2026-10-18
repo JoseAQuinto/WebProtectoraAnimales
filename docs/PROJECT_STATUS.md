@@ -7,8 +7,9 @@ Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
 ## Fase actual
 
-Desarrollo reanudado desde `c44831b`, incorporado con `git pull --ff-only`
-antes de editar. Se conservan las correcciones R1–R4 y los servicios existentes.
+Desarrollo reanudado el 2026-10-18 desde `18e79a9` y cambios locales de informes
+de otra IA. Se conserva su avance válido y se corrige el bloque en `21f9f56`.
+Se conservan las correcciones R1–R4 y los servicios existentes.
 Ahora hay pantallas operativas de animales, contactos, perfiles/estancias de
 acogida, adopciones, voluntariado, documentos, salud/planes y tareas/calendario,
 finanzas y se añaden donaciones e inventario mediante los servicios existentes.
@@ -87,10 +88,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **171 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **175 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **702 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **712 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -298,3 +299,24 @@ conservados. ANIMAL_FILTERS.md; 171 Node y 697 estáticas correctas.
 UI paginada, confirmaciones y restauración del mismo UUID con último peso
 derivado. Animales archivados conservan consulta sin escritura. Chrome/Edge
 9/9 por motor y reapertura; WEIGHT_HISTORY.md. 171 Node y 702 estáticas.
+
+## Panel operativo y cierre de sesión (2026-10-18)
+
+Panel ampliado con 17 indicadores/listas coincidentes, alertas con origen real,
+estado de copias y tres gráficos/tablas. Chrome/Edge 10/10 por motor, una tarea
+completada desde su alerta y bytes/reapertura conservados; DASHBOARD.md.
+Verificación final conjunta: 175 pruebas Node, 712 estáticas y git diff --check.
+Se conserva todo el avance válido de la otra IA, incluido 18e79a9; las
+correcciones y funciones se guardan en commits separados sobre main, sin force.
+
+Se prepara el relevo al aproximarse al umbral vigente de menos del 10 % de la
+ventana de cinco horas. No se ha consumido ningún reinicio de cuota. No quedan
+formularios ni cambios de negocio a medio implementar en este checkpoint;
+los tipos de importación que faltan y el resto del alcance se enumeran en
+CONTINUE_HERE.md. El producto sigue incompleto y solo admite pruebas sintéticas.
+## Corte de uso confirmado
+
+Última lectura al cerrar el 2026-10-18: 91 % consumido en la ventana de cinco
+horas (9 % restante) y 14 % semanal consumido. Se detiene el desarrollo por el
+umbral vigente, se publican los bloques probados y se deja el siguiente trabajo
+en CONTINUE_HERE.md. No se ha usado un crédito de reinicio ni modificado secretos.

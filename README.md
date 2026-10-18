@@ -4,7 +4,7 @@ Aplicación de gestión offline para protectoras. **Proyecto en desarrollo; no e
 
 ## Estado actual
 
-**Checkpoint de continuidad revisado el 2026-10-16.** Para que otra IA retome
+**Checkpoint de continuidad revisado el 2026-10-18.** Para que otra IA retome
 el trabajo desde otro PC, empezar por [CONTINUE_HERE.md](docs/CONTINUE_HERE.md).
 
 El núcleo ya incorpora esquemas, validación relacional, persistencia coordinada,
@@ -15,10 +15,14 @@ adopciones tienen sus transiciones reales; salud/planes y tareas/calendario
 comparten registros. Finanzas permite ingresos/gastos, anulaciones y sustitutos
 enlazados; donaciones e inventario conectan sus operaciones a los movimientos
 económicos y de existencias. Incluye copias verificadas y recuperación local
-visible. **Faltan informes, importación/exportación, demo y aceptación integral.
-Utiliza solo datos de prueba.**
+visible. Incluye panel operativo, informes, buscador global, filtros combinados,
+exportaciones CSV/JSON por módulo y asistente CSV de contactos con lotes grandes
+atómicos. **Faltan los otros tipos de importación CSV/JSON, correcciones de
+hechos, demo y aceptación integral. Utiliza solo datos de prueba.**
 
-La viabilidad y el núcleo se han probado en Chrome, Edge y Firefox estables.
+La evidencia inicial de viabilidad incluye Chrome, Edge y Firefox. Los últimos
+recorridos funcionales están acreditados en Chrome y Edge de Windows; no se
+extiende esa aceptación a Firefox actual ni a dispositivos físicos.
 El desarrollo queda preparado para relevo; el estado vigente y la siguiente
 acción se conservan en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
@@ -38,8 +42,10 @@ sigue disponible en `tests/viability/index.html`, solo para desarrollo.
 
 Los datos de prueba residen en el perfil del navegador, no junto al HTML.
 Copiar la carpeta o clonar este repositorio no traslada el almacenamiento del
-navegador. La copia completa y su restauración ya existen; su aceptación final
-y los módulos de gestión siguen pendientes. Utilizar datos sintéticos.
+navegador. Para trasladar la organización, genera una copia completa, descarga
+y vuelve a seleccionar/verificar el archivo; restaura en el otro equipo. Las
+referencias a archivos externos requieren trasladar sus originales por separado.
+La aceptación comercial integral sigue pendiente. Utilizar datos sintéticos.
 
 ## Desarrollo y continuidad
 

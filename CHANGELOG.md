@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Panel operativo y continuidad — 2026-10-18
+
+- 17 indicadores con listas coincidentes: cuidado/ubicación/disponibilidad,
+  hechos mensuales, tareas clínicas/vencidas/próximas, dinero válido y mínimos.
+- Alertas abren sus registros reales; completar una tarea recalcula el panel.
+  Estado de copias diferenciado y tres gráficos locales con tablas exactas.
+- Chrome/Edge 10/10 por motor; 175 Node y 712 estáticas correctas. Se actualiza
+  el relevo con lo ya acreditado y el alcance pendiente; ver DASHBOARD.md.
+
 ## Papelera y restauración de mediciones — 2026-10-18
 
 - Historial paginado de pesos, edición y vista de papelera con confirmación
