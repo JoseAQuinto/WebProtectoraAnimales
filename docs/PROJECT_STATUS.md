@@ -5,6 +5,16 @@ Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
+## Cierre vigente y siguiente relevo
+
+Corte actual: **91 % de cinco horas consumido, 9 % restante; 29 % semanal
+consumido, 71 % restante**. Se detiene desarrollo conforme al umbral del usuario.
+Sin consumo de créditos de reinicio. Últimos bloques publicados: c97fd8c
+(demo/retirada) y 0415754 (guía interna EN/ES). 229 Node / 807 estáticas;
+Chrome/Edge demo 15/15 y guía dirigida 4/4 por motor. Siguiente desarrollo:
+correcciones coordinadas de hechos históricos, descritas en CONTINUE_HERE.md.
+Los apartados históricos conservan sus cifras y pendientes de aquel momento.
+
 ## Fase actual
 
 Desarrollo reanudado el 2026-10-18 desde `18e79a9` y cambios locales de informes

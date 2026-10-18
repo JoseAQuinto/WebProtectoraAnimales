@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Relevo por umbral de cuota — 2026-10-18
+
+- Desarrollo cerrado al quedar 9 % en cinco horas (71 % semanal restante),
+  sin utilizar créditos de reinicio. Continuidad consolidada con funciones
+  acreditadas, límites y siguiente corrección histórica concreta.
+- Guía/demostración e importaciones guardadas; 229 Node / 807 estáticas.
+
+
 ## Guía interna bilingüe e inicio rápido — 2026-10-18
 
 - Ayuda offline con 19 capítulos, índice con foco, datos locales destacados,

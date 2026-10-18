@@ -19,8 +19,10 @@ originales permanecen íntegros. El trabajo local de DeepSeek se revisó y conse
 
 Regla de continuidad: cuando quede **menos del 10 % de la ventana de 5 horas**
 o **3 % o menos semanal**, cerrar desarrollo, documentar, commit y push.
-No consumir créditos de reinicio sin indicación expresa. El corte anterior al
-reinicio ordinario de cuota es histórico; no usar sus porcentajes como actuales.
+No consumir créditos de reinicio sin indicación expresa. Lectura final de esta sesión: **91 % consumido en cinco horas (9 % restante)**
+y **29 % semanal consumido (71 % restante)**. Desarrollo cerrado por el umbral
+de cinco horas. No se ha consumido ningún crédito de reinicio. Los cortes
+anteriores conservados en PROJECT_STATUS.md son históricos.
 
 ## Bloques recientes ya publicados
 
@@ -30,7 +32,8 @@ reinicio ordinario de cuota es histórico; no usar sus porcentajes como actuales
 - 4ce3339: CSV de donaciones agrupadas con ingresos/existencias únicos.
 - c041b9b: JSON por módulos, relaciones y archivos sin repetir efectos.
 - c97fd8c: demo opcional EN/ES y retirada/conversión que protege trabajo real.
-- Consultar git log para la guía interna EN/ES y el último relevo documental.
+- 0415754: guía interna EN/ES, inicio rápido y traslado/actualización seguros.
+- Consultar git log para el último relevo documental.
 
 ## Estado funcional y evidencia
 
@@ -87,10 +90,14 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
 1. Implementar correcciones coordinadas de hechos históricos. La consulta ya
    distingue versiones y abre su origen, pero no existe aún comando/UI general.
    Leer SEARCH_HISTORY.md, BUSINESS_RULES.md, LIFECYCLE_API.md y los campos
-   correctsEventId/supersededBy/voidReason del esquema/validador. Diseñar una
+   correctsEventId/supersededByEventId/voidReason del esquema/validador. Diseñar una
    corrección acotada de extremo a extremo con motivo, fuente y evento sustituto,
    revalidando episodio/acogida/adopción/tareas y sin repetir dinero ni stock.
    Las correcciones económicas enlazadas y compensaciones de inventario existen.
+   Candidato acotado: corregir fecha de entrada de stayEpisodes; si entryType
+   es return, coordinar adoptions.returnDate. Antes de implementar, comprobar
+   todos los límites de fechas/relaciones. No limitarse a editar eventDate: el
+   origen también debe quedar coherente y el evento anterior conservarse.
 2. Retención/limpieza explícita de staging/retirados y recursos sin uso, con copia
    verificada, revisión, dependencias y cancelación. No borrar automáticamente ni
    confundir retirada de demo con borrado general. Decidir borrado definitivo de
