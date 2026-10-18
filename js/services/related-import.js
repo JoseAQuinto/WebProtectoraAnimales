@@ -26,21 +26,24 @@
         if(result.action==='create'&&exact)throw Object.assign(new Error('Existing UUID'),{issues:[{field:'id',code:'import.existingUUID'}]});
         if(result.action!=='create'&&!ws.get(def.table,result.targetId))throw Object.assign(new Error('Missing target'),{issues:[{field:'id',code:'import.target'}]});
         if(result.action==='update'&&(!ws.originals.has(def.table+'/'+result.targetId)||touched.has(result.targetId)))throw Object.assign(new Error('Repeated update'),{issues:[{field:'id',code:'import.repeatedUpdate'}]});
-        const transaction=ws.row(def.table,value.id||ids.get(source.line));let target=result.targetId;
+        const originalTarget=result.targetId,transaction=ws.row(def.table,kind==='movements'&&result.action==='update'?ids.get(source.line):value.id||ids.get(source.line));let target=result.targetId,mapId=identity?.id;
         if(result.action!=='link')target=adapter.build(kind,value,transaction,result.action,target);
         if(options.remember&&value.externalId){
-          if(identity&&identity.entityId!==target)throw Object.assign(new Error('Identity rebound'),{issues:[{field:'external_id',code:'import.identityConflict'}]});
-          if(!identity)transaction.stage([transaction.h.insert('importIdentityMap',transaction.h.create('importIdentityMap',{source:options.source,entityType:def.entity,externalId:value.externalId,entityId:target}))]);
+          if(identity&&identity.entityId!==target){
+            if(kind==='movements'&&result.action==='update'&&identity.entityId===originalTarget)transaction.stage([transaction.h.replace('importIdentityMap',transaction.h.edit('importIdentityMap',identity,{entityId:target}))]);
+            else throw Object.assign(new Error('Identity rebound'),{issues:[{field:'external_id',code:'import.identityConflict'}]});
+          }
+          if(!identity){const map=transaction.h.create('importIdentityMap',{source:options.source,entityType:def.entity,externalId:value.externalId,entityId:target});mapId=map.id;transaction.stage([transaction.h.insert('importIdentityMap',map)]);}
         }
-        transaction.commit();if(options.remember&&value.externalId&&!identity)identityIndex.set(key,ws.tables.importIdentityMap[ws.tables.importIdentityMap.length-1]);
-        if(result.action!=='link')touched.add(target);result.targetId=target;result.name=adapter.label(kind,ws.get(def.table,target),ws.tables);counts[result.action]++;
+        transaction.commit();if(options.remember&&value.externalId)identityIndex.set(key,ws.get('importIdentityMap',mapId));
+        if(result.action!=='link')touched.add(target);result.resultId=target;result.targetId=kind==='movements'&&result.action==='update'?originalTarget:target;result.name=adapter.label(kind,ws.get(def.table,target),ws.tables);counts[result.action]++;
       }catch(problem){result.action='error';counts.error++;result.errors=problem.issues||problem.details?.map(issue=>({field:issue.path||'',code:issue.code}))||[{field:'',code:'import.invalidRow'}];}
       rows.push(result);
     }
     if(options.signal?.aborted)error('AbortError','Import preview cancelled');
     if(ws.changes.size){const transaction=ws.row(null,null),log=transaction.h.create('activityLog',{operation:'import',occurredAt:ws.now,operationId,target:null,summaryParameters:{code:fileCode,count:counts.create+counts.update+counts.link}});transaction.stage([transaction.h.insert('activityLog',log)]);transaction.commit();}
     const globalErrors=parsed.errors.concat(root.domain.validateDataset(ws.tables,{datasetId:snapshot.datasetId,today:ws.today}).map(issue=>({field:issue.table+'.'+issue.path,code:issue.code})));
-    return root.services.importBatches.register({module:kind,rows,counts,unknown,unknownColumns:parsed.headers.filter((_,index)=>!mapping[index]),globalErrors,revision:snapshot.globalRevision,records:ws.changes.size,staged:ws.changes.size>1000,sha256:parsed.sha256,repeatedFile:snapshot.tables.activityLog.some(row=>row.operation==='import'&&row.summaryParameters.code===fileCode)},
+    return root.services.importBatches.register({module:kind,rows,counts,requiresCorrections:kind==='movements'&&counts.update>0,unknown,unknownColumns:parsed.headers.filter((_,index)=>!mapping[index]),globalErrors,revision:snapshot.globalRevision,records:ws.changes.size,staged:ws.changes.size>1000,sha256:parsed.sha256,repeatedFile:snapshot.tables.activityLog.some(row=>row.operation==='import'&&row.summaryParameters.code===fileCode)},
       {snapshot,tables:ws.tables,changes:[...ws.changes.values()],operationId,batchId:options.batchId,source:options.source||''});
   }
   root.services.relatedImport=Object.freeze({preview,apply:(report,confirmation)=>root.services.importBatches.apply(report,confirmation)});

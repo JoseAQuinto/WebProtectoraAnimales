@@ -88,10 +88,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **194 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **202 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **742 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **747 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -342,3 +342,10 @@ y reapertura; RELATED_IMPORT.md. 194 Node y 742 estáticas correctas.
 Siguiente: CSV de movimientos y donaciones con agrupación material; JSON v1.
 Los CSV de contactos, animales, perfiles y solicitudes ya tienen aceptación
 en su alcance documentado; no se declara fase 10 ni producto terminados.
+
+## CSV de movimientos económicos (2026-10-18)
+
+Altas independientes exactas y correcciones enlazadas con consentimiento,
+conservación del original, backlinks e identidades. Chrome/Edge 16/16 por motor,
+501 movimientos mediante staging, bytes y reapertura. FINANCE_IMPORT.md.
+202 Node / 747 estáticas correctas. Siguiente: donaciones CSV agrupadas y JSON.

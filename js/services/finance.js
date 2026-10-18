@@ -25,11 +25,12 @@
     return h.create('financialMovements', { ...input, currencyCode: organization.currencyCode,
       ...(source ? { source: source.source, originKey: source.originKey } : {}) });
   }
-  function create(input, command) {
-    return root.services.context.execute('finance.create', input, (data, h) => {
+  function buildCreate(data, h, input) {
       const record = buildMovement(data, h, input);
       return { changes: [h.insert('financialMovements', record), log(h, 'create', record.id)], result: { id: record.id } };
-    }, command);
+  }
+  function create(input, command) {
+    return root.services.context.execute('finance.create', input, (data, h) => buildCreate(data, h, input), command);
   }
   function voidMovement(id, input, command) {
     return root.services.context.execute('finance.void', { id, input }, (data, h) => {
@@ -45,8 +46,7 @@
       return { changes, result: { id } };
     }, command);
   }
-  function correct(id, input, correction, command) {
-    return root.services.context.execute('finance.correct', { id, input, correction }, (data, h) => {
+  function buildCorrection(data, h, id, input, correction) {
       inputOnly(input, fields.filter(field => field !== 'direction'), h);
       inputOnly(correction, ['reason', 'date'], h);
       const previous = h.find('financialMovements', id);
@@ -68,7 +68,9 @@
       }
       changes.push(log(h, 'correct', id, correction.reason));
       return { changes, result: { id: replacement.id, correctsMovementId: id } };
-    }, command);
+  }
+  function correct(id, input, correction, command) {
+    return root.services.context.execute('finance.correct', { id, input, correction }, (data, h) => buildCorrection(data, h, id, input, correction), command);
   }
   function totals(records, options = {}) {
     const sums = { income: 0n, expense: 0n };
@@ -82,4 +84,5 @@
     return { incomeMinor: Number(sums.income), expenseMinor: Number(sums.expense), balanceMinor: Number(sums.income - sums.expense) };
   }
   root.services.finance = Object.freeze({ create, void: voidMovement, correct, totals, buildMovement });
+  root.services.financeCommands = Object.freeze({ create: buildCreate, correct: buildCorrection });
 }());

@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## CSV económico con correcciones enlazadas — 2026-10-18
+
+- Importes exactos con interpretación decimal/moneda y relaciones explícitas.
+- Actualizar anula original y crea sustituto coordinado con backlinks existentes,
+  motivo/fecha/consentimiento propios e identidad externa conservada.
+- Chrome/Edge 16/16 por motor, 501 movimientos por UI con staging y bytes;
+  202 Node / 747 estáticas. FINANCE_IMPORT.md; donaciones CSV/JSON pendientes.
+
 ## CSV de voluntariado y solicitudes — 2026-10-18
 
 - Perfiles relacionados con contactos y funciones por UUID/código; solicitudes

@@ -56,6 +56,7 @@ Los servicios, formularios y transiciones anteriores siguen disponibles.
 | Asistente CSV **de contactos** y lotes grandes | CONTACT_IMPORT.md | 13/13 por motor |
 | Asistente CSV de animales/entradas | ANIMAL_IMPORT.md | 15/15 por motor |
 | CSV de perfiles voluntarios y solicitudes | RELATED_IMPORT.md | 16/16 por motor |
+| CSV económico/correcciones enlazadas | FINANCE_IMPORT.md | 16/16 por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
 | Panel, 17 tarjetas/listas y tres gráficos | DASHBOARD.md | 10/10 por motor |
@@ -66,7 +67,7 @@ Los JSON están en `tests/results`; los intentos fallidos se conservan y explica
 revisión/recuentos/digest de tablas y hashes reales de Blob conservados al reabrir.
 Sin errores de página/consola ni HTTP de la página. Anchos emulados no son hardware.
 
-Verificación conjunta final: **194 pruebas Node, 742 estáticas**, diff sin errores:
+Verificación conjunta final: **202 pruebas Node, 747 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -94,7 +95,8 @@ nueva indicación. No instalar herramientas dentro del producto comercial.
    probado en su alcance**, incluido mapeo, duplicados explícitos, campos sin
    mapear, actualizaciones parciales, identidades externas y 1.001 contactos
    mediante dataset separado. Animales CSV ya tiene entradas/fichas y aceptación propia. Perfiles voluntarios/solicitudes ya tienen aceptación en RELATED_IMPORT.md.
-   Faltan movimientos y donaciones, además de JSON v1 de módulos. Añadir
+   Movimientos ya tienen aceptación en FINANCE_IMPORT.md. Faltan donaciones
+   CSV y JSON v1 de módulos. Añadir
    interpretación explícita de fechas/importes, conflicto microchip/código,
    asociación por IDs/códigos y agrupación de líneas materiales. No resolver
    relaciones solo por nombre ni duplicar efectos al reconstruir datos.
@@ -147,3 +149,7 @@ Siguiente checkpoint: CSV de perfiles voluntarios y solicitudes publicado;
 194 Node / 742 estáticas, 16/16 Chrome/Edge y 334 solicitudes con activación
 atómica. Continuar movimientos/donaciones y JSON, sin repetir como pendientes
 los cuatro tipos CSV ya acreditados en su alcance.
+
+CSV económico publicado: 202 Node / 747 estáticas y 16/16 por motor con
+501 movimientos, correcciones/donación única y bytes. Continuar donaciones
+CSV agrupadas y JSON; no usar correcciones como sobrescritura de importes.

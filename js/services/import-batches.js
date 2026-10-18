@@ -6,6 +6,7 @@
   async function apply(report,confirmation={}){
     const plan=plans.get(report);if(!plan)fail('InvalidInputError','Preview this import first');
     if(confirmation.confirmed!==true)fail('ConfirmationRequiredError','Confirm the import scope');
+    if(report.requiresCorrections&&confirmation.confirmedCorrections!==true)fail('ConfirmationRequiredError','Confirm linked financial corrections');
     if(report.globalErrors.length)fail('InvalidInputError','Resolve dataset validation errors');
     if((report.counts.skip||report.counts.error||report.counts.conflict)&&confirmation.confirmedSubset!==true)fail('ConfirmationRequiredError','Confirm the exact valid subset');
     if(report.unknown&&confirmation.ignoreUnknown!==true)fail('ConfirmationRequiredError','Review unmapped columns');
