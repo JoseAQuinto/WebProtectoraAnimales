@@ -1,0 +1,1140 @@
+{
+  "format": "rescue-manager-animal-filters-ui-test",
+  "version": 1,
+  "browser": "edge",
+  "machine": "Quinto-Windows",
+  "startedAt": "2026-10-18T12:50:18.661Z",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26300",
+    "version": "Windows 11 Home"
+  },
+  "checks": [
+    {
+      "id": "explicit-service-fixture-with-current-and-ended-foster-stays-two-adoptions-archive-trash-photo",
+      "passed": true,
+      "evidence": {
+        "datasetId": "14ce5054-bc3a-42d5-bbf4-cc831afc6a82",
+        "revision": 33,
+        "dataRevision": 33,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 15,
+          "stayEpisodes": 16,
+          "weightMeasurements": 0,
+          "contacts": 3,
+          "fosterProfiles": 1,
+          "fosterStays": 2,
+          "adoptionApplications": 2,
+          "reservations": 0,
+          "adoptions": 2,
+          "volunteerProfiles": 0,
+          "volunteerHours": 0,
+          "veterinaryRecords": 0,
+          "carePlans": 0,
+          "tasks": 0,
+          "financialMovements": 0,
+          "donations": 0,
+          "donationLines": 0,
+          "inventoryItems": 0,
+          "inventoryMovements": 0,
+          "assets": 2,
+          "documents": 0,
+          "documentLinks": 0,
+          "animalEvents": 26,
+          "activityLog": 33,
+          "importIdentityMap": 0
+        },
+        "businessHash": "dbe25d85d8f0fbf78aa8ca5f73431af55b5f3540435fe06a6b475026f866aa50"
+      }
+    },
+    {
+      "id": "pagination-and-same-filter-OR-with-cross-filter-AND-and-individual-clear-chips",
+      "passed": true,
+      "evidence": {
+        "datasetId": "14ce5054-bc3a-42d5-bbf4-cc831afc6a82",
+        "revision": 33,
+        "dataRevision": 33,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 15,
+          "stayEpisodes": 16,
+          "weightMeasurements": 0,
+          "contacts": 3,
+          "fosterProfiles": 1,
+          "fosterStays": 2,
+          "adoptionApplications": 2,
+          "reservations": 0,
+          "adoptions": 2,
+          "volunteerProfiles": 0,
+          "volunteerHours": 0,
+          "veterinaryRecords": 0,
+          "carePlans": 0,
+          "tasks": 0,
+          "financialMovements": 0,
+          "donations": 0,
+          "donationLines": 0,
+          "inventoryItems": 0,
+          "inventoryMovements": 0,
+          "assets": 2,
+          "documents": 0,
+          "documentLinks": 0,
+          "animalEvents": 26,
+          "activityLog": 33,
+          "importIdentityMap": 0
+        },
+        "businessHash": "dbe25d85d8f0fbf78aa8ca5f73431af55b5f3540435fe06a6b475026f866aa50"
+      }
+    },
+    {
+      "id": "breed-unknown-normalization-microchip-and-location-availability-combine-with-visible-no-match",
+      "passed": true,
+      "evidence": {
+        "datasetId": "14ce5054-bc3a-42d5-bbf4-cc831afc6a82",
+        "revision": 33,
+        "dataRevision": 33,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 15,
+          "stayEpisodes": 16,
+          "weightMeasurements": 0,
+          "contacts": 3,
+          "fosterProfiles": 1,
+          "fosterStays": 2,
+          "adoptionApplications": 2,
+          "reservations": 0,
+          "adoptions": 2,
+          "volunteerProfiles": 0,
+          "volunteerHours": 0,
+          "veterinaryRecords": 0,
+          "carePlans": 0,
+          "tasks": 0,
+          "financialMovements": 0,
+          "donations": 0,
+          "donationLines": 0,
+          "inventoryItems": 0,
+          "inventoryMovements": 0,
+          "assets": 2,
+          "documents": 0,
+          "documentLinks": 0,
+          "animalEvents": 26,
+          "activityLog": 33,
+          "importIdentityMap": 0
+        },
+        "businessHash": "dbe25d85d8f0fbf78aa8ca5f73431af55b5f3540435fe06a6b475026f866aa50"
+      }
+    },
+    {
+      "id": "family-current-versus-ended-stays-and-latest-entry-calendar-period",
+      "passed": true,
+      "evidence": {
+        "datasetId": "14ce5054-bc3a-42d5-bbf4-cc831afc6a82",
+        "revision": 33,
+        "dataRevision": 33,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 15,
+          "stayEpisodes": 16,
+          "weightMeasurements": 0,
+          "contacts": 3,
+          "fosterProfiles": 1,
+          "fosterStays": 2,
+          "adoptionApplications": 2,
+          "reservations": 0,
+          "adoptions": 2,
+          "volunteerProfiles": 0,
+          "volunteerHours": 0,
+          "veterinaryRecords": 0,
+          "carePlans": 0,
+          "tasks": 0,
+          "financialMovements": 0,
+          "donations": 0,
+          "donationLines": 0,
+          "inventoryItems": 0,
+          "inventoryMovements": 0,
+          "assets": 2,
+          "documents": 0,
+          "documentLinks": 0,
+          "animalEvents": 26,
+          "activityLog": 33,
+          "importIdentityMap": 0
+        },
+        "businessHash": "dbe25d85d8f0fbf78aa8ca5f73431af55b5f3540435fe06a6b475026f866aa50"
+      }
+    },
+    {
+      "id": "adopter-and-date-must-match-same-adoption-with-archive-and-trash-preserved",
+      "passed": true,
+      "evidence": {
+        "datasetId": "14ce5054-bc3a-42d5-bbf4-cc831afc6a82",
+        "revision": 33,
+        "dataRevision": 33,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 15,
+          "stayEpisodes": 16,
+          "weightMeasurements": 0,
+          "contacts": 3,
+          "fosterProfiles": 1,
+          "fosterStays": 2,
+          "adoptionApplications": 2,
+          "reservations": 0,
+          "adoptions": 2,
+          "volunteerProfiles": 0,
+          "volunteerHours": 0,
+          "veterinaryRecords": 0,
+          "carePlans": 0,
+          "tasks": 0,
+          "financialMovements": 0,
+          "donations": 0,
+          "donationLines": 0,
+          "inventoryItems": 0,
+          "inventoryMovements": 0,
+          "assets": 2,
+          "documents": 0,
+          "documentLinks": 0,
+          "animalEvents": 26,
+          "activityLog": 33,
+          "importIdentityMap": 0
+        },
+        "businessHash": "dbe25d85d8f0fbf78aa8ca5f73431af55b5f3540435fe06a6b475026f866aa50"
+      }
+    },
+    {
+      "id": "invalid-periods-English-and-narrow-advanced-controls-retain-data-and-valid-photo",
+      "passed": true,
+      "evidence": {
+        "datasetId": "14ce5054-bc3a-42d5-bbf4-cc831afc6a82",
+        "revision": 33,
+        "dataRevision": 33,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 15,
+          "stayEpisodes": 16,
+          "weightMeasurements": 0,
+          "contacts": 3,
+          "fosterProfiles": 1,
+          "fosterStays": 2,
+          "adoptionApplications": 2,
+          "reservations": 0,
+          "adoptions": 2,
+          "volunteerProfiles": 0,
+          "volunteerHours": 0,
+          "veterinaryRecords": 0,
+          "carePlans": 0,
+          "tasks": 0,
+          "financialMovements": 0,
+          "donations": 0,
+          "donationLines": 0,
+          "inventoryItems": 0,
+          "inventoryMovements": 0,
+          "assets": 2,
+          "documents": 0,
+          "documentLinks": 0,
+          "animalEvents": 26,
+          "activityLog": 33,
+          "importIdentityMap": 0
+        },
+        "businessHash": "dbe25d85d8f0fbf78aa8ca5f73431af55b5f3540435fe06a6b475026f866aa50"
+      }
+    },
+    {
+      "id": "complete-owned-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 19316,
+        "exitCode": 0,
+        "signalCode": null,
+        "connectionReleasedAfterExit": true,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 19316,
+            "ParentProcessId": 2056,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-18T12:50:18.6889650Z"
+          },
+          {
+            "ProcessId": 8828,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.85 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.62 --initial-client-data=0x198,0x19c,0x1a0,0x174,0x1a8,0x7ff9f15483e0,0x7ff9f15483f0,0x7ff9f1548400",
+            "CreatedAt": "2026-10-18T12:50:18.7055540Z"
+          },
+          {
+            "ProcessId": 17740,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1876 /prefetch:2",
+            "CreatedAt": "2026-10-18T12:50:18.8180720Z"
+          },
+          {
+            "ProcessId": 20152,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --startup-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2120 /prefetch:11",
+            "CreatedAt": "2026-10-18T12:50:18.8213620Z"
+          },
+          {
+            "ProcessId": 18280,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --startup-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2644 /prefetch:13",
+            "CreatedAt": "2026-10-18T12:50:18.8637120Z"
+          },
+          {
+            "ProcessId": 5536,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=8278192110 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3384 /prefetch:1",
+            "CreatedAt": "2026-10-18T12:50:19.0003620Z"
+          },
+          {
+            "ProcessId": 20292,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=8278244077 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4592 /prefetch:9",
+            "CreatedAt": "2026-10-18T12:50:19.0540920Z"
+          },
+          {
+            "ProcessId": 5188,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --skip-read-main-dll --launch-time-ticks=8278254500 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4936 /prefetch:9",
+            "CreatedAt": "2026-10-18T12:50:19.0646880Z"
+          },
+          {
+            "ProcessId": 4320,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --skip-read-main-dll --launch-time-ticks=8278264001 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5324 /prefetch:9",
+            "CreatedAt": "2026-10-18T12:50:19.0723150Z"
+          },
+          {
+            "ProcessId": 10884,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --skip-read-main-dll --launch-time-ticks=8278272595 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=5472 /prefetch:9",
+            "CreatedAt": "2026-10-18T12:50:19.0838600Z"
+          },
+          {
+            "ProcessId": 19744,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --skip-read-main-dll --launch-time-ticks=8278282508 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=4820 /prefetch:1",
+            "CreatedAt": "2026-10-18T12:50:19.0954780Z"
+          },
+          {
+            "ProcessId": 7392,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --skip-read-main-dll --launch-time-ticks=8278302668 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6016 /prefetch:9",
+            "CreatedAt": "2026-10-18T12:50:19.1142890Z"
+          },
+          {
+            "ProcessId": 11656,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --skip-read-main-dll --launch-time-ticks=8278380907 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=6796 /prefetch:9",
+            "CreatedAt": "2026-10-18T12:50:19.1892470Z"
+          },
+          {
+            "ProcessId": 13112,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=18 --skip-read-main-dll --launch-time-ticks=8278541070 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709003178624776 --mojo-platform-channel-handle=6860 /prefetch:1",
+            "CreatedAt": "2026-10-18T12:50:19.3498410Z"
+          },
+          {
+            "ProcessId": 18308,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --skip-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709009737917719 --mojo-platform-channel-handle=7092 /prefetch:14",
+            "CreatedAt": "2026-10-18T12:50:19.8586680Z"
+          },
+          {
+            "ProcessId": 11956,
+            "ParentProcessId": 19316,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=entity_extraction_service.mojom.Extractor --lang=es --service-sandbox-type=entity_extraction --onnx-enabled-for-ee --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --skip-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709010674959568 --mojo-platform-channel-handle=7108 /prefetch:14",
+            "CreatedAt": "2026-10-18T12:50:21.6181050Z"
+          },
+          {
+            "ProcessId": 12308,
+            "ParentProcessId": 19316,
+            "CommandLine": null,
+            "CreatedAt": "2026-10-18T12:50:22.5147480Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-18T12:50:23.460Z"
+      }
+    },
+    {
+      "id": "reopen-preserves-animals-foster-adoption-history-and-actual-photo-bytes",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "14ce5054-bc3a-42d5-bbf4-cc831afc6a82",
+          "revision": 33,
+          "dataRevision": 33,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 15,
+            "stayEpisodes": 16,
+            "weightMeasurements": 0,
+            "contacts": 3,
+            "fosterProfiles": 1,
+            "fosterStays": 2,
+            "adoptionApplications": 2,
+            "reservations": 0,
+            "adoptions": 2,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 2,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 26,
+            "activityLog": 33,
+            "importIdentityMap": 0
+          },
+          "businessHash": "dbe25d85d8f0fbf78aa8ca5f73431af55b5f3540435fe06a6b475026f866aa50"
+        },
+        "after": {
+          "datasetId": "14ce5054-bc3a-42d5-bbf4-cc831afc6a82",
+          "revision": 33,
+          "dataRevision": 33,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 15,
+            "stayEpisodes": 16,
+            "weightMeasurements": 0,
+            "contacts": 3,
+            "fosterProfiles": 1,
+            "fosterStays": 2,
+            "adoptionApplications": 2,
+            "reservations": 0,
+            "adoptions": 2,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 2,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 26,
+            "activityLog": 33,
+            "importIdentityMap": 0
+          },
+          "businessHash": "dbe25d85d8f0fbf78aa8ca5f73431af55b5f3540435fe06a6b475026f866aa50"
+        }
+      }
+    },
+    {
+      "id": "complete-reopened-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 14076,
+        "exitCode": 0,
+        "signalCode": null,
+        "connectionReleasedAfterExit": true,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 14076,
+            "ParentProcessId": 2056,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-18T12:50:23.4650100Z"
+          },
+          {
+            "ProcessId": 6236,
+            "ParentProcessId": 14076,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile /prefetch:4 --monitor-self --monitor-self-argument=--type=crashpad-handler --monitor-self-argument=--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile --monitor-self-argument=/prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.85 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.62 --initial-client-data=0x188,0x18c,0x190,0x164,0x198,0x7ff9f15483e0,0x7ff9f15483f0,0x7ff9f1548400",
+            "CreatedAt": "2026-10-18T12:50:23.4789590Z"
+          },
+          {
+            "ProcessId": 9744,
+            "ParentProcessId": 6236,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile /prefetch:4 --no-periodic-tasks --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.85 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.62 --initial-client-data=0x1e8,0x1ec,0x1f0,0x180,0x1f4,0x7ff6a8cce5c0,0x7ff6a8cce5d0,0x7ff6a8cce5e0",
+            "CreatedAt": "2026-10-18T12:50:23.4955830Z"
+          },
+          {
+            "ProcessId": 8628,
+            "ParentProcessId": 14076,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1852 /prefetch:2",
+            "CreatedAt": "2026-10-18T12:50:23.5926380Z"
+          },
+          {
+            "ProcessId": 12396,
+            "ParentProcessId": 14076,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --startup-read-main-dll --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2052 /prefetch:11",
+            "CreatedAt": "2026-10-18T12:50:23.5962200Z"
+          },
+          {
+            "ProcessId": 9368,
+            "ParentProcessId": 14076,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --startup-read-main-dll --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2248 /prefetch:13",
+            "CreatedAt": "2026-10-18T12:50:23.6458870Z"
+          },
+          {
+            "ProcessId": 18100,
+            "ParentProcessId": 14076,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --ssd-no-pressure-read-main-dll --launch-time-ticks=8282951709 --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3668 /prefetch:1",
+            "CreatedAt": "2026-10-18T12:50:23.7620720Z"
+          },
+          {
+            "ProcessId": 9140,
+            "ParentProcessId": 14076,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=8282954470 --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3868 /prefetch:1",
+            "CreatedAt": "2026-10-18T12:50:23.7628070Z"
+          },
+          {
+            "ProcessId": 18796,
+            "ParentProcessId": 14076,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --skip-read-main-dll --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4440 /prefetch:14",
+            "CreatedAt": "2026-10-18T12:50:23.8163820Z"
+          },
+          {
+            "ProcessId": 1660,
+            "ParentProcessId": 14076,
+            "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=8283058929 --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=5300 /prefetch:1",
+            "CreatedAt": "2026-10-18T12:50:23.8677300Z"
+          }
+        ],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-18T12:50:25.607Z"
+      }
+    },
+    {
+      "id": "runtime-source-hashes-unchanged",
+      "passed": true,
+      "evidence": {
+        "count": 87
+      }
+    }
+  ],
+  "launches": [
+    {
+      "startedAt": "2026-10-18T12:50:18.693Z",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe",
+      "profile": ".tmp\\animal-filters-edge-1792327818663\\profile",
+      "pid": 19316,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Edg/155.0.4283.62",
+        "revision": "@aa3a7406ba8c53a83536df539f07124d73c899bd",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "jsVersion": "15.5.9.7"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-18T12:50:23.466Z",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe",
+      "profile": ".tmp\\animal-filters-edge-1792327818663\\profile",
+      "pid": 14076,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Edg/155.0.4283.62",
+        "revision": "@aa3a7406ba8c53a83536df539f07124d73c899bd",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+        "jsVersion": "15.5.9.7"
+      },
+      "storageDeniedPreference": false
+    }
+  ],
+  "closures": [
+    {
+      "rootPid": 19316,
+      "exitCode": 0,
+      "signalCode": null,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 19316,
+          "ParentProcessId": 2056,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-18T12:50:18.6889650Z"
+        },
+        {
+          "ProcessId": 8828,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.85 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.62 --initial-client-data=0x198,0x19c,0x1a0,0x174,0x1a8,0x7ff9f15483e0,0x7ff9f15483f0,0x7ff9f1548400",
+          "CreatedAt": "2026-10-18T12:50:18.7055540Z"
+        },
+        {
+          "ProcessId": 17740,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1876 /prefetch:2",
+          "CreatedAt": "2026-10-18T12:50:18.8180720Z"
+        },
+        {
+          "ProcessId": 20152,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --startup-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2120 /prefetch:11",
+          "CreatedAt": "2026-10-18T12:50:18.8213620Z"
+        },
+        {
+          "ProcessId": 18280,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --startup-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2644 /prefetch:13",
+          "CreatedAt": "2026-10-18T12:50:18.8637120Z"
+        },
+        {
+          "ProcessId": 5536,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=8278192110 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3384 /prefetch:1",
+          "CreatedAt": "2026-10-18T12:50:19.0003620Z"
+        },
+        {
+          "ProcessId": 20292,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=8278244077 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4592 /prefetch:9",
+          "CreatedAt": "2026-10-18T12:50:19.0540920Z"
+        },
+        {
+          "ProcessId": 5188,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --skip-read-main-dll --launch-time-ticks=8278254500 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4936 /prefetch:9",
+          "CreatedAt": "2026-10-18T12:50:19.0646880Z"
+        },
+        {
+          "ProcessId": 4320,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --skip-read-main-dll --launch-time-ticks=8278264001 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5324 /prefetch:9",
+          "CreatedAt": "2026-10-18T12:50:19.0723150Z"
+        },
+        {
+          "ProcessId": 10884,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=14 --skip-read-main-dll --launch-time-ticks=8278272595 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=5472 /prefetch:9",
+          "CreatedAt": "2026-10-18T12:50:19.0838600Z"
+        },
+        {
+          "ProcessId": 19744,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --skip-read-main-dll --launch-time-ticks=8278282508 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=4820 /prefetch:1",
+          "CreatedAt": "2026-10-18T12:50:19.0954780Z"
+        },
+        {
+          "ProcessId": 7392,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=16 --skip-read-main-dll --launch-time-ticks=8278302668 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709001304541078 --mojo-platform-channel-handle=6016 /prefetch:9",
+          "CreatedAt": "2026-10-18T12:50:19.1142890Z"
+        },
+        {
+          "ProcessId": 11656,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --extension-process --renderer-sub-type=extension --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --skip-read-main-dll --launch-time-ticks=8278380907 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=6796 /prefetch:9",
+          "CreatedAt": "2026-10-18T12:50:19.1892470Z"
+        },
+        {
+          "ProcessId": 13112,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=18 --skip-read-main-dll --launch-time-ticks=8278541070 --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709003178624776 --mojo-platform-channel-handle=6860 /prefetch:1",
+          "CreatedAt": "2026-10-18T12:50:19.3498410Z"
+        },
+        {
+          "ProcessId": 18308,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --skip-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709009737917719 --mojo-platform-channel-handle=7092 /prefetch:14",
+          "CreatedAt": "2026-10-18T12:50:19.8586680Z"
+        },
+        {
+          "ProcessId": 11956,
+          "ParentProcessId": 19316,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=entity_extraction_service.mojom.Extractor --lang=es --service-sandbox-type=entity_extraction --onnx-enabled-for-ee --video-capture-use-gpu-memory-buffer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --skip-read-main-dll --field-trial-handle=1900,i,17612258213003893860,226207897426645159,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1924,i,17084063957116498333,6162107210062689178,4 --trace-process-track-uuid=3190709010674959568 --mojo-platform-channel-handle=7108 /prefetch:14",
+          "CreatedAt": "2026-10-18T12:50:21.6181050Z"
+        },
+        {
+          "ProcessId": 12308,
+          "ParentProcessId": 19316,
+          "CommandLine": null,
+          "CreatedAt": "2026-10-18T12:50:22.5147480Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-18T12:50:23.460Z"
+    },
+    {
+      "rootPid": 14076,
+      "exitCode": 0,
+      "signalCode": null,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 14076,
+          "ParentProcessId": 2056,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-18T12:50:23.4650100Z"
+        },
+        {
+          "ProcessId": 6236,
+          "ParentProcessId": 14076,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile /prefetch:4 --monitor-self --monitor-self-argument=--type=crashpad-handler --monitor-self-argument=--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile --monitor-self-argument=/prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.85 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.62 --initial-client-data=0x188,0x18c,0x190,0x164,0x198,0x7ff9f15483e0,0x7ff9f15483f0,0x7ff9f1548400",
+          "CreatedAt": "2026-10-18T12:50:23.4789590Z"
+        },
+        {
+          "ProcessId": 9744,
+          "ParentProcessId": 6236,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile /prefetch:4 --no-periodic-tasks --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\\Crashpad --annotation=IsOfficialBuild=1 --annotation=channel=internal --annotation=chromium-version=155.0.8059.85 \"--annotation=exe=C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --annotation=plat=Win64 --annotation=prod=Edge --annotation=ver=155.0.4283.62 --initial-client-data=0x1e8,0x1ec,0x1f0,0x180,0x1f4,0x7ff6a8cce5c0,0x7ff6a8cce5d0,0x7ff6a8cce5e0",
+          "CreatedAt": "2026-10-18T12:50:23.4955830Z"
+        },
+        {
+          "ProcessId": 8628,
+          "ParentProcessId": 14076,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --startup-read-main-dll --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1852 /prefetch:2",
+          "CreatedAt": "2026-10-18T12:50:23.5926380Z"
+        },
+        {
+          "ProcessId": 12396,
+          "ParentProcessId": 14076,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --startup-read-main-dll --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2052 /prefetch:11",
+          "CreatedAt": "2026-10-18T12:50:23.5962200Z"
+        },
+        {
+          "ProcessId": 9368,
+          "ParentProcessId": 14076,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --startup-read-main-dll --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2248 /prefetch:13",
+          "CreatedAt": "2026-10-18T12:50:23.6458870Z"
+        },
+        {
+          "ProcessId": 18100,
+          "ParentProcessId": 14076,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --ssd-no-pressure-read-main-dll --launch-time-ticks=8282951709 --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3668 /prefetch:1",
+          "CreatedAt": "2026-10-18T12:50:23.7620720Z"
+        },
+        {
+          "ProcessId": 9140,
+          "ParentProcessId": 14076,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --skip-read-main-dll --launch-time-ticks=8282954470 --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3868 /prefetch:1",
+          "CreatedAt": "2026-10-18T12:50:23.7628070Z"
+        },
+        {
+          "ProcessId": 18796,
+          "ParentProcessId": 14076,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=utility --utility-sub-type=edge_collections.mojom.CollectionsDataManager --lang=es --service-sandbox-type=collections --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --skip-read-main-dll --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4440 /prefetch:14",
+          "CreatedAt": "2026-10-18T12:50:23.8163820Z"
+        },
+        {
+          "ProcessId": 1660,
+          "ParentProcessId": 14076,
+          "CommandLine": "\"C:\\Program Files (x86)\\Microsoft\\EdgeCore\\155.0.4283.62\\msedge.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\animal-filters-edge-1792327818663\\profile\" --pdf-upsell-enabled --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --js-flags=--ms-user-locale=es_ES --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --skip-read-main-dll --launch-time-ticks=8283058929 --field-trial-handle=1876,i,17053725249038916395,12167356542564878659,262144 --enable-features=SingleAxisScrollContainers --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1880,i,14656575106368487006,6209651027066251436,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=5300 /prefetch:1",
+          "CreatedAt": "2026-10-18T12:50:23.8677300Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-18T12:50:25.607Z"
+    }
+  ],
+  "screenshots": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Organization/contact/animal setup uses real production services, explicitly identified as test fixture preparation.",
+    "Fixture uses real services for animals, open/closed foster stays, two adoptions of one animal, archive/trash and a photograph.",
+    "Viewport emulation is not a physical mobile/tablet test.",
+    "All filtering is read-only; the current list does not reconstruct a past census.",
+    "No business service is mocked.",
+    "Page request trace excludes browser-internal traffic."
+  ],
+  "sourceFiles": [
+    {
+      "file": "index.html",
+      "sha256": "f983f016434f604677cbfb8387eb415cf60b6f9c82870e31830a72a64b2ded3c"
+    },
+    {
+      "file": "css/app.css",
+      "sha256": "0214ad48e1289b9ccd015fb2a53dbab85bb3436dd9ded9b210f4ddbebd6734ab"
+    },
+    {
+      "file": "css/people.css",
+      "sha256": "fe12c20fff287a918f1f66638e48a494b85d17b256ed29cb7b0054139416d288"
+    },
+    {
+      "file": "css/calendar.css",
+      "sha256": "459a1f6c1493cf7c33724515d7d677daff6a6a327d7a84bd10e7e233b08dc461"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "113da40932bee80fea4ac4e7d492a8154a6c1875b8e335fef5cff2d3cb643a6b"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "vendor/papaparse/papaparse.min.js",
+      "sha256": "3a509437d423ed29d9175fdd01de8bcdcd50e8ffb883ae7daa91c0acd151d1a7"
+    },
+    {
+      "file": "locales/en.js",
+      "sha256": "d33295624f2fde781e77244515f5d6b7dfadb8767b5701715eecda9ec7bb456c"
+    },
+    {
+      "file": "locales/es.js",
+      "sha256": "21d9a26583c7ebf3d3d877a9ba1b0b16d3529c725e2aa757dcd7263aa2bc9f95"
+    },
+    {
+      "file": "js/core/i18n.js",
+      "sha256": "476cfe00ee29f80823f61257154fc55100f0676edd9906021f8cf3b23920b71a"
+    },
+    {
+      "file": "js/core/errors.js",
+      "sha256": "37c33488870563c50aaae8b507722e6e9924903d5c54420f01a3957b5ae45895"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "4b67ab901efc4d8f18dd929319ac7a46ac7c296c4c2e9df4605f0eecd46d5fc0"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/utils/images.js",
+      "sha256": "8da4cc7e29e82e00e2249ff0e98b18a4dfd9c980d461473e4a51729fb525c7b4"
+    },
+    {
+      "file": "js/utils/calendar.js",
+      "sha256": "cb5f5048dc4f6cfca7735e0ac7f493afac218a6985e7161536343f4726abf86f"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "1e863f91fb969b2025d10577950485023ae5eb38d6f0ae2f8ac9a82d990831de"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "b89a54c86755089219b79bc56829a71182175f0bf7efb4fde9d82fccc9f3c23b"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "38323c835a41537c62f421d1581ae200e65841eeb3c88ff17ac6af8b9fc91dbb"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "280dfb46e0dbedb6d8d3fef4de7e8b1c1de1f37659b8149e1109981bf58e3e3e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "6abc52c995ce8094c04915973d60b807a38a146f9aea8bd3c9a64e1115780770"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "f2f283095f8bcea6313cc5f5333ffcd9e512b4382b44e7f2f60a31be9457e8fd"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "454e5f27b00e73f7c0060b8b16ac0dd1cd0616da611209b70d8237e527c2afba"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "efd2530bda729ea10671615d43ebaa6d997a95ff5b93179f76b3f9a9e59bfaf6"
+    },
+    {
+      "file": "js/services/contacts.js",
+      "sha256": "40bdc267f05d5909ad18381503a0ba02bd4348e89c568c2324b961af89b30f04"
+    },
+    {
+      "file": "js/services/animals.js",
+      "sha256": "10c9bcdf8d65197758ac8a46fc180d16bb97aac9049ea45ae93c563117b1d22c"
+    },
+    {
+      "file": "js/services/fosters.js",
+      "sha256": "06640fe7babf0ed2d347a7c6e4f737e4b3fbcb48ec0a74de941f00cc1d006bdd"
+    },
+    {
+      "file": "js/services/volunteers.js",
+      "sha256": "64b0b3903e419df39f33179a7a866c6b8dffee31555947b77417344c11335039"
+    },
+    {
+      "file": "js/services/finance.js",
+      "sha256": "fa07bb07107ccb5bdad1fc6a89bd83e2e44458eb9998d8e1416ff9e7ae0e2724"
+    },
+    {
+      "file": "js/services/inventory.js",
+      "sha256": "0d8d9f2ac1d22192bec5f59ed94a67ef1926c10cc8cea1b0d169d1b1aab0525f"
+    },
+    {
+      "file": "js/services/donations.js",
+      "sha256": "82c97bde7218dc1d704a9d0209bea2bc231ae89d675295dd1694b074db43795f"
+    },
+    {
+      "file": "js/services/adoptions.js",
+      "sha256": "fc742565b4ab6858aa943838179ff68794d09b1763aed6ef59a62c61101c1978"
+    },
+    {
+      "file": "js/services/tasks.js",
+      "sha256": "1af038dd67918c70d8bfa0554f75ddfe772b05387fdf5ea34c401667c8c81e1b"
+    },
+    {
+      "file": "js/services/health.js",
+      "sha256": "ca73cf5910cf1eb0c42a02e12762db7b233d714870949671fb70da9100d8bfe9"
+    },
+    {
+      "file": "js/services/documents.js",
+      "sha256": "e59d0d06fcc921b798b332cf27a970886acf139ee1cabda1e6549163cee3ed37"
+    },
+    {
+      "file": "js/services/photos.js",
+      "sha256": "789feb2df4d8ad3029bf6990062b1af04dfec8ce8e3910a97e1b7822ec491ce4"
+    },
+    {
+      "file": "js/services/weights.js",
+      "sha256": "d234ca3e511f6e6ac1a8ca9e7b0ddd65ea108f92ddfb8bc53ff07991665f2266"
+    },
+    {
+      "file": "js/services/recovery.js",
+      "sha256": "503373a6aee8acd3dcbf4c5f2034a53f75ef90d3f4ddf78d6b3e0b8dc2bfe16f"
+    },
+    {
+      "file": "js/services/reports.js",
+      "sha256": "1d47f8787a137102995e7a045a4ae0b32d5e853eee9df462750f550a97dd3ed0"
+    },
+    {
+      "file": "js/services/search.js",
+      "sha256": "e3e41c0a7f10220d3257e75adfd07324b41645959cec43797f10252b9be2e97e"
+    },
+    {
+      "file": "js/services/animal-queries.js",
+      "sha256": "1b2e532e3ae1535eab236181198d87e89a0efc88c2be8202475835d7193eef2c"
+    },
+    {
+      "file": "js/services/adoption-queries.js",
+      "sha256": "08974a99669d21878d15bfa95f8fc099218a85a8ea33d4478648f17d6b841e01"
+    },
+    {
+      "file": "js/services/configuration.js",
+      "sha256": "4cbaf47d95555c2559c44505ed75989d7edae6cda6250c294cb8b3906fda5aea"
+    },
+    {
+      "file": "js/services/backup-reminders.js",
+      "sha256": "a9c929a88e95350ad87b007f080d6acd532de85571455a21669e6b27fea5b7a2"
+    },
+    {
+      "file": "js/utils/tabular.js",
+      "sha256": "192e9b76b6c012ad58c9688e1818ddcbcb1a9b8f92676cb378b8a8d25ddaad50"
+    },
+    {
+      "file": "js/services/export-definitions.js",
+      "sha256": "0fe25f6ae08fc9f456a3eec6af84ba3d6fd06c7e08b45b7e4067677785996f18"
+    },
+    {
+      "file": "js/services/exports.js",
+      "sha256": "76b7a6a6a9778b4fd77c3218573b15b3405980469e31e4c40cb2d02991b53e53"
+    },
+    {
+      "file": "js/services/import-parser.js",
+      "sha256": "4e04d3e6136b93c921a536cef1acccc65e1c8de2f0afe65700137262a5c649e3"
+    },
+    {
+      "file": "js/services/import-contacts.js",
+      "sha256": "47ed6773dd221b6718997437377f48c465d31c53370813c8ce7c9bb757d854d3"
+    },
+    {
+      "file": "js/services/contact-import.js",
+      "sha256": "628a06e43c307ed4989f1197e60638c7fd7b79616ff31c01e4a3cde99e8da0eb"
+    },
+    {
+      "file": "js/components/ui.js",
+      "sha256": "7c55563a669f4344f0320f61d9d8e46e49f3d08e8fb0de0200208ee693fb0eac"
+    },
+    {
+      "file": "js/modules/documents.js",
+      "sha256": "deecf94290afe025d2b40a1230bbb810b76c3c39910bc164aa133b761d14f457"
+    },
+    {
+      "file": "js/modules/people.js",
+      "sha256": "e7b19c9e0ed43c6182d4276e866e8b61175c4d95d66f7eedcc8104f6db20c34d"
+    },
+    {
+      "file": "js/modules/animal-forms.js",
+      "sha256": "8b768ec9653ade40f7fe1171d311bef3a061746ce45de9fe5203c6feae16a26a"
+    },
+    {
+      "file": "js/modules/foster-workflow.js",
+      "sha256": "d0103eeb5d1d11185b8f4ded3d3242253fb10fa03d48c78b67ef08ea58a90cea"
+    },
+    {
+      "file": "js/modules/adoption-forms.js",
+      "sha256": "dddc88e5150698a3e7dd58a9e37dc4a110fed2b58ebd260aed947e7e18dc92b2"
+    },
+    {
+      "file": "js/modules/adoption-workflow.js",
+      "sha256": "8f88d0aa9afb99cb307fc7d9a901a35de923636767bf64631b8bd400cb7aaf93"
+    },
+    {
+      "file": "js/modules/tasks.js",
+      "sha256": "ae3234749368dd8547b8bafd2f6d6770d4319b4256274617b3a985a405d10284"
+    },
+    {
+      "file": "js/modules/health-forms.js",
+      "sha256": "bf4170679a7f26cebe7fd0e6683666f8465c032676ab23a34d9fa10a686c81be"
+    },
+    {
+      "file": "js/modules/health-workflow.js",
+      "sha256": "d30799729ee4889d90522949dd667a22ecb64714d70536bfe880700e0fef7ea1"
+    },
+    {
+      "file": "js/modules/finance.js",
+      "sha256": "f8ef4db8d04eee51cdceed1b77a7ed4ecb98a47dc34b4845e6ed313e176a6ad0"
+    },
+    {
+      "file": "js/modules/donations.js",
+      "sha256": "1240df97eec21f721ff29ba35ec7e735f36ba4004580367677ca0929ff7aa13b"
+    },
+    {
+      "file": "js/modules/inventory.js",
+      "sha256": "beb734acf38e66b830b4903508c207d99aff5d515b82a391e7d9b57a2d4c186d"
+    },
+    {
+      "file": "js/modules/reports.js",
+      "sha256": "cf9cc51b583e35961db70ddc5e198eea3b2965c63b87a61da982eaa7e95e00fc"
+    },
+    {
+      "file": "js/modules/adoption-register.js",
+      "sha256": "6317f35927ab22b045defa1bd3694fdbb9e7b45636f8112aacf6ded2c1dc88e8"
+    },
+    {
+      "file": "js/modules/search.js",
+      "sha256": "bc58a416092d5d40d3c338fd3226600fe64763f17e14dddc40b6c73864fe0bc2"
+    },
+    {
+      "file": "js/modules/animal-history.js",
+      "sha256": "9212c705ed9cedf2b299c89196a373e0823cdb60977bc417cbf49602876a11d6"
+    },
+    {
+      "file": "js/modules/exports.js",
+      "sha256": "1c1c1c2f6933fff808ee9623631e5f6902a09fa572a1b20a8e59aae66b9dbd96"
+    },
+    {
+      "file": "js/modules/imports.js",
+      "sha256": "0401e58caf08545edfe0aabf0b589d15d1aebdf22672b547989a561653b457d4"
+    },
+    {
+      "file": "js/modules/configuration.js",
+      "sha256": "d6e27fe1587b8135334e10f7b3e781dc8d87af102751e34da550b90990d68dc7"
+    },
+    {
+      "file": "js/modules/settings.js",
+      "sha256": "0bb97021edadbd929f98d8081fda5b7a8f7fea5a750e824a98eb62f6b40ea98c"
+    },
+    {
+      "file": "js/modules/animal-list.js",
+      "sha256": "a8357997154666f1e6137d81e36c421a41c3f369a48155f04f46ae9ea70acdfd"
+    },
+    {
+      "file": "js/modules/animals.js",
+      "sha256": "30e901cd42bacc3dd740ea77fe61c19c12c9dd57c00693ab860ea59081ffbe98"
+    },
+    {
+      "file": "js/bootstrap.js",
+      "sha256": "25199d4509f3ff5984d1a72b47287984c05e6b288bfba030d25cf291d6975fb6"
+    }
+  ],
+  "completed": true,
+  "completedAt": "2026-10-18T12:50:25.620Z",
+  "status": "passed"
+}

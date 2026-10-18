@@ -87,10 +87,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **166 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **171 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **687 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **697 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -284,3 +284,11 @@ atómicos y grandes con copia actual verificada, dataset separado y activación
 atómica. Chrome/Edge 13/13 por motor con 1.001 contactos, cancelación real de
 preparación, conjunto anterior y bytes conservados. Ver CONTACT_IMPORT.md.
 Última ronda conjunta: 166 Node y 687 estáticas. Otros CSV y JSON aún pendientes.
+
+## Filtros combinados de animales (2026-10-18)
+
+Consulta pura y lista separada: especie/sexo/raza/situación/disponibilidad/
+ubicación/familia/adoptante con OR dentro y AND entre filtros, periodos
+inclusivos de última entrada y del mismo hecho de adopción, archivo/papelera,
+valores retirables y paginación. Chrome/Edge 10/10 por motor, bytes/reapertura
+conservados. ANIMAL_FILTERS.md; 171 Node y 697 estáticas correctas.

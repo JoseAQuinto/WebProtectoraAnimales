@@ -13,3 +13,4 @@
 
 .organization-logo{width:44px;height:44px;object-fit:contain;border-radius:6px;flex-shrink:0}.animal-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}.animal-cards .card{padding:18px}.animal-cards h2{overflow-wrap:anywhere}.animal-cards p{margin:0}.print-only{display:none}
 @media print{.print-only{display:block}.print-header{margin-bottom:24px}.print-footer{margin-top:32px;border-top:1px solid #aaa;padding-top:12px}}
+.filter-chips .button{max-width:100%;white-space:normal;overflow-wrap:anywhere}.animal-advanced-filters>summary{cursor:pointer;font-weight:650;margin-bottom:16px}

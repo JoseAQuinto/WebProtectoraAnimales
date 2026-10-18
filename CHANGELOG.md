@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Filtros combinados de animales — 2026-10-18
+
+- Selección múltiple OR/AND de los criterios requeridos, periodos de última
+  entrada y adopción, familia actual/histórica y valores activos retirables.
+- Consultas y lista separadas de la ficha, búsqueda normalizada, estados sin
+  coincidencias/error y paginación/preferencias conservadas.
+- Chrome/Edge 10/10 por motor, fotografía y datos intactos tras filtros/reapertura;
+  171 pruebas Node y 697 estáticas. Detalle en ANIMAL_FILTERS.md.
 ## Importación CSV de contactos — 2026-10-18
 
 - Plantilla, separador/codificación, mapeo, validación por fila/campo, duplicados

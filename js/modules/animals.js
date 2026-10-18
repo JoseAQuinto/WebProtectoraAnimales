@@ -1,9 +1,8 @@
 (function (root) {
   'use strict';
   const ui=root.components.ui,el=ui.el,t=(...args)=>root.core.i18n.t(...args);
-  const view={search:'',species:'',status:'',location:'',mode:'active',sort:'name',page:1};
-  let urls=[],generation=0,searchTimer=null;
-  function dispose(){generation++;clearTimeout(searchTimer);urls.forEach(url=>URL.revokeObjectURL(url));urls=[];}
+  let urls=[],generation=0;
+  function dispose(){generation++;root.modules.animalList.dispose();urls.forEach(url=>URL.revokeObjectURL(url));urls=[];}
   const cat=(tables,id)=>{const row=tables.catalogOptions.find(item=>item.id===id);return row?root.services.catalogs.label(row):t('ui.unknown');};
   const field=(key,value)=>el('div',{},el('dt',{},t(key)),el('dd',{class:'preserve-lines'},value||t('ui.unknown')));
   const table=(keys,rows)=>rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},keys.map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows.map(values=>el('tr',{},values.map(value=>el('td',{},value??t('ui.unknown')))))))):el('p',{class:'muted'},t('a.emptySection'));
@@ -15,7 +14,7 @@
     return img;
   }
   function render(ctx){
-    const tables=ctx.snapshot.tables,forms=root.modules.animalForms,pageSize=tables.organizationSettings[0].displayPreferences.pageSize;
+    const tables=ctx.snapshot.tables,forms=root.modules.animalForms;
     const civilToday=root.utils.dates.today(tables.organizationSettings[0].timeZone);
     const date=value=>{if(!value)return null;const format=tables.organizationSettings[0].dateFormat;return format==='day_first'?value.slice(8)+'/'+value.slice(5,7)+'/'+value.slice(0,4):format==='month_first'?value.slice(5,7)+'/'+value.slice(8)+'/'+value.slice(0,4):value;};
     const grams=value=>new Intl.NumberFormat(root.core.i18n.language,{style:'unit',unit:'gram',unitDisplay:'short'}).format(value);
@@ -72,23 +71,7 @@
         el('section',{class:'card animal-summary'},image(tables,animal.photoAssetId,animal.name,true),el('div',{class:'stack'},actions,el('p',{class:'muted'},t('a.recordHelp')))),tabs,el('section',{class:'card'},body)];
     }
     if(ctx.route.id){const row=tables.animals.find(item=>item.id===ctx.route.id);return row?details(row):[el('h1',{},t('a.notFound')),el('a',{href:'#animals'},t('a.back'))];}
-    const results=el('div');
-    const label=(key,control)=>{const id='animal-filter-'+key;control.id=id;return el('div',{class:'field'},el('label',{for:id},t('a.'+key)),control);};
-    function paint(){dispose();const query=root.utils.strings.normalizeSearch(view.search);
-      const rows=tables.animals.filter(row=>(view.mode==='trash'?!!row.deletedAt:!row.deletedAt&&(view.mode==='all'||!row.archivedAt))&&(!view.species||row.speciesId===view.species)&&(!view.status||row.managementStatus===view.status)&&(!view.location||row.locationKind===view.location)&&
-        (!query||root.utils.strings.normalizeSearch([row.code,row.name,row.microchipOriginal,row.breed,row.notes].join(' ')).includes(query))).sort((a,b)=>String(a[view.sort]||'').localeCompare(String(b[view.sort]||''),root.core.i18n.language));
-      const pages=Math.max(1,Math.ceil(rows.length/pageSize));view.page=Math.min(view.page,pages);
-      const previous=ui.button(t('a.previous'),()=>{view.page--;paint();},true),next=ui.button(t('a.next'),()=>{view.page++;paint();},true);previous.disabled=view.page<=1;next.disabled=view.page>=pages;
-      const selectedRows=rows.slice((view.page-1)*pageSize,view.page*pageSize);
-      const records=tables.organizationSettings[0].displayPreferences.animalView==='cards'&&selectedRows.length?el('div',{class:'animal-cards'},selectedRows.map(row=>el('article',{class:'card stack'},image(tables,row.thumbnailAssetId,row.name),el('h2',{},el('a',{href:'#animals/'+row.id},row.name)),el('p',{class:'eyebrow'},row.code),el('p',{},optionLabel(row.speciesId)+' · '+t('a.status.'+row.managementStatus)),el('p',{},t('a.availability.'+row.adoptionAvailability)),el('p',{},where(row))))):table(['a.photo','a.code','a.name','a.species','a.state','a.location','a.actions'],selectedRows.map(row=>[
-        image(tables,row.thumbnailAssetId,row.name),row.code,row.name,optionLabel(row.speciesId),t('a.status.'+row.managementStatus),where(row),el('a',{class:'button secondary',href:'#animals/'+row.id},t('a.open'))]));
-      results.replaceChildren(records,
-        el('div',{class:'actions'},previous,el('span',{},t('a.page',{page:view.page,pages,count:rows.length})),next));
-    }
-    const search=el('input',{type:'search',maxlength:200,value:view.search}),filters=el('div',{class:'people-filters'},label('search',search));search.addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{view.search=search.value;view.page=1;paint();},180);});
-    for(const [key,options]of [['species',tables.catalogOptions.filter(row=>row.kind==='species').map(row=>[row.id,root.services.catalogs.label(row)])],['status',root.domain.enums.managementStatus.map(value=>[value,t('a.status.'+value)])],['location',root.domain.enums.locationKind.map(value=>[value,t('a.location.'+value)])],['mode',['active','all','trash'].map(value=>[value,t('a.'+value)])],['sort',['name','code','createdAt'].map(value=>[value,t('a.'+value)])]]){
-      const select=el('select',{},!['mode','sort'].includes(key)?el('option',{value:''},t('a.all')):null,options.map(([value,text])=>el('option',{value},text)));select.value=view[key];select.addEventListener('change',()=>{view[key]=select.value;view.page=1;paint();});filters.append(label(key,select));}
-    paint();return[el('header',{class:'page-heading'},el('div',{},el('h1',{},t('nav.animals')),el('p',{class:'muted'},t('a.help'))),action('a.new',()=>forms.entry(ctx),false)),el('section',{class:'card stack'},filters,results)];
+    return root.modules.animalList.render(ctx,{image:row=>image(tables,row.thumbnailAssetId,row.name),create:()=>forms.entry(ctx),where,dispose});
   }
   root.modules.animals=Object.freeze({render,dispose});
 }(window.RescueManager));
