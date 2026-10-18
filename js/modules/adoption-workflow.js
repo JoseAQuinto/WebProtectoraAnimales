@@ -3,7 +3,7 @@
   const ui = root.components.ui, el = ui.el, t = (key, values) => root.core.i18n.t(key, values), forms = root.modules.adoptionForms;
   const pageSize = 10, views = new Map();
   const empty = () => el('p', { class: 'muted' }, t('aw.empty'));
-  function render(ctx, animal) {
+  function render(ctx, animal, focus = null) {
     const tables = ctx.snapshot.tables, section = el('div', { class: 'stack adoption-workflow' });
     const active = !animal.archivedAt && !animal.deletedAt, underCare = active && animal.managementStatus === 'under_care';
     const canWrite = () => typeof ctx.canWrite === 'function' ? ctx.canWrite() : ctx.canWrite === undefined ? root.services.context.status().canWrite : !!ctx.canWrite;
@@ -24,8 +24,8 @@
     const activeReservation = tables.reservations.find(row => row.animalId === animal.id && row.status === 'active');
     const applications = tables.adoptionApplications.filter(row => row.animalId === animal.id).sort((a, b) => b.applicationDate.localeCompare(a.applicationDate) || b.createdAt.localeCompare(a.createdAt));
     const heading = el('div', { class: 'page-heading' }, el('div', {}, el('h2', {}, t('aw.applications')), el('p', { class: 'muted' }, t('aw.help'))));
-    if (underCare) heading.append(action('aw.new', () => forms.application(ctx, animal)));
-    section.append(heading);
+    if (underCare && !focus) heading.append(action('aw.new', () => forms.application(ctx, animal)));
+    if (!focus || focus.type === 'application') section.append(heading);
     if (!active) section.append(el('p', { class: 'muted' }, t('aw.restoreFirst')));
     const currentView = views.get(animal.id) || { status: '', page: 1 }; views.set(animal.id, currentView);
     const filterId = 'adoption-filter-' + root.utils.ids.uuidV4();
@@ -57,7 +57,8 @@
       !eligible && open ? el('p', { class: 'muted' }, t('aw.contactUnavailable')) : null, body, actions);
     }
     function paint() {
-      const rows = applications.filter(row => !currentView.status || row.status === currentView.status), pages = Math.max(1, Math.ceil(rows.length / pageSize));
+      const rows = applications.filter(row => focus ? focus.type === 'application' && row.id === focus.id : !currentView.status || row.status === currentView.status), pages = Math.max(1, Math.ceil(rows.length / pageSize));
+      if (focus) currentView.page = 1;
       currentView.page = Math.min(currentView.page, pages);
       const previous = ui.button(t('aw.previous'), () => { currentView.page--; paint(); }, true), next = ui.button(t('aw.next'), () => { currentView.page++; paint(); }, true);
       previous.disabled = currentView.page <= 1; next.disabled = currentView.page >= pages;
@@ -65,10 +66,10 @@
         el('div', { class: 'actions' }, previous, el('span', {}, t('aw.page', { page: currentView.page, pages, count: rows.length })), next));
     }
     filter.addEventListener('change', () => { currentView.status = filter.value; currentView.page = 1; paint(); });
-    section.append(el('div', { class: 'field' }, el('label', { for: filterId }, t('aw.filter')), filter), results); paint();
-    section.append(el('h2', {}, t('aw.reservations')), el('p', { class: 'muted' }, t('aw.expiryHelp')));
-    const reservations = tables.reservations.filter(row => row.animalId === animal.id).sort((a, b) => b.reservationDate.localeCompare(a.reservationDate));
-    if (!reservations.length) section.append(empty());
+    if (!focus || focus.type === 'application') { if (!focus) section.append(el('div', { class: 'field' }, el('label', { for: filterId }, t('aw.filter')), filter)); section.append(results); paint(); }
+    if (!focus || focus.type === 'reservation') section.append(el('h2', {}, t('aw.reservations')), el('p', { class: 'muted' }, t('aw.expiryHelp')));
+    const reservations = tables.reservations.filter(row => row.animalId === animal.id && (!focus || focus.type === 'reservation' && row.id === focus.id)).sort((a, b) => b.reservationDate.localeCompare(a.reservationDate));
+    if (!reservations.length && (!focus || focus.type === 'reservation')) section.append(empty());
     for (const reservation of reservations) {
       const application = applications.find(row => row.id === reservation.applicationId), actions = el('div', { class: 'actions' });
       if (underCare && reservation.status === 'active') {
@@ -79,9 +80,9 @@
         el('dl', { class: 'detail-grid' }, text('aw.status', t('aw.reservationStatus.' + reservation.status)), text('aw.reservationDate', date(reservation.reservationDate)),
           text('aw.expiresOn', reservation.expiresOn ? date(reservation.expiresOn) : null), text('aw.closedOn', reservation.closedOn ? date(reservation.closedOn) : null), text('aw.closureReason', reservation.closureReason)), actions));
     }
-    section.append(el('h2', {}, t('aw.adoptions')), el('p', { class: 'muted' }, t('aw.historyHelp')));
-    const adoptions = tables.adoptions.filter(row => row.animalId === animal.id).sort((a, b) => b.adoptionDate.localeCompare(a.adoptionDate));
-    if (!adoptions.length) section.append(empty());
+    if (!focus || focus.type === 'adoption') section.append(el('h2', {}, t('aw.adoptions')), el('p', { class: 'muted' }, t('aw.historyHelp')));
+    const adoptions = tables.adoptions.filter(row => row.animalId === animal.id && (!focus || focus.type === 'adoption' && row.id === focus.id)).sort((a, b) => b.adoptionDate.localeCompare(a.adoptionDate));
+    if (!adoptions.length && (!focus || focus.type === 'adoption')) section.append(empty());
     for (const adoption of adoptions) {
       const movement = tables.financialMovements.find(row => row.id === adoption.financialMovementId);
       const card = el('article', { class: 'card stack' }, el('h3', {}, contact(adoption.adopterContactId)), el('dl', { class: 'detail-grid' },

@@ -87,10 +87,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **137 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **142 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **622 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **632 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -126,7 +126,7 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 - Un error QuotaExceededError inyectado no demuestra cuota real agotada.
   Documentar por separado ambas pruebas. Retención/limpieza explícita de
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
-- Faltan vistas globales de solicitudes/adopciones, correcciones de historia,
+- Faltan correcciones coordinadas de historia,
   exportaciones por módulo/importación, demo y retirada. Finanzas
   tiene aceptación específica separada, con cualquier caso pendiente registrado
   en su informe. Donaciones e inventario ya tienen interfaz, pero su aceptación
@@ -151,8 +151,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
    distinguiendo rondas correctas, cadenas reanudadas e intentos de herramienta.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
-   aceptación real. Leer SEARCH_HISTORY.md y continuar las vistas globales de adopción.
-4. Completar vistas globales, exportación/importación por módulo y demo;
+   aceptación real. Leer SEARCH_HISTORY.md y ADOPTION_REGISTER.md para lo ya probado.
+4. Completar configuración/catálogos, exportación/importación por módulo y demo;
    conservar todas las fases del prompt. Los informes ya descargan sus tablas.
 5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de
    plataformas antes de habilitar datos reales o preparar distribución comercial.
@@ -247,3 +247,10 @@ Verificado: sintaxis/estática 592, paridad EN/ES (core.cjs) y 117 subpruebas
 Node correctas, incluidas las 10 de `resources.cjs`. **Aceptación real por
 navegador pendiente**: no se han ejecutado recorridos `file://` de estas dos
 pantallas; ver DONATIONS_INVENTORY_UI.md para el alcance de la comprobación.
+
+## Registro global de adopciones (2026-10-18)
+
+Solicitudes, reservas y adopciones en #adoptions con filtros, páginas y detalle
+exacto que reutiliza los formularios existentes. Ciclo completo desde UI global
+con aceptación Chrome/Edge 10/10 por motor, sin cambios de formatos; ver
+ADOPTION_REGISTER.md. Última ronda conjunta: 142 pruebas Node y 632 estáticas.

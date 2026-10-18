@@ -440,3 +440,13 @@
  'hi.entry.first_entry':'Primera entrada','hi.entry.return':'Devolución','hi.entry.other':'Otra entrada',
  'hi.exit.adoption':'Adopción','hi.exit.deceased':'Fallecimiento','hi.exit.transfer':'Traslado','hi.exit.other':'Otra salida'
 });}(window.RescueManager));
+(function(r){r.locales.es=Object.freeze({...r.locales.es,
+ 'nav.adoptions':'Registro de adopciones','ag.help':'Consulta solicitudes, reservas y adopciones realizadas de todos los animales. Abre un registro para utilizar su flujo de trabajo existente.',
+ 'ag.search':'Nombre/código de animal o nombre/email de contacto','ag.animal':'Animal','ag.open':'Abrir registro','ag.continue':'Continuar',
+ 'ag.chooseAnimal':'Elige un animal actualmente bajo cuidado para iniciar una solicitud.','ag.noAnimals':'No hay animales activos bajo cuidado. Registra primero una entrada.',
+ 'ag.visibility':'Visibilidad de registros','ag.visibility.active':'Registros activos','ag.visibility.all':'Incluir registros archivados','ag.visibility.trash':'Papelera',
+ 'ag.adoption.active':'Sin devolución','ag.adoption.returned':'Con devolución',
+ 'ag.periodHelp.application':'El periodo inclusivo filtra las fechas de solicitud. Cada fila muestra el estado actual de la solicitud.',
+ 'ag.periodHelp.reservation':'El periodo inclusivo filtra las fechas de reserva. La caducidad es inclusiva; superar esa fecha no cierra una reserva silenciosamente.',
+ 'ag.periodHelp.adoption':'El periodo inclusivo filtra las fechas de adopción realizada. Las adopciones devueltas permanecen en el registro y se pueden filtrar por separado.'
+});}(window.RescueManager));

@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Registro global de adopciones — 2026-10-18
+
+- Solicitudes/reservas/adopciones con filtros, páginas y enlace al animal y
+  contacto. Los detalles enfocados reutilizan los flujos y formularios existentes.
+- Alta global con elección de animal; revisión/aprobación/reserva/adopción y
+  devolución verificadas de principio a fin, con efectos únicos y detalle renovado.
+- Chrome/Edge: 10/10 por motor, 74 fuentes intactas y cierre/reapertura. Node:
+  142 pruebas; estática: 632. Alcance en ADOPTION_REGISTER.md; formatos sin cambios.
 ## Buscador global e historial por origen — 2026-10-18
 
 - Búsqueda agrupada de animales/contactos por nombres normalizados, código,

@@ -440,3 +440,13 @@
  'hi.entry.first_entry':'First entry','hi.entry.return':'Return','hi.entry.other':'Other entry',
  'hi.exit.adoption':'Adoption','hi.exit.deceased':'Death','hi.exit.transfer':'Transfer','hi.exit.other':'Other exit'
 });}(window.RescueManager));
+(function(r){r.locales.en=Object.freeze({...r.locales.en,
+ 'nav.adoptions':'Adoption register','ag.help':'Consult applications, reservations and completed adoptions across all animals. Open a record to use its existing workflow.',
+ 'ag.search':'Animal name/code or contact name/email','ag.animal':'Animal','ag.open':'Open record','ag.continue':'Continue',
+ 'ag.chooseAnimal':'Choose an animal currently under care to start an application.','ag.noAnimals':'No active animals under care are available. Register an entry first.',
+ 'ag.visibility':'Record visibility','ag.visibility.active':'Active records','ag.visibility.all':'Include archived records','ag.visibility.trash':'Trash',
+ 'ag.adoption.active':'Not returned','ag.adoption.returned':'Returned',
+ 'ag.periodHelp.application':'The inclusive period filters application dates. Each row shows the current application state.',
+ 'ag.periodHelp.reservation':'The inclusive period filters reservation dates. Expiry is inclusive; passing the date does not silently close a reservation.',
+ 'ag.periodHelp.adoption':'The inclusive period filters completed adoption dates. Returned adoptions remain in the register and can be filtered separately.'
+});}(window.RescueManager));
