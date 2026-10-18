@@ -2,3 +2,4 @@
 .people-filters>.field{min-width:0}.people-filters input,.people-filters select{width:100%;min-width:0}.people-filters label{overflow-wrap:anywhere}
 @media(max-width:767px){.people-details{grid-template-columns:minmax(0,1fr)}.people-phone-row{grid-template-columns:minmax(0,1fr)}.people-phone-row .button{justify-self:start}.people-filters{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}}
 @media(max-width:480px){.people-filters{grid-template-columns:minmax(0,1fr)}}
+.donation-line-row{border:1px solid var(--line);border-radius:9px;padding:14px;margin:0 0 14px;min-width:0}.donation-line-row>.button{margin-top:12px}

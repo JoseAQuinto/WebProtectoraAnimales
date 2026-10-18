@@ -10,7 +10,8 @@ Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 Desarrollo reanudado desde `c44831b`, incorporado con `git pull --ff-only`
 antes de editar. Se conservan las correcciones R1–R4 y los servicios existentes.
 Ahora hay pantallas operativas de animales, contactos, perfiles/estancias de
-acogida, adopciones, voluntariado, documentos, salud/planes y tareas/calendario.
+acogida, adopciones, voluntariado, documentos, salud/planes y tareas/calendario,
+finanzas y se añaden donaciones e inventario mediante los servicios existentes.
 **Producto incompleto: utilizar datos sintéticos.**
 No se han reducido los requisitos originales ni publicado un producto comercial.
 
@@ -64,12 +65,23 @@ sesión anterior. No consumir reinicios de cuota sin petición expresa.
 - Finanzas: alta de ingresos/gastos exactos, filtros/totales, anulación y
   corrección mediante sustituto enlazado, sin sobrescribir el importe original.
   Su aceptación específica está en FINANCE_UI_ACCEPTANCE.md; no atribuirle
-  los recorridos anteriores. Donaciones e inventario aún sin CRUD de interfaz.
+  los recorridos anteriores.
+- Donaciones: lista/búsqueda/filtros/paginación y ficha. Alta económica crea la
+  donación y exactamente un ingreso en el mismo guardado; alta material admite
+  1–1000 líneas, incorpora opcionalmente cada línea a un artículo con un único
+  movimiento de existencias y conserva el valor estimado separado del ingreso.
+  Anulación coordinada (monetaria anula el ingreso; material compensa cada
+  línea incorporada). No hay segunda cifra editable independiente del ingreso.
+- Inventario: lista de artículos con existencias derivadas, unidad, mínimo y
+  niveles bajo/en el mínimo; alta de artículos; movimientos de saldo inicial,
+  compra, consumo, devolución y ajuste con signo explícito, gasto opcional solo
+  en compra, compensación de movimientos y archivo. Las donaciones de stock se
+  crean desde Donaciones. Correcciones mediante movimientos compensatorios.
 
 Contratos: CONTACTS_API.md, LIFECYCLE_API.md, VOLUNTEERS_API.md,
 DOCUMENTS_API.md, HEALTH_API.md, RESOURCES_API.md, PEOPLE_UI.md,
-ANIMAL_FORMS_UI.md, FOSTER_UI.md, ADOPTION_UI.md, HEALTH_UI.md, TASKS_UI.md y
-FINANCE_UI.md.
+ANIMAL_FORMS_UI.md, FOSTER_UI.md, ADOPTION_UI.md, HEALTH_UI.md, TASKS_UI.md,
+FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 `index.html` carga servicios clásicos en orden explícito;
 `documents.js` precede a `photos.js`. Las cadenas están en locales/en.js y es.js.
 
@@ -78,7 +90,7 @@ FINANCE_UI.md.
 - Node: **117 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **582 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **592 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -115,9 +127,10 @@ FINANCE_UI.md.
   Documentar por separado ambas pruebas. Retención/limpieza explícita de
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
 - Faltan vistas globales de solicitudes/adopciones, correcciones de historia,
-  interfaz de donaciones/inventario, informes, buscador global,
-  importación/exportación, demo y retirada. Finanzas tiene aceptación específica
-  separada, con cualquier caso pendiente registrado en su informe.
+  informes, buscador global, importación/exportación, demo y retirada. Finanzas
+  tiene aceptación específica separada, con cualquier caso pendiente registrado
+  en su informe. Donaciones e inventario ya tienen interfaz, pero su aceptación
+  real por navegador queda pendiente (ver DONATIONS_INVENTORY_UI.md).
 - El historial animal aún no enlaza cada evento con su origen ni distingue
   todos los parámetros de estado de las solicitudes. No equivale a pérdida
   de registros: estos se conservan y consultan en sus secciones específicas.
@@ -136,8 +149,11 @@ FINANCE_UI.md.
 2. Revisar UI_ACCEPTANCE.md, WORKFLOWS_UI_ACCEPTANCE.md y HEALTH_UI_ACCEPTANCE.md,
    distinguiendo rondas correctas, cadenas reanudadas e intentos de herramienta.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
-3. Revisar el resultado específico de finanzas y conectar donaciones/inventario usando los
-   servicios existentes, sin duplicar efectos de negocio al vincular operaciones.
+3. Ejecutar la aceptación real por navegador de Donaciones e Inventario
+   (alta económica/material, líneas, anulación, stock, movimientos, compensación
+   y archivo) mediante `file://`, sin repetir efectos de negocio; registrar el
+   resultado en DONATIONS_INVENTORY_UI.md y distinguir rondas correctas de
+   intentos de herramienta.
 4. Completar navegación/correcciones del historial, vistas globales e informes,
    importación/exportación y demo; conservar todas las fases del prompt.
 5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de
@@ -206,8 +222,30 @@ desplazable a 360×640. Ver FINANCE_UI_ACCEPTANCE.md. Los dos primeros fallos
 fueron de preparación/selector del ejecutor; se conservan sin contarlos como
 aceptación. La lectura de tablas estrechas todavía necesita pulido.
 
-Última verificación conjunta: **117 pruebas Node y 582 comprobaciones
+Última verificación conjunta: **117 pruebas Node y 592 comprobaciones
 estáticas correctas**, además de `git diff --check`. Solo quedaron perfiles y
 capturas de prueba ignorados bajo `.tmp`; los navegadores propios se cerraron.
 No se consumió ningún reinicio de cuota. Las evidencias y ejecutores viajan con
 Git; los datos del perfil del navegador y herramientas externas no viajan.
+
+## Donaciones e inventario (2026-10-18)
+
+Se añaden las pantallas `#donations` y `#inventory` conectadas a los servicios
+existentes `donations.js` e `inventory.js`, sin duplicar efectos de negocio.
+`index.html` carga los dos módulos nuevos y el menú lateral los enlaza tras
+Finanzas. Los servicios no cambiaron: la interfaz usa `createMonetary`,
+`createMaterial`, `void`, `createItem`, `move`, `compensate`, `archive` y
+`stock`. Traducciones `dn.*`/`iv.*` en EN y ES con paridad verificada.
+
+Donaciones: alta económica (donación + un único ingreso), alta material con
+1–1000 líneas (tipo de material, descripción, cantidad con precisión 0–3,
+unidad, artículo opcional y valor estimado separado del ingreso), anulación
+coordinada y ficha con ingreso/líneas vinculadas. Inventario: artículos con
+existencias derivadas, mínimo y niveles bajo/en el mínimo, alta, movimientos
+(saldo inicial, compra, consumo, devolución, ajuste con signo explícito, gasto
+opcional solo en compra), compensación y archivo.
+
+Verificado: sintaxis/estática 592, paridad EN/ES (core.cjs) y 117 subpruebas
+Node correctas, incluidas las 10 de `resources.cjs`. **Aceptación real por
+navegador pendiente**: no se han ejecutado recorridos `file://` de estas dos
+pantallas; ver DONATIONS_INVENTORY_UI.md para el alcance de la comprobación.

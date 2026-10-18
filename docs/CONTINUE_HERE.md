@@ -28,7 +28,8 @@ Leer en orden:
 3. `docs/REQUIREMENTS.es.md` completo: prompt original sin recortes.
 4. `docs/REVIEW_HANDOFF.md`: R1–R4 corregidos y riesgos conservados.
 5. `docs/ENVIRONMENT_TESTS.md`, `docs/RECOVERY_EVIDENCE.md` y últimos JSON de QA.
-6. APIs del área: DOCUMENTS, CONTACTS, LIFECYCLE, VOLUNTEERS, HEALTH, RESOURCES.
+6. APIs del área: DOCUMENTS, CONTACTS, LIFECYCLE, VOLUNTEERS, HEALTH, RESOURCES
+   y DONATIONS_INVENTORY_UI.
 
 ## Qué puede abrirse ahora
 
@@ -42,8 +43,9 @@ Las secciones sanitarias, acogidas y adopción permiten sus acciones reales:
 asignar/finalizar estancias, revisar/reservar/adoptar/devolver, planes, actos
 realizados y tareas/calendario centrales. Finanzas tiene interfaz de movimientos,
 anulación y corrección; revisar FINANCE_UI_ACCEPTANCE antes de extenderla.
-El próximo bloque es donaciones e inventario sin duplicar efectos. Consultar
-PROJECT_STATUS y los documentos de aceptación para el resto del alcance.
+Donaciones e inventario ya tienen pantalla conectada a sus servicios; su
+aceptación real por navegador queda pendiente en DONATIONS_INVENTORY_UI.md.
+Consultar PROJECT_STATUS y los documentos de aceptación para el resto del alcance.
 
 No cambiar a servidor/framework/CDN/módulos ES/LocalStorage. Sin botones de
 éxito simulado ni datos ficticios permanentes. **Usar solo datos sintéticos.**
@@ -96,12 +98,13 @@ pendientes y CHANGELOG, revisar diff/secretos/archivos temporales, commit y push
 sin force y verificar remoto y árbol limpio. No afirmar que una prueba pasó
 si solo se preparó o si falló el cierre del ejecutor.
 
-Los siguientes pendientes concretos son donaciones/inventario mediante los
-servicios existentes, navegación de cada evento al registro de origen y
-vistas globales de solicitudes/adopciones. Después informes, importación/
-exportación y demo según el prompt completo. No volver a implementar desde
-cero los flujos ya verificados. El rendimiento O(N), cuota física real y
-aceptación de plataformas continúan pendientes antes de datos reales.
+Los siguientes pendientes concretos son la aceptación real por navegador de
+Donaciones e Inventario (DONATIONS_INVENTORY_UI.md), navegación de cada evento
+al registro de origen y vistas globales de solicitudes/adopciones. Después
+informes, importación/exportación y demo según el prompt completo. No volver a
+implementar desde cero los flujos ya verificados. El rendimiento O(N), cuota
+física real y aceptación de plataformas continúan pendientes antes de datos
+reales.
 
 Git lleva código y documentación. **Los datos del navegador no viajan con Git**:
 trasladarlos exige descargar, volver a seleccionar/verificar y conservar una

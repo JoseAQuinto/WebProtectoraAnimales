@@ -1,5 +1,20 @@
 # Historial de cambios
 
+## Donaciones e inventario — 2026-10-18 (0.2.0-dev)
+
+- Pantallas `#donations` y `#inventory` conectadas a los servicios existentes
+  `donations.js` e `inventory.js`, sin duplicar efectos de negocio. Menú lateral
+  y rutas añadidas; `index.html` carga los dos módulos nuevos.
+- Donaciones: alta económica (donación + un único ingreso), alta material con
+  1–1000 líneas y valor estimado separado, anulación coordinada y ficha con
+  ingreso/líneas vinculadas.
+- Inventario: artículos con existencias derivadas, mínimo y niveles bajo/en el
+  mínimo; alta, movimientos con signo explícito y gasto opcional solo en compra,
+  compensación y archivo.
+- Traducciones `dn.*`/`iv.*` EN/ES con paridad verificada (core.cjs). Estática
+  **592 comprobaciones** y 117 subpruebas Node correctas. Aceptación real por
+  navegador de estas pantallas pendiente; ver DONATIONS_INVENTORY_UI.md.
+
 ## Registro de finanzas — 2026-10-17 (0.2.0-dev)
 
 - Pantalla de ingresos/gastos con moneda de organización, importes exactos y
