@@ -87,10 +87,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **151 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **157 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **652 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **667 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -127,7 +127,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   Documentar por separado ambas pruebas. Retención/limpieza explícita de
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
 - Faltan correcciones coordinadas de historia,
-  exportaciones por módulo/importación, demo y retirada. Finanzas
+  importación con plantillas, demo y retirada. Exportaciones por módulo ya
+  tienen aceptación en MODULE_EXPORTS.md. Finanzas
   tiene aceptación específica separada, con cualquier caso pendiente registrado
   en su informe. Donaciones e inventario ya tienen interfaz, pero su aceptación
   real por navegador tiene 12/12 en Chrome/Edge junto con informes (ver
@@ -152,7 +153,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
    aceptación real. Leer SEARCH_HISTORY.md y ADOPTION_REGISTER.md para lo ya probado.
-4. Completar exportación/importación por módulo y demo; configuración/catálogos
+4. Completar asistente de importación y demo; exportaciones por módulo ya
+   tienen aceptación en MODULE_EXPORTS.md. Configuración/catálogos
    ya tienen aceptación en CONFIGURATION.md.
    conservar todas las fases del prompt. Los informes ya descargan sus tablas.
 5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de
@@ -263,3 +265,11 @@ validados y retirada conservadora; mantenimiento de opciones/ubicaciones y
 rechazo de ciclos. Chrome/Edge 13/13 por motor con descarga/verificación de
 copia, umbral de escrituras y reapertura. Ver CONFIGURATION.md. Última ronda
 conjunta: 151 pruebas Node y 652 estáticas correctas.
+
+## Exportaciones por módulo (2026-10-18)
+
+Centro de exportación con filtros/alcance explícitos para los nueve tipos
+obligatorios. CSV con precisión y protección de fórmulas; JSON v1 con registros
+y referencias, sin bytes y marcado como no backup. Chrome/Edge 10/10 por motor
+con 18 descargas obligatorias más subconjuntos/vacíos y reapertura. Ver
+MODULE_EXPORTS.md. Última ronda conjunta: 157 pruebas Node y 667 estáticas.

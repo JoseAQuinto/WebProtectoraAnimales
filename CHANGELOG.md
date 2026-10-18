@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Exportación por módulos — 2026-10-18
+
+- Centro de exportación para animales, contactos, solicitudes/adopciones,
+  gastos/ingresos, voluntarios/horas y donaciones, con alcance y filtros propios.
+- CSV con precisión, agrupación material y protección de fórmulas; JSON v1 con
+  registros/referencias y metadatos de recursos sin bytes, separado del backup.
+- Chrome/Edge 10/10 por motor, descargas reales de los nueve tipos en ambos
+  formatos, subconjuntos/vacíos y reapertura. 157 Node y 667 estáticas correctas.
+- No se modifica negocio ni formatos de almacenamiento; ver MODULE_EXPORTS.md.
 ## Configuración, catálogos y logotipo — 2026-10-18
 
 - Preferencias aplicadas a lista de animales, textos de impresión y recordatorios

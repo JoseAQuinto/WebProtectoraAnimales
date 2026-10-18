@@ -62,7 +62,7 @@ node --test --test-reporter=dot tests/unit/*.cjs
 git diff --check
 ```
 
-Última ronda conjunta: **151 subpruebas Node correctas**. La estática se
+Última ronda conjunta: **157 subpruebas Node correctas**. La estática se
 registra con su recuento por checkpoint en PROJECT_STATUS.
 Pruebas reales adicionales: perfiles 9+6 y medios 10+6 en Chrome/Edge.
 Pantallas iniciales 13/13 más visual dirigida 5/5 por motor. Ciclo de acogida/
@@ -71,7 +71,7 @@ en Chrome y Edge. Ver UI_ACCEPTANCE, WORKFLOWS_UI_ACCEPTANCE y
 HEALTH_UI_ACCEPTANCE, además de recuperación/cierres en RECOVERY_EVIDENCE.
 Finanzas: **12/12 por motor** en Chrome y Edge, con importes/anulación/
 corrección, revisión antigua y cierre/reapertura; ver FINANCE_UI_ACCEPTANCE.
-Última estática del bloque completo: **652 comprobaciones correctas**.
+Última estática del bloque completo: **667 comprobaciones correctas**.
 Las primeras rondas fallidas
 por entorno o ejecutor se conservan sin contarlas como aceptación.
 
@@ -101,8 +101,9 @@ si solo se preparó o si falló el cierre del ejecutor.
 
 El registro global ya tiene aceptación 10/10 por motor (ADOPTION_REGISTER.md).
 Configuración/catálogos/logotipo: 13/13 por motor en CONFIGURATION.md.
+Exportaciones por módulo: 10/10 por motor en MODULE_EXPORTS.md.
 Los siguientes pendientes concretos son
-correcciones coordinadas de hechos, importación/exportación por módulo y demo
+correcciones coordinadas de hechos, asistente de importación con plantillas y demo
 según el prompt completo. No volver a
 implementar desde cero los flujos ya verificados. El rendimiento O(N), cuota
 física real y aceptación de plataformas continúan pendientes antes de datos
