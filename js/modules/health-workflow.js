@@ -56,5 +56,10 @@
     }
     content.append(el('h4', {}, t('hw.tasks')), root.modules.tasks.render(ctx, animal)); return content;
   }
-  root.modules.healthWorkflow = Object.freeze({ render, record: (...args) => root.modules.healthForms.record(...args), plan: (...args) => root.modules.healthForms.plan(...args) });
+  function openRecord(ctx, id) {
+    const record = ctx.snapshot.tables.veterinaryRecords.find(row => row.id === id);
+    const animal = record && ctx.snapshot.tables.animals.find(row => row.id === record.animalId);
+    return record && animal ? detail(ctx, animal, record) : ui.dialog(t('hw.openRecord'), el('p', {}, t('hi.missing')));
+  }
+  root.modules.healthWorkflow = Object.freeze({ render, openRecord, record: (...args) => root.modules.healthForms.record(...args), plan: (...args) => root.modules.healthForms.plan(...args) });
 }(window.RescueManager));

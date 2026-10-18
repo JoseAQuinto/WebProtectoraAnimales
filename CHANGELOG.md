@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Buscador global e historial por origen — 2026-10-18
+
+- Búsqueda agrupada de animales/contactos por nombres normalizados, código,
+  microchip, teléfono y email; archivo/papelera explícitos y páginas de 20.
+- Historial con fecha del hecho y de registro, estados históricos, filtros,
+  páginas y apertura de cada origen, incluidos actos y documentos.
+- Chrome/Edge: 10/10 por motor, 72 fuentes intactas, cierre/reapertura sin
+  cambios de revisión/datos. 137 pruebas Node y 622 estáticas correctas.
+- No cambian formatos persistidos. Las correcciones de hechos siguen pendientes;
+  alcance y evidencia en SEARCH_HISTORY.md.
 ## Revisión de cambios locales e informes — 2026-10-18
 
 - Conservado el avance local de donaciones/inventario y completado el bloque

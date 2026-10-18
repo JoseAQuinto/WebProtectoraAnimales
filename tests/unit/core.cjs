@@ -32,7 +32,7 @@ for (const locale of ['en','es']) {
   }
   for (const name of fs.readdirSync(path.join(__dirname, '../../js/modules')).filter(name=>name.endsWith('.js'))) {
     const source = fs.readFileSync(path.join(__dirname, '../../js/modules', name),'utf8');
-    for (const match of source.matchAll(/['"]((?:a|af|aw|fw|hw|q|p|d|f|dn|iv|rp|ui|nav|common)\.[a-zA-Z][a-zA-Z0-9._-]*)['"]/g)) {
+    for (const match of source.matchAll(/['"]((?:a|af|aw|fw|hw|q|p|d|f|dn|iv|rp|gs|hi|ui|nav|common)\.[a-zA-Z][a-zA-Z0-9._-]*)['"]/g)) {
       if (!match[1].endsWith('.')) assert.equal(typeof root.locales[locale][match[1]],'string',locale+' '+name+': missing '+match[1]);
     }
   }

@@ -87,10 +87,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **133 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **137 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **607 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **622 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -127,14 +127,14 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   Documentar por separado ambas pruebas. Retención/limpieza explícita de
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
 - Faltan vistas globales de solicitudes/adopciones, correcciones de historia,
-  buscador global, exportaciones por módulo/importación, demo y retirada. Finanzas
+  exportaciones por módulo/importación, demo y retirada. Finanzas
   tiene aceptación específica separada, con cualquier caso pendiente registrado
   en su informe. Donaciones e inventario ya tienen interfaz, pero su aceptación
   real por navegador tiene 12/12 en Chrome/Edge junto con informes (ver
   REVIEW_RESOURCES_REPORTS.md para alcance y límites).
-- El historial animal aún no enlaza cada evento con su origen ni distingue
-  todos los parámetros de estado de las solicitudes. No equivale a pérdida
-  de registros: estos se conservan y consultan en sus secciones específicas.
+- Buscador global e historial ya tienen navegación por origen, periodos,
+  paginación y transiciones históricas. Ver SEARCH_HISTORY.md: 10/10 por motor
+  Chrome/Edge, sin escrituras. Los comandos de corrección aún faltan.
 - Pesos permiten alta/edición en interfaz; papelera/restauración existen en
   servicio pero todavía no tienen recorrido visible completo. Logotipo solo API.
 - Faltan correcciones de historias, guías completas EN/ES, impresión final,
@@ -151,7 +151,7 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
    distinguiendo rondas correctas, cadenas reanudadas e intentos de herramienta.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
-   aceptación real. Continuar buscador global y navegación/correcciones del historial.
+   aceptación real. Leer SEARCH_HISTORY.md y continuar las vistas globales de adopción.
 4. Completar vistas globales, exportación/importación por módulo y demo;
    conservar todas las fases del prompt. Los informes ya descargan sus tablas.
 5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de

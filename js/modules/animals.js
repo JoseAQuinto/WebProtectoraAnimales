@@ -63,7 +63,7 @@
         adoption:()=>root.modules.adoptionWorkflow.render(ctx,animal),
         expenses:()=>table(['a.date','a.title','a.amount','a.state'],tables.financialMovements.filter(row=>row.animalId===animal.id).sort((a,b)=>b.date.localeCompare(a.date)).map(row=>[row.date,row.concept,root.utils.money.format(row.amountMinor,row.currencyCode,{locale:root.core.i18n.language}),t('a.finance.'+row.status)])),
         documents:()=>ctx.documents({entityType:'animal',entityId:animal.id}),
-        history:()=>table(['a.date','a.event','a.reason'],tables.animalEvents.filter(row=>row.animalId===animal.id).sort((a,b)=>b.eventDate.localeCompare(a.eventDate)||b.recordedAt.localeCompare(a.recordedAt)).map(row=>[row.eventDate,t('a.event.'+row.type),row.parameters.reason||'']))
+        history:()=>root.modules.animalHistory.render(ctx,animal)
       };
       let selected=ctx.route.tab&&sections[ctx.route.tab]?ctx.route.tab:'info';
       const choose=key=>{selected=key;for(const control of tabs.children)control.setAttribute('aria-pressed',String(control.dataset.tab===key));body.replaceChildren(sections[key]());};

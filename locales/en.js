@@ -427,3 +427,16 @@
 'rp.json':'Download report JSON','rp.meanDays':'Average days','rp.exportHelp':'Downloads contain all rows of each report for the selected period. Currency values use a decimal point without grouping. CSV protects potentially executable text; spreadsheets can change protections or types when saving. JSON preserves report values. These downloads contain no files and are not a full backup. Printing covers visible table pages.'
 });}(window.RescueManager));
 (function(r){r.locales.en=Object.freeze({...r.locales.en,'dn.amountInvalid':'Enter a positive amount using the selected decimal separator and currency precision.','dn.totalOverflow':'Estimated total exceeds the safe integer limit.'});}(window.RescueManager));
+
+(function(r){r.locales.en=Object.freeze({...r.locales.en,
+ 'nav.search':'Global search','gs.query':'Search animals and contacts','gs.start':'Enter a name, animal code, microchip, phone or email.',
+ 'gs.help':'Names ignore accents and case. Phone and microchip comparisons use their normalized text; original values are preserved. Results open the corresponding record.',
+ 'gs.count':'{count} results','gs.empty':'No matching records.','gs.includeInactive':'Include archived records and trash',
+ 'hi.source':'Source record','hi.openSource':'Open source record','hi.missing':'The source record is not available in this dataset.',
+ 'hi.sourceCurrent':'This is the current source record. The history keeps each recorded transition; its date and state can differ from the current source.',
+ 'hi.type':'Event type','hi.factDate':'Date of the fact','hi.recorded':'Recorded on','hi.corrected':'Corrected or voided',
+ 'hi.includeCorrected':'Include corrected and voided versions','hi.page':'Page {page} of {pages} · {count} events',
+ 'hi.help':'Facts are ordered by their calendar date, then by the time they were recorded. Recorded times use the organization time zone. Open a source to consult its details. Superseded or voided versions are hidden by default.',
+ 'hi.entry.first_entry':'First entry','hi.entry.return':'Return','hi.entry.other':'Other entry',
+ 'hi.exit.adoption':'Adoption','hi.exit.deceased':'Death','hi.exit.transfer':'Transfer','hi.exit.other':'Other exit'
+});}(window.RescueManager));

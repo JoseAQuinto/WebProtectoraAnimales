@@ -427,3 +427,16 @@
 'rp.json':'Descargar informe JSON','rp.meanDays':'Media de días','rp.exportHelp':'Las descargas contienen todas las filas de cada informe del periodo elegido. Los importes usan punto decimal sin separador de miles. El CSV protege texto potencialmente ejecutable; una hoja de cálculo puede alterar protecciones o tipos al guardar. JSON conserva los valores del informe. Estas descargas no incluyen archivos ni son una copia completa. La impresión abarca las páginas de tablas visibles.'
 });}(window.RescueManager));
 (function(r){r.locales.es=Object.freeze({...r.locales.es,'dn.amountInvalid':'Introduce un importe positivo con el separador elegido y los decimales de la moneda.','dn.totalOverflow':'El valor estimado total supera el límite de enteros seguros.'});}(window.RescueManager));
+
+(function(r){r.locales.es=Object.freeze({...r.locales.es,
+ 'nav.search':'Buscador global','gs.query':'Buscar animales y contactos','gs.start':'Introduce un nombre, código de animal, microchip, teléfono o email.',
+ 'gs.help':'Los nombres se comparan sin distinguir acentos ni mayúsculas. Teléfonos y microchips se comparan como texto normalizado y conservan sus valores originales. Cada resultado abre su ficha.',
+ 'gs.count':'{count} resultados','gs.empty':'No hay registros coincidentes.','gs.includeInactive':'Incluir registros archivados y papelera',
+ 'hi.source':'Registro de origen','hi.openSource':'Abrir registro de origen','hi.missing':'El registro de origen no está disponible en este conjunto de datos.',
+ 'hi.sourceCurrent':'Este es el registro de origen actual. El historial conserva cada transición registrada; su fecha y estado pueden diferir de los del registro actual.',
+ 'hi.type':'Tipo de evento','hi.factDate':'Fecha del hecho','hi.recorded':'Registrado el','hi.corrected':'Corregido o anulado',
+ 'hi.includeCorrected':'Incluir versiones corregidas y anuladas','hi.page':'Página {page} de {pages} · {count} eventos',
+ 'hi.help':'Los hechos se ordenan por su fecha de calendario y después por el instante de registro. Las horas usan la zona horaria de la organización. Abre el origen para consultar sus detalles. Las versiones sustituidas o anuladas se ocultan inicialmente.',
+ 'hi.entry.first_entry':'Primera entrada','hi.entry.return':'Devolución','hi.entry.other':'Otra entrada',
+ 'hi.exit.adoption':'Adopción','hi.exit.deceased':'Fallecimiento','hi.exit.transfer':'Traslado','hi.exit.other':'Otra salida'
+});}(window.RescueManager));

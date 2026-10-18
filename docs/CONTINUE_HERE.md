@@ -1,6 +1,6 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint: **2026-10-17**, aplicación **0.2.0-dev**.
+Checkpoint: **2026-10-18**, aplicación **0.2.0-dev**.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 
 El desarrollo continúa desde `c44831b`, obtenido del remoto antes de editar.
@@ -29,7 +29,7 @@ Leer en orden:
 4. `docs/REVIEW_HANDOFF.md`: R1–R4 corregidos y riesgos conservados.
 5. `docs/ENVIRONMENT_TESTS.md`, `docs/RECOVERY_EVIDENCE.md` y últimos JSON de QA.
 6. APIs del área: DOCUMENTS, CONTACTS, LIFECYCLE, VOLUNTEERS, HEALTH, RESOURCES
-   y DONATIONS_INVENTORY_UI.
+   y DONATIONS_INVENTORY_UI; además REPORTS_API y SEARCH_HISTORY.
 
 ## Qué puede abrirse ahora
 
@@ -43,8 +43,9 @@ Las secciones sanitarias, acogidas y adopción permiten sus acciones reales:
 asignar/finalizar estancias, revisar/reservar/adoptar/devolver, planes, actos
 realizados y tareas/calendario centrales. Finanzas tiene interfaz de movimientos,
 anulación y corrección; revisar FINANCE_UI_ACCEPTANCE antes de extenderla.
-Donaciones e inventario ya tienen pantalla conectada a sus servicios; su
-aceptación real por navegador queda pendiente en DONATIONS_INVENTORY_UI.md.
+Donaciones/Inventario e Informes tienen aceptación 12/12 por motor; ver
+REVIEW_RESOURCES_REPORTS.md. Buscador global e historial por origen: 10/10 por
+motor en SEARCH_HISTORY.md. Los informes exportan sus tablas en CSV y JSON.
 Consultar PROJECT_STATUS y los documentos de aceptación para el resto del alcance.
 
 No cambiar a servidor/framework/CDN/módulos ES/LocalStorage. Sin botones de
@@ -61,7 +62,7 @@ node --test --test-reporter=dot tests/unit/*.cjs
 git diff --check
 ```
 
-Última ronda conjunta: **117 subpruebas Node correctas**. La estática se
+Última ronda conjunta: **137 subpruebas Node correctas**. La estática se
 registra con su recuento por checkpoint en PROJECT_STATUS.
 Pruebas reales adicionales: perfiles 9+6 y medios 10+6 en Chrome/Edge.
 Pantallas iniciales 13/13 más visual dirigida 5/5 por motor. Ciclo de acogida/
@@ -70,7 +71,7 @@ en Chrome y Edge. Ver UI_ACCEPTANCE, WORKFLOWS_UI_ACCEPTANCE y
 HEALTH_UI_ACCEPTANCE, además de recuperación/cierres en RECOVERY_EVIDENCE.
 Finanzas: **12/12 por motor** en Chrome y Edge, con importes/anulación/
 corrección, revisión antigua y cierre/reapertura; ver FINANCE_UI_ACCEPTANCE.
-Última estática del bloque completo: **582 comprobaciones correctas**.
+Última estática del bloque completo: **622 comprobaciones correctas**.
 Las primeras rondas fallidas
 por entorno o ejecutor se conservan sin contarlas como aceptación.
 
@@ -98,10 +99,9 @@ pendientes y CHANGELOG, revisar diff/secretos/archivos temporales, commit y push
 sin force y verificar remoto y árbol limpio. No afirmar que una prueba pasó
 si solo se preparó o si falló el cierre del ejecutor.
 
-Los siguientes pendientes concretos son la aceptación real por navegador de
-Donaciones e Inventario (DONATIONS_INVENTORY_UI.md), navegación de cada evento
-al registro de origen y vistas globales de solicitudes/adopciones. Después
-informes, importación/exportación y demo según el prompt completo. No volver a
+Los siguientes pendientes concretos son vistas globales de solicitudes/adopciones,
+correcciones coordinadas de hechos, importación/exportación por módulo y demo
+según el prompt completo. No volver a
 implementar desde cero los flujos ya verificados. El rendimiento O(N), cuota
 física real y aceptación de plataformas continúan pendientes antes de datos
 reales.
