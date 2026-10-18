@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Importación CSV de contactos — 2026-10-18
+
+- Plantilla, separador/codificación, mapeo, validación por fila/campo, duplicados
+  con decisiones explícitas y correspondencias externas reutilizables.
+- Actualización solo de campos mapeados, subconjuntos/omisiones confirmados,
+  informe descargable, revisión/idempotencia y hash de archivo repetido.
+- Lotes pequeños atómicos y grandes en dataset separado con copia verificada,
+  cancelación antes de activar y conservación del conjunto anterior y sus bytes.
+- Chrome/Edge 13/13 por motor, 1.001 contactos importados por UI; 166 Node y
+  687 estáticas. Otros CSV/JSON pendientes; alcance en CONTACT_IMPORT.md.
 ## Exportación por módulos — 2026-10-18
 
 - Centro de exportación para animales, contactos, solicitudes/adopciones,

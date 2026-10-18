@@ -87,10 +87,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **157 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **166 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **667 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **687 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -127,7 +127,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   Documentar por separado ambas pruebas. Retención/limpieza explícita de
   conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
 - Faltan correcciones coordinadas de historia,
-  importación con plantillas, demo y retirada. Exportaciones por módulo ya
+  importación de los otros tipos CSV/JSON, demo y retirada. Contactos CSV ya
+  tiene aceptación en CONTACT_IMPORT.md. Exportaciones por módulo ya
   tienen aceptación en MODULE_EXPORTS.md. Finanzas
   tiene aceptación específica separada, con cualquier caso pendiente registrado
   en su informe. Donaciones e inventario ya tienen interfaz, pero su aceptación
@@ -153,7 +154,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
    aceptación real. Leer SEARCH_HISTORY.md y ADOPTION_REGISTER.md para lo ya probado.
-4. Completar asistente de importación y demo; exportaciones por módulo ya
+4. Extender la importación CSV/JSON desde CONTACT_IMPORT.md y completar demo;
+   exportaciones por módulo ya
    tienen aceptación en MODULE_EXPORTS.md. Configuración/catálogos
    ya tienen aceptación en CONFIGURATION.md.
    conservar todas las fases del prompt. Los informes ya descargan sus tablas.
@@ -273,3 +275,12 @@ obligatorios. CSV con precisión y protección de fórmulas; JSON v1 con registr
 y referencias, sin bytes y marcado como no backup. Chrome/Edge 10/10 por motor
 con 18 descargas obligatorias más subconjuntos/vacíos y reapertura. Ver
 MODULE_EXPORTS.md. Última ronda conjunta: 157 pruebas Node y 667 estáticas.
+
+## Importación CSV de contactos (2026-10-18)
+
+Asistente con plantilla/mapeo, revisión de duplicados, identidades externas,
+actualización parcial, informes y subconjuntos explícitos. Lotes pequeños
+atómicos y grandes con copia actual verificada, dataset separado y activación
+atómica. Chrome/Edge 13/13 por motor con 1.001 contactos, cancelación real de
+preparación, conjunto anterior y bytes conservados. Ver CONTACT_IMPORT.md.
+Última ronda conjunta: 166 Node y 687 estáticas. Otros CSV y JSON aún pendientes.

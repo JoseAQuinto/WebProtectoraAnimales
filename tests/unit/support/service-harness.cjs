@@ -10,7 +10,7 @@ const base = ['namespace', 'utils/ids', 'utils/dates', 'utils/strings', 'utils/c
 function harness({ datasetId, today, services, catalogKinds }) {
   const now = today + 'T12:00:00.000Z';
   const sandbox = vm.createContext({ window: { crypto: webcrypto }, Intl, Date, Blob, Uint8Array,
-    TextDecoder, TextEncoder, ArrayBuffer, DataView });
+    TextDecoder, TextEncoder, ArrayBuffer, DataView, setTimeout, clearTimeout });
   function load(file) { const name = path.resolve(__dirname, '../../../js/' + file + '.js'); vm.runInContext(fs.readFileSync(name, 'utf8'), sandbox, { filename: name }); }
   base.forEach(load);
   const root = sandbox.window.RescueManager, d = root.domain, id = () => root.utils.ids.uuidV4();
