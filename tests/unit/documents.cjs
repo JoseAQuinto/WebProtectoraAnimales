@@ -160,6 +160,16 @@ test('invalid thumbnail aborts the photograph, animal update and activity togeth
   assert.equal(h.tables.organizationSettings[0].logoAssetId, id); assert.equal(h.row('assets', id).type, 'logo');
 });
 
+test('removing a logo retains verified bytes and is idempotent with stale-write protection', async () => {
+  const h=harness(),photos=h.root.services.photos;await fakeImagePreparation(h);
+  const id=(await photos.setOrganizationLogo(file())).result.logoAssetId,before=h.row('assets',id),oldRevision=h.revision;
+  const command={operationId:h.id()};await photos.removeOrganizationLogo(command);
+  assert.equal((await photos.removeOrganizationLogo(command)).duplicate,true);
+  assert.equal(h.tables.organizationSettings[0].logoAssetId,null);assert.equal(h.tables.assets.length,1);
+  assert.equal(await h.row('assets',id).blob.text(),await before.blob.text());assert.equal(h.row('assets',id).sha256,before.sha256);
+  await assert.rejects(photos.removeOrganizationLogo({expectedRevision:oldRevision}),{name:'RevisionConflictError'});
+});
+
 test('weights accept only positive safe integer grams and real nonfuture dates; latest derives from dated valid measurements', async () => {
   const h = harness(), animalId = await animal(h), weights = h.root.services.weights;
   const first = (await weights.record({ animalId, date: '2026-10-02', grams: 8000 })).result.id;

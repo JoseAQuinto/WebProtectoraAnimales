@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Configuración, catálogos y logotipo — 2026-10-18
+
+- Preferencias aplicadas a lista de animales, textos de impresión y recordatorios
+  de copia verificada por días/escrituras mientras la aplicación está abierta.
+- Logotipo validado con alta/reemplazo/retirada y conservación de recursos;
+  catálogos personalizados y ubicaciones con protección de códigos y ciclos.
+- Ajustes con campos permitidos y actividad; referencias animales inactivas
+  conservadas en edición; moneda de movimientos existentes sin reinterpretación.
+- Chrome/Edge: 13/13 por motor, copia real descargada/verificada, hashes de bytes
+  y reapertura. Node 151 y estática 652; detalles en CONFIGURATION.md.
 ## Registro global de adopciones — 2026-10-18
 
 - Solicitudes/reservas/adopciones con filtros, páginas y enlace al animal y

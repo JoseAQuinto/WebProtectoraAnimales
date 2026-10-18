@@ -29,9 +29,13 @@
   }
   function update(input, command) {
     return root.services.context.execute('settings.update', input, (data, h) => {
+      const allowed = ['name','phone','email','address','language','currencyCode','dateFormat','timeZone','displayPreferences','printDetails','printFooter','backupReminderDays','backupReminderWrites','backupRemindersEnabled'];
+      if (!input || typeof input !== 'object' || Array.isArray(input) || Object.keys(input).some(key => !allowed.includes(key))) h.fail('InvalidInputError', 'Unexpected organization setting');
       const previous = data.organizationSettings[0];
       const record = h.edit('organizationSettings', previous, input);
-      return { changes: [h.replace('organizationSettings', record)], result: { id: record.id } };
+      const activity = h.create('activityLog', { operation:'update', occurredAt:h.now, operationId:h.operationId,
+        target:{type:'organization_settings',id:record.id}, summaryParameters:{} });
+      return { changes: [h.replace('organizationSettings', record),h.insert('activityLog',activity)], result: { id: record.id } };
     }, command);
   }
   root.services.settings = Object.freeze({ create, update });

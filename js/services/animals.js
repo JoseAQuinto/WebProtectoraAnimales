@@ -111,7 +111,8 @@
   function update(input, command) {
     return context.execute('animal.update', input, (data, h) => {
       const previous = active(h, h.find('animals', input.animalId)), patch = profile(h, input.patch);
-      if (patch.speciesId) option(h, patch.speciesId, 'species'); if (patch.sizeId) option(h, patch.sizeId, 'size');
+      if (patch.speciesId && patch.speciesId !== previous.speciesId) option(h, patch.speciesId, 'species');
+      if (patch.sizeId && patch.sizeId !== previous.sizeId) option(h, patch.sizeId, 'size');
       if (patch.code && patch.code !== previous.code) fail(h, 'The assigned animal code is immutable');
       const updated = h.edit('animals', previous, patch), changes = [h.replace('animals', updated)];
       log(h, changes, 'update', previous.id, 'animal.update'); return { changes, result: { animalId: previous.id } };

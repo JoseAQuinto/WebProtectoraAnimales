@@ -450,3 +450,22 @@
  'ag.periodHelp.reservation':'The inclusive period filters reservation dates. Expiry is inclusive; passing the date does not silently close a reservation.',
  'ag.periodHelp.adoption':'The inclusive period filters completed adoption dates. Returned adoptions remain in the register and can be filtered separately.'
 });}(window.RescueManager));
+(function(r){r.locales.en=Object.freeze({...r.locales.en,
+ 'common.yes':'Yes','common.no':'No','st.preferences':'Display, printing and backups','st.preferencesHelp':'Animal display preferences apply to the animal list. Print details and footer appear when printing. Backup reminders are checked while the application is open; they do not create copies.',
+ 'st.animalView':'Animal list view','st.pageSize':'Animals per page','st.view.table':'Table','st.view.cards':'Cards','st.printDetails':'Organization details for printing','st.printFooter':'Print footer',
+ 'st.remindersEnabled':'Enable backup reminders','st.reminderDays':'Days since the latest verified copy','st.reminderWrites':'Writes since the latest verified copy',
+ 'st.backupReminder':'Backup reminder','st.backupDue':'Verify a new external copy: {days} days and {writes} writes since the latest verified copy.',
+ 'st.noVerifiedBackup':'There is no verified external copy of this dataset yet. Generate a copy, download it and select the saved file to verify it.',
+ 'st.reminderHelp':'Generated, requested download and verified copy are distinct states. This reminder does not confirm that a file is saved on disk.',
+ 'st.reminderError':'The backup reminder could not be checked. Review your copies.',
+ 'st.logo':'Organization logo','st.logoAlt':'Logo of {name}','st.setLogo':'Choose logo','st.removeLogo':'Remove logo','st.removeLogoConfirm':'Remove the displayed logo reference; retained bytes remain available for recovery.',
+ 'st.currencyHelp':'A dataset has one currency. Existing financial movements prevent changing it; amounts are never silently converted.',
+ 'st.catalogs':'Catalogs','st.catalogHelp':'System codes and translated labels stay stable. Custom labels keep your text. Deactivate options to stop selecting them for new records; historical references remain.',
+ 'st.locations':'Locations','st.locationHelp':'Shelters, rooms and areas may have a parent. Deactivation preserves existing animal and historical references. Parent cycles are rejected.',
+ 'st.kind':'Catalog','st.customLabel':'Label','st.sortOrder':'Display order','st.active':'Active for new records','st.includeInactive':'Include inactive options and locations',
+ 'st.origin':'Origin','st.system':'System','st.custom':'Custom','st.systemHelp':'System codes and labels are protected. You can change display order and availability.',
+ 'st.newOption':'Add custom option','st.editOption':'Edit catalog option','st.newLocation':'Add location','st.editLocation':'Edit location','st.empty':'No records in this view.',
+ 'st.locationName':'Location name','st.locationType':'Location type','st.parent':'Parent location','st.location.shelter':'Shelter','st.location.room':'Room','st.location.area':'Area','st.location.other':'Other',
+ 'st.kind.species':'Species','st.kind.size':'Animal sizes','st.kind.finance_income':'Income categories','st.kind.finance_expense':'Expense categories','st.kind.inventory_category':'Inventory categories','st.kind.document_type':'Document types',
+ 'st.kind.material_type':'Material types','st.kind.unit':'Units','st.kind.volunteer_function':'Volunteer functions','st.kind.task_type':'Task types','st.kind.care_plan_type':'Care plan types'
+});}(window.RescueManager));

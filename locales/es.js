@@ -450,3 +450,22 @@
  'ag.periodHelp.reservation':'El periodo inclusivo filtra las fechas de reserva. La caducidad es inclusiva; superar esa fecha no cierra una reserva silenciosamente.',
  'ag.periodHelp.adoption':'El periodo inclusivo filtra las fechas de adopción realizada. Las adopciones devueltas permanecen en el registro y se pueden filtrar por separado.'
 });}(window.RescueManager));
+(function(r){r.locales.es=Object.freeze({...r.locales.es,
+ 'common.yes':'Sí','common.no':'No','st.preferences':'Visualización, impresión y copias','st.preferencesHelp':'Las preferencias de animales se aplican a su lista. Los datos y el pie de impresión aparecen al imprimir. Los recordatorios se comprueban mientras la aplicación está abierta y no crean copias.',
+ 'st.animalView':'Vista de la lista de animales','st.pageSize':'Animales por página','st.view.table':'Tabla','st.view.cards':'Tarjetas','st.printDetails':'Datos de la organización para impresión','st.printFooter':'Pie de impresión',
+ 'st.remindersEnabled':'Activar recordatorios de copias','st.reminderDays':'Días desde la última copia verificada','st.reminderWrites':'Escrituras desde la última copia verificada',
+ 'st.backupReminder':'Recordatorio de copia','st.backupDue':'Verifica una nueva copia externa: {days} días y {writes} escrituras desde la última copia verificada.',
+ 'st.noVerifiedBackup':'Todavía no hay una copia externa verificada de este conjunto. Genera una copia, descárgala y selecciona el archivo guardado para verificarlo.',
+ 'st.reminderHelp':'Copia generada, descarga solicitada y copia verificada son estados distintos. Este recordatorio no confirma que un archivo esté guardado en disco.',
+ 'st.reminderError':'No se pudo comprobar el recordatorio. Revisa tus copias.',
+ 'st.logo':'Logotipo de la organización','st.logoAlt':'Logotipo de {name}','st.setLogo':'Elegir logotipo','st.removeLogo':'Retirar logotipo','st.removeLogoConfirm':'Retirar la referencia al logotipo mostrado; los bytes se conservan para recuperación.',
+ 'st.currencyHelp':'Un conjunto utiliza una moneda. Los movimientos económicos existentes impiden cambiarla; los importes nunca se convierten silenciosamente.',
+ 'st.catalogs':'Catálogos','st.catalogHelp':'Los códigos y etiquetas traducidas del sistema son estables. Las etiquetas personalizadas conservan tu texto. Desactiva opciones para impedir su selección en altas; las referencias históricas se conservan.',
+ 'st.locations':'Ubicaciones','st.locationHelp':'Refugios, salas y zonas pueden tener una ubicación superior. Desactivarlas conserva las referencias de animales e históricas. Se rechazan ciclos de ubicaciones superiores.',
+ 'st.kind':'Catálogo','st.customLabel':'Etiqueta','st.sortOrder':'Orden de visualización','st.active':'Activa para nuevos registros','st.includeInactive':'Incluir opciones y ubicaciones inactivas',
+ 'st.origin':'Origen','st.system':'Sistema','st.custom':'Personalizada','st.systemHelp':'Los códigos y etiquetas del sistema están protegidos. Puedes cambiar su orden y disponibilidad.',
+ 'st.newOption':'Añadir opción personalizada','st.editOption':'Editar opción de catálogo','st.newLocation':'Añadir ubicación','st.editLocation':'Editar ubicación','st.empty':'No hay registros en esta vista.',
+ 'st.locationName':'Nombre de ubicación','st.locationType':'Tipo de ubicación','st.parent':'Ubicación superior','st.location.shelter':'Refugio','st.location.room':'Sala','st.location.area':'Zona','st.location.other':'Otra',
+ 'st.kind.species':'Especies','st.kind.size':'Tamaños de animales','st.kind.finance_income':'Categorías de ingreso','st.kind.finance_expense':'Categorías de gasto','st.kind.inventory_category':'Categorías de inventario','st.kind.document_type':'Tipos de documento',
+ 'st.kind.material_type':'Tipos de material','st.kind.unit':'Unidades','st.kind.volunteer_function':'Funciones de voluntariado','st.kind.task_type':'Tipos de tarea','st.kind.care_plan_type':'Tipos de plan de cuidados'
+});}(window.RescueManager));

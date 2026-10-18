@@ -45,5 +45,13 @@
     if (!value.mime.startsWith('image/')) { const error = new Error('Only a validated image can be previewed'); error.name = 'InvalidInputError'; throw error; }
     return value;
   }
-  root.services.photos = Object.freeze({ set, remove, read, setOrganizationLogo });
+  function removeOrganizationLogo(command) {
+    return c.execute('photos.removeOrganizationLogo', {}, (data,h) => {
+      const organization=data.organizationSettings[0];
+      if(!organization?.logoAssetId)h.fail('InvalidStateError','The organization has no logo');
+      return {changes:[h.replace('organizationSettings',h.edit('organizationSettings',organization,{logoAssetId:null})),
+        log(h,'organization_settings',organization.id)],result:{id:organization.id}};
+    },command);
+  }
+  root.services.photos = Object.freeze({ set, remove, read, setOrganizationLogo, removeOrganizationLogo });
 }(window.RescueManager));

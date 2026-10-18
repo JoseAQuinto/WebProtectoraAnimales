@@ -1,6 +1,6 @@
 (function (root) {
   'use strict';
-  const ui=root.components.ui,el=ui.el,t=(...args)=>root.core.i18n.t(...args),pageSize=20;
+  const ui=root.components.ui,el=ui.el,t=(...args)=>root.core.i18n.t(...args);
   const view={search:'',species:'',status:'',location:'',mode:'active',sort:'name',page:1};
   let urls=[],generation=0,searchTimer=null;
   function dispose(){generation++;clearTimeout(searchTimer);urls.forEach(url=>URL.revokeObjectURL(url));urls=[];}
@@ -15,7 +15,7 @@
     return img;
   }
   function render(ctx){
-    const tables=ctx.snapshot.tables,forms=root.modules.animalForms;
+    const tables=ctx.snapshot.tables,forms=root.modules.animalForms,pageSize=tables.organizationSettings[0].displayPreferences.pageSize;
     const civilToday=root.utils.dates.today(tables.organizationSettings[0].timeZone);
     const date=value=>{if(!value)return null;const format=tables.organizationSettings[0].dateFormat;return format==='day_first'?value.slice(8)+'/'+value.slice(5,7)+'/'+value.slice(0,4):format==='month_first'?value.slice(5,7)+'/'+value.slice(8)+'/'+value.slice(0,4):value;};
     const grams=value=>new Intl.NumberFormat(root.core.i18n.language,{style:'unit',unit:'gram',unitDisplay:'short'}).format(value);
@@ -79,8 +79,10 @@
         (!query||root.utils.strings.normalizeSearch([row.code,row.name,row.microchipOriginal,row.breed,row.notes].join(' ')).includes(query))).sort((a,b)=>String(a[view.sort]||'').localeCompare(String(b[view.sort]||''),root.core.i18n.language));
       const pages=Math.max(1,Math.ceil(rows.length/pageSize));view.page=Math.min(view.page,pages);
       const previous=ui.button(t('a.previous'),()=>{view.page--;paint();},true),next=ui.button(t('a.next'),()=>{view.page++;paint();},true);previous.disabled=view.page<=1;next.disabled=view.page>=pages;
-      results.replaceChildren(table(['a.photo','a.code','a.name','a.species','a.state','a.location','a.actions'],rows.slice((view.page-1)*pageSize,view.page*pageSize).map(row=>[
-        image(tables,row.thumbnailAssetId,row.name),row.code,row.name,optionLabel(row.speciesId),t('a.status.'+row.managementStatus),where(row),el('a',{class:'button secondary',href:'#animals/'+row.id},t('a.open'))])),
+      const selectedRows=rows.slice((view.page-1)*pageSize,view.page*pageSize);
+      const records=tables.organizationSettings[0].displayPreferences.animalView==='cards'&&selectedRows.length?el('div',{class:'animal-cards'},selectedRows.map(row=>el('article',{class:'card stack'},image(tables,row.thumbnailAssetId,row.name),el('h2',{},el('a',{href:'#animals/'+row.id},row.name)),el('p',{class:'eyebrow'},row.code),el('p',{},optionLabel(row.speciesId)+' · '+t('a.status.'+row.managementStatus)),el('p',{},t('a.availability.'+row.adoptionAvailability)),el('p',{},where(row))))):table(['a.photo','a.code','a.name','a.species','a.state','a.location','a.actions'],selectedRows.map(row=>[
+        image(tables,row.thumbnailAssetId,row.name),row.code,row.name,optionLabel(row.speciesId),t('a.status.'+row.managementStatus),where(row),el('a',{class:'button secondary',href:'#animals/'+row.id},t('a.open'))]));
+      results.replaceChildren(records,
         el('div',{class:'actions'},previous,el('span',{},t('a.page',{page:view.page,pages,count:rows.length})),next));
     }
     const search=el('input',{type:'search',maxlength:200,value:view.search}),filters=el('div',{class:'people-filters'},label('search',search));search.addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{view.search=search.value;view.page=1;paint();},180);});

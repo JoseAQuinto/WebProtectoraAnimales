@@ -87,10 +87,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **142 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **151 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **632 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **652 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -136,7 +136,7 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   paginación y transiciones históricas. Ver SEARCH_HISTORY.md: 10/10 por motor
   Chrome/Edge, sin escrituras. Los comandos de corrección aún faltan.
 - Pesos permiten alta/edición en interfaz; papelera/restauración existen en
-  servicio pero todavía no tienen recorrido visible completo. Logotipo solo API.
+  servicio pero todavía no tienen recorrido visible completo. Logotipo ya tiene UI.
 - Faltan correcciones de historias, guías completas EN/ES, impresión final,
   pruebas físicas móviles/tabletas y ZIP comercial. No hay aceptación real
   Android/iOS/iPadOS/macOS/Linux. Un viewport estrecho no es un dispositivo real.
@@ -152,7 +152,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
    aceptación real. Leer SEARCH_HISTORY.md y ADOPTION_REGISTER.md para lo ya probado.
-4. Completar configuración/catálogos, exportación/importación por módulo y demo;
+4. Completar exportación/importación por módulo y demo; configuración/catálogos
+   ya tienen aceptación en CONFIGURATION.md.
    conservar todas las fases del prompt. Los informes ya descargan sus tablas.
 5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de
    plataformas antes de habilitar datos reales o preparar distribución comercial.
@@ -254,3 +255,11 @@ Solicitudes, reservas y adopciones en #adoptions con filtros, páginas y detalle
 exacto que reutiliza los formularios existentes. Ciclo completo desde UI global
 con aceptación Chrome/Edge 10/10 por motor, sin cambios de formatos; ver
 ADOPTION_REGISTER.md. Última ronda conjunta: 142 pruebas Node y 632 estáticas.
+
+## Configuración y catálogos (2026-10-18)
+
+Preferencias reales de animales, impresión y recordatorios; logotipo con bytes
+validados y retirada conservadora; mantenimiento de opciones/ubicaciones y
+rechazo de ciclos. Chrome/Edge 13/13 por motor con descarga/verificación de
+copia, umbral de escrituras y reapertura. Ver CONFIGURATION.md. Última ronda
+conjunta: 151 pruebas Node y 652 estáticas correctas.

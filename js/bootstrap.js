@@ -95,11 +95,6 @@
   function help() {
     return [heading(t('ui.helpTitle'),''),el('div',{class:'stack help'},['where','copies','privacy','external','limits'].map(key=>el('section',{class:'card'},el('h2',{},t('ui.'+key)),el('p',{},t('ui.'+key+'Text'))))),button(t('ui.print'),()=>window.print(),true)];
   }
-  function settings() {
-    const org=state.snapshot.tables.organizationSettings[0],edit=button(t('ui.editSettings'),()=>editOrganization(false));
-    edit.disabled=!root.services.context.status().canWrite;
-    return [heading(t('nav.settings'),t('ui.settingsHelp')),el('section',{class:'card'},el('h2',{},org.name),el('p',{class:'muted'},org.currencyCode+' · '+org.timeZone),edit)];
-  }
   function shell(page) {
     const org=state.snapshot?.tables.organizationSettings[0];
     const language=el('select',{id:'language','aria-label':t('ui.language')},el('option',{value:'en'},'English'),el('option',{value:'es'},'Español'));
@@ -111,7 +106,7 @@
     menu.classList.add('menu-toggle');menu.setAttribute('aria-label',t('ui.menu'));menu.setAttribute('aria-controls','navigation');menu.setAttribute('aria-expanded','false');
     const main=el('main',{class:'content',id:'main',tabindex:'-1'});
     document.getElementById('app').replaceChildren(el('a',{class:'skip-link',href:'#main'},t('ui.skip')),el('div',{class:'shell'},sidebar,
-      el('div',{class:'workspace'},el('header',{class:'topbar'},el('div',{class:'actions'},menu,el('span',{class:'organization'},org?.name||t('app.name'))),
+      el('div',{class:'workspace'},el('header',{class:'topbar'},el('div',{class:'actions'},menu,root.modules.settings.logo(state.snapshot),el('span',{class:'organization'},org?.name||t('app.name'))),
         el('div',{class:'top-actions'},el('span',{class:'badge'},t('ui.offline')),el('label',{class:'language-label',for:'language'},el('span',{},t('ui.language')),language))),
         el('div',{class:'development'},t('ui.development')),main)));
     return main;
@@ -127,16 +122,21 @@
         canWrite:()=>root.services.context.status().canWrite,notify:(text,error)=>{state.message={text,error};},
         afterSave:id=>{if(page==='animals'&&parts[1]!==id)location.hash='animals/'+id;}};
       ctx.documents=entity=>root.modules.documents.render(ctx,entity);
-      root.modules.animals.dispose();root.modules.adoptionRegister.dispose();
+      root.modules.animals.dispose();root.modules.adoptionRegister.dispose();root.modules.settings.dispose();
       const children=page==='help'?help():page==='backup'?await backups():!state.snapshot?[
         el('section',{class:'card empty'},el('p',{class:'eyebrow'},t('app.name')),el('h1',{},t('ui.noOrganization')),el('p',{class:'muted'},t('ui.noOrganizationHelp')),
-          el('div',{class:'actions'},button(t('ui.createOrganization'),()=>editOrganization(true)),el('a',{class:'button secondary',href:'#backup'},t('ui.restore'))))]:page==='settings'?settings():page==='search'?root.modules.search.render(ctx):page==='animals'?root.modules.animals.render(ctx):page==='adoptions'?root.modules.adoptionRegister.render(ctx):page==='finance'?root.modules.finance.render(ctx):page==='donations'?root.modules.donations.render(ctx):page==='inventory'?root.modules.inventory.render(ctx):page==='reports'?root.modules.reports.render(ctx):page==='tasks'?[heading(t('nav.tasks'),t('q.help')),root.modules.tasks.render(ctx)]:['contacts','fosters','volunteers'].includes(page)?root.modules.people.render(page,ctx):page==='documents'?[heading(t('nav.documents'),t('d.help')),root.modules.documents.render(ctx)]:overview();
+          el('div',{class:'actions'},button(t('ui.createOrganization'),()=>editOrganization(true)),el('a',{class:'button secondary',href:'#backup'},t('ui.restore'))))]:page==='settings'?root.modules.settings.render(ctx,()=>editOrganization(false)):page==='search'?root.modules.search.render(ctx):page==='animals'?root.modules.animals.render(ctx):page==='adoptions'?root.modules.adoptionRegister.render(ctx):page==='finance'?root.modules.finance.render(ctx):page==='donations'?root.modules.donations.render(ctx):page==='inventory'?root.modules.inventory.render(ctx):page==='reports'?root.modules.reports.render(ctx):page==='tasks'?[heading(t('nav.tasks'),t('q.help')),root.modules.tasks.render(ctx)]:['contacts','fosters','volunteers'].includes(page)?root.modules.people.render(page,ctx):page==='documents'?[heading(t('nav.documents'),t('d.help')),root.modules.documents.render(ctx)]:overview();
+      const reminder=state.snapshot&&page!=='backup'?await root.modules.settings.reminder(ctx):null;
       if(token!==routeToken)return;
       const main=shell(page);
       if(state.message){main.append(notice(state.message.text,state.message.error));state.message=null;}
       if(capture&&!root.services.context.status().canWrite)main.append(el('div',{class:'notice warning'},el('p',{},t('ui.readOnly')),el('p',{},t('ui.readOnlyReload')),
         button(t('ui.takeControl'),()=>act(async()=>{if(confirm(t('ui.takeControlConfirm')))await root.services.context.takeControl();}),true)));
-      main.append(...children.filter(Boolean));document.documentElement.lang=root.core.i18n.language;document.title=t('app.name');schedule();
+      const org=state.snapshot?.tables.organizationSettings[0];
+      if(reminder)main.append(reminder);
+      if(org)main.append(el('header',{class:'print-only print-header'},el('h2',{},org.name),el('p',{class:'preserve-lines'},org.printDetails)));
+      main.append(...children.filter(Boolean));
+      if(org)main.append(el('footer',{class:'print-only print-footer preserve-lines'},org.printFooter));document.documentElement.lang=root.core.i18n.language;document.title=t('app.name');schedule();
     }catch(error){document.getElementById('app').replaceChildren(el('main',{class:'content'},notice(ui.message(error),true)));}
   }
   window.addEventListener('hashchange',()=>{if(location.hash!=='#main')render();});
