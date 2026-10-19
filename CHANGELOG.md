@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Relevo de desarrollo — 2026-10-19
+
+- Checkpoint tras correcciones fechadas, limpieza de conjuntos inactivos y guía.
+- 282 Node / 862 estáticas; siete rondas funcionales finales de 122 verificaciones
+  por motor y guía dirigida 4/4 por motor, con alcance propio en cada evidencia.
+- Próximo bloque y mapa inicial de referencias en RETENTION.md. Producto parcial;
+  requisitos intactos, versiones sin cambios y sin consumir reinicios de cupo.
+
 ## Guía sincronizada con las funciones actuales — 2026-10-19
 
 - Guía EN/ES: fechas históricas/documentales y limpieza de conjuntos inactivos

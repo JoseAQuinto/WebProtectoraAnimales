@@ -5,6 +5,26 @@ Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
+## Checkpoint de cierre — 2026-10-19
+
+Código y evidencia publicados hasta `be938d8`; consultar el commit documental
+posterior en `git log`. Última lectura al preparar el cierre: 90 % consumido
+en cinco horas (10 % restante) y 43 % semanal (57 % restante). Se reserva ese
+margen para terminar documentación y sincronización; no se consumió un reinicio.
+No queda implementación parcial de este bloque: correcciones fechadas y limpieza
+de conjuntos inactivos están integradas con sus límites documentados. No se
+declara finalizado el proyecto. Siguiente desarrollo: archivos sin referencias
+del activo, comenzando por el análisis de referencias descrito en RETENTION.md.
+
+Verificación final conjunta: **282 Node / 862 estáticas**, sin errores de diff.
+Siete rondas funcionales finales de este día suman 122 comprobaciones por motor
+Chrome/Edge, cada una con su alcance y fuentes propios; la guía añade 4 dirigidas
+por motor sobre las 120 fuentes actuales. No se presenta la suma como una
+aceptación integral de toda la aplicación ni se actualizan hashes retroactivamente.
+Perfiles sintéticos/procesos propios cerrados; sin datos de usuario en Git.
+Los requisitos originales y AGENTS.md permanecen intactos. Árbol y remoto se
+verifican después de subir este relevo.
+
 ## Continuación vigente
 
 Reanudado el 2026-10-19 desde 0cc7eef, árbol limpio y remoto sin diferencias.

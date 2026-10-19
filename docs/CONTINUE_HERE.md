@@ -5,6 +5,14 @@ DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
+Último bloque de código/guía publicado: **be938d8**; el commit documental de
+cierre lo sigue. Se prepara el relevo con lectura de 90 % de cinco horas y
+43 % semanal consumidos (10 % / 57 % restantes), reservando margen para subir
+y comprobar Git. No se utilizó reinicio. No hay una funcionalidad a medio aplicar
+que deba recuperarse de archivos ignorados; pruebas y decisiones están en Git.
+Siguiente acción: recursos sin referencias del activo, según RETENTION.md.
+No repetir como pendientes correcciones fechadas ni limpieza retired/staging.
+
 ## Inicio
 
 Clonar el repositorio y abrir index.html directamente para usar la aplicación.
