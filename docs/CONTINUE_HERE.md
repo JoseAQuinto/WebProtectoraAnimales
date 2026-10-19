@@ -31,7 +31,14 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 - c041b9b: JSON por módulos, relaciones y archivos sin repetir efectos.
 - c97fd8c: demo opcional EN/ES y retirada/conversión que protege trabajo real.
 - 0415754: guía interna EN/ES, inicio rápido y traslado/actualización seguros.
-- Consultar git log para el último relevo documental.
+- 4ba35ba: fechas de entrada/devolución y protección de eventos originales.
+- 54d1fb1: fechas de acogidas y salud, tarea/esterilización coordinadas.
+- ff33589: fecha de adopción con decisiones de cierres relacionados.
+- 272d678: fechas de solicitudes/reservas y cierres automáticos con evento.
+- 85dce36: fechas de traslado/salida/muerte conservando su historia.
+- 2b162dd: fecha documental y todos sus historiales animales coordinados.
+- eacd40c: limpieza revisada de retired/staging con copias verificadas.
+- Consultar git log para guía sincronizada y último relevo documental.
 
 ## Estado funcional y evidencia
 
@@ -68,9 +75,12 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 Las rondas e intentos anteriores están en tests/results y explicados en cada
 documento. No borrar intentos fallidos ni atribuir nuevas huellas a rondas viejas.
 Última demo: 108 fuentes, 15/15 por motor, archivos/revisiones/digest conservados
-tras dos cierres propios. Última guía: 109 fuentes, 4/4 por motor; recorrido de
+tras dos cierres propios. Guía original: 109 fuentes, 4/4 por motor; recorrido de
 19 capítulos EN/ES, foco, ruta, anchos y visibilidad print, sin escribir negocio.
-La prueba dirigida de guía no repite ni sustituye la aceptación de los módulos.
+Guía sincronizada del 2026-10-19: 120 fuentes, 4/4 por motor en
+help-ui-2026-10-19-current-{chrome,edge}.json. Explica las funciones nuevas
+sin alterar negocio. La prueba dirigida no repite ni sustituye la aceptación
+de los módulos. Las rondas funcionales mantienen sus hashes originales.
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 

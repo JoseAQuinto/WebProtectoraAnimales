@@ -31,3 +31,21 @@ Las huellas exactas de los recursos revisados están en los JSON.
 limitaciones: no completa correcciones históricas, limpieza, impresión final,
 rendimiento ni aceptación comercial. Versiones sin cambios: app 0.2.0-dev,
 DB 2, schema 1, backup 1.
+
+## Actualización dirigida — 2026-10-19
+
+Se mantienen los 19 capítulos. Animales explica la corrección fechada con motivo
+y revisión de cada cierre, sin prometer reversiones. Documentos explica su acción
+de corrección de fecha para todos los historiales vinculados, con bytes/vínculos
+conservados. Archivo/papelera explica Almacenamiento, copia actual y copia propia
+del conjunto de recuperación, consentimiento y nueva copia tras cada eliminación.
+Las limitaciones distinguen borrado de negocio, archivos sin uso y retención
+automática pendientes.
+
+Revisión dirigida en perfiles vacíos propios, file:// offline, Chrome y Edge:
+`help-ui-2026-10-19-current-{chrome,edge}.json`, **4/4 por motor**, 120 fuentes.
+EN/ES, 19 enlaces/foco/ruta, 360/768/1440 sin desbordar, instrucciones visibles
+en print, snapshot de negocio idéntico, sin errores ni HTTP; procesos propios
+cerrados. Se reutilizó el verificador puntual anterior cambiando solo el nombre
+de evidencia. Las rondas funcionales anteriores no adquieren hashes nuevos.
+**282 Node / 862 estáticas** en este checkpoint; versiones sin cambios.

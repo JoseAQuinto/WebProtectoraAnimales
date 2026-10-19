@@ -18,7 +18,8 @@ Traslados/salidas/fallecimientos: HISTORY_DEPARTURE.md.
 Solicitudes/reservas independientes: HISTORY_WORKFLOW.md.
 Formalización de adopción con revisión individual: HISTORY_ADOPTION.md.
 Acogidas/actos sanitarios también tienen corrección coordinada (HISTORY_LINKED_FACTS.md).
-Siguen pendientes otras correcciones históricas, limpieza, rendimiento y aceptación.
+Siguen pendientes reversiones/corrección de contenido y casos ambiguos de historia,
+archivos sin uso del activo, borrado definitivo de negocio, rendimiento y aceptación.
 
 ## Fase actual
 
@@ -143,7 +144,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   Documentar por separado ambas pruebas. La limpieza explícita de
   conjuntos retirados/staging ya existe (RETENTION.md); recursos sin uso del activo
   y borrado permanente de negocio siguen pendientes. No borrar automáticamente.
-- Faltan correcciones coordinadas de historia y aceptación integral.
+- Las correcciones fechadas de las familias documentadas ya están disponibles;
+  faltan reversiones de estado, contenido/casos ambiguos y aceptación integral.
   CSV/JSON y demo/retirada ya tienen UI y evidencias en su alcance
   (MODULE_JSON_IMPORT.md y DEMO.md). Contactos CSV ya
   tiene aceptación en CONTACT_IMPORT.md. Exportaciones por módulo ya
@@ -155,10 +157,12 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 - Buscador global e historial ya tienen navegación por origen, periodos,
   paginación y transiciones históricas. Ver SEARCH_HISTORY.md: 10/10 por motor
   Chrome/Edge, sin escrituras. Las correcciones de entrada/devolución ya están en HISTORY_CORRECTIONS.md;
-  faltan otros hechos.
+  HISTORY_LINKED_FACTS.md, HISTORY_ADOPTION.md, HISTORY_WORKFLOW.md,
+  HISTORY_DEPARTURE.md y DOCUMENT_DATE_CORRECTIONS.md cubren las otras familias
+  fechadas. No acreditan edición libre ni reversión de estados.
 - Pesos: alta/edición/papelera/restauración con aceptación real en
   WEIGHT_HISTORY.md. Logotipo ya tiene UI.
-- Faltan correcciones de historias, aceptación de la guía EN/ES e impresión final,
+- La guía EN/ES tiene revisión dirigida; faltan aceptación integral e impresión final,
   pruebas físicas móviles/tabletas y ZIP comercial. No hay aceptación real
   Android/iOS/iPadOS/macOS/Linux. Un viewport estrecho no es un dispositivo real.
 - Licencia comercial pendiente de revisión; no publicar en Etsy.
@@ -173,12 +177,14 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
    aceptación real. Leer SEARCH_HISTORY.md y ADOPTION_REGISTER.md para lo ya probado.
-4. CSV de seis tipos, JSON por módulos y demo/retirada ya tienen UI y evidencia.
-   Continuar correcciones coordinadas de hechos históricos sin reproducir dinero,
-   stock, entradas ni actos. Guía offline EN/ES disponible: HELP.md. Falta su
-   aceptación integral y la impresión final. Conservar todas las fases del prompt.
-5. Abordar O(N), cuota real, accesibilidad, retención explícita y aceptación de
-   plataformas antes de habilitar datos reales o preparar distribución comercial.
+4. Leer RETENTION.md: retired/staging ya tienen limpieza revisada con copias.
+   Continuar archivos sin referencias del activo, incluyendo archivo/papelera y
+   dependencias entre assets. Revisar relaciones antes del borrado de negocio.
+   Para historia, leer los cinco HISTORY_*.md y DOCUMENT_DATE_CORRECTIONS.md;
+   no repetir como inexistentes las correcciones fechadas ya acreditadas.
+5. Abordar O(N), cuota física, accesibilidad, impresión final y aceptación de
+   plataformas. Guía EN/ES revisada en HELP.md; no equivale a aceptación integral.
+   Conservar todas las fases originales antes de distribuir comercialmente.
 
 ## Continuidad
 
@@ -465,3 +471,12 @@ confirmación, transacción atómica cancelable, guardias/replay y actividad. In
 por índices/cursor, sin snapshots completos de retirados en la lista. 18/18 por
 motor, antiguo no presente en activo recuperado por copia externa tras limpieza;
 282 Node / 862 estáticas. Pendientes recursos sin uso activos y borrado de negocio.
+
+## Guía sincronizada con las funciones actuales (2026-10-19)
+
+Los 19 capítulos EN/ES ya describen correcciones de fechas desde el historial,
+fecha documental coordinada y retirada revisada de conjuntos inactivos con
+sus copias. Las limitaciones distinguen reversiones y borrado del negocio aún
+pendientes. Revisión dirigida actual: help-ui-2026-10-19-current-{chrome,edge}.json,
+4/4 por motor, 120 fuentes; foco/ruta, tres anchos, print visible y cero escritura
+de negocio. No repite aceptación funcional ni sustituye las rondas de cada módulo.

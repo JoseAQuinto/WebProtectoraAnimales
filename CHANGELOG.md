@@ -1,5 +1,12 @@
 # Historial de cambios
 
+## Guía sincronizada con las funciones actuales — 2026-10-19
+
+- Guía EN/ES: fechas históricas/documentales y limpieza de conjuntos inactivos
+  con sus copias externas. Limitaciones y relevo distinguen trabajo pendiente.
+- Revisión dirigida 4/4 en Chrome y Edge, 120 fuentes y negocio intacto.
+- 282 pruebas Node y 862 comprobaciones estáticas; versiones sin cambios.
+
 ## Limpieza revisada de conjuntos inactivos — 2026-10-19
 
 - Almacenamiento: staging/retired de uno en uno con copia actual y propia del
