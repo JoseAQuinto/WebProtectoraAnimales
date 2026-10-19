@@ -11,7 +11,8 @@ Reanudado el 2026-10-19 desde 0cc7eef, árbol limpio y remoto sin diferencias.
 Cupo ordinario renovado (lectura inicial: 7 % de cinco horas y 30 % semanal
 consumidos); no se utilizaron créditos de reinicio. El corte anterior es histórico.
 Ya se corrigen fechas de entrada/devolución con fuente y sustituto coordinados:
-HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 242 Node / 812 estáticas.
+HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 249 Node / 817 estáticas.
+Acogidas/actos sanitarios también tienen corrección coordinada (HISTORY_LINKED_FACTS.md).
 Siguen pendientes otras correcciones históricas, limpieza, rendimiento y aceptación.
 
 ## Fase actual
@@ -97,10 +98,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **242 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **249 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **812 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **817 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -413,3 +414,10 @@ HISTORY_CORRECTIONS.md: fecha del episodio y devolución enlazada, evento anteri
 conservado y sustituto recíproco, revisión/idempotencia/lease, límites y motivo.
 17/17 Chrome/Edge con rollback IDB real inyectado, restauración/cierre/reapertura
 y archivos intactos. Lanzador QA protege PID reutilizados. 242 Node / 812 estáticas.
+
+## Corrección de acogidas y salud (2026-10-19)
+
+HISTORY_LINKED_FACTS.md: inicio/fin de acogida, fecha clínica con tarea/esterilización
+coordinadas y conservación explícita de factura compartida. 17/17 Chrome/Edge,
+111 fuentes, rollback/restauración/reapertura, fechas e incorporado íntegros.
+249 Node / 817 estáticas. Siguen otras correcciones de fecha y estados complejos.

@@ -1,6 +1,6 @@
 # Correcciones históricas coordinadas — 2026-10-19
 
-Primer alcance disponible: **fecha de entrada y de devolución** desde Historial
+Primer bloque publicado: **fecha de entrada y de devolución** desde Historial
 del animal. No es todavía un editor general de hechos. Versiones sin cambios:
 app `0.2.0-dev`, DB `2`, schema `1`, backup `1`.
 
@@ -90,8 +90,8 @@ ambigüedad. El contexto simulado Node no sustituye la persistencia del navegado
 
 ## Continuación
 
-Faltan comandos/UI para fechas de acogida, formalización, salidas/fallecimiento,
-actos clínicos y demás correcciones de hechos. Cada uno debe coordinar su fuente,
+Acogida y actos clínicos se ampliaron después: HISTORY_LINKED_FACTS.md.
+Faltan formalización, salidas/fallecimiento y demás correcciones de hechos. Cada uno debe coordinar su fuente,
 fechas relacionadas y sustitución, sin inferir cierres por coincidencia de fechas
 ni recrear dinero/stock/tareas. No habilitar edición libre de cualquier evento.
 Limpieza/retención, volumen/cuota real, impresión final, accesibilidad y aceptación

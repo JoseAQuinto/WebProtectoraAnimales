@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Correcciones de acogida y salud — 2026-10-19
+
+- Fechas de inicio/fin de estancia y actos clínicos con evento sustituto.
+  Tarea completada y fecha de esterilización se coordinan sin recrear hechos.
+- Conservación explícita de factura compartida; límites de plan/resolución/
+  próxima revisión, campos retenidos y rollback conjunto.
+- Chrome/Edge 17/17; 249 Node / 817 estáticas. HISTORY_LINKED_FACTS.md.
+
+
 ## Correcciones de entrada y devolución — 2026-10-19
 
 - Fecha del episodio y devolución enlazada corregidas conjuntamente; evento

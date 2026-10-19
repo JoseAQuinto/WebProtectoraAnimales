@@ -54,6 +54,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | JSON por módulos/archivos/reconstrucción | MODULE_JSON_IMPORT.md | 22 funcionales + 4 dirigidas por motor |
 | Demostración EN/ES y retirada/conversión | DEMO.md | 15/15 por motor |
 | Corrección de entrada/devolución | HISTORY_CORRECTIONS.md | 17/17 por motor |
+| Corrección de acogidas y actos sanitarios | HISTORY_LINKED_FACTS.md | 17/17 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -68,7 +69,7 @@ La prueba dirigida de guía no repite ni sustituye la aceptación de los módulo
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **242 pruebas Node / 812 estáticas**, diff sin errores:
+Verificación conjunta: **249 pruebas Node / 817 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -88,8 +89,10 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
 
 1. Extender las correcciones históricas desde HISTORY_CORRECTIONS.md. Entrada
    y devolución ya están implementadas y acreditadas; no volver a presentarlas
-   como inexistentes. Seguir por fechas de acogida y después hechos clínicos,
-   coordinando fuente, relaciones y evento sustituto con motivo/consentimiento.
+   como inexistentes. Acogidas y actos clínicos ya tienen UI y aceptación en HISTORY_LINKED_FACTS.md,
+   con factura conservada explícitamente y tarea/esterilización coordinadas.
+   Seguir formalización, solicitudes/reservas y salidas/fallecimiento con sus
+   dependencias y evento sustituto. No presentar como inexistentes estos bloques.
    No inferir cierres por una coincidencia de fechas ni reproducir dinero, stock
    o tareas. Formalización/salidas/muerte requieren revisión de dependencias
    individuales. Los eventos originales son inmutables en el repositorio.
