@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Fecha documental coherente con todos sus historiales — 2026-10-19
+
+- Acción de fecha separada de metadatos, revisión paginada global, sustitutos
+  de eventos por animal y normalización explícita de diferencias antiguas.
+- Bloqueo de cambios sin historial por servicio, repositorio e importación JSON.
+- Chrome/Edge 17/17 con 23 animales/archivo compartido; 277 Node / 847 estáticas.
+  DOCUMENT_DATE_CORRECTIONS.md.
+
+
 ## Fechas de traslado, salida y fallecimiento — 2026-10-19
 
 - Fuente/actividad original inequívoca, episodio y fallecimiento coordinados,

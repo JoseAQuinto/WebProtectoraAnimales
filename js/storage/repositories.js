@@ -72,6 +72,7 @@
       return storage.writeCoordinator.mutate(command, () => fail('RevisionConflictError', 'Data changed since it was read'));
     }
     const data = capture.tables;
+    const documentFacts=data.animalEvents.filter(row=>row.type==='document'&&row.source.type==='document'&&!row.supersededByEventId&&!row.voidReason).map(row=>({id:row.id,documentId:row.source.id})),changedDocumentDates=new Set();
     const seen = new Set();
     for (const change of changes) {
       const record = change.record;
@@ -87,6 +88,7 @@
         data[change.table].push(record);
       } else {
         if (!previous || previous.revision !== change.expectedRevision) fail('RevisionConflictError', 'Record changed since it was read');
+        if(change.table==='documents'&&record.date!==previous.date)changedDocumentDates.add(previous.id);
         if (record.revision !== previous.revision + 1 || record.createdAt !== previous.createdAt || record.updatedAt < previous.updatedAt) fail('InvalidInputError', 'Invalid revision or immutable creation timestamp');
         if (change.table === 'inventoryItems' && data.inventoryMovements.some(row => row.itemId === previous.id) &&
             (record.unitId !== previous.unitId || record.quantityPrecision !== previous.quantityPrecision)) fail('ImmutableMovementError', 'Cannot reinterpret the unit or precision of existing stock');
@@ -102,6 +104,11 @@
         }
         data[change.table][index] = record;
       }
+    }
+    for(const fact of documentFacts.filter(row=>changedDocumentDates.has(row.documentId))){
+      const document=data.documents.find(row=>row.id===fact.documentId),old=data.animalEvents.find(row=>row.id===fact.id),next=data.animalEvents.find(row=>row.id===old?.supersededByEventId);
+      if(old.eventDate===document.date&&!old.supersededByEventId&&!old.voidReason)continue;
+      if(!next||next.correctsEventId!==old.id||next.type!=='document'||next.source.type!=='document'||next.source.id!==document.id||next.eventDate!==document.date||next.supersededByEventId||next.voidReason)fail('ImmutableHistoryError','Document date changes must replace all current document events coherently');
     }
     root.domain.validateDataset(data, { datasetId: options.datasetId, today: today(data), throwOnError: true });
     return storage.writeCoordinator.mutate(command, access => {

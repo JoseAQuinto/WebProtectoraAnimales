@@ -140,3 +140,10 @@ los máximos anunciados son límites de seguridad, no rendimiento acreditado.
 Faltan volumen/cuota físicos, accesibilidad integral y plataformas físicas.
 Un viewport no acredita dispositivos, ni Chrome/Edge de Windows acredita
 Firefox actual. Producto de desarrollo: solo datos sintéticos.
+
+Actualización posterior (2026-10-19): date de un documento existente deja de ser
+un campo actualizable por JSON. Usar la corrección documental con revisión de
+todos sus eventos (DOCUMENT_DATE_CORRECTIONS.md). Título/tipo/notas y campos
+externos admitidos mantienen su alcance. Se conserva el grafo de nuevos documentos
+y la restauración de versiones anteriores; no se declara nueva aceptación de las
+rondas viejas sobre fuentes modificadas.

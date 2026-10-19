@@ -46,3 +46,7 @@ test('a mismatched existing asset UUID cannot be silently reused by omitting its
 test('metadata cannot import oversized photos that would later prevent a valid backup',async()=>{
  const source=await sourceSetup(),h=target(),container=exportKind(source,'animals'),asset=container.references.assets[0];Object.assign(asset,{type:'photo',originalName:'photo.png',mime:'image/png',byteLength:1024*1024+1,width:1,height:1});await assert.rejects(read(h,container),error=>error.code==='mj.invalidFile'&&error.details[0].path.endsWith('.byteLength'));
 });
+
+test('module JSON cannot bypass coordinated document date correction by updating metadata',async()=>{
+ const source=await sourceSetup(),h=target(),p=await read(h,exportKind(source,'animals'));for(const entry of p.entries)h.seed(entry.table,{...entry.record,...(entry.table==='assets'?{blob:source.snapshot.tables.assets.find(row=>row.id===entry.record.id).blob}:{}),...(entry.table==='documents'?{date:'2026-10-17'}:{})});const document=p.entries.find(entry=>entry.table==='documents'),report=await preview(h,p,{[document.key]:{action:'update',targetId:document.record.id}});assert.equal(report.rows.find(row=>row.key===document.key).errors[0].code,'mj.updateForbidden');
+});

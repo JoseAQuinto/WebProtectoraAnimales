@@ -11,7 +11,8 @@ Reanudado el 2026-10-19 desde 0cc7eef, árbol limpio y remoto sin diferencias.
 Cupo ordinario renovado (lectura inicial: 7 % de cinco horas y 30 % semanal
 consumidos); no se utilizaron créditos de reinicio. El corte anterior es histórico.
 Ya se corrigen fechas de entrada/devolución con fuente y sustituto coordinados:
-HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 271 Node / 837 estáticas.
+HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 277 Node / 847 estáticas.
+Fecha documental: DOCUMENT_DATE_CORRECTIONS.md.
 Traslados/salidas/fallecimientos: HISTORY_DEPARTURE.md.
 Solicitudes/reservas independientes: HISTORY_WORKFLOW.md.
 Formalización de adopción con revisión individual: HISTORY_ADOPTION.md.
@@ -101,10 +102,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **271 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **277 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **837 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **847 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -447,3 +448,10 @@ adopción sin episodio, estado actual/cuota conservados y eventos de solicitudes
 automáticas también coordinados. 18/18 Chrome/Edge, rollback/copia/reapertura/
 bytes; 271 Node / 837 estáticas. Falta fecha documental/contenido/reversión y
 aceptación integral. Seguir limpieza/retención y recursos sin uso.
+
+## Corrección de fecha documental (2026-10-19)
+
+DOCUMENT_DATE_CORRECTIONS.md: origen y hechos compartidos revisados, versiones
+anteriores conservadas, normalización expresa de legado y barreras contra edición
+sin historial por servicio/repositorio/JSON. 23 animales, rollback real en último
+sustituto, copia/reapertura de bytes. 17/17 Chrome/Edge; 277 Node / 847 estáticas.

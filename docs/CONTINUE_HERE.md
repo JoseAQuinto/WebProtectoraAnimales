@@ -58,6 +58,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | Corrección de formalización/cierres elegidos | HISTORY_ADOPTION.md | 17/17 por motor |
 | Fechas de solicitudes/reservas | HISTORY_WORKFLOW.md | 18/18 por motor |
 | Fechas de traslado/salida/fallecimiento | HISTORY_DEPARTURE.md | 18/18 por motor |
+| Fecha documental con todos sus historiales | DOCUMENT_DATE_CORRECTIONS.md | 17/17 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -72,7 +73,7 @@ La prueba dirigida de guía no repite ni sustituye la aceptación de los módulo
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **271 pruebas Node / 837 estáticas**, diff sin errores:
+Verificación conjunta: **277 pruebas Node / 847 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -93,9 +94,8 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
 1. Leer los cinco documentos HISTORY_*.md: entrada/devolución, acogida/salud,
    formalización, solicitudes/reservas y traslados/salidas/muerte ya tienen UI
    y evidencia. No volver a enumerarlos como inexistentes. Son correcciones
-   fechadas, no edición libre de contenido ni reversión de estados. Revisar aún
-   fecha documental frente a sus eventos al editar metadatos, y casos históricos
-   ambiguos/mal enlazados. No inventar causalidad ni fechas, ni reproducir dinero,
+   fechadas, no edición libre de contenido ni reversión de estados. Fecha documental ya tiene revisión global y aceptación en
+   DOCUMENT_DATE_CORRECTIONS.md. Revisar aún casos históricos ambiguos/mal enlazados. No inventar causalidad ni fechas, ni reproducir dinero,
    stock o tareas. Los eventos originales son inmutables en el repositorio.
 2. Retención/limpieza explícita de staging/retirados y recursos sin uso, con copia
    verificada, revisión, dependencias y cancelación. No borrar automáticamente ni

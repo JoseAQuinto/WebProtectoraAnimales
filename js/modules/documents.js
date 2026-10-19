@@ -17,7 +17,7 @@
     }
     function editor(row, mode) {
       mode = row?.mode || mode;
-      const fields=metadata(row), external=mode==='external_reference';
+      const fields=metadata(row).filter(field=>!row||field.key!=='date'), external=mode==='external_reference';
       if(external) fields.push({key:'externalFileName',labelKey:'d.externalName',required:true,maxLength:255},{key:'externalLocation',labelKey:'d.location',required:true,type:'textarea',help:'d.externalHelp'},
         {key:'externalFileType',labelKey:'d.fileType',maxLength:100},{key:'originalFile',labelKey:'d.originalFile',type:'file',help:'d.hashHelp',advancedKey:'d.additional'});
       else if(!row) fields.push({key:'file',labelKey:'d.file',type:'file',required:true,accept:'.pdf,.png,.jpg,.jpeg,.webp,.txt',help:'d.fileHelp'});
@@ -62,7 +62,7 @@
       const controls=el('div',{class:'actions'}), editable=!row.deletedAt&&!row.archivedAt;
       if(!isExternal)controls.append(action('d.download',()=>ctx.action(async()=>{const file=await service.download(row.id);ui.download(file.blob,file.fileName);}),false));
       else controls.append(action('d.compare',()=>compare(row),false));
-      if(editable)controls.append(action('d.edit',()=>{modal.close();editor(row);}),action('d.archive',()=>{modal.close();confirmChange('d.archive',cmd=>service.archive(row.id,cmd));}));
+      if(editable)controls.append(action('dc.title',()=>{modal.close();root.modules.documentDates.open(ctx,row,saved);}),action('d.edit',()=>{modal.close();editor(row);}),action('d.archive',()=>{modal.close();confirmChange('d.archive',cmd=>service.archive(row.id,cmd));}));
       if(row.archivedAt&&!row.deletedAt)controls.append(action('d.unarchive',()=>{modal.close();confirmChange('d.unarchive',cmd=>service.unarchive(row.id,cmd));}));
       controls.append(action(row.deletedAt?'d.restore':'d.trash',()=>{modal.close();confirmChange(row.deletedAt?'d.restore':'d.trash',cmd=>service[row.deletedAt?'restore':'trash'](row.id,cmd));}));
       content.append(controls);if(editable)content.append(links(row,()=>modal.close()));

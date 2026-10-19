@@ -108,6 +108,7 @@
     return c.execute('documents.update', { id, patch }, (data, h) => {
       const previous = editable(h, h.find('documents', id));
       only(patch, previous.mode === 'embedded' ? metadata : [...metadata, ...external], h);
+      if(patch.date!==undefined&&patch.date!==previous.date)throw new root.core.errors.AppError('dc.useCorrection');
       if (patch.typeId !== undefined && patch.typeId !== previous.typeId) category(h, patch.typeId);
       return { changes: [h.replace('documents', h.edit('documents', previous, patch)), log(h, 'update', id)], result: { id } };
     }, command);

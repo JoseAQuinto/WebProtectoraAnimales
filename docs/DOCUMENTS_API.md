@@ -23,7 +23,7 @@ tamaño, SHA-256 y dimensiones, nunca un Blob serializado ni una URL temporal.
 |---|---|
 | `createEmbedded(metadata, file, command?)` | Incorpora un archivo seleccionado y devuelve `result: { id, assetId }`. |
 | `createExternal(metadata, command?)` | Guarda descripción externa, sin bytes; devuelve `{ id }`. |
-| `update(id, patch, command?)` | Edita título/tipo/fecha/notas; en externos permite editar su descripción/hash. No cambia modo ni recurso. |
+| `update(id, patch, command?)` | Edita título/tipo/notas; fecha distinta exige documentDates.correct (DOCUMENT_DATE_CORRECTIONS.md); en externos permite editar su descripción/hash. No cambia modo ni recurso. |
 | `link(documentId, relation, command?)` | Añade o reactiva un vínculo, devuelve `{ id: documentId }`. |
 | `unlink(linkId, command?)` | Marca el vínculo en papelera, devuelve `{ id: documentId, linkId }`. |
 | `archive/unarchive/trash/restore(id, command?)` | Cambia estado del documento conservando archivos, relaciones e historia. |
@@ -176,3 +176,10 @@ el esquema y backup generales; esta implementación no cambia sus versiones.
 La lectura de recursos usa actualmente `context.snapshot`, que captura todos
 los registros y referencias Blob; sigue pendiente optimizar carga diferida a
 escala. No se declara una capacidad de memoria/dispositivo sin mediciones.
+
+## Corrección de fecha documental (2026-10-19)
+
+DOCUMENT_DATE_CORRECTIONS.md describe documentDates.inspect/correct: revisión
+de todos los hechos vinculados y sustitutos, motivo/consentimiento, protección
+de servicio/repositorio/JSON y 17/17 Chrome/Edge. Update admite fecha sin cambios
+por compatibilidad, pero rechaza alterarla sin coordinación.
