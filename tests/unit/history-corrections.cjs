@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),{harness}=require('./support/service-harness.cjs');
 const datasetId='10000000-0000-4000-8000-000000000001';
-function setup(){const h=harness({datasetId,today:'2026-10-19',services:['animals','fosters','adoptions','history-corrections'],catalogKinds:['species','size','finance_income','task_type']});h.load('core/errors');return h;}
+function setup(){const h=harness({datasetId,today:'2026-10-19',services:['animals','fosters','adoptions','history-events','history-corrections'],catalogKinds:['species','size','finance_income','task_type']});h.load('core/errors');return h;}
 async function entry(h,date='2026-10-02'){
   const result=await h.root.services.animals.registerEntry({animal:{name:'Animal ficticio',speciesId:h.catalog.species.id,sizeId:h.catalog.size.id,birthDate:'2026-09-01',birthPrecision:'exact'},date,entryReason:'Rescate original',location:{kind:'shelter',id:h.location.id},availability:'available'});
   return{...result.result,eventId:h.tables.animalEvents.at(-1).id};

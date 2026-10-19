@@ -364,8 +364,10 @@ module.exports = { launch };
 
 if (require.main === module) (async () => {
   const requested = process.argv.slice(2);
-  if (requested.length === 1 && requested[0] === '--cleanup-owned') {
-    const prefix = path.join(root, '.tmp', 'chromium-').toLowerCase();
+  if (requested[0] === '--cleanup-owned' && requested.length <= 2) {
+    const name = requested[1] || 'chromium-';
+    requireThat(/^[a-z][a-z0-9-]*-$/.test(name), 'Use an explicit isolated profile prefix');
+    const prefix = path.join(root, '.tmp', name).toLowerCase();
     const roots = (await processes()).filter(row => row.CommandLine && row.CommandLine.toLowerCase().includes(prefix) && !row.CommandLine.includes('--type=') && /\\(?:chrome|msedge)\.exe"?\s/i.test(row.CommandLine));
     for (const row of roots) { console.log('Closing abandoned isolated test root ' + row.ProcessId); await terminateTree(row); }
     return;

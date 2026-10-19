@@ -59,7 +59,7 @@ ni terminación forzada. Preparación sintética por servicios reales, sin mocks
 - Segunda corrección mantiene la cadena original sin duplicar actos/tareas.
 - Etiquetas EN/ES y diálogo clínico a 360/768/1440 sin desbordar, sin escribir.
   Captura clínica ES de 360 inspeccionada; las acciones de acogida se ejercitan
-  en español. No se atribuye hardware físico ni accesibilidad integral.
+  con la interfaz inicial en inglés, antes de alternar EN/ES. No se atribuye hardware físico ni accesibilidad integral.
 - Copia descargada/reseleccionada/verificada/restaurada y reapertura: digest,
   fuentes, revisiones e incorporado TXT conservados. Sin errores ni HTTP de página.
 

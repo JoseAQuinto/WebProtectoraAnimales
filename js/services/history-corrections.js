@@ -4,6 +4,7 @@
   const fail=key=>{throw new root.core.errors.AppError('hc.'+key);};
   function inspect(tables,eventId,today){
     const event=tables.animalEvents.find(row=>row.id===eventId);
+    if(event?.source.type==='adoption')return root.services.historyAdoption.inspect(tables,event,today);
     if(event&&['foster_stay','veterinary_record'].includes(event.source.type))return root.services.historyLinkedFacts.inspect(tables,event,today);
     if(!event||!live(event)||!['entry','return'].includes(event.type)||event.source.type!=='stay_episode')fail('unsupported');
     const episode=tables.stayEpisodes.find(row=>row.id===event.source.id),animal=tables.animals.find(row=>row.id===event.animalId);
@@ -47,17 +48,13 @@
       if(!root.utils.dates.isValid(input.date)||input.date>info.maxDate||(info.minDate&&input.date<info.minDate))fail('dateBounds');
       if(input.date===info.previousDate)fail('unchanged');
       if(typeof input.reason!=='string'||input.reason!==input.reason.trim()||!input.reason||input.reason.length>200)fail('reasonRequired');
-      const previous=h.find('animalEvents',input.eventId),replacement=h.create('animalEvents',{
-        animalId:previous.animalId,type:previous.type,eventDate:input.date,recordedAt:h.now,source:previous.source,
-        originKey:'correction:'+h.operationId+':'+previous.id,correctsEventId:previous.id,
-        parameters:{...previous.parameters,reason:input.reason,field:info.field}
-      });
       const changes=info.affected.map(item=>h.replace(item.table,h.edit(item.table,h.find(item.table,item.id),{[item.field]:input.date})));
-      changes.push(h.replace('animalEvents',h.edit('animalEvents',previous,{supersededByEventId:replacement.id})),h.insert('animalEvents',replacement),
+      const previous=h.find('animalEvents',input.eventId),replacement=root.services.historyEvents.replace(h,changes,previous,input.date,input.reason,info.field);
+      changes.push(
         h.insert('activityLog',h.create('activityLog',{operation:'correct',occurredAt:h.now,operationId:h.operationId,
           target:{type:'animal_event',id:replacement.id},summaryParameters:{code:'history.'+info.field,previousId:previous.id,nextId:replacement.id,reason:input.reason,field:info.field}})));
       return{changes,result:{eventId:replacement.id,correctsEventId:previous.id,animalId:previous.animalId,episodeId:info.episodeId}};
     },command);
   }
-  root.services.historyCorrections=Object.freeze({inspect,canCorrect,correct:(input,command)=>apply(input,command,false),correctLinked:(input,command)=>apply(input,command,true)});
+  root.services.historyCorrections=Object.freeze({inspect,canCorrect,correct:(input,command)=>apply(input,command,false),correctLinked:(input,command)=>apply(input,command,true),correctAdoption:(input,command)=>root.services.historyAdoption.correct(input,command)});
 }(window.RescueManager));

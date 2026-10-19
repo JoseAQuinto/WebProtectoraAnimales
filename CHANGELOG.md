@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Corrección de formalización con revisión individual — 2026-10-19
+
+- Adopción/episodio coordinados con conservar/mover explícito de cada cierre
+  de acogida, reserva y tarea candidata. Coincidencia de fecha no implica causa.
+- Cuota conservada con consentimiento, cadenas hijas y principal atómicas,
+  tarea independiente intacta, reintentos y devolución posterior conservados.
+- Chrome/Edge 17/17; 256 Node / 827 estáticas. HISTORY_ADOPTION.md.
+
+
 ## Correcciones de acogida y salud — 2026-10-19
 
 - Fechas de inicio/fin de estancia y actos clínicos con evento sustituto.

@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),{harness}=require('./support/service-harness.cjs');
-function setup(){const h=harness({datasetId:'10000000-0000-4000-8000-000000000001',today:'2026-10-19',services:['animals','fosters','adoptions','finance','tasks','health','history-linked-facts','history-corrections'],catalogKinds:['species','size','finance_income','finance_expense','task_type','care_plan_type']});h.load('core/errors');return h;}
+function setup(){const h=harness({datasetId:'10000000-0000-4000-8000-000000000001',today:'2026-10-19',services:['animals','fosters','adoptions','finance','tasks','health','history-linked-facts','history-events','history-corrections'],catalogKinds:['species','size','finance_income','finance_expense','task_type','care_plan_type']});h.load('core/errors');return h;}
 async function animal(h){return(await h.root.services.animals.registerEntry({animal:{name:'Animal ficticio',speciesId:h.catalog.species.id,sizeId:h.catalog.size.id,birthDate:'2026-09-01',birthPrecision:'exact'},date:'2026-10-01',entryReason:'Rescate',location:{kind:'shelter',id:h.location.id},availability:'available'})).result.animalId;}
 const input=(eventId,date)=>({eventId,date,reason:'Fecha contrastada con el documento original',confirmed:true});
 const event=(h,type,id)=>h.tables.animalEvents.find(row=>row.type===type&&row.source.id===id&&!row.supersededByEventId);

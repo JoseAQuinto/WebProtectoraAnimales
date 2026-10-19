@@ -23,15 +23,25 @@
     const dialog=ui.form(t(info.titleKey),[
       {key:'date',labelKey:'hc.newDate',type:'date',required:true,min:info.minDate,max:info.maxDate},
       {key:'reason',labelKey:'hc.reason',type:'textarea',required:true,maxLength:200},
+      ...(info.related||[]).map((item,index)=>({key:'related_'+index,labelKey:'hc.related.'+item.table,required:true,sectionKey:'hc.relatedHeading',options:[{value:'',label:t('hc.choose')},{value:'keep',label:t('hc.keepDate')},{value:'move',label:t('hc.moveDate')}]})),
+      ...(info.requiresIncomeConfirmation?[{key:'preserveIncomeDate',labelKey:'hc.preserveIncome',type:'checkbox',required:true}]:[]),
       ...(info.requiresExpenseConfirmation?[{key:'preserveExpenseDate',labelKey:'hc.preserveExpense',type:'checkbox',required:true}]:[]),
       {key:'confirmed',labelKey:'hc.confirm',type:'checkbox',required:true}
     ],{date:info.previousDate},async(input,command)=>{
+      if(info.related){input.relatedDecisions=info.related.map((item,index)=>({key:item.key,action:input['related_'+index]}));info.related.forEach((item,index)=>delete input['related_'+index]);}
       await root.services.historyCorrections[info.command]({...input,eventId:event.id},command);ctx.notify(t('hc.saved'));await ctx.refresh();
     },{expectedRevision:ctx.snapshot.globalRevision});
-    dialog.querySelector('h2').after(el('p',{},info.animalName+' · '+t('a.event.'+info.type)+' · '+civil(ctx,info.previousDate)),
+    dialog.classList.add('history-correction-form');
+    const notes=[el('p',{},info.animalName+' · '+t('a.event.'+info.type)+' · '+civil(ctx,info.previousDate)),
       el('p',{class:'notice warning'},t('hc.help')),el('p',{},t(info.effectKey)),
+      info.incomeDate?el('p',{class:'notice warning'},t('hc.incomeDate',{date:civil(ctx,info.incomeDate)})):null,
       info.expenseDate?el('p',{class:'notice warning'},t('hc.expenseDate',{date:civil(ctx,info.expenseDate)})):null,
-      el('p',{},t('hc.bounds',{from:info.minDate?civil(ctx,info.minDate):t('ui.unknown'),to:civil(ctx,info.maxDate)})));
+      el('p',{},t('hc.bounds',{from:info.minDate?civil(ctx,info.minDate):t('ui.unknown'),to:civil(ctx,info.maxDate)}))].filter(Boolean);
+    dialog.querySelector('h2').after(...notes);
+    if(info.related?.length){
+      const section=dialog.querySelector('[name=related_0]').closest('section');section.querySelector('h3').after(el('p',{class:'notice warning'},t('hc.relatedHelp')));
+      info.related.forEach((item,index)=>{const control=dialog.querySelector('[name=related_'+index+']');control.previousElementSibling.append(document.createTextNode(' · '+item.label+' · '+civil(ctx,item.previous)));if(!item.canMove){control.querySelector('option[value=move]').disabled=true;control.after(el('small',{},t('hc.noClosureEvent')));}});
+    }
   }
   function render(ctx,animal){
     const area=el('div'),filter=el('select',{'aria-label':t('hi.type')},el('option',{value:''},t('p.all')),root.domain.enums.eventType.map(value=>el('option',{value},t('a.event.'+value)))),corrected=el('input',{type:'checkbox',id:'history-corrected'}),periodFrom=el('input',{type:'date','aria-label':t('p.from')}),periodTo=el('input',{type:'date','aria-label':t('p.to')});let page=1;
