@@ -90,6 +90,12 @@
         if (record.revision !== previous.revision + 1 || record.createdAt !== previous.createdAt || record.updatedAt < previous.updatedAt) fail('InvalidInputError', 'Invalid revision or immutable creation timestamp');
         if (change.table === 'inventoryItems' && data.inventoryMovements.some(row => row.itemId === previous.id) &&
             (record.unitId !== previous.unitId || record.quantityPrecision !== previous.quantityPrecision)) fail('ImmutableMovementError', 'Cannot reinterpret the unit or precision of existing stock');
+        if (change.table === 'animalEvents') {
+          for (const field of ['animalId','type','eventDate','recordedAt','source','originKey','parameters','correctsEventId']) {
+            if (root.utils.canonicalJson.stringify(record[field] ?? null) !== root.utils.canonicalJson.stringify(previous[field] ?? null)) fail('ImmutableHistoryError', 'Correct historical facts through a linked replacement event');
+          }
+          for (const field of ['supersededByEventId','voidReason']) if (previous[field] && record[field] !== previous[field]) fail('ImmutableHistoryError', 'A historical correction cannot be removed or redirected');
+        }
         if (['financialMovements','inventoryMovements'].includes(change.table)) {
           const fixed = change.table === 'financialMovements' ? ['amountMinor','currencyCode','date','direction','animalId','contactId','source','originKey'] : ['itemId','date','deltaScaled','type','donationLineId','originKey'];
           for (const field of fixed) if (root.utils.canonicalJson.stringify(record[field] ?? null) !== root.utils.canonicalJson.stringify(previous[field] ?? null)) fail('ImmutableMovementError', 'Correct movements through a linked replacement or compensation');

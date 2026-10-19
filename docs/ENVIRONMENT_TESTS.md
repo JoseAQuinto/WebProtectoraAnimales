@@ -246,3 +246,12 @@ Los cambios posteriores no reescriben hashes ni resultados de rondas anteriores.
 Las herramientas, perfiles y capturas siguen fuera de la distribución. Las
 pruebas de viewport no acreditan dispositivos físicos; Firefox actual, cuota
 física agotada, accesibilidad integral y rendimiento a volumen siguen pendientes.
+
+## Protección de procesos propios (2026-10-19)
+
+El lanzador Chromium verifica su raíz por PID, creación y perfil aislado antes
+de usarla. owned-processes.cjs excluye hijos anteriores al padre (PID reutilizado)
+y raíces sustituidas; cuatro pruebas Node reproducen el caso. Los cierres de QA
+solo terminan identidades verificadas. Ver HISTORY_CORRECTIONS.md para la ronda
+fallida conservada y las dos rondas finales sin remanentes. No usar un PID solo
+como prueba de propiedad ni cerrar navegadores del usuario.

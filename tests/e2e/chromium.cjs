@@ -8,6 +8,7 @@ const crypto = require('node:crypto');
 const { pathToFileURL } = require('node:url');
 const { spawn, execFile } = require('node:child_process');
 const { promisify } = require('node:util');
+const { descendants, verifiedRoot } = require('./owned-processes.cjs');
 const execFileAsync = promisify(execFile);
 const root = path.resolve(__dirname, '../..');
 const runtime = process.env.PLAYWRIGHT_PATH || path.join(os.homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
@@ -28,8 +29,8 @@ async function processes() {
   return (await powershell("@((Get-CimInstance Win32_Process -ErrorAction Stop) | Select-Object ProcessId,ParentProcessId,CommandLine,@{Name='CreatedAt';Expression={$_.CreationDate.ToUniversalTime().ToString('o')}}) | ConvertTo-Json -Compress")) || [];
 }
 
-async function terminateTree(pid) {
-  const original = descendants(await processes(), pid);
+async function terminateTree(identity) {
+  const original = descendants(await processes(), identity);
   const identities = new Set(original.map(row => row.ProcessId + ':' + row.CreatedAt));
   const current = (await processes()).filter(row => identities.has(row.ProcessId + ':' + row.CreatedAt));
   const attempts = [];
@@ -38,16 +39,6 @@ async function terminateTree(pid) {
     catch (error) { attempts.push({ pid: row.ProcessId, signalled: false, error: error.code }); }
   }
   return attempts;
-}
-
-function descendants(rows, pid) {
-  const ids = new Set([pid]);
-  let previous;
-  do {
-    previous = ids.size;
-    for (const row of rows) if (ids.has(row.ParentProcessId)) ids.add(row.ProcessId);
-  } while (previous !== ids.size);
-  return rows.filter(row => ids.has(row.ProcessId));
 }
 
 function requireThat(condition, message) {
@@ -81,9 +72,11 @@ async function launch(name, profile, result, denyStorage = false, options = {}) 
     await pause(100);
   }
   if (!port) { child.kill(); throw new Error('Browser did not expose its development connection: ' + stderr); }
+  const identity = verifiedRoot(await processes(), child.pid, profile, startedAt);
+  requireThat(identity, 'Could not verify isolated browser root identity');
   let browser;
   try { browser = await chromium.connectOverCDP('http://127.0.0.1:' + port); }
-  catch (error) { await terminateTree(child.pid); throw error; }
+  catch (error) { await terminateTree(identity); throw error; }
   const context = browser.contexts()[0];
   await context.setOffline(true);
   const session = await browser.newBrowserCDPSession();
@@ -98,7 +91,7 @@ async function launch(name, profile, result, denyStorage = false, options = {}) 
       closed = true;
       let before = [];
       let inspectionError = null;
-      try { before = descendants(await processes(), child.pid); } catch (error) { inspectionError = String(error); }
+      try { before = descendants(await processes(), identity); } catch (error) { inspectionError = String(error); }
       await Promise.race([session.send('Browser.close').catch(() => {}), pause(5000)]);
       const deadline = Date.now() + 10000;
       while (!exited() && Date.now() < deadline) await pause(100);
@@ -106,7 +99,7 @@ async function launch(name, profile, result, denyStorage = false, options = {}) 
       let terminationAttempts = [];
       if (!exited()) {
         forcedTermination = true;
-        terminationAttempts = await terminateTree(child.pid);
+        terminationAttempts = await terminateTree(identity);
         const terminationDeadline = Date.now() + 5000;
         while (!exited() && Date.now() < terminationDeadline) await pause(100);
       }
@@ -374,7 +367,7 @@ if (require.main === module) (async () => {
   if (requested.length === 1 && requested[0] === '--cleanup-owned') {
     const prefix = path.join(root, '.tmp', 'chromium-').toLowerCase();
     const roots = (await processes()).filter(row => row.CommandLine && row.CommandLine.toLowerCase().includes(prefix) && !row.CommandLine.includes('--type=') && /\\(?:chrome|msedge)\.exe"?\s/i.test(row.CommandLine));
-    for (const row of roots) { console.log('Closing abandoned isolated test root ' + row.ProcessId); await terminateTree(row.ProcessId); }
+    for (const row of roots) { console.log('Closing abandoned isolated test root ' + row.ProcessId); await terminateTree(row); }
     return;
   }
   let outputPrefix;

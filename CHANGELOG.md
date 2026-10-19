@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Correcciones de entrada y devolución — 2026-10-19
+
+- Fecha del episodio y devolución enlazada corregidas conjuntamente; evento
+  original conservado con sustituto recíproco, motivo y consentimiento explícitos.
+- Protección de eventos persistidos, límites, revisión, replay y control por pestaña.
+- Chrome/Edge 17/17, transacción real abortada y backup/reapertura de bytes.
+  242 Node / 812 estáticas. Lanzador QA corrige parentescos de PID reutilizados.
+  Otras correcciones de hechos siguen pendientes: HISTORY_CORRECTIONS.md.
+
+
 ## Relevo por umbral de cuota — 2026-10-18
 
 - Desarrollo cerrado al quedar 9 % en cinco horas (71 % semanal restante),

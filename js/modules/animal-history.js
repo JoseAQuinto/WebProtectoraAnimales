@@ -18,6 +18,19 @@
     if(type==='document'){text('d.mode',t(row.mode==='embedded'?'d.embedded':'d.external'));if(row.mode==='embedded')extra.push(ui.button(t('d.download'),()=>ctx.action(async()=>{const file=await root.services.documents.download(row.id);ui.download(file.blob,file.fileName);}),true));else extra.push(el('p',{class:'notice warning'},t('d.externalHelp')));}
     return ui.dialog(t('hi.source'),[el('p',{class:'muted'},t('hi.sourceCurrent')),el('dl',{class:'detail-grid'},fields),...extra],{wide:true});
   }
+  function correct(ctx,event){
+    const info=root.services.historyCorrections.inspect(ctx.snapshot.tables,event.id,root.utils.dates.today(ctx.snapshot.tables.organizationSettings[0].timeZone));
+    const dialog=ui.form(t('hc.title'),[
+      {key:'date',labelKey:'hc.newDate',type:'date',required:true,min:info.minDate,max:info.maxDate},
+      {key:'reason',labelKey:'hc.reason',type:'textarea',required:true,maxLength:200},
+      {key:'confirmed',labelKey:'hc.confirm',type:'checkbox',required:true}
+    ],{date:info.previousDate},async(input,command)=>{
+      await root.services.historyCorrections.correct({...input,eventId:event.id},command);ctx.notify(t('hc.saved'));await ctx.refresh();
+    },{expectedRevision:ctx.snapshot.globalRevision});
+    dialog.querySelector('h2').after(el('p',{},info.animalName+' · '+t('a.event.'+info.type)+' · '+civil(ctx,info.previousDate)),
+      el('p',{class:'notice warning'},t('hc.help')),el('p',{},t(info.type==='return'?'hc.returnEffect':'hc.entryEffect')),
+      el('p',{},t('hc.bounds',{from:info.minDate?civil(ctx,info.minDate):t('ui.unknown'),to:civil(ctx,info.maxDate)})));
+  }
   function render(ctx,animal){
     const area=el('div'),filter=el('select',{'aria-label':t('hi.type')},el('option',{value:''},t('p.all')),root.domain.enums.eventType.map(value=>el('option',{value},t('a.event.'+value)))),corrected=el('input',{type:'checkbox',id:'history-corrected'}),periodFrom=el('input',{type:'date','aria-label':t('p.from')}),periodTo=el('input',{type:'date','aria-label':t('p.to')});let page=1;
     function paint(){
@@ -27,7 +40,7 @@
       const stamp=value=>new Intl.DateTimeFormat(root.core.i18n.language,{dateStyle:'medium',timeStyle:'short',timeZone:ctx.snapshot.tables.organizationSettings[0].timeZone}).format(new Date(value));
       area.replaceChildren(rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['hi.factDate','hi.recorded','a.event','a.state','a.reason','hi.source'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows.slice((page-1)*20,page*20).map(event=>{
         const code=event.parameters.code,status=event.type==='application'&&root.domain.enums.applicationStatus.includes(code)?t('a.application.'+code):event.type==='reservation'&&root.domain.enums.reservationStatus.includes(code)?t('aw.reservationStatus.'+code):'';
-        return el('tr',{},el('td',{},civil(ctx,event.eventDate)),el('td',{},stamp(event.recordedAt)),el('th',{scope:'row'},t('a.event.'+event.type)),el('td',{},status,event.supersededByEventId||event.voidReason?el('p',{class:'badge'},t('hi.corrected')):null),el('td',{class:'preserve-lines'},event.parameters.reason||event.voidReason||''),el('td',{},ui.button(t('hi.openSource'),()=>source(ctx,event),true)));})))):el('p',{class:'muted'},t('a.emptySection')),el('div',{class:'actions'},previous,el('span',{},t('hi.page',{page,pages,count:rows.length})),next));
+        return el('tr',{},el('td',{},civil(ctx,event.eventDate)),el('td',{},stamp(event.recordedAt)),el('th',{scope:'row'},t('a.event.'+event.type)),el('td',{},status,event.supersededByEventId||event.voidReason?el('p',{class:'badge'},t('hi.corrected')):event.correctsEventId?el('p',{class:'badge'},t('hc.replacement')):null),el('td',{class:'preserve-lines'},event.parameters.reason||event.voidReason||''),el('td',{},el('div',{class:'actions'},ui.button(t('hi.openSource'),()=>source(ctx,event),true),root.services.historyCorrections.canCorrect(ctx.snapshot.tables,event)?(()=>{const button=ui.button(t('hc.title'),()=>correct(ctx,event),true);button.disabled=!ctx.canWrite();button.dataset.eventId=event.id;return button;})():null)));})))):el('p',{class:'muted'},t('a.emptySection')),el('div',{class:'actions'},previous,el('span',{},t('hi.page',{page,pages,count:rows.length})),next));
     }
     for(const control of[filter,corrected,periodFrom,periodTo])control.addEventListener('change',()=>{page=1;paint();});paint();
     return el('div',{class:'stack'},el('p',{class:'muted'},t('hi.help')),el('div',{class:'people-filters'},el('div',{class:'field'},el('label',{},t('hi.type'),filter)),el('div',{class:'field'},el('label',{},t('p.from'),periodFrom)),el('div',{class:'field'},el('label',{},t('p.to'),periodTo))),el('label',{for:'history-corrected'},corrected,t('hi.includeCorrected')),area);

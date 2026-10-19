@@ -1,19 +1,18 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-18. Versión de trabajo: `0.2.0-dev`.
+Actualizado: 2026-10-19. Versión de trabajo: `0.2.0-dev`.
 Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
-## Cierre vigente y siguiente relevo
+## Continuación vigente
 
-Corte actual: **91 % de cinco horas consumido, 9 % restante; 29 % semanal
-consumido, 71 % restante**. Se detiene desarrollo conforme al umbral del usuario.
-Sin consumo de créditos de reinicio. Últimos bloques publicados: c97fd8c
-(demo/retirada) y 0415754 (guía interna EN/ES). 229 Node / 807 estáticas;
-Chrome/Edge demo 15/15 y guía dirigida 4/4 por motor. Siguiente desarrollo:
-correcciones coordinadas de hechos históricos, descritas en CONTINUE_HERE.md.
-Los apartados históricos conservan sus cifras y pendientes de aquel momento.
+Reanudado el 2026-10-19 desde 0cc7eef, árbol limpio y remoto sin diferencias.
+Cupo ordinario renovado (lectura inicial: 7 % de cinco horas y 30 % semanal
+consumidos); no se utilizaron créditos de reinicio. El corte anterior es histórico.
+Ya se corrigen fechas de entrada/devolución con fuente y sustituto coordinados:
+HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 242 Node / 812 estáticas.
+Siguen pendientes otras correcciones históricas, limpieza, rendimiento y aceptación.
 
 ## Fase actual
 
@@ -98,10 +97,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **229 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **242 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **807 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **812 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -148,7 +147,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   REVIEW_RESOURCES_REPORTS.md para alcance y límites).
 - Buscador global e historial ya tienen navegación por origen, periodos,
   paginación y transiciones históricas. Ver SEARCH_HISTORY.md: 10/10 por motor
-  Chrome/Edge, sin escrituras. Los comandos de corrección aún faltan.
+  Chrome/Edge, sin escrituras. Las correcciones de entrada/devolución ya están en HISTORY_CORRECTIONS.md;
+  faltan otros hechos.
 - Pesos: alta/edición/papelera/restauración con aceptación real en
   WEIGHT_HISTORY.md. Logotipo ya tiene UI.
 - Faltan correcciones de historias, aceptación de la guía EN/ES e impresión final,
@@ -406,3 +406,10 @@ datos, uso diario por módulo, copias/traslado/actualización y límites explíc
 README.en.md/README.es.md cubren inicio y conservación de datos. HELP.md registra
 4/4 dirigidas por motor Chrome/Edge, 109 fuentes, sin escrituras, errores ni red.
 229 Node / 807 estáticas. No acredita impresión paginada ni accesibilidad integral.
+
+## Corrección de entrada/devolución (2026-10-19)
+
+HISTORY_CORRECTIONS.md: fecha del episodio y devolución enlazada, evento anterior
+conservado y sustituto recíproco, revisión/idempotencia/lease, límites y motivo.
+17/17 Chrome/Edge con rollback IDB real inyectado, restauración/cierre/reapertura
+y archivos intactos. Lanzador QA protege PID reutilizados. 242 Node / 812 estáticas.

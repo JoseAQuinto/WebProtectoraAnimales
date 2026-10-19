@@ -1,6 +1,6 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint: **2026-10-18**, rama **main**, app **0.2.0-dev**.
+Checkpoint: **2026-10-19**, rama **main**, app **0.2.0-dev**.
 DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
@@ -19,10 +19,8 @@ originales permanecen íntegros. El trabajo local de DeepSeek se revisó y conse
 
 Regla de continuidad: cuando quede **menos del 10 % de la ventana de 5 horas**
 o **3 % o menos semanal**, cerrar desarrollo, documentar, commit y push.
-No consumir créditos de reinicio sin indicación expresa. Lectura final de esta sesión: **91 % consumido en cinco horas (9 % restante)**
-y **29 % semanal consumido (71 % restante)**. Desarrollo cerrado por el umbral
-de cinco horas. No se ha consumido ningún crédito de reinicio. Los cortes
-anteriores conservados en PROJECT_STATUS.md son históricos.
+No consumir créditos de reinicio sin indicación expresa. Desarrollo reanudado
+el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histórico.
 
 ## Bloques recientes ya publicados
 
@@ -55,6 +53,7 @@ anteriores conservados en PROJECT_STATUS.md son históricos.
 | CSV donaciones/materiales agrupados | DONATION_IMPORT.md | 16/16 por motor |
 | JSON por módulos/archivos/reconstrucción | MODULE_JSON_IMPORT.md | 22 funcionales + 4 dirigidas por motor |
 | Demostración EN/ES y retirada/conversión | DEMO.md | 15/15 por motor |
+| Corrección de entrada/devolución | HISTORY_CORRECTIONS.md | 17/17 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -69,7 +68,7 @@ La prueba dirigida de guía no repite ni sustituye la aceptación de los módulo
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **229 pruebas Node / 807 estáticas**, diff sin errores:
+Verificación conjunta: **242 pruebas Node / 812 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -87,17 +86,13 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
 
 ## Siguiente acción concreta
 
-1. Implementar correcciones coordinadas de hechos históricos. La consulta ya
-   distingue versiones y abre su origen, pero no existe aún comando/UI general.
-   Leer SEARCH_HISTORY.md, BUSINESS_RULES.md, LIFECYCLE_API.md y los campos
-   correctsEventId/supersededByEventId/voidReason del esquema/validador. Diseñar una
-   corrección acotada de extremo a extremo con motivo, fuente y evento sustituto,
-   revalidando episodio/acogida/adopción/tareas y sin repetir dinero ni stock.
-   Las correcciones económicas enlazadas y compensaciones de inventario existen.
-   Candidato acotado: corregir fecha de entrada de stayEpisodes; si entryType
-   es return, coordinar adoptions.returnDate. Antes de implementar, comprobar
-   todos los límites de fechas/relaciones. No limitarse a editar eventDate: el
-   origen también debe quedar coherente y el evento anterior conservarse.
+1. Extender las correcciones históricas desde HISTORY_CORRECTIONS.md. Entrada
+   y devolución ya están implementadas y acreditadas; no volver a presentarlas
+   como inexistentes. Seguir por fechas de acogida y después hechos clínicos,
+   coordinando fuente, relaciones y evento sustituto con motivo/consentimiento.
+   No inferir cierres por una coincidencia de fechas ni reproducir dinero, stock
+   o tareas. Formalización/salidas/muerte requieren revisión de dependencias
+   individuales. Los eventos originales son inmutables en el repositorio.
 2. Retención/limpieza explícita de staging/retirados y recursos sin uso, con copia
    verificada, revisión, dependencias y cancelación. No borrar automáticamente ni
    confundir retirada de demo con borrado general. Decidir borrado definitivo de

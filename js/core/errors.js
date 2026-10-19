@@ -7,7 +7,7 @@
     }
   }
   const codes = Object.freeze({
-    SecurityError: 'errors.storageUnavailable', UnknownError: 'errors.storageUnavailable',
+    ImmutableHistoryError: 'hc.immutable', SecurityError: 'errors.storageUnavailable', UnknownError: 'errors.storageUnavailable',
     QuotaExceededError: 'errors.quota', AbortError: 'errors.aborted',
     VersionError: 'errors.futureVersion', ConstraintError: 'errors.duplicate',
     LeaseLostError: 'errors.leaseLost', RevisionConflictError: 'errors.revisionConflict',
