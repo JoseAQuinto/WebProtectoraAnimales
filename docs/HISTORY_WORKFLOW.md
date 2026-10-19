@@ -70,6 +70,7 @@ aprobación, rechazo, caducidad/cumplimiento, replay/revisión y cierre automát
 Verificación conjunta: **264 Node / 832 estáticas**. Las pruebas Node de contexto
 simulado se distinguen de la persistencia de navegador.
 
-Pendientes: traslados, salidas y fallecimiento coordinados; reversión de estados
+Traslados/salidas/fallecimiento se ampliaron después en HISTORY_DEPARTURE.md.
+Pendiente reversión de estados
 y corrección de contenido no son edición de fecha. Limpieza/retención, volumen,
 impresión, accesibilidad/plataformas y aceptación comercial siguen pendientes.

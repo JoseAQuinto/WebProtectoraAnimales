@@ -57,6 +57,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | Corrección de acogidas y actos sanitarios | HISTORY_LINKED_FACTS.md | 17/17 por motor |
 | Corrección de formalización/cierres elegidos | HISTORY_ADOPTION.md | 17/17 por motor |
 | Fechas de solicitudes/reservas | HISTORY_WORKFLOW.md | 18/18 por motor |
+| Fechas de traslado/salida/fallecimiento | HISTORY_DEPARTURE.md | 18/18 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -71,7 +72,7 @@ La prueba dirigida de guía no repite ni sustituye la aceptación de los módulo
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **264 pruebas Node / 832 estáticas**, diff sin errores:
+Verificación conjunta: **271 pruebas Node / 837 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -89,17 +90,13 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
 
 ## Siguiente acción concreta
 
-1. Extender las correcciones históricas desde HISTORY_CORRECTIONS.md. Entrada
-   y devolución ya están implementadas y acreditadas; no volver a presentarlas
-   como inexistentes. Acogidas y actos clínicos ya tienen UI y aceptación en HISTORY_LINKED_FACTS.md,
-   con factura conservada explícitamente y tarea/esterilización coordinadas.
-   Formalización ya tiene decisiones individuales: HISTORY_ADOPTION.md.
-   Solicitudes/reservas independientes ya tienen UI en HISTORY_WORKFLOW.md.
-   Seguir traslados y salidas/fallecimiento con sus
-   dependencias y evento sustituto. No presentar como inexistentes estos bloques.
-   No inferir cierres por una coincidencia de fechas ni reproducir dinero, stock
-   o tareas. Formalización/salidas/muerte requieren revisión de dependencias
-   individuales. Los eventos originales son inmutables en el repositorio.
+1. Leer los cinco documentos HISTORY_*.md: entrada/devolución, acogida/salud,
+   formalización, solicitudes/reservas y traslados/salidas/muerte ya tienen UI
+   y evidencia. No volver a enumerarlos como inexistentes. Son correcciones
+   fechadas, no edición libre de contenido ni reversión de estados. Revisar aún
+   fecha documental frente a sus eventos al editar metadatos, y casos históricos
+   ambiguos/mal enlazados. No inventar causalidad ni fechas, ni reproducir dinero,
+   stock o tareas. Los eventos originales son inmutables en el repositorio.
 2. Retención/limpieza explícita de staging/retirados y recursos sin uso, con copia
    verificada, revisión, dependencias y cancelación. No borrar automáticamente ni
    confundir retirada de demo con borrado general. Decidir borrado definitivo de

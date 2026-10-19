@@ -4,6 +4,7 @@
   const fail=key=>{throw new root.core.errors.AppError('hc.'+key);};
   function inspect(tables,eventId,today){
     const event=tables.animalEvents.find(row=>row.id===eventId);
+    if(event?.source.type==='animal'&&['transfer','deceased'].includes(event.type))return root.services.historyDeparture.inspect(tables,event,today);
     if(event&&['adoption_application','reservation'].includes(event.source.type))return root.services.historyWorkflow.inspect(tables,event,today);
     if(event?.source.type==='adoption')return root.services.historyAdoption.inspect(tables,event,today);
     if(event&&['foster_stay','veterinary_record'].includes(event.source.type))return root.services.historyLinkedFacts.inspect(tables,event,today);
@@ -58,5 +59,5 @@
       return{changes,result:{eventId:replacement.id,correctsEventId:previous.id,animalId:previous.animalId,episodeId:info.episodeId}};
     },command);
   }
-  root.services.historyCorrections=Object.freeze({inspect,canCorrect,correct:(input,command)=>apply(input,command,'correct'),correctLinked:(input,command)=>apply(input,command,'correctLinked'),correctWorkflow:(input,command)=>apply(input,command,'correctWorkflow'),correctAdoption:(input,command)=>root.services.historyAdoption.correct(input,command)});
+  root.services.historyCorrections=Object.freeze({inspect,canCorrect,correct:(input,command)=>apply(input,command,'correct'),correctLinked:(input,command)=>apply(input,command,'correctLinked'),correctWorkflow:(input,command)=>apply(input,command,'correctWorkflow'),correctAdoption:(input,command)=>root.services.historyAdoption.correct(input,command),correctDeparture:(input,command)=>root.services.historyAdoption.correctDeparture(input,command)});
 }(window.RescueManager));

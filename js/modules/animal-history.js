@@ -23,7 +23,7 @@
     const dialog=ui.form(t(info.titleKey),[
       {key:'date',labelKey:'hc.newDate',type:'date',required:true,min:info.minDate,max:info.maxDate},
       {key:'reason',labelKey:'hc.reason',type:'textarea',required:true,maxLength:200},
-      ...(info.related||[]).map((item,index)=>({key:'related_'+index,labelKey:'hc.related.'+item.table,required:true,sectionKey:'hc.relatedHeading',options:[{value:'',label:t('hc.choose')},{value:'keep',label:t('hc.keepDate')},{value:'move',label:t('hc.moveDate')}]})),
+      ...(info.related||[]).map((item,index)=>({key:'related_'+index,labelKey:item.labelKey||'hc.related.'+item.table,required:true,sectionKey:'hc.relatedHeading',options:[{value:'',label:t('hc.choose')},{value:'keep',label:t('hc.keepDate')},{value:'move',label:t('hc.moveDate')}]})),
       ...(info.requiresIncomeConfirmation?[{key:'preserveIncomeDate',labelKey:'hc.preserveIncome',type:'checkbox',required:true}]:[]),
       ...(info.requiresExpenseConfirmation?[{key:'preserveExpenseDate',labelKey:'hc.preserveExpense',type:'checkbox',required:true}]:[]),
       {key:'confirmed',labelKey:'hc.confirm',type:'checkbox',required:true}
@@ -39,7 +39,7 @@
       el('p',{},t('hc.bounds',{from:info.minDate?civil(ctx,info.minDate):t('ui.unknown'),to:civil(ctx,info.maxDate)}))].filter(Boolean);
     dialog.querySelector('h2').after(...notes);
     if(info.related?.length){
-      const section=dialog.querySelector('[name=related_0]').closest('section');section.querySelector('h3').after(el('p',{class:'notice warning'},t('hc.relatedHelp')));
+      const section=dialog.querySelector('[name=related_0]').closest('section');section.querySelector('h3').after(el('p',{class:'notice warning'},t(info.relatedHelpKey||'hc.relatedHelp')));
       info.related.forEach((item,index)=>{const control=dialog.querySelector('[name=related_'+index+']');control.previousElementSibling.append(document.createTextNode(' · '+item.label+' · '+civil(ctx,item.previous)));if(!item.canMove){control.querySelector('option[value=move]').disabled=true;control.after(el('small',{},t('hc.noClosureEvent')));}});
     }
   }

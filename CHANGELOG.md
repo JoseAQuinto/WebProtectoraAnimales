@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Fechas de traslado, salida y fallecimiento — 2026-10-19
+
+- Fuente/actividad original inequívoca, episodio y fallecimiento coordinados,
+  cierres elegidos y tarea independiente preservada. Estado actual intacto.
+- Fallecimiento posterior a adopción sin crear episodio ni alterar cuota.
+  Solicitudes automáticas incluidas también en revisión de formalización.
+- Chrome/Edge 18/18; 271 Node / 837 estáticas. HISTORY_DEPARTURE.md.
+
+
 ## Fechas de solicitudes y reservas — 2026-10-19
 
 - Correcciones fechadas con código de transición y estado actual conservados;

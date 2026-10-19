@@ -21,6 +21,7 @@
     for(const reservation of tables.reservations.filter(row=>row.applicationId===application.id&&row.status==='fulfilled').sort((a,b)=>a.reservationDate.localeCompare(b.reservationDate)||a.id.localeCompare(b.id)))add('reservations',reservation,'closedOn','reservation','fulfilled',tables.contacts.find(row=>row.id===application.contactId)?.name||animal.name);
     // These are candidates by date only, never an inferred causal link. Each requires a human decision.
     for(const task of tables.tasks.filter(row=>row.animalId===animal.id&&row.status==='cancelled'&&row.cancelledOn===event.eventDate).sort((a,b)=>a.title.localeCompare(b.title)||a.id.localeCompare(b.id)))add('tasks',task,'cancelledOn',null,null,task.title);
+    related.push(...root.services.historyEvents.applicationClosures(tables,event));
     const income=adoption.financialMovementId?tables.financialMovements.find(row=>row.id===adoption.financialMovementId):null;
     if(adoption.financialMovementId&&(!income||income.direction!=='income'||income.animalId!==animal.id))fail('unsupported');
     return{eventId:event.id,animalId:animal.id,animalName:animal.name,episodeId:episode.id,type:event.type,kind:'adoption',field:'adoptionDate',previousDate:event.eventDate,
@@ -28,9 +29,9 @@
       affected:[{table:'adoptions',id:adoption.id,field:'adoptionDate',previous:adoption.adoptionDate},{table:'stayEpisodes',id:episode.id,field:'exitDate',previous:episode.exitDate}],related,
       command:'correctAdoption',titleKey:'hc.title.adoption',effectKey:'hc.effect.adoption',requiresIncomeConfirmation:!!income,incomeDate:income?.date||null};
   }
-  function correct(input,command){return root.services.context.execute('history.correct-adoption-date',input,(tables,h)=>{
-    if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(key=>!['eventId','date','reason','confirmed','preserveIncomeDate','relatedDecisions'].includes(key)))h.fail('InvalidInputError','Unexpected adoption correction fields');
-    if(input.confirmed!==true)fail('confirmation');const info=inspect(tables,h.find('animalEvents',input.eventId),h.today);
+  function apply(input,command,departure){return root.services.context.execute(departure?'history.correct-departure-date':'history.correct-adoption-date',input,(tables,h)=>{
+    if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(key=>!['eventId','date','reason','confirmed','preserveIncomeDate','relatedDecisions'].includes(key)))h.fail('InvalidInputError','Unexpected coordinated correction fields');
+    if(input.confirmed!==true)fail('confirmation');const info=(departure?root.services.historyDeparture.inspect:inspect)(tables,h.find('animalEvents',input.eventId),h.today);
     if(!root.utils.dates.isValid(input.date)||input.date<info.minDate||input.date>info.maxDate)fail('dateBounds');
     if(input.date===info.previousDate)fail('unchanged');if(typeof input.reason!=='string'||input.reason!==input.reason.trim()||!input.reason||input.reason.length>200)fail('reasonRequired');
     if(info.requiresIncomeConfirmation&&input.preserveIncomeDate!==true)fail('incomeConfirmation');
@@ -41,14 +42,17 @@
     for(const item of info.related){const row=h.find(item.table,item.id),move=decisions.get(item.key)==='move',date=move?input.date:item.previous;
       if(move&&!item.canMove)fail('unsupported');if(item.table==='fosterStays'&&(date<row.startDate||date>input.date))fail('relatedBounds');
       if(item.table==='reservations'&&(date<row.reservationDate||date>input.date))fail('relatedBounds');
+      if(item.table==='animalEvents'){
+        const application=h.find('adoptionApplications',row.source.id);if(date<(application.approvalDate||application.applicationDate)||date>input.date)fail('relatedBounds');
+      }
       if(!move||date===item.previous)continue;
-      changes.push(h.replace(item.table,h.edit(item.table,row,{[item.field]:date})));moved.push(item);
+      if(item.table!=='animalEvents')changes.push(h.replace(item.table,h.edit(item.table,row,{[item.field]:date})));moved.push(item);
       if(item.eventId)root.services.historyEvents.replace(h,changes,h.find('animalEvents',item.eventId),date,input.reason,item.field);
     }
-    const replacement=root.services.historyEvents.replace(h,changes,h.find('animalEvents',info.eventId),input.date,input.reason,'adoptionDate');
-    changes.push(h.insert('activityLog',h.create('activityLog',{operation:'correct',occurredAt:h.now,operationId:h.operationId,target:{type:'animal_event',id:replacement.id},summaryParameters:{code:'history.adoptionDate',field:'adoptionDate',previousId:info.eventId,nextId:replacement.id,reason:input.reason,count:moved.length}})));
-    for(const item of moved.filter(row=>row.table==='tasks'))changes.push(h.insert('activityLog',h.create('activityLog',{operation:'correct',occurredAt:h.now,operationId:h.operationId,target:{type:'task',id:item.id},summaryParameters:{code:'history.adoptionTaskDate',field:item.field,previousId:info.eventId,nextId:replacement.id,reason:input.reason}})));
+    const replacement=root.services.historyEvents.replace(h,changes,h.find('animalEvents',info.eventId),input.date,input.reason,info.field);
+    changes.push(h.insert('activityLog',h.create('activityLog',{operation:'correct',occurredAt:h.now,operationId:h.operationId,target:{type:'animal_event',id:replacement.id},summaryParameters:{code:'history.'+info.field,field:info.field,previousId:info.eventId,nextId:replacement.id,reason:input.reason,count:moved.length}})));
+    for(const item of moved.filter(row=>row.table==='tasks'))changes.push(h.insert('activityLog',h.create('activityLog',{operation:'correct',occurredAt:h.now,operationId:h.operationId,target:{type:'task',id:item.id},summaryParameters:{code:departure?'history.departureTaskDate':'history.adoptionTaskDate',field:item.field,previousId:info.eventId,nextId:replacement.id,reason:input.reason}})));
     return{changes,result:{animalId:info.animalId,eventId:replacement.id,correctsEventId:info.eventId,episodeId:info.episodeId,moved:moved.length}};
   },command);}
-  root.services.historyAdoption=Object.freeze({inspect,correct});
+  root.services.historyAdoption=Object.freeze({inspect,correct:(input,command)=>apply(input,command,false),correctDeparture:(input,command)=>apply(input,command,true)});
 }(window.RescueManager));
