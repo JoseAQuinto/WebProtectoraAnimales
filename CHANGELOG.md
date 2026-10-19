@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Limpieza revisada de conjuntos inactivos — 2026-10-19
+
+- Almacenamiento: staging/retired de uno en uno con copia actual y propia del
+  retirado verificadas, confirmación, guardias en transacción, cancelación y replay.
+- Inventario por índices/cursor, sin snapshots completos de retirados para listar.
+- Chrome/Edge 18/18: negocio/bytes activos intactos y dato antiguo recuperable
+  por copia externa tras borrado local. 282 Node / 862 estáticas. RETENTION.md.
+
+
 ## Fecha documental coherente con todos sus historiales — 2026-10-19
 
 - Acción de fecha separada de metadatos, revisión paginada global, sustitutos

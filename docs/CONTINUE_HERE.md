@@ -59,6 +59,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | Fechas de solicitudes/reservas | HISTORY_WORKFLOW.md | 18/18 por motor |
 | Fechas de traslado/salida/fallecimiento | HISTORY_DEPARTURE.md | 18/18 por motor |
 | Fecha documental con todos sus historiales | DOCUMENT_DATE_CORRECTIONS.md | 17/17 por motor |
+| Limpieza de conjuntos retirados/staging | RETENTION.md | 18/18 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -73,7 +74,7 @@ La prueba dirigida de guía no repite ni sustituye la aceptación de los módulo
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **277 pruebas Node / 847 estáticas**, diff sin errores:
+Verificación conjunta: **282 pruebas Node / 862 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -97,10 +98,12 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
    fechadas, no edición libre de contenido ni reversión de estados. Fecha documental ya tiene revisión global y aceptación en
    DOCUMENT_DATE_CORRECTIONS.md. Revisar aún casos históricos ambiguos/mal enlazados. No inventar causalidad ni fechas, ni reproducir dinero,
    stock o tareas. Los eventos originales son inmutables en el repositorio.
-2. Retención/limpieza explícita de staging/retirados y recursos sin uso, con copia
-   verificada, revisión, dependencias y cancelación. No borrar automáticamente ni
-   confundir retirada de demo con borrado general. Decidir borrado definitivo de
-   negocio con revisión de relaciones, preservando historia válida.
+2. Leer RETENTION.md: limpieza de retired/staging ya tiene UI, copias propias,
+   guardias, cancelación, replay y aceptación. Continuar recursos sin uso del
+   activo: analizar referencias de todas las tablas, archivo/papelera y relaciones
+   entre assets; nunca borrar por solo no ser foto/logo actual. Copia verificada,
+   revisión, consentimiento y ausencia de referencias comprobados antes de borrar.
+   Borrado definitivo de negocio aún exige diseño de relaciones/historia.
 3. Reducir snapshots/validaciones O(N), lecturas por índices y binarios diferidos.
    Importación JSON también tiene búsquedas de candidatos O(N*M). Los límites de
    seguridad del parser no acreditan rendimiento a esos máximos. Probar memoria,

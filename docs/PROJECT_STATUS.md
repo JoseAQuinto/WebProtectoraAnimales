@@ -11,7 +11,8 @@ Reanudado el 2026-10-19 desde 0cc7eef, árbol limpio y remoto sin diferencias.
 Cupo ordinario renovado (lectura inicial: 7 % de cinco horas y 30 % semanal
 consumidos); no se utilizaron créditos de reinicio. El corte anterior es histórico.
 Ya se corrigen fechas de entrada/devolución con fuente y sustituto coordinados:
-HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 277 Node / 847 estáticas.
+HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 282 Node / 862 estáticas.
+Limpieza de conjuntos inactivos: RETENTION.md, Chrome/Edge 18/18.
 Fecha documental: DOCUMENT_DATE_CORRECTIONS.md.
 Traslados/salidas/fallecimientos: HISTORY_DEPARTURE.md.
 Solicitudes/reservas independientes: HISTORY_WORKFLOW.md.
@@ -102,10 +103,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **277 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **282 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **847 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **862 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -139,8 +140,9 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   instalador sin nueva indicación. Evidencia Firefox anterior corresponde a
   fuentes anteriores. Nuevos recorridos solo Chrome/Edge en Windows.
 - Un error QuotaExceededError inyectado no demuestra cuota real agotada.
-  Documentar por separado ambas pruebas. Retención/limpieza explícita de
-  conjuntos retirados y recursos sin uso aún pendiente; no borrar automáticamente.
+  Documentar por separado ambas pruebas. La limpieza explícita de
+  conjuntos retirados/staging ya existe (RETENTION.md); recursos sin uso del activo
+  y borrado permanente de negocio siguen pendientes. No borrar automáticamente.
 - Faltan correcciones coordinadas de historia y aceptación integral.
   CSV/JSON y demo/retirada ya tienen UI y evidencias en su alcance
   (MODULE_JSON_IMPORT.md y DEMO.md). Contactos CSV ya
@@ -455,3 +457,11 @@ DOCUMENT_DATE_CORRECTIONS.md: origen y hechos compartidos revisados, versiones
 anteriores conservadas, normalización expresa de legado y barreras contra edición
 sin historial por servicio/repositorio/JSON. 23 animales, rollback real en último
 sustituto, copia/reapertura de bytes. 17/17 Chrome/Edge; 277 Node / 847 estáticas.
+
+## Retención revisada de conjuntos inactivos (2026-10-19)
+
+RETENTION.md: un target por revisión, copia actual y propia del retirado verificadas,
+confirmación, transacción atómica cancelable, guardias/replay y actividad. Inventario
+por índices/cursor, sin snapshots completos de retirados en la lista. 18/18 por
+motor, antiguo no presente en activo recuperado por copia externa tras limpieza;
+282 Node / 862 estáticas. Pendientes recursos sin uso activos y borrado de negocio.

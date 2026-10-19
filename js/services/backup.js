@@ -9,6 +9,12 @@
   async function create() {
     const snapshot = await root.services.context.snapshot();
     if (!snapshot) throw s.error('DatasetChangedError', 'There is no active organization to back up');
+    return encodeSnapshot(snapshot);
+  }
+  async function createForDataset(id){
+    const snapshot=await s.repositories.snapshot(id);if(!snapshot||snapshot.dataset.state!=='retired')throw s.error('InvalidInputError','Choose an inactive recovery dataset');return encodeSnapshot(snapshot);
+  }
+  async function encodeSnapshot(snapshot){
     const encoded = await root.services.backupCodec.encode(snapshot);
     await saveReceipt({ backupId: encoded.container.content.backupId, datasetId: snapshot.datasetId,
       dataRevision: snapshot.dataRevision, contentHash: encoded.container.integrity.contentHash,
@@ -34,7 +40,11 @@
   async function list() {
     const active = await s.writeCoordinator.readActive();
     if (!active) return [];
-    return run(['backupReceipts'], 'readonly', (tx, api) => api.request(tx.objectStore('backupReceipts').index('byDataset').getAll(active.datasetId), values => api.setResult(values.sort((a,b) => b.generatedAt.localeCompare(a.generatedAt)))));
+    return listForDataset(active.datasetId);
+  }
+  async function listForDataset(id){
+    if(!root.utils.ids.isUuidV4(id))throw s.error('InvalidInputError','Select a dataset');
+    return run(['backupReceipts'],'readonly',(tx,api)=>api.request(tx.objectStore('backupReceipts').index('byDataset').getAll(id),values=>api.setResult(values.sort((a,b)=>b.generatedAt.localeCompare(a.generatedAt)))));
   }
   async function restore(source, command = {}) {
     if (command.confirmed !== true) throw s.error('ConfirmationRequiredError', 'Confirm the replacement after reviewing the summary');
@@ -57,5 +67,5 @@
     if (!source || source.dataset.state !== 'retired') throw s.error('InvalidInputError', 'Choose an available recovery dataset');
     return restore(source, command);
   }
-  root.services.backup = Object.freeze({ create, requested, verify, list, restore, recover });
+  root.services.backup = Object.freeze({ create, createForDataset, listForDataset, requested, verify, list, restore, recover });
 }());
