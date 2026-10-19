@@ -4,6 +4,7 @@
   const fail=key=>{throw new root.core.errors.AppError('hc.'+key);};
   function inspect(tables,eventId,today){
     const event=tables.animalEvents.find(row=>row.id===eventId);
+    if(event&&['adoption_application','reservation'].includes(event.source.type))return root.services.historyWorkflow.inspect(tables,event,today);
     if(event?.source.type==='adoption')return root.services.historyAdoption.inspect(tables,event,today);
     if(event&&['foster_stay','veterinary_record'].includes(event.source.type))return root.services.historyLinkedFacts.inspect(tables,event,today);
     if(!event||!live(event)||!['entry','return'].includes(event.type)||event.source.type!=='stay_episode')fail('unsupported');
@@ -38,12 +39,13 @@
       limitingEvents:limitingEvents.map(row=>({id:row.id,type:row.type,date:row.eventDate}))};
   }
   function canCorrect(tables,event){try{inspect(tables,event.id);return true;}catch(error){if(error instanceof root.core.errors.AppError)return false;throw error;}}
-  function apply(input,command,linked){
-    return root.services.context.execute(linked?'history.correct-linked-date':'history.correct-entry-date',input,(tables,h)=>{
+  function apply(input,command,method){
+    const type={correct:'history.correct-entry-date',correctLinked:'history.correct-linked-date',correctWorkflow:'history.correct-workflow-date'}[method];
+    return root.services.context.execute(type,input,(tables,h)=>{
       if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(key=>!['eventId','date','reason','confirmed','preserveExpenseDate'].includes(key)))h.fail('InvalidInputError','Unexpected historical correction fields');
       if(input.confirmed!==true)fail('confirmation');
       const info=inspect(tables,input.eventId,h.today);
-      if((info.command==='correctLinked')!==linked)h.fail('InvalidInputError','Use the supported correction command for this fact');
+      if(info.command!==method)h.fail('InvalidInputError','Use the supported correction command for this fact');
       if(info.requiresExpenseConfirmation&&input.preserveExpenseDate!==true)fail('expenseConfirmation');
       if(!root.utils.dates.isValid(input.date)||input.date>info.maxDate||(info.minDate&&input.date<info.minDate))fail('dateBounds');
       if(input.date===info.previousDate)fail('unchanged');
@@ -56,5 +58,5 @@
       return{changes,result:{eventId:replacement.id,correctsEventId:previous.id,animalId:previous.animalId,episodeId:info.episodeId}};
     },command);
   }
-  root.services.historyCorrections=Object.freeze({inspect,canCorrect,correct:(input,command)=>apply(input,command,false),correctLinked:(input,command)=>apply(input,command,true),correctAdoption:(input,command)=>root.services.historyAdoption.correct(input,command)});
+  root.services.historyCorrections=Object.freeze({inspect,canCorrect,correct:(input,command)=>apply(input,command,'correct'),correctLinked:(input,command)=>apply(input,command,'correctLinked'),correctWorkflow:(input,command)=>apply(input,command,'correctWorkflow'),correctAdoption:(input,command)=>root.services.historyAdoption.correct(input,command)});
 }(window.RescueManager));

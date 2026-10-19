@@ -11,7 +11,8 @@ Reanudado el 2026-10-19 desde 0cc7eef, árbol limpio y remoto sin diferencias.
 Cupo ordinario renovado (lectura inicial: 7 % de cinco horas y 30 % semanal
 consumidos); no se utilizaron créditos de reinicio. El corte anterior es histórico.
 Ya se corrigen fechas de entrada/devolución con fuente y sustituto coordinados:
-HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 256 Node / 827 estáticas.
+HISTORY_CORRECTIONS.md. Chrome/Edge 17/17 por motor, 264 Node / 832 estáticas.
+Solicitudes/reservas independientes: HISTORY_WORKFLOW.md.
 Formalización de adopción con revisión individual: HISTORY_ADOPTION.md.
 Acogidas/actos sanitarios también tienen corrección coordinada (HISTORY_LINKED_FACTS.md).
 Siguen pendientes otras correcciones históricas, limpieza, rendimiento y aceptación.
@@ -99,10 +100,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **256 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **264 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **827 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **832 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;
@@ -430,3 +431,10 @@ acogidas, reservas y tareas candidatas, sin inferir causa ni cambiar ingreso.
 17/17 Chrome/Edge, rollback IDB de hijos/principal, copia/reapertura de cadenas
 y bytes; formularios EN/ES acotados y notas opcionales filtradas. 256 Node / 827
 estáticas. Pendientes solicitudes/reservas independientes, salidas y muerte.
+
+## Fechas de solicitudes/reservas (2026-10-19)
+
+HISTORY_WORKFLOW.md: fechas de alta, revisión, aprobación y cierre, fuente/estado
+actual separados, reserva/caducidad/cumplimiento, secuencia original de eventos.
+Los cierres automáticos ahora generan su transición en la misma transacción.
+18/18 Chrome/Edge con rollback, copia/reapertura/bytes; 264 Node / 832 estáticas.

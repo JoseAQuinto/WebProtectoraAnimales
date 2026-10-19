@@ -62,10 +62,14 @@
     });
     if (selected.size !== pending.length) fail(h, 'A decision is required for every pending task');
   }
-  function closeApplications(data, h, changes, animalId, closureReason, exceptId) {
+  function closeApplications(data, h, changes, animalId, on, closureReason, exceptId) {
     const applications = data.adoptionApplications.filter(row => row.animalId === animalId && row.id !== exceptId && ['pending', 'under_review', 'approved'].includes(row.status));
     if (applications.length) reason(h, closureReason);
-    applications.forEach(application => changes.push(h.replace('adoptionApplications', h.edit('adoptionApplications', application, { status: 'cancelled', closureReason }))));
+    applications.forEach(application => {
+      date(h, on, application.approvalDate || application.applicationDate);
+      changes.push(h.replace('adoptionApplications', h.edit('adoptionApplications', application, { status: 'cancelled', closureReason })));
+      event(h, changes, animalId, 'application', on, { type: 'adoption_application', id: application.id }, { code: 'cancelled', reason: closureReason });
+    });
   }
   function closeReservations(data, h, changes, animalId, on, closureReason, status) {
     data.reservations.filter(row => row.animalId === animalId && row.status === 'active').forEach(reservation => {
@@ -152,7 +156,7 @@
       }
       closeFoster(data, h, changes, animal, on, input.fosterEndReason || why);
       closeReservations(data, h, changes, animal.id, on, input.reservationClosureReason, 'cancelled');
-      closeApplications(data, h, changes, animal.id, input.applicationClosureReason);
+      closeApplications(data, h, changes, animal.id, on, input.applicationClosureReason);
       decideTasks(data, h, changes, animal.id, on, input.taskDecisions);
       changes.push(h.replace('animals', h.edit('animals', animal, { managementStatus: deceased ? 'deceased' : 'other_exit',
         deceasedOn: deceased ? on : null, adoptionAvailability: 'unavailable', locationKind: null, locationId: null, externalLocationDescription: null })));

@@ -110,7 +110,7 @@
         h.replace('adoptionApplications', h.edit('adoptionApplications', application, { status: 'completed' })));
       l.closeFoster(data, h, changes, animal, on, input.fosterEndReason);
       l.closeReservations(data, h, changes, animal.id, on, input.reservationClosureReason, 'fulfilled');
-      l.closeApplications(data, h, changes, animal.id, input.otherApplicationsReason, application.id);
+      l.closeApplications(data, h, changes, animal.id, on, input.otherApplicationsReason, application.id);
       l.decideTasks(data, h, changes, animal.id, on, input.taskDecisions);
       changes.push(h.replace('animals', h.edit('animals', animal, { managementStatus: 'adopted', adoptionAvailability: 'unavailable',
         locationKind: null, locationId: null, externalLocationDescription: null })));

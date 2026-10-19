@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Fechas de solicitudes y reservas — 2026-10-19
+
+- Correcciones fechadas con código de transición y estado actual conservados;
+  orden original, límites por aprobación/adopción y caducidad inclusiva.
+- Cierres automáticos de solicitudes generan ahora su evento con fecha/motivo
+  en el commit coordinado; no se inventan fechas de cierres antiguos.
+- Chrome/Edge 18/18; 264 Node / 832 estáticas. HISTORY_WORKFLOW.md.
+
+
 ## Corrección de formalización con revisión individual — 2026-10-19
 
 - Adopción/episodio coordinados con conservar/mover explícito de cada cierre

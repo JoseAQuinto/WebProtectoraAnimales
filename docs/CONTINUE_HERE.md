@@ -56,6 +56,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | Corrección de entrada/devolución | HISTORY_CORRECTIONS.md | 17/17 por motor |
 | Corrección de acogidas y actos sanitarios | HISTORY_LINKED_FACTS.md | 17/17 por motor |
 | Corrección de formalización/cierres elegidos | HISTORY_ADOPTION.md | 17/17 por motor |
+| Fechas de solicitudes/reservas | HISTORY_WORKFLOW.md | 18/18 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -70,7 +71,7 @@ La prueba dirigida de guía no repite ni sustituye la aceptación de los módulo
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **256 pruebas Node / 827 estáticas**, diff sin errores:
+Verificación conjunta: **264 pruebas Node / 832 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -93,7 +94,8 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
    como inexistentes. Acogidas y actos clínicos ya tienen UI y aceptación en HISTORY_LINKED_FACTS.md,
    con factura conservada explícitamente y tarea/esterilización coordinadas.
    Formalización ya tiene decisiones individuales: HISTORY_ADOPTION.md.
-   Seguir solicitudes/reservas independientes y salidas/fallecimiento con sus
+   Solicitudes/reservas independientes ya tienen UI en HISTORY_WORKFLOW.md.
+   Seguir traslados y salidas/fallecimiento con sus
    dependencias y evento sustituto. No presentar como inexistentes estos bloques.
    No inferir cierres por una coincidencia de fechas ni reproducir dinero, stock
    o tareas. Formalización/salidas/muerte requieren revisión de dependencias

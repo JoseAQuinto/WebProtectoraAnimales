@@ -89,8 +89,8 @@ aceptación de persistencia corresponde a los recorridos reales anteriores.
 
 ## Pendientes
 
-Fechas de solicitudes/reservas independientes, traslados, salidas y fallecimiento
-aún necesitan comandos propios coordinados. No existe editor libre de tipos,
+Solicitudes/reservas se ampliaron después en HISTORY_WORKFLOW.md. Traslados,
+salidas y fallecimiento aún necesitan comandos propios coordinados. No existe editor libre de tipos,
 contenido o reversión de estados históricos. Volumen de revisiones numerosas,
 cuota física, limpieza, impresión/accesibilidad y aceptación comercial siguen
 pendientes; las decisiones del formulario actual se muestran en una lista sin
