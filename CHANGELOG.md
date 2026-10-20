@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Archivos incorporados sin referencias — 2026-10-20
+
+- Almacenamiento revisa archivos del activo sin referencias (fotos/logos sustituidos)
+  con análisis genérico de todos los uuid, grupos foto/miniatura cerrados, motivos
+  de conservación, inspección, copia actual verificada y confirmación.
+- Borrado en una transacción que revalida lease/revisión/copia/referencias y valida
+  el dataset; cancelación con rollback y replay. Archivo/papelera se conservan.
+- Chrome/Edge 19/19, regresión de conjuntos inactivos 18/18 y guía 4/4 por motor.
+  288 Node / 882 estáticas. ASSET_RETENTION.md. Versiones sin cambios.
+
 ## Relevo de desarrollo — 2026-10-19
 
 - Checkpoint tras correcciones fechadas, limpieza de conjuntos inactivos y guía.

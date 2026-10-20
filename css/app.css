@@ -16,3 +16,6 @@
 .filter-chips .button{max-width:100%;white-space:normal;overflow-wrap:anywhere}.animal-advanced-filters>summary{cursor:pointer;font-weight:650;margin-bottom:16px}
 
 .history-correction-form .field{grid-template-columns:minmax(0,1fr)}.history-correction-form select{min-width:0;width:100%}.history-correction-form p,.history-correction-form label{overflow-wrap:anywhere}
+
+.asset-preview{display:block;max-width:min(100%,180px);max-height:180px;object-fit:contain;border-radius:8px;border:1px solid var(--line)}.history-correction-form fieldset{min-width:0;margin:0}.history-correction-form fieldset ul{margin:0;padding-left:18px}
+.asset-kept{margin:0;padding-left:20px;display:grid;gap:6px}

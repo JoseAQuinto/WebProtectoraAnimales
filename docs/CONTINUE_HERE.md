@@ -1,6 +1,6 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint: **2026-10-19**, rama **main**, app **0.2.0-dev**.
+Checkpoint: **2026-10-20**, rama **main**, app **0.2.0-dev**.
 DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
@@ -12,6 +12,11 @@ y comprobar Git. No se utilizó reinicio. No hay una funcionalidad a medio aplic
 que deba recuperarse de archivos ignorados; pruebas y decisiones están en Git.
 Siguiente acción: recursos sin referencias del activo, según RETENTION.md.
 No repetir como pendientes correcciones fechadas ni limpieza retired/staging.
+
+**Actualización 2026-10-20:** los archivos sin referencias del activo ya tienen
+revisión, UI y evidencia (ASSET_RETENTION.md; 19/19 Chrome/Edge). Cupo al
+documentar: 36 % cinco horas / 30 % semanal. Siguiente acción: borrado definitivo
+de negocio revisado (papelera), empezando por el análisis de relaciones/historia.
 
 ## Inicio
 
@@ -46,6 +51,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 - 85dce36: fechas de traslado/salida/muerte conservando su historia.
 - 2b162dd: fecha documental y todos sus historiales animales coordinados.
 - eacd40c: limpieza revisada de retired/staging con copias verificadas.
+- 2026-10-20: archivos incorporados sin referencias del activo (ver git log).
 - Consultar git log para guía sincronizada y último relevo documental.
 
 ## Estado funcional y evidencia
@@ -75,6 +81,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | Fechas de traslado/salida/fallecimiento | HISTORY_DEPARTURE.md | 18/18 por motor |
 | Fecha documental con todos sus historiales | DOCUMENT_DATE_CORRECTIONS.md | 17/17 por motor |
 | Limpieza de conjuntos retirados/staging | RETENTION.md | 18/18 por motor |
+| Archivos incorporados sin referencias del activo | ASSET_RETENTION.md | 19/19 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -92,7 +99,7 @@ de los módulos. Las rondas funcionales mantienen sus hashes originales.
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **282 pruebas Node / 862 estáticas**, diff sin errores:
+Verificación conjunta: **288 pruebas Node / 882 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -102,7 +109,7 @@ git diff --check
 
 Ejecutores persistentes en tests/e2e: contact-import-ui, animal-import-ui,
 related-import-ui, finance-import-ui, donation-import-ui, module-import-ui,
-module-import-layout y demo-ui, además de los anteriores por módulo.
+module-import-layout, demo-ui y asset-retention-ui, además de los anteriores por módulo.
 Consultar ENVIRONMENT_TESTS.md y sus argumentos --browser, --machine, --output
 con nombre nuevo y --executable opcional. No sobrescribir evidencia.
 La guía usó una comprobación puntual descrita en HELP.md, sin suite nueva de negocio.
@@ -116,12 +123,11 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
    fechadas, no edición libre de contenido ni reversión de estados. Fecha documental ya tiene revisión global y aceptación en
    DOCUMENT_DATE_CORRECTIONS.md. Revisar aún casos históricos ambiguos/mal enlazados. No inventar causalidad ni fechas, ni reproducir dinero,
    stock o tareas. Los eventos originales son inmutables en el repositorio.
-2. Leer RETENTION.md: limpieza de retired/staging ya tiene UI, copias propias,
-   guardias, cancelación, replay y aceptación. Continuar recursos sin uso del
-   activo: analizar referencias de todas las tablas, archivo/papelera y relaciones
-   entre assets; nunca borrar por solo no ser foto/logo actual. Copia verificada,
-   revisión, consentimiento y ausencia de referencias comprobados antes de borrar.
-   Borrado definitivo de negocio aún exige diseño de relaciones/historia.
+2. Leer RETENTION.md y ASSET_RETENTION.md: retired/staging y archivos sin
+   referencias del activo ya tienen UI, copias, guardias, cancelación, replay y
+   aceptación. No repetirlos como pendientes. Siguiente: borrado definitivo de
+   negocio (vaciar papelera) con diseño de relaciones/historia; los archivos usados
+   solo por registros en archivo/papelera dependen de ese bloque.
 3. Reducir snapshots/validaciones O(N), lecturas por índices y binarios diferidos.
    Importación JSON también tiene búsquedas de candidatos O(N*M). Los límites de
    seguridad del parser no acreditan rendimiento a esos máximos. Probar memoria,

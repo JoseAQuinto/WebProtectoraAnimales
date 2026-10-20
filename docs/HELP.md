@@ -49,3 +49,16 @@ en print, snapshot de negocio idéntico, sin errores ni HTTP; procesos propios
 cerrados. Se reutilizó el verificador puntual anterior cambiando solo el nombre
 de evidencia. Las rondas funcionales anteriores no adquieren hashes nuevos.
 **282 Node / 862 estáticas** en este checkpoint; versiones sin cambios.
+
+## Actualización dirigida — 2026-10-20
+
+Archivo/papelera explica la nueva revisión de archivos incorporados sin uso en
+Almacenamiento: qué se conserva siempre, grupos foto/miniatura, inspección,
+copia actual verificada y confirmación. Las limitaciones ya solo mantienen
+pendientes el borrado definitivo de negocio y la retención automática.
+
+Revisión dirigida en perfiles vacíos propios, file:// offline, Chrome y Edge:
+`help-ui-2026-10-20-asset-files-{chrome,edge}.json`, **4/4 por motor**, 124
+fuentes. Mismo verificador puntual ignorado por Git (`.tmp/help-review-*.cjs`),
+cambiando solo el nombre de evidencia y la ruta local de Edge. No acredita la
+función nueva: su aceptación está en ASSET_RETENTION.md.

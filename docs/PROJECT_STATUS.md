@@ -1,9 +1,19 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-19. Versión de trabajo: `0.2.0-dev`.
+Actualizado: 2026-10-20. Versión de trabajo: `0.2.0-dev`.
 Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
+
+## Avance — 2026-10-20
+
+Reanudado desde d9bea6d con árbol limpio y remoto sin diferencias; cupo leído
+al documentar: 36 % de cinco horas y 30 % semanal consumidos, sin reinicios.
+Archivos incorporados sin referencias del activo: análisis genérico, grupos
+foto/miniatura, inspección, copia actual verificada, confirmación y borrado
+transaccional revalidado. Chrome/Edge 19/19, regresión de conjuntos inactivos
+18/18 y guía 4/4 por motor (124 fuentes). **288 Node / 882 estáticas**.
+Ver [ASSET_RETENTION.md](ASSET_RETENTION.md). Versiones/formatos sin cambios.
 
 ## Checkpoint de cierre — 2026-10-19
 
@@ -38,8 +48,9 @@ Traslados/salidas/fallecimientos: HISTORY_DEPARTURE.md.
 Solicitudes/reservas independientes: HISTORY_WORKFLOW.md.
 Formalización de adopción con revisión individual: HISTORY_ADOPTION.md.
 Acogidas/actos sanitarios también tienen corrección coordinada (HISTORY_LINKED_FACTS.md).
+Archivos sin uso del activo: ASSET_RETENTION.md (2026-10-20), 19/19 Chrome/Edge.
 Siguen pendientes reversiones/corrección de contenido y casos ambiguos de historia,
-archivos sin uso del activo, borrado definitivo de negocio, rendimiento y aceptación.
+borrado definitivo de negocio, rendimiento y aceptación.
 
 ## Fase actual
 
@@ -162,8 +173,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   fuentes anteriores. Nuevos recorridos solo Chrome/Edge en Windows.
 - Un error QuotaExceededError inyectado no demuestra cuota real agotada.
   Documentar por separado ambas pruebas. La limpieza explícita de
-  conjuntos retirados/staging ya existe (RETENTION.md); recursos sin uso del activo
-  y borrado permanente de negocio siguen pendientes. No borrar automáticamente.
+  conjuntos retirados/staging ya existe (RETENTION.md) y la de archivos sin
+  referencias del activo también (ASSET_RETENTION.md). Archivos usados solo por
+  archivo/papelera y borrado permanente de negocio siguen pendientes. No borrar
+  automáticamente.
 - Las correcciones fechadas de las familias documentadas ya están disponibles;
   faltan reversiones de estado, contenido/casos ambiguos y aceptación integral.
   CSV/JSON y demo/retirada ya tienen UI y evidencias en su alcance
@@ -197,9 +210,9 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
    No repetir como pendientes los recorridos acreditados ni declarar fases completas.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
    aceptación real. Leer SEARCH_HISTORY.md y ADOPTION_REGISTER.md para lo ya probado.
-4. Leer RETENTION.md: retired/staging ya tienen limpieza revisada con copias.
-   Continuar archivos sin referencias del activo, incluyendo archivo/papelera y
-   dependencias entre assets. Revisar relaciones antes del borrado de negocio.
+4. Leer RETENTION.md y ASSET_RETENTION.md: retired/staging y archivos sin
+   referencias del activo ya tienen limpieza revisada con copias. Siguiente:
+   borrado definitivo de negocio (papelera) con análisis de relaciones/historia.
    Para historia, leer los cinco HISTORY_*.md y DOCUMENT_DATE_CORRECTIONS.md;
    no repetir como inexistentes las correcciones fechadas ya acreditadas.
 5. Abordar O(N), cuota física, accesibilidad, impresión final y aceptación de
@@ -500,3 +513,11 @@ sus copias. Las limitaciones distinguen reversiones y borrado del negocio aún
 pendientes. Revisión dirigida actual: help-ui-2026-10-19-current-{chrome,edge}.json,
 4/4 por motor, 120 fuentes; foco/ruta, tres anchos, print visible y cero escritura
 de negocio. No repite aceptación funcional ni sustituye las rondas de cada módulo.
+
+## Archivos sin referencias del activo (2026-10-20)
+
+ASSET_RETENTION.md: recorrido genérico de uuid en todas las tablas, cierre de
+derivados, grupos completos, motivos actual/archivo-papelera/historia/dependencia,
+descarga/vista previa, copia actual verificada y transacción con revalidación,
+validación del dataset, cancelación y replay. 19/19 Chrome/Edge; regresión 18/18;
+guía 4/4. 288 Node / 882 estáticas. Pendiente borrado definitivo de negocio.

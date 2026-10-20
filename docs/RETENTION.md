@@ -24,8 +24,9 @@ que cambia su revisión y otra eliminación exige una nueva copia actual.
 
 Cancelar antes de completar aborta toda la transacción: incluso registros ya
 encolados para borrar se conservan. No se muestra éxito antes de transaction.complete.
-No vacía papelera, no borra registros activos, no elimina recursos sin uso del
-activo y no configura retención por tiempo. Esas tareas siguen pendientes.
+No vacía papelera, no borra registros activos y no configura retención por tiempo.
+Los archivos sin referencias del activo tienen su propia revisión desde el
+2026-10-20: [ASSET_RETENTION.md](ASSET_RETENTION.md).
 
 ## Protección e implementación
 
@@ -98,29 +99,17 @@ decidir descartarla. Los snapshots del negocio activo/exportación y eliminació
 atómica a volumen aún necesitan pruebas de memoria/tiempo/cuota física. El tamaño
 lógico no garantiza espacio físico liberado inmediatamente por el navegador.
 
-Siguiente: recursos sin referencias del activo (incluidos archivo/papelera y
-dependencias entre assets), borrado permanente de negocio con análisis de relaciones,
-lecturas acotadas/binarios diferidos, impresión y aceptación integral. No reducir
-el alcance original ni presentar esta limpieza como producto comercial terminado.
+Siguiente: borrado permanente de negocio con análisis de relaciones (incluidos
+archivos usados solo por registros archivados/en papelera), lecturas acotadas/
+binarios diferidos, impresión y aceptación integral. No reducir el alcance original
+ni presentar esta limpieza como producto comercial terminado.
 
-### Punto de partida para recursos del activo
+### Recursos del activo
 
-Revisión de código, todavía sin implementación: `js/domain/schemas.js` declara
-referencias a assets en `organizationSettings.logoAssetId`, `animals.photoAssetId`,
-`animals.thumbnailAssetId`, `documents.assetId` y `assets.derivedFromAssetId`.
-Usar también el recorrido de referencias del validador (`field.ref`, objetos,
-arrays y `originRef`) y las referencias dinámicas de entidades; no mantener una
-lista manual como única protección frente a cambios futuros del esquema.
-
-Un recurso antiguo puede seguir referenciado por su miniatura, documentos
-archivados/en papelera, orígenes históricos o mapas de importación. Revisar el
-conjunto cerrado de candidatos y todas las referencias entrantes: borrar un
-padre mientras queda su derivado rompería la validación. No añadir una purga
-genérica que salte revisiones ni borrar automáticamente al sustituir una foto.
-La selección, copia verificada y comprobación final deben referirse a la misma
-revisión; revalidar referencias y lease dentro de la transacción antes de borrar.
-Probar pérdida de lease, escritura entre revisión/confirmación, cancelación,
-rollback tras un borrado real, replay y conservación exacta de bytes referenciados.
+El punto de partida que se documentó aquí (refs de schemas.js, recorrido genérico,
+derivados, archivo/papelera, revalidación en la transacción y pruebas de lease,
+escritura concurrente, cancelación, rollback y replay) está implementado y
+acreditado en [ASSET_RETENTION.md](ASSET_RETENTION.md). No repetirlo como pendiente.
 
 La guía se sincronizó después de la aceptación funcional de este bloque.
 HELP.md documenta su comprobación dirigida con las nuevas huellas de los
