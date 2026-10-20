@@ -65,7 +65,7 @@
         history:()=>root.modules.animalHistory.render(ctx,animal)
       };
       let selected=ctx.route.tab&&sections[ctx.route.tab]?ctx.route.tab:'info';
-      const choose=key=>{selected=key;for(const control of tabs.children)control.setAttribute('aria-pressed',String(control.dataset.tab===key));body.replaceChildren(sections[key]());};
+      const choose=key=>{selected=key;for(const control of tabs.children)control.setAttribute('aria-pressed',String(control.dataset.tab===key));body.replaceChildren(el('h2',{class:'sr-only'},t('a.tab.'+key)),sections[key]());};
       for(const key of Object.keys(sections)){const control=ui.button(t('a.tab.'+key),()=>{window.location.hash='animals/'+animal.id+'/'+key;},true);control.dataset.tab=key;tabs.append(control);}choose(selected);
       return [el('header',{class:'page-heading'},el('div',{},el('a',{href:'#animals'},t('a.back')),el('p',{class:'eyebrow'},animal.code),el('h1',{},animal.name),el('p',{},t('a.status.'+animal.managementStatus)+' · '+t('a.availability.'+animal.adoptionAvailability)))),
         el('section',{class:'card animal-summary'},image(tables,animal.photoAssetId,animal.name,true),el('div',{class:'stack'},actions,el('p',{class:'muted'},t('a.recordHelp')))),tabs,el('section',{class:'card'},body)];

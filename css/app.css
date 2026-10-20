@@ -24,3 +24,4 @@
 @media print{html.printing-sheet .shell,html.printing-sheet dialog,html.printing-sheet .print-only{display:none!important}html.printing-sheet .print-sheet-output{display:grid!important;padding:0}.print-sheet{font-size:10.5pt}.print-block{break-inside:avoid}.print-block table{width:100%}.print-sheet-header,.print-sheet-title{break-inside:avoid}.print-sheet .muted{color:#444}}
 @media (max-width:600px){.print-sheet-title{flex-direction:column}.print-preview{padding:12px}}
 @media print{@page{margin:14mm}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

@@ -1,5 +1,14 @@
 # Historial de cambios
 
+## Volumen, accesibilidad y paquete — 2026-10-20
+
+- Medición real de latencias hasta 50 080 registros y 32 MiB con copia y reapertura
+  (VOLUME.md); optimización documentada con su precondición, sin aplicar.
+- Auditoría automática de accesibilidad EN/ES: rutas, pestañas, 18 diálogos, contraste;
+  añade h2 de panel en la ficha del animal. 0 incidencias; 11 regresiones por motor.
+- ZIP de desarrollo reproducible (138 archivos) verificado extraído; README aclaran
+  que la guía de relevo solo está en el repositorio. No se publica.
+
 ## Ficha imprimible del animal — 2026-10-20
 
 - «Imprimir ficha»: vista previa con organización, logo, salud, pesos, estancias,

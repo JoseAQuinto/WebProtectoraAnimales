@@ -18,6 +18,9 @@ Después: eliminación definitiva revisada de la papelera ([TRASH_PURGE.md](TRAS
 Chrome/Edge 19/19 y regresiones correctas; **294 Node / 907 estáticas**.
 Después: ficha imprimible del animal con opción de datos personales
 ([ANIMAL_PRINT.md](ANIMAL_PRINT.md)), 11/11 por motor; **294 Node / 912 estáticas**.
+Después: medición de volumen ([VOLUME.md](VOLUME.md)), auditoría automática de
+accesibilidad ([ACCESSIBILITY.md](ACCESSIBILITY.md)) y ZIP de desarrollo verificado
+([PACKAGE.md](PACKAGE.md)). Licencia y publicación siguen bloqueadas.
 
 ## Checkpoint de cierre — 2026-10-19
 
@@ -167,8 +170,9 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Límites y pendientes
 
-- **No utilizar información real todavía.** Falta aceptación integral,
-  rendimiento, accesibilidad y escenarios adicionales de cada módulo.
+- **No utilizar información real todavía.** Falta aceptación integral, optimizar
+  rendimiento (medido en VOLUME.md), revisión manual de accesibilidad (la automática
+  está en ACCESSIBILITY.md) y escenarios adicionales de cada módulo.
 - Persistencia y validación aún capturan el dataset completo por operación:
   O(N). La prueba Node de volumen no acredita tiempos/memoria en navegador.
   Listas UI paginan en memoria y fotografías se preparan al mostrarlas;
@@ -542,3 +546,11 @@ ANIMAL_PRINT.md: vista previa e impresión con organización/logo/pie, salud, pe
 estancias, acogidas, adopciones y documentos; datos personales y notas internas
 solo por elección expresa. Chrome/Edge 11/11 con PDF paginado de Chromium.
 Corregido desbordamiento de una casilla de filtros a 360 px (workspace 13/13).
+
+## Volumen, accesibilidad y paquete (2026-10-20)
+
+VOLUME.md: medición real hasta 50 080 registros + 32 MiB (escritura 0,22 s a 5k,
+0,9 s a 20k, 2,5 s a 50k; copia 69 MB en 10–13 s), sin optimizar todavía.
+ACCESSIBILITY.md: auditoría automática de 21 rutas, 7 pestañas y 18 diálogos EN/ES,
+0 incidencias tras añadir h2 de pestaña; 11 suites de regresión por motor correctas.
+PACKAGE.md: ZIP reproducible de 138 archivos verificado extraído en Chrome/Edge 8/8.

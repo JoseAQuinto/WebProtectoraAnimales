@@ -31,4 +31,4 @@ está pendiente. La guía interna está en **Ayuda**, disponible sin conexión e
 No borres el almacenamiento para resolver errores. Revisa Ayuda → Solución de
 problemas y conserva el perfil original y las copias verificadas.
 
-Para desarrollo y relevo: [CONTINUE_HERE.md](docs/CONTINUE_HERE.md).
+Para desarrollo y relevo (solo en el repositorio de código, no incluido en el ZIP de distribución): docs/CONTINUE_HERE.md.

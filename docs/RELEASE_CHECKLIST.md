@@ -29,6 +29,10 @@ corresponde a los criterios de la sección 40; no se marca por intención.
 - [ ] 24. Limitaciones conocidas documentadas del producto final.
 - [ ] 25. Paquete sin datos personales ni dependencias remotas.
 
+Evidencia parcial 2026-10-20 (no marca casillas): ZIP de desarrollo reproducible y
+verificado extraído en Chrome/Edge (PACKAGE.md, relacionado con 1–3 y 25), medición
+de volumen (VOLUME.md) y auditoría automática de accesibilidad (ACCESSIBILITY.md).
+
 Las pruebas de fase 0 acreditan solamente el diagnóstico sintético. Aunque
 superen puntos análogos, no cierran criterios del producto final todavía.
 

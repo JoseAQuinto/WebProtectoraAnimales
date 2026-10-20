@@ -31,4 +31,4 @@ pending. The internal **Help** guide works offline in English and Spanish.
 Do not clear storage to resolve an error. See Help → Troubleshooting and preserve
 the original profile and verified backups.
 
-For development and handoff: [CONTINUE_HERE.md](docs/CONTINUE_HERE.md).
+For development and handoff (source repository only, not included in the distribution ZIP): docs/CONTINUE_HERE.md.
