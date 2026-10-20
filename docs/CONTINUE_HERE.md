@@ -20,8 +20,10 @@ eliminación definitiva revisada (TRASH_PURGE.md; 19/19 Chrome/Edge).
 La ficha imprimible del animal con datos personales opcionales también existe
 (ANIMAL_PRINT.md; 11/11 Chrome/Edge). Medición de volumen (VOLUME.md), auditoría automática de accesibilidad
 (ACCESSIBILITY.md) y ZIP de desarrollo verificado (PACKAGE.md) también existen.
-Siguiente acción: optimizar escrituras según la precondición de VOLUME.md (auditar
-mutaciones en `build`, reutilizar captura) y validación/listas acotadas.
+La escritura ya reutiliza su captura congelada (VOLUME.md; 63 rondas de regresión
+sin fallos) y existe una prueba integral con restauración en otro perfil
+(INTEGRAL_ACCEPTANCE.md, 9/9 por motor). Siguiente acción: validación incremental
+por tablas afectadas y listas por índices; después revisión manual de accesibilidad.
 
 ## Inicio
 
@@ -92,6 +94,8 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | Volumen/latencia hasta 50k registros + 32 MiB | VOLUME.md | 17/17 por motor (medición) |
 | Auditoría automática de accesibilidad | ACCESSIBILITY.md | 11/11 por motor, 0 incidencias |
 | ZIP de desarrollo reproducible y extraído | PACKAGE.md | 8/8 por motor |
+| Integral: todos los módulos, restauración en otro perfil | INTEGRAL_ACCEPTANCE.md | 9/9 por motor |
+| Regresión completa tras reutilizar la captura | VOLUME.md | 63 rondas / 889 comprobaciones |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -119,7 +123,7 @@ git diff --check
 
 Ejecutores persistentes en tests/e2e: contact-import-ui, animal-import-ui,
 related-import-ui, finance-import-ui, donation-import-ui, module-import-ui,
-module-import-layout, demo-ui, asset-retention-ui, trash-purge-ui, animal-print-ui, volume-ui, a11y-ui y package-ui, además de los anteriores por módulo.
+module-import-layout, demo-ui, asset-retention-ui, trash-purge-ui, animal-print-ui, volume-ui, a11y-ui, package-ui e integral-ui, además de los anteriores por módulo.
 Consultar ENVIRONMENT_TESTS.md y sus argumentos --browser, --machine, --output
 con nombre nuevo y --executable opcional. No sobrescribir evidencia.
 La guía usó una comprobación puntual descrita en HELP.md, sin suite nueva de negocio.

@@ -7,6 +7,8 @@ const vm = require('node:vm');
 const { webcrypto } = require('node:crypto');
 const base = ['namespace', 'utils/ids', 'utils/dates', 'utils/strings', 'utils/canonical-json', 'domain/enums',
   'domain/schemas', 'domain/validators', 'domain/dataset-validator'];
+// Builders receive the capture read-only, as in production; any in-place mutation throws.
+function deepFreeze(value) { if (value && typeof value === 'object' && !Object.isFrozen(value)) { Object.freeze(value); if (!(value instanceof Blob)) Object.values(value).forEach(deepFreeze); } return value; }
 function harness({ datasetId, today, services, catalogKinds }) {
   const now = today + 'T12:00:00.000Z';
   const sandbox = vm.createContext({ window: { crypto: webcrypto }, Intl, Date, Blob, Uint8Array,
@@ -31,7 +33,7 @@ function harness({ datasetId, today, services, catalogKinds }) {
       return { ...previous.result, duplicate: true };
     }
     if (command.expectedRevision !== undefined && command.expectedRevision !== revision) fail('RevisionConflictError', 'Stale form');
-    const data = structuredClone(tables), sequence = { value: data.animals.length };
+    const data = deepFreeze(structuredClone(tables)), sequence = { value: data.animals.length };
     const h = { now, today, operationId, datasetId, fail,
       find(table, recordId) { const row = data[table].find(value => value.id === recordId); if (!row) fail('RecordNotFoundError', 'Missing'); return row; },
       create, edit(table, previous, patch) { return create(table, { ...previous, ...patch, revision: previous.revision + 1, updatedAt: now }); },

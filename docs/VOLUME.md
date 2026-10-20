@@ -37,12 +37,31 @@ cuesta ≈ 2 × instantánea + validación. Hasta ~10 000 registros la escritura
 por debajo de 0,5 s en este equipo; a 50 000 supera 2,5 s. El límite estructural
 de 200 000 registros del validador no está acreditado en rendimiento.
 
-## Optimización pendiente y precondición
+## Optimización aplicada: una instantánea por escritura
 
-Reutilizar en `commit` la captura de `execute` (la transacción ya revalida la
-revisión global) eliminaría una instantánea (~35 %). **No se aplicó**: algunos
-constructores de importación trabajan sobre arrays en sitio y una mutación
-accidental de la captura haría validar un estado distinto del almacenado.
-Antes: auditar todos los `build` de servicios, congelar la captura (o copiar
-solo tablas tocadas) y repetir las suites de negocio. Después: validación
-incremental por tablas afectadas, listas por índices/cursor y binarios diferidos.
+Precondición cumplida: el arnés Node congela profundamente los datos que recibe
+cada `build` y las **294 pruebas** pasan, sin mutaciones en sitio. En producción
+`context.execute` congela su captura y `repositories.commit` la reutiliza si es del
+mismo conjunto y revisión (copiando solo los arrays de tablas tocadas); en otro caso
+vuelve a leer. Una mutación accidental no cubierta falla la operación en vez de
+validar un estado distinto, y `mutate` sigue comprobando revisión, lease e
+idempotencia dentro de la transacción.
+
+`volume-ui-2026-10-20-chrome-50k-reused-capture.json`, 17/17 (escritura única):
+
+| Registros | Antes | Después |
+|---:|---:|---:|
+| 5 074 | ~220 ms | 218 ms |
+| 10 076 | ~450 ms | 291 ms |
+| 20 078 | ~910 ms | 661 ms |
+| 50 080 | 2,5–2,7 s | 1,98 s |
+
+La validación completa (~0,7 s a 50k) y la instantánea inicial siguen siendo O(N).
+Regresión de todas las suites de módulos con este cambio:
+`*-2026-10-20-{chrome,edge}-reused-capture.json`: **63 rondas (31 Chrome + 32 Edge),
+889 comprobaciones, 0 fallos**.
+
+## Siguiente
+
+Validación incremental por tablas afectadas, listas por índices/cursor y binarios
+diferidos; medir memoria con perfilador y dispositivos de gama baja.

@@ -4,6 +4,7 @@
   const owner = root.utils.ids.uuidV4();
   let active = null, lease = null, blockedUntil = null;
   function fail(name, message) { throw s.error(name, message); }
+  function freeze(value) { if (value && typeof value === 'object' && !Object.isFrozen(value) && !(value instanceof Blob)) { Object.freeze(value); Object.values(value).forEach(freeze); } return value; }
   const ttl = () => root.config.leaseMs;
   async function claim() {
     lease = null; blockedUntil = null;
@@ -51,6 +52,9 @@
   async function execute(type, intent, build, command = {}) {
     const capture = await snapshot();
     if (!capture) fail('DatasetChangedError', 'Create or restore an organization first');
+    // Builders read the capture without modifying it; freezing turns an accidental mutation into a
+    // failed operation, so the repository can safely validate this same capture instead of re-reading it.
+    freeze(capture.tables);
     const config = options(capture), operationId = command.operationId || root.utils.ids.uuidV4();
     const fingerprint = await root.utils.integrity.sha256(root.utils.canonicalJson.stringify({ type, intent }));
     const prepared = { ...config, operationId, fingerprint };
@@ -87,7 +91,7 @@
     };
     const changeSet = await build(capture.tables, helpers);
     if (!changeSet || !Array.isArray(changeSet.changes)) fail('InvalidInputError', 'Service did not prepare a change set');
-    const result = await s.repositories.commit({ ...prepared, animalSequence: sequence }, changeSet.changes, changeSet.result ?? null);
+    const result = await s.repositories.commit({ ...prepared, animalSequence: sequence }, changeSet.changes, changeSet.result ?? null, capture);
     active = { key: 'active', datasetId: capture.datasetId, revision: result.activeRevision };
     return result;
   }

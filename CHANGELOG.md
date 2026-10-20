@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Una instantánea por escritura y prueba integral — 2026-10-20
+
+- El arnés Node congela los datos de cada build (294 pruebas sin mutaciones); el
+  contexto congela su captura y commit la reutiliza. Escritura −35 % a 10k registros.
+- Regresión de todas las suites: 63 rondas Chrome/Edge, 889 comprobaciones, 0 fallos.
+- Prueba integral: todos los módulos, copia por UI y restauración en otro perfil con
+  datos, bytes, informes y panel idénticos (9/9 por motor).
+
 ## Volumen, accesibilidad y paquete — 2026-10-20
 
 - Medición real de latencias hasta 50 080 registros y 32 MiB con copia y reapertura

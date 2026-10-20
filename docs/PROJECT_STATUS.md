@@ -21,6 +21,8 @@ Después: ficha imprimible del animal con opción de datos personales
 Después: medición de volumen ([VOLUME.md](VOLUME.md)), auditoría automática de
 accesibilidad ([ACCESSIBILITY.md](ACCESSIBILITY.md)) y ZIP de desarrollo verificado
 ([PACKAGE.md](PACKAGE.md)). Licencia y publicación siguen bloqueadas.
+Después: una sola instantánea por escritura (VOLUME.md, 63 rondas sin fallos) y
+prueba integral con restauración en otro perfil ([INTEGRAL_ACCEPTANCE.md](INTEGRAL_ACCEPTANCE.md)).
 
 ## Checkpoint de cierre — 2026-10-19
 
@@ -554,3 +556,11 @@ VOLUME.md: medición real hasta 50 080 registros + 32 MiB (escritura 0,22 s a 5k
 ACCESSIBILITY.md: auditoría automática de 21 rutas, 7 pestañas y 18 diálogos EN/ES,
 0 incidencias tras añadir h2 de pestaña; 11 suites de regresión por motor correctas.
 PACKAGE.md: ZIP reproducible de 138 archivos verificado extraído en Chrome/Edge 8/8.
+
+## Una instantánea por escritura y prueba integral (2026-10-20)
+
+VOLUME.md: captura congelada reutilizada en commit tras auditar en Node que ningún
+build muta (294 pruebas con entradas congeladas); escritura 0,29 s a 10k y 1,98 s a
+50k. Regresión completa: 63 rondas / 889 comprobaciones sin fallos.
+INTEGRAL_ACCEPTANCE.md: todos los módulos, copia y restauración por UI en otro
+perfil vacío con datos, bytes, informes y panel idénticos; Chrome/Edge 9/9.

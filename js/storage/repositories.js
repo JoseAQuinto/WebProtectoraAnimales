@@ -60,10 +60,12 @@
       });
     });
   }
-  async function commit(options, changes, result = null) {
+  // capture: optional frozen snapshot read by the caller at options.expectedRevision. Reusing it is safe because
+  // writeCoordinator.mutate re-checks the global revision inside the write transaction.
+  async function commit(options, changes, result = null, reuse = null) {
     if (!options || !Array.isArray(changes) || !changes.length || !uuid(options.datasetId)) fail('InvalidInputError', 'A prepared change set is required');
     changes.forEach(change => table(change.table));
-    const capture = await snapshot(options.datasetId);
+    const capture = reuse && reuse.datasetId === options.datasetId && reuse.globalRevision === options.expectedRevision && Object.isFrozen(reuse.tables) ? reuse : await snapshot(options.datasetId);
     if (!capture || capture.dataset.state !== 'active') fail('DatasetChangedError', 'Dataset is not active');
     const stores = [...new Set(changes.map(change => change.table))];
     const command = { ...options, stores };
@@ -71,7 +73,9 @@
       // The coordinator checks the operation log before revision: committed retries still succeed.
       return storage.writeCoordinator.mutate(command, () => fail('RevisionConflictError', 'Data changed since it was read'));
     }
-    const data = capture.tables;
+    // Copy only the arrays this change set touches; rows are replaced, never edited in place.
+    const data = { ...capture.tables };
+    for (const name of stores) data[name] = capture.tables[name].slice();
     const documentFacts=data.animalEvents.filter(row=>row.type==='document'&&row.source.type==='document'&&!row.supersededByEventId&&!row.voidReason).map(row=>({id:row.id,documentId:row.source.id})),changedDocumentDates=new Set();
     const seen = new Set();
     for (const change of changes) {
