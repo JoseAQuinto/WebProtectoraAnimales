@@ -19,3 +19,4 @@
 
 .asset-preview{display:block;max-width:min(100%,180px);max-height:180px;object-fit:contain;border-radius:8px;border:1px solid var(--line)}.history-correction-form fieldset{min-width:0;margin:0}.history-correction-form fieldset ul{margin:0;padding-left:18px}
 .asset-kept{margin:0;padding-left:20px;display:grid;gap:6px}
+.trash-roots{list-style:none;padding:0;margin:0}.trash-roots>li{border-top:1px solid var(--line);padding-top:14px;gap:8px}

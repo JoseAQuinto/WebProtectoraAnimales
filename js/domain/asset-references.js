@@ -12,6 +12,10 @@
     if (field.type === 'array' && Array.isArray(value)) value.forEach((item, index) => walk(field.items, item, path + '.' + index, visit));
     if (field.type === 'object' && field.fields && typeof value === 'object') Object.entries(field.fields).forEach(([key, child]) => walk(child, value[key], path + '.' + key, visit));
   }
+  // Visits every uuid outside the record's own identity: the shared basis of reference analyses.
+  function visitRecord(table, record, visit) {
+    for (const [key, field] of Object.entries(d.schemas[table].fields)) if (key !== 'id' && key !== 'datasetId') walk(field, record[key], key, (value, path, leaf) => visit(value, path, leaf));
+  }
   function kind(table, record, field) {
     if (historical.has(table) || !field.ref) return 'history';
     return record.archivedAt || record.deletedAt ? 'inactive' : 'current';
@@ -28,10 +32,7 @@
     for (const table of d.tableNames) {
       if (table === 'assets') continue;
       for (const record of tables[table] || []) {
-        for (const [key, field] of Object.entries(d.schemas[table].fields)) {
-          if (key === 'id' || key === 'datasetId') continue;
-          walk(field, record[key], key, (value, path, leaf) => { if (assets.has(value)) add(value, { table, id: record.id, path, kind: kind(table, record, leaf) }); });
-        }
+        visitRecord(table, record, (value, path, leaf) => { if (assets.has(value)) add(value, { table, id: record.id, path, kind: kind(table, record, leaf) }); });
       }
     }
     for (const asset of assets.values()) {
@@ -75,5 +76,5 @@
     return { totalCount: assets.size, totalBytes, unusedCount: unused.size, unusedBytes: groups.reduce((sum, group) => sum + group.bytes, 0), kept, groups,
       references: id => (incoming.get(id) || []).map(entry => ({ ...entry })) };
   }
-  root.domain.assetReferences = Object.freeze({ analyze, signature });
+  root.domain.assetReferences = Object.freeze({ analyze, signature, visitRecord });
 }(window.RescueManager));

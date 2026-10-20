@@ -15,8 +15,9 @@ No repetir como pendientes correcciones fechadas ni limpieza retired/staging.
 
 **Actualización 2026-10-20:** los archivos sin referencias del activo ya tienen
 revisión, UI y evidencia (ASSET_RETENTION.md; 19/19 Chrome/Edge). Cupo al
-documentar: 36 % cinco horas / 30 % semanal. Siguiente acción: borrado definitivo
-de negocio revisado (papelera), empezando por el análisis de relaciones/historia.
+documentar: 36 % cinco horas / 30 % semanal. La papelera también tiene
+eliminación definitiva revisada (TRASH_PURGE.md; 19/19 Chrome/Edge).
+Siguiente acción: ficha imprimible del animal con opción de datos personales.
 
 ## Inicio
 
@@ -82,6 +83,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | Fecha documental con todos sus historiales | DOCUMENT_DATE_CORRECTIONS.md | 17/17 por motor |
 | Limpieza de conjuntos retirados/staging | RETENTION.md | 18/18 por motor |
 | Archivos incorporados sin referencias del activo | ASSET_RETENTION.md | 19/19 por motor |
+| Papelera: eliminación definitiva revisada | TRASH_PURGE.md | 19/19 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -99,7 +101,7 @@ de los módulos. Las rondas funcionales mantienen sus hashes originales.
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **288 pruebas Node / 882 estáticas**, diff sin errores:
+Verificación conjunta: **294 pruebas Node / 907 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -109,7 +111,7 @@ git diff --check
 
 Ejecutores persistentes en tests/e2e: contact-import-ui, animal-import-ui,
 related-import-ui, finance-import-ui, donation-import-ui, module-import-ui,
-module-import-layout, demo-ui y asset-retention-ui, además de los anteriores por módulo.
+module-import-layout, demo-ui, asset-retention-ui y trash-purge-ui, además de los anteriores por módulo.
 Consultar ENVIRONMENT_TESTS.md y sus argumentos --browser, --machine, --output
 con nombre nuevo y --executable opcional. No sobrescribir evidencia.
 La guía usó una comprobación puntual descrita en HELP.md, sin suite nueva de negocio.
@@ -125,9 +127,9 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
    stock o tareas. Los eventos originales son inmutables en el repositorio.
 2. Leer RETENTION.md y ASSET_RETENTION.md: retired/staging y archivos sin
    referencias del activo ya tienen UI, copias, guardias, cancelación, replay y
-   aceptación. No repetirlos como pendientes. Siguiente: borrado definitivo de
-   negocio (vaciar papelera) con diseño de relaciones/historia; los archivos usados
-   solo por registros en archivo/papelera dependen de ese bloque.
+   aceptación. No repetirlos como pendientes. La papelera tiene eliminación
+   definitiva revisada por raíz (TRASH_PURGE.md); no hay vaciado masivo ni borrado
+   de archivados. No repetirlos como pendientes.
 3. Reducir snapshots/validaciones O(N), lecturas por índices y binarios diferidos.
    Importación JSON también tiene búsquedas de candidatos O(N*M). Los límites de
    seguridad del parser no acreditan rendimiento a esos máximos. Probar memoria,

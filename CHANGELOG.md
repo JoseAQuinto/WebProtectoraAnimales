@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Papelera: eliminación definitiva revisada — 2026-10-20
+
+- Almacenamiento lista la papelera y revisa una raíz: hechos propios, archivos sin
+  otro uso, relaciones conservadas, bloqueos (finanzas, donaciones, inventario...).
+- Copia actual verificada, confirmación y transacción revalidada con cancelación,
+  replay y actividad única; restaurar exige la copia externa.
+- Chrome/Edge 19/19; regresiones 19/19, 18/18 y guía 4/4. 294 Node / 907 estáticas.
+
 ## Archivos incorporados sin referencias — 2026-10-20
 
 - Almacenamiento revisa archivos del activo sin referencias (fotos/logos sustituidos)

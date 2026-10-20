@@ -30,16 +30,14 @@
     });
     const all=ui.button(t('ra.selectAll'),()=>{boxes.forEach(box=>{box.checked=true;});update();},true),none=ui.button(t('ra.selectNone'),()=>{boxes.forEach(box=>{box.checked=false;});update();},true);controls.push(all,none);
     const kept=['current','inactive','history','dependent'].map(reason=>el('li',{},t('ra.keptRow',{reason:t('ra.kept.'+reason),count:report.kept[reason].count,size:size(report.kept[reason].bytes)})));
-    const copyStatus=el('p',{role:'status'}),copyFile=el('input',{type:'file',accept:'.json,application/json'}),copyButton=ui.button(t('rt.downloadCurrent'),()=>job(copyStatus,async()=>{const copy=await root.services.backup.create();ui.download(copy.blob,'rescue-manager-current-backup-'+copy.container.content.createdAt.slice(0,10)+'.json');await root.services.backup.requested(copy.container.content.backupId);copyStatus.textContent=t('rt.downloaded');}),true);controls.push(copyButton,copyFile);
-    copyFile.setAttribute('aria-label',t('rt.verifyCurrent'));copyFile.addEventListener('change',()=>{const chosen=copyFile.files[0];if(chosen)job(copyStatus,async()=>{const value=await root.services.backup.verify(chosen);if(value.datasetId!==report.datasetId||value.dataRevision!==report.dataRevision)throw new root.core.errors.AppError('rt.wrongBackup');const receipts=await root.services.backup.listForDataset(report.datasetId);if(!receipts.some(row=>row.backupId===value.backup.backupId&&row.state==='verified'&&row.dataRevision===report.dataRevision))throw new root.core.errors.AppError('rt.copyRequired');copyStatus.textContent=t('ui.backupVerified');});});
-    root.services.backup.listForDataset(report.datasetId).then(rows=>{if(!working&&!controller&&!copyStatus.textContent)copyStatus.textContent=t(rows.some(row=>row.state==='verified'&&row.dataRevision===report.dataRevision)?'rt.copyVerified':'rt.copyRequired');}).catch(error=>{copyStatus.textContent=ui.message(error);});
+    const copy=root.components.backupProof.current(report,job,controls,'ra.copyHelp');
     const summary=el('section',{class:'stack'},
       el('p',{},t('ra.summary',{count:report.totalCount,size:size(report.totalBytes),limit:size(report.limitBytes),unused:report.unusedCount,unusedSize:size(report.unusedBytes)})),
       el('p',{class:'notice warning'},t('ra.warning')),
       el('section',{class:'stack'},el('h3',{},t('ra.keptCaption')),el('ul',{class:'asset-kept'},kept)),
       el('p',{class:'muted'},t('ra.keptHelp')),
       report.groups.length?el('section',{class:'stack'},el('h3',{},t('ra.candidates')),el('div',{class:'actions'},all,none),selected,...groups):el('p',{},t('ra.empty')),
-      el('section',{class:'stack'},el('h3',{},t('rt.currentBackup')),el('p',{},t('ra.copyHelp')),copyButton,el('label',{},t('rt.verifyCurrent'),copyFile),copyStatus),progress);
+      copy,progress);
     dialog.querySelector('h2').after(summary);update();save.disabled=!ctx.canWrite()||!report.groups.length;return dialog;
   }
   function render(ctx){

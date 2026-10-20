@@ -26,8 +26,8 @@ otro derivado sigue en uso. Los candidatos se agrupan por componentes conectados
 un derivado apuntando a un padre borrado. Las referencias externas de documentos
 no tienen bytes en la aplicación y no aparecen.
 
-Los archivos usados por registros archivados o en papelera **no** se ofrecen: su
-liberación depende del borrado definitivo de negocio, que sigue pendiente.
+Los archivos usados por registros archivados o en papelera **no** se ofrecen; los
+de un registro en papelera se liberan con su eliminación definitiva (TRASH_PURGE.md).
 
 ## Revisión, copia y eliminación
 
@@ -89,6 +89,9 @@ grupo mal anclado en el ejecutor), `chrome-fourth` 19/19 y `chrome-final`/
 `edge-final` 19/19 con la presentación anterior (tabla de motivos con
 desplazamiento y tamaños «0.00 MiB»). Se corrigió la presentación y las rondas
 `final-2` acreditan las fuentes actuales; no se reasignan hashes.
+
+Tras extraer la copia actual a `components/backup-proof.js`:
+`asset-retention-ui-2026-10-20-{chrome,edge}-shared-proof-regression.json`, 19/19.
 
 Regresión de conjuntos inactivos tras añadir la tarjeta:
 `retention-ui-2026-10-20-{chrome,edge}-asset-section-regression.json`, 18/18.

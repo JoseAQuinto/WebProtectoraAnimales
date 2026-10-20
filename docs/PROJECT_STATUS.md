@@ -14,6 +14,8 @@ foto/miniatura, inspección, copia actual verificada, confirmación y borrado
 transaccional revalidado. Chrome/Edge 19/19, regresión de conjuntos inactivos
 18/18 y guía 4/4 por motor (124 fuentes). **288 Node / 882 estáticas**.
 Ver [ASSET_RETENTION.md](ASSET_RETENTION.md). Versiones/formatos sin cambios.
+Después: eliminación definitiva revisada de la papelera ([TRASH_PURGE.md](TRASH_PURGE.md)),
+Chrome/Edge 19/19 y regresiones correctas; **294 Node / 907 estáticas**.
 
 ## Checkpoint de cierre — 2026-10-19
 
@@ -49,8 +51,9 @@ Solicitudes/reservas independientes: HISTORY_WORKFLOW.md.
 Formalización de adopción con revisión individual: HISTORY_ADOPTION.md.
 Acogidas/actos sanitarios también tienen corrección coordinada (HISTORY_LINKED_FACTS.md).
 Archivos sin uso del activo: ASSET_RETENTION.md (2026-10-20), 19/19 Chrome/Edge.
+Papelera definitiva: TRASH_PURGE.md (2026-10-20), 19/19 Chrome/Edge.
 Siguen pendientes reversiones/corrección de contenido y casos ambiguos de historia,
-borrado definitivo de negocio, rendimiento y aceptación.
+rendimiento, impresión final y aceptación.
 
 ## Fase actual
 
@@ -174,9 +177,9 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 - Un error QuotaExceededError inyectado no demuestra cuota real agotada.
   Documentar por separado ambas pruebas. La limpieza explícita de
   conjuntos retirados/staging ya existe (RETENTION.md) y la de archivos sin
-  referencias del activo también (ASSET_RETENTION.md). Archivos usados solo por
-  archivo/papelera y borrado permanente de negocio siguen pendientes. No borrar
-  automáticamente.
+  referencias del activo también (ASSET_RETENTION.md). La eliminación definitiva
+  revisada de la papelera existe (TRASH_PURGE.md); archivados no se eliminan.
+  No borrar automáticamente.
 - Las correcciones fechadas de las familias documentadas ya están disponibles;
   faltan reversiones de estado, contenido/casos ambiguos y aceptación integral.
   CSV/JSON y demo/retirada ya tienen UI y evidencias en su alcance
@@ -211,8 +214,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 3. Leer REVIEW_RESOURCES_REPORTS.md: Donaciones/Inventario e Informes ya tienen
    aceptación real. Leer SEARCH_HISTORY.md y ADOPTION_REGISTER.md para lo ya probado.
 4. Leer RETENTION.md y ASSET_RETENTION.md: retired/staging y archivos sin
-   referencias del activo ya tienen limpieza revisada con copias. Siguiente:
-   borrado definitivo de negocio (papelera) con análisis de relaciones/historia.
+   referencias del activo ya tienen limpieza revisada con copias. La papelera tiene
+   eliminación definitiva revisada (TRASH_PURGE.md). No repetirlos como pendientes.
    Para historia, leer los cinco HISTORY_*.md y DOCUMENT_DATE_CORRECTIONS.md;
    no repetir como inexistentes las correcciones fechadas ya acreditadas.
 5. Abordar O(N), cuota física, accesibilidad, impresión final y aceptación de
@@ -521,3 +524,12 @@ derivados, grupos completos, motivos actual/archivo-papelera/historia/dependenci
 descarga/vista previa, copia actual verificada y transacción con revalidación,
 validación del dataset, cancelación y replay. 19/19 Chrome/Edge; regresión 18/18;
 guía 4/4. 288 Node / 882 estáticas. Pendiente borrado definitivo de negocio.
+
+## Papelera: eliminación definitiva (2026-10-20)
+
+TRASH_PURGE.md: una raíz en papelera por operación, cierre por política (animal:
+historia propia; documento: vínculos/eventos; base: actividad/importación/vínculos),
+bloqueo por finanzas/donaciones/inventario/otros registros, archivos sin uso
+incluidos, relaciones conservadas informadas, copia verificada, confirmación y
+transacción revalidada con cancelación/replay. Chrome/Edge 19/19; regresiones
+archivos 19/19, conjuntos 18/18 y guía 4/4. 294 Node / 907 estáticas.

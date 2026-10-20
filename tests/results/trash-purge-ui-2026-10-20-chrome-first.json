@@ -1,0 +1,666 @@
+{
+  "format": "rescue-manager-trash-purge-ui-test",
+  "version": 1,
+  "browser": "chrome",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-20T17:06:47.199Z",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26300",
+    "version": "Windows 11 Home"
+  },
+  "checks": [
+    {
+      "id": "explicit-fixture-with-deletable-and-blocked-trashed-records-of-five-families",
+      "passed": false,
+      "error": {
+        "name": "Error",
+        "message": "page.evaluate: ReferenceError: Cannot access 'document' before initialization\n    at png (eval at evaluate (:311:30), <anonymous>:2:52)\n    at eval (eval at evaluate (:311:30), <anonymous>:4:110)\n    at async <anonymous>:337:30",
+        "stack": "page.evaluate: ReferenceError: Cannot access 'document' before initialization\n    at png (eval at evaluate (:311:30), <anonymous>:2:52)\n    at eval (eval at evaluate (:311:30), <anonymous>:4:110)\n    at async <anonymous>:337:30\n    at C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\trash-purge-ui.cjs:47:26\n    at check (C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\trash-purge-ui.cjs:21:100)\n    at C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\trash-purge-ui.cjs:46:11"
+      }
+    }
+  ],
+  "launches": [
+    {
+      "startedAt": "2026-10-20T17:06:47.234Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\trash-purge-chrome-1792516007201\\profile",
+      "pid": 3092,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.85",
+        "revision": "@0e66b94549a8bd85f03fbdf189b752d6e7b63c32",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.25"
+      },
+      "storageDeniedPreference": false
+    }
+  ],
+  "closures": [
+    {
+      "rootPid": 3092,
+      "exitCode": 0,
+      "signalCode": null,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 3092,
+          "ParentProcessId": 7012,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-20T17:06:47.2304260Z"
+        },
+        {
+          "ProcessId": 11840,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.85 --initial-client-data=0x128,0x12c,0x130,0x100,0x134,0x7ffc29d52ed0,0x7ffc29d52ee0,0x7ffc29d52ef0",
+          "CreatedAt": "2026-10-20T17:06:47.2553810Z"
+        },
+        {
+          "ProcessId": 16844,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1764 /prefetch:2",
+          "CreatedAt": "2026-10-20T17:06:47.4405940Z"
+        },
+        {
+          "ProcessId": 8988,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --no-pre-read-main-dll --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2036 /prefetch:11",
+          "CreatedAt": "2026-10-20T17:06:47.4466380Z"
+        },
+        {
+          "ProcessId": 13284,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --no-pre-read-main-dll --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2532 /prefetch:13",
+          "CreatedAt": "2026-10-20T17:06:47.4810560Z"
+        },
+        {
+          "ProcessId": 8164,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=2608744945 --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3564 /prefetch:1",
+          "CreatedAt": "2026-10-20T17:06:47.5618000Z"
+        },
+        {
+          "ProcessId": 1768,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=2608790691 --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3848 /prefetch:1",
+          "CreatedAt": "2026-10-20T17:06:47.5972120Z"
+        },
+        {
+          "ProcessId": 5280,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=2608820768 --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4184 /prefetch:1",
+          "CreatedAt": "2026-10-20T17:06:47.6214420Z"
+        },
+        {
+          "ProcessId": 12056,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=2608823023 --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=4212 /prefetch:9",
+          "CreatedAt": "2026-10-20T17:06:47.6233470Z"
+        },
+        {
+          "ProcessId": 2356,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=2608999381 --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5168 /prefetch:9",
+          "CreatedAt": "2026-10-20T17:06:47.7987730Z"
+        },
+        {
+          "ProcessId": 4816,
+          "ParentProcessId": 3092,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\trash-purge-chrome-1792516007201\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --launch-time-ticks=2610099079 --field-trial-handle=1776,i,5685931277814475440,12717880770736535750,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1856,i,10855173225671446412,16586331756347762676,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5700 /prefetch:1",
+          "CreatedAt": "2026-10-20T17:06:48.8982240Z"
+        }
+      ],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-20T17:06:51.657Z"
+    }
+  ],
+  "screenshots": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Organization, animals, photograph, weights, finance, contact and document are prepared through real production services, explicitly identified as test fixture preparation; the canvas PNG is synthetic.",
+    "Review, backup download/verification, confirmation, cancellation, deletion and restoration use the visible UI; storage-level guard probes call the real IndexedDB primitive directly and are identified as such.",
+    "Cancellation aborts a real IndexedDB transaction after a real delete request; this does not simulate physical disk failure or real quota exhaustion.",
+    "Viewport emulation is not a physical mobile/tablet test.",
+    "No business service is mocked.",
+    "Page request trace excludes browser-internal traffic."
+  ],
+  "sourceFiles": [
+    {
+      "file": "index.html",
+      "sha256": "73bd507e4758b8a3389f20c4fb23163970386b63cda7f1c667fcd82b35794f51"
+    },
+    {
+      "file": "css/app.css",
+      "sha256": "c44416fedaa254fb23e4ad506695af2da2d1478421638d1b1807c1cd6381887a"
+    },
+    {
+      "file": "css/people.css",
+      "sha256": "afa9ba59e8d27361c4512ba2c3e60bd22fa71afbefdd793cf75185709f19113c"
+    },
+    {
+      "file": "css/calendar.css",
+      "sha256": "459a1f6c1493cf7c33724515d7d677daff6a6a327d7a84bd10e7e233b08dc461"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "113da40932bee80fea4ac4e7d492a8154a6c1875b8e335fef5cff2d3cb643a6b"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "vendor/papaparse/papaparse.min.js",
+      "sha256": "3a509437d423ed29d9175fdd01de8bcdcd50e8ffb883ae7daa91c0acd151d1a7"
+    },
+    {
+      "file": "locales/en.js",
+      "sha256": "07b99f1073300a9c6ab053aa6f458f5436b856bb0617db047397e222f74effbe"
+    },
+    {
+      "file": "locales/es.js",
+      "sha256": "d5696a9ce5e589bd304e9df75ccca589c47528b55ec289100530ec33c052f305"
+    },
+    {
+      "file": "data/demo.en.js",
+      "sha256": "4fd326253f749ae276ff68e7bff4c5185948c6d742c94a81475f925b1550091b"
+    },
+    {
+      "file": "data/demo.es.js",
+      "sha256": "7ecddaa232c9a3e84cfa9440788153367639b82d523fbd249f639f3f7ae1e2fc"
+    },
+    {
+      "file": "js/core/i18n.js",
+      "sha256": "476cfe00ee29f80823f61257154fc55100f0676edd9906021f8cf3b23920b71a"
+    },
+    {
+      "file": "js/core/errors.js",
+      "sha256": "b367adf36f6e02dcc85f691244b2539626a9f797f9c709a91ed9f1ea53cdb309"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "4b67ab901efc4d8f18dd929319ac7a46ac7c296c4c2e9df4605f0eecd46d5fc0"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/utils/images.js",
+      "sha256": "8da4cc7e29e82e00e2249ff0e98b18a4dfd9c980d461473e4a51729fb525c7b4"
+    },
+    {
+      "file": "js/utils/calendar.js",
+      "sha256": "cb5f5048dc4f6cfca7735e0ac7f493afac218a6985e7161536343f4726abf86f"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "1e863f91fb969b2025d10577950485023ae5eb38d6f0ae2f8ac9a82d990831de"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "b89a54c86755089219b79bc56829a71182175f0bf7efb4fde9d82fccc9f3c23b"
+    },
+    {
+      "file": "js/domain/asset-references.js",
+      "sha256": "72f58dd6f23c02d1abbeb8e4cdde119e995f9adbbdf7e4c2a4eef4f2d6e6df11"
+    },
+    {
+      "file": "js/domain/trash-closure.js",
+      "sha256": "cfffa83f8f6088b9e11d3f274ac60267743882b6febe632d82b9df35661b90e2"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "38323c835a41537c62f421d1581ae200e65841eeb3c88ff17ac6af8b9fc91dbb"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "32768f6b67321caba25432cf49cc735d7da49256c816be2bf71804f91d8dbf8c"
+    },
+    {
+      "file": "js/storage/retention.js",
+      "sha256": "35284f2196490bba984e2280757967bb353d0f798a3327834e8ca8b3ea678ca6"
+    },
+    {
+      "file": "js/storage/asset-retention.js",
+      "sha256": "fc4906b8899c757c9ef9661dccb9e24d7bbe20fcb6f9b4f8a8338e0270508c85"
+    },
+    {
+      "file": "js/storage/trash-purge.js",
+      "sha256": "64e45b9cd9474bb0b97132c385c5f3477da78338aee65d10656a031f3eba386e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "f8475d5327f6093dc2f51bcfba6d4456c6e542c664f0438f2d8a81f36c039509"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "f2f283095f8bcea6313cc5f5333ffcd9e512b4382b44e7f2f60a31be9457e8fd"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "454e5f27b00e73f7c0060b8b16ac0dd1cd0616da611209b70d8237e527c2afba"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "3f46a69779bfa4c48c5b61cb9b97d7292ebbac0e8c879ab9f85f3e4487fd139e"
+    },
+    {
+      "file": "js/services/contacts.js",
+      "sha256": "40bdc267f05d5909ad18381503a0ba02bd4348e89c568c2324b961af89b30f04"
+    },
+    {
+      "file": "js/services/animals.js",
+      "sha256": "5f5e94bd9626ebcb18cc8c2cf5eda0939e7173e125e9525f97f961eb3f800eca"
+    },
+    {
+      "file": "js/services/fosters.js",
+      "sha256": "06640fe7babf0ed2d347a7c6e4f737e4b3fbcb48ec0a74de941f00cc1d006bdd"
+    },
+    {
+      "file": "js/services/volunteers.js",
+      "sha256": "383500b0045ebe4f25f3cf232e2211fb7f57bf103a2e310f86a7d50357dcf6b8"
+    },
+    {
+      "file": "js/services/finance.js",
+      "sha256": "71ac389c8637d35903b9b04c5de0221cc19e5e5e5cc8936435cdedfeab1708bf"
+    },
+    {
+      "file": "js/services/inventory.js",
+      "sha256": "0d8d9f2ac1d22192bec5f59ed94a67ef1926c10cc8cea1b0d169d1b1aab0525f"
+    },
+    {
+      "file": "js/services/donations.js",
+      "sha256": "6d34e2cd595d5a6e74a296135d6264dc8c4e71893952dffc1259374ad3d8c115"
+    },
+    {
+      "file": "js/services/adoptions.js",
+      "sha256": "8b84ed2cf53ca31a3f2dfb60ad3394c43b5611a68e7a574eb33d30f30329182e"
+    },
+    {
+      "file": "js/services/tasks.js",
+      "sha256": "1af038dd67918c70d8bfa0554f75ddfe772b05387fdf5ea34c401667c8c81e1b"
+    },
+    {
+      "file": "js/services/health.js",
+      "sha256": "ca73cf5910cf1eb0c42a02e12762db7b233d714870949671fb70da9100d8bfe9"
+    },
+    {
+      "file": "js/services/documents.js",
+      "sha256": "79260c6d441c093945149ac29571c3997d54a4f0991acb44c56394d4a8d45320"
+    },
+    {
+      "file": "js/services/photos.js",
+      "sha256": "789feb2df4d8ad3029bf6990062b1af04dfec8ce8e3910a97e1b7822ec491ce4"
+    },
+    {
+      "file": "js/services/weights.js",
+      "sha256": "d234ca3e511f6e6ac1a8ca9e7b0ddd65ea108f92ddfb8bc53ff07991665f2266"
+    },
+    {
+      "file": "js/services/history-events.js",
+      "sha256": "ad867d2d49fe89ee91c784f6532bb263d74a5e6458476c18f9eeda9aa233ee92"
+    },
+    {
+      "file": "js/services/history-workflow.js",
+      "sha256": "2f93dc3ab2f314aec319be170dde29e8521b356aa7ac35b375f69b016fcb13c7"
+    },
+    {
+      "file": "js/services/history-departure.js",
+      "sha256": "819ce0401f45aaaf9474243712ef56ae2708a94fa1303b2c9b4b1e1b7a692876"
+    },
+    {
+      "file": "js/services/history-adoption.js",
+      "sha256": "7595ea725ca090f398d218d232cfe6c2c0444b66623068aefcea861de694fc07"
+    },
+    {
+      "file": "js/services/history-linked-facts.js",
+      "sha256": "ae850b5f83a84259c9284d196175a5e448c6196d02324fc9a25b54c29c156451"
+    },
+    {
+      "file": "js/services/document-dates.js",
+      "sha256": "be28ae561e55f9018091cefbedc05d3f8667e83551e40dd2c0df5a3cb0812507"
+    },
+    {
+      "file": "js/services/history-corrections.js",
+      "sha256": "7f5a3fd2e83cf6866e2bc46b9adbf19b78149c67acb4431bf7b05aad250d6d92"
+    },
+    {
+      "file": "js/services/retention.js",
+      "sha256": "e90af53aa781d282df46f40372ebc13dad6723ad3174d6b510abcf7baee1db85"
+    },
+    {
+      "file": "js/services/asset-retention.js",
+      "sha256": "5449a61893ed0e0372a766669556d14e689a1d3c47aa90454cbf998db35e2612"
+    },
+    {
+      "file": "js/services/trash-purge.js",
+      "sha256": "c16068cac1347ccba62a4f618ff6c1ffaeebafa6886b8d0914896b8cecfeca05"
+    },
+    {
+      "file": "js/services/recovery.js",
+      "sha256": "25758cb6604e5553da9c4c94ca859c323324c7a3e6eba3f8d4c1b2af9ad35286"
+    },
+    {
+      "file": "js/services/reports.js",
+      "sha256": "1d47f8787a137102995e7a045a4ae0b32d5e853eee9df462750f550a97dd3ed0"
+    },
+    {
+      "file": "js/services/dashboard.js",
+      "sha256": "d7db6a4af66474b05dd4b2dfbdfa2e71923a1696e69fdcc7bee635e1239d2495"
+    },
+    {
+      "file": "js/services/search.js",
+      "sha256": "e3e41c0a7f10220d3257e75adfd07324b41645959cec43797f10252b9be2e97e"
+    },
+    {
+      "file": "js/services/animal-queries.js",
+      "sha256": "1b2e532e3ae1535eab236181198d87e89a0efc88c2be8202475835d7193eef2c"
+    },
+    {
+      "file": "js/services/adoption-queries.js",
+      "sha256": "08974a99669d21878d15bfa95f8fc099218a85a8ea33d4478648f17d6b841e01"
+    },
+    {
+      "file": "js/services/configuration.js",
+      "sha256": "4cbaf47d95555c2559c44505ed75989d7edae6cda6250c294cb8b3906fda5aea"
+    },
+    {
+      "file": "js/services/backup-reminders.js",
+      "sha256": "a9c929a88e95350ad87b007f080d6acd532de85571455a21669e6b27fea5b7a2"
+    },
+    {
+      "file": "js/utils/tabular.js",
+      "sha256": "192e9b76b6c012ad58c9688e1818ddcbcb1a9b8f92676cb378b8a8d25ddaad50"
+    },
+    {
+      "file": "js/services/export-definitions.js",
+      "sha256": "0fe25f6ae08fc9f456a3eec6af84ba3d6fd06c7e08b45b7e4067677785996f18"
+    },
+    {
+      "file": "js/services/exports.js",
+      "sha256": "54ed530df4b7fd6c2282f36ce044c55d5ed74fd0658aaa6b3319c0f170c0afc0"
+    },
+    {
+      "file": "js/services/import-parser.js",
+      "sha256": "4e04d3e6136b93c921a536cef1acccc65e1c8de2f0afe65700137262a5c649e3"
+    },
+    {
+      "file": "js/services/import-contacts.js",
+      "sha256": "47ed6773dd221b6718997437377f48c465d31c53370813c8ce7c9bb757d854d3"
+    },
+    {
+      "file": "js/services/import-batches.js",
+      "sha256": "e27ed6fc550769ff3695d654264cdc41deba0d4e42d9e6509edc213af4afd35e"
+    },
+    {
+      "file": "js/services/contact-import.js",
+      "sha256": "9abc7e24ee894f03d948ada668948ae53736057bb1e739b3bb975d2aa9e1dd39"
+    },
+    {
+      "file": "js/services/import-animals.js",
+      "sha256": "b8f700d0f7cfc6c1433b1d8ea5d7b2acb7b642cb72f7b37a40289254d756522f"
+    },
+    {
+      "file": "js/services/animal-import.js",
+      "sha256": "2f2181c144ae3d4133244e8a85aa9e23ccdb8f9dd6a9b90c230c642a292f028f"
+    },
+    {
+      "file": "js/services/import-workspace.js",
+      "sha256": "2c645e8feff3a8556f2066091249f5639f357656f609d3bb9931193524977d21"
+    },
+    {
+      "file": "js/services/import-finance.js",
+      "sha256": "2a81632048a6051a47bafed3d13a52506b4870dfc095826f009675e0925428b7"
+    },
+    {
+      "file": "js/services/import-donations.js",
+      "sha256": "bd0329f65c448829c8ae0c4a8688951658778609582019d7af3e133ba14627ad"
+    },
+    {
+      "file": "js/services/import-related.js",
+      "sha256": "b4996620c8193d529a6ea41f6deaf185a1ef93068d5b8ce9f34f587395f71e48"
+    },
+    {
+      "file": "js/services/related-import.js",
+      "sha256": "677277c1889de304a95a592cff3a6fddcd8cda77ba319f035dfd46af6e9b0235"
+    },
+    {
+      "file": "js/services/module-import-codec.js",
+      "sha256": "714903389ba438d5528edcb3af842322d9f42d57c571c138b9e5be42990895b2"
+    },
+    {
+      "file": "js/services/module-import-assets.js",
+      "sha256": "15cabd3be025efc27af53198192f091d88af9a46b1a972f5a38e058d881a26e0"
+    },
+    {
+      "file": "js/services/module-import.js",
+      "sha256": "9fe383d9171005a60ae551af7aaf535bba23df8695ccc3dfd00388207d8c24f3"
+    },
+    {
+      "file": "js/services/record-graph.js",
+      "sha256": "4b483cf8fd322f5df4beea61bd9f04d1b48a0f67485d6d0a3b60edcf7c677fdc"
+    },
+    {
+      "file": "js/services/demo-builder.js",
+      "sha256": "3fe4b62fdfeab7ccbd6644b4faeaf41b7bb07c6ae6c0172ee5af5d5d746ea406"
+    },
+    {
+      "file": "js/services/demo.js",
+      "sha256": "b9ed97590057ab4af6f74e55ce96f31bf3c69f2bfb92b525fc3bc4d35b8107c3"
+    },
+    {
+      "file": "js/components/ui.js",
+      "sha256": "7c55563a669f4344f0320f61d9d8e46e49f3d08e8fb0de0200208ee693fb0eac"
+    },
+    {
+      "file": "js/components/backup-proof.js",
+      "sha256": "dfeef7542fdf5e1d9d9cfe8fc69c83cde918350e4ab372e31bc55b08564bd278"
+    },
+    {
+      "file": "js/modules/document-dates.js",
+      "sha256": "d9bfdeeb62692fd62a897a7d7028c9fc812c6edaf45e17454b7e16f61c297de1"
+    },
+    {
+      "file": "js/modules/documents.js",
+      "sha256": "44871dd9c82a08be4cfd79f138e584d717834510f1ed33f9a9b73cf30ac8a6de"
+    },
+    {
+      "file": "js/modules/people.js",
+      "sha256": "e7b19c9e0ed43c6182d4276e866e8b61175c4d95d66f7eedcc8104f6db20c34d"
+    },
+    {
+      "file": "js/modules/animal-forms.js",
+      "sha256": "8b768ec9653ade40f7fe1171d311bef3a061746ce45de9fe5203c6feae16a26a"
+    },
+    {
+      "file": "js/modules/foster-workflow.js",
+      "sha256": "d0103eeb5d1d11185b8f4ded3d3242253fb10fa03d48c78b67ef08ea58a90cea"
+    },
+    {
+      "file": "js/modules/adoption-forms.js",
+      "sha256": "dddc88e5150698a3e7dd58a9e37dc4a110fed2b58ebd260aed947e7e18dc92b2"
+    },
+    {
+      "file": "js/modules/adoption-workflow.js",
+      "sha256": "8f88d0aa9afb99cb307fc7d9a901a35de923636767bf64631b8bd400cb7aaf93"
+    },
+    {
+      "file": "js/modules/tasks.js",
+      "sha256": "ae3234749368dd8547b8bafd2f6d6770d4319b4256274617b3a985a405d10284"
+    },
+    {
+      "file": "js/modules/health-forms.js",
+      "sha256": "bf4170679a7f26cebe7fd0e6683666f8465c032676ab23a34d9fa10a686c81be"
+    },
+    {
+      "file": "js/modules/health-workflow.js",
+      "sha256": "d30799729ee4889d90522949dd667a22ecb64714d70536bfe880700e0fef7ea1"
+    },
+    {
+      "file": "js/modules/finance.js",
+      "sha256": "e451bde21bafe0746ec7451bf3637f8282ff490e8cfec1abc80898ac9061412e"
+    },
+    {
+      "file": "js/modules/donations.js",
+      "sha256": "1240df97eec21f721ff29ba35ec7e735f36ba4004580367677ca0929ff7aa13b"
+    },
+    {
+      "file": "js/modules/inventory.js",
+      "sha256": "f9cf9f9f64a1dd868bfe46f9a0ab8942044a8be83082da7a24917c981e5fa1be"
+    },
+    {
+      "file": "js/modules/reports.js",
+      "sha256": "8bd06d56e71f382080437ffa0d1598eaea5f93365e17f32e24022492bcbcef2b"
+    },
+    {
+      "file": "js/modules/dashboard.js",
+      "sha256": "c14bcdf50b6b4ba5fb07c0e3e452a9638a63a63713fe74d9989431741f60f1a9"
+    },
+    {
+      "file": "js/modules/adoption-register.js",
+      "sha256": "6317f35927ab22b045defa1bd3694fdbb9e7b45636f8112aacf6ded2c1dc88e8"
+    },
+    {
+      "file": "js/modules/search.js",
+      "sha256": "bc58a416092d5d40d3c338fd3226600fe64763f17e14dddc40b6c73864fe0bc2"
+    },
+    {
+      "file": "js/modules/animal-history.js",
+      "sha256": "c88384021caad7af555b7bfaa2785fa359197842fe3be32cb22926753db8d307"
+    },
+    {
+      "file": "js/modules/exports.js",
+      "sha256": "1c1c1c2f6933fff808ee9623631e5f6902a09fa572a1b20a8e59aae66b9dbd96"
+    },
+    {
+      "file": "js/modules/imports.js",
+      "sha256": "e4f0cdf3ccf24fe4e5421f2c8c03d252f272916d884ea0f39bc10e24a882db9f"
+    },
+    {
+      "file": "js/modules/module-import.js",
+      "sha256": "cdf883389eab6e660905878c027c48367b547250debde1c9e6384a780616ee10"
+    },
+    {
+      "file": "js/modules/demo.js",
+      "sha256": "d2e8b1ff003ee2df6fefc17c292c497eb387d0e780bb71531073b0f953fcee88"
+    },
+    {
+      "file": "js/modules/configuration.js",
+      "sha256": "d6e27fe1587b8135334e10f7b3e781dc8d87af102751e34da550b90990d68dc7"
+    },
+    {
+      "file": "js/modules/asset-retention.js",
+      "sha256": "630fb7043473a0df256e2ee77d724fb17a7f4774af4cf5e4e173f7eddd495118"
+    },
+    {
+      "file": "js/modules/trash-purge.js",
+      "sha256": "af202b278ef2145aef2d9054b1ce417a827f209df2eb2d632900cddd83c43cad"
+    },
+    {
+      "file": "js/modules/retention.js",
+      "sha256": "8b47c02eb166becf420da139cb6537f9d5c279bd72fba529fd1309272ad0dcba"
+    },
+    {
+      "file": "js/modules/settings.js",
+      "sha256": "8414276c8741aed07bec58a8f58147b828ec9148e17889d4fc849025c9a074d9"
+    },
+    {
+      "file": "js/modules/weights.js",
+      "sha256": "c95b388ba7765efe3d709a9b76a1e89246d0c0844c093ae15eec927f01f35249"
+    },
+    {
+      "file": "js/modules/animal-list.js",
+      "sha256": "a8357997154666f1e6137d81e36c421a41c3f369a48155f04f46ae9ea70acdfd"
+    },
+    {
+      "file": "js/modules/animals.js",
+      "sha256": "b2bcb2abf99e0ed8611541b3fc412a2144a20b199398d201d45938a38a2c8845"
+    },
+    {
+      "file": "js/modules/help.js",
+      "sha256": "c34253ec8baf53ae29ddbe8fbe84119985eabedd2f4bc56f9e73c32bbc9e19c0"
+    },
+    {
+      "file": "js/bootstrap.js",
+      "sha256": "0e93b623c83d6561d2378b14633ab251237eaab33743b3056e84c9860d49244f"
+    }
+  ],
+  "fatalError": {
+    "name": "Error",
+    "message": "page.evaluate: ReferenceError: Cannot access 'document' before initialization\n    at png (eval at evaluate (:311:30), <anonymous>:2:52)\n    at eval (eval at evaluate (:311:30), <anonymous>:4:110)\n    at async <anonymous>:337:30",
+    "stack": "page.evaluate: ReferenceError: Cannot access 'document' before initialization\n    at png (eval at evaluate (:311:30), <anonymous>:2:52)\n    at eval (eval at evaluate (:311:30), <anonymous>:4:110)\n    at async <anonymous>:337:30\n    at C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\trash-purge-ui.cjs:47:26\n    at check (C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\trash-purge-ui.cjs:21:100)\n    at C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\tests\\e2e\\trash-purge-ui.cjs:46:11"
+  },
+  "completedAt": "2026-10-20T17:06:51.657Z",
+  "status": "failed"
+}

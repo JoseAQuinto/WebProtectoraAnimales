@@ -62,3 +62,7 @@ Revisión dirigida en perfiles vacíos propios, file:// offline, Chrome y Edge:
 fuentes. Mismo verificador puntual ignorado por Git (`.tmp/help-review-*.cjs`),
 cambiando solo el nombre de evidencia y la ruta local de Edge. No acredita la
 función nueva: su aceptación está en ASSET_RETENTION.md.
+
+Actualización 2026-10-20 (papelera): Archivo/papelera explica la eliminación
+definitiva revisada y sus bloqueos. `help-ui-2026-10-20-trash-{chrome,edge}.json`,
+4/4 por motor, 129 fuentes; mismo verificador puntual. No acredita la función.

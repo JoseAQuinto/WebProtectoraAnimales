@@ -99,8 +99,8 @@ decidir descartarla. Los snapshots del negocio activo/exportación y eliminació
 atómica a volumen aún necesitan pruebas de memoria/tiempo/cuota física. El tamaño
 lógico no garantiza espacio físico liberado inmediatamente por el navegador.
 
-Siguiente: borrado permanente de negocio con análisis de relaciones (incluidos
-archivos usados solo por registros archivados/en papelera), lecturas acotadas/
+Borrado permanente revisado de la papelera: [TRASH_PURGE.md](TRASH_PURGE.md).
+Siguiente: lecturas acotadas/
 binarios diferidos, impresión y aceptación integral. No reducir el alcance original
 ni presentar esta limpieza como producto comercial terminado.
 
