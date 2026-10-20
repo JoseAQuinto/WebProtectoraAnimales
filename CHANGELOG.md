@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Navegación agrupada y diagnóstico técnico — 2026-10-20
+
+- Barra lateral en los seis grupos del requisito 31, EN/ES, accesible.
+- Diagnóstico local de 200 sucesos técnicos sin datos de fichas, en Ayuda, con
+  descarga revisable y borrado confirmado; registro desde `ui.message` y errores globales.
+- 4 pruebas Node nuevas (298 / 917 estáticas); regresión completa 68 rondas,
+  926 comprobaciones, 0 fallos. Cierre del día con relevo en CONTINUE_HERE.md.
+
 ## Una instantánea por escritura y prueba integral — 2026-10-20
 
 - El arnés Node congela los datos de cada build (294 pruebas sin mutaciones); el

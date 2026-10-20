@@ -70,3 +70,6 @@ definitiva revisada y sus bloqueos. `help-ui-2026-10-20-trash-{chrome,edge}.json
 Actualización 2026-10-20 (ficha imprimible): Animales explica «Imprimir ficha» y la
 exclusión por defecto de datos personales/notas. `help-ui-2026-10-20-print-{chrome,edge}.json`,
 4/4 por motor (antes de la corrección de CSS de filtros); no acredita la función.
+
+Actualización 2026-10-20 (diagnóstico): Ayuda añade la tarjeta «Diagnóstico técnico» y la
+guía de problemas la explica. `help-ui-2026-10-20-nav-diagnostics-{chrome,edge}.json`, 4/4.

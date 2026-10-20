@@ -21,6 +21,9 @@ Primera ronda (`a11y-ui-2026-10-20-chrome-first.json`): 6 saltos h1→h3 en las
 pestañas de la ficha del animal (EN/ES). Corrección: cada panel de pestaña tiene
 un `h2` (clase `sr-only`) con el nombre de la pestaña. `chrome-second`: 0
 incidencias, 18 diálogos. Ronda final: `a11y-ui-2026-10-20-{chrome,edge}-final.json`.
+Tras la navegación agrupada y el diagnóstico: `a11y-ui-2026-10-20-{chrome,edge}-nav-diagnostics.json`
+11/11, 0 incidencias. Los UUID solo se muestran en las herramientas de mantenimiento
+de Almacenamiento (permitido por el requisito 32 como diagnóstico).
 Regresiones de las suites que recorren pestañas del animal tras el `h2`:
 `*-2026-10-20-{chrome,edge}-tab-heading.json`.
 

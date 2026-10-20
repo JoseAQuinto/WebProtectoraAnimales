@@ -1,9 +1,17 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-20. Versión de trabajo: `0.2.0-dev`.
+Actualizado: 2026-10-20 (cierre del día). Versión de trabajo: `0.2.0-dev`.
 Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
+
+## Cierre del día — 2026-10-20
+
+Parada por indicación del usuario con el bloque de navegación agrupada y diagnóstico
+técnico terminado (NAVIGATION_DIAGNOSTICS.md). Regresión completa final: 68 rondas,
+926 comprobaciones, 0 fallos; **298 Node / 917 estáticas**. Cupo al cerrar: 11 % de
+cinco horas y 39 % semanal; sin créditos de reinicio. Siguiente acción y relevo en
+CONTINUE_HERE.md. Producto incompleto: solo datos sintéticos; no publicar.
 
 ## Avance — 2026-10-20
 
@@ -564,3 +572,9 @@ build muta (294 pruebas con entradas congeladas); escritura 0,29 s a 10k y 1,98 
 50k. Regresión completa: 63 rondas / 889 comprobaciones sin fallos.
 INTEGRAL_ACCEPTANCE.md: todos los módulos, copia y restauración por UI en otro
 perfil vacío con datos, bytes, informes y panel idénticos; Chrome/Edge 9/9.
+
+## Navegación agrupada y diagnóstico técnico (2026-10-20)
+
+NAVIGATION_DIAGNOSTICS.md: seis grupos del requisito 31 en EN/ES; registro local de 200
+sucesos técnicos sin contenido de fichas, revisable/descargable y borrable con
+confirmación (requisito 36). Chrome/Edge 10/10; regresión completa 68 rondas sin fallos.

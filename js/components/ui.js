@@ -14,7 +14,9 @@
     return node;
   }
   const button = (label, action, secondary = false) => el('button', { type: 'button', class: secondary ? 'button secondary' : 'button', on: { click: action } }, label);
+  // Every error shown to the user passes here, so it is also the single diagnostics hook.
   function message(error) {
+    root.services.diagnostics?.record('ui', error);
     const specific = {
       ValidationError: 'errors.validation', BackupValidationError: 'errors.invalidBackup', IntegrityError: 'errors.invalidBackup',
       VerifiedBackupRequiredError: 'errors.verifyFirst', ConfirmationRequiredError: 'errors.confirmRestore',

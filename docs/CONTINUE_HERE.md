@@ -5,25 +5,32 @@ DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
-Último bloque de código/guía publicado: **be938d8**; el commit documental de
-cierre lo sigue. Se prepara el relevo con lectura de 90 % de cinco horas y
-43 % semanal consumidos (10 % / 57 % restantes), reservando margen para subir
-y comprobar Git. No se utilizó reinicio. No hay una funcionalidad a medio aplicar
-que deba recuperarse de archivos ignorados; pruebas y decisiones están en Git.
-Siguiente acción: recursos sin referencias del activo, según RETENTION.md.
-No repetir como pendientes correcciones fechadas ni limpieza retired/staging.
+**Relevo del 2026-10-20 (parada por indicación del usuario).** Último commit: ver
+`git log -1`; árbol limpio y remoto igual tras subirlo. Cupo al cerrar: 11 % de
+la ventana de cinco horas y 39 % semanal consumidos; no se usaron créditos de
+reinicio. No queda trabajo a medio aplicar fuera de Git.
 
-**Actualización 2026-10-20:** los archivos sin referencias del activo ya tienen
-revisión, UI y evidencia (ASSET_RETENTION.md; 19/19 Chrome/Edge). Cupo al
-documentar: 36 % cinco horas / 30 % semanal. La papelera también tiene
-eliminación definitiva revisada (TRASH_PURGE.md; 19/19 Chrome/Edge).
-La ficha imprimible del animal con datos personales opcionales también existe
-(ANIMAL_PRINT.md; 11/11 Chrome/Edge). Medición de volumen (VOLUME.md), auditoría automática de accesibilidad
-(ACCESSIBILITY.md) y ZIP de desarrollo verificado (PACKAGE.md) también existen.
-La escritura ya reutiliza su captura congelada (VOLUME.md; 63 rondas de regresión
-sin fallos) y existe una prueba integral con restauración en otro perfil
-(INTEGRAL_ACCEPTANCE.md, 9/9 por motor). Siguiente acción: validación incremental
-por tablas afectadas y listas por índices; después revisión manual de accesibilidad.
+Hecho hoy (no repetir como pendiente), cada bloque con su documento y evidencia:
+
+- Archivos incorporados sin referencias del activo: ASSET_RETENTION.md.
+- Papelera con eliminación definitiva revisada por raíz: TRASH_PURGE.md.
+- Ficha imprimible del animal con datos personales opcionales: ANIMAL_PRINT.md.
+- Volumen/latencia hasta 50k registros y una sola instantánea por escritura: VOLUME.md.
+- Auditoría automática de accesibilidad (0 incidencias): ACCESSIBILITY.md.
+- ZIP de desarrollo reproducible verificado extraído: PACKAGE.md (no publicar).
+- Prueba integral con restauración en otro perfil: INTEGRAL_ACCEPTANCE.md.
+- Navegación agrupada (req. 31) y diagnóstico técnico local (req. 36):
+  NAVIGATION_DIAGNOSTICS.md. Última regresión completa con las fuentes finales:
+  `*-2026-10-20-{chrome,edge}-nav-diagnostics.json`, **68 rondas, 926 comprobaciones,
+  0 fallos**, más `help-ui-2026-10-20-nav-diagnostics-*`.
+
+**Siguiente acción concreta:** validación incremental por tablas afectadas (la
+validación completa cuesta ~0,7 s a 50k registros, VOLUME.md) y listas por índices
+o cursor con binarios diferidos; repetir `volume-ui` y la regresión completa.
+Después: plurales con `Intl.PluralRules` en textos «archivo(s)»/«grupo(s)» nuevos,
+revisión manual de accesibilidad con lector de pantalla, aceptación en dispositivos
+físicos y Firefox actual (aplazado por decisión del usuario; no descargar sin
+indicación), y revisión de licencia por el titular antes de cualquier publicación.
 
 ## Inicio
 
@@ -96,6 +103,8 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | ZIP de desarrollo reproducible y extraído | PACKAGE.md | 8/8 por motor |
 | Integral: todos los módulos, restauración en otro perfil | INTEGRAL_ACCEPTANCE.md | 9/9 por motor |
 | Regresión completa tras reutilizar la captura | VOLUME.md | 63 rondas / 889 comprobaciones |
+| Navegación agrupada y diagnóstico técnico local | NAVIGATION_DIAGNOSTICS.md | 10/10 por motor |
+| Regresión completa con fuentes finales del día | NAVIGATION_DIAGNOSTICS.md | 68 rondas / 926 comprobaciones |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -113,7 +122,7 @@ de los módulos. Las rondas funcionales mantienen sus hashes originales.
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **294 pruebas Node / 912 estáticas**, diff sin errores:
+Verificación conjunta: **298 pruebas Node / 917 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -123,13 +132,16 @@ git diff --check
 
 Ejecutores persistentes en tests/e2e: contact-import-ui, animal-import-ui,
 related-import-ui, finance-import-ui, donation-import-ui, module-import-ui,
-module-import-layout, demo-ui, asset-retention-ui, trash-purge-ui, animal-print-ui, volume-ui, a11y-ui, package-ui e integral-ui, además de los anteriores por módulo.
+module-import-layout, demo-ui, asset-retention-ui, trash-purge-ui, animal-print-ui, volume-ui, a11y-ui, package-ui, integral-ui y nav-diagnostics-ui, además de los anteriores por módulo.
 Consultar ENVIRONMENT_TESTS.md y sus argumentos --browser, --machine, --output
 con nombre nuevo y --executable opcional. No sobrescribir evidencia.
 La guía usó una comprobación puntual descrita en HELP.md, sin suite nueva de negocio.
 Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
 
 ## Siguiente acción concreta
+
+Prioridad vigente: la indicada en el relevo del 2026-10-20 al principio de este
+documento. La lista siguiente conserva el contexto de cada área pendiente.
 
 1. Leer los cinco documentos HISTORY_*.md: entrada/devolución, acogida/salud,
    formalización, solicitudes/reservas y traslados/salidas/muerte ya tienen UI

@@ -6,6 +6,8 @@
   let sidebar, routeToken = 0;
   const notice = (text,error) => el('div',{class:'notice'+(error?' error':''),role:error?'alert':'status'},text);
   const heading = (title,help) => el('header',{class:'page-heading'},el('div',{},el('p',{class:'eyebrow'},t('app.name')),el('h1',{},title),el('p',{class:'muted'},help)));
+  // Requirement 31 groups: overview, animals and care, people, organization and resources, reports, settings and help.
+  const navigationGroups=[['overview',['dashboard','search']],['care',['animals','adoptions','tasks']],['people',['contacts','fosters','volunteers']],['resources',['finance','donations','inventory','documents']],['reports',['reports','exports']],['settings',['imports','moduleImport','demo','backup','retention','settings','help']]];
   async function act(work) {
     if (state.busy) return;
     state.busy = true;
@@ -93,7 +95,7 @@
     const language=el('select',{id:'language','aria-label':t('ui.language')},el('option',{value:'en'},'English'),el('option',{value:'es'},'Español'));
     language.value=root.core.i18n.language;language.addEventListener('change',()=>{root.core.i18n.setLanguage(language.value);render();});
     sidebar=el('aside',{class:'sidebar',id:'navigation'},el('div',{class:'brand'},el('span',{class:'brand-mark','aria-hidden':'true'},'⌂'),t('app.name')),
-      el('nav',{class:'nav','aria-label':t('app.name')},['dashboard','search','animals','adoptions','contacts','fosters','volunteers','tasks','finance','donations','inventory','documents','reports','exports','imports','moduleImport','demo','backup','retention','settings','help'].filter(key=>org||['backup','help'].includes(key)).map(key=>el('a',{href:'#'+key,'aria-current':page===key?'page':null},t('nav.'+key)))),
+      el('nav',{class:'nav','aria-label':t('app.name')},navigationGroups.map(([group,keys])=>{const visible=keys.filter(key=>org||['backup','help'].includes(key));if(!visible.length)return null;const id='nav-group-'+group;return el('div',{class:'nav-group'},el('p',{class:'nav-group-title',id},t('nav.group.'+group)),el('ul',{'aria-labelledby':id},visible.map(key=>el('li',{},el('a',{href:'#'+key,'aria-current':page===key?'page':null},t('nav.'+key))))));})),
       el('div',{class:'sidebar-footer'},el('small',{},root.config.appVersion),el('br'),el('small',{},t('ui.offline'))));
     const menu=button('☰',()=>{const visible=sidebar.classList.toggle('visible');menu.setAttribute('aria-expanded',String(visible));},true);
     menu.classList.add('menu-toggle');menu.setAttribute('aria-label',t('ui.menu'));menu.setAttribute('aria-controls','navigation');menu.setAttribute('aria-expanded','false');
