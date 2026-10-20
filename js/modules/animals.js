@@ -48,6 +48,7 @@
         if(animal.managementStatus==='other_exit')actions.append(action('a.reenter',()=>forms.entry(ctx,animal)));
         if(!underCare)actions.append(action('a.archive',()=>forms.disposition(ctx,animal,'archive')),action('a.trash',()=>forms.disposition(ctx,animal,'trash')));
       }else actions.append(action('a.restore',()=>forms.disposition(ctx,animal,'restore')));
+      const print=ui.button(t('pr.print'),()=>ctx.action(()=>root.modules.animalPrint.open(ctx,animal)),true);print.dataset.printSheet='true';actions.append(print);
       if(active&&animal.photoAssetId)actions.append(action('a.removePhoto',()=>{if(confirm(t('a.removePhotoConfirm')))ctx.action(async()=>{await root.services.photos.remove(animal.id,{...command(),operationId:root.utils.ids.uuidV4()});ctx.notify(t('ui.saved'));});}));
       const tabs=el('div',{class:'tabs','aria-label':t('a.sections')}),body=el('div',{class:'stack'});
       const sections={

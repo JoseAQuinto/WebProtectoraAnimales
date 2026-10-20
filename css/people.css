@@ -5,3 +5,4 @@
 .donation-line-row{border:1px solid var(--line);border-radius:9px;padding:14px;margin:0 0 14px;min-width:0}.donation-line-row>.button{margin-top:12px}
 
 .module-json-table{min-width:1040px;table-layout:fixed}.module-json-table th:nth-child(1){width:160px}.module-json-table th:nth-child(2){width:270px}.module-json-table th:nth-child(3){width:300px}.module-json-table th:nth-child(4){width:230px}.module-json-table th{overflow-wrap:anywhere}.module-json-table select{width:100%;min-width:0}.module-json-table .button{margin-top:10px;max-width:100%}
+.people-filters input[type=checkbox]{width:20px;margin-left:0}

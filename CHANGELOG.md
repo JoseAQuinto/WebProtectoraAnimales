@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Ficha imprimible del animal — 2026-10-20
+
+- «Imprimir ficha»: vista previa con organización, logo, salud, pesos, estancias,
+  acogidas, adopciones y documentos; impresión aislada con márgenes y PDF del navegador.
+- Datos personales y notas internas excluidos salvo elección expresa; sin escrituras.
+- Corrige casilla de filtros de animales que desbordaba 4 px a 360 px.
+- Chrome/Edge 11/11; workspace 13/13, filtros 10/10, pesos 9/9, guía 4/4.
+
 ## Papelera: eliminación definitiva revisada — 2026-10-20
 
 - Almacenamiento lista la papelera y revisa una raíz: hechos propios, archivos sin

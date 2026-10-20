@@ -17,7 +17,9 @@ No repetir como pendientes correcciones fechadas ni limpieza retired/staging.
 revisión, UI y evidencia (ASSET_RETENTION.md; 19/19 Chrome/Edge). Cupo al
 documentar: 36 % cinco horas / 30 % semanal. La papelera también tiene
 eliminación definitiva revisada (TRASH_PURGE.md; 19/19 Chrome/Edge).
-Siguiente acción: ficha imprimible del animal con opción de datos personales.
+La ficha imprimible del animal con datos personales opcionales también existe
+(ANIMAL_PRINT.md; 11/11 Chrome/Edge). Siguiente acción: medición real de volumen,
+latencia y memoria (tests/e2e/volume-ui.cjs) y, según resultados, lecturas acotadas.
 
 ## Inicio
 
@@ -84,6 +86,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 | Limpieza de conjuntos retirados/staging | RETENTION.md | 18/18 por motor |
 | Archivos incorporados sin referencias del activo | ASSET_RETENTION.md | 19/19 por motor |
 | Papelera: eliminación definitiva revisada | TRASH_PURGE.md | 19/19 por motor |
+| Ficha imprimible del animal | ANIMAL_PRINT.md | 11/11 por motor |
 | Guía interna offline EN/ES | HELP.md | 4/4 dirigidas por motor |
 | Filtros OR/AND de animales | ANIMAL_FILTERS.md | 10/10 por motor |
 | Mediciones: edición/papelera/restauración | WEIGHT_HISTORY.md | 9/9 por motor |
@@ -101,7 +104,7 @@ de los módulos. Las rondas funcionales mantienen sus hashes originales.
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **294 pruebas Node / 907 estáticas**, diff sin errores:
+Verificación conjunta: **294 pruebas Node / 912 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -111,7 +114,7 @@ git diff --check
 
 Ejecutores persistentes en tests/e2e: contact-import-ui, animal-import-ui,
 related-import-ui, finance-import-ui, donation-import-ui, module-import-ui,
-module-import-layout, demo-ui, asset-retention-ui y trash-purge-ui, además de los anteriores por módulo.
+module-import-layout, demo-ui, asset-retention-ui, trash-purge-ui y animal-print-ui, además de los anteriores por módulo.
 Consultar ENVIRONMENT_TESTS.md y sus argumentos --browser, --machine, --output
 con nombre nuevo y --executable opcional. No sobrescribir evidencia.
 La guía usó una comprobación puntual descrita en HELP.md, sin suite nueva de negocio.
@@ -134,8 +137,9 @@ Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
    Importación JSON también tiene búsquedas de candidatos O(N*M). Los límites de
    seguridad del parser no acreditan rendimiento a esos máximos. Probar memoria,
    volumen y cuota física por separado de errores inyectados.
-4. Completar impresión paginada y opción de datos personales, accesibilidad
-   integral y aceptación por plataformas físicas. La guía EN/ES y README bilingües
+4. Ficha imprimible del animal con datos personales opcionales ya existe
+   (ANIMAL_PRINT.md). Completar accesibilidad integral, impresión física y
+   aceptación por plataformas físicas. La guía EN/ES y README bilingües
    ya existen (HELP.md); no enumerarlos como inexistentes. Revisar contenido y
    recorridos con la aceptación final. No hay aceptación Android/iOS/iPadOS,
    macOS/Linux ni Firefox actual sobre las fuentes actuales.

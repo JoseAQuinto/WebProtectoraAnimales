@@ -16,6 +16,8 @@ transaccional revalidado. Chrome/Edge 19/19, regresión de conjuntos inactivos
 Ver [ASSET_RETENTION.md](ASSET_RETENTION.md). Versiones/formatos sin cambios.
 Después: eliminación definitiva revisada de la papelera ([TRASH_PURGE.md](TRASH_PURGE.md)),
 Chrome/Edge 19/19 y regresiones correctas; **294 Node / 907 estáticas**.
+Después: ficha imprimible del animal con opción de datos personales
+([ANIMAL_PRINT.md](ANIMAL_PRINT.md)), 11/11 por motor; **294 Node / 912 estáticas**.
 
 ## Checkpoint de cierre — 2026-10-19
 
@@ -53,7 +55,7 @@ Acogidas/actos sanitarios también tienen corrección coordinada (HISTORY_LINKED
 Archivos sin uso del activo: ASSET_RETENTION.md (2026-10-20), 19/19 Chrome/Edge.
 Papelera definitiva: TRASH_PURGE.md (2026-10-20), 19/19 Chrome/Edge.
 Siguen pendientes reversiones/corrección de contenido y casos ambiguos de historia,
-rendimiento, impresión final y aceptación.
+rendimiento, impresión física y aceptación. Ficha imprimible: ANIMAL_PRINT.md.
 
 ## Fase actual
 
@@ -533,3 +535,10 @@ bloqueo por finanzas/donaciones/inventario/otros registros, archivos sin uso
 incluidos, relaciones conservadas informadas, copia verificada, confirmación y
 transacción revalidada con cancelación/replay. Chrome/Edge 19/19; regresiones
 archivos 19/19, conjuntos 18/18 y guía 4/4. 294 Node / 907 estáticas.
+
+## Ficha imprimible del animal (2026-10-20)
+
+ANIMAL_PRINT.md: vista previa e impresión con organización/logo/pie, salud, pesos,
+estancias, acogidas, adopciones y documentos; datos personales y notas internas
+solo por elección expresa. Chrome/Edge 11/11 con PDF paginado de Chromium.
+Corregido desbordamiento de una casilla de filtros a 360 px (workspace 13/13).
