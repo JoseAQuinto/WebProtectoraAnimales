@@ -5,6 +5,20 @@ Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
+## Cierre de hoy — 2026-10-21
+
+Parada expresa del usuario tras terminar y subir el bloque funcional **bd22f65**.
+Remoto comprobado de nuevo sin diferencias; árbol limpio antes de esta actualización
+documental. No queda desarrollo parcial ni pruebas activas del bloque. El cierre
+se guarda en un commit documental posterior, sin cambiar runtime ni formatos.
+No es una declaración de producto terminado ni un cierre por agotamiento de cupo.
+
+Otra IA puede continuar desde CONTINUE_HERE.md con el repositorio actualizado;
+no necesita este chat ni los perfiles temporales del equipo. Siguiente desarrollo:
+validación incremental por tablas afectadas y lecturas acotadas por índices/cursor,
+conservando validación completa de referencia y todos los guardas de persistencia.
+Las aceptaciones físicas, memoria con perfilador y licencia siguen pendientes.
+
 ## Avance vigente — 2026-10-21
 
 Después de los bloques publicados abajo: captura activa profundamente inmutable

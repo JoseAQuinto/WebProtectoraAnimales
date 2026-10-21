@@ -1,5 +1,12 @@
 # Historial de cambios
 
+## Cierre y relevo por petición del usuario — 2026-10-21
+
+- Bloque funcional terminado y subido hasta bd22f65; parada de desarrollo por hoy.
+- Relevo actualizado con commits, evidencia vigente, límites y siguiente tarea;
+  otra IA puede continuar desde el repositorio sin este chat ni perfiles locales.
+- Solo documentación; sin cambios de runtime, versiones ni formatos.
+
 ## Copias grandes sin caducar el control — 2026-10-21
 
 - Creación/verificación protege al escritor existente; una pestaña de lectura

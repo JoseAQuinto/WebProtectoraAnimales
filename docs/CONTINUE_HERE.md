@@ -5,6 +5,33 @@ DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
+## Cierre de hoy por indicación del usuario — 2026-10-21
+
+Desarrollo detenido al terminar el bloque, por petición expresa del usuario.
+Último commit funcional: **bd22f65** (copias grandes y restauración protegidas),
+precedido por **9506a5a** (caché y preparación de archivos), **dde8ee4** (plurales)
+y **a49172e** (validación sin inspecciones duplicadas). Todos están subidos a
+`origin/main`. El commit documental de cierre es posterior: consultar `git log -1`.
+El árbol estaba limpio al preparar este relevo; no queda implementación a medio
+aplicar ni pruebas en ejecución de este bloque. No se detiene por falta de cupo.
+
+Al retomar desde otro PC: comprobar `git status`, descargar los avances con
+`git fetch origin` y, con árbol limpio, `git pull --ff-only`; conservar cualquier
+avance local válido. Leer AGENTS.md, PROJECT_STATUS.md y REQUIREMENTS.es.md completos.
+La siguiente tarea es reducir el recorrido O(N) con validación incremental por
+tablas afectadas o lecturas de listas por índices/cursor; mantener los guardas de
+lease/revisión/idempotencia y contrastar el resultado con la validación completa.
+La caché, los plurales y la corrección de copias largas ya están terminados.
+
+Las pruebas y decisiones necesarias están en Git. Los perfiles, archivos de
+prueba y ZIP temporales de `.tmp` son locales e ignorados: no son necesarios
+para seguir. En otro equipo ejecutar los escenarios completos con etiquetas nuevas,
+sin depender de una continuación dirigida del perfil de este PC. Datos reales
+de una organización se trasladan con copia externa verificada y restauración,
+no mediante Git. Mantener pendientes los límites y aceptaciones indicados abajo.
+
+## Evidencia y estado del bloque
+
 REGRESSION_2026_10_21.md ordena las rondas, sus fuentes y los fallos conservados;
 no sumar sus comprobaciones como si todas correspondieran al último runtime.
 Última regresión dirigida de copias: **Chrome 6 suites / 80 comprobaciones y
