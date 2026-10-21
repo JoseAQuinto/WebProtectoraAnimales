@@ -1,5 +1,19 @@
 # Historial de cambios
 
+## Captura repetida y comandos largos — 2026-10-21
+
+- Una captura activa profundamente inmutable, reutilizada solo tras leer anclajes
+  reales en IndexedDB; abortos/errores no devuelven memoria ni publican candidatos.
+- Aplicación de lotes por posiciones UUID; copias completas y observadores de
+  persistencia fuerzan lectura fresca. Toda validación de dominio sigue activa.
+- Lease de 120 s durante actividad y preparación de medios, retorno a 15 s;
+  error de renovación posterior no oculta un commit confirmado ni el error original.
+- 310 Node / 917 estáticas. Volumen Chrome 17/17 con copia física de 69 MB,
+  50k + 32 MiB; Edge en cadena documentada 12 + 6, intentos fallidos conservados.
+- Escenario mixto reproducible y selección de archivos locales grandes por CDP,
+  fuera del producto. Corrección del cierre QA con prueba nativa de salida y
+  conservación de observaciones CIM; formatos/versiones sin cambios.
+
 ## Plurales de Almacenamiento — 2026-10-21
 
 - Variantes EN/ES con Intl.PluralRules para grupos, archivos, registros y bloqueos;

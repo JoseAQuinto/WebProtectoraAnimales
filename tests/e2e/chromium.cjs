@@ -8,7 +8,7 @@ const crypto = require('node:crypto');
 const { pathToFileURL } = require('node:url');
 const { spawn, execFile } = require('node:child_process');
 const { promisify } = require('node:util');
-const { descendants, verifiedRoot } = require('./owned-processes.cjs');
+const { descendants, verifiedRoot, withoutNativeExited } = require('./owned-processes.cjs');
 const execFileAsync = promisify(execFile);
 const root = path.resolve(__dirname, '../..');
 const runtime = process.env.PLAYWRIGHT_PATH || path.join(os.homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
@@ -83,7 +83,8 @@ async function launch(name, profile, result, denyStorage = false, options = {}) 
   const version = await session.send('Browser.getVersion');
   result.launches.push({ startedAt: new Date(startedAt).toISOString(), executable, profile: path.relative(root, profile), pid: child.pid, args, version, storageDeniedPreference: denyStorage });
   let closed = false;
-  const exited = () => child.exitCode !== null || child.signalCode !== null;
+  let nativeRootExited = false;
+  const exited = () => nativeRootExited || child.exitCode !== null || child.signalCode !== null;
   return {
     browser, context, child, version,
     async close() {
@@ -137,7 +138,24 @@ async function launch(name, profile, result, denyStorage = false, options = {}) 
           remaining = (await processes()).filter(row => identities.has(row.ProcessId + ':' + row.CreatedAt));
         } catch (error) { inspectionError = String(error); }
       }
-      const closure = { rootPid: child.pid, exitCode: child.exitCode, signalCode: child.signalCode, connectionReleasedAfterExit, forcedTermination, terminationAttempts, method: forcedTermination ? 'Browser.close followed by forced termination of individually verified owned process identities' : 'Browser.close', trackedProcesses: before, remainingProcesses: remaining, inspectionError, checkedAt: new Date().toISOString() };
+      let nativeExitObservations = [];
+      const finalCimRows = remaining;
+      if (!inspectionError && (remaining.length || !exited())) {
+        try {
+          const ids = [...new Set([...remaining.map(row => row.ProcessId), ...(!exited() ? [child.pid] : [])])];
+          requireThat(ids.every(Number.isSafeInteger), 'Invalid process identities');
+          nativeExitObservations = await powershell('@(' + ids.join(',') + ') | ForEach-Object { $qaProcessId = $_; $qaProcess = $null; try { $qaProcess = [System.Diagnostics.Process]::GetProcessById($qaProcessId); $qaState = if ($qaProcess.HasExited) { "exited" } else { "alive" }; [pscustomobject]@{ProcessId=$qaProcessId;state=$qaState} } catch [System.ArgumentException] { [pscustomobject]@{ProcessId=$qaProcessId;state="absent"} } finally { if ($qaProcess) { $qaProcess.Dispose() } } } | ConvertTo-Json -Compress');
+          if (!Array.isArray(nativeExitObservations)) nativeExitObservations = [nativeExitObservations];
+          remaining = withoutNativeExited(remaining, nativeExitObservations);
+          nativeRootExited = nativeExitObservations.some(row => row.ProcessId === child.pid && ['absent', 'exited'].includes(row.state));
+        } catch (error) { inspectionError = String(error); }
+      }
+      if (!inspectionError && exited() && !connectionReleasedAfterExit) {
+        child.stderr.destroy();
+        await Promise.race([browser.close().catch(() => {}), pause(3000)]);
+        connectionReleasedAfterExit = true;
+      }
+      const closure = { rootPid: child.pid, exitCode: child.exitCode, signalCode: child.signalCode, nativeRootExited, connectionReleasedAfterExit, forcedTermination, terminationAttempts, method: forcedTermination ? 'Browser.close followed by forced termination of individually verified owned process identities' : 'Browser.close', trackedProcesses: before, finalCimRows, nativeExitObservations, remainingProcesses: remaining, inspectionError, checkedAt: new Date().toISOString() };
       result.closures.push(closure);
       if (!exited()) child.kill();
       requireThat(!inspectionError, 'Could not inspect complete owned browser process tree: ' + inspectionError);

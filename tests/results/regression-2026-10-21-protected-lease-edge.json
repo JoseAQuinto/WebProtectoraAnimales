@@ -1,0 +1,74 @@
+{
+  "format": "rescue-manager-regression-run",
+  "version": 1,
+  "browser": "edge",
+  "label": "2026-10-21-protected-lease",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-21T17:53:02.741Z",
+  "status": "failed",
+  "runs": [
+    {
+      "suite": "read-cache-ui",
+      "report": "read-cache-ui-2026-10-21-protected-lease-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 17,
+      "failedChecks": 0
+    },
+    {
+      "suite": "workspace-ui",
+      "report": "workspace-ui-2026-10-21-protected-lease-edge.json",
+      "exitCode": 1,
+      "status": "failed",
+      "checks": 10,
+      "failedChecks": 1
+    },
+    {
+      "suite": "integral-ui",
+      "report": "integral-ui-2026-10-21-protected-lease-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 9,
+      "failedChecks": 0
+    },
+    {
+      "suite": "asset-retention-ui",
+      "report": "asset-retention-ui-2026-10-21-protected-lease-edge.json",
+      "exitCode": 1,
+      "status": "failed",
+      "checks": 0,
+      "failedChecks": 0
+    },
+    {
+      "suite": "trash-purge-ui",
+      "report": "trash-purge-ui-2026-10-21-protected-lease-edge.json",
+      "exitCode": 1,
+      "status": "failed",
+      "checks": 8,
+      "failedChecks": 1
+    },
+    {
+      "suite": "retention-ui",
+      "report": "retention-ui-2026-10-21-protected-lease-edge.json",
+      "exitCode": 1,
+      "status": "failed",
+      "checks": 9,
+      "failedChecks": 1
+    },
+    {
+      "suite": "nav-diagnostics-ui",
+      "report": "nav-diagnostics-ui-2026-10-21-protected-lease-edge.json",
+      "exitCode": 1,
+      "status": "failed",
+      "checks": 7,
+      "failedChecks": 0
+    }
+  ],
+  "limitations": [
+    "Only the selected existing suites are executed. Each report retains its scope, hashes and limitations.",
+    "No physical device, screen reader, Firefox or commercial acceptance is inferred from this summary.",
+    "Performance timings depend on machine load; run volume separately when comparing latency."
+  ],
+  "completedAt": "2026-10-21T18:08:01.661Z",
+  "checks": 60
+}

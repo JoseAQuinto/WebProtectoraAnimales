@@ -1,5 +1,12 @@
 # Volumen, latencia y memoria — 2026-10-20
 
+Nota de alcance añadida el 2026-10-21: las rondas volume-ui de formato de prueba
+1 verificaban un File construido en memoria. Pese al nombre antiguo del paso,
+**no descargaban ni reseleccionaban esa copia desde disco**. Sus tiempos de
+codificación/validación siguen siendo mediciones, pero no acreditan ese recorrido
+de archivo. El ejecutor de formato 2 descarga realmente y selecciona el archivo
+guardado en el formulario de la aplicación. Las evidencias históricas se conservan.
+
 Medición real del diseño actual (cada operación captura y valida el conjunto
 completo: O(N)). Ejecutor `tests/e2e/volume-ui.cjs`, file:// offline, perfil
 propio, sin mocks: contactos sintéticos en commits de 1000 filas por la ruta real
@@ -22,7 +29,7 @@ del ejecutor (archivos de 8 MiB − 2 bytes) y se conserva.
 
 Copia completa con 50 096 registros y 32 MiB: JSON de 69,4 MB (por debajo del
 límite de 128 MiB), generación 9,9–12,9 s y verificación de la copia
-reseleccionada 5,6 s. Primera instantánea tras reabrir: 0,7–0,9 s; revisión y
+construida en memoria 5,6 s. Primera instantánea tras reabrir: 0,7–0,9 s; revisión y
 recuento idénticos. Sin errores de página/consola ni HTTP.
 
 `performance.memory` de Chromium devuelve valores cuantizados (10 000 000) sin la
@@ -90,7 +97,47 @@ carga: Edge coincidió parcialmente con la regresión de Chrome. No son una
 promesa de capacidad ni de latencia para otro ordenador.
 
 Copia de 69 448 171 bytes: generación de 9,16 / 10,71 s y verificación de
-5,44 / 6,81 s. Los 50 096 registros y su revisión persisten tras cierre y
-reapertura propios; archivos y copias se comprobaron por el recorrido real.
+5,44 / 6,81 s de una copia construida en memoria (ejecutor versión 1).
+Los 50 096 registros y su revisión persisten tras cierre y reapertura propios.
 La memoria vuelve a estar cuantizada: sigue sin ser una medición de consumo.
 La instantánea y la validación relacional todavía crecen con todo el dataset.
+
+## Captura repetida y copia física — 2026-10-21
+
+READ_CACHE.md describe los anclajes de invalidación, la captura inmutable y la
+protección temporal de comandos. `volume-ui` versión 2 distingue captura fría
+forzada, captura repetida y refresco repetido de contactos. No intercambiar sus
+columnas ni compararlas como una muestra controlada con la versión 1.
+
+`volume-ui-2026-10-21-chrome-native-disk.json`: **17/17**, fuentes actuales,
+50.000 contactos y cuatro archivos de 8 MiB − 2 bytes. Mediciones con otras
+pruebas simultáneas, carga no controlada:
+
+| Registros | Captura fría | Repetida | Validación | Escritura | Refresco repetido de contactos |
+|---:|---:|---:|---:|---:|---:|
+| 5 074 | 315 ms | 3 ms | 174 ms | 170 ms | 47 ms |
+| 10 076 | 550 ms | 6 ms | 344 ms | 331 ms | 41 ms |
+| 20 078 | 2 425 ms | 10 ms | 831 ms | 1 300 ms | 103 ms |
+| 50 080 | 5 609 ms | 35 ms | 2 509 ms | 2 473 ms | 382 ms |
+| 50 094 + 32 MiB | 4 118 ms | 2 ms | 2 537 ms | 2 973 ms | 621 ms |
+
+La copia de **69 448 171 bytes** se guardó realmente en disco y se seleccionó
+en el formulario de verificación: recibo `verified`, revisión de datos 60 y
+hash de contenido coincidente. Generación 51,05 s; selección/verificación UI
+48,47 s. SHA-256 del archivo: `0f16b2a20f3e215c03b308c3528f87cd4402e575112b2d05ba7129199514d829`.
+Estos tiempos incluyen carga elevada y no implican una mejora de generación.
+
+Edge acredita el mismo escenario en cadena: las primeras **12 comprobaciones** de
+`volume-ui-2026-10-21-edge-protected-disk.json` y las **6 comprobaciones nuevas**
+de `volume-disk-ui-2026-10-21-edge-native-file.json`. El padre permanece fallido:
+Playwright rechazó transferir un archivo mayor de 50 MiB mediante su transporte
+remoto. El hijo comprobó las mismas fuentes, reabrió el perfil propio, seleccionó
+el archivo físico descargado, verificó el recibo y los bytes/digests, y cerró/reabrió.
+No se presentan como una única ronda nueva ni se oculta el fallo de transporte.
+
+`local-file.cjs` selecciona rutas reales confinadas a `.tmp` mediante la API nativa
+`DOM.setFileInputFiles` de Chromium. Evita ese límite del transporte de QA;
+el límite de la aplicación sigue siendo 128 MiB. Desde otro PC ejecutar una
+ronda completa nueva; el perfil local ignorado no es un requisito portable.
+Los informes versión 1 no acreditan selección física del archivo descargado.
+El escenario mixto con animales e historiales se documenta en MIXED_VOLUME.md.

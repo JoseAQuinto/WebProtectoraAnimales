@@ -1,0 +1,58 @@
+{
+  "format": "rescue-manager-regression-run",
+  "version": 1,
+  "browser": "edge",
+  "label": "2026-10-21-native-close-final",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-21T18:10:55.977Z",
+  "status": "passed",
+  "runs": [
+    {
+      "suite": "workspace-ui",
+      "report": "workspace-ui-2026-10-21-native-close-final-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 13,
+      "failedChecks": 0
+    },
+    {
+      "suite": "asset-retention-ui",
+      "report": "asset-retention-ui-2026-10-21-native-close-final-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 20,
+      "failedChecks": 0
+    },
+    {
+      "suite": "trash-purge-ui",
+      "report": "trash-purge-ui-2026-10-21-native-close-final-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 19,
+      "failedChecks": 0
+    },
+    {
+      "suite": "retention-ui",
+      "report": "retention-ui-2026-10-21-native-close-final-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 18,
+      "failedChecks": 0
+    },
+    {
+      "suite": "nav-diagnostics-ui",
+      "report": "nav-diagnostics-ui-2026-10-21-native-close-final-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 10,
+      "failedChecks": 0
+    }
+  ],
+  "limitations": [
+    "Only the selected existing suites are executed. Each report retains its scope, hashes and limitations.",
+    "No physical device, screen reader, Firefox or commercial acceptance is inferred from this summary.",
+    "Performance timings depend on machine load; run volume separately when comparing latency."
+  ],
+  "completedAt": "2026-10-21T18:15:12.741Z",
+  "checks": 80
+}

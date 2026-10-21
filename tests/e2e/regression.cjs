@@ -9,7 +9,7 @@ const suites = Object.freeze([
   'donation-import-ui', 'finance-import-ui', 'finance-ui', 'health-ui', 'history-adoption-ui',
   'history-corrections-ui', 'history-departure-ui', 'history-linked-facts-ui', 'history-workflow-ui',
   'integral-ui', 'module-exports-ui', 'module-import-ui', 'nav-diagnostics-ui', 'package-ui',
-  'related-import-ui', 'resources-reports-ui', 'retention-ui', 'search-history-ui',
+  'related-import-ui', 'read-cache-ui', 'resources-reports-ui', 'retention-ui', 'search-history-ui',
   'settings-configuration-ui', 'trash-purge-ui', 'weights-history-ui', 'workflows-ui', 'workspace-ui'
 ]);
 async function exists(file) { try { await fs.access(file); return true; } catch (error) { if (error.code === 'ENOENT') return false; throw error; } }

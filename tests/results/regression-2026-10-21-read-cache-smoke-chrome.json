@@ -1,0 +1,34 @@
+{
+  "format": "rescue-manager-regression-run",
+  "version": 1,
+  "browser": "chrome",
+  "label": "2026-10-21-read-cache-smoke",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-21T16:29:25.698Z",
+  "status": "passed",
+  "runs": [
+    {
+      "suite": "workspace-ui",
+      "report": "workspace-ui-2026-10-21-read-cache-smoke-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 13,
+      "failedChecks": 0
+    },
+    {
+      "suite": "integral-ui",
+      "report": "integral-ui-2026-10-21-read-cache-smoke-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 9,
+      "failedChecks": 0
+    }
+  ],
+  "limitations": [
+    "Only the selected existing suites are executed. Each report retains its scope, hashes and limitations.",
+    "No physical device, screen reader, Firefox or commercial acceptance is inferred from this summary.",
+    "Performance timings depend on machine load; run volume separately when comparing latency."
+  ],
+  "completedAt": "2026-10-21T16:32:11.618Z",
+  "checks": 22
+}

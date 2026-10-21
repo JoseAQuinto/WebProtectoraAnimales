@@ -53,7 +53,7 @@ async function check(id, work) {
     await page.setViewportSize({ width: 1440, height: 1000 });
     async function observe() {
       return page.evaluate(async () => {
-        const root = window.RescueManager, snap = await root.services.context.snapshot();
+        const root = window.RescueManager, snap = await root.services.context.snapshot({fresh:true});
         if (!snap) return null;
         const tables = Object.fromEntries(Object.entries(snap.tables).map(([name, rows]) => [name, rows.map(row => {
           const value = { ...row }; delete value.datasetId; return value;

@@ -47,7 +47,7 @@ async function check(id, work) {
     await tab.goto(pathToFileURL(path.join(root, 'index.html')).href, { waitUntil: 'load' }); await tab.evaluate(() => window.RescueManager.core.app.ready); return { session, tab };
   }
   const t = key => page.evaluate(key => window.RescueManager.core.i18n.t(key), key), modal = () => page.locator('dialog[open]').last();
-  const tables = () => page.evaluate(async () => (await window.RescueManager.services.context.snapshot()).tables);
+  const tables = () => page.evaluate(async () => (await window.RescueManager.services.context.snapshot({fresh:true})).tables);
   async function click(key, scope = page, role = 'button') { await scope.getByRole(role, { name: await t(key), exact: true }).click(); }
   async function closeDialogs(discard = false) { for (let index = 0; index < 5 && await page.locator('dialog[open]').count(); index++) { if (discard) page.once('dialog', dialog => dialog.accept()); await click(await modal().getByRole('button', { name: await t('common.close'), exact: true }).count() ? 'common.close' : 'common.cancel', modal()); } }
   async function nav(key) { await closeDialogs(); await click('nav.' + key, page, 'link'); await page.waitForFunction(key => location.hash.split('/')[0] === '#' + key, key); }
@@ -62,7 +62,7 @@ async function check(id, work) {
   }
   async function observe() {
     return page.evaluate(async () => {
-      const r = window.RescueManager, snapshot = await r.services.context.snapshot(); if (!snapshot) return null;
+      const r = window.RescueManager, snapshot = await r.services.context.snapshot({fresh:true}); if (!snapshot) return null;
       const tables = {};
       for (const [name, rows] of Object.entries(snapshot.tables)) {
         tables[name] = [];
@@ -125,7 +125,7 @@ async function check(id, work) {
       await animal(mainId, 'Luna ciclo ficticia', 'foster'); await click('fw.assign'); await modal().locator('[name=fosterProfileId]').selectOption(profileId); await modal().getByText(await t('fw.compatible'), { exact: true }).waitFor(); await modal().locator('[name=notes]').fill('Estancia compatible ficticia'); await save(true);
       const data = await tables(), stays = data.fosterStays.filter(row => row.animalId === mainId), events = data.animalEvents.filter(row => row.animalId === mainId && row.type === 'foster_start');
       assert(stays.length === 1 && !stays[0].exceptionReason && data.animals.find(row => row.id === mainId).locationKind === 'foster', 'Compatible assignment not coherent');
-      const occupancy = await page.evaluate(async id => { const r = window.RescueManager, snapshot = await r.services.context.snapshot(); return r.services.fosters.occupancy(snapshot.tables, id); }, profileId);
+      const occupancy = await page.evaluate(async id => { const r = window.RescueManager, snapshot = await r.services.context.snapshot({fresh:true}); return r.services.fosters.occupancy(snapshot.tables, id); }, profileId);
       assert(occupancy.occupied === 1 && occupancy.free === 0 && events.length === 1, 'Occupancy not derived from single open stay or event duplicated');
       assert(await page.getByRole('button', { name: await t('fw.assign'), exact: true }).count() === 0, 'Second assignment offered for animal with open stay');
       return { stays, eventCount: events.length, openStays: 1, occupancy };
@@ -139,7 +139,7 @@ async function check(id, work) {
       await modal().locator('[name=exceptionReason]').fill('Excepción ficticia revisada por capacidad y especie'); return { before, warnings: ['capacity', 'species'], nativeRequiredValidation: true };
     });
     await check('stale-ui-form-revision-is-rejected-with-no-partial-write-and-input-retained', async () => {
-      await page.evaluate(async () => { const r = window.RescueManager, snapshot = await r.services.context.snapshot(); await r.services.settings.update({ name: 'Refugio ciclo ficticio · revisión concurrente' }, { expectedRevision: snapshot.globalRevision }); });
+      await page.evaluate(async () => { const r = window.RescueManager, snapshot = await r.services.context.snapshot({fresh:true}); await r.services.settings.update({ name: 'Refugio ciclo ficticio · revisión concurrente' }, { expectedRevision: snapshot.globalRevision }); });
       const before = await observe(); await click('common.save', modal()); await modal().locator('.form-errors p').waitFor();
       assert(JSON.stringify(before) === JSON.stringify(await observe()) && await modal().locator('[name=exceptionReason]').inputValue() === 'Excepción ficticia revisada por capacidad y especie' && await modal().locator('[name=confirmException]').isChecked(), 'Stale form changed data or discarded explicit choice');
       const message = await modal().locator('.form-errors').innerText(); await closeDialogs(true); await page.reload({ waitUntil: 'load' }); await page.evaluate(() => window.RescueManager.core.app.ready); await page.waitForFunction(() => window.RescueManager.services.context.status().canWrite, null, { timeout: 20000 });

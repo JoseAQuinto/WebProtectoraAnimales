@@ -12,4 +12,10 @@ function descendants(rows,identity){
 function verifiedRoot(rows,pid,profile,startedAt){
   return rows.find(row=>row.ProcessId===pid&&typeof row.CommandLine==='string'&&row.CommandLine.toLowerCase().includes(profile.toLowerCase())&&Date.parse(row.CreatedAt)>=startedAt-2000)||null;
 }
-module.exports={descendants,verifiedRoot};
+// CIM can retain an exited Windows process row after its native handle has gone.
+// Only explicit native absence/exit clears that row; unknown/live observations remain failures.
+function withoutNativeExited(rows, observations) {
+  return rows.filter(row => !observations.some(value => value.ProcessId === row.ProcessId &&
+    (value.state === 'absent' || value.state === 'exited')));
+}
+module.exports={descendants,verifiedRoot,withoutNativeExited};

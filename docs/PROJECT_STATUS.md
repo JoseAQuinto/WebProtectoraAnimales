@@ -7,6 +7,24 @@ Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
 ## Avance vigente — 2026-10-21
 
+Después de los bloques publicados abajo: captura activa profundamente inmutable
+reutilizable solo tras comprobar anclajes reales en IndexedDB, lotes por posiciones
+UUID y protección de preparación/comandos con lease activo de 120 s y retorno a
+15 s. Copias y observadores E2E fuerzan lectura fresca. READ_CACHE.md documenta
+invalidación, abortos y límites. **310 Node / 917 estáticas** (incluidas dos pruebas
+del cierre nativo de QA). Ningún cambio de las cuatro versiones.
+
+Volumen actual: Chrome versión 2 **17/17**, 50k contactos + 32 MiB, copia física
+de 69 MB seleccionada en el formulario y reapertura intacta. Edge lo acredita en
+cadena de 12 pasos del padre más 6 nuevos (VOLUME.md), conservando el fallo del
+transporte Playwright >50 MiB. Los informes versión 1 verificaban una copia en
+memoria y no acreditan reselección física. Los intentos de lease/QA fallidos se
+conservan; no son aceptación aprobada. Escenario mixto: MIXED_VOLUME.md.
+El primer escenario mixto completo detectó pérdida de control al restaurar tras
+copias largas. La siguiente corrección debe proteger también creación/verificación
+y restauración de copias, antes de continuar optimizaciones. El padre fallido se
+conserva; su fixture y copia física permiten una continuación dirigida verificable.
+
 Reanudado desde 76abad3 con árbol limpio. Se consultó GitHub mediante fetch y
 pull --ff-only: main ya coincidía con el remoto, incluidos todos los avances
 del 2026-10-20. Lectura inicial de uso: 10 % de cinco horas y 3 % semanal

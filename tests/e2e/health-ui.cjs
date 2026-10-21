@@ -43,7 +43,7 @@ async function check(id, work) {
     await tab.goto(pathToFileURL(path.join(root, 'index.html')).href, { waitUntil: 'load' }); await tab.evaluate(() => window.RescueManager.core.app.ready); return { session, tab };
   }
   const t = key => page.evaluate(key => window.RescueManager.core.i18n.t(key), key), modal = () => page.locator('dialog[open]').last();
-  const tables = () => page.evaluate(async () => (await window.RescueManager.services.context.snapshot()).tables);
+  const tables = () => page.evaluate(async () => (await window.RescueManager.services.context.snapshot({fresh:true})).tables);
   const click = async (key, scope = page, role = 'button') => scope.getByRole(role, { name: await t(key), exact: true }).click();
   async function closeDialogs() { for (let index = 0; index < 5 && await page.locator('dialog[open]').count(); index++) await click('common.close', modal()); }
   async function nav(key) { await closeDialogs(); await click('nav.' + key, page, 'link'); await page.waitForFunction(key => location.hash.split('/')[0] === '#' + key, key); }
@@ -57,7 +57,7 @@ async function check(id, work) {
   }
   async function observe() {
     return page.evaluate(async () => {
-      const r = window.RescueManager, snapshot = await r.services.context.snapshot(); if (!snapshot) return null;
+      const r = window.RescueManager, snapshot = await r.services.context.snapshot({fresh:true}); if (!snapshot) return null;
       const rows = {};
       for (const [name, records] of Object.entries(snapshot.tables)) rows[name] = [...records].sort((a, b) => a.id.localeCompare(b.id)).map(row => { const value = { ...row }; delete value.datasetId; return value; });
       return { datasetId: snapshot.datasetId, globalRevision: snapshot.globalRevision, counts: Object.fromEntries(Object.entries(rows).map(([name, values]) => [name, values.length])), businessHash: await r.utils.integrity.sha256(r.utils.canonicalJson.stringify(rows)) };
@@ -76,7 +76,7 @@ async function check(id, work) {
       const environment = await page.evaluate(() => ({ protocol: location.protocol, online: navigator.onLine })); assert(environment.protocol === 'file:' && !environment.online && await observe() === null, 'Expected empty isolated offline profile');
       await page.locator('#language').selectOption('es'); await click('ui.createOrganization'); await modal().locator('[name=name]').fill('Refugio salud ficticio'); await modal().locator('[name=language]').selectOption('es'); await modal().locator('[name=timeZone]').fill('UTC'); await save();
       const setup = await page.evaluate(async () => {
-        const r = window.RescueManager, data = (await r.services.context.snapshot()).tables, today = r.utils.dates.today('UTC');
+        const r = window.RescueManager, data = (await r.services.context.snapshot({fresh:true})).tables, today = r.utils.dates.today('UTC');
         const option = (kind, code) => data.catalogOptions.find(row => row.kind === kind && row.code === code).id;
         const contactId = (await r.services.contacts.create({ type: 'person', name: 'Responsable salud ficticio', phones: [], roles: [], notes: '' })).result.id;
         const volunteerId = (await r.services.volunteers.createProfile({ contactId, status: 'active', functionIds: [], availability: '', specialties: '', notes: '' })).result.id;

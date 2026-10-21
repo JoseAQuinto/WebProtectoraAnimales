@@ -10,15 +10,17 @@
       operationId: h.operationId, target: { type, id }, summaryParameters: { field: type === 'animal' ? 'photo' : 'logo' } }));
   }
   async function set(animalId, file, command) {
-    const prepared = await root.utils.images.prepare(file);
-    return c.execute('photos.set', { animalId, photo: resources.identity(prepared.photo), thumbnail: resources.identity(prepared.thumbnail) }, (data, h) => {
-      const animal = editable(h, h.find('animals', animalId));
-      resources.budget(data, prepared.photo.byteLength + prepared.thumbnail.byteLength);
-      const photo = resources.asset(h, prepared.photo, 'photo'), thumbnail = resources.asset(h, prepared.thumbnail, 'thumbnail', photo.id);
-      return { changes: [h.insert('assets', photo), h.insert('assets', thumbnail), h.replace('animals',
-        h.edit('animals', animal, { photoAssetId: photo.id, thumbnailAssetId: thumbnail.id })), log(h, 'animal', animal.id)],
-        result: { animalId: animal.id, photoAssetId: photo.id, thumbnailAssetId: thumbnail.id } };
-    }, command);
+    return c.withActivity(async () => {
+      const prepared = await root.utils.images.prepare(file);
+      return c.execute('photos.set', { animalId, photo: resources.identity(prepared.photo), thumbnail: resources.identity(prepared.thumbnail) }, (data, h) => {
+        const animal = editable(h, h.find('animals', animalId));
+        resources.budget(data, prepared.photo.byteLength + prepared.thumbnail.byteLength);
+        const photo = resources.asset(h, prepared.photo, 'photo'), thumbnail = resources.asset(h, prepared.thumbnail, 'thumbnail', photo.id);
+        return { changes: [h.insert('assets', photo), h.insert('assets', thumbnail), h.replace('animals',
+          h.edit('animals', animal, { photoAssetId: photo.id, thumbnailAssetId: thumbnail.id })), log(h, 'animal', animal.id)],
+          result: { animalId: animal.id, photoAssetId: photo.id, thumbnailAssetId: thumbnail.id } };
+      }, command);
+    });
   }
   function remove(animalId, command) {
     return c.execute('photos.remove', { animalId }, (data, h) => {
@@ -30,15 +32,17 @@
     }, command);
   }
   async function setOrganizationLogo(file, command) {
-    const prepared = (await root.utils.images.prepare(file)).photo;
-    return c.execute('photos.setOrganizationLogo', { file: resources.identity(prepared) }, (data, h) => {
-      const organization = data.organizationSettings[0];
-      if (!organization) h.fail('InvalidStateError', 'Create an organization first');
-      resources.budget(data, prepared.byteLength);
-      const logo = resources.asset(h, prepared, 'logo');
-      return { changes: [h.insert('assets', logo), h.replace('organizationSettings', h.edit('organizationSettings', organization, { logoAssetId: logo.id })),
-        log(h, 'organization_settings', organization.id)], result: { logoAssetId: logo.id } };
-    }, command);
+    return c.withActivity(async () => {
+      const prepared = (await root.utils.images.prepare(file)).photo;
+      return c.execute('photos.setOrganizationLogo', { file: resources.identity(prepared) }, (data, h) => {
+        const organization = data.organizationSettings[0];
+        if (!organization) h.fail('InvalidStateError', 'Create an organization first');
+        resources.budget(data, prepared.byteLength);
+        const logo = resources.asset(h, prepared, 'logo');
+        return { changes: [h.insert('assets', logo), h.replace('organizationSettings', h.edit('organizationSettings', organization, { logoAssetId: logo.id })),
+          log(h, 'organization_settings', organization.id)], result: { logoAssetId: logo.id } };
+      }, command);
+    });
   }
   async function read(assetId) {
     const value = await resources.readAsset(assetId);

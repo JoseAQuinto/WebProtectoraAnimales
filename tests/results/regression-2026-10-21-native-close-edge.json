@@ -1,0 +1,26 @@
+{
+  "format": "rescue-manager-regression-run",
+  "version": 1,
+  "browser": "edge",
+  "label": "2026-10-21-native-close",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-21T18:03:27.852Z",
+  "status": "failed",
+  "runs": [
+    {
+      "suite": "workspace-ui",
+      "report": "workspace-ui-2026-10-21-native-close-edge.json",
+      "exitCode": 1,
+      "status": "failed",
+      "checks": 10,
+      "failedChecks": 1
+    }
+  ],
+  "limitations": [
+    "Only the selected existing suites are executed. Each report retains its scope, hashes and limitations.",
+    "No physical device, screen reader, Firefox or commercial acceptance is inferred from this summary.",
+    "Performance timings depend on machine load; run volume separately when comparing latency."
+  ],
+  "completedAt": "2026-10-21T18:05:36.715Z",
+  "checks": 10
+}

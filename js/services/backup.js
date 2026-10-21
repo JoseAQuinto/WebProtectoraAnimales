@@ -7,7 +7,7 @@
   }
   function saveReceipt(value) { return run(['backupReceipts'], 'readwrite', tx => tx.objectStore('backupReceipts').put(value)); }
   async function create() {
-    const snapshot = await root.services.context.snapshot();
+    const snapshot = await root.services.context.snapshot({ fresh: true });
     if (!snapshot) throw s.error('DatasetChangedError', 'There is no active organization to back up');
     return encodeSnapshot(snapshot);
   }

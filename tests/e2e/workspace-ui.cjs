@@ -57,7 +57,7 @@ async function check(id, work) {
   }
   async function observe() {
     return page.evaluate(async () => {
-      const root = window.RescueManager, snapshot = await root.services.context.snapshot(); if (!snapshot) return null;
+      const root = window.RescueManager, snapshot = await root.services.context.snapshot({fresh:true}); if (!snapshot) return null;
       const tables = {};
       for (const [name, rows] of Object.entries(snapshot.tables)) {
         tables[name] = [];
@@ -114,7 +114,7 @@ async function check(id, work) {
       });
       await check('new-module-viewports-filter-bounds-and-language-preserve-data', verifyViews);
       await nav('animals');
-      const animal = await page.evaluate(async () => (await window.RescueManager.services.context.snapshot()).tables.animals[0]);
+      const animal = await page.evaluate(async () => (await window.RescueManager.services.context.snapshot({fresh:true})).tables.animals[0]);
       await page.evaluate(id => { location.hash = '#animals/' + id; }, animal.id);
       await page.getByRole('heading', { name: animal.name, level: 1, exact: true }).waitFor();
       await screenshots('animal-info'); await click('a.tab.documents'); await screenshots('animal-documents');
@@ -134,7 +134,7 @@ async function check(id, work) {
     await check('central-contact-create-and-duplicate-review-prevent-silent-duplicate', async () => {
       await nav('contacts'); await click('p.newContact'); await modal().locator('[name="name"]').fill('Familia UI ficticia'); await modal().locator('[name="email"]').fill('family-ui@example.invalid'); await save();
       await modal().getByRole('heading', { name: 'Familia UI ficticia', exact: true }).waitFor(); await closeDialogs();
-      contactId = await page.evaluate(async () => (await window.RescueManager.services.context.snapshot()).tables.contacts[0].id);
+      contactId = await page.evaluate(async () => (await window.RescueManager.services.context.snapshot({fresh:true})).tables.contacts[0].id);
       const before = await observe(); await click('p.newContact'); await modal().locator('[name="name"]').fill('Posible duplicado'); await modal().locator('[name="email"]').fill('family-ui@example.invalid'); await click('common.save', modal());
       await modal().getByText(await t('p.confirmDuplicateNeeded'), { exact: true }).waitFor();
       assert((await observe()).businessHash === before.businessHash, 'Unconfirmed duplicate changed data'); assert(await modal().locator('[name="name"]').inputValue() === 'Posible duplicado', 'Duplicate error discarded form');
@@ -152,7 +152,7 @@ async function check(id, work) {
     });
     await check('animal-entry-and-positive-weight-save-through-real-forms', async () => {
       await nav('animals'); await click('a.new'); await modal().locator('[name="name"]').fill('Luna UI ñ 🐾'); await modal().locator('[name="speciesId"]').selectOption({index:0}); await modal().locator('[name="entryReason"]').fill('Rescate sintético'); await modal().locator('[name="availability"]').selectOption('available'); await save();
-      await page.getByRole('heading', { name: 'Luna UI ñ 🐾', exact: true }).waitFor(); animalId = await page.evaluate(async () => (await window.RescueManager.services.context.snapshot()).tables.animals[0].id);
+      await page.getByRole('heading', { name: 'Luna UI ñ 🐾', exact: true }).waitFor(); animalId = await page.evaluate(async () => (await window.RescueManager.services.context.snapshot({fresh:true})).tables.animals[0].id);
       await click('a.addWeight'); await modal().locator('[name="grams"]').fill('9500'); await save(); await page.getByText(/9500 g/).first().waitFor();
       const capture = await observe(); assert(capture.counts.animals === 1 && capture.counts.stayEpisodes === 1 && capture.counts.weightMeasurements === 1, 'Animal entry or weight missing'); return { animalId, ...capture };
     });

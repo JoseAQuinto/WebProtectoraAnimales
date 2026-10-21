@@ -145,7 +145,7 @@
   function schedule(){const status=root.services.context.status();clearTimeout(retryTimer);
     if(!status.canWrite&&status.blockedUntil)retryTimer=setTimeout(reclaim,Math.min(31000,Math.max(250,status.blockedUntil-Date.now()+250)));}
   // Hidden tabs stop renewing (another visible tab may then take over) unless a long operation is running.
-  setInterval(()=>{const status=root.services.context.status();if(document.hidden&&!((state.busy||ui.busy)&&status.canWrite))return;
+  setInterval(()=>{const status=root.services.context.status();if(document.hidden&&!((state.busy||ui.busy||root.services.context.busy)&&status.canWrite))return;
     if(status.canWrite)root.services.context.renew().catch(()=>render());else if(status.active)reclaim();},root.config.leaseRenewMs);
   async function start(){try{await root.services.context.open();const capture=await root.services.context.snapshot();if(capture?.tables.organizationSettings[0])root.core.i18n.setLanguage(capture.tables.organizationSettings[0].language);await render();}catch(error){document.getElementById('app').replaceChildren(el('main',{class:'content'},notice(ui.message(error),true)));}}
   root.core.app=Object.freeze({ready:start(),render});

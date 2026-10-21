@@ -85,15 +85,17 @@
     events(h, changes, document, links);
   }
   async function createEmbedded(input, file, command) {
-    const prepared = await files.prepareDocument(file);
-    return c.execute('documents.createEmbedded', { input, file: identity(prepared) }, (data, h) => {
-      only(input, [...metadata, 'links'], h); category(h, input.typeId); budget(data, prepared.byteLength);
-      const resource = asset(h, prepared, 'embedded_document'), { links, ...values } = input;
-      const document = h.create('documents', { ...values, mode: 'embedded', assetId: resource.id });
-      const changes = [h.insert('assets', resource), h.insert('documents', document), log(h, 'create', document.id)];
-      addLinks(data, h, changes, document, links);
-      return { changes, result: { id: document.id, assetId: resource.id } };
-    }, command);
+    return c.withActivity(async () => {
+      const prepared = await files.prepareDocument(file);
+      return c.execute('documents.createEmbedded', { input, file: identity(prepared) }, (data, h) => {
+        only(input, [...metadata, 'links'], h); category(h, input.typeId); budget(data, prepared.byteLength);
+        const resource = asset(h, prepared, 'embedded_document'), { links, ...values } = input;
+        const document = h.create('documents', { ...values, mode: 'embedded', assetId: resource.id });
+        const changes = [h.insert('assets', resource), h.insert('documents', document), log(h, 'create', document.id)];
+        addLinks(data, h, changes, document, links);
+        return { changes, result: { id: document.id, assetId: resource.id } };
+      }, command);
+    });
   }
   function createExternal(input, command) {
     return c.execute('documents.createExternal', input, (data, h) => {

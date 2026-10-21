@@ -25,6 +25,7 @@ function harness({ datasetId, today, services, catalogKinds }) {
   const location = seed('locations', { name: 'Refugio' });
   const fail = (name, message) => { const error = new Error(message); error.name = name; throw error; };
   root.services.context = {
+    async withActivity(work) { return work(); },
     async snapshot() { return { datasetId, globalRevision: revision, tables: structuredClone(tables) }; },
     async execute(type, intent, build, command = {}) {
     const operationId = command.operationId || id(), fingerprint = root.utils.canonicalJson.stringify({ type, intent });

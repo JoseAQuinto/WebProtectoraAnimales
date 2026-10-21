@@ -258,7 +258,7 @@ como prueba de propiedad ni cerrar navegadores del usuario.
 
 ## Ejecutor de regresión reproducible — 2026-10-21
 
-`tests/e2e/regression.cjs` enumera las 33 suites de módulos existentes y ejecuta
+`tests/e2e/regression.cjs` enumera las 34 suites actuales, incluida read-cache-ui, y ejecuta
 las elegidas de forma secuencial por navegador. No cierra procesos directamente:
 cada hijo utiliza sus perfiles y su cierre verificado habituales. Se conservan
 los informes de cada suite y un resumen, incluidos los fallos. Se comprueba todo
@@ -277,4 +277,22 @@ PC. `--suites asset-retention-ui,trash-purge-ui` limita el recorrido a esas suit
 para comparar tiempos, preferir ejecutar volume-ui por separado sin otra carga.
 Cada informe conserva sus huellas y límites; el resumen no acredita dispositivos
 físicos, lectores de pantalla, Firefox ni aceptación comercial. La guía dirigida
-no está en estas 33 suites. No se incluye el ejecutor en la distribución.
+no está en estas 34 suites. No se incluye el ejecutor en la distribución.
+
+## Archivos físicos y cierre nativo — 2026-10-21
+
+`volume-ui` versión 2 guarda la copia descargada y la selecciona en el formulario
+real. Playwright conectado por CDP considera remoto su transporte y limita a
+50 MiB `setInputFiles`; esto no es el límite de 128 MiB del producto.
+`local-file.cjs` usa `DOM.setFileInputFiles` con un archivo existente dentro de
+`.tmp`, validado por realpath. No construye un File en memoria ni relaja seguridad.
+Desde otro PC ejecutar `volume-ui` completo con un nombre nuevo; VOLUME.md conserva
+los intentos fallidos y la continuación dirigida sobre un perfil de este equipo.
+
+La carga simultánea produjo fallos de cierre en workspace Edge y demo Chrome.
+Se conserva la evidencia. El arnés comprueba además las filas CIM remanentes
+con `System.Diagnostics.Process`: solo una ausencia nativa o `HasExited` confirmado
+permite descartarlas. Un proceso vivo, desconocido o una inspección fallida
+siguen haciendo fallar el cierre. Se guardan las filas CIM y la observación nativa;
+no se terminan procesos adicionales. Dos pruebas Node cubren clasificación y
+observaciones incompletas. Las rondas dirigidas posteriores conservan nombres nuevos.

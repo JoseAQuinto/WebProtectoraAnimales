@@ -1,0 +1,26 @@
+{
+  "format": "rescue-manager-regression-run",
+  "version": 1,
+  "browser": "chrome",
+  "label": "2026-10-21-native-close",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-21T18:03:52.672Z",
+  "status": "failed",
+  "runs": [
+    {
+      "suite": "demo-ui",
+      "report": "demo-ui-2026-10-21-native-close-chrome.json",
+      "exitCode": 1,
+      "status": "failed",
+      "checks": 12,
+      "failedChecks": 1
+    }
+  ],
+  "limitations": [
+    "Only the selected existing suites are executed. Each report retains its scope, hashes and limitations.",
+    "No physical device, screen reader, Firefox or commercial acceptance is inferred from this summary.",
+    "Performance timings depend on machine load; run volume separately when comparing latency."
+  ],
+  "completedAt": "2026-10-21T18:06:54.992Z",
+  "checks": 12
+}

@@ -5,6 +5,15 @@ DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
+**Bloque posterior vigente:** READ_CACHE.md: captura activa reconstruible con
+comprobación transaccional de anclajes, lotes por UUID, lease de actividad de
+120 s con retorno a 15 s, preparación de medios incluida. Copias y observadores
+de pruebas usan capturas frescas. 310 Node / 917 estáticas; formatos intactos.
+VOLUME.md distingue los informes históricos en memoria de la copia física actual:
+Chrome versión 2 17/17 a 50k + 32 MiB; Edge en cadena 12 + 6 comprobaciones con
+idénticas fuentes, fallo padre conservado. No volver a atribuir selección física
+a los ejecutores versión 1. MIXED_VOLUME.md cubre animales/contactos/historiales.
+
 **Avance del 2026-10-21.** Se comprobaron cambios locales/remoto: checkout limpio
 y fetch/pull --ff-only sin diferencias desde 76abad3. Inspección estructural
 sin duplicación y esquemas compilados: VALIDATION_PERFORMANCE.md. 303 Node /
@@ -31,9 +40,15 @@ Hecho hoy (no repetir como pendiente), cada bloque con su documento y evidencia:
   `*-2026-10-20-{chrome,edge}-nav-diagnostics.json`, **68 rondas, 926 comprobaciones,
   0 fallos**, más `help-ui-2026-10-20-nav-diagnostics-*`.
 
-**Siguiente acción concreta:** validación incremental por tablas afectadas (la
-validación completa cuesta ~0,54–0,66 s a 50k registros, VOLUME.md) y listas por índices
-o cursor con binarios diferidos; repetir `volume-ui` y la regresión completa.
+**Prioridad de corrección del checkpoint:** proteger creación/verificación y
+restauración de copias largas con la actividad del contexto; el escenario mixto
+completo detectó pérdida de control y rechazó la restauración. Completar la
+continuación dirigida descrita en MIXED_VOLUME.md o repetir desde cero en otro PC.
+
+**Después:** validación incremental por tablas afectadas y listas
+por índices o cursor con binarios diferidos. La captura inicial y la validación
+relacional siguen siendo O(N); consultar las mediciones con su carga y versión en
+VOLUME.md. La caché repetida ya está implementada; no repetirla como pendiente.
 Plurales de archivos/grupos/registros ya completos: STORAGE_I18N.md, con 0/1/2
 y recuentos independientes de grupo/archivos, 3 suites / 57 comprobaciones por
 motor en las fuentes posteriores. No repetirlos como pendientes. Después:

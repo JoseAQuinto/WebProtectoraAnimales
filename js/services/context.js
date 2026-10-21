@@ -3,6 +3,7 @@
   const root = window.RescueManager, s = root.storage, w = s.writeCoordinator;
   const owner = root.utils.ids.uuidV4();
   let active = null, lease = null, blockedUntil = null;
+  let pendingCommands = 0;
   function fail(name, message) { throw s.error(name, message); }
   function freeze(value) { if (value && typeof value === 'object' && !Object.isFrozen(value) && !(value instanceof Blob)) { Object.freeze(value); Object.values(value).forEach(freeze); } return value; }
   const ttl = () => root.config.leaseMs;
@@ -29,7 +30,7 @@
   }
   async function renew() {
     if (!lease || !active) return false;
-    try { lease = await w.renew({ owner, datasetId: active.datasetId, leaseToken: lease.token }, ttl()); return true; }
+    try { lease = await w.renew({ owner, datasetId: active.datasetId, leaseToken: lease.token }, pendingCommands ? root.config.activeCommandLeaseMs : ttl()); return true; }
     catch (error) { lease = null; throw error; }
   }
   async function takeControl() {
@@ -38,8 +39,8 @@
     lease = await w.takeControl({ owner, datasetId: active.datasetId, expectedRevision: active.revision }, ttl());
     return status();
   }
-  async function snapshot() {
-    const value = await s.repositories.snapshot();
+  async function snapshot(options = {}) {
+    const value = await s.repositories.snapshot(undefined, options);
     if (!value) return null;
     if (active && active.datasetId !== value.datasetId) lease = null;
     active = { key: 'active', datasetId: value.datasetId, revision: value.globalRevision };
@@ -50,6 +51,29 @@
     return { owner, datasetId: capture.datasetId, expectedRevision: capture.globalRevision, leaseToken: lease.token };
   }
   async function execute(type, intent, build, command = {}) {
+    return withActivity(() => executeCommand(type, intent, build, command));
+  }
+  async function withActivity(work) {
+    if (typeof work !== 'function') fail('InvalidInputError', 'An operation callback is required');
+    pendingCommands++;
+    try {
+      // This only extends an existing live owned lease; the native coordinator still rejects expiry,
+      // takeover or dataset changes. It never acquires another tab's lease.
+      if (lease && active) await renew();
+      return await work();
+    } finally {
+      pendingCommands--;
+      if (!pendingCommands && lease && active) {
+        try { await renew(); }
+        catch (error) {
+          // renew() already clears local write control. Cleanup cannot undo a confirmed commit or
+          // replace a preparation error; record the separate lifecycle failure for review.
+          root.services.diagnostics?.record('lease-idle', error);
+        }
+      }
+    }
+  }
+  async function executeCommand(type, intent, build, command) {
     const capture = await snapshot();
     if (!capture) fail('DatasetChangedError', 'Create or restore an organization first');
     // Builders read the capture without modifying it; freezing turns an accidental mutation into a
@@ -95,5 +119,5 @@
     active = { key: 'active', datasetId: capture.datasetId, revision: result.activeRevision };
     return result;
   }
-  root.services.context = Object.freeze({ open, status, renew, retry, takeControl, snapshot, options, execute });
+  root.services.context = Object.freeze({ open, status, renew, retry, takeControl, snapshot, options, execute, withActivity, get busy() { return pendingCommands > 0; } });
 }());
