@@ -62,6 +62,55 @@ la UI actual, verifica, restaura y cierra/reabre. Los pasos nuevos y los heredad
 se enumeran por separado. Desde otro PC ejecutar el escenario completo: los
 perfiles ignorados y las copias ficticias locales no se suben a Git.
 
+## Corrección y continuación dirigida de Chrome
+
+La creación/verificación de copias protege ahora el lease de quien ya controla
+la escritura; siguen disponibles sin adquirir control en pestañas de lectura.
+Restauración y recuperación protegen también toda la preparación, validación y
+activación. Se mantienen confirmación, copia actual verificada, revisión, fencing,
+cancelación, conjunto separado y conservación del anterior. No se extiende un
+lease ya perdido. Cambia únicamente `js/services/backup.js` respecto al padre.
+
+`mixed-recovery-ui-2026-10-21-chrome-protected-backup.json`: **8/8 comprobaciones
+nuevas**, 131 fuentes actuales idénticas al cerrar. Primero acreditó que el intento
+fallido había conservado el grafo activo completo y sus bytes, comparándolos con
+el archivo original. Después descargó otra copia de 36.473.346 bytes desde la UI
+(7,34 s), la seleccionó/verificó conservando control y la restauró (29,51 s), con
+todos los registros y hashes idénticos. El anterior quedó retirado y recuperable;
+cierre/reapertura conservaron dataset/revisión/digest/bytes. Estos tiempos se
+midieron sin otras suites nativas simultáneas y no son una promesa de latencia.
+
+Se heredan explícitamente los pasos de generación del padre; no se presenta esta
+continuación como una ejecución desde cero ni se cambia su resultado fallido.
+La comparación de fuentes permite solo el archivo corregido indicado arriba.
+
+## Edge completo desde cero con la corrección
+
+`mixed-volume-ui-2026-10-21-edge-protected-backup.json`: **20/20**, generación
+completa nueva y las 131 fuentes actuales intactas. Ejecutado sin otras suites
+nativas simultáneas. Todos los recuentos previstos se comprobaron; los 61.772
+registros iniciales incluyen los episodios, entradas, catálogos y configuración.
+Después se comprobó la edición y el documento con sus hechos relacionados.
+
+| Medida | Edge |
+|---|---:|
+| Captura fría / repetida | 1.022 / 1 ms |
+| Validación completa | 805 ms |
+| Edición de contacto | 843 ms |
+| Documento TXT de 1 MiB | 1.843 ms |
+| Refrescos panel / animales / contactos / tareas | 41 / 18 / 18 / 149 ms |
+| Refrescos finanzas / inventario / informes | 74 / 15 / 29 ms |
+| Generar copia / descarga y verificación UI completa | 7.801 / 17.312 ms |
+| Restauración completa | 33.971 ms |
+
+Copia física de 36.473.346 bytes, hash
+`7d45d95e01609c439faeb6aa4bc408f664a12e696cb147187441dbe230978a73`.
+La activación creó otro dataset y los registros/bytes resultaron idénticos;
+dos cierres propios y reapertura conservaron revisión, recuentos y hashes.
+Los tiempos del padre Chrome bajo carga no son comparables como diferencias
+entre motores. El ensayo no acredita todas las distribuciones de negocio,
+memoria máxima, dispositivos físicos ni aceptación comercial.
+
 ## Límites
 
 Tiempos dependientes del equipo/carga, sin control estadístico. Los refrescos

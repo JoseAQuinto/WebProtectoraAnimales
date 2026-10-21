@@ -5,6 +5,13 @@ DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
+REGRESSION_2026_10_21.md ordena las rondas, sus fuentes y los fallos conservados;
+no sumar sus comprobaciones como si todas correspondieran al último runtime.
+Última regresión dirigida de copias: **Chrome 6 suites / 80 comprobaciones y
+Edge 5 / 65, todas correctas**, con el runtime de copias protegidas; incluye lectura
+sin tomar control, integral entre perfiles, importación grande y ZIP extraído.
+No hace falta repetir esas rondas sin un riesgo concreto o un cambio posterior.
+
 **Bloque posterior vigente:** READ_CACHE.md: captura activa reconstruible con
 comprobación transaccional de anclajes, lotes por UUID, lease de actividad de
 120 s con retorno a 15 s, preparación de medios incluida. Copias y observadores
@@ -40,10 +47,16 @@ Hecho hoy (no repetir como pendiente), cada bloque con su documento y evidencia:
   `*-2026-10-20-{chrome,edge}-nav-diagnostics.json`, **68 rondas, 926 comprobaciones,
   0 fallos**, más `help-ui-2026-10-20-nav-diagnostics-*`.
 
-**Prioridad de corrección del checkpoint:** proteger creación/verificación y
-restauración de copias largas con la actividad del contexto; el escenario mixto
-completo detectó pérdida de control y rechazó la restauración. Completar la
-continuación dirigida descrita en MIXED_VOLUME.md o repetir desde cero en otro PC.
+**Copias largas ya corregidas:** creación/verificación, restauración y recuperación
+usan actividad protegida; las pestañas de lectura pueden crear/verificar sin
+tomar control. MIXED_VOLUME.md conserva el padre fallido y 8 comprobaciones nuevas
+de continuación Chrome: datos previos intactos, nueva copia física, restauración
+con bytes idénticos, recuperación anterior y reapertura. No repetir el fallo como
+corrección pendiente ni reasignar fuentes del padre a los pasos nuevos.
+La ronda `mixed-volume-ui-2026-10-21-edge-protected-backup.json` pasa **20/20
+desde cero** con el objetivo completo (2k animales, 5k contactos, 50k relacionados),
+copia física, restauración y reapertura. No repetir la escala grande como pendiente;
+los límites de memoria/plataformas y otras distribuciones siguen abiertos.
 
 **Después:** validación incremental por tablas afectadas y listas
 por índices o cursor con binarios diferidos. La captura inicial y la validación
@@ -136,7 +149,7 @@ el 2026-10-19 con cupo ordinario renovado; el corte del día anterior es histór
 
 Las rondas e intentos anteriores están en tests/results y explicados en cada
 documento. No borrar intentos fallidos ni atribuir nuevas huellas a rondas viejas.
-Última demo: 108 fuentes, 15/15 por motor, archivos/revisiones/digest conservados
+Demo original: 108 fuentes, 15/15 por motor, archivos/revisiones/digest conservados
 tras dos cierres propios. Guía original: 109 fuentes, 4/4 por motor; recorrido de
 19 capítulos EN/ES, foco, ruta, anchos y visibilidad print, sin escribir negocio.
 Guía sincronizada del 2026-10-19: 120 fuentes, 4/4 por motor en

@@ -289,10 +289,14 @@ real. Playwright conectado por CDP considera remoto su transporte y limita a
 Desde otro PC ejecutar `volume-ui` completo con un nombre nuevo; VOLUME.md conserva
 los intentos fallidos y la continuación dirigida sobre un perfil de este equipo.
 
-La carga simultánea produjo fallos de cierre en workspace Edge y demo Chrome.
+Durante la carga simultánea se observaron fallos de cierre en workspace Edge y demo Chrome.
 Se conserva la evidencia. El arnés comprueba además las filas CIM remanentes
 con `System.Diagnostics.Process`: solo una ausencia nativa o `HasExited` confirmado
 permite descartarlas. Un proceso vivo, desconocido o una inspección fallida
 siguen haciendo fallar el cierre. Se guardan las filas CIM y la observación nativa;
 no se terminan procesos adicionales. Dos pruebas Node cubren clasificación y
 observaciones incompletas. Las rondas dirigidas posteriores conservan nombres nuevos.
+Si la raíz ya tiene salida nativa confirmada pero Node aún no ha recibido el
+callback de `exit`, se registra `nativeRootExited` antes de liberar CDP y pipes.
+Los hijos remanentes siguen necesitando su propia confirmación; un exitCode nulo
+por sí solo nunca cuenta como prueba de salida.

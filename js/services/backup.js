@@ -2,17 +2,27 @@
   'use strict';
   const root = window.RescueManager, s = root.storage;
   const run = (...args) => s.transactions.run(...args);
+  // Reading a copy remains available in read-only tabs. An existing writer protects its lease
+  // across CPU-heavy validation/encoding; this never acquires or takes another tab's control.
+  function protectRead(work) {
+    const context = root.services.context;
+    return context.status().canWrite ? context.withActivity(work) : work();
+  }
   async function receipt(backupId) {
     return run(['backupReceipts'], 'readonly', (tx, api) => api.request(tx.objectStore('backupReceipts').get(backupId), value => api.setResult(value || null)));
   }
   function saveReceipt(value) { return run(['backupReceipts'], 'readwrite', tx => tx.objectStore('backupReceipts').put(value)); }
   async function create() {
-    const snapshot = await root.services.context.snapshot({ fresh: true });
-    if (!snapshot) throw s.error('DatasetChangedError', 'There is no active organization to back up');
-    return encodeSnapshot(snapshot);
+    return protectRead(async () => {
+      const snapshot = await root.services.context.snapshot({ fresh: true });
+      if (!snapshot) throw s.error('DatasetChangedError', 'There is no active organization to back up');
+      return encodeSnapshot(snapshot);
+    });
   }
   async function createForDataset(id){
-    const snapshot=await s.repositories.snapshot(id);if(!snapshot||snapshot.dataset.state!=='retired')throw s.error('InvalidInputError','Choose an inactive recovery dataset');return encodeSnapshot(snapshot);
+    return protectRead(async()=>{
+      const snapshot=await s.repositories.snapshot(id);if(!snapshot||snapshot.dataset.state!=='retired')throw s.error('InvalidInputError','Choose an inactive recovery dataset');return encodeSnapshot(snapshot);
+    });
   }
   async function encodeSnapshot(snapshot){
     const encoded = await root.services.backupCodec.encode(snapshot);
@@ -27,15 +37,17 @@
     await saveReceipt({ ...value, state: value.verifiedAt ? 'verified' : 'requested', requestedAt: new Date().toISOString() });
   }
   async function verify(file) {
-    const decoded = await root.services.backupCodec.decode(file);
-    const old = await receipt(decoded.backup.backupId);
-    // A reselected, fully validated generated file may prove a receipt; no disk-save claim is made.
-    if (old && old.datasetId === decoded.datasetId && old.dataRevision === decoded.dataRevision) {
-      const current = await s.repositories.snapshot(old.datasetId);
-      const matches = current && current.dataRevision === decoded.dataRevision && await s.datasetManager.digest(current) === await s.datasetManager.digest(decoded);
-      if (matches) await saveReceipt({ ...old, state: 'verified', verifiedAt: new Date().toISOString() });
-    }
-    return decoded;
+    return protectRead(async () => {
+      const decoded = await root.services.backupCodec.decode(file);
+      const old = await receipt(decoded.backup.backupId);
+      // A reselected, fully validated generated file may prove a receipt; no disk-save claim is made.
+      if (old && old.datasetId === decoded.datasetId && old.dataRevision === decoded.dataRevision) {
+        const current = await s.repositories.snapshot(old.datasetId);
+        const matches = current && current.dataRevision === decoded.dataRevision && await s.datasetManager.digest(current) === await s.datasetManager.digest(decoded);
+        if (matches) await saveReceipt({ ...old, state: 'verified', verifiedAt: new Date().toISOString() });
+      }
+      return decoded;
+    });
   }
   async function list() {
     const active = await s.writeCoordinator.readActive();
@@ -48,6 +60,9 @@
   }
   async function restore(source, command = {}) {
     if (command.confirmed !== true) throw s.error('ConfirmationRequiredError', 'Confirm the replacement after reviewing the summary');
+    return root.services.context.withActivity(() => restoreConfirmed(source, command));
+  }
+  async function restoreConfirmed(source, command) {
     const current = await root.services.context.snapshot();
     let options = {};
     if (current) {
@@ -63,9 +78,11 @@
     return result;
   }
   async function recover(datasetId, command) {
-    const source = await s.repositories.snapshot(datasetId);
-    if (!source || source.dataset.state !== 'retired') throw s.error('InvalidInputError', 'Choose an available recovery dataset');
-    return restore(source, command);
+    return root.services.context.withActivity(async () => {
+      const source = await s.repositories.snapshot(datasetId);
+      if (!source || source.dataset.state !== 'retired') throw s.error('InvalidInputError', 'Choose an available recovery dataset');
+      return restore(source, command);
+    });
   }
   root.services.backup = Object.freeze({ create, createForDataset, listForDataset, requested, verify, list, restore, recover });
 }());

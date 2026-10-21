@@ -1,0 +1,58 @@
+{
+  "format": "rescue-manager-regression-run",
+  "version": 1,
+  "browser": "edge",
+  "label": "2026-10-21-protected-backup",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-21T18:26:59.939Z",
+  "status": "passed",
+  "runs": [
+    {
+      "suite": "read-cache-ui",
+      "report": "read-cache-ui-2026-10-21-protected-backup-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 17,
+      "failedChecks": 0
+    },
+    {
+      "suite": "integral-ui",
+      "report": "integral-ui-2026-10-21-protected-backup-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 9,
+      "failedChecks": 0
+    },
+    {
+      "suite": "contact-import-ui",
+      "report": "contact-import-ui-2026-10-21-protected-backup-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 13,
+      "failedChecks": 0
+    },
+    {
+      "suite": "retention-ui",
+      "report": "retention-ui-2026-10-21-protected-backup-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 18,
+      "failedChecks": 0
+    },
+    {
+      "suite": "package-ui",
+      "report": "package-ui-2026-10-21-protected-backup-edge.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 8,
+      "failedChecks": 0
+    }
+  ],
+  "limitations": [
+    "Only the selected existing suites are executed. Each report retains its scope, hashes and limitations.",
+    "No physical device, screen reader, Firefox or commercial acceptance is inferred from this summary.",
+    "Performance timings depend on machine load; run volume separately when comparing latency."
+  ],
+  "completedAt": "2026-10-21T18:28:31.984Z",
+  "checks": 65
+}

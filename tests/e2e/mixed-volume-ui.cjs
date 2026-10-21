@@ -44,6 +44,9 @@ async function check(id,work){try{result.checks.push({id,passed:true,evidence:aw
   await check('complete-owned-close',()=>first.session.close());const reopened=await open();page=reopened.tab;
   await check('reopen-preserves-the-full-mixed-graph-and-binary-hashes',async()=>{const after=await observe();assert(JSON.stringify(after)===JSON.stringify(expected),'Mixed reopen mismatch');assert(!result.pageErrors.length&&!result.consoleErrors.length&&!result.externalRequests.length,'Runtime/network errors');return after;});
   await check('complete-reopened-close',()=>reopened.session.close());await check('source-files-unchanged',async()=>{assert(JSON.stringify(result.sourceFiles)===JSON.stringify(await sources()),'Runtime changed');return{count:result.sourceFiles.length};});result.completed=true;
- }catch(error){result.fatalError={name:error.name,message:error.message,stack:error.stack};}
+ }catch(error){
+  result.fatalError={name:error.name,message:error.message,stack:error.stack};
+  if(expected)try{result.failureState=await observe();result.failurePreservesPreviousState=JSON.stringify(result.failureState)===JSON.stringify(expected);}catch(inspectionError){result.failureInspectionError=String(inspectionError);}
+ }
  finally{for(const session of sessions)try{await session.close();}catch(e){result.cleanupErrors=[...(result.cleanupErrors||[]),String(e)];}result.status=result.completed&&!result.fatalError&&!result.cleanupErrors?'passed':'failed';result.completedAt=new Date().toISOString();await persist();console.log(result.status.toUpperCase());if(result.status!=='passed')process.exitCode=1;}
 })().catch(error=>{console.error(error);process.exitCode=1;});

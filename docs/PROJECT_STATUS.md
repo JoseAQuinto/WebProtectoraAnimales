@@ -20,10 +20,23 @@ cadena de 12 pasos del padre más 6 nuevos (VOLUME.md), conservando el fallo del
 transporte Playwright >50 MiB. Los informes versión 1 verificaban una copia en
 memoria y no acreditan reselección física. Los intentos de lease/QA fallidos se
 conservan; no son aceptación aprobada. Escenario mixto: MIXED_VOLUME.md.
-El primer escenario mixto completo detectó pérdida de control al restaurar tras
-copias largas. La siguiente corrección debe proteger también creación/verificación
-y restauración de copias, antes de continuar optimizaciones. El padre fallido se
-conserva; su fixture y copia física permiten una continuación dirigida verificable.
+El primer escenario mixto completo detectó pérdida de control tras copias largas.
+Corregido en creación/verificación, restauración y recuperación: actividad del
+contexto con todos los guardas intactos y copia disponible en pestañas de lectura.
+La continuación dirigida Chrome pasa 8/8, acredita conservación tras el fallo,
+nueva copia física, restauración de todo el grafo y bytes, conjunto anterior
+recuperable y reapertura. El padre fallido conserva su resultado y fuentes;
+MIXED_VOLUME.md distingue los pasos nuevos de los heredados.
+Edge pasa después **20/20 desde cero**, con 2.000 animales, 5.000 contactos y
+50.000 relacionados (61.772 filas iniciales con configuración/episodios/entradas).
+Copia física de 36 MB, activación y reapertura con registros/bytes idénticos.
+Captura fría 1.022 ms, repetida 1 ms; validación completa 805 ms y escritura
+843 ms en esa muestra sin otras suites nativas simultáneas. No es garantía de capacidad.
+Regresión dirigida con la corrección de copias: Chrome 6 suites / 80 comprobaciones
+y Edge 5 / 65, todas correctas (11 / 145). Incluye copias desde lectura sin tomar
+control, integral entre perfiles, importación grande con cancelación, recuperación,
+ZIP extraído y demo actual completa. REGRESSION_2026_10_21.md documenta las bases
+anteriores y sus fallos, sin presentarlas como una regresión completa del último runtime.
 
 Reanudado desde 76abad3 con árbol limpio. Se consultó GitHub mediante fetch y
 pull --ff-only: main ya coincidía con el remoto, incluidos todos los avances
@@ -111,12 +124,13 @@ rendimiento, impresión física y aceptación. Ficha imprimible: ANIMAL_PRINT.md
 
 ## Fase actual
 
-Desarrollo reanudado el 2026-10-18 desde `18e79a9` y cambios locales de informes
-de otra IA. Se conserva su avance válido y se corrige el bloque en `21f9f56`.
-Se conservan las correcciones R1–R4 y los servicios existentes.
-Ahora hay pantallas operativas de animales, contactos, perfiles/estancias de
-acogida, adopciones, voluntariado, documentos, salud/planes y tareas/calendario,
-finanzas y se añaden donaciones e inventario mediante los servicios existentes.
+Trabajo actual: verificación y pulido de la fase 12, con el alcance funcional
+y las aceptaciones por fuentes de CONTINUE_HERE.md. Los módulos de negocio,
+importación/exportación, demo, guía, limpieza y distribución de desarrollo ya
+tienen recorridos reales en su alcance; faltan los límites y aceptaciones finales
+detallados abajo. REGRESSION_2026_10_21.md distingue la base, fallos conservados y
+pruebas posteriores a cada corrección. El avance local de otra IA del 2026-10-18
+se conservó y corrigió en 21f9f56; no requiere repetir esa revisión.
 **Producto incompleto: utilizar datos sintéticos.**
 No se han reducido los requisitos originales ni publicado un producto comercial.
 
@@ -219,11 +233,13 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Límites y pendientes
 
-- **No utilizar información real todavía.** Falta aceptación integral, optimizar
+- **No utilizar información real todavía.** Falta aceptación final del producto, optimizar
   rendimiento (medido en VOLUME.md), revisión manual de accesibilidad (la automática
   está en ACCESSIBILITY.md) y escenarios adicionales de cada módulo.
-- Persistencia y validación aún capturan el dataset completo por operación:
-  O(N). La prueba Node de volumen no acredita tiempos/memoria en navegador.
+- La captura fría, el refresco tras escritura y la validación relacional siguen
+  recorriendo el dataset completo: O(N). Las lecturas repetidas ya reutilizan
+  una captura inmutable con anclajes nativos (READ_CACHE.md). Volumen se mide en
+  navegador, incluidos el escenario mixto y copias físicas; falta memoria con perfilador.
   Listas UI paginan en memoria y fotografías se preparan al mostrarlas;
   migrar a índices/lecturas acotadas y carga diferida de binarios.
 - Firefox actual pendiente por decisión previa del usuario: no descargar
@@ -257,7 +273,8 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
   pruebas físicas móviles/tabletas y ZIP comercial. No hay aceptación real
   Android/iOS/iPadOS/macOS/Linux. Un viewport estrecho no es un dispositivo real.
 - Licencia comercial pendiente de revisión; no publicar en Etsy.
-- Tras recargar, la escritura puede tardar hasta 15 s en volver por el lease.
+- Tras recargar, la escritura puede tardar hasta 15 s en volver por el lease,
+  o hasta dos minutos si se interrumpió una operación protegida.
   No se confía en escrituras durante pagehide; otra pestaña puede tomar control.
 
 ## Siguiente acción concreta

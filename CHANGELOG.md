@@ -1,5 +1,18 @@
 # Historial de cambios
 
+## Copias grandes sin caducar el control — 2026-10-21
+
+- Creación/verificación protege al escritor existente; una pestaña de lectura
+  puede seguir haciendo copias sin adquirir control. Restauración/recuperación
+  incluyen toda su preparación y activación bajo actividad protegida.
+- Corrige el fallo detectado en el escenario mixto completo. Chrome: 8/8 nuevos
+  en continuación con grafo anterior intacto; Edge: 20/20 desde cero con 2.000
+  animales, 5.000 contactos y 50.000 relacionados. Copia física de 36 MB,
+  registros y bytes idénticos tras activación, recuperación anterior y reapertura.
+- 310 Node / 917 estáticas; regresión dirigida actual 11 suites / 145 comprobaciones
+  correctas Chrome/Edge, incluidas lectura, integral, importación grande y ZIP extraído.
+  Formatos intactos. Evidencia y límites en MIXED_VOLUME.md y REGRESSION_2026_10_21.md.
+
 ## Captura repetida y comandos largos — 2026-10-21
 
 - Una captura activa profundamente inmutable, reutilizada solo tras leer anclajes

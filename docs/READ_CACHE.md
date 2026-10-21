@@ -55,6 +55,13 @@ del contexto cubren limpieza, concurrencia y preparación anidada; su coordinado
 es simulado y no sustituye las pruebas nativas. `withActivity` no agrupa varios
 comandos en una transacción ni promete atomicidad entre ellos.
 
+El escenario mixto completo detectó después que las copias largas aún no usaban
+esa actividad. `backup.create`, `createForDataset` y `verify` protegen ahora al
+escritor existente; una pestaña ya de lectura puede seguir creando/verificando
+sin tomar control. `restore` y `recover` incluyen preparación y activación bajo
+actividad, conservando todos los guardas transaccionales. MIXED_VOLUME.md conserva
+el fallo y la continuación nativa con registros y bytes comprobados.
+
 La primera ronda de volumen con caché (`volume-ui-2026-10-21-chrome-read-cache.json`)
 se conserva fallida: pérdida de lease durante crecimiento hacia 50k bajo carga.
 Después se sacó la congelación de la transacción, se indexó la aplicación del
