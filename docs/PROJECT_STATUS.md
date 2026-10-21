@@ -1,11 +1,26 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-20 (cierre del día). Versión de trabajo: `0.2.0-dev`.
+Actualizado: 2026-10-21. Versión de trabajo: `0.2.0-dev`.
 Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
-## Cierre del día — 2026-10-20
+## Avance vigente — 2026-10-21
+
+Reanudado desde 76abad3 con árbol limpio. Se consultó GitHub mediante fetch y
+pull --ff-only: main ya coincidía con el remoto, incluidos todos los avances
+del 2026-10-20. Lectura inicial de uso: 10 % de cinco horas y 3 % semanal
+consumidos; sin reinicios. VALIDATION_PERFORMANCE.md documenta una sola inspección
+estructural por dataset y campos de esquema compilados, sin omitir reglas.
+303 Node / 917 estáticas. Regresión de las 33 suites de módulos en Chrome/Edge:
+66 rondas, 918 comprobaciones y 0 fallos, fuentes comprobadas al cerrar;
+regression-2026-10-21-single-inspection.json. Volumen aparte: 17/17 por motor,
+50k registros y 32 MiB, copia verificada/reapertura; escritura de 1,32–1,47 s
+a 50k (VOLUME.md). Todavía no hay validación incremental por tablas.
+El nuevo ejecutor tests/e2e/regression.cjs permite reproducir selecciones desde
+otro equipo sin depender de scripts ignorados.
+
+## Cierre histórico del día — 2026-10-20
 
 Parada por indicación del usuario con el bloque de navegación agrupada y diagnóstico
 técnico terminado (NAVIGATION_DIAGNOSTICS.md). Regresión completa final: 68 rondas,
@@ -153,10 +168,10 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Verificación del avance
 
-- Node: **282 subpruebas correctas** (`node --test tests/unit/*.cjs`).
+- Node: **303 subpruebas correctas** (`node --test tests/unit/*.cjs`).
   Incluye 11 casos nuevos de medios/documentos y 2 de archivo animal;
   los servicios simulados no sustituyen las pruebas reales de IndexedDB.
-- Estática: **862 comprobaciones correctas** al integrar los módulos actuales;
+- Estática: **917 comprobaciones correctas** al integrar los módulos actuales;
   sintaxis, CSP, recursos locales y ausencia de dependencias de red. `git diff
   --check` correcto. Los avisos LF/CRLF son normalización de finales de línea.
 - Perfiles reales por `file://`: **9 internas + 6 externas** en Chrome y Edge;

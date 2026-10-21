@@ -1,11 +1,18 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint: **2026-10-20**, rama **main**, app **0.2.0-dev**.
+Checkpoint: **2026-10-21**, rama **main**, app **0.2.0-dev**.
 DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
-**Relevo del 2026-10-20 (parada por indicación del usuario).** Último commit: ver
+**Avance del 2026-10-21.** Se comprobaron cambios locales/remoto: checkout limpio
+y fetch/pull --ff-only sin diferencias desde 76abad3. Inspección estructural
+sin duplicación y esquemas compilados: VALIDATION_PERFORMANCE.md. 303 Node /
+917 estáticas; regresión actual 66 rondas / 918 comprobaciones, 0 fallos,
+más volumen 17/17 por motor a 50k + 32 MiB (VOLUME.md). Las validaciones de
+campos y relaciones siguen completas. Ver git log para commits de este bloque.
+
+**Relevo histórico del 2026-10-20 (parada por indicación del usuario).** Último commit: ver
 `git log -1`; árbol limpio y remoto igual tras subirlo. Cupo al cerrar: 11 % de
 la ventana de cinco horas y 39 % semanal consumidos; no se usaron créditos de
 reinicio. No queda trabajo a medio aplicar fuera de Git.
@@ -25,7 +32,7 @@ Hecho hoy (no repetir como pendiente), cada bloque con su documento y evidencia:
   0 fallos**, más `help-ui-2026-10-20-nav-diagnostics-*`.
 
 **Siguiente acción concreta:** validación incremental por tablas afectadas (la
-validación completa cuesta ~0,7 s a 50k registros, VOLUME.md) y listas por índices
+validación completa cuesta ~0,54–0,66 s a 50k registros, VOLUME.md) y listas por índices
 o cursor con binarios diferidos; repetir `volume-ui` y la regresión completa.
 Después: plurales con `Intl.PluralRules` en textos «archivo(s)»/«grupo(s)» nuevos,
 revisión manual de accesibilidad con lector de pantalla, aceptación en dispositivos
@@ -122,7 +129,7 @@ de los módulos. Las rondas funcionales mantienen sus hashes originales.
 Emular viewport no acredita un dispositivo físico. Firefox actual sigue aplazado
 por decisión previa; no descargar instaladores sin nueva indicación.
 
-Verificación conjunta: **298 pruebas Node / 917 estáticas**, diff sin errores:
+Verificación conjunta: **303 pruebas Node / 917 estáticas**, diff sin errores:
 
 ```powershell
 node tests/static-checks.cjs
@@ -133,14 +140,15 @@ git diff --check
 Ejecutores persistentes en tests/e2e: contact-import-ui, animal-import-ui,
 related-import-ui, finance-import-ui, donation-import-ui, module-import-ui,
 module-import-layout, demo-ui, asset-retention-ui, trash-purge-ui, animal-print-ui, volume-ui, a11y-ui, package-ui, integral-ui y nav-diagnostics-ui, además de los anteriores por módulo.
-Consultar ENVIRONMENT_TESTS.md y sus argumentos --browser, --machine, --output
+Usar tests/e2e/regression.cjs para la selección de suites; consultar
+ENVIRONMENT_TESTS.md y sus argumentos --browser, --machine, --output
 con nombre nuevo y --executable opcional. No sobrescribir evidencia.
 La guía usó una comprobación puntual descrita en HELP.md, sin suite nueva de negocio.
 Node/Playwright son herramientas de desarrollo: no son requisitos del comprador.
 
 ## Siguiente acción concreta
 
-Prioridad vigente: la indicada en el relevo del 2026-10-20 al principio de este
+Prioridad vigente: la indicada en el avance del 2026-10-21 al principio de este
 documento. La lista siguiente conserva el contexto de cada área pendiente.
 
 1. Leer los cinco documentos HISTORY_*.md: entrada/devolución, acogida/salud,

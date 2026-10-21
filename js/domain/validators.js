@@ -4,6 +4,12 @@
   const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
   const present = value => value !== null && value !== undefined;
   const forbidden = new Set(['__proto__', 'constructor', 'prototype']);
+  const compiledFields = new WeakMap();
+  function entries(fields) {
+    if (!Object.isFrozen(fields)) return Object.entries(fields);
+    if (!compiledFields.has(fields)) compiledFields.set(fields, Object.freeze(Object.entries(fields).map(Object.freeze)));
+    return compiledFields.get(fields);
+  }
   class ValidationError extends Error {
     constructor(details) { super('Domain validation failed'); this.name = 'ValidationError'; this.details = details; }
   }
@@ -31,7 +37,7 @@
   }
   // Inspect descriptors before reading a value: imported accessors must never execute.
   function inspect(value, table, errors, path = '', options = {}) {
-    const ancestors = new Set(); let nodes = 0;
+    const ancestors = new Set(); let nodes = 0, recordFrame = null;
     function fail(at, code) { appendIssue(errors, issue(table, null, at, code, code)); }
     function visit(item, at, depth) {
       if (errors.length >= 1000) return;
@@ -48,6 +54,9 @@
       if (Object.getOwnPropertySymbols(item).length) fail(at, 'structure.symbol');
       const keys = Object.getOwnPropertyNames(item);
       if (Array.isArray(item) && (item.length > (options.maxArrayItems || 100000) || keys.length !== item.length + 1)) { fail(at, 'array.shape'); return; }
+      if (recordFrame && Array.isArray(item)) recordFrame.maxArray = Math.max(recordFrame.maxArray, item.length);
+      const previousFrame = recordFrame;
+      if (options.recordProof && depth === 2) recordFrame = { start: nodes, errors: errors.length, maxArray: Array.isArray(item) ? item.length : 0 };
       ancestors.add(item);
       for (const key of keys) {
         if (Array.isArray(item) && key === 'length') continue;
@@ -58,6 +67,12 @@
         visit(descriptor.value, next, depth + 1);
       }
       ancestors.delete(item);
+      if (options.recordProof && depth === 2) {
+        // A dataset walk is stricter on depth, but has larger node/array budgets.
+        // Only certify rows that also fit the standalone record inspector limits.
+        if (errors.length === recordFrame.errors && nodes - recordFrame.start + 1 <= 500000 && recordFrame.maxArray <= 100000) options.recordProof.add(item);
+        recordFrame = previousFrame;
+      }
     }
     visit(value, path, 0);
   }
@@ -71,7 +86,7 @@
   function validateFields(fields, record, table, errors, options, prefix = '', owner = record) {
     const add = (path, code) => appendIssue(errors, issue(table, owner, path, code, code));
     Object.keys(record).forEach(key => { if (!own(fields, key)) add(prefix + key, 'field.unknown'); });
-    for (const [key, field] of Object.entries(fields)) {
+    for (const [key, field] of entries(fields)) {
       const path = prefix + key;
       if (!own(record, key)) { if (field.required) add(path, 'field.required'); continue; }
       validateValue(field, record[key], path);
@@ -216,10 +231,10 @@
       ['externalFileName', 'externalLocation'].forEach(field => requireIf(r.mode === 'external_reference', field)); absentIf(r.mode === 'external_reference', ['assetId']);
     }
   }
-  function validateRecord(table, record, options = {}) {
+  function validateRecordImpl(table, record, options, inspected) {
     const errors = [];
     if (!own(d.schemas, table)) return finish([issue(table, record, '', 'table.unknown', 'table.unknown')], options);
-    inspect(record, table, errors);
+    if (!inspected?.has(record)) inspect(record, table, errors);
     if (!record || typeof record !== 'object' || Array.isArray(record) || (typeof Blob !== 'undefined' && record instanceof Blob)) appendIssue(errors, issue(table, record, '', 'record.object', 'record.object'));
     if (errors.length) return finish(errors, options);
     const context = Object.assign({}, options, { today: today(options) });
@@ -227,6 +242,14 @@
     if (options.datasetId && record.datasetId !== options.datasetId) appendIssue(errors, issue(table, record, 'datasetId', 'dataset.mismatch', 'dataset.mismatch'));
     if (!errors.length) localRules(table, record, errors);
     return finish(errors, options);
+  }
+  function validateRecord(table, record, options = {}) { return validateRecordImpl(table, record, options, null); }
+  function inspectDataset(tables, errors) {
+    // The proof lives only in this synchronous validation call. It cannot survive
+    // mutation, restoration, another revision or a change of calendar day.
+    const proof = new WeakSet();
+    inspect(tables, '@dataset', errors, '', { maxNodes: 16000000, maxArrayItems: 200000, recordProof: proof });
+    return (table, record, options) => validateRecordImpl(table, record, options, proof);
   }
   function createRecord(table, input, options = {}) {
     const errors = []; inspect(input, table, errors);
@@ -256,5 +279,5 @@
     return record;
   }
   d.ValidationError = ValidationError; d.validateRecord = validateRecord; d.createRecord = createRecord;
-  d.validationInternals = Object.freeze({ inspect, issue, finish, today, present, own, appendIssue });
+  d.validationInternals = Object.freeze({ inspect, inspectDataset, entries, issue, finish, today, present, own, appendIssue });
 }(window.RescueManager));

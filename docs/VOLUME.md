@@ -65,3 +65,32 @@ Regresión de todas las suites de módulos con este cambio:
 
 Validación incremental por tablas afectadas, listas por índices/cursor y binarios
 diferidos; medir memoria con perfilador y dispositivos de gama baja.
+
+## Una sola inspección estructural — 2026-10-21
+
+VALIDATION_PERFORMANCE.md explica la eliminación del segundo recorrido de
+descriptores por registro y la compilación de campos del esquema inmutable.
+Todas las comprobaciones de campos y relaciones siguen ejecutándose. No se
+declara implementada validación incremental por tablas ni lecturas acotadas.
+
+`volume-ui-2026-10-21-{chrome,edge}-single-inspection.json`, **17/17 por motor**:
+
+| Registros | Validación Chrome / Edge | Escritura Chrome / Edge |
+|---:|---:|---:|
+| 5 074 | 109 / 61 ms | 222 / 194 ms |
+| 10 076 | 102 / 102 ms | 277 / 306 ms |
+| 20 078 | 220 / 202 ms | 563 / 623 ms |
+| 50 080 | 612 / 542 ms | 1 473 / 1 319 ms |
+| 50 094 + 32 MiB | 595 / 661 ms | 1 757 / 1 406 ms |
+
+La muestra anterior de captura reutilizada en Chrome registraba 1,98 s por
+escritura a 50k; esta registra 1,47 s (aproximadamente un 26 % menos). Se conserva
+la evidencia previa. Son muestras de este equipo, sin control estadístico de
+carga: Edge coincidió parcialmente con la regresión de Chrome. No son una
+promesa de capacidad ni de latencia para otro ordenador.
+
+Copia de 69 448 171 bytes: generación de 9,16 / 10,71 s y verificación de
+5,44 / 6,81 s. Los 50 096 registros y su revisión persisten tras cierre y
+reapertura propios; archivos y copias se comprobaron por el recorrido real.
+La memoria vuelve a estar cuantizada: sigue sin ser una medición de consumo.
+La instantánea y la validación relacional todavía crecen con todo el dataset.

@@ -88,6 +88,43 @@ function fixture() {
 }
 function issues(tables) { return d.validateDataset(tables, { datasetId, today }); }
 function expectIssue(tables, code) { const found = issues(tables); assert.ok(found.some(error => error.code === code), JSON.stringify(found)); }
+
+test('dataset inspection proofs never hide edits, changed date contexts or dataset identities', () => {
+  const tables = fixture(); assert.equal(issues(tables).length, 0);
+  tables.contacts[0].phones[0].original = 'not a phone';
+  expectIssue(tables, 'value.phone');
+  tables.contacts[0].phones[0].original = '+34 600 001 002';
+  assert.equal(issues(tables).length, 0);
+  assert.ok(d.validateDataset(tables, { datasetId: id(), today }).some(error => error.code === 'dataset.mismatch'));
+  assert.ok(d.validateDataset(tables, { datasetId, today: '2026-01-01' }).some(error => error.code === 'date.future'));
+});
+
+test('a later accessor is rejected without executing after a successful dataset inspection', () => {
+  const tables = fixture(); assert.equal(issues(tables).length, 0); let reads = 0;
+  Object.defineProperty(tables.contacts[0].phones[0], 'original', { enumerable: true, get() { reads++; throw Error('Do not read'); } });
+  expectIssue(tables, 'structure.accessor'); assert.equal(reads, 0);
+});
+
+test('standalone record array limits still apply inside the larger dataset array budget', () => {
+  const tables = fixture(); tables.contacts[0].roles = Array(100001).fill('donor');
+  const errors = issues(tables); assert.ok(errors.some(error => error.code === 'array.shape' && error.table === 'contacts' && error.path === 'roles'));
+});
+
+test('standalone record node limits remain enforced after a successful larger dataset walk', () => {
+  const tables = fixture(); tables.contacts[0].extra = Object.fromEntries(Array.from({ length: 6 }, (_, i) => ['part' + i, Array(90000).fill(1)]));
+  assert.ok(issues(tables).some(error => error.code === 'structure.limit' && error.table === 'contacts'));
+});
+
+test('structural proof does not skip field schemas, incoming relations or uniqueness', () => {
+  const tables = fixture(); assert.equal(issues(tables).length, 0);
+  tables.contacts[0].roles = [];
+  expectIssue(tables, 'contact.role');
+  tables.animals[1].microchipOriginal = tables.animals[0].microchipOriginal;
+  tables.animals[1].microchipNormalized = tables.animals[0].microchipNormalized;
+  assert.ok(issues(tables).some(error => error.code.startsWith('unique.')));
+  tables.documents.push(tables.contacts[0]);
+  expectIssue(tables, 'field.unknown');
+});
 test('all 28 entities form a valid dataset with foster, reservation, returned adoption, health and donations', () => {
   const tables = fixture(); assert.equal(d.tableNames.length, 28);
   for (const table of d.tableNames) assert.ok(tables[table].length > 0, table);

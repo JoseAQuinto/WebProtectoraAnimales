@@ -1,10 +1,10 @@
 (function (root) {
   'use strict';
   const d = root.domain;
-  const { inspect, issue, finish, present, own, appendIssue } = d.validationInternals;
+  const { issue, finish, present, own, appendIssue } = d.validationInternals;
   function validateDataset(tables, options = {}) {
     const errors = [];
-    inspect(tables, '@dataset', errors, '', { maxNodes: 16000000, maxArrayItems: 200000 });
+    const inspectRecord = d.validationInternals.inspectDataset(tables, errors);
     if (!tables || typeof tables !== 'object' || Array.isArray(tables) || (typeof Blob !== 'undefined' && tables instanceof Blob)) appendIssue(errors, issue('@dataset', null, '', 'dataset.object', 'dataset.object'));
     if (errors.length) return finish(errors, options);
     const add = (table, record, path, code) => appendIssue(errors, issue(table, record, path, code, code));
@@ -27,7 +27,7 @@
       catch (_) { context.today = root.utils.dates.today('UTC'); }
     }
     d.tableNames.forEach(table => rows[table].forEach(record => {
-      const recordErrors = d.validateRecord(table, record, context); recordErrors.forEach(error => appendIssue(errors, error));
+      const recordErrors = inspectRecord(table, record, context); recordErrors.forEach(error => appendIssue(errors, error));
       if (!recordErrors.length) {
         valid[table].push(record); datasets.add(record.datasetId);
         const key = record.datasetId + '/' + record.id;
@@ -51,10 +51,11 @@
       if (field.ref) reference(table, record, field.ref.table, value, path, field.ref.kind);
       if (field.originRef) reference(table, record, d.entityTables[value.type], value.id, path + '.id');
       if (field.type === 'array') value.forEach((item, index) => fieldRefs(table, record, field.items, item, path + '.' + index));
-      if (field.type === 'object') Object.entries(field.fields).forEach(([key, child]) => fieldRefs(table, record, child, value[key], path + '.' + key));
+      if (field.type === 'object') d.validationInternals.entries(field.fields).forEach(([key, child]) => fieldRefs(table, record, child, value[key], path + '.' + key));
     }
     d.tableNames.forEach(table => {
-      valid[table].forEach(record => Object.entries(d.schemas[table].fields).forEach(([key, field]) => fieldRefs(table, record, field, record[key], key)));
+      const fields = d.validationInternals.entries(d.schemas[table].fields);
+      valid[table].forEach(record => fields.forEach(([key, field]) => fieldRefs(table, record, field, record[key], key)));
       d.schemas[table].indexes.filter(index => index.unique).forEach(index => {
         const seen = new Set();
         valid[table].forEach(record => {

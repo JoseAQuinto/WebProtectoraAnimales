@@ -1,0 +1,411 @@
+{
+  "format": "rescue-manager-regression-summary",
+  "status": "passed",
+  "scope": "33 existing module suites per engine, executed sequentially within each engine; own scoped reports are authoritative",
+  "runs": [
+    {
+      "browser": "chrome",
+      "suite": "a11y-ui",
+      "report": "a11y-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 11
+    },
+    {
+      "browser": "chrome",
+      "suite": "adoption-register-ui",
+      "report": "adoption-register-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "chrome",
+      "suite": "animal-filters-ui",
+      "report": "animal-filters-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "chrome",
+      "suite": "animal-import-ui",
+      "report": "animal-import-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 15
+    },
+    {
+      "browser": "chrome",
+      "suite": "animal-print-ui",
+      "report": "animal-print-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 11
+    },
+    {
+      "browser": "chrome",
+      "suite": "asset-retention-ui",
+      "report": "asset-retention-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 19
+    },
+    {
+      "browser": "chrome",
+      "suite": "contact-import-ui",
+      "report": "contact-import-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 13
+    },
+    {
+      "browser": "chrome",
+      "suite": "dashboard-ui",
+      "report": "dashboard-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "chrome",
+      "suite": "demo-ui",
+      "report": "demo-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 15
+    },
+    {
+      "browser": "chrome",
+      "suite": "document-dates-ui",
+      "report": "document-dates-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 17
+    },
+    {
+      "browser": "chrome",
+      "suite": "donation-import-ui",
+      "report": "donation-import-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 16
+    },
+    {
+      "browser": "chrome",
+      "suite": "finance-import-ui",
+      "report": "finance-import-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 16
+    },
+    {
+      "browser": "chrome",
+      "suite": "finance-ui",
+      "report": "finance-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 12
+    },
+    {
+      "browser": "chrome",
+      "suite": "health-ui",
+      "report": "health-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 12
+    },
+    {
+      "browser": "chrome",
+      "suite": "history-adoption-ui",
+      "report": "history-adoption-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 17
+    },
+    {
+      "browser": "chrome",
+      "suite": "history-corrections-ui",
+      "report": "history-corrections-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 17
+    },
+    {
+      "browser": "chrome",
+      "suite": "history-departure-ui",
+      "report": "history-departure-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 18
+    },
+    {
+      "browser": "chrome",
+      "suite": "history-linked-facts-ui",
+      "report": "history-linked-facts-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 17
+    },
+    {
+      "browser": "chrome",
+      "suite": "history-workflow-ui",
+      "report": "history-workflow-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 18
+    },
+    {
+      "browser": "chrome",
+      "suite": "integral-ui",
+      "report": "integral-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 9
+    },
+    {
+      "browser": "chrome",
+      "suite": "module-exports-ui",
+      "report": "module-exports-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "chrome",
+      "suite": "module-import-ui",
+      "report": "module-import-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 22
+    },
+    {
+      "browser": "chrome",
+      "suite": "nav-diagnostics-ui",
+      "report": "nav-diagnostics-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "chrome",
+      "suite": "package-ui",
+      "report": "package-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 8
+    },
+    {
+      "browser": "chrome",
+      "suite": "related-import-ui",
+      "report": "related-import-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 16
+    },
+    {
+      "browser": "chrome",
+      "suite": "resources-reports-ui",
+      "report": "resources-reports-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 12
+    },
+    {
+      "browser": "chrome",
+      "suite": "retention-ui",
+      "report": "retention-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 18
+    },
+    {
+      "browser": "chrome",
+      "suite": "search-history-ui",
+      "report": "search-history-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "chrome",
+      "suite": "settings-configuration-ui",
+      "report": "settings-configuration-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 13
+    },
+    {
+      "browser": "chrome",
+      "suite": "trash-purge-ui",
+      "report": "trash-purge-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 19
+    },
+    {
+      "browser": "chrome",
+      "suite": "weights-history-ui",
+      "report": "weights-history-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 9
+    },
+    {
+      "browser": "chrome",
+      "suite": "workflows-ui",
+      "report": "workflows-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 16
+    },
+    {
+      "browser": "chrome",
+      "suite": "workspace-ui",
+      "report": "workspace-ui-2026-10-21-chrome-single-inspection.json",
+      "checks": 13
+    },
+    {
+      "browser": "edge",
+      "suite": "a11y-ui",
+      "report": "a11y-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 11
+    },
+    {
+      "browser": "edge",
+      "suite": "adoption-register-ui",
+      "report": "adoption-register-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "edge",
+      "suite": "animal-filters-ui",
+      "report": "animal-filters-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "edge",
+      "suite": "animal-import-ui",
+      "report": "animal-import-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 15
+    },
+    {
+      "browser": "edge",
+      "suite": "animal-print-ui",
+      "report": "animal-print-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 11
+    },
+    {
+      "browser": "edge",
+      "suite": "asset-retention-ui",
+      "report": "asset-retention-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 19
+    },
+    {
+      "browser": "edge",
+      "suite": "contact-import-ui",
+      "report": "contact-import-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 13
+    },
+    {
+      "browser": "edge",
+      "suite": "dashboard-ui",
+      "report": "dashboard-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "edge",
+      "suite": "demo-ui",
+      "report": "demo-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 15
+    },
+    {
+      "browser": "edge",
+      "suite": "document-dates-ui",
+      "report": "document-dates-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 17
+    },
+    {
+      "browser": "edge",
+      "suite": "donation-import-ui",
+      "report": "donation-import-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 16
+    },
+    {
+      "browser": "edge",
+      "suite": "finance-import-ui",
+      "report": "finance-import-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 16
+    },
+    {
+      "browser": "edge",
+      "suite": "finance-ui",
+      "report": "finance-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 12
+    },
+    {
+      "browser": "edge",
+      "suite": "health-ui",
+      "report": "health-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 12
+    },
+    {
+      "browser": "edge",
+      "suite": "history-adoption-ui",
+      "report": "history-adoption-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 17
+    },
+    {
+      "browser": "edge",
+      "suite": "history-corrections-ui",
+      "report": "history-corrections-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 17
+    },
+    {
+      "browser": "edge",
+      "suite": "history-departure-ui",
+      "report": "history-departure-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 18
+    },
+    {
+      "browser": "edge",
+      "suite": "history-linked-facts-ui",
+      "report": "history-linked-facts-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 17
+    },
+    {
+      "browser": "edge",
+      "suite": "history-workflow-ui",
+      "report": "history-workflow-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 18
+    },
+    {
+      "browser": "edge",
+      "suite": "integral-ui",
+      "report": "integral-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 9
+    },
+    {
+      "browser": "edge",
+      "suite": "module-exports-ui",
+      "report": "module-exports-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "edge",
+      "suite": "module-import-ui",
+      "report": "module-import-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 22
+    },
+    {
+      "browser": "edge",
+      "suite": "nav-diagnostics-ui",
+      "report": "nav-diagnostics-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "edge",
+      "suite": "package-ui",
+      "report": "package-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 8
+    },
+    {
+      "browser": "edge",
+      "suite": "related-import-ui",
+      "report": "related-import-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 16
+    },
+    {
+      "browser": "edge",
+      "suite": "resources-reports-ui",
+      "report": "resources-reports-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 12
+    },
+    {
+      "browser": "edge",
+      "suite": "retention-ui",
+      "report": "retention-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 18
+    },
+    {
+      "browser": "edge",
+      "suite": "search-history-ui",
+      "report": "search-history-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 10
+    },
+    {
+      "browser": "edge",
+      "suite": "settings-configuration-ui",
+      "report": "settings-configuration-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 13
+    },
+    {
+      "browser": "edge",
+      "suite": "trash-purge-ui",
+      "report": "trash-purge-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 19
+    },
+    {
+      "browser": "edge",
+      "suite": "weights-history-ui",
+      "report": "weights-history-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 9
+    },
+    {
+      "browser": "edge",
+      "suite": "workflows-ui",
+      "report": "workflows-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 16
+    },
+    {
+      "browser": "edge",
+      "suite": "workspace-ui",
+      "report": "workspace-ui-2026-10-21-edge-single-inspection.json",
+      "checks": 13
+    }
+  ],
+  "rounds": 66,
+  "checks": 918,
+  "compiledAt": "2026-10-21T16:19:04.694Z",
+  "limitations": [
+    "The runner for this initial batch was the previous local orchestration; regression.cjs is provided for future reproducible runs.",
+    "Two separate volume runs passed 17 checks each and are not included in the module check count.",
+    "No new hardware, Firefox, screen reader or commercial acceptance."
+  ]
+}

@@ -1,5 +1,15 @@
 # Historial de cambios
 
+## Validación sin inspecciones duplicadas — 2026-10-21
+
+- Una inspección estructural por dataset con límites individuales conservados;
+  campos de esquemas inmutables compilados. Todas las reglas siguen activas.
+- 303 Node / 917 estáticas; 66 rondas de módulos, 918 comprobaciones sin fallos;
+  volumen 17/17 por motor a 50k + 32 MiB, copia/reapertura conservadas.
+- Escritura medida de 1,32–1,47 s a 50k; no es una garantía para otros equipos.
+- Ejecutor reproducible de regresión para otro PC; versiones sin cambios.
+
+
 ## Navegación agrupada y diagnóstico técnico — 2026-10-20
 
 - Barra lateral en los seis grupos del requisito 31, EN/ES, accesible.

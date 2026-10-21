@@ -255,3 +255,26 @@ y raíces sustituidas; cuatro pruebas Node reproducen el caso. Los cierres de QA
 solo terminan identidades verificadas. Ver HISTORY_CORRECTIONS.md para la ronda
 fallida conservada y las dos rondas finales sin remanentes. No usar un PID solo
 como prueba de propiedad ni cerrar navegadores del usuario.
+
+## Ejecutor de regresión reproducible — 2026-10-21
+
+`tests/e2e/regression.cjs` enumera las 33 suites de módulos existentes y ejecuta
+las elegidas de forma secuencial por navegador. No cierra procesos directamente:
+cada hijo utiliza sus perfiles y su cierre verificado habituales. Se conservan
+los informes de cada suite y un resumen, incluidos los fallos. Se comprueba todo
+el conjunto de nombres de salida antes de empezar y se reserva el resumen de
+forma exclusiva; no se sobrescribe evidencia. Usa una etiqueta nueva por intento.
+
+```powershell
+node tests/e2e/regression.cjs --list
+node tests/e2e/regression.cjs --browser chrome --label 2026-10-21-ejemplo --machine NUEVO-PC
+node tests/e2e/regression.cjs --browser edge --label 2026-10-21-ejemplo --machine NUEVO-PC --executable 'C:\Program Files (x86)\Microsoft\EdgeCore\155.0.4283.62\msedge.exe'
+```
+
+El binario del ejemplo es propio de este equipo: comprobar su ruta en el nuevo
+PC. `--suites asset-retention-ui,trash-purge-ui` limita el recorrido a esas suites.
+`--volume-steps 0,5000,10000,20000,50000` añade la prueba de volumen al final;
+para comparar tiempos, preferir ejecutar volume-ui por separado sin otra carga.
+Cada informe conserva sus huellas y límites; el resumen no acredita dispositivos
+físicos, lectores de pantalla, Firefox ni aceptación comercial. La guía dirigida
+no está en estas 33 suites. No se incluye el ejecutor en la distribución.
