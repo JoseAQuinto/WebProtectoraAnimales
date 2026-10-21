@@ -16,7 +16,7 @@
     dialog.classList.add('history-correction-form');dialog.addEventListener('close',()=>urls.forEach(url=>URL.revokeObjectURL(url)));
     const save=dialog.querySelector('button[type=submit]'),cancel=ui.button(t('rt.cancelRemoval'),()=>controller?.abort(),true);cancel.disabled=true;dialog.querySelector('.actions').prepend(cancel);
     async function job(status,work){if(working||controller)return;working=true;save.disabled=true;controls.forEach(control=>control.disabled=true);try{await work();}catch(error){status.textContent=ui.message(error);}finally{working=false;controls.forEach(control=>control.disabled=false);save.disabled=!ctx.canWrite()||!report.groups.length;}}
-    const selected=el('p',{role:'status'}),update=()=>{const chosen=report.groups.filter(group=>boxes.some(box=>box.checked&&box.dataset.groupKey===group.key));selected.textContent=t('ra.selected',{groups:chosen.length,files:chosen.reduce((sum,group)=>sum+group.files.length,0),size:size(chosen.reduce((sum,group)=>sum+group.bytes,0))});};
+    const selected=el('p',{role:'status'}),update=()=>{const chosen=report.groups.filter(group=>boxes.some(box=>box.checked&&box.dataset.groupKey===group.key));selected.textContent=t('ra.selected',{groups:t('ra.groupCount',{count:chosen.length}),files:t('ra.fileCount',{count:chosen.reduce((sum,group)=>sum+group.files.length,0)}),size:size(chosen.reduce((sum,group)=>sum+group.bytes,0))});};
     function file(row){
       const status=el('p',{role:'status'}),facts=[t('ra.type.'+row.type),row.mime,size(row.byteLength),row.width?row.width+'×'+row.height:null,t('ra.created',{date:row.createdAt.slice(0,10)}),row.deletedAt?t('ra.inTrash'):row.archivedAt?t('ra.archived'):null].filter(Boolean).join(' · ');
       const download=ui.button(t('ra.download'),()=>job(status,async()=>{const value=await service.read(report,row.id);ui.download(value.blob,value.fileName);status.textContent=t('ra.downloaded');}),true);controls.push(download);
@@ -26,13 +26,13 @@
     }
     const groups=report.groups.map((group,index)=>{
       const box=el('input',{type:'checkbox','data-group-key':group.key,id:'asset-group-'+index});box.addEventListener('change',update);boxes.push(box);controls.push(box);
-      return el('fieldset',{class:'card stack'},el('legend',{},el('label',{for:box.id},box,' ',t('ra.group',{number:index+1,files:group.files.length,size:size(group.bytes)}))),el('ul',{class:'stack'},group.files.map(file)));
+      return el('fieldset',{class:'card stack'},el('legend',{},el('label',{for:box.id},box,' ',t('ra.group',{number:index+1,count:group.files.length,size:size(group.bytes)}))),el('ul',{class:'stack'},group.files.map(file)));
     });
     const all=ui.button(t('ra.selectAll'),()=>{boxes.forEach(box=>{box.checked=true;});update();},true),none=ui.button(t('ra.selectNone'),()=>{boxes.forEach(box=>{box.checked=false;});update();},true);controls.push(all,none);
     const kept=['current','inactive','history','dependent'].map(reason=>el('li',{},t('ra.keptRow',{reason:t('ra.kept.'+reason),count:report.kept[reason].count,size:size(report.kept[reason].bytes)})));
     const copy=root.components.backupProof.current(report,job,controls,'ra.copyHelp');
     const summary=el('section',{class:'stack'},
-      el('p',{},t('ra.summary',{count:report.totalCount,size:size(report.totalBytes),limit:size(report.limitBytes),unused:report.unusedCount,unusedSize:size(report.unusedBytes)})),
+      el('p',{},t('ra.summary',{files:t('ra.fileCount',{count:report.totalCount}),size:size(report.totalBytes),limit:size(report.limitBytes),unusedFiles:t('ra.fileCount',{count:report.unusedCount}),unusedSize:size(report.unusedBytes)})),
       el('p',{class:'notice warning'},t('ra.warning')),
       el('section',{class:'stack'},el('h3',{},t('ra.keptCaption')),el('ul',{class:'asset-kept'},kept)),
       el('p',{class:'muted'},t('ra.keptHelp')),

@@ -65,6 +65,19 @@ async function check(id, operation) { try { result.checks.push({ id, passed: tru
       const stored=before.tables.assets.find(row=>row.id===fixture.oldPhoto.thumbnailAssetId);assert(hash(await fs.readFile(target))===stored.sha256,'Downloaded inspection bytes differ');await group.locator('li').filter({hasText:fixture.oldPhoto.photoAssetId}).getByRole('button',{name:await t('ra.preview'),exact:true}).click();const image=modal().locator('img.asset-preview');await image.waitFor();assert(await image.evaluate(node=>node.complete&&node.naturalWidth>0),'Preview not decoded');
       same(before,await observe());await cancel();return{downloadSha256:stored.sha256,preview:true};
     });
+    await check('English-Spanish-independent-zero-one-many-group-and-file-counts',async()=>{
+      const before=await observe(),cases=[];
+      for(const language of ['en','es']){
+        await page.locator('#language').selectOption(language);await page.getByRole('heading',{name:await t('nav.retention'),level:1,exact:true}).waitFor();await review();
+        const selected=modal().getByText(language==='en'?/^Selected:/ : /^Seleccionados:/),expected=language==='en'?['0 groups, 0 files','1 group, 1 file','2 groups, 3 files','1 group, 2 files']:['0 grupos, 0 archivos','1 grupo, 1 archivo','2 grupos, 3 archivos','1 grupo, 2 archivos'];
+        await click('ra.selectNone',modal());
+        const checkCount=async index=>{const text=await selected.innerText();assert(text.includes(expected[index]),'Independent plural count: '+text);cases.push({language,text});};
+        await checkCount(0);await box(fixture.logoKey).check();await checkCount(1);await box(fixture.photoKey).check();await checkCount(2);await box(fixture.logoKey).uncheck();await checkCount(3);
+        const legends=(await modal().locator('legend').allTextContents()).join('\n');assert(language==='en'?/\b1 file\b/.test(legends)&&/\b2 files\b/.test(legends):/\b1 archivo\b/.test(legends)&&/\b2 archivos\b/.test(legends),'File group singular/plural missing');
+        assert(!/\(s\)/.test(await modal().innerText()),'Parenthesized plural remains');await cancel();
+      }
+      same(before,await observe());return{cases,businessUnchanged:true};
+    });
     await check('English-Spanish-three-widths-review-is-read-only-and-does-not-overflow',async()=>{
       const before=await observe();for(const language of['en','es']){await page.locator('#language').selectOption(language);await page.getByRole('heading',{name:await t('nav.retention'),level:1,exact:true}).waitFor();await review();for(const width of[360,768,1440]){await page.setViewportSize({width,height:1000});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Storage page overflow');assert(await modal().evaluate(node=>node.scrollWidth<=node.clientWidth+1),'Dialog overflow');const target=path.join(folder,'asset-retention-'+language+'-'+width+'.png');await page.screenshot({path:target});result.screenshots.push(path.relative(root,target));}await cancel();}await page.setViewportSize({width:1440,height:1050});same(before,await observe());return{languages:['en','es'],widths:[360,768,1440]};
     });

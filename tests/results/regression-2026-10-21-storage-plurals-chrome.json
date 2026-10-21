@@ -1,0 +1,42 @@
+{
+  "format": "rescue-manager-regression-run",
+  "version": 1,
+  "browser": "chrome",
+  "label": "2026-10-21-storage-plurals",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-21T16:20:50.713Z",
+  "status": "passed",
+  "runs": [
+    {
+      "suite": "asset-retention-ui",
+      "report": "asset-retention-ui-2026-10-21-storage-plurals-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 20,
+      "failedChecks": 0
+    },
+    {
+      "suite": "trash-purge-ui",
+      "report": "trash-purge-ui-2026-10-21-storage-plurals-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 19,
+      "failedChecks": 0
+    },
+    {
+      "suite": "retention-ui",
+      "report": "retention-ui-2026-10-21-storage-plurals-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 18,
+      "failedChecks": 0
+    }
+  ],
+  "limitations": [
+    "Only the selected existing suites are executed. Each report retains its scope, hashes and limitations.",
+    "No physical device, screen reader, Firefox or commercial acceptance is inferred from this summary.",
+    "Performance timings depend on machine load; run volume separately when comparing latency."
+  ],
+  "completedAt": "2026-10-21T16:24:04.009Z",
+  "checks": 57
+}

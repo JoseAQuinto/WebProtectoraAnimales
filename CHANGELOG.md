@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Plurales de Almacenamiento — 2026-10-21
+
+- Variantes EN/ES con Intl.PluralRules para grupos, archivos, registros y bloqueos;
+  selección con recuentos independientes y ayuda de Papelera vigente.
+- Interfaz con 0/1/2, un grupo con dos archivos y negocio intacto al revisar.
+- 303 Node / 917 estáticas; nuevo ejecutor usado en 3 suites / 57 verificaciones
+  por navegador, sin fallos. Versiones sin cambios; fuentes de cada ronda propias.
+
 ## Validación sin inspecciones duplicadas — 2026-10-21
 
 - Una inspección estructural por dataset con límites individuales conservados;

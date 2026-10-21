@@ -34,7 +34,9 @@ Hecho hoy (no repetir como pendiente), cada bloque con su documento y evidencia:
 **Siguiente acción concreta:** validación incremental por tablas afectadas (la
 validación completa cuesta ~0,54–0,66 s a 50k registros, VOLUME.md) y listas por índices
 o cursor con binarios diferidos; repetir `volume-ui` y la regresión completa.
-Después: plurales con `Intl.PluralRules` en textos «archivo(s)»/«grupo(s)» nuevos,
+Plurales de archivos/grupos/registros ya completos: STORAGE_I18N.md, con 0/1/2
+y recuentos independientes de grupo/archivos, 3 suites / 57 comprobaciones por
+motor en las fuentes posteriores. No repetirlos como pendientes. Después:
 revisión manual de accesibilidad con lector de pantalla, aceptación en dispositivos
 físicos y Firefox actual (aplazado por decisión del usuario; no descargar sin
 indicación), y revisión de licencia por el titular antes de cualquier publicación.

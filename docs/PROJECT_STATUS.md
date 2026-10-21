@@ -20,6 +20,12 @@ a 50k (VOLUME.md). Todavía no hay validación incremental por tablas.
 El nuevo ejecutor tests/e2e/regression.cjs permite reproducir selecciones desde
 otro equipo sin depender de scripts ignorados.
 
+Después: plurales reales de grupos/archivos/registros en Almacenamiento EN/ES
+(STORAGE_I18N.md). Casos 0/1/2, un grupo con dos archivos y bloqueos/success;
+303 Node / 917 estáticas. El ejecutor nuevo pasó 3 suites / 57 verificaciones
+por motor (archivos 20, papelera 19, conjuntos 18), con las 131 fuentes posteriores
+a la regresión completa anterior. No reasignar hashes entre ambas rondas.
+
 ## Cierre histórico del día — 2026-10-20
 
 Parada por indicación del usuario con el bloque de navegación agrupada y diagnóstico

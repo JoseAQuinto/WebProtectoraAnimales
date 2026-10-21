@@ -33,14 +33,33 @@ for (const locale of ['en','es']) {
   }
   for (const name of fs.readdirSync(path.join(__dirname, '../../js/modules')).filter(name=>name.endsWith('.js'))) {
     const source = fs.readFileSync(path.join(__dirname, '../../js/modules', name),'utf8');
-    for (const match of source.matchAll(/['"]((?:a|af|aw|fw|hw|q|p|d|f|dn|iv|rp|gs|hi|hc|dc|rt|ag|st|ex|im|ia|imv|imp|imf|imd|mj|dm|aq|wt|db|ui|nav|common)\.[a-zA-Z][a-zA-Z0-9._-]*)['"]/g)) {
-      if (!match[1].endsWith('.')) assert.equal(typeof root.locales[locale][match[1]],'string',locale+' '+name+': missing '+match[1]);
+    for (const match of source.matchAll(/['"]((?:a|af|aw|fw|hw|q|p|d|f|dn|iv|rp|gs|hi|hc|dc|rt|ra|tp|ag|st|ex|im|ia|imv|imp|imf|imd|mj|dm|aq|wt|db|ui|nav|common)\.[a-zA-Z][a-zA-Z0-9._-]*)['"]/g)) {
+      if (!match[1].endsWith('.')) {
+        const value=root.locales[locale][match[1]];
+        assert.ok(typeof value==='string'||(value&&typeof value.one==='string'&&typeof value.other==='string'),locale+' '+name+': missing '+match[1]);
+      }
     }
   }
 }
 assert.throws(() => i18n.setLanguage('__proto__'));
 assert.throws(() => i18n.t('records.count', { count: NaN }));
 unsubscribe(); i18n.setLanguage('en'); assert.equal(changed, 1);
+for (const language of ['en','es']) {
+  i18n.setLanguage(language);
+  for(const count of [0,1,2]) {
+    const noun=language==='en'?(count===1?'file':'files'):(count===1?'archivo':'archivos');
+    assert.equal(i18n.t('ra.fileCount',{count}),count+' '+noun);
+    const groupNoun=language==='en'?(count===1?'group':'groups'):(count===1?'grupo':'grupos');
+    assert.equal(i18n.t('ra.groupCount',{count}),count+' '+groupNoun);
+    for(const key of ['ra.keptRow','ra.removed','ra.group','tp.removed','tp.blocker.referenced','tp.blocker.otherAnimal','tp.blocker.openTask','tp.files']) {
+      const text=i18n.t(key,{count,number:1,size:'1 KiB',table:'Test',reason:'Test'});
+      assert.ok(!/\(s\)|\{[a-zA-Z]/.test(text),key+': incomplete plural');
+    }
+  }
+}
+i18n.setLanguage('en');
+assert.equal(i18n.t('tp.removed',{count:1}),'1 record was deleted permanently.');
+assert.equal(i18n.t('tp.removed',{count:2}),'2 records were deleted permanently.');
 const canonical = root.utils.canonicalJson.stringify;
 assert.equal(canonical({ z: [3, { b: 'ñ🐾', a: false }], a: -0 }), '{"a":0,"z":[3,{"a":false,"b":"ñ🐾"}]}');
 assert.equal(canonical({ b: 1, a: 2 }), canonical({ a: 2, b: 1 }));
