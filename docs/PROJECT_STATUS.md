@@ -19,8 +19,8 @@ acumulación en ciclos de copia; Chrome/Edge 10/10. Iconos SVG locales en navega
 marca y foto ausente (ICONS.md, req. 31); regresión 70 rondas / 974 sin fallos.
 **313 Node / 922 estáticas**.
 Firefox estable 158.0.1 descargado (autorizado), verificado y extraído en .tools;
-lanzador BiDi preparado. Sin evidencia todavía: Firefox se cierra al arrancar dentro del
-sandbox de comandos de esta sesión (FIREFOX_CURRENT.md).
+lanzador BiDi preparado. Omitido por decisión del usuario: la automatización falla por
+permisos de Windows en este PC (FIREFOX_CURRENT.md); sin evidencia de fuentes actuales.
 Formatos sin cambios.
 
 ## Cierre de hoy — 2026-10-21

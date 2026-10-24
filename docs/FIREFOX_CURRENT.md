@@ -28,13 +28,33 @@ herramienta, no por la aplicación, y deben adaptarse o documentarse por separad
 
 ## Estado: aún no ejecutado
 
-En el entorno de comandos de esta sesión, Firefox 158.0 y 158.0.1 se cierran al
-arrancar en modo headless (aparece `crashreporter.exe`) antes de abrir su agente
-remoto; con Chromium no ocurre. Fuera de ese entorno no se cuelga, pero la ejecución
-sin sandbox necesita una autorización que esta sesión no tiene. **No hay evidencia
-Firefox de las fuentes actuales**; las evidencias Firefox del 2026-10-15 corresponden
-a fuentes antiguas. Comando previsto, desde un terminal normal del equipo:
+**Omitido por decisión del usuario el 2026-10-24** («si no es crucial para la app
+podemos omitirlo»). No hay evidencia Firefox de las fuentes actuales; las del
+2026-10-15 (almacenamiento, copias, recuperación con Marionette) son de fuentes
+antiguas y solo históricas. El requisito de matriz con Firefox estable sigue vigente
+para la aceptación final: no se declara cumplido.
+
+Diagnóstico conservado (`tests/e2e/firefox-bidi-probe.cjs`, cinco formas de arranque
+con perfiles propios y cierre solo de sus procesos):
+
+- `regression-2026-10-24-firefox-158.0.1-firefox.json` (terminal normal del usuario):
+  las 35 suites fallan al lanzar; Firefox termina con código 1 tras un error
+  `nsIWindowsRegKey.create`. Igual dentro del sandbox de comandos de la sesión.
+- `firefox-bidi-probe-2026-10-24T10-32-50-694Z.json` (cmd elevado): el agente BiDi arranca
+  y Playwright conecta, pero Firefox no puede crear procesos de pestaña ni de socket
+  (`SpawnTarget` 0x80070005, acceso denegado de su sandbox de contenido).
+- `firefox-bidi-probe-2026-10-24T10-34-05-493Z.json` (usuario normal, sin sandbox de
+  comandos): sale con código 1. Mover ejecutable y perfil fuera de OneDrive tampoco
+  abrió el agente remoto; esa copia temporal se borró.
+
+La causa es el entorno de Windows de este equipo para Firefox automatizado, no la
+aplicación. No se debilitó el sandbox de Firefox ni ningún permiso del sistema.
+
+Para la aceptación final: comprobación manual de 5–10 minutos en un Firefox estable
+instalado normalmente (abrir index.html, crear organización/animal/contacto/documento,
+generar y verificar copia, cerrar y reabrir), o en otro PC:
 
 ```powershell
-node tests/e2e/regression.cjs --browser firefox --label 2026-10-24-firefox-158.0.1 --machine windows-wip
+node tests/e2e/firefox-bidi-probe.cjs
+node tests/e2e/regression.cjs --browser firefox --label FECHA-firefox --machine OTRO-PC
 ```

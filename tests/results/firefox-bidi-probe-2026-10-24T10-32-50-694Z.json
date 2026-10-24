@@ -1,0 +1,101 @@
+{
+  "format": "rescue-manager-firefox-bidi-probe",
+  "version": 1,
+  "startedAt": "2026-10-24T10:32:50.695Z",
+  "executable": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe",
+  "node": "v22.16.0",
+  "variants": [
+    {
+      "label": "manual-default",
+      "method": "manual spawn",
+      "args": [
+        "--headless",
+        "--no-remote",
+        "--remote-debugging-port=0"
+      ],
+      "announced": true,
+      "firstProcessExit": null,
+      "output": [
+        "err: *** You are running in headless mode.",
+        "err: [Parent 8960, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 8960, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 8960, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 8960, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 8960, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 8960, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 8960, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: Dynamically enable window occlusion 0",
+        "err: WebDriver BiDi listening on ws://127.0.0.1:56124"
+      ],
+      "stoppedLeftovers": []
+    },
+    {
+      "label": "manual-wait-for-browser",
+      "method": "manual spawn",
+      "args": [
+        "--headless",
+        "--no-remote",
+        "--wait-for-browser",
+        "--remote-debugging-port=0"
+      ],
+      "announced": true,
+      "firstProcessExit": null,
+      "output": [
+        "err: *** You are running in headless mode.",
+        "err: [Parent 16160, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 16160, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 16160, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 16160, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 16160, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 16160, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: [Parent 16160, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837",
+        "err: Dynamically enable window occlusion 0",
+        "err: WebDriver BiDi listening on ws://127.0.0.1:56127"
+      ],
+      "stoppedLeftovers": []
+    },
+    {
+      "label": "playwright-no-remote",
+      "method": "playwright moz-firefox",
+      "options": {
+        "args": [
+          "--no-remote"
+        ]
+      },
+      "ok": false,
+      "error": "browserType.launchPersistentContext: Protocol error (browsingContext.setViewport): unknown error\nMessage: TypeError: can't access property \"clientHeight\", browser is null\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-no-remote-1792837973774 --no-remote\u001b[22m\n\u001b[2m  - <launched> pid=144\u001b[22m\n\u001b[2m  - [pid=144][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=144][err] Dynamically enable window occlusion 0\u001b[22m\n\u001b[2m  - [pid=144][err] [Parent 17084, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=144][err] WebDriver BiDi listening on ws://127.0.0.1:56131\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:56131/session\u001b[22m\n\u001b[2m  - [pid=144][out] 1792837974256\tRemoteAgent\tINFO\tPerform WebSocket upgrade for incoming connection from 127.0.0.1:56132\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:56131/session\u001b[22m\n\u001b[2m  6 × [pid=144][err] [Parent 17084, IPC I/O Parent] WARNING: Failed to launch tab subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  6 × [pid=144][err] JavaScript error: resource://gre/modules/ExtensionParent.sys.mjs, line 2058: TypeError: can't access property \"addMessageListener\", messageManager is null\u001b[22m\n\u001b[2m  - [pid=144][err] [Parent 17084, IPC I/O Parent] WARNING: Failed to launch tab subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=144][out] [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\u001b[22m\n\u001b[2m  - [pid=144][err] [ERROR shell_windows::limited_access_features] Error generating feature token: NS_ERROR_FAILURE\u001b[22m\n\u001b[2m  - [pid=144][err] [ERROR shell_windows::taskbar::shortcut] Error matching shortcut: Error { code: HRESULT(0x80004005), message: \"Error no especificado\" }\u001b[22m\n\u001b[2m  - [pid=144][err] [Parent 17084, IPC I/O Parent] WARNING: Failed to launch utility subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=144] <gracefully close start>\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:56131/session code=1000 reason=\u001b[22m\n\u001b[2m  - [pid=144][out] console.error: RSLoader:\u001b[22m\n\u001b[2m  - [pid=144][out]   Failed to retrieve recipes from Remote Settings\u001b[22m\n\u001b[2m  - [pid=144][out]   Message: Error: Shutdown started\u001b[22m\n\u001b[2m  - [pid=144][out]   Stack:\u001b[22m\n\u001b[2m  - [pid=144][out]     ShutdownStartedError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1574:5\u001b[22m\n\u001b[2m  - [pid=144][out] listener@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:744:35\u001b[22m\n\u001b[2m  - [pid=144][out] @resource://nimbus/lib/RemoteSettin",
+      "ms": 2790,
+      "stoppedLeftovers": []
+    },
+    {
+      "label": "playwright-wait-for-browser",
+      "method": "playwright moz-firefox",
+      "options": {
+        "args": [
+          "--no-remote",
+          "--wait-for-browser"
+        ]
+      },
+      "ok": false,
+      "error": "browserType.launchPersistentContext: Protocol error (browsingContext.setViewport): unknown error\nMessage: TypeError: can't access property \"clientHeight\", browser is null\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-wait-for-browser-1792837977580 --no-remote --wait-for-browser\u001b[22m\n\u001b[2m  - <launched> pid=17676\u001b[22m\n\u001b[2m  - [pid=17676][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=17676][err] Dynamically enable window occlusion 0\u001b[22m\n\u001b[2m  - [pid=17676][err] [Parent 10320, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=17676][err] WebDriver BiDi listening on ws://127.0.0.1:56139\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:56139/session\u001b[22m\n\u001b[2m  - [pid=17676][out] 1792837978420\tRemoteAgent\tINFO\tPerform WebSocket upgrade for incoming connection from 127.0.0.1:56140\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:56139/session\u001b[22m\n\u001b[2m  6 × [pid=17676][err] [Parent 10320, IPC I/O Parent] WARNING: Failed to launch tab subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  6 × [pid=17676][err] JavaScript error: resource://gre/modules/ExtensionParent.sys.mjs, line 2058: TypeError: can't access property \"addMessageListener\", messageManager is null\u001b[22m\n\u001b[2m  - [pid=17676][err] [Parent 10320, IPC I/O Parent] WARNING: Failed to launch tab subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=17676][out] [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\u001b[22m\n\u001b[2m  - [pid=17676][err] [ERROR shell_windows::limited_access_features] Error generating feature token: NS_ERROR_FAILURE\u001b[22m\n\u001b[2m  - [pid=17676][err] [ERROR shell_windows::taskbar::shortcut] Error matching shortcut: Error { code: HRESULT(0x80004005), message: \"Error no especificado\" }\u001b[22m\n\u001b[2m  - [pid=17676][err] [Parent 10320, IPC I/O Parent] WARNING: Failed to launch utility subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=17676] <gracefully close start>\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:56139/session code=1000 reason=\u001b[22m\n\u001b[2m  - [pid=17676][out] console.error: RSLoader:\u001b[22m\n\u001b[2m  - [pid=17676][out]   Failed to retrieve recipes from Remote Settings\u001b[22m\n\u001b[2m  - [pid=17676][out]   Message: Error: Shutdown started\u001b[22m\n\u001b[2m  - [pid=17676][out]   Stack:\u001b[22m\n\u001b[2m  - [pid=17676][out]     ShutdownStartedError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1574:5\u001b[22m\n\u001b[2m  - [pid=17676][out] listener@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:744:",
+      "ms": 3306,
+      "stoppedLeftovers": []
+    },
+    {
+      "label": "playwright-wait-for-browser-env",
+      "method": "playwright moz-firefox",
+      "options": {
+        "args": [
+          "--no-remote",
+          "--wait-for-browser"
+        ],
+        "env": "process.env + MOZ_CRASHREPORTER_DISABLE"
+      },
+      "ok": false,
+      "error": "browserType.launchPersistentContext: Protocol error (browsingContext.setViewport): unknown error\nMessage: TypeError: can't access property \"clientHeight\", browser is null\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-wait-for-browser-env-1792837981874 --no-remote --wait-for-browser\u001b[22m\n\u001b[2m  - <launched> pid=11324\u001b[22m\n\u001b[2m  - [pid=11324][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11324][err] Dynamically enable window occlusion 0\u001b[22m\n\u001b[2m  - [pid=11324][err] [Parent 14532, IPC I/O Parent] WARNING: Failed to launch socket subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=11324][err] WebDriver BiDi listening on ws://127.0.0.1:56147\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:56147/session\u001b[22m\n\u001b[2m  - [pid=11324][out] 1792837982389\tRemoteAgent\tINFO\tPerform WebSocket upgrade for incoming connection from 127.0.0.1:56148\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:56147/session\u001b[22m\n\u001b[2m  6 × [pid=11324][err] [Parent 14532, IPC I/O Parent] WARNING: Failed to launch tab subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  6 × [pid=11324][err] JavaScript error: resource://gre/modules/ExtensionParent.sys.mjs, line 2058: TypeError: can't access property \"addMessageListener\", messageManager is null\u001b[22m\n\u001b[2m  - [pid=11324][err] [Parent 14532, IPC I/O Parent] WARNING: Failed to launch tab subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=11324][out] Crash Annotation GraphicsCriticalError: |[0][GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt (t=0.916652) [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt\u001b[22m\n\u001b[2m  - [pid=11324][err] [ERROR shell_windows::limited_access_features] Error generating feature token: NS_ERROR_FAILURE\u001b[22m\n\u001b[2m  - [pid=11324][err] [ERROR shell_windows::taskbar::shortcut] Error matching shortcut: Error { code: HRESULT(0x80004005), message: \"Error no especificado\" }\u001b[22m\n\u001b[2m  - [pid=11324][err] [Parent 14532, IPC I/O Parent] WARNING: Failed to launch utility subprocess @SB::LA::SpawnTarget (Error:-2147024891): file checkouts\\gecko\\ipc\\glue\\GeckoChildProcessHost.cpp:837\u001b[22m\n\u001b[2m  - [pid=11324] <gracefully close start>\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:56147/session code=1000 reason=\u001b[22m\n\u001b[2m  - [pid=11324][out] console.error: RSLoader:\u001b[22m\n\u001b[2m  - [pid=11324][out]   Failed to retrieve recipes from Remote Settings\u001b[22m\n\u001b[2m  - [pid=11324][out]   Message: Error: Shutdown started\u001b[22m\n\u001b[2m  - [pid=11324][out]   Stack:\u001b[22m\n\u001b[2m  - [pid=11324][out]     ShutdownStartedError@resource://nimbus/lib/RemoteSettingsExp",
+      "ms": 2766,
+      "stoppedLeftovers": []
+    }
+  ],
+  "completedAt": "2026-10-24T10:33:05.637Z"
+}

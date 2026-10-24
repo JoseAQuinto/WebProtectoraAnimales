@@ -1,0 +1,95 @@
+{
+  "format": "rescue-manager-firefox-bidi-probe",
+  "version": 1,
+  "startedAt": "2026-10-24T10:34:05.493Z",
+  "executable": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe",
+  "node": "v22.16.0",
+  "variants": [
+    {
+      "label": "manual-default",
+      "method": "manual spawn",
+      "args": [
+        "--headless",
+        "--no-remote",
+        "--remote-debugging-port=0"
+      ],
+      "announced": false,
+      "firstProcessExit": {
+        "code": 1,
+        "signal": null,
+        "afterMs": 633
+      },
+      "output": [
+        "err: *** You are running in headless mode."
+      ],
+      "stoppedLeftovers": [
+        "10320"
+      ]
+    },
+    {
+      "label": "manual-wait-for-browser",
+      "method": "manual spawn",
+      "args": [
+        "--headless",
+        "--no-remote",
+        "--wait-for-browser",
+        "--remote-debugging-port=0"
+      ],
+      "announced": false,
+      "firstProcessExit": {
+        "code": 1,
+        "signal": null,
+        "afterMs": 561
+      },
+      "output": [
+        "err: *** You are running in headless mode."
+      ],
+      "stoppedLeftovers": [
+        "11240"
+      ]
+    },
+    {
+      "label": "playwright-no-remote",
+      "method": "playwright moz-firefox",
+      "options": {
+        "args": [
+          "--no-remote"
+        ]
+      },
+      "ok": false,
+      "error": "browserType.launchPersistentContext: Failed to launch the browser process.\nBrowser logs:\n\n<launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-no-remote-1792838098202 --no-remote\n<launched> pid=8212\n[pid=8212][err] *** You are running in headless mode.\n[pid=8212][err] JavaScript error: moz-src:///browser/components/installerprefs/InstallerPrefs.sys.mjs, line 133: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.create]\n[pid=8212][err] Dynamically enable window occlusion 0\n[pid=8212] <process did exit: exitCode=1, signal=null>\n[pid=8212] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-no-remote-1792838098202 --no-remote\u001b[22m\n\u001b[2m  - <launched> pid=8212\u001b[22m\n\u001b[2m  - [pid=8212][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=8212][err] JavaScript error: moz-src:///browser/components/installerprefs/InstallerPrefs.sys.mjs, line 133: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.create]\u001b[22m\n\u001b[2m  - [pid=8212][err] Dynamically enable window occlusion 0\u001b[22m\n\u001b[2m  - [pid=8212] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=8212] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=8212] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=8212] <kill>\u001b[22m\n\u001b[2m  - [pid=8212] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=8212] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=8212] <gracefully close end>\u001b[22m\n",
+      "ms": 738,
+      "stoppedLeftovers": []
+    },
+    {
+      "label": "playwright-wait-for-browser",
+      "method": "playwright moz-firefox",
+      "options": {
+        "args": [
+          "--no-remote",
+          "--wait-for-browser"
+        ]
+      },
+      "ok": false,
+      "error": "browserType.launchPersistentContext: Failed to launch the browser process.\nBrowser logs:\n\n<launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-wait-for-browser-1792838100087 --no-remote --wait-for-browser\n<launched> pid=9284\n[pid=9284][err] *** You are running in headless mode.\n[pid=9284][err] JavaScript error: moz-src:///browser/components/installerprefs/InstallerPrefs.sys.mjs, line 133: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.create]\n[pid=9284][err] Dynamically enable window occlusion 0\n[pid=9284] <process did exit: exitCode=1, signal=null>\n[pid=9284] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-wait-for-browser-1792838100087 --no-remote --wait-for-browser\u001b[22m\n\u001b[2m  - <launched> pid=9284\u001b[22m\n\u001b[2m  - [pid=9284][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=9284][err] JavaScript error: moz-src:///browser/components/installerprefs/InstallerPrefs.sys.mjs, line 133: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.create]\u001b[22m\n\u001b[2m  - [pid=9284][err] Dynamically enable window occlusion 0\u001b[22m\n\u001b[2m  - [pid=9284] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=9284] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=9284] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=9284] <kill>\u001b[22m\n\u001b[2m  - [pid=9284] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=9284] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=9284] <gracefully close end>\u001b[22m\n",
+      "ms": 856,
+      "stoppedLeftovers": []
+    },
+    {
+      "label": "playwright-wait-for-browser-env",
+      "method": "playwright moz-firefox",
+      "options": {
+        "args": [
+          "--no-remote",
+          "--wait-for-browser"
+        ],
+        "env": "process.env + MOZ_CRASHREPORTER_DISABLE"
+      },
+      "ok": false,
+      "error": "browserType.launchPersistentContext: Failed to launch the browser process.\nBrowser logs:\n\n<launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-wait-for-browser-env-1792838102224 --no-remote --wait-for-browser\n<launched> pid=17828\n[pid=17828][err] *** You are running in headless mode.\n[pid=17828][err] JavaScript error: moz-src:///browser/components/installerprefs/InstallerPrefs.sys.mjs, line 133: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.create]\n[pid=17828][err] Dynamically enable window occlusion 0\n[pid=17828] <process did exit: exitCode=3221225477, signal=null>\n[pid=17828] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tools\\firefox-158.0.1\\core\\firefox.exe --remote-debugging-port=0 --headless --profile C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\firefox-probe-playwright-wait-for-browser-env-1792838102224 --no-remote --wait-for-browser\u001b[22m\n\u001b[2m  - <launched> pid=17828\u001b[22m\n\u001b[2m  - [pid=17828][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=17828][err] JavaScript error: moz-src:///browser/components/installerprefs/InstallerPrefs.sys.mjs, line 133: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWindowsRegKey.create]\u001b[22m\n\u001b[2m  - [pid=17828][err] Dynamically enable window occlusion 0\u001b[22m\n\u001b[2m  - [pid=17828] <process did exit: exitCode=3221225477, signal=null>\u001b[22m\n\u001b[2m  - [pid=17828] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=17828] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=17828] <kill>\u001b[22m\n\u001b[2m  - [pid=17828] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=17828] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=17828] <gracefully close end>\u001b[22m\n",
+      "ms": 808,
+      "stoppedLeftovers": []
+    }
+  ],
+  "completedAt": "2026-10-24T10:35:04.386Z"
+}
