@@ -36,6 +36,14 @@ pestaña, restauración, importación por staging o cualquier lectura fría vali
 - Regresión completa con este runtime: `regression-2026-10-24-incremental-{chrome,edge}.json`
   **70 rondas (35 suites por motor), 974 comprobaciones, 0 fallos**.
 
+## Parte global restante
+
+Sonda puntual en Chrome con 50 072 registros (contactos) en una organización nueva:
+validación completa 516 ms; con todas las filas de confianza solo quedan las reglas
+globales, 154 ms; una escritura real 194 ms. Acotar también la parte global exigiría
+modelar dependencias entrantes por regla y no compensa el riesgo con estas cifras.
+Un conjunto con muchas relaciones (MIXED_VOLUME.md) tiene más trabajo global.
+
 ## Límites
 
 Las reglas globales y la primera validación tras abrir siguen siendo O(N). Un cambio

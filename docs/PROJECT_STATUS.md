@@ -15,7 +15,9 @@ write-through-ui 10/10 por motor; regresión completa 70 rondas / 974 comprobaci
 escritura a 50k registros 1,98 s → 0,91 s, relaciones/invariantes globales completas;
 regresión 70 rondas / 974 comprobaciones sin fallos. **313 Node / 917 estáticas**.
 Memoria real del heap JS (MEMORY.md): 18 MiB con 50k registros en caché, sin
-acumulación en ciclos de copia; Chrome/Edge 10/10.
+acumulación en ciclos de copia; Chrome/Edge 10/10. Iconos SVG locales en navegación,
+marca y foto ausente (ICONS.md, req. 31); regresión 70 rondas / 974 sin fallos.
+**313 Node / 922 estáticas**.
 Formatos sin cambios.
 
 ## Cierre de hoy — 2026-10-21

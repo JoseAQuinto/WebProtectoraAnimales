@@ -20,7 +20,9 @@ let checks = 0;
 for (const relative of files) {
   const absolute = path.join(root, relative);
   const source = fs.readFileSync(absolute, 'utf8');
-  assert(!/https?:\/\/|@import\s|\beval\s*\(|\bnew\s+Function\s*\(/i.test(source), `${relative}: remote or executable content`);
+  // The SVG namespace URI is an XML identifier passed to createElementNS, never fetched; it is the only allowed URI.
+  const scanned = source.split('http://www.w3.org/2000/svg').join('');
+  assert(!/https?:\/\/|@import\s|\beval\s*\(|\bnew\s+Function\s*\(/i.test(scanned), `${relative}: remote or executable content`);
   checks++;
   if (relative.endsWith('.js')) {
     new vm.Script(source, { filename: relative });

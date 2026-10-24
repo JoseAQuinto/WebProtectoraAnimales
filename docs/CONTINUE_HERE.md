@@ -14,9 +14,13 @@ sin fallos (`regression-2026-10-24-write-through-*`). Hecho después: validació
 registro (INCREMENTAL_VALIDATION.md; 50k: 1,98 s → 0,91 s por escritura; regresión
 `regression-2026-10-24-incremental-*` 70 rondas / 974 comprobaciones sin fallos;
 313 Node / 917 estáticas). Memoria del heap JS medida con el protocolo de Chromium
-(MEMORY.md; 10/10 por motor, sin acumulación). Siguiente acción: medir cuánto de la validación global
-restante (~0,7 s a 50k) puede acotarse por tablas afectadas sin omitir reglas; si no
-es seguro, documentarlo y pasar a revisión manual de accesibilidad y dispositivos.
+(MEMORY.md; 10/10 por motor, sin acumulación). La parte global de la validación que
+queda es ~154 ms a 50k (INCREMENTAL_VALIDATION.md): no se acota más. Iconos SVG
+locales (ICONS.md); regresión  70 rondas / 974 sin
+fallos; 313 Node / 922 estáticas. Siguiente acción: lo pendiente requiere personas o
+equipos (revisión manual con lector de pantalla, dispositivos físicos, Firefox actual
+cuando el usuario lo autorice, licencia del titular); como ingeniería opcional,
+listas por índices para la primera lectura tras abrir (~1 s a 60k).
 
 ## Cierre de hoy por indicación del usuario — 2026-10-21
 

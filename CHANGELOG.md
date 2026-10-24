@@ -1,5 +1,11 @@
 # Historial de cambios
 
+## Iconos SVG locales — 2026-10-24
+
+- 23 iconos propios de trazo (createElementNS, decorativos) en navegación, marca y foto
+  ausente; static-checks solo admite el URI de espacio de nombres SVG.
+- a11y 11/11, navegación 10/10; regresión 70 rondas / 974 comprobaciones sin fallos.
+
 ## Medición de memoria — 2026-10-24
 
 - memory-ui: GC forzado y JSHeapUsedSize exacto por CDP a 0/10k/50k registros, archivos

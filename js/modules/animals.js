@@ -9,7 +9,7 @@
   function image(tables,assetId,alt,large=false){
     const img=el('img',{alt,class:large?'animal-photo':'animal-thumbnail',loading:'lazy'}),token=generation;
     const row=tables.assets.find(item=>item.id===assetId);
-    if(!row)return el('span',{class:'no-photo','aria-label':t('a.noPhoto')},'◇');
+    if(!row)return el('span',{class:'no-photo',role:'img','aria-label':t('a.noPhoto')},root.components.icons.icon('photo'));
     root.services.assetFiles.validateAsset(row).then(file=>{if(token!==generation)return;const url=URL.createObjectURL(file.blob);urls.push(url);img.src=url;}).catch(()=>{img.replaceWith(el('span',{class:'muted'},t('a.photoError')));});
     return img;
   }

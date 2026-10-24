@@ -94,8 +94,8 @@
     const org=state.snapshot?.tables.organizationSettings[0];
     const language=el('select',{id:'language','aria-label':t('ui.language')},el('option',{value:'en'},'English'),el('option',{value:'es'},'Español'));
     language.value=root.core.i18n.language;language.addEventListener('change',()=>{root.core.i18n.setLanguage(language.value);render();});
-    sidebar=el('aside',{class:'sidebar',id:'navigation'},el('div',{class:'brand'},el('span',{class:'brand-mark','aria-hidden':'true'},'⌂'),t('app.name')),
-      el('nav',{class:'nav','aria-label':t('app.name')},navigationGroups.map(([group,keys])=>{const visible=keys.filter(key=>org||['backup','help'].includes(key));if(!visible.length)return null;const id='nav-group-'+group;return el('div',{class:'nav-group'},el('p',{class:'nav-group-title',id},t('nav.group.'+group)),el('ul',{'aria-labelledby':id},visible.map(key=>el('li',{},el('a',{href:'#'+key,'aria-current':page===key?'page':null},t('nav.'+key))))));})),
+    sidebar=el('aside',{class:'sidebar',id:'navigation'},el('div',{class:'brand'},el('span',{class:'brand-mark','aria-hidden':'true'},root.components.icons.icon('animals')),t('app.name')),
+      el('nav',{class:'nav','aria-label':t('app.name')},navigationGroups.map(([group,keys])=>{const visible=keys.filter(key=>org||['backup','help'].includes(key));if(!visible.length)return null;const id='nav-group-'+group;return el('div',{class:'nav-group'},el('p',{class:'nav-group-title',id},t('nav.group.'+group)),el('ul',{'aria-labelledby':id},visible.map(key=>el('li',{},el('a',{href:'#'+key,'aria-current':page===key?'page':null},root.components.icons.icon(key),el('span',{},t('nav.'+key)))))));})),
       el('div',{class:'sidebar-footer'},el('small',{},root.config.appVersion),el('br'),el('small',{},t('ui.offline'))));
     const menu=button('☰',()=>{const visible=sidebar.classList.toggle('visible');menu.setAttribute('aria-expanded',String(visible));},true);
     menu.classList.add('menu-toggle');menu.setAttribute('aria-label',t('ui.menu'));menu.setAttribute('aria-controls','navigation');menu.setAttribute('aria-expanded','false');
