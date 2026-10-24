@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## Medición de memoria — 2026-10-24
+
+- memory-ui: GC forzado y JSHeapUsedSize exacto por CDP a 0/10k/50k registros, archivos
+  y copias; 18 MiB a 50k, máximo de dos capturas, sin acumulación (Chrome/Edge 10/10).
+
 ## Validación incremental por registro — 2026-10-24
 
 - validateDataset acepta filas congeladas ya validadas (WeakSet); omite solo sus reglas

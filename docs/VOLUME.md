@@ -33,7 +33,7 @@ construida en memoria 5,6 s. Primera instantánea tras reabrir: 0,7–0,9 s; rev
 recuento idénticos. Sin errores de página/consola ni HTTP.
 
 `performance.memory` de Chromium devuelve valores cuantizados (10 000 000) sin la
-opción de memoria precisa: **no acredita consumo de memoria**. Falta medir memoria
+opción de memoria precisa: **no acredita consumo de memoria**; la medición exacta del heap JS está en MEMORY.md. Falta medir memoria
 con perfilador y dispositivos de gama baja.
 
 ## Lectura
