@@ -5,6 +5,13 @@ DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
 
+## Rediseño visual 2026-10-24
+
+Identidad «Cuaderno de refugio» aplicada a toda la interfaz (DESIGN_SYSTEM.md); fuentes
+locales en vendor/ y `css/fonts.css`. Regresión Chrome 35 suites / 487 comprobaciones
+sin fallos (`regression-2026-10-24-redesign-chrome.json`). Mantener los tokens de
+`css/app.css` al añadir pantallas; no introducir sombras ni tarjetas nuevas sin motivo.
+
 ## Avance 2026-10-24
 
 Caché de lectura con escritura directa (WRITE_THROUGH_CACHE.md): tras cada `commit`

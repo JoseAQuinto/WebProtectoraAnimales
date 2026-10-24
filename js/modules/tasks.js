@@ -58,7 +58,7 @@
       ...['description','notes','cancellationReason'].filter(key=>task[key]).map(key=>el('p',{class:'preserve-lines'},task[key])),el('p',{class:'muted'},t('q.noAutomatic')),controls],{wide:true});return modal;
   }
   function render(ctx,animal){
-    const tables=ctx.snapshot.tables,today=root.utils.dates.today(tables.organizationSettings[0].timeZone),panel=el('section',{class:'card stack'}),results=el('div'),state=animal?{...view,animalId:animal.id,mode:'list'}:view;
+    const tables=ctx.snapshot.tables,today=root.utils.dates.today(tables.organizationSettings[0].timeZone),panel=el('section',{class:animal?'stack':'card stack'}),results=el('div'),state=animal?{...view,animalId:animal.id,mode:'list'}:view;
     if(!state.month)state.month=today.slice(0,7);
     const filterArea=el('div',{class:'people-filters'}),label=(key,control)=>{const id='task-filter-'+root.utils.ids.uuidV4();control.id=id;return el('div',{class:'field'},el('label',{for:id},t('q.'+key)),control);};
     function filtered(){return service.list(tables,{...state,status:state.status==='open'?['pending','in_progress']:state.status}).filter(row=>!state.search||root.utils.strings.normalizeSearch(row.title+' '+row.description+' '+row.notes).includes(root.utils.strings.normalizeSearch(state.search)));}
@@ -93,7 +93,7 @@
     for(const[key,options]of Object.entries(optionGroups)){const select=el('select',{on:{change:changed(key)}},options.map(([value,text])=>el('option',{value},text)));select.value=state[key];filterArea.append(label(key,select));}
     for(const key of['from','to'])filterArea.append(label(key,el('input',{type:'date',value:state[key],on:{change:changed(key)}})));
     const create=ui.button(t('q.new'),()=>editor(ctx,{animal}));create.disabled=!root.services.context.status().canWrite||animal&&!active(animal);
-    panel.append(...(animal?[el('h2',{},t('nav.tasks')),el('p',{class:'muted'},t('q.help'))]:[]),create,filterArea,results);paint();return panel;
+    panel.append(...(animal?[el('p',{class:'muted'},t('q.help'))]:[]),create,filterArea,results);paint();return panel;
   }
   root.modules.tasks=Object.freeze({render,editor,detail,clinical});
 }(window.RescueManager));

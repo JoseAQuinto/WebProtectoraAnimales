@@ -13,7 +13,7 @@
     const chart=svg('svg',{viewBox:'0 0 '+width+' '+height,'aria-hidden':'true',class:'report-chart'});
     shown.forEach((row,index)=>{series.forEach((item,column)=>{const value=row[item.key],barHeight=value/max*150,x=index*slot+slot/2+(column-series.length/2)*barWidth;
       chart.append(svg('rect',{x,y:172-barHeight,width:barWidth-2,height:barHeight,fill:item.color},svg('title',{},monthLabel(row.month)+' · '+t(item.label)+': '+format(value))));});
-      chart.append(svg('text',{x:index*slot+slot/2,y:192,'text-anchor':'middle','font-size':10,fill:'#172f32'},monthLabel(row.month)));});
+      chart.append(svg('text',{x:index*slot+slot/2,y:192,'text-anchor':'middle','font-size':10,fill:'#4f5c54'},monthLabel(row.month)));});
     return el('div',{},el('div',{class:'actions'},series.map(item=>el('span',{class:'badge'},svg('svg',{viewBox:'0 0 12 12',width:12,height:12,'aria-hidden':'true'},svg('rect',{x:0,y:0,width:12,height:12,fill:item.color})),' ',t(item.label)))),chart,el('p',{class:'muted'},t(helpKey)));
   }
   function render(ctx){
@@ -52,8 +52,8 @@
           section('rp.census.title',el('p',{class:'muted'},t('rp.currentHelp',{date:root.utils.dates.display(today,org.dateFormat)})),el('div',{class:'metric-grid'},Object.entries(census).map(([key,value])=>metric('rp.'+key,number(value))))),
           section('rp.finances.title',el('div',{class:'metric-grid'},metric('rp.income',money(totals.incomeMinor)),metric('rp.expense',money(totals.expenseMinor)),metric('rp.balance',money(totals.balanceMinor)),metric('rp.veterinaryExpenses',money(service.veterinaryExpenses(data,period))),metric('rp.monetaryDonations',money(service.monetaryDonations(data,period))),metric('rp.materialDonations',number(material.count))),
             el('p',{class:'muted'},t('rp.materialHelp',{count:material.lines,value:money(material.estimatedValueMinor)}))),
-          section('rp.entriesAdoptions.title',el('p',{class:'muted'},t('rp.entriesAdoptionsHelp')),graph(monthly,[{key:'entries',label:'rp.entries',color:'#176d62'},{key:'adoptions',label:'rp.adoptions',color:'#ab6719'}],number),table('entries-adoptions',['rp.month','rp.entries','rp.adoptions'],monthly.map(row=>[row.month,row.entries,row.adoptions]))),
-          section('rp.incomeExpense.title',graph(monthly,[{key:'income',label:'rp.income',color:'#176d62'},{key:'expense',label:'rp.expense',color:'#ab6719'}],money),table('income-expense',['rp.month','rp.income','rp.expense'],monthly.map(row=>[row.month,row.income,row.expense]),moneyCols,csvMoney)),
+          section('rp.entriesAdoptions.title',el('p',{class:'muted'},t('rp.entriesAdoptionsHelp')),graph(monthly,[{key:'entries',label:'rp.entries',color:'#3d6a4f'},{key:'adoptions',label:'rp.adoptions',color:'#c48b2c'}],number),table('entries-adoptions',['rp.month','rp.entries','rp.adoptions'],monthly.map(row=>[row.month,row.entries,row.adoptions]))),
+          section('rp.incomeExpense.title',graph(monthly,[{key:'income',label:'rp.income',color:'#3d6a4f'},{key:'expense',label:'rp.expense',color:'#c48b2c'}],money),table('income-expense',['rp.month','rp.income','rp.expense'],monthly.map(row=>[row.month,row.income,row.expense]),moneyCols,csvMoney)),
           section('rp.annual',table('annual',['rp.year','rp.entries','rp.adoptions','rp.income','rp.expense','rp.balance'],[...annual].map(([year,row])=>[year,row.entries,row.adoptions,Number(row.income),Number(row.expense),Number(row.income-row.expense)]),moneyCols,csvMoney)),
           section('rp.distribution.title',...['species','sex','age','availability','situation'].flatMap(kind=>[el('h3',{},t('rp.'+kind)),kind==='age'?el('p',{class:'muted'},t('rp.ageHelp')):null,distribution(kind)]).filter(Boolean)),
           section('rp.timeToAdoption.title',el('p',{},adoptionTime.cases?t('rp.averageDays',{days:number(adoptionTime.averageDays),cases:number(adoptionTime.cases)}):t('rp.noCases')),el('p',{class:'muted'},t('rp.adoptionTimeHelp'))),

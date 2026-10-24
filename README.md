@@ -42,6 +42,7 @@ sigue disponible en `tests/viability/index.html`, solo para desarrollo.
 - [Estado y siguiente paso](docs/PROJECT_STATUS.md)
 - [Requisitos originales completos](docs/REQUIREMENTS.es.md)
 - [Arquitectura](docs/ARCHITECTURE.md)
+- [Sistema de diseño](docs/DESIGN_SYSTEM.md)
 - [Modelo de datos implementado](docs/DATA_MODEL.md)
 - [Reglas e invariantes](docs/BUSINESS_RULES.md)
 - [Compatibilidad y evidencia](docs/COMPATIBILITY.md)

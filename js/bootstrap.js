@@ -79,7 +79,7 @@
   }
   async function backups() {
     const receipts = await root.services.backup.list();
-    return [heading(t('ui.backupTitle'),t('ui.backupHelp')),el('div',{class:'grid'},
+    return [heading(t('ui.backupTitle'),t('ui.backupHelp')),el('div',{class:'grid backup-steps'},
       state.snapshot?el('section',{class:'card'},el('h2',{},t('ui.createBackup')),el('p',{class:'muted'},t('ui.createBackupHelp')),
         button(t('ui.generateDownload'),()=>act(async()=>{
           const value=await root.services.backup.create();ui.download(value.blob,'rescue-manager-backup-'+value.container.content.createdAt.slice(0,10)+'.json');
@@ -122,7 +122,8 @@
       ctx.documents=entity=>root.modules.documents.render(ctx,entity);
       root.modules.animals.dispose();root.modules.adoptionRegister.dispose();root.modules.settings.dispose();root.modules.dashboard.dispose();
       const children=page==='help'?help():page==='backup'?await backups():!state.snapshot?[
-        el('section',{class:'card empty'},el('p',{class:'eyebrow'},t('app.name')),el('h1',{},t('ui.noOrganization')),el('p',{class:'muted'},t('ui.noOrganizationHelp')),
+        el('section',{class:'card empty'},el('span',{class:'brand-mark','aria-hidden':'true'},root.components.icons.icon('animals')),el('h1',{},t('ui.noOrganization')),el('p',{class:'muted'},t('ui.noOrganizationHelp')),
+          el('ol',{class:'start-steps'},['ui.start.organization','ui.start.animals','ui.start.backup'].map(key=>el('li',{},t(key)))),
           el('div',{class:'actions'},button(t('ui.createOrganization'),()=>editOrganization(true)),el('a',{class:'button secondary',href:'#backup'},t('ui.restore'))))]:page==='settings'?root.modules.settings.render(ctx,()=>editOrganization(false)):page==='search'?root.modules.search.render(ctx):page==='animals'?root.modules.animals.render(ctx):page==='adoptions'?root.modules.adoptionRegister.render(ctx):page==='finance'?root.modules.finance.render(ctx):page==='donations'?root.modules.donations.render(ctx):page==='inventory'?root.modules.inventory.render(ctx):page==='reports'?root.modules.reports.render(ctx):page==='exports'?root.modules.exports.render(ctx):page==='imports'?root.modules.imports.render(ctx):page==='moduleImport'?root.modules.moduleImport.render(ctx):page==='demo'?root.modules.demo.render(ctx):page==='retention'?[await root.modules.retention.render(ctx)]:page==='tasks'?[heading(t('nav.tasks'),t('q.help')),root.modules.tasks.render(ctx)]:['contacts','fosters','volunteers'].includes(page)?root.modules.people.render(page,ctx):page==='documents'?[heading(t('nav.documents'),t('d.help')),root.modules.documents.render(ctx)]:await root.modules.dashboard.render(ctx);
       const reminder=state.snapshot&&page!=='backup'?await root.modules.settings.reminder(ctx):null;
       if(token!==routeToken)return;

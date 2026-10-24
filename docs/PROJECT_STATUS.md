@@ -5,6 +5,19 @@ Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
+## Rediseño visual — 2026-10-24
+
+Nueva identidad «Cuaderno de refugio» (DESIGN_SYSTEM.md): tokens de color, Literata y
+Atkinson Hyperlegible Next locales (OFL, `font-src 'self'`), paneles planos, tablas
+densas, resumen en franjas de cifras, pestañas subrayadas, menú desplegable < 900 px y
+primer uso con tres pasos. Textos técnicos de importación reescritos (ES/EN). Sin
+cambios de servicios, reglas, esquemas, formatos persistidos ni las cuatro versiones.
+Comprobado: 923 estáticas, pruebas Node sin fallos y regresión Chrome
+`regression-2026-10-24-redesign-chrome.json` 35 suites / 487 comprobaciones sin fallos.
+Edge no instalado en este equipo; sin dispositivos físicos ni prueba con usuarios.
+Pendiente recomendado: probar con voluntariado real; modo oscuro si se pide; revisar
+en tableta física la densidad de los controles táctiles.
+
 ## Usabilidad y lenguaje claro — 2026-10-24
 
 Revisión integral de la interfaz para personal sin formación informática

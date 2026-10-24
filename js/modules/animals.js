@@ -43,7 +43,7 @@
     function details(animal){
       const active=!animal.archivedAt&&!animal.deletedAt,underCare=animal.managementStatus==='under_care';
       const latest=root.services.weights.latest(tables,animal.id),actions=el('div',{class:'actions'});
-      if(active){actions.append(action('a.edit',()=>forms.edit(ctx,animal)),action('a.setPhoto',()=>photo(animal)),action('a.addWeight',()=>forms.weight(ctx,animal)));
+      if(active){actions.append(action('a.edit',()=>forms.edit(ctx,animal),false),action('a.setPhoto',()=>photo(animal)),action('a.addWeight',()=>forms.weight(ctx,animal)));
         if(underCare)actions.append(action('a.changeLocation',()=>location(animal)),action('a.setAvailability',()=>availability(animal)),action('a.exit',()=>forms.exit(ctx,animal)));
         if(animal.managementStatus==='other_exit')actions.append(action('a.reenter',()=>forms.entry(ctx,animal)));
         if(!underCare)actions.append(action('a.archive',()=>forms.disposition(ctx,animal,'archive')),action('a.trash',()=>forms.disposition(ctx,animal,'trash')));
@@ -67,7 +67,7 @@
       let selected=ctx.route.tab&&sections[ctx.route.tab]?ctx.route.tab:'info';
       const choose=key=>{selected=key;for(const control of tabs.children)control.setAttribute('aria-pressed',String(control.dataset.tab===key));body.replaceChildren(el('h2',{class:'sr-only'},t('a.tab.'+key)),sections[key]());};
       for(const key of Object.keys(sections)){const control=ui.button(t('a.tab.'+key),()=>{window.location.hash='animals/'+animal.id+'/'+key;},true);control.dataset.tab=key;tabs.append(control);}choose(selected);
-      return [el('header',{class:'page-heading'},el('div',{},el('a',{href:'#animals'},t('a.back')),el('p',{class:'eyebrow'},animal.code),el('h1',{},animal.name),el('p',{},t('a.status.'+animal.managementStatus)+' · '+t('a.availability.'+animal.adoptionAvailability)))),
+      return [el('header',{class:'page-heading record-heading'},el('div',{},el('a',{href:'#animals'},t('a.back')),el('p',{class:'eyebrow'},animal.code),el('h1',{},animal.name),el('p',{class:'status-line'},el('span',{class:'badge'},t('a.status.'+animal.managementStatus)),el('span',{class:'sr-only'},' · '),el('span',{class:'badge'},t('a.availability.'+animal.adoptionAvailability))))),
         el('section',{class:'card animal-summary'},image(tables,animal.photoAssetId,animal.name,true),el('div',{class:'stack'},actions,el('p',{class:'muted'},t('a.recordHelp')))),tabs,el('section',{class:'card'},body)];
     }
     if(ctx.route.id){const row=tables.animals.find(item=>item.id===ctx.route.id);return row?details(row):[el('h1',{},t('a.notFound')),el('a',{href:'#animals'},t('a.back'))];}

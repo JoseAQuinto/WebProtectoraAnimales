@@ -1,5 +1,27 @@
 # Historial de cambios
 
+## Rediseño visual «Cuaderno de refugio» — 2026-10-24
+
+- Sistema de diseño nuevo (docs/DESIGN_SYSTEM.md): papel salvia, tinta de bosque,
+  musgo para acciones y ocre para avisos; paneles planos sin sombras, radios por
+  jerarquía, controles compactos con ratón y de 44 px en pantallas táctiles.
+- Tipografías locales Literata (títulos y cifras) y Atkinson Hyperlegible Next
+  (interfaz), WOFF2 con licencia OFL en vendor/; CSP con `font-src 'self'`.
+- Barra lateral clara con elemento activo marcado; menú desplegable por debajo de
+  900 px; barra superior fija y más fina; avisos compactos con la acción a la derecha.
+- Resumen: cifras en franjas tipo libro de cuentas en lugar de 18 tarjetas iguales;
+  gráficos y copias en dos columnas. Informes con las mismas franjas.
+- Ficha del animal: situación y disponibilidad como etiquetas, «Editar datos» como
+  acción principal, pestañas subrayadas unidas al panel y cabecera compacta en móvil.
+- Tablas densas con el nombre como título de fila; títulos de tarea como texto;
+  filtros en dos columnas en móvil; copias de seguridad en tres pasos en una fila.
+- Pantalla de primer uso con tres pasos; textos técnicos de importación (UUID, hash,
+  transacción, mapeo) reescritos en lenguaje cotidiano en español e inglés.
+- Sin cambios de servicios, reglas de negocio, esquemas, formatos ni versiones.
+- 923 estáticas y pruebas Node sin fallos; regresión Chrome completa
+  `regression-2026-10-24-redesign-chrome.json` 35 suites / 487 comprobaciones sin
+  fallos (a11y con contraste incluido, paquete con fuentes). Capturas a 1440/820/390 px.
+
 ## Revisión de usabilidad y lenguaje claro — 2026-10-24
 
 - Filtros de selección múltiple como desplegables con casillas (`ui.choices`), sin
