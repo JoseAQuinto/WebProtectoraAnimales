@@ -11,7 +11,10 @@ Reanudado desde df5c2c9 tras fetch/pull --ff-only (avances del 21-10 de otra ses
 incorporados; árbol limpio). Caché con escritura directa: la lectura tras escribir
 ya no relee tablas (WRITE_THROUGH_CACHE.md; 20k registros: 1 ms frente a 323–394 ms).
 write-through-ui 10/10 por motor; regresión completa 70 rondas / 974 comprobaciones,
-0 fallos. 310 Node / 917 estáticas. Formatos sin cambios.
+0 fallos. Después, validación incremental por registro (INCREMENTAL_VALIDATION.md):
+escritura a 50k registros 1,98 s → 0,91 s, relaciones/invariantes globales completas;
+regresión 70 rondas / 974 comprobaciones sin fallos. **313 Node / 917 estáticas**.
+Formatos sin cambios.
 
 ## Cierre de hoy — 2026-10-21
 

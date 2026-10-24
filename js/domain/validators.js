@@ -56,6 +56,8 @@
       if (Array.isArray(item) && (item.length > (options.maxArrayItems || 100000) || keys.length !== item.length + 1)) { fail(at, 'array.shape'); return; }
       if (recordFrame && Array.isArray(item)) recordFrame.maxArray = Math.max(recordFrame.maxArray, item.length);
       const previousFrame = recordFrame;
+      // Rows already validated in this context (same frozen objects) are not walked again.
+      if (depth === 2 && options.skip?.has(item)) return;
       if (options.recordProof && depth === 2) recordFrame = { start: nodes, errors: errors.length, maxArray: Array.isArray(item) ? item.length : 0 };
       ancestors.add(item);
       for (const key of keys) {
@@ -244,11 +246,11 @@
     return finish(errors, options);
   }
   function validateRecord(table, record, options = {}) { return validateRecordImpl(table, record, options, null); }
-  function inspectDataset(tables, errors) {
+  function inspectDataset(tables, errors, trusted = null) {
     // The proof lives only in this synchronous validation call. It cannot survive
     // mutation, restoration, another revision or a change of calendar day.
     const proof = new WeakSet();
-    inspect(tables, '@dataset', errors, '', { maxNodes: 16000000, maxArrayItems: 200000, recordProof: proof });
+    inspect(tables, '@dataset', errors, '', { maxNodes: 16000000, maxArrayItems: 200000, recordProof: proof, skip: trusted });
     return (table, record, options) => validateRecordImpl(table, record, options, proof);
   }
   function createRecord(table, input, options = {}) {

@@ -139,7 +139,10 @@
       if(old.eventDate===document.date&&!old.supersededByEventId&&!old.voidReason)continue;
       if(!next||next.correctsEventId!==old.id||next.type!=='document'||next.source.type!=='document'||next.source.id!==document.id||next.eventDate!==document.date||next.supersededByEventId||next.voidReason)fail('ImmutableHistoryError','Document date changes must replace all current document events coherently');
     }
-    root.domain.validateDataset(data, { datasetId: options.datasetId, today: today(data), throwOnError: true });
+    // Rows of a capture this tab validated itself, on the same civil day and organization settings, keep their
+    // per-record result; a cold capture, a new day or a settings change validates every row again.
+    const civil = today(data), proven = readCache?.value === capture && readCache.validated?.today === civil && !stores.includes('organizationSettings') ? readCache.validated.rows : null;
+    root.domain.validateDataset(data, { datasetId: options.datasetId, today: civil, throwOnError: true, trusted: proven || undefined });
     const saved = await storage.writeCoordinator.mutate(command, access => {
       if (options.animalSequence) access.advanceAnimalSequence(options.animalSequence.expected, options.animalSequence.next);
       let remaining = changes.length;
@@ -150,20 +153,22 @@
         if (--remaining === 0) access.setResult(result);
       });
     });
-    publish(saved, capture, data, options);
+    publish(saved, capture, data, options, civil);
     return saved;
   }
   // Write-through: after transaction.complete the validated state equals storage at the written anchors, so the next
   // reusable snapshot can skip re-reading every table. Its anchors are still re-read from IndexedDB on every hit;
   // any difference (another tab, other metadata, another connection) falls back to a full read.
-  function publish(saved, capture, data, options) {
+  function publish(saved, capture, data, options, civil) {
     const written = saved?.written;
     if (saved?.duplicate || !written || written.active.datasetId !== options.datasetId) return;
     const animalSequence = options.animalSequence ? options.animalSequence.next : capture.animalSequence;
     const value = { datasetId: options.datasetId, dataRevision: written.dataset.dataRevision, globalRevision: written.active.revision,
       dataset: written.dataset, animalSequence, tables: data };
     const stamp = root.utils.canonicalJson.stringify({ active: written.active, dataset: written.dataset, animalSequence });
-    readCache = { connection: written.connection, stamp, value: freeze(value) };
+    freeze(value);
+    const rows = new WeakSet(); for (const name of tables) for (const row of data[name]) rows.add(row);
+    readCache = { connection: written.connection, stamp, value, validated: { today: civil, rows } };
   }
   storage.repositories = Object.freeze({ snapshot, get, list, commit, clearReadCache() { readCache = null; } });
 }());

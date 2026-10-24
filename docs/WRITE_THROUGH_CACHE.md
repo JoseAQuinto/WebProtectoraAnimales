@@ -50,5 +50,5 @@ Regresión completa con este runtime: `regression-2026-10-24-write-through-{chro
 
 Sigue siendo O(N) la validación completa en cada escritura (~0,7 s a 50k) y la
 primera lectura tras abrir o tras cambios de otra pestaña. No hay paginación desde
-índices ni validación incremental. La caché retiene una captura en memoria; no hay
+índices; la validación incremental por registro está en INCREMENTAL_VALIDATION.md. La caché retiene una captura en memoria; no hay
 medición de memoria con perfilador.

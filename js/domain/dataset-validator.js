@@ -4,7 +4,10 @@
   const { issue, finish, present, own, appendIssue } = d.validationInternals;
   function validateDataset(tables, options = {}) {
     const errors = [];
-    const inspectRecord = d.validationInternals.inspectDataset(tables, errors);
+    // options.trusted: WeakSet of frozen row objects already validated with this same context by the caller.
+    // Only their own structural/field/local checks are skipped; every relation and global invariant still runs.
+    const trusted = Object.prototype.toString.call(options.trusted) === '[object WeakSet]' ? options.trusted : null;
+    const inspectRecord = d.validationInternals.inspectDataset(tables, errors, trusted);
     if (!tables || typeof tables !== 'object' || Array.isArray(tables) || (typeof Blob !== 'undefined' && tables instanceof Blob)) appendIssue(errors, issue('@dataset', null, '', 'dataset.object', 'dataset.object'));
     if (errors.length) return finish(errors, options);
     const add = (table, record, path, code) => appendIssue(errors, issue(table, record, path, code, code));
@@ -19,7 +22,7 @@
     if (count > 200000) add('@dataset', null, '', 'dataset.recordLimit');
     if (errors.length) return finish(errors, options);
     const organizations = rows.organizationSettings;
-    const context = Object.assign({}, options, { throwOnError: false });
+    const context = Object.assign({}, options, { throwOnError: false }); delete context.trusted;
     if (!context.timeZone && organizations.length === 1 && typeof organizations[0].timeZone === 'string') context.timeZone = organizations[0].timeZone;
     if (options.today !== undefined) context.today = d.validationInternals.today(options);
     else {
@@ -27,7 +30,7 @@
       catch (_) { context.today = root.utils.dates.today('UTC'); }
     }
     d.tableNames.forEach(table => rows[table].forEach(record => {
-      const recordErrors = inspectRecord(table, record, context); recordErrors.forEach(error => appendIssue(errors, error));
+      const recordErrors = trusted?.has(record) && Object.isFrozen(record) ? [] : inspectRecord(table, record, context); recordErrors.forEach(error => appendIssue(errors, error));
       if (!recordErrors.length) {
         valid[table].push(record); datasets.add(record.datasetId);
         const key = record.datasetId + '/' + record.id;

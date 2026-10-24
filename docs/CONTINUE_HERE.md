@@ -7,12 +7,15 @@ Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 
 ## Avance 2026-10-24
 
-Caché de lectura con escritura directa (WRITE_THROUGH_CACHE.md): tras cada 
+Caché de lectura con escritura directa (WRITE_THROUGH_CACHE.md): tras cada `commit`
 confirmado se publica el estado validado con los anclajes escritos; la lectura
 siguiente no relee tablas. 10/10 por motor y regresión 70 rondas / 974 comprobaciones
-sin fallos (). Siguiente acción: omitir solo las
-comprobaciones por registro de filas ya validadas en esta pestaña (mismo día y
-organización), manteniendo relaciones e invariantes globales completas.
+sin fallos (`regression-2026-10-24-write-through-*`). Hecho después: validación incremental por
+registro (INCREMENTAL_VALIDATION.md; 50k: 1,98 s → 0,91 s por escritura; regresión
+`regression-2026-10-24-incremental-*` 70 rondas / 974 comprobaciones sin fallos;
+313 Node / 917 estáticas). Siguiente acción: medir cuánto de la validación global
+restante (~0,7 s a 50k) puede acotarse por tablas afectadas sin omitir reglas; si no
+es seguro, documentarlo y pasar a revisión manual de accesibilidad y dispositivos.
 
 ## Cierre de hoy por indicación del usuario — 2026-10-21
 

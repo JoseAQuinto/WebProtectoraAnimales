@@ -1,0 +1,1624 @@
+{
+  "format": "rescue-manager-asset-retention-ui-test",
+  "version": 1,
+  "browser": "chrome",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-24T07:32:20.122Z",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26300",
+    "version": "Windows 11 Home"
+  },
+  "checks": [
+    {
+      "id": "explicit-fixture-with-replaced-photo-and-logo-current-and-trashed-documents",
+      "passed": true,
+      "evidence": {
+        "fixture": {
+          "animal": "d6a599bb-27e9-4e53-983d-e32285f3412e",
+          "oldPhoto": {
+            "animalId": "d6a599bb-27e9-4e53-983d-e32285f3412e",
+            "photoAssetId": "032870b4-220c-42c7-bbbc-2ea31a343913",
+            "thumbnailAssetId": "12b0b842-4aa4-4554-a794-a8f51a4e35e2"
+          },
+          "currentPhoto": {
+            "animalId": "d6a599bb-27e9-4e53-983d-e32285f3412e",
+            "photoAssetId": "6c362eb9-f988-4ba6-a9b8-f68c58f1c1f6",
+            "thumbnailAssetId": "66b15014-a0bd-4b8b-8d43-72e4f48369b1"
+          },
+          "oldLogo": "5db8648a-0d78-403a-a5a9-d836449c6f6a",
+          "logo": "d053d2c9-d3e5-477a-9b1f-3c2223c7847f",
+          "keptAsset": "21abe417-7e4b-4398-84d2-131544553d6f",
+          "trashedAsset": "8c7611aa-5a71-4565-8d88-b54dc7b7fa00",
+          "photoKey": "032870b4-220c-42c7-bbbc-2ea31a343913+12b0b842-4aa4-4554-a794-a8f51a4e35e2",
+          "logoKey": "5db8648a-0d78-403a-a5a9-d836449c6f6a",
+          "copyBefore": "C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\current-before-file-removal.json",
+          "removalOperation": "3dc1c591-0d0c-48e1-85c4-574661bc18df"
+        },
+        "analysis": {
+          "groups": [
+            {
+              "key": "032870b4-220c-42c7-bbbc-2ea31a343913+12b0b842-4aa4-4554-a794-a8f51a4e35e2",
+              "assetIds": [
+                "032870b4-220c-42c7-bbbc-2ea31a343913",
+                "12b0b842-4aa4-4554-a794-a8f51a4e35e2"
+              ],
+              "bytes": 1428
+            },
+            {
+              "key": "5db8648a-0d78-403a-a5a9-d836449c6f6a",
+              "assetIds": [
+                "5db8648a-0d78-403a-a5a9-d836449c6f6a"
+              ],
+              "bytes": 722
+            }
+          ],
+          "kept": {
+            "current": {
+              "count": 4,
+              "bytes": 2136
+            },
+            "inactive": {
+              "count": 1,
+              "bytes": 26
+            },
+            "history": {
+              "count": 0,
+              "bytes": 0
+            },
+            "dependent": {
+              "count": 0,
+              "bytes": 0
+            }
+          },
+          "totalCount": 8,
+          "unusedCount": 3
+        },
+        "current": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 8,
+          "dataRevision": 8,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 8,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 8,
+            "importIdentityMap": 0
+          },
+          "digest": "64070cad2c7d997ae810f57cb59aefddbe83a552d8fdaf9abe226938b66adfbd"
+        }
+      }
+    },
+    {
+      "id": "review-dialog-lists-closed-groups-and-kept-reasons-without-writing",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 8,
+          "dataRevision": 8,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 8,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 8,
+            "importIdentityMap": 0
+          },
+          "digest": "64070cad2c7d997ae810f57cb59aefddbe83a552d8fdaf9abe226938b66adfbd"
+        }
+      }
+    },
+    {
+      "id": "inspection-download-and-image-preview-match-stored-bytes-without-writing",
+      "passed": true,
+      "evidence": {
+        "downloadSha256": "5348209b4f2d2f13ab50bc52bbc05fffe71de3b88a2f2a9210846ef198892996",
+        "preview": true
+      }
+    },
+    {
+      "id": "English-Spanish-independent-zero-one-many-group-and-file-counts",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          {
+            "language": "en",
+            "text": "Selected: 0 groups, 0 files, 0 B"
+          },
+          {
+            "language": "en",
+            "text": "Selected: 1 group, 1 file, 722 B"
+          },
+          {
+            "language": "en",
+            "text": "Selected: 2 groups, 3 files, 2.1 KiB"
+          },
+          {
+            "language": "en",
+            "text": "Selected: 1 group, 2 files, 1.4 KiB"
+          },
+          {
+            "language": "es",
+            "text": "Seleccionados: 0 grupos, 0 archivos, 0 B"
+          },
+          {
+            "language": "es",
+            "text": "Seleccionados: 1 grupo, 1 archivo, 722 B"
+          },
+          {
+            "language": "es",
+            "text": "Seleccionados: 2 grupos, 3 archivos, 2.1 KiB"
+          },
+          {
+            "language": "es",
+            "text": "Seleccionados: 1 grupo, 2 archivos, 1.4 KiB"
+          }
+        ],
+        "businessUnchanged": true
+      }
+    },
+    {
+      "id": "English-Spanish-three-widths-review-is-read-only-and-does-not-overflow",
+      "passed": true,
+      "evidence": {
+        "languages": [
+          "en",
+          "es"
+        ],
+        "widths": [
+          360,
+          768,
+          1440
+        ]
+      }
+    },
+    {
+      "id": "selection-confirmation-and-verified-current-copy-are-all-required",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 8,
+          "dataRevision": 8,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 8,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 8,
+            "importIdentityMap": 0
+          },
+          "digest": "64070cad2c7d997ae810f57cb59aefddbe83a552d8fdaf9abe226938b66adfbd"
+        },
+        "copyHash": "667d38caf94dfe68565e84cf1ef08127e27dfac89a4211f4fcdb61342e519f7c"
+      }
+    },
+    {
+      "id": "storage-refuses-referenced-file-and-partial-group-even-at-current-revision",
+      "passed": true,
+      "evidence": {
+        "referenced": {
+          "error": "RevisionConflictError",
+          "message": "A selected file is referenced again or changed"
+        },
+        "trash": {
+          "error": "RevisionConflictError",
+          "message": "A selected file is referenced again or changed"
+        },
+        "orphan": {
+          "error": "InvalidInputError",
+          "message": "Select complete file groups only"
+        }
+      }
+    },
+    {
+      "id": "a-concurrent-active-write-invalidates-the-open-review-and-is-preserved",
+      "passed": true,
+      "evidence": {
+        "person": "ef991bed-d17a-4878-b500-427bc996aaa4"
+      }
+    },
+    {
+      "id": "lost-writer-control-rejects-removal-with-files-preserved",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 9,
+          "dataRevision": 9,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 8,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 9,
+            "importIdentityMap": 0
+          },
+          "digest": "6b52f7ef56c047a794e3cc1e92f9dafa9677f38e4bd1545857e2508247733d97"
+        }
+      }
+    },
+    {
+      "id": "visible-cancel-button-aborts-before-completion-and-keeps-decisions",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 9,
+          "dataRevision": 9,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 8,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 9,
+            "importIdentityMap": 0
+          },
+          "digest": "6b52f7ef56c047a794e3cc1e92f9dafa9677f38e4bd1545857e2508247733d97"
+        },
+        "action": "Synchronous DOM clicks cancel before deletion begins; next check cancels after a real delete request."
+      }
+    },
+    {
+      "id": "cooperative-cancellation-after-a-real-delete-rolls-back-every-file-and-record",
+      "passed": true,
+      "evidence": {
+        "proof": {
+          "error": "AbortError",
+          "progress": 1
+        }
+      }
+    },
+    {
+      "id": "UI-removes-only-the-selected-group-in-one-commit-and-preserves-other-bytes",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 9,
+          "dataRevision": 9,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 8,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 9,
+            "importIdentityMap": 0
+          },
+          "digest": "6b52f7ef56c047a794e3cc1e92f9dafa9677f38e4bd1545857e2508247733d97"
+        },
+        "after": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 10,
+          "dataRevision": 10,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 6,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 10,
+            "importIdentityMap": 0
+          },
+          "digest": "8d58986fda96a5defba2cd7cb1dde253b507a1f622c0dc4323a10600c6e4fc90"
+        },
+        "log": {
+          "revision": 1,
+          "archivedAt": null,
+          "deletedAt": null,
+          "origin": "real",
+          "originBatchId": null,
+          "operation": "delete",
+          "occurredAt": "2026-10-24T07:32:28.575Z",
+          "operationId": "3dc1c591-0d0c-48e1-85c4-574661bc18df",
+          "target": null,
+          "summaryParameters": {
+            "code": "retention.deleteAssets",
+            "field": "assets",
+            "count": 2
+          },
+          "id": "621c6d13-8329-40bd-beb3-dd8e8ea41aa2",
+          "createdAt": "2026-10-24T07:32:28.575Z",
+          "updatedAt": "2026-10-24T07:32:28.575Z"
+        }
+      }
+    },
+    {
+      "id": "storage-replay-returns-the-saved-receipt-without-repeating-removal",
+      "passed": true,
+      "evidence": {
+        "operationId": "3dc1c591-0d0c-48e1-85c4-574661bc18df",
+        "revision": 10,
+        "activeRevision": 10,
+        "duplicate": true,
+        "result": {
+          "count": 2,
+          "bytes": 1428,
+          "assetIds": [
+            "032870b4-220c-42c7-bbbc-2ea31a343913",
+            "12b0b842-4aa4-4554-a794-a8f51a4e35e2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "external-copy-verified-before-removal-still-contains-removed-file-bytes",
+      "passed": true,
+      "evidence": {
+        "found": [
+          {
+            "id": "032870b4-220c-42c7-bbbc-2ea31a343913",
+            "sha256": "5348209b4f2d2f13ab50bc52bbc05fffe71de3b88a2f2a9210846ef198892996",
+            "actual": "5348209b4f2d2f13ab50bc52bbc05fffe71de3b88a2f2a9210846ef198892996"
+          },
+          {
+            "id": "12b0b842-4aa4-4554-a794-a8f51a4e35e2",
+            "sha256": "5348209b4f2d2f13ab50bc52bbc05fffe71de3b88a2f2a9210846ef198892996",
+            "actual": "5348209b4f2d2f13ab50bc52bbc05fffe71de3b88a2f2a9210846ef198892996"
+          }
+        ]
+      }
+    },
+    {
+      "id": "another-removal-needs-a-new-copy-then-select-all-removes-the-old-logo",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 10,
+          "dataRevision": 10,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 6,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 10,
+            "importIdentityMap": 0
+          },
+          "digest": "8d58986fda96a5defba2cd7cb1dde253b507a1f622c0dc4323a10600c6e4fc90"
+        },
+        "after": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 11,
+          "dataRevision": 11,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 5,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 11,
+            "importIdentityMap": 0
+          },
+          "digest": "c4720f87bcbea8126735bc31d6667f709c9d09d513b1c88a0372a2aea64084dc"
+        }
+      }
+    },
+    {
+      "id": "empty-review-offers-no-removal-and-reports-kept-files",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "114eda49-b40f-4eb8-9d42-98fa3744251e",
+          "revision": 11,
+          "dataRevision": 11,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 0,
+            "contacts": 1,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 5,
+            "documents": 2,
+            "documentLinks": 2,
+            "animalEvents": 3,
+            "activityLog": 11,
+            "importIdentityMap": 0
+          },
+          "digest": "c4720f87bcbea8126735bc31d6667f709c9d09d513b1c88a0372a2aea64084dc"
+        }
+      }
+    },
+    {
+      "id": "complete-owned-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 10384,
+        "exitCode": 0,
+        "signalCode": null,
+        "nativeRootExited": false,
+        "connectionReleasedAfterExit": true,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 10384,
+            "ParentProcessId": 11932,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-24T07:32:20.1663120Z"
+          },
+          {
+            "ProcessId": 15416,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.86 --initial-client-data=0x128,0x12c,0x130,0x100,0x134,0x7ffa47a72ed0,0x7ffa47a72ee0,0x7ffa47a72ef0",
+            "CreatedAt": "2026-10-24T07:32:20.1835730Z"
+          },
+          {
+            "ProcessId": 8356,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1800 /prefetch:2",
+            "CreatedAt": "2026-10-24T07:32:20.3088760Z"
+          },
+          {
+            "ProcessId": 3836,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2172 /prefetch:11",
+            "CreatedAt": "2026-10-24T07:32:20.3171690Z"
+          },
+          {
+            "ProcessId": 13636,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2268 /prefetch:13",
+            "CreatedAt": "2026-10-24T07:32:20.3516860Z"
+          },
+          {
+            "ProcessId": 16852,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1524623154 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3652 /prefetch:1",
+            "CreatedAt": "2026-10-24T07:32:20.4261670Z"
+          },
+          {
+            "ProcessId": 8144,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1524684178 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4112 /prefetch:1",
+            "CreatedAt": "2026-10-24T07:32:20.4864560Z"
+          },
+          {
+            "ProcessId": 18572,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=1524715549 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4360 /prefetch:1",
+            "CreatedAt": "2026-10-24T07:32:20.5175460Z"
+          },
+          {
+            "ProcessId": 10812,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=1524718320 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=4436 /prefetch:9",
+            "CreatedAt": "2026-10-24T07:32:20.5226390Z"
+          },
+          {
+            "ProcessId": 4700,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=1524771831 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5260 /prefetch:9",
+            "CreatedAt": "2026-10-24T07:32:20.5737830Z"
+          },
+          {
+            "ProcessId": 17696,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=31 --launch-time-ticks=1528107165 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190709015360168813 --mojo-platform-channel-handle=7840 /prefetch:9",
+            "CreatedAt": "2026-10-24T07:32:23.9091090Z"
+          },
+          {
+            "ProcessId": 10888,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=32 --launch-time-ticks=1528535425 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190709016297210662 --mojo-platform-channel-handle=7312 /prefetch:9",
+            "CreatedAt": "2026-10-24T07:32:24.3380150Z"
+          },
+          {
+            "ProcessId": 13440,
+            "ParentProcessId": 10384,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=33 --launch-time-ticks=1531367443 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190709017234252511 --mojo-platform-channel-handle=7748 /prefetch:1",
+            "CreatedAt": "2026-10-24T07:32:27.1694420Z"
+          }
+        ],
+        "finalCimRows": [],
+        "nativeExitObservations": [],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-24T07:32:32.360Z"
+      }
+    },
+    {
+      "id": "reopen-preserves-remaining-files-and-removals-without-runtime-or-network-errors",
+      "passed": true,
+      "evidence": {
+        "digest": "c4720f87bcbea8126735bc31d6667f709c9d09d513b1c88a0372a2aea64084dc"
+      }
+    },
+    {
+      "id": "complete-reopened-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 16356,
+        "exitCode": 0,
+        "signalCode": null,
+        "nativeRootExited": false,
+        "connectionReleasedAfterExit": true,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 16356,
+            "ParentProcessId": 11932,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-24T07:32:32.3719840Z"
+          },
+          {
+            "ProcessId": 11648,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.86 --initial-client-data=0x130,0x134,0x138,0xb0,0x13c,0x7ffa47a72ed0,0x7ffa47a72ee0,0x7ffa47a72ef0",
+            "CreatedAt": "2026-10-24T07:32:32.4081450Z"
+          },
+          {
+            "ProcessId": 3360,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1864 /prefetch:2",
+            "CreatedAt": "2026-10-24T07:32:32.6040280Z"
+          },
+          {
+            "ProcessId": 16064,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2244 /prefetch:11",
+            "CreatedAt": "2026-10-24T07:32:32.6140590Z"
+          },
+          {
+            "ProcessId": 17604,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2540 /prefetch:13",
+            "CreatedAt": "2026-10-24T07:32:32.6666540Z"
+          },
+          {
+            "ProcessId": 18884,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1536943083 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3636 /prefetch:1",
+            "CreatedAt": "2026-10-24T07:32:32.7464840Z"
+          },
+          {
+            "ProcessId": 18564,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --launch-time-ticks=1537007930 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4056 /prefetch:1",
+            "CreatedAt": "2026-10-24T07:32:32.8102260Z"
+          },
+          {
+            "ProcessId": 18300,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1537010515 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4040 /prefetch:1",
+            "CreatedAt": "2026-10-24T07:32:32.8151710Z"
+          },
+          {
+            "ProcessId": 12068,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=1537104885 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4800 /prefetch:9",
+            "CreatedAt": "2026-10-24T07:32:32.9090400Z"
+          },
+          {
+            "ProcessId": 13916,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=1537108413 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5036 /prefetch:9",
+            "CreatedAt": "2026-10-24T07:32:32.9120570Z"
+          },
+          {
+            "ProcessId": 18324,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=1537136475 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5052 /prefetch:9",
+            "CreatedAt": "2026-10-24T07:32:32.9397390Z"
+          },
+          {
+            "ProcessId": 6624,
+            "ParentProcessId": 16356,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=1538494214 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5776 /prefetch:1",
+            "CreatedAt": "2026-10-24T07:32:34.2962090Z"
+          }
+        ],
+        "finalCimRows": [],
+        "nativeExitObservations": [],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-24T07:32:36.990Z"
+      }
+    },
+    {
+      "id": "source-files-unchanged",
+      "passed": true,
+      "evidence": {
+        "count": 131
+      }
+    }
+  ],
+  "launches": [
+    {
+      "startedAt": "2026-10-24T07:32:20.170Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\asset-retention-chrome-1792827140123\\profile",
+      "pid": 10384,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.86",
+        "revision": "@804d6b05f089b27af8342622a36558c49401a1d4",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.25"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-24T07:32:32.371Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\asset-retention-chrome-1792827140123\\profile",
+      "pid": 16356,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.86",
+        "revision": "@804d6b05f089b27af8342622a36558c49401a1d4",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.25"
+      },
+      "storageDeniedPreference": false
+    }
+  ],
+  "closures": [
+    {
+      "rootPid": 10384,
+      "exitCode": 0,
+      "signalCode": null,
+      "nativeRootExited": false,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 10384,
+          "ParentProcessId": 11932,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-24T07:32:20.1663120Z"
+        },
+        {
+          "ProcessId": 15416,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.86 --initial-client-data=0x128,0x12c,0x130,0x100,0x134,0x7ffa47a72ed0,0x7ffa47a72ee0,0x7ffa47a72ef0",
+          "CreatedAt": "2026-10-24T07:32:20.1835730Z"
+        },
+        {
+          "ProcessId": 8356,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1800 /prefetch:2",
+          "CreatedAt": "2026-10-24T07:32:20.3088760Z"
+        },
+        {
+          "ProcessId": 3836,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2172 /prefetch:11",
+          "CreatedAt": "2026-10-24T07:32:20.3171690Z"
+        },
+        {
+          "ProcessId": 13636,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2268 /prefetch:13",
+          "CreatedAt": "2026-10-24T07:32:20.3516860Z"
+        },
+        {
+          "ProcessId": 16852,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1524623154 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3652 /prefetch:1",
+          "CreatedAt": "2026-10-24T07:32:20.4261670Z"
+        },
+        {
+          "ProcessId": 8144,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1524684178 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4112 /prefetch:1",
+          "CreatedAt": "2026-10-24T07:32:20.4864560Z"
+        },
+        {
+          "ProcessId": 18572,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=1524715549 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4360 /prefetch:1",
+          "CreatedAt": "2026-10-24T07:32:20.5175460Z"
+        },
+        {
+          "ProcessId": 10812,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=1524718320 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=4436 /prefetch:9",
+          "CreatedAt": "2026-10-24T07:32:20.5226390Z"
+        },
+        {
+          "ProcessId": 4700,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=1524771831 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5260 /prefetch:9",
+          "CreatedAt": "2026-10-24T07:32:20.5737830Z"
+        },
+        {
+          "ProcessId": 17696,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=31 --launch-time-ticks=1528107165 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190709015360168813 --mojo-platform-channel-handle=7840 /prefetch:9",
+          "CreatedAt": "2026-10-24T07:32:23.9091090Z"
+        },
+        {
+          "ProcessId": 10888,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=32 --launch-time-ticks=1528535425 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190709016297210662 --mojo-platform-channel-handle=7312 /prefetch:9",
+          "CreatedAt": "2026-10-24T07:32:24.3380150Z"
+        },
+        {
+          "ProcessId": 13440,
+          "ParentProcessId": 10384,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=33 --launch-time-ticks=1531367443 --field-trial-handle=1804,i,11168991735413469153,9116027945070537500,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1808,i,11418987246567918527,3349775602843920532,4 --trace-process-track-uuid=3190709017234252511 --mojo-platform-channel-handle=7748 /prefetch:1",
+          "CreatedAt": "2026-10-24T07:32:27.1694420Z"
+        }
+      ],
+      "finalCimRows": [],
+      "nativeExitObservations": [],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-24T07:32:32.360Z"
+    },
+    {
+      "rootPid": 16356,
+      "exitCode": 0,
+      "signalCode": null,
+      "nativeRootExited": false,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 16356,
+          "ParentProcessId": 11932,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-24T07:32:32.3719840Z"
+        },
+        {
+          "ProcessId": 11648,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.86 --initial-client-data=0x130,0x134,0x138,0xb0,0x13c,0x7ffa47a72ed0,0x7ffa47a72ee0,0x7ffa47a72ef0",
+          "CreatedAt": "2026-10-24T07:32:32.4081450Z"
+        },
+        {
+          "ProcessId": 3360,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1864 /prefetch:2",
+          "CreatedAt": "2026-10-24T07:32:32.6040280Z"
+        },
+        {
+          "ProcessId": 16064,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2244 /prefetch:11",
+          "CreatedAt": "2026-10-24T07:32:32.6140590Z"
+        },
+        {
+          "ProcessId": 17604,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2540 /prefetch:13",
+          "CreatedAt": "2026-10-24T07:32:32.6666540Z"
+        },
+        {
+          "ProcessId": 18884,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1536943083 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3636 /prefetch:1",
+          "CreatedAt": "2026-10-24T07:32:32.7464840Z"
+        },
+        {
+          "ProcessId": 18564,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --launch-time-ticks=1537007930 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4056 /prefetch:1",
+          "CreatedAt": "2026-10-24T07:32:32.8102260Z"
+        },
+        {
+          "ProcessId": 18300,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1537010515 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4040 /prefetch:1",
+          "CreatedAt": "2026-10-24T07:32:32.8151710Z"
+        },
+        {
+          "ProcessId": 12068,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=1537104885 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4800 /prefetch:9",
+          "CreatedAt": "2026-10-24T07:32:32.9090400Z"
+        },
+        {
+          "ProcessId": 13916,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=1537108413 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5036 /prefetch:9",
+          "CreatedAt": "2026-10-24T07:32:32.9120570Z"
+        },
+        {
+          "ProcessId": 18324,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=1537136475 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5052 /prefetch:9",
+          "CreatedAt": "2026-10-24T07:32:32.9397390Z"
+        },
+        {
+          "ProcessId": 6624,
+          "ParentProcessId": 16356,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\asset-retention-chrome-1792827140123\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=1538494214 --field-trial-handle=1872,i,889278223094720916,10574414988170791371,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1876,i,11402148761558059279,14335991388988020466,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5776 /prefetch:1",
+          "CreatedAt": "2026-10-24T07:32:34.2962090Z"
+        }
+      ],
+      "finalCimRows": [],
+      "nativeExitObservations": [],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-24T07:32:36.990Z"
+    }
+  ],
+  "screenshots": [
+    ".tmp\\asset-retention-chrome-1792827140123\\asset-retention-en-360.png",
+    ".tmp\\asset-retention-chrome-1792827140123\\asset-retention-en-768.png",
+    ".tmp\\asset-retention-chrome-1792827140123\\asset-retention-en-1440.png",
+    ".tmp\\asset-retention-chrome-1792827140123\\asset-retention-es-360.png",
+    ".tmp\\asset-retention-chrome-1792827140123\\asset-retention-es-768.png",
+    ".tmp\\asset-retention-chrome-1792827140123\\asset-retention-es-1440.png"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Organization, animal, photographs, logos and documents are prepared through real production services, explicitly identified as test fixture preparation; canvas PNG files are synthetic.",
+    "Review, inspection, backup download/verification, selection, cancellation and removal use the visible UI; storage-level guard probes call the real IndexedDB primitive directly and are identified as such.",
+    "Cancellation aborts a real IndexedDB transaction after a real delete request; this does not simulate physical disk failure or real quota exhaustion.",
+    "Viewport emulation is not a physical mobile/tablet test.",
+    "No business service is mocked.",
+    "Page request trace excludes browser-internal traffic."
+  ],
+  "sourceFiles": [
+    {
+      "file": "index.html",
+      "sha256": "afe0254584ce5c599bd62edf4863537e410b24687639f4c7b479b3c314a641b2"
+    },
+    {
+      "file": "css/app.css",
+      "sha256": "0450254147f641bf741f77fb91b1c8982805538fb010550c4704ae95de76e417"
+    },
+    {
+      "file": "css/people.css",
+      "sha256": "5aaa5b2da31af96521d3ff056f65e0fcf548179707bf70fa626085d4c15cf302"
+    },
+    {
+      "file": "css/calendar.css",
+      "sha256": "459a1f6c1493cf7c33724515d7d677daff6a6a327d7a84bd10e7e233b08dc461"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "0b101d473eea7f0712f9603dbcfe69cc7c9b8267b48920dc48e8757700855c07"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "vendor/papaparse/papaparse.min.js",
+      "sha256": "3a509437d423ed29d9175fdd01de8bcdcd50e8ffb883ae7daa91c0acd151d1a7"
+    },
+    {
+      "file": "locales/en.js",
+      "sha256": "f5deb7efde14e84806d81e4a193e8a7031a7a91a8522747d803bad2ffd7b10bf"
+    },
+    {
+      "file": "locales/es.js",
+      "sha256": "4f75d5c6b0d6a3b5f359499cace339e49461272231e57c4f465eb6d355cf64fe"
+    },
+    {
+      "file": "data/demo.en.js",
+      "sha256": "4fd326253f749ae276ff68e7bff4c5185948c6d742c94a81475f925b1550091b"
+    },
+    {
+      "file": "data/demo.es.js",
+      "sha256": "7ecddaa232c9a3e84cfa9440788153367639b82d523fbd249f639f3f7ae1e2fc"
+    },
+    {
+      "file": "js/core/i18n.js",
+      "sha256": "476cfe00ee29f80823f61257154fc55100f0676edd9906021f8cf3b23920b71a"
+    },
+    {
+      "file": "js/core/errors.js",
+      "sha256": "b367adf36f6e02dcc85f691244b2539626a9f797f9c709a91ed9f1ea53cdb309"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "4b67ab901efc4d8f18dd929319ac7a46ac7c296c4c2e9df4605f0eecd46d5fc0"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/utils/images.js",
+      "sha256": "8da4cc7e29e82e00e2249ff0e98b18a4dfd9c980d461473e4a51729fb525c7b4"
+    },
+    {
+      "file": "js/utils/calendar.js",
+      "sha256": "cb5f5048dc4f6cfca7735e0ac7f493afac218a6985e7161536343f4726abf86f"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "b23179ba9a192b0e58727c8319465d0be3a2a2848b836df2fe0f84333f31e8a0"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "f3a8b95f1844ad21fa71471017692ef8cc74ceb0154cd7dc294dc358ed9d28b6"
+    },
+    {
+      "file": "js/domain/asset-references.js",
+      "sha256": "72f58dd6f23c02d1abbeb8e4cdde119e995f9adbbdf7e4c2a4eef4f2d6e6df11"
+    },
+    {
+      "file": "js/domain/trash-closure.js",
+      "sha256": "814fb7a1196b8d702ec0e1784d781808e7b2e10a1d17916052848a04c7eadb05"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "1f6a9ec693f785635fb107cb62b38c4f3a37cc858859f46d87a53f2a03e59c4d"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "3ebe51b2a8d05e00a2f1695dfbc4fb9f95a5d8cb226eaeaf6bc415cc352d0c75"
+    },
+    {
+      "file": "js/storage/retention.js",
+      "sha256": "35284f2196490bba984e2280757967bb353d0f798a3327834e8ca8b3ea678ca6"
+    },
+    {
+      "file": "js/storage/asset-retention.js",
+      "sha256": "fc4906b8899c757c9ef9661dccb9e24d7bbe20fcb6f9b4f8a8338e0270508c85"
+    },
+    {
+      "file": "js/storage/trash-purge.js",
+      "sha256": "64e45b9cd9474bb0b97132c385c5f3477da78338aee65d10656a031f3eba386e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "f8475d5327f6093dc2f51bcfba6d4456c6e542c664f0438f2d8a81f36c039509"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "c3b9b30cdcdb6ed7911a50579ce384a778f41c3cc145ff3d58439143cfb7f36a"
+    },
+    {
+      "file": "js/services/diagnostics.js",
+      "sha256": "83d4c01c29791712e4821d657b0152ba59737679993ba977812c536d616df06c"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "454e5f27b00e73f7c0060b8b16ac0dd1cd0616da611209b70d8237e527c2afba"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "ea5aa036bc9e3f15a96ad394592aef62fd5f803f2fdc13ce12e74165770dca6e"
+    },
+    {
+      "file": "js/services/contacts.js",
+      "sha256": "40bdc267f05d5909ad18381503a0ba02bd4348e89c568c2324b961af89b30f04"
+    },
+    {
+      "file": "js/services/animals.js",
+      "sha256": "5f5e94bd9626ebcb18cc8c2cf5eda0939e7173e125e9525f97f961eb3f800eca"
+    },
+    {
+      "file": "js/services/fosters.js",
+      "sha256": "06640fe7babf0ed2d347a7c6e4f737e4b3fbcb48ec0a74de941f00cc1d006bdd"
+    },
+    {
+      "file": "js/services/volunteers.js",
+      "sha256": "383500b0045ebe4f25f3cf232e2211fb7f57bf103a2e310f86a7d50357dcf6b8"
+    },
+    {
+      "file": "js/services/finance.js",
+      "sha256": "71ac389c8637d35903b9b04c5de0221cc19e5e5e5cc8936435cdedfeab1708bf"
+    },
+    {
+      "file": "js/services/inventory.js",
+      "sha256": "0d8d9f2ac1d22192bec5f59ed94a67ef1926c10cc8cea1b0d169d1b1aab0525f"
+    },
+    {
+      "file": "js/services/donations.js",
+      "sha256": "6d34e2cd595d5a6e74a296135d6264dc8c4e71893952dffc1259374ad3d8c115"
+    },
+    {
+      "file": "js/services/adoptions.js",
+      "sha256": "8b84ed2cf53ca31a3f2dfb60ad3394c43b5611a68e7a574eb33d30f30329182e"
+    },
+    {
+      "file": "js/services/tasks.js",
+      "sha256": "1af038dd67918c70d8bfa0554f75ddfe772b05387fdf5ea34c401667c8c81e1b"
+    },
+    {
+      "file": "js/services/health.js",
+      "sha256": "ca73cf5910cf1eb0c42a02e12762db7b233d714870949671fb70da9100d8bfe9"
+    },
+    {
+      "file": "js/services/documents.js",
+      "sha256": "5c8bb3ee08bc2e31ce5303740d301ebd740c4eb375163e7379ab29e81b45d140"
+    },
+    {
+      "file": "js/services/photos.js",
+      "sha256": "0230ece4f63c2f2460b8b274938784cab225d60af638ad34c971b0df4134e2ac"
+    },
+    {
+      "file": "js/services/weights.js",
+      "sha256": "d234ca3e511f6e6ac1a8ca9e7b0ddd65ea108f92ddfb8bc53ff07991665f2266"
+    },
+    {
+      "file": "js/services/history-events.js",
+      "sha256": "ad867d2d49fe89ee91c784f6532bb263d74a5e6458476c18f9eeda9aa233ee92"
+    },
+    {
+      "file": "js/services/history-workflow.js",
+      "sha256": "2f93dc3ab2f314aec319be170dde29e8521b356aa7ac35b375f69b016fcb13c7"
+    },
+    {
+      "file": "js/services/history-departure.js",
+      "sha256": "819ce0401f45aaaf9474243712ef56ae2708a94fa1303b2c9b4b1e1b7a692876"
+    },
+    {
+      "file": "js/services/history-adoption.js",
+      "sha256": "7595ea725ca090f398d218d232cfe6c2c0444b66623068aefcea861de694fc07"
+    },
+    {
+      "file": "js/services/history-linked-facts.js",
+      "sha256": "ae850b5f83a84259c9284d196175a5e448c6196d02324fc9a25b54c29c156451"
+    },
+    {
+      "file": "js/services/document-dates.js",
+      "sha256": "be28ae561e55f9018091cefbedc05d3f8667e83551e40dd2c0df5a3cb0812507"
+    },
+    {
+      "file": "js/services/history-corrections.js",
+      "sha256": "7f5a3fd2e83cf6866e2bc46b9adbf19b78149c67acb4431bf7b05aad250d6d92"
+    },
+    {
+      "file": "js/services/retention.js",
+      "sha256": "e90af53aa781d282df46f40372ebc13dad6723ad3174d6b510abcf7baee1db85"
+    },
+    {
+      "file": "js/services/asset-retention.js",
+      "sha256": "5449a61893ed0e0372a766669556d14e689a1d3c47aa90454cbf998db35e2612"
+    },
+    {
+      "file": "js/services/trash-purge.js",
+      "sha256": "c16068cac1347ccba62a4f618ff6c1ffaeebafa6886b8d0914896b8cecfeca05"
+    },
+    {
+      "file": "js/services/recovery.js",
+      "sha256": "25758cb6604e5553da9c4c94ca859c323324c7a3e6eba3f8d4c1b2af9ad35286"
+    },
+    {
+      "file": "js/services/reports.js",
+      "sha256": "1d47f8787a137102995e7a045a4ae0b32d5e853eee9df462750f550a97dd3ed0"
+    },
+    {
+      "file": "js/services/dashboard.js",
+      "sha256": "d7db6a4af66474b05dd4b2dfbdfa2e71923a1696e69fdcc7bee635e1239d2495"
+    },
+    {
+      "file": "js/services/search.js",
+      "sha256": "e3e41c0a7f10220d3257e75adfd07324b41645959cec43797f10252b9be2e97e"
+    },
+    {
+      "file": "js/services/animal-queries.js",
+      "sha256": "1b2e532e3ae1535eab236181198d87e89a0efc88c2be8202475835d7193eef2c"
+    },
+    {
+      "file": "js/services/adoption-queries.js",
+      "sha256": "08974a99669d21878d15bfa95f8fc099218a85a8ea33d4478648f17d6b841e01"
+    },
+    {
+      "file": "js/services/configuration.js",
+      "sha256": "4cbaf47d95555c2559c44505ed75989d7edae6cda6250c294cb8b3906fda5aea"
+    },
+    {
+      "file": "js/services/backup-reminders.js",
+      "sha256": "a9c929a88e95350ad87b007f080d6acd532de85571455a21669e6b27fea5b7a2"
+    },
+    {
+      "file": "js/utils/tabular.js",
+      "sha256": "192e9b76b6c012ad58c9688e1818ddcbcb1a9b8f92676cb378b8a8d25ddaad50"
+    },
+    {
+      "file": "js/services/export-definitions.js",
+      "sha256": "0fe25f6ae08fc9f456a3eec6af84ba3d6fd06c7e08b45b7e4067677785996f18"
+    },
+    {
+      "file": "js/services/exports.js",
+      "sha256": "54ed530df4b7fd6c2282f36ce044c55d5ed74fd0658aaa6b3319c0f170c0afc0"
+    },
+    {
+      "file": "js/services/import-parser.js",
+      "sha256": "4e04d3e6136b93c921a536cef1acccc65e1c8de2f0afe65700137262a5c649e3"
+    },
+    {
+      "file": "js/services/import-contacts.js",
+      "sha256": "47ed6773dd221b6718997437377f48c465d31c53370813c8ce7c9bb757d854d3"
+    },
+    {
+      "file": "js/services/import-batches.js",
+      "sha256": "e27ed6fc550769ff3695d654264cdc41deba0d4e42d9e6509edc213af4afd35e"
+    },
+    {
+      "file": "js/services/contact-import.js",
+      "sha256": "9abc7e24ee894f03d948ada668948ae53736057bb1e739b3bb975d2aa9e1dd39"
+    },
+    {
+      "file": "js/services/import-animals.js",
+      "sha256": "b8f700d0f7cfc6c1433b1d8ea5d7b2acb7b642cb72f7b37a40289254d756522f"
+    },
+    {
+      "file": "js/services/animal-import.js",
+      "sha256": "2f2181c144ae3d4133244e8a85aa9e23ccdb8f9dd6a9b90c230c642a292f028f"
+    },
+    {
+      "file": "js/services/import-workspace.js",
+      "sha256": "2c645e8feff3a8556f2066091249f5639f357656f609d3bb9931193524977d21"
+    },
+    {
+      "file": "js/services/import-finance.js",
+      "sha256": "2a81632048a6051a47bafed3d13a52506b4870dfc095826f009675e0925428b7"
+    },
+    {
+      "file": "js/services/import-donations.js",
+      "sha256": "bd0329f65c448829c8ae0c4a8688951658778609582019d7af3e133ba14627ad"
+    },
+    {
+      "file": "js/services/import-related.js",
+      "sha256": "b4996620c8193d529a6ea41f6deaf185a1ef93068d5b8ce9f34f587395f71e48"
+    },
+    {
+      "file": "js/services/related-import.js",
+      "sha256": "677277c1889de304a95a592cff3a6fddcd8cda77ba319f035dfd46af6e9b0235"
+    },
+    {
+      "file": "js/services/module-import-codec.js",
+      "sha256": "714903389ba438d5528edcb3af842322d9f42d57c571c138b9e5be42990895b2"
+    },
+    {
+      "file": "js/services/module-import-assets.js",
+      "sha256": "15cabd3be025efc27af53198192f091d88af9a46b1a972f5a38e058d881a26e0"
+    },
+    {
+      "file": "js/services/module-import.js",
+      "sha256": "9fe383d9171005a60ae551af7aaf535bba23df8695ccc3dfd00388207d8c24f3"
+    },
+    {
+      "file": "js/services/record-graph.js",
+      "sha256": "4b483cf8fd322f5df4beea61bd9f04d1b48a0f67485d6d0a3b60edcf7c677fdc"
+    },
+    {
+      "file": "js/services/demo-builder.js",
+      "sha256": "3fe4b62fdfeab7ccbd6644b4faeaf41b7bb07c6ae6c0172ee5af5d5d746ea406"
+    },
+    {
+      "file": "js/services/demo.js",
+      "sha256": "b9ed97590057ab4af6f74e55ce96f31bf3c69f2bfb92b525fc3bc4d35b8107c3"
+    },
+    {
+      "file": "js/components/ui.js",
+      "sha256": "56ae6e657567eeca854f819409d207a74cc9a487214b0795b94b8384db30e22f"
+    },
+    {
+      "file": "js/components/backup-proof.js",
+      "sha256": "dfeef7542fdf5e1d9d9cfe8fc69c83cde918350e4ab372e31bc55b08564bd278"
+    },
+    {
+      "file": "js/modules/document-dates.js",
+      "sha256": "d9bfdeeb62692fd62a897a7d7028c9fc812c6edaf45e17454b7e16f61c297de1"
+    },
+    {
+      "file": "js/modules/documents.js",
+      "sha256": "44871dd9c82a08be4cfd79f138e584d717834510f1ed33f9a9b73cf30ac8a6de"
+    },
+    {
+      "file": "js/modules/people.js",
+      "sha256": "e7b19c9e0ed43c6182d4276e866e8b61175c4d95d66f7eedcc8104f6db20c34d"
+    },
+    {
+      "file": "js/modules/animal-forms.js",
+      "sha256": "8b768ec9653ade40f7fe1171d311bef3a061746ce45de9fe5203c6feae16a26a"
+    },
+    {
+      "file": "js/modules/foster-workflow.js",
+      "sha256": "d0103eeb5d1d11185b8f4ded3d3242253fb10fa03d48c78b67ef08ea58a90cea"
+    },
+    {
+      "file": "js/modules/adoption-forms.js",
+      "sha256": "dddc88e5150698a3e7dd58a9e37dc4a110fed2b58ebd260aed947e7e18dc92b2"
+    },
+    {
+      "file": "js/modules/adoption-workflow.js",
+      "sha256": "8f88d0aa9afb99cb307fc7d9a901a35de923636767bf64631b8bd400cb7aaf93"
+    },
+    {
+      "file": "js/modules/tasks.js",
+      "sha256": "ae3234749368dd8547b8bafd2f6d6770d4319b4256274617b3a985a405d10284"
+    },
+    {
+      "file": "js/modules/health-forms.js",
+      "sha256": "bf4170679a7f26cebe7fd0e6683666f8465c032676ab23a34d9fa10a686c81be"
+    },
+    {
+      "file": "js/modules/health-workflow.js",
+      "sha256": "d30799729ee4889d90522949dd667a22ecb64714d70536bfe880700e0fef7ea1"
+    },
+    {
+      "file": "js/modules/finance.js",
+      "sha256": "e451bde21bafe0746ec7451bf3637f8282ff490e8cfec1abc80898ac9061412e"
+    },
+    {
+      "file": "js/modules/donations.js",
+      "sha256": "1240df97eec21f721ff29ba35ec7e735f36ba4004580367677ca0929ff7aa13b"
+    },
+    {
+      "file": "js/modules/inventory.js",
+      "sha256": "f9cf9f9f64a1dd868bfe46f9a0ab8942044a8be83082da7a24917c981e5fa1be"
+    },
+    {
+      "file": "js/modules/reports.js",
+      "sha256": "8bd06d56e71f382080437ffa0d1598eaea5f93365e17f32e24022492bcbcef2b"
+    },
+    {
+      "file": "js/modules/dashboard.js",
+      "sha256": "c14bcdf50b6b4ba5fb07c0e3e452a9638a63a63713fe74d9989431741f60f1a9"
+    },
+    {
+      "file": "js/modules/adoption-register.js",
+      "sha256": "6317f35927ab22b045defa1bd3694fdbb9e7b45636f8112aacf6ded2c1dc88e8"
+    },
+    {
+      "file": "js/modules/search.js",
+      "sha256": "bc58a416092d5d40d3c338fd3226600fe64763f17e14dddc40b6c73864fe0bc2"
+    },
+    {
+      "file": "js/modules/animal-history.js",
+      "sha256": "c88384021caad7af555b7bfaa2785fa359197842fe3be32cb22926753db8d307"
+    },
+    {
+      "file": "js/modules/exports.js",
+      "sha256": "1c1c1c2f6933fff808ee9623631e5f6902a09fa572a1b20a8e59aae66b9dbd96"
+    },
+    {
+      "file": "js/modules/imports.js",
+      "sha256": "e4f0cdf3ccf24fe4e5421f2c8c03d252f272916d884ea0f39bc10e24a882db9f"
+    },
+    {
+      "file": "js/modules/module-import.js",
+      "sha256": "cdf883389eab6e660905878c027c48367b547250debde1c9e6384a780616ee10"
+    },
+    {
+      "file": "js/modules/demo.js",
+      "sha256": "d2e8b1ff003ee2df6fefc17c292c497eb387d0e780bb71531073b0f953fcee88"
+    },
+    {
+      "file": "js/modules/configuration.js",
+      "sha256": "d6e27fe1587b8135334e10f7b3e781dc8d87af102751e34da550b90990d68dc7"
+    },
+    {
+      "file": "js/modules/asset-retention.js",
+      "sha256": "ccc49d7fedd9e3bc882794d1376a93bf9d8335fe6e4340b79bf0109333e6137b"
+    },
+    {
+      "file": "js/modules/trash-purge.js",
+      "sha256": "af202b278ef2145aef2d9054b1ce417a827f209df2eb2d632900cddd83c43cad"
+    },
+    {
+      "file": "js/modules/retention.js",
+      "sha256": "8b47c02eb166becf420da139cb6537f9d5c279bd72fba529fd1309272ad0dcba"
+    },
+    {
+      "file": "js/modules/settings.js",
+      "sha256": "8414276c8741aed07bec58a8f58147b828ec9148e17889d4fc849025c9a074d9"
+    },
+    {
+      "file": "js/modules/weights.js",
+      "sha256": "c95b388ba7765efe3d709a9b76a1e89246d0c0844c093ae15eec927f01f35249"
+    },
+    {
+      "file": "js/modules/animal-list.js",
+      "sha256": "a8357997154666f1e6137d81e36c421a41c3f369a48155f04f46ae9ea70acdfd"
+    },
+    {
+      "file": "js/modules/animal-print.js",
+      "sha256": "fb5c0f650425f337988ee6b5dee0b705c4862c88b53fa50650ef46e1dd7a614e"
+    },
+    {
+      "file": "js/modules/animals.js",
+      "sha256": "48763a5ec3f18dfe608138392a090e704b5d66e32d82f3f519b5ac5314a34df9"
+    },
+    {
+      "file": "js/modules/help.js",
+      "sha256": "e3d16dd984dfce7ca3e95fd36b92b244c14d6f99c667e21c5cf46f8627f7ea97"
+    },
+    {
+      "file": "js/bootstrap.js",
+      "sha256": "814e26363630746d71996893906425e4baa5c53352ff0d0a26b666b92f9cafc7"
+    }
+  ],
+  "completed": true,
+  "completedAt": "2026-10-24T07:32:37.015Z",
+  "status": "passed"
+}

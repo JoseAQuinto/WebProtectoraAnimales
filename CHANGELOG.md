@@ -1,5 +1,13 @@
 # Historial de cambios
 
+## Validación incremental por registro — 2026-10-24
+
+- validateDataset acepta filas congeladas ya validadas (WeakSet); omite solo sus reglas
+  propias, nunca relaciones, unicidad ni invariantes globales.
+- commit lo usa solo con su propia captura publicada, mismo día civil y sin tocar
+  organizationSettings. Escritura a 50k registros: 1,98 s → 0,91 s.
+- 3 pruebas Node nuevas (313); regresión completa 70 rondas / 974 comprobaciones.
+
 ## Caché de lectura con escritura directa — 2026-10-24
 
 - mutate expone (no enumerable) los anclajes que escribe; commit publica el estado
