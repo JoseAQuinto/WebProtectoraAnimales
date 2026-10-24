@@ -1,5 +1,20 @@
 # Historial de cambios
 
+## Revisión de usabilidad y lenguaje claro — 2026-10-24
+
+- Filtros de selección múltiple como desplegables con casillas (`ui.choices`), sin
+  teclas modificadoras ni OR/AND; chips de filtros activos y «Limpiar filtros».
+- Formularios: casillas en lugar de `<select multiple>`, nota de obligatorios,
+  «Elige una opción», mensajes de error bajo cada campo, botones fijos al pie y
+  botón con el nombre de la acción al completar/cancelar tareas (sin casilla extra).
+- Tablas como tarjetas en móvil; paginación oculta con una sola página; fechas y
+  meses legibles; resumen agrupado por temas; títulos duplicados eliminados.
+- ~700 textos en español reescritos en lenguaje cotidiano; navegación renombrada
+  y reagrupada. Detalle en docs/USABILITY_REVIEW.md. Sin cambios de servicios,
+  esquemas, formatos ni versiones.
+- 41 pruebas Node y 922 estáticas sin fallos; regresión Chrome completa
+  35 suites / 487 comprobaciones sin fallos (pruebas E2E adaptadas a la nueva UI).
+
 ## Firefox estable 158.0.1 preparado — 2026-10-24
 
 - Descarga oficial autorizada, firma de Mozilla verificada, extraída sin instalar.

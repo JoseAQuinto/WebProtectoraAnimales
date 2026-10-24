@@ -63,7 +63,7 @@
       const previous = ui.button(t('aw.previous'), () => { currentView.page--; paint(); }, true), next = ui.button(t('aw.next'), () => { currentView.page++; paint(); }, true);
       previous.disabled = currentView.page <= 1; next.disabled = currentView.page >= pages;
       results.replaceChildren(...(rows.length ? rows.slice((currentView.page - 1) * pageSize, currentView.page * pageSize).map(applicationCard) : [empty()]),
-        el('div', { class: 'actions' }, previous, el('span', {}, t('aw.page', { page: currentView.page, pages, count: rows.length })), next));
+        el('div', { class: 'actions pager' }, previous, el('span', {}, t('aw.page', { page: currentView.page, pages, count: rows.length })), next));
     }
     filter.addEventListener('change', () => { currentView.status = filter.value; currentView.page = 1; paint(); });
     if (!focus || focus.type === 'application') { if (!focus) section.append(el('div', { class: 'field' }, el('label', { for: filterId }, t('aw.filter')), filter)); section.append(results); paint(); }

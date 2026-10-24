@@ -35,7 +35,7 @@ async function check(id, operation) { try { result.checks.push({ id, passed: tru
   const close=async()=>click('common.close',modal());
   async function observe(){return page.evaluate(async()=>{const r=window.RescueManager,s=await r.services.context.snapshot({fresh:true}),tables={};for(const[name,rows]of Object.entries(s.tables)){tables[name]=[];for(const row of [...rows].sort((a,b)=>a.id.localeCompare(b.id))){const copy={...row};delete copy.datasetId;if(name==='assets'){delete copy.blob;copy.actualSha256=await r.utils.integrity.sha256(row.blob);}tables[name].push(copy);}}return{datasetId:s.datasetId,revision:s.globalRevision,dataRevision:s.dataRevision,counts:Object.fromEntries(Object.entries(tables).map(([name,rows])=>[name,rows.length])),businessHash:await r.utils.integrity.sha256(r.utils.canonicalJson.stringify(tables))};});}
   async function section(key){return page.getByRole('heading',{name:await t(key),level:2,exact:true}).locator('..');}
-  async function editRow(key,name){await (await section(key)).getByRole('row').filter({has:page.locator('td:first-child').filter({hasText:new RegExp('^'+name+'$')})}).getByRole('button',{name:await t('a.edit'),exact:true}).click();}
+  async function editRow(key,name){await (await section(key)).getByRole('row').filter({has:page.locator('td:first-child').filter({hasText:new RegExp('^'+name+'$')})}).getByRole('button',{name:await t('p.edit'),exact:true}).click();}
   async function preferences(){await nav('settings');await click('st.preferences');}
   async function logoReady(){await page.waitForFunction(()=>{const image=document.querySelector('.organization-logo');return image&&image.complete&&image.naturalWidth>0;});}
   async function backupAndVerify(){

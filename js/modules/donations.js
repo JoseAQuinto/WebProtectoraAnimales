@@ -203,7 +203,7 @@
       previous.disabled = view.page <= 1; next.disabled = view.page >= pages;
       const table = filtered.length ? el('div', { class: 'table-wrap' }, el('table', {}, el('thead', {}, el('tr', {}, ['dn.date', 'dn.type', 'dn.donor', 'dn.summary', 'dn.value', 'dn.status', 'dn.actions'].map(key => el('th', { scope: 'col' }, t(key))))),
         el('tbody', {}, filtered.slice((view.page - 1) * 20, view.page * 20).map(row => el('tr', {}, [date(ctx, row.date), t('dn.type.' + row.type), contact(tables, row.donorContactId)?.name || t('ui.unknown'), summary(row), value(row), t('dn.status.' + row.status), button(t('dn.open'), () => detail(ctx, row), true)].map(value => el('td', {}, value))))))) : el('p', { class: 'muted' }, t('dn.empty'));
-      results.replaceChildren(table, el('div', { class: 'actions' }, previous, el('span', {}, t('dn.page', { page: number(view.page), pages: number(pages), count: number(filtered.length) })), next));
+      results.replaceChildren(table, el('div', { class: 'actions pager' }, previous, el('span', {}, t('dn.page', { page: number(view.page), pages: number(pages), count: number(filtered.length) })), next));
     }
     let timer;
     const search = el('input', { type: 'search', value: view.search, maxlength: 200 });

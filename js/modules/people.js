@@ -48,7 +48,7 @@
     const previous = button(t('p.back'), () => { state.page--; repaint(); }, true), next = button(t('p.next'), () => { state.page++; repaint(); }, true);
     previous.disabled = state.page <= 1; next.disabled = state.page >= pages;
     return el('div', { class: 'stack' }, rows.length ? draw(rows.slice((state.page - 1) * pageSize, state.page * pageSize)) : text(t(state.filtered ? 'p.noMatches' : 'p.empty'), 'muted'),
-      el('nav', { class: 'actions', 'aria-label': t('p.page', { page: number(state.page), pages: number(pages), count: number(rows.length) }) }, previous,
+      el('nav', { class: 'actions pager', 'aria-label': t('p.page', { page: number(state.page), pages: number(pages), count: number(rows.length) }) }, previous,
         el('span', { role: 'status' }, t('p.page', { page: number(state.page), pages: number(pages), count: number(rows.length) })), next));
   }
   function searchField(state, repaint, key = 'p.search') {
@@ -102,7 +102,7 @@
       { key: 'acceptedSizeIds', labelKey: 'p.sizes', type: 'multiselect', options: catalog('size', profile?.acceptedSizeIds) },
       { key: 'restrictions', labelKey: 'p.restrictions', type: 'textarea', keepEmpty: true }, notes
     ] : [
-      { key: 'status', labelKey: 'p.status', options: enumOptions(root.domain.enums.profileStatus, 'p.'), required: true },
+      { key: 'status', labelKey: 'p.status', options: enumOptions(root.domain.enums.profileStatus, 'p.status.'), required: true },
       { key: 'availability', labelKey: 'p.volunteerAvailability', type: 'textarea', keepEmpty: true },
       { key: 'functionIds', labelKey: 'p.functions', type: 'multiselect', options: catalog('volunteer_function', profile?.functionIds) },
       { key: 'specialties', labelKey: 'p.specialties', type: 'textarea', keepEmpty: true }, notes
@@ -157,7 +157,7 @@
   function volunteerSection(contact, profile, close) {
     const totals = root.services.volunteers.totals(data(), { volunteerProfileId: profile.id });
     return el('section', { class: 'stack' }, el('h3', {}, t('p.volunteerProfile')), el('dl', { class: 'people-details' },
-      detail('p.status', t('p.' + profile.status)), detail('p.volunteerAvailability', profile.availability), detail('p.functions', catalogNames(profile.functionIds)), detail('p.specialties', profile.specialties), detail('p.notes', profile.notes),
+      detail('p.status', t('p.status.' + profile.status)), detail('p.volunteerAvailability', profile.availability), detail('p.functions', catalogNames(profile.functionIds)), detail('p.specialties', profile.specialties), detail('p.notes', profile.notes),
       detail('p.total', t('p.periodTotals', { duration: duration(totals.minutes), count: number(totals.entries) }))),
       el('div', { class: 'actions' }, !profile.deletedAt && !profile.archivedAt && !contact.deletedAt ? action('p.editVolunteer', () => { close(); editProfile('volunteer', contact, profile, () => openContact(contact.id)); }, true) : null,
         button(t('p.hours'), () => { close(); hoursDialog(profile.id, contact.name); }, true)));
@@ -304,7 +304,7 @@
         const shownTotals = totals.byVolunteer.filter(row => shownIds.has(row.volunteerProfileId));
         results.replaceChildren(text(t('p.periodTotals', { duration: duration(shownTotals.reduce((sum, row) => sum + row.minutes, 0)), count: number(shownTotals.reduce((sum, row) => sum + row.entries, 0)) })),
           paginated(profiles, state, entries => table(['p.name','p.status','p.functions','p.total','p.actions'], entries.map(({contact, profile}) => el('tr', {},
-            el('th', { scope: 'row' }, contact.name), cell(t('p.' + profile.status)), cell(catalogNames(profile.functionIds)), cell(duration(minutes.get(profile.id) || 0)),
+            el('th', { scope: 'row' }, contact.name), cell(t('p.status.' + profile.status)), cell(catalogNames(profile.functionIds)), cell(duration(minutes.get(profile.id) || 0)),
             cell(el('div', { class: 'actions' }, button(t('p.open'), () => openContact(contact.id), true), button(t('p.hours'), () => hoursDialog(profile.id, contact.name, state), true)))))), repaint));
       }
     };
@@ -313,7 +313,7 @@
     if (page === 'contacts') filterArea.append(select('p.role', allOptions(root.domain.enums.contactRole, 'p.role.'), state.role, changed('role')), select('p.type', allOptions(root.domain.enums.contactType, 'p.type.'), state.type, changed('type')));
     if (page === 'fosters') filterArea.append(select('p.availability', allOptions(root.domain.enums.fosterAvailability, 'p.availability.'), state.availability, changed('availability')),
       select('p.species', [{ value: '', label: t('p.all') }, ...catalog('species')], state.speciesId, changed('speciesId')), select('p.sizes', [{ value: '', label: t('p.all') }, ...catalog('size')], state.sizeId, changed('sizeId')));
-    if (page === 'volunteers') filterArea.append(select('p.status', allOptions(root.domain.enums.profileStatus, 'p.'), state.status, changed('status')), select('p.functions', [{ value: '', label: t('p.all') }, ...catalog('volunteer_function')], state.functionId, changed('functionId')), ...periodFields(state, repaint));
+    if (page === 'volunteers') filterArea.append(select('p.status', allOptions(root.domain.enums.profileStatus, 'p.status.'), state.status, changed('status')), select('p.functions', [{ value: '', label: t('p.all') }, ...catalog('volunteer_function')], state.functionId, changed('functionId')), ...periodFields(state, repaint));
     filterArea.append(select('p.sort', [{ value: 'asc', label: t('p.ascending') }, { value: 'desc', label: t('p.descending') }], state.sort, changed('sort')));
     const clear = button(t('p.clear'), () => { delete views[page]; context.refresh(); }, true);
     const create = action(page === 'contacts' ? 'p.newContact' : page === 'fosters' ? 'p.newFoster' : 'p.newVolunteer', () => {

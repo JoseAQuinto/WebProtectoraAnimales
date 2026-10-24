@@ -49,9 +49,9 @@ async function check(id, work) {
   async function nav(key) { await closeDialogs(); await click('nav.' + key, page, 'link'); await page.waitForFunction(key => location.hash.split('/')[0] === '#' + key, key); }
   async function health() { await closeDialogs(); await page.evaluate(id => { location.hash = '#animals/' + id + '/health'; }, animalId); await page.getByRole('heading', { name: 'Salud ficticia', level: 1, exact: true }).waitFor(); await page.getByRole('button', { name: await t('hw.record'), exact: true }).waitFor(); }
   async function more() { const summary = modal().locator('details > summary').first(); if (!await summary.locator('..').evaluate(node => node.open)) await summary.click(); }
-  async function save(double = false) {
+  async function save(double = false, label = 'common.save') {
     const handle = await modal().elementHandle();
-    if (double) await modal().getByRole('button', { name: await t('common.save'), exact: true }).evaluate(button => { button.click(); button.click(); }); else await click('common.save', modal());
+    if (double) await modal().getByRole('button', { name: await t(label), exact: true }).evaluate(button => { button.click(); button.click(); }); else await click(label, modal());
     try { await handle.waitForElementState('hidden', { timeout: 10000 }); }
     catch (error) { error.message += '\nForm: ' + await modal().innerText(); throw error; } finally { await handle.dispose(); }
   }
@@ -91,8 +91,8 @@ async function check(id, work) {
       const row = (await tables()).tasks.find(item => item.id === initial.id); assert(row.dueLocalTime === null && row.timeZone === null && row.description === 'Edición sin hora conservada', 'Removing time did not normalize pair'); return { initial, updated: row };
     });
     await check('general-completion-and-cancellation-are-explicit-and-preserve-closure-fields', async () => {
-      await openTask('Tarea general finalizar ficticia'); await click('q.complete', modal()); await modal().locator('[name=confirmed]').check(); await save();
-      const second = await task('Tarea general cancelar ficticia'); await openTask(second.title); await click('q.cancelTask', modal()); await modal().locator('[name=reason]').fill('Cancelación ficticia decidida expresamente'); await modal().locator('[name=confirmed]').check(); await save();
+      await openTask('Tarea general finalizar ficticia'); await click('q.complete', modal()); await save(false, 'q.complete');
+      const second = await task('Tarea general cancelar ficticia'); await openTask(second.title); await click('q.cancelTask', modal()); await modal().locator('[name=reason]').fill('Cancelación ficticia decidida expresamente'); await save(false, 'q.cancelTask');
       const rows = (await tables()).tasks, completed = rows.find(row => row.title === 'Tarea general finalizar ficticia'), cancelled = rows.find(row => row.id === second.id);
       assert(completed.status === 'completed' && completed.completedOn === today && cancelled.status === 'cancelled' && cancelled.cancelledOn === today && cancelled.cancellationReason === 'Cancelación ficticia decidida expresamente', 'Explicit closure fields missing'); return { tasks: rows };
     });

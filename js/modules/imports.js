@@ -65,7 +65,7 @@
       const references=el('div'),query=el('input',{id:'import-reference-query',type:'search',value:view.referenceQuery});
       function drawReferences(){const search=root.utils.strings.normalizeSearch(view.referenceQuery),matching=referenceRows.filter(row=>!search||root.utils.strings.normalizeSearch(row.join(' ')).includes(search)),pages=Math.max(1,Math.ceil(matching.length/20));view.referencePage=Math.min(view.referencePage,pages);
         const previous=ui.button(t('a.previous'),()=>{view.referencePage--;drawReferences();},true),next=ui.button(t('a.next'),()=>{view.referencePage++;drawReferences();},true);previous.disabled=view.referencePage<=1;next.disabled=view.referencePage>=pages;
-        references.replaceChildren(el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['ia.referenceKind','ia.referenceCode','ia.referenceName'].map(key=>el('th',{scope:'col'},translate(key))))),el('tbody',{},matching.slice((view.referencePage-1)*20,view.referencePage*20).map(row=>el('tr',{},row.map(value=>el('td',{},value))))))),el('div',{class:'actions'},previous,el('span',{},t('ui.recordPage',{page:view.referencePage,pages,count:matching.length})),next));}
+        references.replaceChildren(el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['ia.referenceKind','ia.referenceCode','ia.referenceName'].map(key=>el('th',{scope:'col'},translate(key))))),el('tbody',{},matching.slice((view.referencePage-1)*20,view.referencePage*20).map(row=>el('tr',{},row.map(value=>el('td',{},value))))))),el('div',{class:'actions pager'},previous,el('span',{},t('ui.recordPage',{page:view.referencePage,pages,count:matching.length})),next));}
       query.addEventListener('input',()=>{view.referenceQuery=query.value;view.referencePage=1;drawReferences();});drawReferences();
       controls.append(el('details',{},el('summary',{},translate('ia.references')),el('p',{class:'muted'},t('im.referencesHelp')),el('label',{for:'import-reference-query'},translate('im.referenceSearch')),query,references));
     }
@@ -91,7 +91,7 @@
       details.append(el('section',{class:'card stack'},el('h2',{},t('im.preview')),el('p',{class:'notice'},t('im.summary',report.counts)),report.repeatedFile?el('p',{class:'notice warning'},t('im.repeated')):null,
         report.revision!==ctx.snapshot.globalRevision?el('p',{role:'alert'},t('im.stale')):null,report.unknown?el('p',{class:'notice warning'},t('im.unknown',{count:report.unknown,columns:report.unknownColumns.join(', ')})):null,
         report.globalErrors.length?el('p',{role:'alert'},t('im.datasetError')):null,el('p',{class:'muted'},t(report.staged?'im.largeHelp':'im.atomicHelp')),
-        el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['im.row','im.field.name','im.issues','im.action','im.decision'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows))),el('div',{class:'actions'},previous,el('span',{},t('ui.recordPage',{page:view.page,pages,count:report.rows.length})),next,ui.button(t('im.report'),reportFile,true),commit)));
+        el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['im.row','im.field.name','im.issues','im.action','im.decision'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows))),el('div',{class:'actions pager'},previous,el('span',{},t('ui.recordPage',{page:view.page,pages,count:report.rows.length})),next,ui.button(t('im.report'),reportFile,true),commit)));
     }
     return[el('header',{class:'page-heading'},el('h1',{},t('nav.imports'))),controls,details];
   }

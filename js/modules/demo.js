@@ -30,7 +30,7 @@
       output.append(el('section',{class:'card stack'},el('h2',{},t('dm.review')),el('p',{class:'notice'},t(report.kind==='load'?'dm.loadSummary':'dm.clearSummary',report.counts)),report.referenceDate?el('p',{},t('dm.reference',{date:report.referenceDate})):null,
         report.requiresConversion?el('div',{class:'notice warning'},el('p',{},t('dm.conversionHelp')),el('h3',{},t('dm.dependencies')),report.dependencies.slice(0,20).map(row=>el('p',{class:'preserve-lines'},label(row.table)+' · '+row.name+' → '+label(row.targetTable)))):null,
         report.globalErrors.length?el('p',{role:'alert'},t('dm.validationError')):null,report.revision!==ctx.snapshot.globalRevision?el('p',{role:'alert'},t('im.stale')):null,
-        el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['mj.table','dm.record','mj.outcome'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},body))),el('div',{class:'actions'},previous,el('span',{},t('ui.recordPage',{page:view.page,pages,count:report.rows.length})),next),
+        el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['mj.table','dm.record','mj.outcome'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},body))),el('div',{class:'actions pager'},previous,el('span',{},t('ui.recordPage',{page:view.page,pages,count:report.rows.length})),next),
         el('div',{class:'actions'},commit,ui.button(t('dm.discardReview'),()=>{generation++;view.report=null;ctx.refresh();},true))));
     }
     return[el('header',{class:'page-heading'},el('h1',{},t('nav.demo'))),controls,output];

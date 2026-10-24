@@ -20,8 +20,8 @@
       const table=rows.length?el('div',{class:'table-wrap'},el('table',{},
         el('thead',{},el('tr',{},['a.date','a.weight','a.notes','a.actions'].map(key=>el('th',{scope:'col'},t(key))))),
         el('tbody',{},body))):el('p',{class:'muted'},t('wt.empty'));
-      area.replaceChildren(table,el('div',{class:'actions'},previous,
-        el('span',{},t('a.page',{page:view.page,pages,count:rows.length})),next));
+      area.replaceChildren(table,el('div',{class:'actions pager'},previous,
+        el('span',{},t('ui.recordPage',{page:view.page,pages,count:rows.length})),next));
     }
     trash.addEventListener('change',()=>{view.trash=trash.checked;view.page=1;paint();});paint();
     return el('section',{class:'stack weights-panel'},el('h3',{},t('a.weights')),el('p',{class:'muted'},t('wt.help')),el('label',{for:'weight-trash'},trash,t('wt.showTrash')),area);

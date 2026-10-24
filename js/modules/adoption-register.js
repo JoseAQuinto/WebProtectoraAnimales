@@ -9,13 +9,13 @@
     if(!item.animal)return ui.dialog(t('ag.open'),el('p',{},t('a.notFound')));
     dispose();
     const focused={...ctx,get snapshot(){return ctx.snapshot;},refresh:async()=>{dispose();await ctx.refresh();}};
-    const animalLink=el('a',{href:'#animals/'+item.animal.id+'/adoption'},item.animal.code+' · '+item.animal.name);
+    const animalLink=el('a',{href:'#animals/'+item.animal.id+'/adoption'},item.animal.name+' ('+item.animal.code+')');
     animalLink.addEventListener('click',dispose);
     detailDialog=ui.dialog(t(views[state.kind]),[animalLink,root.modules.adoptionWorkflow.render(focused,item.animal,{type:state.kind,id:item.row.id})],{wide:true});
   }
   function newApplication(ctx){
     const animals=ctx.snapshot.tables.animals.filter(row=>!row.archivedAt&&!row.deletedAt&&row.managementStatus==='under_care').sort((a,b)=>a.name.localeCompare(b.name));
-    const select=el('select',{id:'application-animal'},el('option',{value:''},t('aw.choose')),animals.map(row=>el('option',{value:row.id},row.code+' · '+row.name)));
+    const select=el('select',{id:'application-animal'},el('option',{value:''},t('aw.choose')),animals.map(row=>el('option',{value:row.id},row.name+' ('+row.code+')')));
     let chooser;const next=ui.button(t('ag.continue'),()=>{const animal=animals.find(row=>row.id===select.value);if(animal){chooser.close();root.modules.adoptionForms.application(ctx,animal);}});
     next.disabled=true;select.addEventListener('change',()=>{next.disabled=!select.value;});
     chooser=ui.dialog(t('aw.new'),[el('p',{},t(animals.length?'ag.chooseAnimal':'ag.noAnimals')),el('label',{for:'application-animal'},t('a.name')),select,next]);
@@ -28,7 +28,7 @@
     let timer;
     const search=control('search','ag.search',el('input',{type:'search',maxlength:200}));
     const status=control('status','a.state',el('select'));
-    const animalSelect=control('animalId','ag.animal',el('select',{},el('option',{value:''},t('p.all')),tables.animals.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(row=>el('option',{value:row.id},row.code+' · '+row.name))));
+    const animalSelect=control('animalId','ag.animal',el('select',{},el('option',{value:''},t('p.all')),tables.animals.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(row=>el('option',{value:row.id},row.name+' ('+row.code+')'))));
     const contactSelect=control('contactId','a.contact',el('select',{},el('option',{value:''},t('p.all')),tables.contacts.filter(row=>!row.mergedIntoContactId).slice().sort((a,b)=>a.name.localeCompare(b.name)).map(row=>el('option',{value:row.id},row.name))));
     const from=control('from','p.from',el('input',{type:'date'})),to=control('to','p.to',el('input',{type:'date'}));
     const mode=control('mode','ag.visibility',el('select',{},['active','all','trash'].map(value=>el('option',{value},t('ag.visibility.'+value)))));
@@ -42,13 +42,13 @@
       const pages=Math.max(1,Math.ceil(found.total/20));if(state.page>pages){state.page=pages;paint();return;}
       const previous=ui.button(t('a.previous'),()=>{state.page--;paint();},true),next=ui.button(t('a.next'),()=>{state.page++;paint();},true);previous.disabled=state.page<=1;next.disabled=state.page>=pages;
       const rows=found.rows.map(item=>{
-        const animal=item.animal?el('a',{href:'#animals/'+item.animal.id+'/adoption'},item.animal.code+' · '+item.animal.name):t('ui.unknown');
+        const animal=item.animal?el('a',{href:'#animals/'+item.animal.id+'/adoption'},item.animal.name+' ('+item.animal.code+')'):t('ui.unknown');
         const contact=item.contact?ui.button(item.contact.name,()=>root.modules.people.openContact(item.contact.id,{context:ctx}),true):t('ui.unknown');
         const statusKey=(state.kind==='application'?'a.application.':state.kind==='reservation'?'aw.reservationStatus.':'ag.adoption.')+item.status;
         return el('tr',{},el('td',{},date(item.date)),el('th',{scope:'row'},animal),el('td',{},contact),el('td',{},t(statusKey)),el('td',{},state.kind==='reservation'?date(item.row.expiresOn):state.kind==='adoption'?date(item.row.returnDate):date(item.row.approvalDate)),el('td',{},ui.button(t('ag.open'),()=>open(ctx,item),true)));
       });
       const extra=state.kind==='reservation'?'aw.expiresOn':state.kind==='adoption'?'aw.returnDate':'aw.approvalDate';
-      area.replaceChildren(el('h2',{},t(views[state.kind])),el('p',{class:'muted'},t('ag.periodHelp.'+state.kind)),rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['a.date','ag.animal','a.contact','a.state',extra,'a.actions'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows))):el('p',{},t('aw.empty')),el('div',{class:'actions'},previous,el('span',{},t('a.page',{page:state.page,pages,count:found.total})),next));
+      area.replaceChildren(el('h2',{},t(views[state.kind])),el('p',{class:'muted'},t('ag.periodHelp.'+state.kind)),rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['a.date','ag.animal','a.contact','a.state',extra,'a.actions'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows))):el('p',{},t('aw.empty')),el('div',{class:'actions pager'},previous,el('span',{},t('ui.recordPage',{page:state.page,pages,count:found.total})),next));
     }
     const clear=ui.button(t('p.clear'),()=>{for(const key of['search','status','animalId','contactId','from','to'])state[key]='';state.mode='active';state.page=1;search.value=status.value=animalSelect.value=contactSelect.value=from.value=to.value='';mode.value='active';paint();},true);
     const create=ui.button(t('aw.new'),()=>newApplication(ctx));create.disabled=!writable();paint();

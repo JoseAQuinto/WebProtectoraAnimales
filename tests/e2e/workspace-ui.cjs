@@ -151,7 +151,7 @@ async function check(id, work) {
       const capture = await observe(); assert(capture.counts.contacts === 1 && capture.counts.fosterProfiles === 1 && capture.counts.volunteerProfiles === 1 && capture.counts.volunteerHours === 1, 'Profiles duplicated person or hours missing'); return capture;
     });
     await check('animal-entry-and-positive-weight-save-through-real-forms', async () => {
-      await nav('animals'); await click('a.new'); await modal().locator('[name="name"]').fill('Luna UI ñ 🐾'); await modal().locator('[name="speciesId"]').selectOption({index:0}); await modal().locator('[name="entryReason"]').fill('Rescate sintético'); await modal().locator('[name="availability"]').selectOption('available'); await save();
+      await nav('animals'); await click('a.new'); await modal().locator('[name="name"]').fill('Luna UI ñ 🐾'); await modal().locator('[name="speciesId"]').selectOption({index:1}); await modal().locator('[name="entryReason"]').fill('Rescate sintético'); await modal().locator('[name="availability"]').selectOption('available'); await save();
       await page.getByRole('heading', { name: 'Luna UI ñ 🐾', exact: true }).waitFor(); animalId = await page.evaluate(async () => (await window.RescueManager.services.context.snapshot({fresh:true})).tables.animals[0].id);
       await click('a.addWeight'); await modal().locator('[name="grams"]').fill('9500'); await save(); await page.getByText(/9500 g/).first().waitFor();
       const capture = await observe(); assert(capture.counts.animals === 1 && capture.counts.stayEpisodes === 1 && capture.counts.weightMeasurements === 1, 'Animal entry or weight missing'); return { animalId, ...capture };
@@ -163,7 +163,7 @@ async function check(id, work) {
       const capture = await observe(); assert(capture.counts.assets === 2, 'Photo and thumbnail not atomic'); await screenshots('animal-info'); return { assets: 2, previewWidth: 1600 };
     });
     await check('invalid-document-keeps-fields-and-writes-nothing-then-valid-txt-saves', async () => {
-      await click('a.tab.documents'); await click('d.newEmbedded'); await modal().locator('[name="title"]').fill('Documento UI ñ'); await modal().locator('[name="typeId"]').selectOption({index:0});
+      await click('a.tab.documents'); await click('d.newEmbedded'); await modal().locator('[name="title"]').fill('Documento UI ñ'); await modal().locator('[name="typeId"]').selectOption({index:1});
       await modal().locator('[name="file"]').setInputFiles({ name: 'unsafe.txt', mimeType: 'text/plain', buffer: Buffer.from('<!DOCTYPE html><html>unsafe</html>') }); const before = await observe();
       await click('common.save', modal()); await modal().locator('.form-errors p').waitFor();
       assert(await modal().locator('[name="title"]').inputValue() === 'Documento UI ñ' && (await observe()).businessHash === before.businessHash, 'Invalid file lost fields or changed data');
@@ -176,7 +176,7 @@ async function check(id, work) {
       assert(await fs.readFile(savedFile, 'utf8') === 'Documento sintético ñ\nSegunda línea', 'Download changed bytes');
       await modal().getByLabel(await t('d.linkType'), { exact: true }).selectOption('contact'); await modal().getByLabel(await t('d.linkTarget'), { exact: true }).selectOption(contactId); await click('d.link', modal()); await click('d.link', modal()); await page.locator('dialog[open]').waitFor({ state: 'detached' });
       await page.getByRole('row').filter({ hasText: 'Documento UI ñ' }).getByRole('button', { name: await t('d.open'), exact: true }).click(); await click('d.unlink', modal().getByRole('listitem').filter({ hasText: 'Familia UI ficticia' })); await click('d.unlink', modal()); await page.locator('dialog[open]').waitFor({ state: 'detached' });
-      await click('d.newExternal'); await modal().locator('[name="title"]').fill('Referencia externa UI'); await modal().locator('[name="typeId"]').selectOption({index:0}); await modal().locator('[name="externalFileName"]').fill('contrato-original.docx'); await modal().locator('[name="externalLocation"]').fill('Archivador local rojo'); await save();
+      await click('d.newExternal'); await modal().locator('[name="title"]').fill('Referencia externa UI'); await modal().locator('[name="typeId"]').selectOption({index:1}); await modal().locator('[name="externalFileName"]').fill('contrato-original.docx'); await modal().locator('[name="externalLocation"]').fill('Archivador local rojo'); await save();
       await page.getByRole('row').filter({ hasText: 'Referencia externa UI' }).waitFor(); const capture = await observe(); assert(capture.counts.documents === 2 && capture.counts.assets === 3 && capture.counts.documentLinks === 3, 'External bytes embedded or link history deleted'); await screenshots('animal-documents'); return { downloadName: download.suggestedFilename(), downloadBytesMatch: true, ...capture };
     });
     await check('real-ui-backup-download-reselection-and-restoration-preserve-records-and-binaries', async () => {

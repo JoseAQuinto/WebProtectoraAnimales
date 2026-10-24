@@ -32,7 +32,7 @@
     const value=await service.list(page),card=el('section',{class:'card stack'}),previous=ui.button(t('a.previous'),()=>load(value.page-1),true),next=ui.button(t('a.next'),()=>load(value.page+1),true);previous.disabled=value.page<=1;next.disabled=value.page>=value.pages;
     async function load(number){try{card.replaceWith(await render(ctx,number));}catch(error){ctx.notify(ui.message(error),true);await ctx.refresh();}}
     const list=value.rows.map(row=>{const open=ui.button(t('tp.review'),()=>ctx.action(async()=>review(ctx,await service.preview(row.table,row.id))),true);open.dataset.trashRoot=row.table+'/'+row.id;return el('li',{class:'stack'},el('strong',{class:'preserve-lines'},row.title||table(row.table)),el('span',{class:'preserve-lines'},[table(row.table),row.detail,t('tp.trashedOn',{date:row.deletedAt.slice(0,10)})].filter(Boolean).join(' · ')),el('div',{class:'actions'},open));});
-    card.append(el('h2',{},t('tp.title')),el('p',{},t('tp.help')),list.length?el('ul',{class:'stack trash-roots'},list):el('p',{},t('tp.empty')),el('div',{class:'actions'},previous,el('span',{},t('ui.recordPage',{page:value.page,pages:value.pages,count:value.total})),next));return card;
+    card.append(el('h2',{},t('tp.title')),el('p',{},t('tp.help')),list.length?el('ul',{class:'stack trash-roots'},list):el('p',{},t('tp.empty')),el('div',{class:'actions pager'},previous,el('span',{},t('ui.recordPage',{page:value.page,pages:value.pages,count:value.total})),next));return card;
   }
   root.modules.trashPurge=Object.freeze({render});
 }(window.RescueManager));

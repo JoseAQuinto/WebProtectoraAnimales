@@ -62,5 +62,12 @@
     return result;
   }
 
-  root.utils.dates = Object.freeze({ isValid, compare, daysBetween, ageOn, ageMonthsOn, today });
+  // Calendar date as the organization chose to read it (stored values stay ISO).
+  function display(value, format) {
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}/.test(value)) return value;
+    const [year, month, day] = [value.slice(0, 4), value.slice(5, 7), value.slice(8, 10)];
+    return format === 'day_first' ? day + '/' + month + '/' + year : format === 'month_first' ? month + '/' + day + '/' + year : year + '-' + month + '-' + day;
+  }
+
+  root.utils.dates = Object.freeze({ isValid, compare, daysBetween, ageOn, ageMonthsOn, today, display });
 }(window.RescueManager));

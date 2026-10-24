@@ -37,7 +37,11 @@ async function check(id, operation) { try { result.checks.push({ id, passed: tru
   const translated=(key,values)=>page.evaluate(({key,values})=>window.RescueManager.core.i18n.t(key,values),{key,values});
   async function advanced(){if(await page.locator('.animal-advanced-filters').getAttribute('open')===null)await page.getByText(await t('aq.advanced'),{exact:true}).click();}
   const rows=()=>page.locator('#main tbody tr');
-  async function set(key,values){await page.locator('#animal-filter-'+key).selectOption(values);}
+  // Multi-value filters are checkbox dropdowns (<details>); single-value ones stay native selects.
+  async function set(key,values){const control=page.locator('#animal-filter-'+key);if(await control.evaluate(node=>node.tagName)!=='DETAILS'){await control.selectOption(values);return;}
+    if(await control.getAttribute('open')===null)await control.locator('summary').click();
+    for(const box of await control.locator('input[type=checkbox]').all()){const wanted=values.includes(await box.getAttribute('value'));if(wanted!==await box.isChecked())await box.setChecked(wanted);}
+    await control.locator('summary').click();}
   async function date(key,value){await page.locator('#animal-filter-'+key).fill(value);await page.locator('#animal-filter-'+key).dispatchEvent('change');}
   try{
     result.sourceFiles=await sources();const first=await open();page=first.tab;

@@ -4,10 +4,13 @@
   const t = (...args) => root.core.i18n.t(...args);
   const state = { snapshot: null, pending: null, busy: false, message: null };
   let sidebar, routeToken = 0;
+  // Instants (backup receipts, recovery sets) shown as a readable local date and time.
+  const stamp = value => { try { return new Intl.DateTimeFormat(root.core.i18n.language,{dateStyle:'medium',timeStyle:'short'}).format(new Date(value)); } catch (_) { return value; } };
   const notice = (text,error) => el('div',{class:'notice'+(error?' error':''),role:error?'alert':'status'},text);
-  const heading = (title,help) => el('header',{class:'page-heading'},el('div',{},el('p',{class:'eyebrow'},t('app.name')),el('h1',{},title),el('p',{class:'muted'},help)));
+  const heading = (title,help) => el('header',{class:'page-heading'},el('div',{},el('h1',{},title),el('p',{class:'muted'},help)));
   // Requirement 31 groups: overview, animals and care, people, organization and resources, reports, settings and help.
-  const navigationGroups=[['overview',['dashboard','search']],['care',['animals','adoptions','tasks']],['people',['contacts','fosters','volunteers']],['resources',['finance','donations','inventory','documents']],['reports',['reports','exports']],['settings',['imports','moduleImport','demo','backup','retention','settings','help']]];
+  // Data exchange tools sit with reports so the settings group keeps the daily items (backups, settings, help) together.
+  const navigationGroups=[['overview',['dashboard','search']],['care',['animals','adoptions','tasks']],['people',['contacts','fosters','volunteers']],['resources',['finance','donations','inventory','documents']],['reports',['reports','exports','imports','moduleImport']],['settings',['backup','settings','retention','demo','help']]];
   async function act(work) {
     if (state.busy) return;
     state.busy = true;
@@ -52,7 +55,7 @@
       state.pending=null;state.message={text:t('ui.restored')};
     }));
     return el('section',{class:'card stack'},el('h2',{},t('ui.restoreSummary')),
-      el('p',{},t('ui.organization')+': '+value.organizationName),el('p',{},t('ui.backupDate')+': '+value.createdAt),
+      el('p',{},t('ui.organization')+': '+value.organizationName),el('p',{},t('ui.backupDate')+': '+stamp(value.createdAt)),
       el('p',{},t('ui.files')+': '+value.embeddedAssetCount+' · '+t('ui.externalFiles')+': '+value.externalReferenceCount),
       el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},el('th',{scope:'col'},t('ui.module')),el('th',{scope:'col'},t('ui.records')))),
         el('tbody',{},Object.entries(value.recordCounts).filter(([,count])=>count).map(([name,count])=>el('tr',{},el('th',{scope:'row'},t('table.'+name)),el('td',{},count)))))),
@@ -70,7 +73,7 @@
             if(!input.confirmed)return;await root.services.recovery.recover(row.datasetId,{confirmed:true,expectedRevision:revision});state.message={text:t('ui.restored')};state.pending=null;await render();
           });
         },true);restore.disabled=!root.services.context.status().canWrite;
-        return el('li',{},el('h3',{},row.organizationName||t('r.unnamed')),el('p',{},t(row.state==='retired'?'r.retired':'r.staging')+' · '+row.updatedAt),
+        return el('li',{},el('h3',{},row.organizationName||t('r.unnamed')),el('p',{},t(row.state==='retired'?'r.retired':'r.staging')+' · '+stamp(row.updatedAt)),
           el('p',{},t('r.records',{count:row.recordCount,bytes:row.assetBytes})),row.state==='retired'?restore:el('p',{class:'muted'},t('r.incomplete')));
       })):el('p',{class:'muted'},t('r.empty')));
   }
@@ -85,7 +88,7 @@
       el('section',{class:'card'},el('h2',{},t('ui.verifyBackup')),el('p',{class:'muted'},t('ui.verifyHelp')),pick(t('ui.selectVerify'),false)),
       el('section',{class:'card'},el('h2',{},t('ui.restore')),el('p',{class:'muted'},t('ui.restoreHelp')),pick(t('ui.selectRestore'),true))),
       state.pending?summary():null,
-      el('section',{class:'card'},el('h2',{},t('ui.lastBackup')),receipts.length?el('ul',{},receipts.slice(0,10).map(row=>el('li',{},row.generatedAt+' · '+t('ui.'+row.state)))):el('p',{class:'muted'},t('ui.noBackups'))),await recovery()];
+      el('section',{class:'card'},el('h2',{},t('ui.lastBackup')),receipts.length?el('ul',{},receipts.slice(0,10).map(row=>el('li',{},stamp(row.generatedAt)+' · '+t('ui.'+row.state)))):el('p',{class:'muted'},t('ui.noBackups'))),await recovery()];
   }
   function help() {
     return root.modules.help.render();

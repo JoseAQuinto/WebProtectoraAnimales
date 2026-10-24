@@ -2,6 +2,7 @@
   'use strict';
   const ui = root.components.ui, el = ui.el, t = (...args) => root.core.i18n.t(...args), service = root.services.documents;
   const entityKey = type => ({ animal:'table.animals', contact:'table.contacts', adoption:'table.adoptions', veterinary_record:'table.veterinaryRecords' })[type];
+  const shown = (ctx, value) => root.utils.dates.display(value, ctx.snapshot.tables.organizationSettings[0].dateFormat);
   function render(ctx, entity) {
     const panel = el('section', {class:'card stack documents-panel'}), results = el('div'), filters = {search:'', mode:'', state:'active', page:1};
     const data = () => ctx.snapshot.tables, command = () => ({expectedRevision:ctx.snapshot.globalRevision});
@@ -43,7 +44,7 @@
       const row=data()[root.domain.entityTables[type]].find(item=>item.id===id);
       if(!row)return t('ui.unknown'); if(type==='contact')return row.name;
       const animal=type==='animal'?row:data().animals.find(item=>item.id===row.animalId);
-      return (animal?animal.code+' · '+animal.name:t(entityKey(type)))+(type==='animal'?'':' · '+(row.date||row.adoptionDate||''));
+      return (animal?animal.name+' ('+animal.code+')':t(entityKey(type)))+(type==='animal'?'':' · '+(row.date||row.adoptionDate||''));
     }
     function links(row, beforeChange) {
       const area=el('div',{class:'stack'}), active=data().documentLinks.filter(link=>link.documentId===row.id&&!link.deletedAt&&!link.archivedAt);
@@ -57,7 +58,7 @@
     }
     function detail(row) {
       const isExternal=row.mode==='external_reference', content=el('div',{class:'stack'},el('p',{class:'badge'},t(isExternal?'d.external':'d.embedded')),
-        el('p',{},category(row.typeId)+' · '+row.date),el('p',{class:'preserve-lines'},row.notes||t('d.noNotes')),
+        el('p',{},category(row.typeId)+' · '+shown(ctx,row.date)),el('p',{class:'preserve-lines'},row.notes||t('d.noNotes')),
         isExternal?el('div',{},el('p',{},row.externalFileName),el('p',{class:'preserve-lines'},row.externalLocation),el('p',{class:'notice warning'},t('d.externalHelp'))):null);
       const controls=el('div',{class:'actions'}), editable=!row.deletedAt&&!row.archivedAt;
       if(!isExternal)controls.append(action('d.download',()=>ctx.action(async()=>{const file=await service.download(row.id);ui.download(file.blob,file.fileName);}),false));
@@ -70,23 +71,23 @@
     }
     function chooseExisting() {
       const rows=service.list(data()).filter(row=>!data().documentLinks.some(link=>!link.deletedAt&&link.documentId===row.id&&link.entityType===entity.entityType&&link.entityId===entity.entityId));
-      const choices=el('select',{},rows.map(row=>el('option',{value:row.id},row.title+' · '+row.date)));
+      const choices=el('select',{},rows.map(row=>el('option',{value:row.id},row.title+' · '+shown(ctx,row.date))));
       const modal=ui.dialog(t('d.linkExisting'),[label('d.title',choices),action('d.link',()=>{if(choices.value){modal.close();confirmChange('d.link',cmd=>service.link(choices.value,entity,cmd));}})]);
     }
     function paint() {
       const rows=service.list(data(),{...entity,search:filters.search,mode:filters.mode,trash:filters.state==='trash',includeArchived:filters.state==='all'});
       const pages=Math.max(1,Math.ceil(rows.length/20));filters.page=Math.min(filters.page,pages);
       const table=el('table',{},el('thead',{},el('tr',{},['d.title','d.type','d.date','d.mode','d.state','d.actions'].map(key=>el('th',{scope:'col'},t(key))))),
-        el('tbody',{},rows.slice((filters.page-1)*20,filters.page*20).map(row=>el('tr',{},el('th',{scope:'row'},row.title),el('td',{},category(row.typeId)),el('td',{},row.date),el('td',{},t(row.mode==='embedded'?'d.embedded':'d.external')),
+        el('tbody',{},rows.slice((filters.page-1)*20,filters.page*20).map(row=>el('tr',{},el('th',{scope:'row'},row.title),el('td',{},category(row.typeId)),el('td',{},shown(ctx,row.date)),el('td',{},t(row.mode==='embedded'?'d.embedded':'d.external')),
           el('td',{},t(row.deletedAt?'d.trash':row.archivedAt?'d.archived':'d.active')),el('td',{},action('d.open',()=>detail(row),false))))));
       const previous=action('d.previous',()=>{filters.page--;paint();},false),next=action('d.next',()=>{filters.page++;paint();},false);previous.disabled=filters.page<=1;next.disabled=filters.page>=pages;
-      results.replaceChildren(rows.length?el('div',{class:'table-wrap'},table):el('p',{class:'muted'},t('d.empty')),el('div',{class:'actions'},previous,el('span',{},t('d.page',{page:filters.page,pages,count:rows.length})),next));
+      results.replaceChildren(rows.length?el('div',{class:'table-wrap'},table):el('p',{class:'muted'},t('d.empty')),el('div',{class:'actions pager'},previous,el('span',{},t('d.page',{page:filters.page,pages,count:rows.length})),next));
     }
     const search=el('input',{type:'search',maxlength:200}), mode=el('select',{},['','embedded','external_reference'].map(value=>el('option',{value},t(value==='embedded'?'d.embedded':value?'d.external':'d.allModes')))),
       state=el('select',{},['active','all','trash'].map(value=>el('option',{value},t('d.'+value))));
     for(const [control,key]of[[search,'search'],[mode,'mode'],[state,'state']])control.addEventListener(control===search?'input':'change',()=>{filters[key]=control.value;filters.page=1;paint();});
     const used=data().assets.reduce((sum,row)=>sum+row.byteLength,0);
-    panel.append(el('h2',{},t('nav.documents')),el('p',{class:'muted'},t('d.help')),el('p',{},t('d.budget',{used:(used/1048576).toFixed(2),limit:64})),
+    panel.append(...(entity?[el('h2',{},t('nav.documents')),el('p',{class:'muted'},t('d.help'))]:[]),el('p',{class:'muted'},t('d.budget',{used:new Intl.NumberFormat(root.core.i18n.language,{maximumFractionDigits:1}).format(used/1048576),limit:64})),
       el('div',{class:'actions'},action('d.newEmbedded',()=>editor(null,'embedded')),action('d.newExternal',()=>editor(null,'external_reference')),entity?action('d.linkExisting',chooseExisting):null),
       el('div',{class:'people-filters'},label('d.search',search),label('d.mode',mode),label('d.state',state)),results);
     paint();return panel;

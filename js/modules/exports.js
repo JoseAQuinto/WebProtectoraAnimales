@@ -9,7 +9,7 @@
     field('scope','ex.scope',el('select',{},['filtered','all'].map(value=>el('option',{value},t('ex.scope.'+value)))));
     field('search','ex.search',el('input',{type:'search',maxlength:200}));field('status','a.state',el('select'));
     field('from','p.from',el('input',{type:'date'}));field('to','p.to',el('input',{type:'date'}));
-    field('animalId','ag.animal',el('select',{},el('option',{value:''},t('p.all')),ctx.snapshot.tables.animals.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(row=>el('option',{value:row.id},row.code+' · '+row.name))));
+    field('animalId','ag.animal',el('select',{},el('option',{value:''},t('p.all')),ctx.snapshot.tables.animals.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(row=>el('option',{value:row.id},row.name+' ('+row.code+')'))));
     field('contactId','a.contact',el('select',{},el('option',{value:''},t('p.all')),ctx.snapshot.tables.contacts.filter(row=>!row.mergedIntoContactId).slice().sort((a,b)=>a.name.localeCompare(b.name)).map(row=>el('option',{value:row.id},row.name))));
     field('visibility','ag.visibility',el('select',{},['active','all','trash'].map(value=>el('option',{value},t('ag.visibility.'+value)))));
     function configure(){
@@ -39,7 +39,7 @@
       const previous=ui.button(t('a.previous'),()=>{view.page--;paint();},true),next=ui.button(t('a.next'),()=>{view.page++;paint();},true);previous.disabled=view.page<=1;next.disabled=view.page>=pages;
       const rows=selection.rows.slice((view.page-1)*20,view.page*20).map(item=>el('tr',{},el('th',{scope:'row'},item.name||t('ui.unknown')),el('td',{},item.date||t('ui.unknown')),el('td',{},item.status?t('ex.status.'+item.status):t('ui.unknown')),el('td',{class:'preserve-lines'},item.notes)));
       output.replaceChildren(...[el('p',{class:'notice'},t('ex.selected',{count:selection.rows.length,scope:t('ex.scope.'+view.scope)})),definitions[view.kind].date?el('p',{class:'muted'},t('ex.date.'+view.kind)):null,
-        rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['ex.column.name','a.date','a.state','a.notes'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows))):el('p',{},t('ex.empty')),el('div',{class:'actions'},previous,el('span',{},t('a.page',{page:view.page,pages,count:selection.rows.length})),next)].filter(Boolean));
+        rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['ex.column.name','a.date','a.state','a.notes'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows))):el('p',{},t('ex.empty')),el('div',{class:'actions pager'},previous,el('span',{},t('ui.recordPage',{page:view.page,pages,count:selection.rows.length})),next)].filter(Boolean));
     }
     const clear=ui.button(t('p.clear'),()=>{for(const key of['search','status','from','to','animalId','contactId']){view[key]='';fields.get(key).input.value='';}view.visibility='active';fields.get('visibility').input.value='active';view.page=1;paint();},true);configure();paint();
     return[el('header',{class:'page-heading'},el('h1',{},t('nav.exports'))),el('section',{class:'card stack'},el('p',{class:'muted'},t('ex.help')),filters,el('div',{class:'actions'},save,clear),el('p',{class:'muted'},t('ex.csvHelp')),el('a',{href:'#backup'},t('ui.createBackup'))),el('section',{class:'card stack'},output)];

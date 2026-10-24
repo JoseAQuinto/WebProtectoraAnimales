@@ -16,7 +16,7 @@
     const fixed=plan||task?.source,fields=[field('title',{required:true,maxLength:200}),field('dueDate',{type:'date',required:true,min:plan?.startDate}),
       field('typeId',{required:true,options:tables.catalogOptions.filter(row=>row.kind==='task_type'&&(active(row)&&row.active||row.id===task?.typeId)).map(row=>({value:row.id,label:root.services.catalogs.label(row)}))}),
       field('priority',{required:true,options:choices(root.domain.enums.priority,'q.priority.')})];
-    if(!fixed)fields.push(field('animalId',{options:tables.animals.filter(row=>active(row)||row.id===task?.animalId).map(row=>({value:row.id,label:row.code+' · '+row.name}))}));
+    if(!fixed)fields.push(field('animalId',{options:tables.animals.filter(row=>active(row)||row.id===task?.animalId).map(row=>({value:row.id,label:row.name+' ('+row.code+')'}))}));
     const currentVolunteer=tables.volunteerProfiles.find(row=>row.id===task?.responsibleVolunteerId);
     fields.push(field('contactId',{options:tables.contacts.filter(row=>active(row)&&!row.mergedIntoContactId||row.id===task?.contactId).map(row=>({value:row.id,label:row.name})),advancedKey:'q.more'}),
       field('responsibleVolunteerId',{options:tables.volunteerProfiles.filter(row=>active(row)&&row.status==='active'||row.id===task?.responsibleVolunteerId).map(row=>({value:row.id,label:(root.services.contacts.resolve(tables,row.contactId)?.name||t('ui.unknown'))+(row.status!=='active'||!active(row)?' · '+t('q.inactive'):'' )})),advancedKey:'q.more',help:currentVolunteer&&(!active(currentVolunteer)||currentVolunteer.status!=='active')?'q.reviewAssignedVolunteer':null}),
@@ -43,17 +43,17 @@
       return ui.dialog(t('q.clinical'),el('p',{},t('q.needsAnimal')));
     }
     const dialog=ui.form(t(cancel?'q.cancelTask':'q.complete'),[field('date',{type:'date',required:true,max:root.utils.dates.today(tables.organizationSettings[0].timeZone)}),
-      ...(cancel?[field('reason',{required:true,maxLength:200})]:[]),field('confirmed',{type:'checkbox',required:true})],{date:root.utils.dates.today(tables.organizationSettings[0].timeZone)},async(input,cmd)=>{
-      if(!input.confirmed)throw new root.core.errors.AppError('q.confirmRequired');
-      const {confirmed,...values}=input;await service[cancel?'cancel':'complete'](task.id,values,cmd);await saved(ctx);
-    },command(ctx));dialog.querySelector('h2').after(el('p',{},task.title));return dialog;
+      ...(cancel?[field('reason',{required:true,maxLength:200})]:[])],{date:root.utils.dates.today(tables.organizationSettings[0].timeZone)},async(input,cmd)=>{
+      // Choosing the date (and reason) and pressing the named button is the confirmation; no extra tick box for a routine task.
+      await service[cancel?'cancel':'complete'](task.id,input,cmd);await saved(ctx);
+    },command(ctx),{submitLabel:t(cancel?'q.cancelTask':'q.complete'),cancelLabel:t(cancel?'common.back':'common.cancel')});dialog.querySelector('h2').after(el('p',{},task.title));return dialog;
   }
   function detail(ctx,task){
     const tables=ctx.snapshot.tables,animal=tables.animals.find(row=>row.id===task.animalId),contact=root.services.contacts.resolve(tables,task.contactId),volunteer=tables.volunteerProfiles.find(row=>row.id===task.responsibleVolunteerId);
     const controls=el('div',{class:'actions'}),isOpen=active(task)&&['pending','in_progress'].includes(task.status),writable=root.services.context.status().canWrite;
     if(isOpen)for(const[key,work]of[['q.edit',()=>editor(ctx,{task})],[clinical(tables,task)?'q.clinical':'q.complete',()=>closeTask(ctx,task,false)],['q.cancelTask',()=>closeTask(ctx,task,true)]]){const button=ui.button(t(key),()=>{modal.close();work();},true);button.disabled=!writable;controls.append(button);}
     const modal=ui.dialog(task.title,[el('p',{class:'badge'},t('a.task.'+task.status)+' · '+t('q.priority.'+task.priority)),el('p',{},date(ctx,task.dueDate)+(task.dueLocalTime?' · '+task.dueLocalTime+' · '+task.timeZone:'')),
-      el('p',{},catalog(tables,task.typeId)),animal?el('a',{href:'#animals/'+animal.id,on:{click:()=>modal.close()}},animal.code+' · '+animal.name):null,
+      el('p',{},catalog(tables,task.typeId)),animal?el('a',{href:'#animals/'+animal.id,on:{click:()=>modal.close()}},animal.name+' ('+animal.code+')'):null,
       contact?el('p',{},t('q.contactId')+': '+contact.name):null,volunteer?el('p',{},t('q.responsibleVolunteerId')+': '+root.services.contacts.resolve(tables,volunteer.contactId)?.name):null,
       ...['description','notes','cancellationReason'].filter(key=>task[key]).map(key=>el('p',{class:'preserve-lines'},task[key])),el('p',{class:'muted'},t('q.noAutomatic')),controls],{wide:true});return modal;
   }
@@ -66,8 +66,8 @@
       const pages=Math.max(1,Math.ceil(rows.length/20));state.page=Math.min(state.page,pages);
       const previous=ui.button(t('a.previous'),()=>{state.page--;paint();},true),next=ui.button(t('a.next'),()=>{state.page++;paint();},true);previous.disabled=state.page<=1;next.disabled=state.page>=pages;
       return el('div',{class:'stack'},rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},['q.title','q.dueDate','q.priority','q.status','q.animalId','q.actions'].map(key=>el('th',{scope:'col'},t(key))))),el('tbody',{},rows.slice((state.page-1)*20,state.page*20).map(task=>{
-        const animal=tables.animals.find(row=>row.id===task.animalId);return el('tr',{},el('th',{scope:'row'},ui.button(task.title,()=>detail(ctx,task),true)),el('td',{},date(ctx,task.dueDate)+(task.dueLocalTime?' '+task.dueLocalTime:''),el('br'),el('small',{},t('q.urgency.'+service.urgency(task,today)))),el('td',{},t('q.priority.'+task.priority)),el('td',{},t('a.task.'+task.status)),el('td',{},animal?animal.code+' · '+animal.name:t('ui.unknown')),el('td',{},ui.button(t('q.open'),()=>detail(ctx,task),true)));})))):el('p',{class:'muted'},t('q.empty')),
-        el('div',{class:'actions'},previous,el('span',{},t('q.page',{page:state.page,pages,count:rows.length})),next));
+        const animal=tables.animals.find(row=>row.id===task.animalId);return el('tr',{},el('th',{scope:'row'},ui.button(task.title,()=>detail(ctx,task),true)),el('td',{},date(ctx,task.dueDate)+(task.dueLocalTime?' '+task.dueLocalTime:''),el('br'),el('small',{},t('q.urgency.'+service.urgency(task,today)))),el('td',{},t('q.priority.'+task.priority)),el('td',{},t('a.task.'+task.status)),el('td',{},animal?animal.name+' ('+animal.code+')':t('ui.unknown')),el('td',{},ui.button(t('q.open'),()=>detail(ctx,task),true)));})))):el('p',{class:'muted'},t('q.empty')),
+        el('div',{class:'actions pager'},previous,el('span',{},t('q.page',{page:state.page,pages,count:rows.length})),next));
     }
     function calendar(rows){
       const grid=root.utils.calendar.month(state.month),header=el('div',{class:'actions'}),month=el('input',{type:'month',value:state.month,min:'0001-01',max:'9999-12'});
@@ -88,12 +88,12 @@
     const search=el('input',{type:'search',value:state.search,maxlength:200,on:{input:()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{if(search.isConnected){state.search=search.value;state.page=1;paint();}},180);}}});filterArea.append(label('search',search));
     const optionGroups={status:[['open',t('q.openTasks')],['',t('q.all')],...root.domain.enums.taskStatus.map(value=>[value,t('a.task.'+value)])],priority:[['',t('q.all')],...root.domain.enums.priority.map(value=>[value,t('q.priority.'+value)])],
       typeId:[['',t('q.all')],...tables.catalogOptions.filter(row=>row.kind==='task_type').map(row=>[row.id,root.services.catalogs.label(row)])],
-      ...(!animal?{animalId:[['',t('q.all')],...tables.animals.map(row=>[row.id,row.code+' · '+row.name])]}:{}),
+      ...(!animal?{animalId:[['',t('q.all')],...[...tables.animals].sort((a,b)=>a.name.localeCompare(b.name)).map(row=>[row.id,row.name+' ('+row.code+')'])]}:{}),
       responsibleVolunteerId:[['',t('q.all')],...tables.volunteerProfiles.map(row=>[row.id,root.services.contacts.resolve(tables,row.contactId)?.name||t('ui.unknown')])],mode:[['list',t('q.list')],['calendar',t('q.calendar')]]};
     for(const[key,options]of Object.entries(optionGroups)){const select=el('select',{on:{change:changed(key)}},options.map(([value,text])=>el('option',{value},text)));select.value=state[key];filterArea.append(label(key,select));}
     for(const key of['from','to'])filterArea.append(label(key,el('input',{type:'date',value:state[key],on:{change:changed(key)}})));
     const create=ui.button(t('q.new'),()=>editor(ctx,{animal}));create.disabled=!root.services.context.status().canWrite||animal&&!active(animal);
-    panel.append(el('h2',{},t('nav.tasks')),el('p',{class:'muted'},t('q.help')),create,filterArea,results);paint();return panel;
+    panel.append(...(animal?[el('h2',{},t('nav.tasks')),el('p',{class:'muted'},t('q.help'))]:[]),create,filterArea,results);paint();return panel;
   }
   root.modules.tasks=Object.freeze({render,editor,detail,clinical});
 }(window.RescueManager));

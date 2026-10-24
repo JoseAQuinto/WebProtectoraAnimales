@@ -37,7 +37,7 @@
       field('date', { required: true, type: 'date', max: today(ctx) }), field('categoryId', { required: true, options: [{ value: '', label: t('f.choose') }] }),
       field('concept', { required: true, maxLength: 200 }), field('amount', { required: true, maxLength: 32 }),
       field('decimalSeparator', { required: true, options: [{ value: '.', label: t('f.separator.dot') }, { value: ',', label: t('f.separator.comma') }] }),
-      field('animalId', { options: options(tables.animals.filter(item => active(item) || item.id === row?.animalId), item => item.code + ' · ' + item.name) }),
+      field('animalId', { options: options(tables.animals.filter(item => active(item) || item.id === row?.animalId), item => item.name + ' (' + item.code + ')') }),
       field('contactId', { options: options(tables.contacts.filter(item => active(item) || item.id === row?.contactId), item => item.name) }),
       field('notes', { type: 'textarea', keepEmpty: true })];
     if (row) fields.push(field('reason', { required: true, maxLength: 200 }), field('correctionDate', { required: true, type: 'date', max: today(ctx) }), field('confirmed', { type: 'checkbox', required: true }));
@@ -86,7 +86,7 @@
     const links = el('div', { class: 'stack' }), related = tables.financialMovements.filter(item => item.id === row.correctsMovementId || item.id === row.replacementMovementId);
     const content = [el('dl', { class: 'detail-grid' }, pair('f.date', date(ctx, row.date)), pair('f.direction', t('f.direction.' + row.direction)), pair('f.categoryId', catalog(tables, row.categoryId)),
       pair('f.amount', money(row)), pair('f.status', t('a.finance.' + row.status)), pair('f.source', source(tables, row)),
-      pair('f.animalId', animal ? el('a', { href: '#animals/' + animal.id }, animal.code + ' · ' + animal.name) : null),
+      pair('f.animalId', animal ? el('a', { href: '#animals/' + animal.id }, animal.name + ' (' + animal.code + ')') : null),
       pair('f.contactId', person ? ui.button(person.name, () => root.modules.people.openContact(person.id, { context: ctx }), true) : null),
       pair('f.notes', row.notes || null), pair('f.voidDate', row.voidedOn ? date(ctx, row.voidedOn) : null), pair('f.reason', row.voidReason)), links];
     let modal;
@@ -130,13 +130,13 @@
       const table = filtered.length ? el('div', { class: 'table-wrap' }, el('table', {}, el('thead', {}, el('tr', {}, ['f.date', 'f.direction', 'f.concept', 'f.categoryId', 'f.amount', 'f.status', 'f.contactId', 'f.actions'].map(key => el('th', { scope: 'col' }, t(key))))),
         el('tbody', {}, filtered.slice((view.page - 1) * 20, view.page * 20).map(row => el('tr', {}, [date(ctx, row.date), t('f.direction.' + row.direction), row.concept, catalog(tables, row.categoryId), money(row), t('a.finance.' + row.status), contact(tables, row.contactId)?.name || t('ui.unknown'), ui.button(t('f.open'), () => detail(ctx, row), true)].map(value => el('td', {}, value))))))) : el('p', { class: 'muted' }, t('f.empty'));
       results.replaceChildren(summary, el('p', { class: 'muted' }, t('f.totalsHelp')), table,
-        el('div', { class: 'actions' }, previous, el('span', {}, t('f.page', { page: number(view.page), pages: number(pages), count: number(filtered.length) })), next));
+        el('div', { class: 'actions pager' }, previous, el('span', {}, t('f.page', { page: number(view.page), pages: number(pages), count: number(filtered.length) })), next));
     }
     let timer;
     const search = el('input', { type: 'search', value: view.search, maxlength: 200 });
     search.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => { if (search.isConnected) { view.search = search.value; view.page = 1; paint(); } }, 180); }); filters.append(label('search', search));
-    const groups = { direction: ['income', 'expense'].map(value => [value, t('f.direction.' + value)]), categoryId: tables.catalogOptions.filter(row => ['finance_income', 'finance_expense'].includes(row.kind)).map(row => [row.id, root.services.catalogs.label(row)]),
-      animalId: tables.animals.map(row => [row.id, row.code + ' · ' + row.name]), contactId: tables.contacts.filter(row => !row.mergedIntoContactId).map(row => [row.id, row.name]), status: ['posted', 'voided'].map(value => [value, t('a.finance.' + value)]) };
+    const groups = { direction: ['income', 'expense'].map(value => [value, t('f.direction.' + value)]), categoryId: tables.catalogOptions.filter(row => ['finance_income', 'finance_expense'].includes(row.kind)).map(row => [row.id, t('f.direction.' + (row.kind === 'finance_income' ? 'income' : 'expense')) + ': ' + root.services.catalogs.label(row)]).sort((a, b) => a[1].localeCompare(b[1])),
+      animalId: [...tables.animals].sort((a, b) => a.name.localeCompare(b.name)).map(row => [row.id, row.name + ' (' + row.code + ')']), contactId: tables.contacts.filter(row => !row.mergedIntoContactId).map(row => [row.id, row.name]), status: ['posted', 'voided'].map(value => [value, t('a.finance.' + value)]) };
     for (const [key, options] of Object.entries(groups)) {
       const select = el('select', {}, el('option', { value: '' }, t('f.all')), options.map(([value, text]) => el('option', { value }, text))); select.value = view[key];
       select.addEventListener('change', () => { view[key] = select.value; view.page = 1; paint(); }); filters.append(label(key, select));

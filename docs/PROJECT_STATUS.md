@@ -5,6 +5,26 @@ Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
 
+## Usabilidad y lenguaje claro — 2026-10-24
+
+Revisión integral de la interfaz para personal sin formación informática
+(USABILITY_REVIEW.md). Sin cambios en servicios, reglas de negocio, esquemas,
+formatos persistidos ni las cuatro versiones. Filtros múltiples con desplegables
+de casillas y chips; formularios con casillas, mensajes de error bajo cada campo y
+botones fijos; tablas como tarjetas en móvil; ~700 textos en español reescritos.
+Navegación: mismos seis grupos del requisito 31; importar/exportar pasan a Informes.
+Pruebas E2E adaptadas a la nueva interfaz (filtros, títulos, botón de completar
+tarea, casillas de especies/tamaños, botón «Ver» de las tarjetas del resumen).
+Comprobado: 41 archivos de pruebas Node y 922 estáticas sin fallos; regresión Chrome
+completa `regression-2026-10-24-usability-chrome.json` 35 suites / 487 comprobaciones
+sin fallos. Edge no estaba instalado en este equipo; sin dispositivos físicos.
+Sin commit: el usuario pidió no hacer commits ni push sin su autorización.
+
+Pendiente recomendado: revisar en.js con la misma profundidad; nombres accesibles
+únicos para los botones «Ver» de las tablas; filtros plegables en móvil para
+Tareas/Finanzas/Adopciones; mismo desplegable de casillas en otros listados si se
+necesitan filtros múltiples; prueba con usuarios reales y dispositivos físicos.
+
 ## Avance — 2026-10-24
 
 Reanudado desde df5c2c9 tras fetch/pull --ff-only (avances del 21-10 de otra sesión

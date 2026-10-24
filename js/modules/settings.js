@@ -10,7 +10,7 @@
   async function reminder(ctx){
     const area=el('aside',{class:'notice warning','aria-label':t('st.backupReminder')}),token=generation;
     async function paint(){try{const value=root.services.backupReminders.evaluate(ctx.snapshot,await root.services.backup.list());if(token!==generation)return;
-      area.hidden=!value.due;area.replaceChildren(el('p',{},t(value.verified?'st.backupDue':'st.noVerifiedBackup',value)),el('a',{href:'#backup'},t('ui.createBackup')),el('p',{class:'muted'},t('st.reminderHelp')));
+      area.hidden=!value.due;area.replaceChildren(el('p',{},t(value.verified?'st.backupDue':'st.noVerifiedBackup',value)),el('p',{class:'muted'},t('st.reminderHelp')),el('a',{href:'#backup',class:'button secondary'},t('st.makeBackup')));
     }catch(_){if(token===generation){area.hidden=false;area.replaceChildren(el('p',{},t('st.reminderError')),el('a',{href:'#backup'},t('nav.backup')));}}}
     await paint();if(token===generation){clearInterval(reminderTimer);reminderTimer=setInterval(()=>{if(area.isConnected&&!document.hidden)paint();},60000);}return area;
   }

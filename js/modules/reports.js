@@ -3,6 +3,8 @@
   const ui=root.components.ui,el=ui.el,t=(...args)=>root.core.i18n.t(...args),service=root.services.reports;
   const SVG_NS='http'+ '://www.w3.org/2000/svg';
   const number=value=>new Intl.NumberFormat(root.core.i18n.language).format(value);
+  // Chart axes read "nov 2026" instead of the stored 2026-11 key.
+  const monthLabel=(value,year='2-digit')=>/^\d{4}-\d{2}$/.test(value)?new Intl.DateTimeFormat(root.core.i18n.language,{month:'short',year,timeZone:'UTC'}).format(new Date(Date.UTC(Number(value.slice(0,4)),Number(value.slice(5,7))-1,1))):value;
   const view={from:null,to:null};
   function svg(tag,attributes,...children){const node=document.createElementNS(SVG_NS,tag);for(const[key,value]of Object.entries(attributes))node.setAttribute(key,String(value));children.flat().forEach(child=>{if(child!=null)node.append(child instanceof Node?child:document.createTextNode(String(child)));});return node;}
   function graph(rows,series,format,helpKey='rp.chartHelp'){
@@ -10,8 +12,8 @@
     if(!shown.some(row=>series.some(item=>row[item.key]>0)))return el('p',{class:'muted'},t('rp.empty'));
     const chart=svg('svg',{viewBox:'0 0 '+width+' '+height,'aria-hidden':'true',class:'report-chart'});
     shown.forEach((row,index)=>{series.forEach((item,column)=>{const value=row[item.key],barHeight=value/max*150,x=index*slot+slot/2+(column-series.length/2)*barWidth;
-      chart.append(svg('rect',{x,y:172-barHeight,width:barWidth-2,height:barHeight,fill:item.color},svg('title',{},row.month+' · '+t(item.label)+': '+format(value))));});
-      chart.append(svg('text',{x:index*slot+slot/2,y:192,'text-anchor':'middle','font-size':10,fill:'#172f32'},row.month));});
+      chart.append(svg('rect',{x,y:172-barHeight,width:barWidth-2,height:barHeight,fill:item.color},svg('title',{},monthLabel(row.month)+' · '+t(item.label)+': '+format(value))));});
+      chart.append(svg('text',{x:index*slot+slot/2,y:192,'text-anchor':'middle','font-size':10,fill:'#172f32'},monthLabel(row.month)));});
     return el('div',{},el('div',{class:'actions'},series.map(item=>el('span',{class:'badge'},svg('svg',{viewBox:'0 0 12 12',width:12,height:12,'aria-hidden':'true'},svg('rect',{x:0,y:0,width:12,height:12,fill:item.color})),' ',t(item.label)))),chart,el('p',{class:'muted'},t(helpKey)));
   }
   function render(ctx){
@@ -23,14 +25,14 @@
     const section=(key,...children)=>el('section',{class:'card stack'},el('h2',{},t(key)),...children);
     function csvDialog(id,headers,rows){ui.form(t('rp.downloadCsv'),[{key:'delimiter',labelKey:'rp.separator',required:true,options:[{value:',',label:t('rp.comma')},{value:';',label:t('rp.semicolon')}]},{key:'bom',labelKey:'rp.excel',type:'checkbox'}],{delimiter:root.core.i18n.language==='es'?';':',',bom:true},async input=>{
       const csv=root.utils.tabular.csv(headers,rows,input);ui.download(new Blob([csv],{type:'text/csv;charset=utf-8'}),'report-'+id+'-'+view.from+'-'+view.to+'.csv');});}
-    function table(id,keys,rows,formats={},csvFormats={}){
+    function table(id,keys,rows,formats={},csvFormats={}){formats={'rp.month':value=>monthLabel(value,'numeric'),...formats};
       const headers=keys.map(key=>t(key)+(formats[key]===money?' ('+currency+')':''));
       const exported=rows.map(row=>row.map((value,index)=>csvFormats[keys[index]]?csvFormats[keys[index]](value):value));
       exportData.sections.push({id,headers,rows:exported});let page=1;
       const content=el('div'),previous=ui.button(t('a.previous'),()=>{page--;paintTable();},true),next=ui.button(t('a.next'),()=>{page++;paintTable();},true),count=el('span');
       function paintTable(){const pages=Math.max(1,Math.ceil(rows.length/24));previous.disabled=page<=1;next.disabled=page>=pages;count.textContent=t('rp.page',{page,pages,count:rows.length});
         content.replaceChildren(rows.length?el('div',{class:'table-wrap'},el('table',{},el('thead',{},el('tr',{},headers.map(header=>el('th',{scope:'col'},header)))),el('tbody',{},rows.slice((page-1)*24,page*24).map(row=>el('tr',{},row.map((value,index)=>el(index?'td':'th',index?{}:{scope:'row'},formats[keys[index]]?formats[keys[index]](value):typeof value==='number'?number(value):value))))))):el('p',{class:'muted'},t('rp.empty')));}
-      paintTable();return el('div',{class:'stack'},content,el('div',{class:'actions'},previous,count,next,ui.button(t('rp.downloadCsv'),()=>csvDialog(id,headers,exported),true)));
+      paintTable();return el('div',{class:'stack'},content,el('div',{class:'actions pager'},previous,count,next,ui.button(t('rp.downloadCsv'),()=>csvDialog(id,headers,exported),true)));
     }
     function paint(){
       errors.textContent='';exportData=null;
@@ -45,9 +47,9 @@
         const moneyCols={'rp.income':money,'rp.expense':money,'rp.total':money,'rp.balance':money},csvMoney={'rp.income':decimal,'rp.expense':decimal,'rp.total':decimal,'rp.balance':decimal};
         const distribution=kind=>{const funcs={species:'speciesDistribution',sex:'sexDistribution',age:'ageDistribution',availability:'availabilityDistribution',situation:'situationDistribution'},prefix={sex:'a.sex.',age:'rp.age.',availability:'a.availability.',situation:'a.status.'};
           return table('distribution-'+kind,['rp.dimension','rp.records'],service[funcs[kind]](data,today).map(row=>[kind==='species'?root.services.catalogs.label(data.catalogOptions.find(item=>item.id===row.key)):t(prefix[kind]+row.key),row.count]));};
-        const animalNames=new Map(data.animals.map(row=>[row.id,row.code+' · '+row.name]));
+        const animalNames=new Map(data.animals.map(row=>[row.id,row.name+' ('+row.code+')']));
         results.replaceChildren(
-          section('rp.census.title',el('p',{class:'muted'},t('rp.currentHelp',{date:today})),el('div',{class:'metric-grid'},Object.entries(census).map(([key,value])=>metric('rp.'+key,number(value))))),
+          section('rp.census.title',el('p',{class:'muted'},t('rp.currentHelp',{date:root.utils.dates.display(today,org.dateFormat)})),el('div',{class:'metric-grid'},Object.entries(census).map(([key,value])=>metric('rp.'+key,number(value))))),
           section('rp.finances.title',el('div',{class:'metric-grid'},metric('rp.income',money(totals.incomeMinor)),metric('rp.expense',money(totals.expenseMinor)),metric('rp.balance',money(totals.balanceMinor)),metric('rp.veterinaryExpenses',money(service.veterinaryExpenses(data,period))),metric('rp.monetaryDonations',money(service.monetaryDonations(data,period))),metric('rp.materialDonations',number(material.count))),
             el('p',{class:'muted'},t('rp.materialHelp',{count:material.lines,value:money(material.estimatedValueMinor)}))),
           section('rp.entriesAdoptions.title',el('p',{class:'muted'},t('rp.entriesAdoptionsHelp')),graph(monthly,[{key:'entries',label:'rp.entries',color:'#176d62'},{key:'adoptions',label:'rp.adoptions',color:'#ab6719'}],number),table('entries-adoptions',['rp.month','rp.entries','rp.adoptions'],monthly.map(row=>[row.month,row.entries,row.adoptions]))),

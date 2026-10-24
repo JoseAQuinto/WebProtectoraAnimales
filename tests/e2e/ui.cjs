@@ -107,12 +107,12 @@ async function check(id, work) {
       await page.reload({ waitUntil: 'load' }); await page.evaluate(() => window.RescueManager.core.app.ready);
       const after = await observe(); assert(before.businessHash === after.businessHash, 'Reload changed organization data');
       // R4: the reloaded page regains control by itself when the previous document's lease expires.
-      const readOnlyAfterReload = await page.getByRole('button', { name: 'Tomar el control de escritura', exact: true }).count() > 0;
+      const readOnlyAfterReload = await page.getByRole('button', { name: 'Editar desde esta pestaña', exact: true }).count() > 0;
       const explained = await page.getByText('Si acabas de recargar o reabrir la página', { exact: false }).count() > 0;
       const started = Date.now(), leaseMs = await page.evaluate(() => window.RescueManager.config.leaseMs);
       await page.waitForFunction(() => window.RescueManager.services.context.status().canWrite, null, { timeout: leaseMs + 10000 });
       const controlRecoveredMs = Date.now() - started;
-      await page.getByRole('button', { name: 'Tomar el control de escritura', exact: true }).waitFor({ state: 'detached', timeout: 5000 });
+      await page.getByRole('button', { name: 'Editar desde esta pestaña', exact: true }).waitFor({ state: 'detached', timeout: 5000 });
       assert(controlRecoveredMs <= leaseMs + 2000 && (!readOnlyAfterReload || explained), 'Reloaded page did not regain control within one lease period');
       return { before, after, readOnlyAfterReload, controlRecoveredMs, takeoverUsed: false, languageAfterReload: await page.locator('html').getAttribute('lang') };
     });
@@ -138,7 +138,7 @@ async function check(id, work) {
     await check('second-tab-read-only-settings-disabled', async () => {
       const peer = await open();
       await peer.getByRole('link', { name: 'Configuración', exact: true }).click();
-      const edit = peer.getByRole('button', { name: 'Editar organización', exact: true });
+      const edit = peer.getByRole('button', { name: 'Editar datos de la protectora', exact: true });
       await edit.waitFor(); assert(await edit.isDisabled(), 'Second tab can edit organization');
       const canWrite = await peer.evaluate(() => window.RescueManager.services.context.status().canWrite);
       assert(!canWrite, 'Second tab holds writer state');
@@ -149,10 +149,10 @@ async function check(id, work) {
     await check('backup-download-and-reselect-verification-through-ui', async () => {
       await page.getByRole('link', { name: 'Copias de seguridad', exact: true }).click();
       const downloadEvent = page.waitForEvent('download');
-      await page.getByRole('button', { name: 'Generar y descargar', exact: true }).click();
+      await page.getByRole('button', { name: 'Descargar copia de seguridad', exact: true }).click();
       const download = await downloadEvent; downloaded = path.join(folder, download.suggestedFilename());
       await download.saveAs(downloaded);
-      await page.getByLabel('Seleccionar copia para verificar', { exact: true }).setInputFiles(downloaded);
+      await page.getByLabel('Elegir archivo para comprobarlo', { exact: true }).setInputFiles(downloaded);
       await page.getByText('La copia seleccionada ha superado las comprobaciones de integridad y relaciones.', { exact: true }).waitFor();
       const bytes = await fs.readFile(downloaded), container = JSON.parse(bytes.toString('utf8'));
       const receipts = await page.evaluate(() => window.RescueManager.services.backup.list());
@@ -162,12 +162,12 @@ async function check(id, work) {
     await check('ui-restore-confirmation-and-preserved-business-data', async () => {
       assert(downloaded, 'No downloaded backup available');
       const before = await observe();
-      await page.getByLabel('Seleccionar copia para restaurar', { exact: true }).setInputFiles(downloaded);
-      await page.getByRole('heading', { name: 'Revisar la sustitución', exact: true }).waitFor();
-      await page.getByRole('button', { name: 'Sustituir por esta copia', exact: true }).click();
+      await page.getByLabel('Elegir archivo para restaurarlo', { exact: true }).setInputFiles(downloaded);
+      await page.getByRole('heading', { name: 'Revisa la copia antes de restaurarla', exact: true }).waitFor();
+      await page.getByRole('button', { name: 'Restaurar esta copia', exact: true }).click();
       assert((await observe()).datasetId === before.datasetId, 'Unchecked confirmation changed active data');
       await page.locator('#confirm-restore').check();
-      await page.getByRole('button', { name: 'Sustituir por esta copia', exact: true }).click();
+      await page.getByRole('button', { name: 'Restaurar esta copia', exact: true }).click();
       await page.getByText('La copia se ha restaurado y comprobado. El conjunto anterior se conserva para recuperación local.', { exact: true }).waitFor();
       const after = await observe();
       assert(after.datasetId !== before.datasetId && after.businessHash === before.businessHash, 'UI restore changed records or did not activate a separate dataset');

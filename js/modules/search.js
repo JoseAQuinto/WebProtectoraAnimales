@@ -9,7 +9,7 @@
         const previous=ui.button(t('a.previous'),()=>{offset-=20;page();},true),next=ui.button(t('a.next'),()=>{offset+=20;page();},true);
         function page(){const found=root.services.search.search(ctx.snapshot.tables,view.query,{includeInactive:view.includeInactive,offset,limit:20})[kind];previous.disabled=offset===0;next.disabled=offset+20>=found.total;
           const rows = found.rows.map(row => {
-            const link = kind === 'animals' ? el('a', {href:'#animals/'+row.id}, row.code+' · '+row.name)
+            const link = kind === 'animals' ? el('a', {href:'#animals/'+row.id}, row.name+' ('+row.code+')')
               : ui.button(row.name, () => root.modules.people.openContact(row.id, {context:ctx}), true);
             const identifiers = kind === 'animals' ? row.microchipOriginal || t('ui.unknown')
               : [row.email, ...row.phones.map(item => item.original)].filter(Boolean).join(' · ');
@@ -17,7 +17,7 @@
           });
           area.replaceChildren(rows.length ? el('ul', {class:'stack'}, rows) : el('p', {}, t('gs.empty')));
         }
-        page();section.append(area,el('div',{class:'actions'},previous,next));results.append(section);}
+        page();section.append(area,el('div',{class:'actions pager'},previous,next));results.append(section);}
     }
     search.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>{if(search.isConnected)paint();},180);});inactive.addEventListener('change',paint);
     const clear=ui.button(t('p.clear'),()=>{search.value='';inactive.checked=false;paint();search.focus();},true);paint();

@@ -8,9 +8,13 @@ Filtros con selección múltiple: especie, sexo, raza (incluye desconocida),
 situación, disponibilidad, tipo de ubicación, refugio/sala/zona, familia de
 acogida y contacto adoptante. Opciones del mismo filtro se combinan mediante
 OR; filtros diferentes mediante AND. Selección vacía significa todos.
-En escritorio el control nativo utiliza modificadores de teclado para añadir
-selecciones. Hay valores activos visibles con retirada individual y limpiar
-todos. Búsqueda normalizada de nombre/código/raza/notas y microchip como texto.
+Desde 2026-10-24 cada filtro múltiple es un desplegable con casillas
+(`ui.choices`, `<details>` + checkboxes): no requiere teclas modificadoras y
+funciona igual con ratón, teclado y pantalla táctil. La interfaz no menciona
+OR/AND; explica en lenguaje cotidiano que se pueden marcar varias opciones.
+Los valores activos aparecen como chips retirables («Filtros activos (n)») con
+«Limpiar filtros», que solo se muestra si hay alguno. Búsqueda normalizada de
+nombre/código/raza/notas y microchip como texto.
 
 Filtros adicionales se agrupan en una sección desplegable: entrada desde/hasta,
 adopción desde/hasta, archivo/papelera y orden. Todos los periodos son inclusivos

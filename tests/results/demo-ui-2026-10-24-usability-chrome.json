@@ -1,0 +1,3006 @@
+{
+  "format": "rescue-manager-demo-ui-ui-test",
+  "version": 1,
+  "browser": "chrome",
+  "machine": "local-windows",
+  "startedAt": "2026-10-24T12:19:54.555Z",
+  "operatingSystem": {
+    "type": "Windows_NT",
+    "release": "10.0.26300",
+    "version": "Windows 11 Home"
+  },
+  "checks": [
+    {
+      "id": "explicit-empty-organization-fixture-retains-real-preferences-and-logo-bytes",
+      "passed": true,
+      "evidence": {
+        "baseline": {
+          "organizationSettings": [
+            {
+              "id": "dbea4255-8a2b-473f-a2e9-0764695e1062",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:02.188Z",
+              "revision": 3,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "name": "Organización demo sintética",
+              "logoAssetId": "0cc2a0a8-29cb-465e-b8c0-e2ed404a988b",
+              "phone": null,
+              "email": null,
+              "address": null,
+              "language": "es",
+              "currencyCode": "EUR",
+              "dateFormat": "day_first",
+              "timeZone": "UTC",
+              "displayPreferences": {
+                "animalView": "table",
+                "pageSize": 25
+              },
+              "printDetails": "Datos ficticios del equipo",
+              "printFooter": "Pie de la organización conservado",
+              "backupReminderDays": 7,
+              "backupReminderWrites": 100,
+              "backupRemindersEnabled": true
+            }
+          ],
+          "catalogOptions": [
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "medication",
+              "labelKey": "catalog.task_type.medication",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "03bf9a90-ac14-4280-824b-ac58bca77859",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "unit",
+              "code": "g",
+              "labelKey": "catalog.unit.g",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "0e791d62-ce4c-469f-ab0a-b05f4c3054e5",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "cleaning",
+              "labelKey": "catalog.task_type.cleaning",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 7,
+              "id": "162727c9-14ee-4494-a24b-6b7678f65ce9",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "inventory_category",
+              "code": "carriers",
+              "labelKey": "catalog.inventory_category.carriers",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 5,
+              "id": "1a0abe16-3666-400a-9c61-88a54d953925",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_expense",
+              "code": "other",
+              "labelKey": "catalog.finance_expense.other",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 7,
+              "id": "1c939b30-5b0f-47af-9118-7c52e8424dec",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "transport",
+              "labelKey": "catalog.task_type.transport",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 5,
+              "id": "204794db-8d50-40ad-b9fd-18a8d39a3d39",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "inventory_category",
+              "code": "blankets",
+              "labelKey": "catalog.inventory_category.blankets",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "2068eb2e-242b-445b-9bcf-af3ae5044f63",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_income",
+              "code": "grant",
+              "labelKey": "catalog.finance_income.grant",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "20c1ac14-3612-4ded-abb3-eb0994486218",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "unit",
+              "code": "item",
+              "labelKey": "catalog.unit.item",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "21086f19-f226-4a77-ab24-9296e183c107",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "care_plan_type",
+              "code": "vaccination",
+              "labelKey": "catalog.care_plan_type.vaccination",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "25ad8122-f8ca-4899-99e1-be71f7fd1ad7",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "care_plan_type",
+              "code": "care",
+              "labelKey": "catalog.care_plan_type.care",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "27aa7d07-f376-4486-a40e-625561724673",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "inventory_category",
+              "code": "medication",
+              "labelKey": "catalog.inventory_category.medication",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "281a7681-c038-4599-b581-8412bf6c428d",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "size",
+              "code": "medium",
+              "labelKey": "catalog.size.medium",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "2a149d3f-a73e-43d4-ac53-c56779a683c9",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "volunteer_function",
+              "code": "events",
+              "labelKey": "catalog.volunteer_function.events",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 6,
+              "id": "307f9d17-82c8-42f8-8ff0-d1b72f019d30",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "other",
+              "labelKey": "catalog.task_type.other",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 9,
+              "id": "30ca364b-8c79-46c4-a2e8-f2ab52fff486",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_income",
+              "code": "adoption",
+              "labelKey": "catalog.finance_income.adoption",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "31c779ae-db35-4197-937b-07d371046c6c",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "volunteer_function",
+              "code": "veterinary_visits",
+              "labelKey": "catalog.volunteer_function.veterinary_visits",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 7,
+              "id": "325d73e3-ab43-4e05-a7df-ec18c3bb2ef2",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "unit",
+              "code": "litre",
+              "labelKey": "catalog.unit.litre",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "336a8f73-ce1f-45bd-946d-705126b32941",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "volunteer_function",
+              "code": "cleaning",
+              "labelKey": "catalog.volunteer_function.cleaning",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "36ee30d8-ea16-4e0d-9776-c5dda21e4c57",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "volunteer_function",
+              "code": "social_media",
+              "labelKey": "catalog.volunteer_function.social_media",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 5,
+              "id": "3df191d8-53c8-4ebe-aad3-9c0f3289be9f",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "species",
+              "code": "bird",
+              "labelKey": "catalog.species.bird",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "3e0fc0d5-c831-47fe-aa19-a6e6ab668431",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "species",
+              "code": "cat",
+              "labelKey": "catalog.species.cat",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "462d11ce-de30-4885-b602-fe63cd43b3cb",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_income",
+              "code": "event",
+              "labelKey": "catalog.finance_income.event",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "4af8f432-3cf0-4391-b57b-ecb6dc1a793e",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "species",
+              "code": "other",
+              "labelKey": "catalog.species.other",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "4be410f1-be8a-48e6-9af8-dc499b962b5c",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_expense",
+              "code": "food",
+              "labelKey": "catalog.finance_expense.food",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "500c7af2-fa26-42ef-b7c2-779254fa0e33",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "vaccination",
+              "labelKey": "catalog.task_type.vaccination",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "525cd8b8-6b7e-43d6-982f-865c29f1076b",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "species",
+              "code": "dog",
+              "labelKey": "catalog.species.dog",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "5e80fe6d-e151-4e07-ae61-6397b000ae40",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "unit",
+              "code": "ml",
+              "labelKey": "catalog.unit.ml",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "60d996e5-5484-4c27-b483-e4def8b8b7a9",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_expense",
+              "code": "supplies",
+              "labelKey": "catalog.finance_expense.supplies",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 5,
+              "id": "61073f43-82ac-4d25-9d5d-998dcd7f1ce9",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "document_type",
+              "code": "general",
+              "labelKey": "catalog.document_type.general",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "63823a91-3b86-4f13-9291-7a8e25cc9eac",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "volunteer_function",
+              "code": "photography",
+              "labelKey": "catalog.volunteer_function.photography",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "6517fa77-117f-4b0b-9f97-7a78c1c360ac",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "unit",
+              "code": "pack",
+              "labelKey": "catalog.unit.pack",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 5,
+              "id": "6e60070b-c579-4867-9c1d-bb34a358ccd0",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "size",
+              "code": "giant",
+              "labelKey": "catalog.size.giant",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "70ab1bd3-ab4b-47b3-8438-f82740a9df0f",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_income",
+              "code": "other",
+              "labelKey": "catalog.finance_income.other",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 5,
+              "id": "76659f79-241b-4f5a-a892-2e68dcb0a9ee",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "size",
+              "code": "small",
+              "labelKey": "catalog.size.small",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "7e024053-24be-4096-869d-f93fb60a54a5",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_income",
+              "code": "donation",
+              "labelKey": "catalog.finance_income.donation",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "8098d595-892b-4dc4-83ec-9335df60b793",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "document_type",
+              "code": "invoice",
+              "labelKey": "catalog.document_type.invoice",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "86b4a64d-b980-4f5a-9971-0f13cbd1a31e",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "material_type",
+              "code": "equipment",
+              "labelKey": "catalog.material_type.equipment",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "8a5ccf9a-4ffb-4570-8504-ab50b7997f08",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "call",
+              "labelKey": "catalog.task_type.call",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "9177f5b1-33e4-4bf9-8b94-5653ee1679a8",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "inventory_category",
+              "code": "hygiene",
+              "labelKey": "catalog.inventory_category.hygiene",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "940c5c4c-4b9f-4696-b263-0fc66e04ca98",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_expense",
+              "code": "medication",
+              "labelKey": "catalog.finance_expense.medication",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "95a4e5cd-0a42-45ef-a274-e41b82a6e168",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "material_type",
+              "code": "food",
+              "labelKey": "catalog.material_type.food",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "a0ec6fe8-5f4a-4385-95db-89977e4dd5e1",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "care_plan_type",
+              "code": "other",
+              "labelKey": "catalog.care_plan_type.other",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "a3e175c0-2512-4fdb-872c-39144d5ad2c6",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "document_type",
+              "code": "other",
+              "labelKey": "catalog.document_type.other",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 5,
+              "id": "a4d8f2bf-4302-4bb7-92f5-606cc90e0f8d",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "document_type",
+              "code": "adoption",
+              "labelKey": "catalog.document_type.adoption",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "ab28dd90-a769-4fac-8c3a-abb165078759",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "species",
+              "code": "rabbit",
+              "labelKey": "catalog.species.rabbit",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "ac02cb84-82d1-4d9e-a90b-f85ae011a0e7",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "material_type",
+              "code": "medication",
+              "labelKey": "catalog.material_type.medication",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "adad636f-6dad-4113-8214-0809f3464ee7",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "document_type",
+              "code": "identity",
+              "labelKey": "catalog.document_type.identity",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "b0682e64-bbb4-4ed7-b566-d8eb02ef6ad4",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "volunteer_function",
+              "code": "walking",
+              "labelKey": "catalog.volunteer_function.walking",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "b1c0c0de-6a07-4671-a71c-994a02a7dc44",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "volunteer_function",
+              "code": "transport",
+              "labelKey": "catalog.volunteer_function.transport",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "b297a823-8ffc-4e72-8243-e70f0417f5bd",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "material_type",
+              "code": "other",
+              "labelKey": "catalog.material_type.other",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "b7181ead-0b16-4a0d-bcc4-42161229c7ce",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_income",
+              "code": "membership",
+              "labelKey": "catalog.finance_income.membership",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "b89bf791-4024-4917-b314-a43163f37514",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "adoption_followup",
+              "labelKey": "catalog.task_type.adoption_followup",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 8,
+              "id": "baff07e1-a9c6-49e5-8f43-4571b8aa5e46",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "interview",
+              "labelKey": "catalog.task_type.interview",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "bba10071-6a52-468f-96f8-f1b73d0f0d1b",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_expense",
+              "code": "transport",
+              "labelKey": "catalog.finance_expense.transport",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 4,
+              "id": "c8b3b134-0d7c-4cda-8533-9fcafe8238bf",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "care_plan_type",
+              "code": "deworming",
+              "labelKey": "catalog.care_plan_type.deworming",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "cc9ca407-451a-4d4d-99f6-e14063767626",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "veterinary_visit",
+              "labelKey": "catalog.task_type.veterinary_visit",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "cd5b98df-578a-4d9d-99d3-edb0e84fa47d",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "inventory_category",
+              "code": "accessories",
+              "labelKey": "catalog.inventory_category.accessories",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 6,
+              "id": "d82f9d1c-f624-4786-b922-d46843ed1fc9",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "document_type",
+              "code": "medical",
+              "labelKey": "catalog.document_type.medical",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "e0af70ad-c757-42db-9116-afac94195d12",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "inventory_category",
+              "code": "food",
+              "labelKey": "catalog.inventory_category.food",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "e1a6effd-7d53-41bc-b395-5448692308ec",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "task_type",
+              "code": "purchase",
+              "labelKey": "catalog.task_type.purchase",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 6,
+              "id": "e4c2683c-1af2-488b-b8ab-084e0f1a6eb8",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "inventory_category",
+              "code": "other",
+              "labelKey": "catalog.inventory_category.other",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 7,
+              "id": "e534f43e-8567-4468-85b3-e6c996c06e21",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "care_plan_type",
+              "code": "treatment",
+              "labelKey": "catalog.care_plan_type.treatment",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "e804ba6b-2d41-4613-9e39-66996dec4747",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_expense",
+              "code": "veterinary",
+              "labelKey": "catalog.finance_expense.veterinary",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 0,
+              "id": "ebf86875-3f67-42f4-be9b-fd963e36582a",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "inventory_category",
+              "code": "veterinary",
+              "labelKey": "catalog.inventory_category.veterinary",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "ed92d8d5-f1c7-4847-87f6-d4290c666e96",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_expense",
+              "code": "maintenance",
+              "labelKey": "catalog.finance_expense.maintenance",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 6,
+              "id": "f2cd9e21-4bb8-4009-a23d-defb3b59733c",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "unit",
+              "code": "kg",
+              "labelKey": "catalog.unit.kg",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 1,
+              "id": "f6406e6a-a87f-471a-a5b3-f39cf1d50753",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "volunteer_function",
+              "code": "feeding",
+              "labelKey": "catalog.volunteer_function.feeding",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "f826dd31-416b-416b-9043-107b9fda24ab",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "finance_expense",
+              "code": "facilities",
+              "labelKey": "catalog.finance_expense.facilities",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 3,
+              "id": "f9eba7f2-5a1d-4a3e-9055-e897b949adea",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            },
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "kind": "size",
+              "code": "large",
+              "labelKey": "catalog.size.large",
+              "customLabel": null,
+              "isSystem": true,
+              "active": true,
+              "sortOrder": 2,
+              "id": "fdd60539-07c5-460e-aaae-4886be4de6ab",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            }
+          ],
+          "locations": [
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "name": "Organización demo sintética",
+              "type": "shelter",
+              "parentLocationId": null,
+              "active": true,
+              "notes": "",
+              "id": "913b7458-e886-400e-a59c-f95e3a22bdf6",
+              "createdAt": "2026-10-24T12:20:01.908Z",
+              "updatedAt": "2026-10-24T12:20:01.908Z"
+            }
+          ],
+          "assets": [
+            {
+              "revision": 1,
+              "archivedAt": null,
+              "deletedAt": null,
+              "origin": "real",
+              "originBatchId": null,
+              "type": "logo",
+              "originalName": "logo-photo.webp",
+              "mime": "image/webp",
+              "byteLength": 542,
+              "sha256": "f86b7a20299d63be217f986f5fe13cdb755fc33e3e54a55a97106269ac5237be",
+              "width": 40,
+              "height": 40,
+              "derivedFromAssetId": null,
+              "id": "0cc2a0a8-29cb-465e-b8c0-e2ed404a988b",
+              "createdAt": "2026-10-24T12:20:02.188Z",
+              "updatedAt": "2026-10-24T12:20:02.188Z",
+              "actualSha256": "f86b7a20299d63be217f986f5fe13cdb755fc33e3e54a55a97106269ac5237be"
+            }
+          ]
+        },
+        "observed": {
+          "datasetId": "3160d3f7-5d1b-46b5-919a-81d331195669",
+          "revision": 2,
+          "dataRevision": 2,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 0,
+            "stayEpisodes": 0,
+            "weightMeasurements": 0,
+            "contacts": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 1,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 0,
+            "activityLog": 2,
+            "importIdentityMap": 0
+          },
+          "businessHash": "1310803d1b27259a3cee02147de10532b78bb3dad594d6ce9280c51c37fded76"
+        }
+      }
+    },
+    {
+      "id": "optional-Spanish-demo-preview-is-pure-paged-and-requires-confirmation-plus-current-backup",
+      "passed": true,
+      "evidence": {
+        "datasetId": "3160d3f7-5d1b-46b5-919a-81d331195669",
+        "revision": 2,
+        "dataRevision": 2,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 0,
+          "stayEpisodes": 0,
+          "weightMeasurements": 0,
+          "contacts": 0,
+          "fosterProfiles": 0,
+          "fosterStays": 0,
+          "adoptionApplications": 0,
+          "reservations": 0,
+          "adoptions": 0,
+          "volunteerProfiles": 0,
+          "volunteerHours": 0,
+          "veterinaryRecords": 0,
+          "carePlans": 0,
+          "tasks": 0,
+          "financialMovements": 0,
+          "donations": 0,
+          "donationLines": 0,
+          "inventoryItems": 0,
+          "inventoryMovements": 0,
+          "assets": 1,
+          "documents": 0,
+          "documentLinks": 0,
+          "animalEvents": 0,
+          "activityLog": 2,
+          "importIdentityMap": 0
+        },
+        "businessHash": "1310803d1b27259a3cee02147de10532b78bb3dad594d6ce9280c51c37fded76"
+      }
+    },
+    {
+      "id": "demo-preparation-cancellation-after-external-backup-preserves-active-configuration-and-bytes",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "3160d3f7-5d1b-46b5-919a-81d331195669",
+          "revision": 2,
+          "dataRevision": 2,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 0,
+            "stayEpisodes": 0,
+            "weightMeasurements": 0,
+            "contacts": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 1,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 0,
+            "activityLog": 2,
+            "importIdentityMap": 0
+          },
+          "businessHash": "1310803d1b27259a3cee02147de10532b78bb3dad594d6ce9280c51c37fded76"
+        },
+        "backupHash": "b99cc38afe11656daebe4c2bcfe51bfa10a079f1a3670846955de42fa98c17bf",
+        "explicitServiceAbort": true
+      }
+    },
+    {
+      "id": "UI-load-activates-one-tagged-batch-and-all-required-scenarios-without-replaying-money-stock",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "3160d3f7-5d1b-46b5-919a-81d331195669",
+          "revision": 2,
+          "dataRevision": 2,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 0,
+            "stayEpisodes": 0,
+            "weightMeasurements": 0,
+            "contacts": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 1,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 0,
+            "activityLog": 2,
+            "importIdentityMap": 0
+          },
+          "businessHash": "1310803d1b27259a3cee02147de10532b78bb3dad594d6ce9280c51c37fded76"
+        },
+        "after": {
+          "datasetId": "02913e8b-1db2-40d9-ba9a-ddb685042905",
+          "revision": 3,
+          "dataRevision": 3,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 8,
+            "stayEpisodes": 9,
+            "weightMeasurements": 3,
+            "contacts": 5,
+            "fosterProfiles": 1,
+            "fosterStays": 2,
+            "adoptionApplications": 3,
+            "reservations": 1,
+            "adoptions": 2,
+            "volunteerProfiles": 1,
+            "volunteerHours": 2,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 7,
+            "financialMovements": 3,
+            "donations": 2,
+            "donationLines": 2,
+            "inventoryItems": 1,
+            "inventoryMovements": 2,
+            "assets": 2,
+            "documents": 2,
+            "documentLinks": 4,
+            "animalEvents": 25,
+            "activityLog": 3,
+            "importIdentityMap": 0
+          },
+          "businessHash": "fde09647d08f9ccf749413bd22ea363ddedb3a581c8ba13f8964b2f015830f42"
+        },
+        "batch": "035f4a07-c438-401a-b7ca-68ec85d8db6a"
+      }
+    },
+    {
+      "id": "dashboard-tasks-health-and-document-data-use-the-loaded-records-and-relative-dates",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "02913e8b-1db2-40d9-ba9a-ddb685042905",
+          "revision": 3,
+          "dataRevision": 3,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 8,
+            "stayEpisodes": 9,
+            "weightMeasurements": 3,
+            "contacts": 5,
+            "fosterProfiles": 1,
+            "fosterStays": 2,
+            "adoptionApplications": 3,
+            "reservations": 1,
+            "adoptions": 2,
+            "volunteerProfiles": 1,
+            "volunteerHours": 2,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 7,
+            "financialMovements": 3,
+            "donations": 2,
+            "donationLines": 2,
+            "inventoryItems": 1,
+            "inventoryMovements": 2,
+            "assets": 2,
+            "documents": 2,
+            "documentLinks": 4,
+            "animalEvents": 25,
+            "activityLog": 3,
+            "importIdentityMap": 0
+          },
+          "businessHash": "fde09647d08f9ccf749413bd22ea363ddedb3a581c8ba13f8964b2f015830f42"
+        },
+        "facts": {
+          "totals": {
+            "incomeMinor": 7500,
+            "expenseMinor": 1400,
+            "balanceMinor": 6100
+          },
+          "stock": {
+            "quantityScaled": 100,
+            "quantityPrecision": 2,
+            "unitId": "f6406e6a-a87f-471a-a5b3-f39cf1d50753",
+            "minimumStockScaled": 200,
+            "belowMinimum": true,
+            "atMinimum": false
+          },
+          "dueToday": 1,
+          "futureVaccine": 1,
+          "unknown": 1,
+          "returned": 1,
+          "embeddedText": "DEMOSTRACIÓN — solo registros ficticios. Este texto es un adjunto de ejemplo, no una instrucción veterinaria ni un documento legal."
+        }
+      }
+    },
+    {
+      "id": "untouched-demo-removal-requires-new-backup-and-removes-only-its-tagged-records",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "02913e8b-1db2-40d9-ba9a-ddb685042905",
+          "revision": 3,
+          "dataRevision": 3,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 8,
+            "stayEpisodes": 9,
+            "weightMeasurements": 3,
+            "contacts": 5,
+            "fosterProfiles": 1,
+            "fosterStays": 2,
+            "adoptionApplications": 3,
+            "reservations": 1,
+            "adoptions": 2,
+            "volunteerProfiles": 1,
+            "volunteerHours": 2,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 7,
+            "financialMovements": 3,
+            "donations": 2,
+            "donationLines": 2,
+            "inventoryItems": 1,
+            "inventoryMovements": 2,
+            "assets": 2,
+            "documents": 2,
+            "documentLinks": 4,
+            "animalEvents": 25,
+            "activityLog": 3,
+            "importIdentityMap": 0
+          },
+          "businessHash": "fde09647d08f9ccf749413bd22ea363ddedb3a581c8ba13f8964b2f015830f42"
+        },
+        "after": {
+          "datasetId": "117ca687-97c6-41cf-bcb1-39a0eaca40d7",
+          "revision": 4,
+          "dataRevision": 4,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 0,
+            "stayEpisodes": 0,
+            "weightMeasurements": 0,
+            "contacts": 0,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 0,
+            "carePlans": 0,
+            "tasks": 0,
+            "financialMovements": 0,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 1,
+            "documents": 0,
+            "documentLinks": 0,
+            "animalEvents": 0,
+            "activityLog": 3,
+            "importIdentityMap": 0
+          },
+          "businessHash": "d9e9c5bebbca989f55aab8cf04c53dc42be76649e435999de904eef1543e4245"
+        },
+        "backupHash": "a871d6222973b3a419df20b80d1fe4dfb0cdf6f9ea0f514685ec6ed6140113de"
+      }
+    },
+    {
+      "id": "English-demo-reloads-explicitly-with-relative-dates-and-another-single-batch",
+      "passed": true,
+      "evidence": {
+        "backupHash": "c4b6fd0a0d3d169bfd4c1a1fcacb0017e2cc9acfd3c5fa10eeb97130c7e84d90",
+        "observed": {
+          "datasetId": "7f034907-6064-4188-ab86-d7b998929733",
+          "revision": 5,
+          "dataRevision": 5,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 8,
+            "stayEpisodes": 9,
+            "weightMeasurements": 3,
+            "contacts": 5,
+            "fosterProfiles": 1,
+            "fosterStays": 2,
+            "adoptionApplications": 3,
+            "reservations": 1,
+            "adoptions": 2,
+            "volunteerProfiles": 1,
+            "volunteerHours": 2,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 7,
+            "financialMovements": 3,
+            "donations": 2,
+            "donationLines": 2,
+            "inventoryItems": 1,
+            "inventoryMovements": 2,
+            "assets": 2,
+            "documents": 2,
+            "documentLinks": 4,
+            "animalEvents": 25,
+            "activityLog": 4,
+            "importIdentityMap": 0
+          },
+          "businessHash": "2cacffd7ab7e5a49e575916aa12999a4c939e5027b6e545643d49250dd6382b0"
+        }
+      }
+    },
+    {
+      "id": "concurrent-real-work-prevents-a-stale-removal-and-preserves-its-review-fields",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "7f034907-6064-4188-ab86-d7b998929733",
+          "revision": 7,
+          "dataRevision": 7,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 8,
+            "stayEpisodes": 9,
+            "weightMeasurements": 3,
+            "contacts": 6,
+            "fosterProfiles": 1,
+            "fosterStays": 2,
+            "adoptionApplications": 3,
+            "reservations": 1,
+            "adoptions": 2,
+            "volunteerProfiles": 1,
+            "volunteerHours": 2,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 7,
+            "financialMovements": 4,
+            "donations": 2,
+            "donationLines": 2,
+            "inventoryItems": 1,
+            "inventoryMovements": 2,
+            "assets": 2,
+            "documents": 2,
+            "documentLinks": 4,
+            "animalEvents": 25,
+            "activityLog": 6,
+            "importIdentityMap": 0
+          },
+          "businessHash": "190235c643f569b0d24f12a17d16e714c235b5d74cfa59306b42d523bca54640"
+        },
+        "realWork": {
+          "animalId": "9ba09ae5-b141-4d61-b2c3-cfafcde5442a",
+          "expenseId": "23ccb179-3a88-4847-8fb4-69c59954b6ea",
+          "personId": "a4745b6a-3fc4-4372-a423-31f8aa02c9af",
+          "animalRevision": 1
+        }
+      }
+    },
+    {
+      "id": "dependency-review-proposes-conversion-of-the-connected-example-history-and-preserves-preview-purity",
+      "passed": true,
+      "evidence": {
+        "datasetId": "7f034907-6064-4188-ab86-d7b998929733",
+        "revision": 7,
+        "dataRevision": 7,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 8,
+          "stayEpisodes": 9,
+          "weightMeasurements": 3,
+          "contacts": 6,
+          "fosterProfiles": 1,
+          "fosterStays": 2,
+          "adoptionApplications": 3,
+          "reservations": 1,
+          "adoptions": 2,
+          "volunteerProfiles": 1,
+          "volunteerHours": 2,
+          "veterinaryRecords": 2,
+          "carePlans": 1,
+          "tasks": 7,
+          "financialMovements": 4,
+          "donations": 2,
+          "donationLines": 2,
+          "inventoryItems": 1,
+          "inventoryMovements": 2,
+          "assets": 2,
+          "documents": 2,
+          "documentLinks": 4,
+          "animalEvents": 25,
+          "activityLog": 6,
+          "importIdentityMap": 0
+        },
+        "businessHash": "190235c643f569b0d24f12a17d16e714c235b5d74cfa59306b42d523bca54640"
+      }
+    },
+    {
+      "id": "explicit-conversion-retains-real-work-UUIDs-history-and-byte-hashes-while-removing-unused-examples",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "7f034907-6064-4188-ab86-d7b998929733",
+          "revision": 7,
+          "dataRevision": 7,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 8,
+            "stayEpisodes": 9,
+            "weightMeasurements": 3,
+            "contacts": 6,
+            "fosterProfiles": 1,
+            "fosterStays": 2,
+            "adoptionApplications": 3,
+            "reservations": 1,
+            "adoptions": 2,
+            "volunteerProfiles": 1,
+            "volunteerHours": 2,
+            "veterinaryRecords": 2,
+            "carePlans": 1,
+            "tasks": 7,
+            "financialMovements": 4,
+            "donations": 2,
+            "donationLines": 2,
+            "inventoryItems": 1,
+            "inventoryMovements": 2,
+            "assets": 2,
+            "documents": 2,
+            "documentLinks": 4,
+            "animalEvents": 25,
+            "activityLog": 6,
+            "importIdentityMap": 0
+          },
+          "businessHash": "190235c643f569b0d24f12a17d16e714c235b5d74cfa59306b42d523bca54640"
+        },
+        "after": {
+          "datasetId": "2f71d26c-afa0-460f-8c0a-04578639c68b",
+          "revision": 8,
+          "dataRevision": 8,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 2,
+            "contacts": 2,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 1,
+            "carePlans": 1,
+            "tasks": 3,
+            "financialMovements": 2,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 2,
+            "documents": 1,
+            "documentLinks": 2,
+            "animalEvents": 4,
+            "activityLog": 6,
+            "importIdentityMap": 0
+          },
+          "businessHash": "b6dab7ef8c6e9ca33987d04f5016dc4d23d6dc325826dd65bce4db8d829d6a92"
+        },
+        "backupHash": "546a4c91a17a9b199521d101c73fa453c00a1ca738b3a0d886fc7fb9b02b0a03",
+        "protectedAnimal": "9ba09ae5-b141-4d61-b2c3-cfafcde5442a"
+      }
+    },
+    {
+      "id": "English-Spanish-management-and-banner-state-have-no-business-writes",
+      "passed": true,
+      "evidence": {
+        "datasetId": "2f71d26c-afa0-460f-8c0a-04578639c68b",
+        "revision": 8,
+        "dataRevision": 8,
+        "counts": {
+          "organizationSettings": 1,
+          "catalogOptions": 70,
+          "locations": 1,
+          "animals": 1,
+          "stayEpisodes": 1,
+          "weightMeasurements": 2,
+          "contacts": 2,
+          "fosterProfiles": 0,
+          "fosterStays": 0,
+          "adoptionApplications": 0,
+          "reservations": 0,
+          "adoptions": 0,
+          "volunteerProfiles": 0,
+          "volunteerHours": 0,
+          "veterinaryRecords": 1,
+          "carePlans": 1,
+          "tasks": 3,
+          "financialMovements": 2,
+          "donations": 0,
+          "donationLines": 0,
+          "inventoryItems": 0,
+          "inventoryMovements": 0,
+          "assets": 2,
+          "documents": 1,
+          "documentLinks": 2,
+          "animalEvents": 4,
+          "activityLog": 6,
+          "importIdentityMap": 0
+        },
+        "businessHash": "b6dab7ef8c6e9ca33987d04f5016dc4d23d6dc325826dd65bce4db8d829d6a92"
+      }
+    },
+    {
+      "id": "complete-owned-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 23240,
+        "exitCode": 0,
+        "signalCode": null,
+        "nativeRootExited": false,
+        "connectionReleasedAfterExit": true,
+        "forcedTermination": true,
+        "terminationAttempts": [
+          {
+            "pid": 14488,
+            "signalled": false,
+            "error": "ESRCH"
+          },
+          {
+            "pid": 23148,
+            "signalled": false,
+            "error": "ESRCH"
+          },
+          {
+            "pid": 17892,
+            "signalled": false,
+            "error": "ESRCH"
+          },
+          {
+            "pid": 23508,
+            "signalled": false,
+            "error": "ESRCH"
+          }
+        ],
+        "method": "Browser.close followed by forced termination of individually verified owned process identities",
+        "trackedProcesses": [
+          {
+            "ProcessId": 23240,
+            "ParentProcessId": 20112,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-24T12:19:54.6630700Z"
+          },
+          {
+            "ProcessId": 8308,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.86 --initial-client-data=0x12c,0x130,0x134,0x128,0x138,0x7ffa2a3d2ed0,0x7ffa2a3d2ee0,0x7ffa2a3d2ef0",
+            "CreatedAt": "2026-10-24T12:19:54.7083600Z"
+          },
+          {
+            "ProcessId": 12832,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1988 /prefetch:2",
+            "CreatedAt": "2026-10-24T12:19:55.0262510Z"
+          },
+          {
+            "ProcessId": 3188,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2052 /prefetch:11",
+            "CreatedAt": "2026-10-24T12:19:55.0266410Z"
+          },
+          {
+            "ProcessId": 22004,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2540 /prefetch:13",
+            "CreatedAt": "2026-10-24T12:19:55.0873690Z"
+          },
+          {
+            "ProcessId": 7400,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=18779410349 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3420 /prefetch:1",
+            "CreatedAt": "2026-10-24T12:19:55.2155570Z"
+          },
+          {
+            "ProcessId": 17000,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=18779590037 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4116 /prefetch:1",
+            "CreatedAt": "2026-10-24T12:19:55.3921590Z"
+          },
+          {
+            "ProcessId": 20148,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=18779693653 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4368 /prefetch:1",
+            "CreatedAt": "2026-10-24T12:19:55.4964420Z"
+          },
+          {
+            "ProcessId": 21892,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=18779964005 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5212 /prefetch:9",
+            "CreatedAt": "2026-10-24T12:19:55.7674250Z"
+          },
+          {
+            "ProcessId": 3964,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=30 --launch-time-ticks=18790474412 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190709014423126964 --mojo-platform-channel-handle=8040 /prefetch:1",
+            "CreatedAt": "2026-10-24T12:20:06.2784230Z"
+          },
+          {
+            "ProcessId": 2032,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=32 --launch-time-ticks=18792587823 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190709016297210662 --mojo-platform-channel-handle=7044 /prefetch:9",
+            "CreatedAt": "2026-10-24T12:20:08.4054940Z"
+          },
+          {
+            "ProcessId": 14488,
+            "ParentProcessId": 23240,
+            "CommandLine": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\updater.exe\" --wake-all --system",
+            "CreatedAt": "2026-10-24T12:20:19.4838330Z"
+          },
+          {
+            "ProcessId": 23148,
+            "ParentProcessId": 14488,
+            "CommandLine": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\updater.exe\" --crash-handler --system \"--database=C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\Crashpad\" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=157.0.8089.0 \"--attachment=C:\\Program Files (x86)\\Google\\GoogleUpdater\\updater.log\" \"--attachment=C:\\Program Files (x86)\\Google\\GoogleUpdater\\updater_history.jsonl\" --initial-client-data=0x27c,0x280,0x284,0x25c,0x288,0x7ff7fa7c2d18,0x7ff7fa7c2d28,0x7ff7fa7c2d38",
+            "CreatedAt": "2026-10-24T12:20:19.6187990Z"
+          },
+          {
+            "ProcessId": 17892,
+            "ParentProcessId": 14488,
+            "CommandLine": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\updater.exe\" --wake --system",
+            "CreatedAt": "2026-10-24T12:20:19.7260640Z"
+          },
+          {
+            "ProcessId": 23508,
+            "ParentProcessId": 17892,
+            "CommandLine": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\updater.exe\" --crash-handler --system \"--database=C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\Crashpad\" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=157.0.8089.0 \"--attachment=C:\\Program Files (x86)\\Google\\GoogleUpdater\\updater.log\" \"--attachment=C:\\Program Files (x86)\\Google\\GoogleUpdater\\updater_history.jsonl\" --initial-client-data=0x27c,0x280,0x284,0x278,0x288,0x7ff7fa7c2d18,0x7ff7fa7c2d28,0x7ff7fa7c2d38",
+            "CreatedAt": "2026-10-24T12:20:19.8002860Z"
+          }
+        ],
+        "finalCimRows": [],
+        "nativeExitObservations": [],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-24T12:20:26.845Z"
+      }
+    },
+    {
+      "id": "reopen-preserves-real-work-converted-history-preferences-and-actual-logo-document-bytes",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "datasetId": "2f71d26c-afa0-460f-8c0a-04578639c68b",
+          "revision": 8,
+          "dataRevision": 8,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 2,
+            "contacts": 2,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 1,
+            "carePlans": 1,
+            "tasks": 3,
+            "financialMovements": 2,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 2,
+            "documents": 1,
+            "documentLinks": 2,
+            "animalEvents": 4,
+            "activityLog": 6,
+            "importIdentityMap": 0
+          },
+          "businessHash": "b6dab7ef8c6e9ca33987d04f5016dc4d23d6dc325826dd65bce4db8d829d6a92"
+        },
+        "after": {
+          "datasetId": "2f71d26c-afa0-460f-8c0a-04578639c68b",
+          "revision": 8,
+          "dataRevision": 8,
+          "counts": {
+            "organizationSettings": 1,
+            "catalogOptions": 70,
+            "locations": 1,
+            "animals": 1,
+            "stayEpisodes": 1,
+            "weightMeasurements": 2,
+            "contacts": 2,
+            "fosterProfiles": 0,
+            "fosterStays": 0,
+            "adoptionApplications": 0,
+            "reservations": 0,
+            "adoptions": 0,
+            "volunteerProfiles": 0,
+            "volunteerHours": 0,
+            "veterinaryRecords": 1,
+            "carePlans": 1,
+            "tasks": 3,
+            "financialMovements": 2,
+            "donations": 0,
+            "donationLines": 0,
+            "inventoryItems": 0,
+            "inventoryMovements": 0,
+            "assets": 2,
+            "documents": 1,
+            "documentLinks": 2,
+            "animalEvents": 4,
+            "activityLog": 6,
+            "importIdentityMap": 0
+          },
+          "businessHash": "b6dab7ef8c6e9ca33987d04f5016dc4d23d6dc325826dd65bce4db8d829d6a92"
+        }
+      }
+    },
+    {
+      "id": "complete-reopened-close",
+      "passed": true,
+      "evidence": {
+        "rootPid": 12804,
+        "exitCode": 0,
+        "signalCode": null,
+        "nativeRootExited": false,
+        "connectionReleasedAfterExit": true,
+        "forcedTermination": false,
+        "terminationAttempts": [],
+        "method": "Browser.close",
+        "trackedProcesses": [
+          {
+            "ProcessId": 12804,
+            "ParentProcessId": 20112,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile --no-first-run --no-default-browser-check about:blank",
+            "CreatedAt": "2026-10-24T12:20:26.8547100Z"
+          },
+          {
+            "ProcessId": 1460,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.86 --initial-client-data=0x12c,0x130,0x134,0xcc,0x138,0x7ffa2a3d2ed0,0x7ffa2a3d2ee0,0x7ffa2a3d2ef0",
+            "CreatedAt": "2026-10-24T12:20:26.9042930Z"
+          },
+          {
+            "ProcessId": 16256,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1924 /prefetch:2",
+            "CreatedAt": "2026-10-24T12:20:27.2152820Z"
+          },
+          {
+            "ProcessId": 10068,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2040 /prefetch:11",
+            "CreatedAt": "2026-10-24T12:20:27.2166700Z"
+          },
+          {
+            "ProcessId": 13860,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2548 /prefetch:13",
+            "CreatedAt": "2026-10-24T12:20:27.3125680Z"
+          },
+          {
+            "ProcessId": 22552,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=18811645374 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3456 /prefetch:1",
+            "CreatedAt": "2026-10-24T12:20:27.4532500Z"
+          },
+          {
+            "ProcessId": 21896,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --launch-time-ticks=18811746948 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4104 /prefetch:1",
+            "CreatedAt": "2026-10-24T12:20:27.5536620Z"
+          },
+          {
+            "ProcessId": 19696,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=18811748785 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4140 /prefetch:1",
+            "CreatedAt": "2026-10-24T12:20:27.5579890Z"
+          },
+          {
+            "ProcessId": 21220,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=18811885082 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4928 /prefetch:9",
+            "CreatedAt": "2026-10-24T12:20:27.6876860Z"
+          },
+          {
+            "ProcessId": 8240,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=18811892551 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5004 /prefetch:9",
+            "CreatedAt": "2026-10-24T12:20:27.6952440Z"
+          },
+          {
+            "ProcessId": 23244,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=18811900245 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4980 /prefetch:9",
+            "CreatedAt": "2026-10-24T12:20:27.7036780Z"
+          },
+          {
+            "ProcessId": 21744,
+            "ParentProcessId": 12804,
+            "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=18814542252 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=6024 /prefetch:1",
+            "CreatedAt": "2026-10-24T12:20:30.3447050Z"
+          }
+        ],
+        "finalCimRows": [],
+        "nativeExitObservations": [],
+        "remainingProcesses": [],
+        "inspectionError": null,
+        "checkedAt": "2026-10-24T12:20:37.411Z"
+      }
+    },
+    {
+      "id": "runtime-source-hashes-unchanged",
+      "passed": true,
+      "evidence": {
+        "count": 132
+      }
+    }
+  ],
+  "launches": [
+    {
+      "startedAt": "2026-10-24T12:19:54.677Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\demo-ui-chrome-1792844394558\\profile",
+      "pid": 23240,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.86",
+        "revision": "@804d6b05f089b27af8342622a36558c49401a1d4",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.25"
+      },
+      "storageDeniedPreference": false
+    },
+    {
+      "startedAt": "2026-10-24T12:20:26.858Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": ".tmp\\demo-ui-chrome-1792844394558\\profile",
+      "pid": 12804,
+      "args": [
+        "--headless=new",
+        "--remote-debugging-port=0",
+        "--user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "about:blank"
+      ],
+      "version": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/155.0.8059.86",
+        "revision": "@804d6b05f089b27af8342622a36558c49401a1d4",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+        "jsVersion": "15.5.35.25"
+      },
+      "storageDeniedPreference": false
+    }
+  ],
+  "closures": [
+    {
+      "rootPid": 23240,
+      "exitCode": 0,
+      "signalCode": null,
+      "nativeRootExited": false,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": true,
+      "terminationAttempts": [
+        {
+          "pid": 14488,
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 23148,
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 17892,
+          "signalled": false,
+          "error": "ESRCH"
+        },
+        {
+          "pid": 23508,
+          "signalled": false,
+          "error": "ESRCH"
+        }
+      ],
+      "method": "Browser.close followed by forced termination of individually verified owned process identities",
+      "trackedProcesses": [
+        {
+          "ProcessId": 23240,
+          "ParentProcessId": 20112,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-24T12:19:54.6630700Z"
+        },
+        {
+          "ProcessId": 8308,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.86 --initial-client-data=0x12c,0x130,0x134,0x128,0x138,0x7ffa2a3d2ed0,0x7ffa2a3d2ee0,0x7ffa2a3d2ef0",
+          "CreatedAt": "2026-10-24T12:19:54.7083600Z"
+        },
+        {
+          "ProcessId": 12832,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1988 /prefetch:2",
+          "CreatedAt": "2026-10-24T12:19:55.0262510Z"
+        },
+        {
+          "ProcessId": 3188,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2052 /prefetch:11",
+          "CreatedAt": "2026-10-24T12:19:55.0266410Z"
+        },
+        {
+          "ProcessId": 22004,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2540 /prefetch:13",
+          "CreatedAt": "2026-10-24T12:19:55.0873690Z"
+        },
+        {
+          "ProcessId": 7400,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=18779410349 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3420 /prefetch:1",
+          "CreatedAt": "2026-10-24T12:19:55.2155570Z"
+        },
+        {
+          "ProcessId": 17000,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=18779590037 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4116 /prefetch:1",
+          "CreatedAt": "2026-10-24T12:19:55.3921590Z"
+        },
+        {
+          "ProcessId": 20148,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=18779693653 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4368 /prefetch:1",
+          "CreatedAt": "2026-10-24T12:19:55.4964420Z"
+        },
+        {
+          "ProcessId": 21892,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=18779964005 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=5212 /prefetch:9",
+          "CreatedAt": "2026-10-24T12:19:55.7674250Z"
+        },
+        {
+          "ProcessId": 3964,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=30 --launch-time-ticks=18790474412 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190709014423126964 --mojo-platform-channel-handle=8040 /prefetch:1",
+          "CreatedAt": "2026-10-24T12:20:06.2784230Z"
+        },
+        {
+          "ProcessId": 2032,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=32 --launch-time-ticks=18792587823 --field-trial-handle=1996,i,7328862855844483361,7596921931484122292,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=2008,i,16782605208189337780,9882798614322768570,4 --trace-process-track-uuid=3190709016297210662 --mojo-platform-channel-handle=7044 /prefetch:9",
+          "CreatedAt": "2026-10-24T12:20:08.4054940Z"
+        },
+        {
+          "ProcessId": 14488,
+          "ParentProcessId": 23240,
+          "CommandLine": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\updater.exe\" --wake-all --system",
+          "CreatedAt": "2026-10-24T12:20:19.4838330Z"
+        },
+        {
+          "ProcessId": 23148,
+          "ParentProcessId": 14488,
+          "CommandLine": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\updater.exe\" --crash-handler --system \"--database=C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\Crashpad\" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=157.0.8089.0 \"--attachment=C:\\Program Files (x86)\\Google\\GoogleUpdater\\updater.log\" \"--attachment=C:\\Program Files (x86)\\Google\\GoogleUpdater\\updater_history.jsonl\" --initial-client-data=0x27c,0x280,0x284,0x25c,0x288,0x7ff7fa7c2d18,0x7ff7fa7c2d28,0x7ff7fa7c2d38",
+          "CreatedAt": "2026-10-24T12:20:19.6187990Z"
+        },
+        {
+          "ProcessId": 17892,
+          "ParentProcessId": 14488,
+          "CommandLine": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\updater.exe\" --wake --system",
+          "CreatedAt": "2026-10-24T12:20:19.7260640Z"
+        },
+        {
+          "ProcessId": 23508,
+          "ParentProcessId": 17892,
+          "CommandLine": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\updater.exe\" --crash-handler --system \"--database=C:\\Program Files (x86)\\Google\\GoogleUpdater\\157.0.8089.0\\Crashpad\" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=157.0.8089.0 \"--attachment=C:\\Program Files (x86)\\Google\\GoogleUpdater\\updater.log\" \"--attachment=C:\\Program Files (x86)\\Google\\GoogleUpdater\\updater_history.jsonl\" --initial-client-data=0x27c,0x280,0x284,0x278,0x288,0x7ff7fa7c2d18,0x7ff7fa7c2d28,0x7ff7fa7c2d38",
+          "CreatedAt": "2026-10-24T12:20:19.8002860Z"
+        }
+      ],
+      "finalCimRows": [],
+      "nativeExitObservations": [],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-24T12:20:26.845Z"
+    },
+    {
+      "rootPid": 12804,
+      "exitCode": 0,
+      "signalCode": null,
+      "nativeRootExited": false,
+      "connectionReleasedAfterExit": true,
+      "forcedTermination": false,
+      "terminationAttempts": [],
+      "method": "Browser.close",
+      "trackedProcesses": [
+        {
+          "ProcessId": 12804,
+          "ParentProcessId": 20112,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --headless=new --remote-debugging-port=0 --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile --no-first-run --no-default-browser-check about:blank",
+          "CreatedAt": "2026-10-24T12:20:26.8547100Z"
+        },
+        {
+          "ProcessId": 1460,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=crashpad-handler --user-data-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\\Crashpad --metrics-dir=C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=155.0.8059.86 --initial-client-data=0x12c,0x130,0x134,0xcc,0x138,0x7ffa2a3d2ed0,0x7ffa2a3d2ee0,0x7ffa2a3d2ef0",
+          "CreatedAt": "2026-10-24T12:20:26.9042930Z"
+        },
+        {
+          "ProcessId": 16256,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=gpu-process --gpu-recent-crash-count=0 --headless=new --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1924 /prefetch:2",
+          "CreatedAt": "2026-10-24T12:20:27.2152820Z"
+        },
+        {
+          "ProcessId": 10068,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=es --service-sandbox-type=none --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2040 /prefetch:11",
+          "CreatedAt": "2026-10-24T12:20:27.2166700Z"
+        },
+        {
+          "ProcessId": 13860,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=es --service-sandbox-type=service --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2548 /prefetch:13",
+          "CreatedAt": "2026-10-24T12:20:27.3125680Z"
+        },
+        {
+          "ProcessId": 22552,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=18811645374 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3456 /prefetch:1",
+          "CreatedAt": "2026-10-24T12:20:27.4532500Z"
+        },
+        {
+          "ProcessId": 21896,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --launch-time-ticks=18811746948 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708992871164437 --mojo-platform-channel-handle=4104 /prefetch:1",
+          "CreatedAt": "2026-10-24T12:20:27.5536620Z"
+        },
+        {
+          "ProcessId": 19696,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=18811748785 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=4140 /prefetch:1",
+          "CreatedAt": "2026-10-24T12:20:27.5579890Z"
+        },
+        {
+          "ProcessId": 21220,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=18811885082 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4928 /prefetch:9",
+          "CreatedAt": "2026-10-24T12:20:27.6876860Z"
+        },
+        {
+          "ProcessId": 8240,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=18811892551 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5004 /prefetch:9",
+          "CreatedAt": "2026-10-24T12:20:27.6952440Z"
+        },
+        {
+          "ProcessId": 23244,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --extension-process --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=18811900245 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4980 /prefetch:9",
+          "CreatedAt": "2026-10-24T12:20:27.7036780Z"
+        },
+        {
+          "ProcessId": 21744,
+          "ParentProcessId": 12804,
+          "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer --noerrdialogs --user-data-dir=\"C:\\Users\\Quinto\\OneDrive\\Escritorio\\WIP\\WebProtectoraAnimales\\.tmp\\demo-ui-chrome-1792844394558\\profile\" --no-pre-read-main-dll --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=es --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=18814542252 --field-trial-handle=1928,i,10872176923879121201,15592725813644426347,262144 --disable-features=PaintHolding --variations-seed-version=20261023-170053.125000-production --pseudonymization-salt-handle=1932,i,12453755603822363629,644861659954063576,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=6024 /prefetch:1",
+          "CreatedAt": "2026-10-24T12:20:30.3447050Z"
+        }
+      ],
+      "finalCimRows": [],
+      "nativeExitObservations": [],
+      "remainingProcesses": [],
+      "inspectionError": null,
+      "checkedAt": "2026-10-24T12:20:37.411Z"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": ".tmp\\demo-ui-chrome-1792844394558\\demo-review-360.png",
+      "sha256": "b41518ea53c1133fee2aacc86404d6a940981c4ac01655b8a69e4464b90761e5"
+    },
+    {
+      "path": ".tmp\\demo-ui-chrome-1792844394558\\demo-review-768.png",
+      "sha256": "f38f21c226bfc5a874ca4f29067366d810f71f15267e485e48783c88b263ee44"
+    },
+    {
+      "path": ".tmp\\demo-ui-chrome-1792844394558\\demo-review-1440.png",
+      "sha256": "7f2fff8c809257b64c9063fba7e6b3056aed0ebea45a6a1abf1fa1e9ecaf9a54"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Organization/contact/animal setup uses real production services, explicitly identified as test fixture preparation.",
+    "Only organization preferences/logo and later real work are fixture preparation via real services. Demonstration load/review/removal/conversion use the visible UI.",
+    "Viewport emulation is not a physical mobile/tablet test.",
+    "One explicit service cancellation is injected during real dataset preparation; it does not mock IndexedDB or claim that a button was clicked.",
+    "No business service is mocked.",
+    "Page request trace excludes browser-internal traffic."
+  ],
+  "sourceFiles": [
+    {
+      "file": "index.html",
+      "sha256": "d4acd26e8bfabe0d9746143f8176159c3ca1362fc7a19ca40669a162a70f072f"
+    },
+    {
+      "file": "css/app.css",
+      "sha256": "43009f33b48825f231abd0f8f10a7eba6cd68588fdc9cd37568c2d1b9666e731"
+    },
+    {
+      "file": "css/people.css",
+      "sha256": "5aaa5b2da31af96521d3ff056f65e0fcf548179707bf70fa626085d4c15cf302"
+    },
+    {
+      "file": "css/calendar.css",
+      "sha256": "459a1f6c1493cf7c33724515d7d677daff6a6a327d7a84bd10e7e233b08dc461"
+    },
+    {
+      "file": "js/namespace.js",
+      "sha256": "3706aaecfb0e712883b0e59ff3526d946ec46d09c1855127e9b27cbf85f832ad"
+    },
+    {
+      "file": "js/config.js",
+      "sha256": "0b101d473eea7f0712f9603dbcfe69cc7c9b8267b48920dc48e8757700855c07"
+    },
+    {
+      "file": "vendor/js-sha256/sha256.min.js",
+      "sha256": "aba110c3b15e92e9bf79b1b0b444613a8aaddfaf255cd3b36ea8a8687b9c46a7"
+    },
+    {
+      "file": "vendor/papaparse/papaparse.min.js",
+      "sha256": "3a509437d423ed29d9175fdd01de8bcdcd50e8ffb883ae7daa91c0acd151d1a7"
+    },
+    {
+      "file": "locales/en.js",
+      "sha256": "8867ba62764a3971aaba3ffba97002deab142f42d7e325c85f0ed6c3c04e27ac"
+    },
+    {
+      "file": "locales/es.js",
+      "sha256": "ad76a8b8473138afca947beee98c3a3e1ee082be071ea15d33079578de5dc888"
+    },
+    {
+      "file": "data/demo.en.js",
+      "sha256": "4fd326253f749ae276ff68e7bff4c5185948c6d742c94a81475f925b1550091b"
+    },
+    {
+      "file": "data/demo.es.js",
+      "sha256": "7ecddaa232c9a3e84cfa9440788153367639b82d523fbd249f639f3f7ae1e2fc"
+    },
+    {
+      "file": "js/core/i18n.js",
+      "sha256": "476cfe00ee29f80823f61257154fc55100f0676edd9906021f8cf3b23920b71a"
+    },
+    {
+      "file": "js/core/errors.js",
+      "sha256": "b367adf36f6e02dcc85f691244b2539626a9f797f9c709a91ed9f1ea53cdb309"
+    },
+    {
+      "file": "js/utils/ids.js",
+      "sha256": "e6996e23259aa529c3e56d7ee9fc5ff43b7eee666f19e71c512d5bd50570f762"
+    },
+    {
+      "file": "js/utils/dates.js",
+      "sha256": "ff1f89b25ba86403b96439deef951c4da9e3c6105282ca7b57f347935a38da49"
+    },
+    {
+      "file": "js/utils/quantities.js",
+      "sha256": "2f0c9b60e9591a9c74e74dbe086a72fae2c42ee60f741c0cdb93591711cb466f"
+    },
+    {
+      "file": "js/utils/money.js",
+      "sha256": "4965ad736101c0a9d6ac69be7d6fb75203236c9d1506914c4630345b380f154a"
+    },
+    {
+      "file": "js/utils/strings.js",
+      "sha256": "b47dbce3906fd7d332af346ecd34615217de0a37c5423e63e00d48ba378f9432"
+    },
+    {
+      "file": "js/utils/canonical-json.js",
+      "sha256": "e6fcdbea4f9fa5f2b7f85e8e6dab6e687d30967f1652de1dd04c8e811290c8eb"
+    },
+    {
+      "file": "js/utils/integrity.js",
+      "sha256": "2fafb1da89fa88f871c7100ebc656a01a98526329c6c1ce485d15a2b78609e24"
+    },
+    {
+      "file": "js/utils/files.js",
+      "sha256": "fdcd473b36b53414f962de95ea5fb9243a4e8d4c3750f6c71e76d401a3baf6bc"
+    },
+    {
+      "file": "js/utils/images.js",
+      "sha256": "8da4cc7e29e82e00e2249ff0e98b18a4dfd9c980d461473e4a51729fb525c7b4"
+    },
+    {
+      "file": "js/utils/calendar.js",
+      "sha256": "cb5f5048dc4f6cfca7735e0ac7f493afac218a6985e7161536343f4726abf86f"
+    },
+    {
+      "file": "js/domain/enums.js",
+      "sha256": "0f9258be4405e177332dbd4414ef4250dc98a429a2765a2b696399cbd98b468a"
+    },
+    {
+      "file": "js/domain/schemas.js",
+      "sha256": "28fcd5053c433a395ba758ff0c6f18dc9a324024c11e644f3892dc57e4ae119e"
+    },
+    {
+      "file": "js/domain/validators.js",
+      "sha256": "b23179ba9a192b0e58727c8319465d0be3a2a2848b836df2fe0f84333f31e8a0"
+    },
+    {
+      "file": "js/domain/dataset-validator.js",
+      "sha256": "f3a8b95f1844ad21fa71471017692ef8cc74ceb0154cd7dc294dc358ed9d28b6"
+    },
+    {
+      "file": "js/domain/asset-references.js",
+      "sha256": "72f58dd6f23c02d1abbeb8e4cdde119e995f9adbbdf7e4c2a4eef4f2d6e6df11"
+    },
+    {
+      "file": "js/domain/trash-closure.js",
+      "sha256": "814fb7a1196b8d702ec0e1784d781808e7b2e10a1d17916052848a04c7eadb05"
+    },
+    {
+      "file": "js/storage/schema.js",
+      "sha256": "92f465368beb792b998414005a6b8d2d41f78bd4c933a1145acb5d17888a67ed"
+    },
+    {
+      "file": "js/storage/database.js",
+      "sha256": "cef57715b3a0cc85fb509b9c37d45f4022d9375059329114bf8506a6ec413e1e"
+    },
+    {
+      "file": "js/storage/transactions.js",
+      "sha256": "890c275ccac0aa48f94fe2ee8c61a3500f9f952d0a6b3cba033dd9dd7b1a571a"
+    },
+    {
+      "file": "js/storage/write-coordinator.js",
+      "sha256": "1f6a9ec693f785635fb107cb62b38c4f3a37cc858859f46d87a53f2a03e59c4d"
+    },
+    {
+      "file": "js/storage/repositories.js",
+      "sha256": "3ebe51b2a8d05e00a2f1695dfbc4fb9f95a5d8cb226eaeaf6bc415cc352d0c75"
+    },
+    {
+      "file": "js/storage/retention.js",
+      "sha256": "35284f2196490bba984e2280757967bb353d0f798a3327834e8ca8b3ea678ca6"
+    },
+    {
+      "file": "js/storage/asset-retention.js",
+      "sha256": "fc4906b8899c757c9ef9661dccb9e24d7bbe20fcb6f9b4f8a8338e0270508c85"
+    },
+    {
+      "file": "js/storage/trash-purge.js",
+      "sha256": "64e45b9cd9474bb0b97132c385c5f3477da78338aee65d10656a031f3eba386e"
+    },
+    {
+      "file": "js/storage/dataset-manager.js",
+      "sha256": "841feefb0ddbfafd96ae2b36d7207733fbb91e608189c14461f03725a01001d3"
+    },
+    {
+      "file": "js/services/backup-codec.js",
+      "sha256": "f8475d5327f6093dc2f51bcfba6d4456c6e542c664f0438f2d8a81f36c039509"
+    },
+    {
+      "file": "js/services/context.js",
+      "sha256": "c3b9b30cdcdb6ed7911a50579ce384a778f41c3cc145ff3d58439143cfb7f36a"
+    },
+    {
+      "file": "js/services/diagnostics.js",
+      "sha256": "83d4c01c29791712e4821d657b0152ba59737679993ba977812c536d616df06c"
+    },
+    {
+      "file": "js/services/catalogs.js",
+      "sha256": "93e4968425d802fce7607533f2f0064ebd8076b930de6c4f9edb3b9270aaaec5"
+    },
+    {
+      "file": "js/services/settings.js",
+      "sha256": "454e5f27b00e73f7c0060b8b16ac0dd1cd0616da611209b70d8237e527c2afba"
+    },
+    {
+      "file": "js/services/backup.js",
+      "sha256": "ea5aa036bc9e3f15a96ad394592aef62fd5f803f2fdc13ce12e74165770dca6e"
+    },
+    {
+      "file": "js/services/contacts.js",
+      "sha256": "40bdc267f05d5909ad18381503a0ba02bd4348e89c568c2324b961af89b30f04"
+    },
+    {
+      "file": "js/services/animals.js",
+      "sha256": "5f5e94bd9626ebcb18cc8c2cf5eda0939e7173e125e9525f97f961eb3f800eca"
+    },
+    {
+      "file": "js/services/fosters.js",
+      "sha256": "06640fe7babf0ed2d347a7c6e4f737e4b3fbcb48ec0a74de941f00cc1d006bdd"
+    },
+    {
+      "file": "js/services/volunteers.js",
+      "sha256": "383500b0045ebe4f25f3cf232e2211fb7f57bf103a2e310f86a7d50357dcf6b8"
+    },
+    {
+      "file": "js/services/finance.js",
+      "sha256": "71ac389c8637d35903b9b04c5de0221cc19e5e5e5cc8936435cdedfeab1708bf"
+    },
+    {
+      "file": "js/services/inventory.js",
+      "sha256": "0d8d9f2ac1d22192bec5f59ed94a67ef1926c10cc8cea1b0d169d1b1aab0525f"
+    },
+    {
+      "file": "js/services/donations.js",
+      "sha256": "6d34e2cd595d5a6e74a296135d6264dc8c4e71893952dffc1259374ad3d8c115"
+    },
+    {
+      "file": "js/services/adoptions.js",
+      "sha256": "8b84ed2cf53ca31a3f2dfb60ad3394c43b5611a68e7a574eb33d30f30329182e"
+    },
+    {
+      "file": "js/services/tasks.js",
+      "sha256": "1af038dd67918c70d8bfa0554f75ddfe772b05387fdf5ea34c401667c8c81e1b"
+    },
+    {
+      "file": "js/services/health.js",
+      "sha256": "ca73cf5910cf1eb0c42a02e12762db7b233d714870949671fb70da9100d8bfe9"
+    },
+    {
+      "file": "js/services/documents.js",
+      "sha256": "5c8bb3ee08bc2e31ce5303740d301ebd740c4eb375163e7379ab29e81b45d140"
+    },
+    {
+      "file": "js/services/photos.js",
+      "sha256": "0230ece4f63c2f2460b8b274938784cab225d60af638ad34c971b0df4134e2ac"
+    },
+    {
+      "file": "js/services/weights.js",
+      "sha256": "d234ca3e511f6e6ac1a8ca9e7b0ddd65ea108f92ddfb8bc53ff07991665f2266"
+    },
+    {
+      "file": "js/services/history-events.js",
+      "sha256": "ad867d2d49fe89ee91c784f6532bb263d74a5e6458476c18f9eeda9aa233ee92"
+    },
+    {
+      "file": "js/services/history-workflow.js",
+      "sha256": "2f93dc3ab2f314aec319be170dde29e8521b356aa7ac35b375f69b016fcb13c7"
+    },
+    {
+      "file": "js/services/history-departure.js",
+      "sha256": "819ce0401f45aaaf9474243712ef56ae2708a94fa1303b2c9b4b1e1b7a692876"
+    },
+    {
+      "file": "js/services/history-adoption.js",
+      "sha256": "7595ea725ca090f398d218d232cfe6c2c0444b66623068aefcea861de694fc07"
+    },
+    {
+      "file": "js/services/history-linked-facts.js",
+      "sha256": "ae850b5f83a84259c9284d196175a5e448c6196d02324fc9a25b54c29c156451"
+    },
+    {
+      "file": "js/services/document-dates.js",
+      "sha256": "be28ae561e55f9018091cefbedc05d3f8667e83551e40dd2c0df5a3cb0812507"
+    },
+    {
+      "file": "js/services/history-corrections.js",
+      "sha256": "7f5a3fd2e83cf6866e2bc46b9adbf19b78149c67acb4431bf7b05aad250d6d92"
+    },
+    {
+      "file": "js/services/retention.js",
+      "sha256": "e90af53aa781d282df46f40372ebc13dad6723ad3174d6b510abcf7baee1db85"
+    },
+    {
+      "file": "js/services/asset-retention.js",
+      "sha256": "5449a61893ed0e0372a766669556d14e689a1d3c47aa90454cbf998db35e2612"
+    },
+    {
+      "file": "js/services/trash-purge.js",
+      "sha256": "c16068cac1347ccba62a4f618ff6c1ffaeebafa6886b8d0914896b8cecfeca05"
+    },
+    {
+      "file": "js/services/recovery.js",
+      "sha256": "25758cb6604e5553da9c4c94ca859c323324c7a3e6eba3f8d4c1b2af9ad35286"
+    },
+    {
+      "file": "js/services/reports.js",
+      "sha256": "1d47f8787a137102995e7a045a4ae0b32d5e853eee9df462750f550a97dd3ed0"
+    },
+    {
+      "file": "js/services/dashboard.js",
+      "sha256": "d7db6a4af66474b05dd4b2dfbdfa2e71923a1696e69fdcc7bee635e1239d2495"
+    },
+    {
+      "file": "js/services/search.js",
+      "sha256": "e3e41c0a7f10220d3257e75adfd07324b41645959cec43797f10252b9be2e97e"
+    },
+    {
+      "file": "js/services/animal-queries.js",
+      "sha256": "1b2e532e3ae1535eab236181198d87e89a0efc88c2be8202475835d7193eef2c"
+    },
+    {
+      "file": "js/services/adoption-queries.js",
+      "sha256": "08974a99669d21878d15bfa95f8fc099218a85a8ea33d4478648f17d6b841e01"
+    },
+    {
+      "file": "js/services/configuration.js",
+      "sha256": "4cbaf47d95555c2559c44505ed75989d7edae6cda6250c294cb8b3906fda5aea"
+    },
+    {
+      "file": "js/services/backup-reminders.js",
+      "sha256": "a9c929a88e95350ad87b007f080d6acd532de85571455a21669e6b27fea5b7a2"
+    },
+    {
+      "file": "js/utils/tabular.js",
+      "sha256": "192e9b76b6c012ad58c9688e1818ddcbcb1a9b8f92676cb378b8a8d25ddaad50"
+    },
+    {
+      "file": "js/services/export-definitions.js",
+      "sha256": "0fe25f6ae08fc9f456a3eec6af84ba3d6fd06c7e08b45b7e4067677785996f18"
+    },
+    {
+      "file": "js/services/exports.js",
+      "sha256": "54ed530df4b7fd6c2282f36ce044c55d5ed74fd0658aaa6b3319c0f170c0afc0"
+    },
+    {
+      "file": "js/services/import-parser.js",
+      "sha256": "4e04d3e6136b93c921a536cef1acccc65e1c8de2f0afe65700137262a5c649e3"
+    },
+    {
+      "file": "js/services/import-contacts.js",
+      "sha256": "47ed6773dd221b6718997437377f48c465d31c53370813c8ce7c9bb757d854d3"
+    },
+    {
+      "file": "js/services/import-batches.js",
+      "sha256": "e27ed6fc550769ff3695d654264cdc41deba0d4e42d9e6509edc213af4afd35e"
+    },
+    {
+      "file": "js/services/contact-import.js",
+      "sha256": "9abc7e24ee894f03d948ada668948ae53736057bb1e739b3bb975d2aa9e1dd39"
+    },
+    {
+      "file": "js/services/import-animals.js",
+      "sha256": "b8f700d0f7cfc6c1433b1d8ea5d7b2acb7b642cb72f7b37a40289254d756522f"
+    },
+    {
+      "file": "js/services/animal-import.js",
+      "sha256": "2f2181c144ae3d4133244e8a85aa9e23ccdb8f9dd6a9b90c230c642a292f028f"
+    },
+    {
+      "file": "js/services/import-workspace.js",
+      "sha256": "2c645e8feff3a8556f2066091249f5639f357656f609d3bb9931193524977d21"
+    },
+    {
+      "file": "js/services/import-finance.js",
+      "sha256": "2a81632048a6051a47bafed3d13a52506b4870dfc095826f009675e0925428b7"
+    },
+    {
+      "file": "js/services/import-donations.js",
+      "sha256": "bd0329f65c448829c8ae0c4a8688951658778609582019d7af3e133ba14627ad"
+    },
+    {
+      "file": "js/services/import-related.js",
+      "sha256": "b4996620c8193d529a6ea41f6deaf185a1ef93068d5b8ce9f34f587395f71e48"
+    },
+    {
+      "file": "js/services/related-import.js",
+      "sha256": "677277c1889de304a95a592cff3a6fddcd8cda77ba319f035dfd46af6e9b0235"
+    },
+    {
+      "file": "js/services/module-import-codec.js",
+      "sha256": "714903389ba438d5528edcb3af842322d9f42d57c571c138b9e5be42990895b2"
+    },
+    {
+      "file": "js/services/module-import-assets.js",
+      "sha256": "15cabd3be025efc27af53198192f091d88af9a46b1a972f5a38e058d881a26e0"
+    },
+    {
+      "file": "js/services/module-import.js",
+      "sha256": "9fe383d9171005a60ae551af7aaf535bba23df8695ccc3dfd00388207d8c24f3"
+    },
+    {
+      "file": "js/services/record-graph.js",
+      "sha256": "4b483cf8fd322f5df4beea61bd9f04d1b48a0f67485d6d0a3b60edcf7c677fdc"
+    },
+    {
+      "file": "js/services/demo-builder.js",
+      "sha256": "3fe4b62fdfeab7ccbd6644b4faeaf41b7bb07c6ae6c0172ee5af5d5d746ea406"
+    },
+    {
+      "file": "js/services/demo.js",
+      "sha256": "b9ed97590057ab4af6f74e55ce96f31bf3c69f2bfb92b525fc3bc4d35b8107c3"
+    },
+    {
+      "file": "js/components/ui.js",
+      "sha256": "4e76f24a5129257f698e62d2fe55f05ed111a23a5761031dcf51976f4c371cae"
+    },
+    {
+      "file": "js/components/icons.js",
+      "sha256": "ee811240329b9e2e486dd60da2bd01e51914df1155493a6b154e4ba1edf66fa2"
+    },
+    {
+      "file": "js/components/backup-proof.js",
+      "sha256": "dfeef7542fdf5e1d9d9cfe8fc69c83cde918350e4ab372e31bc55b08564bd278"
+    },
+    {
+      "file": "js/modules/document-dates.js",
+      "sha256": "134638e816f510ab64b676c39f76491f66ce97f59d0b952c1328fd401a491738"
+    },
+    {
+      "file": "js/modules/documents.js",
+      "sha256": "fbee223ae497ff6f9b6c0e3e9a37c8d4801f0753865cdf4325128872a51f8b2a"
+    },
+    {
+      "file": "js/modules/people.js",
+      "sha256": "3f7aa2303227cf8d319295888017ac98ac52f7979c3547bd9936788c5bb43bfa"
+    },
+    {
+      "file": "js/modules/animal-forms.js",
+      "sha256": "8b768ec9653ade40f7fe1171d311bef3a061746ce45de9fe5203c6feae16a26a"
+    },
+    {
+      "file": "js/modules/foster-workflow.js",
+      "sha256": "d0103eeb5d1d11185b8f4ded3d3242253fb10fa03d48c78b67ef08ea58a90cea"
+    },
+    {
+      "file": "js/modules/adoption-forms.js",
+      "sha256": "dddc88e5150698a3e7dd58a9e37dc4a110fed2b58ebd260aed947e7e18dc92b2"
+    },
+    {
+      "file": "js/modules/adoption-workflow.js",
+      "sha256": "5c57981af5b2915e3a1236323979ef5fa3b3d187318a20d8606f58de2b14b1e6"
+    },
+    {
+      "file": "js/modules/tasks.js",
+      "sha256": "620b8b9d56e3a2c12087212e52c146919af3b0a2287fd13ad35a850ce81e0ff3"
+    },
+    {
+      "file": "js/modules/health-forms.js",
+      "sha256": "bf4170679a7f26cebe7fd0e6683666f8465c032676ab23a34d9fa10a686c81be"
+    },
+    {
+      "file": "js/modules/health-workflow.js",
+      "sha256": "d30799729ee4889d90522949dd667a22ecb64714d70536bfe880700e0fef7ea1"
+    },
+    {
+      "file": "js/modules/finance.js",
+      "sha256": "44d95bb96866a3bf9ae538c1e838765744e23dae282502f10285576782686858"
+    },
+    {
+      "file": "js/modules/donations.js",
+      "sha256": "d6b4f4763ac3e3f46ac8b63c2bf410fb214cf704249401d68c327a59624e3589"
+    },
+    {
+      "file": "js/modules/inventory.js",
+      "sha256": "def163f1db53c54f58fa78cc52469e07f6e5200142fe893129aed45f5684a2f2"
+    },
+    {
+      "file": "js/modules/reports.js",
+      "sha256": "fecc466ac77b7905a87a4a9af7536025fa85f9f222e294dc5d04f49ea377db4e"
+    },
+    {
+      "file": "js/modules/dashboard.js",
+      "sha256": "66f7da69117b517cf18ba67e5ec69f3ff7689d2e3a98bcb480cbb9175bc5c1e3"
+    },
+    {
+      "file": "js/modules/adoption-register.js",
+      "sha256": "319343262c5b589c1c63f2d0d24fe2c58f1cc28447e53c6bfdbf17dcf50c55f1"
+    },
+    {
+      "file": "js/modules/search.js",
+      "sha256": "8d1eafeb1e6704eb4df56053f8b856f1e7cbb926ac29068550a49ff29e3f5847"
+    },
+    {
+      "file": "js/modules/animal-history.js",
+      "sha256": "58ac7e21314aba12bdfde34080fb13eaedf0af3d6ca276db08c07a9adae016ec"
+    },
+    {
+      "file": "js/modules/exports.js",
+      "sha256": "2bd515a6959a3912d79392d402ab965b1181ccc6cc2de33e95c5b40422e52597"
+    },
+    {
+      "file": "js/modules/imports.js",
+      "sha256": "4758bb19826d89cb5361f199f6eb38367837b36945fcda751fc036c304cd5178"
+    },
+    {
+      "file": "js/modules/module-import.js",
+      "sha256": "784948bda26027a2130060f2df5234ca02bfcad5c7e14c5f4770f54fecde7f97"
+    },
+    {
+      "file": "js/modules/demo.js",
+      "sha256": "af82b0fe68d99deaead176673dfc7bf1835ceb40b2728a692ee125702e31224e"
+    },
+    {
+      "file": "js/modules/configuration.js",
+      "sha256": "7c925f5f2297434d394fc02aa6bf0f1e30d9647a30671381af1fc7df30421648"
+    },
+    {
+      "file": "js/modules/asset-retention.js",
+      "sha256": "ccc49d7fedd9e3bc882794d1376a93bf9d8335fe6e4340b79bf0109333e6137b"
+    },
+    {
+      "file": "js/modules/trash-purge.js",
+      "sha256": "a820c1c3d3daaf2d98aec329523736877c5691ccf72859183ec8a2f3af10df51"
+    },
+    {
+      "file": "js/modules/retention.js",
+      "sha256": "c7f1e80392b858406047c0bb89afc642f0020d2d74945e3309c80f3df721a7e8"
+    },
+    {
+      "file": "js/modules/settings.js",
+      "sha256": "2931181b8b02f688a40b78a343839256d3cc022c3f3c148d6766e92a135b0cf4"
+    },
+    {
+      "file": "js/modules/weights.js",
+      "sha256": "8da0d784a6928363d9b3dc221c866b048d598d9c7a873e1cd1952e3ad4dc1d85"
+    },
+    {
+      "file": "js/modules/animal-list.js",
+      "sha256": "01a76a046e794e01a0aeb613ca6e7fd132aa950770345c2e31f2ff29b3b228c8"
+    },
+    {
+      "file": "js/modules/animal-print.js",
+      "sha256": "fb5c0f650425f337988ee6b5dee0b705c4862c88b53fa50650ef46e1dd7a614e"
+    },
+    {
+      "file": "js/modules/animals.js",
+      "sha256": "d2ab916088dc75ed0094da2227013d7048d925c3e3bf74127698de63d0076076"
+    },
+    {
+      "file": "js/modules/help.js",
+      "sha256": "e3d16dd984dfce7ca3e95fd36b92b244c14d6f99c667e21c5cf46f8627f7ea97"
+    },
+    {
+      "file": "js/bootstrap.js",
+      "sha256": "d8ce789fdb30be8993b957d650a4f29922e5318a45b362535aa47500d9a23cc2"
+    }
+  ],
+  "completed": true,
+  "completedAt": "2026-10-24T12:20:37.465Z",
+  "status": "passed"
+}

@@ -166,7 +166,7 @@
           el('td', {}, level), el('td', {}, button(t('iv.open'), () => detail(ctx, item), true)));
       }) : el('tr', {}, el('td', { colspan: 7 }, t('iv.empty')));
       results.replaceChildren(el('div', { class: 'table-wrap' }, el('table', {}, el('thead', {}, el('tr', {}, ['iv.name', 'iv.categoryId', 'iv.stock', 'iv.minimum', 'iv.status', 'iv.level', 'iv.actions'].map(key => el('th', { scope: 'col' }, t(key))))), el('tbody', {}, body))),
-        el('div', { class: 'actions' }, previous, el('span', {}, t('iv.page', { page: number(view.page), pages: number(pages), count: number(filtered.length) })), next));
+        el('div', { class: 'actions pager' }, previous, el('span', {}, t('iv.page', { page: number(view.page), pages: number(pages), count: number(filtered.length) })), next));
     }
     let timer;
     const search = el('input', { type: 'search', value: view.search, maxlength: 200 });
