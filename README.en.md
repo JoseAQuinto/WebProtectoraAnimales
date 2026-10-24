@@ -1,34 +1,34 @@
 # Rescue Manager — quick start
 
-Development version `0.2.0-dev`. Use fictional data: commercial acceptance is
-pending. The internal **Help** guide works offline in English and Spanish.
+Animal shelter management that works without Internet, without accounts and without
+a subscription. Version `1.0.0`. The full guide is in **Help**, inside the
+application, in English and Spanish.
 
-1. Download and **extract the entire folder** before opening it. Keep the HTML,
-   CSS, scripts, data and local libraries together.
-2. Open **index.html** directly. No server or tool installation is needed.
-3. Current functional checks cover Chrome and Edge on Windows. Historical
-   Firefox evidence does not establish acceptance of this version. Physical
-   phones/tablets, macOS and Linux remain unverified.
-4. Internet access is unnecessary. Product resources load locally.
-5. Create an organization or restore a full backup. Choose language, currency
-   and time zone; review Settings before entering synthetic records.
-6. **Data lives in the browser profile**, not beside index.html. Another folder,
-   browser or profile may show different storage. Private mode and clearing
-   browser data can remove it.
-7. Generate and download full backups in Backups, **select the downloaded file
-   again to verify it**, and keep it outside browser storage. JSON backups are
-   not encrypted; protect their contents.
-8. To change computer/browser, transfer the verified backup and restore it at
-   the destination. Check totals and documents before removing the original.
-   External documents require transferring their original files separately.
-9. Before updating, create/verify a backup and temporarily keep the old version.
-   Close other tabs, extract the new version and open its index.html. Check data
-   after migrations; restore if storage changed. Older application files do not
-   reverse a database migration.
-10. This local version requires no account or subscription and does not sync
-    data between computers. Commercial licensing and final distribution are pending.
+1. **Extract the whole folder** before opening it. Keep the HTML, CSS, scripts,
+   data, fonts and libraries together.
+2. Open **index.html** directly (double-click). No server or installation is needed.
+3. **Checked browsers:** Chrome and Microsoft Edge on Windows. Other browsers, Mac,
+   Linux, phones and tablets may work but have not been verified: make a backup
+   before using them.
+4. **No Internet:** everything loads from the folder. The application sends no data
+   anywhere.
+5. **First use:** set up your shelter (name, language, currency and time zone) or
+   restore a full backup. Review Settings before you start recording.
+6. **Where your data lives:** in the browser's storage, not beside index.html.
+   Another folder, another browser or private mode show different storage, and
+   clearing browser data deletes it.
+7. **Backups:** in Backups, download a full backup and **select it again to check
+   it**. Keep it off this computer. Backups have no password: protect those files,
+   because they contain personal data.
+8. **Changing computer or browser:** take the checked backup and restore it at the
+   destination. Check totals and documents before you stop using the original.
+   Documents "kept outside" the application are moved separately.
+9. **Updating:** make and check a backup, keep the previous version for a few days,
+   close other tabs, extract the new version and open its index.html. Check your
+   data; if it does not appear, restore the backup.
+10. **No subscriptions:** no accounts, recurring payments or sync between computers.
 
-Do not clear storage to resolve an error. See Help → Troubleshooting and preserve
-the original profile and verified backups.
+If something goes wrong, do not clear browser data: see Help → Troubleshooting and
+keep your checked backups.
 
-For development and handoff (source repository only, not included in the distribution ZIP): docs/CONTINUE_HERE.md.
+License: see LICENSE.txt. Third-party components: THIRD_PARTY_NOTICES.txt.

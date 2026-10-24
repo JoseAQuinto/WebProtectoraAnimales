@@ -105,8 +105,7 @@
     const main=el('main',{class:'content',id:'main',tabindex:'-1'});
     document.getElementById('app').replaceChildren(el('a',{class:'skip-link',href:'#main'},t('ui.skip')),el('div',{class:'shell'},sidebar,
       el('div',{class:'workspace'},el('header',{class:'topbar'},el('div',{class:'actions'},menu,root.modules.settings.logo(state.snapshot),el('span',{class:'organization'},org?.name||t('app.name'))),
-        el('div',{class:'top-actions'},el('span',{class:'badge'},t('ui.offline')),el('label',{class:'language-label',for:'language'},el('span',{},t('ui.language')),language))),
-        el('div',{class:'development'},t('ui.development')),main)));
+        el('div',{class:'top-actions'},el('span',{class:'badge'},t('ui.offline')),el('label',{class:'language-label',for:'language'},el('span',{},t('ui.language')),language))),main)));
     return main;
   }
   async function render() {

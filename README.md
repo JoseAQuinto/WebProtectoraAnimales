@@ -1,43 +1,45 @@
 # Animal Rescue & Shelter Manager
 
-Aplicación de gestión offline para protectoras. **Proyecto en desarrollo; no es todavía un producto comercial utilizable.**
+Aplicación de gestión para protectoras de animales que funciona sin Internet, sin
+cuentas y sin suscripción. **Versión 1.0.0.**
 
-Inicio rápido: [Español](README.es.md) · [English](README.en.md).
-La guía interna offline está en Ayuda (docs/HELP.md).
+Inicio rápido: [Español](README.es.md) · [English](README.en.md) ·
+[Notas de versión](RELEASE_NOTES.md). La guía completa está en Ayuda, dentro de la
+aplicación (docs/HELP.md).
 
-## Estado actual
+## Qué incluye
 
-**Checkpoint de continuidad revisado el 2026-10-18.** Para que otra IA retome
-el trabajo desde otro PC, empezar por [CONTINUE_HERE.md](docs/CONTINUE_HERE.md).
+Animales (fichas, salud, pesos, fotos, acogidas, adopciones, devoluciones, salidas e
+historial), contactos con detección de duplicados, familias de acogida, voluntariado,
+tareas y calendario, finanzas con correcciones que conservan el original, donaciones,
+inventario, documentos, resumen, informes imprimibles, buscador global, importación
+CSV/JSON con revisión previa, exportaciones, copias de seguridad comprobadas con
+restauración segura, papelera y datos de ejemplo opcionales. Español e inglés.
 
-El núcleo ya incorpora esquemas, validación relacional, persistencia coordinada,
-copias completas y restauración con conjunto separado. La interfaz permite
-gestionar animales, contactos y duplicados, perfiles de acogida, voluntariado
-y horas, fotografías/pesos y documentos incorporados o externos. Acogidas y
-adopciones tienen sus transiciones reales; salud/planes y tareas/calendario
-comparten registros. Finanzas permite ingresos/gastos, anulaciones y sustitutos
-enlazados; donaciones e inventario conectan sus operaciones a los movimientos
-económicos y de existencias. Incluye copias verificadas y recuperación local
-visible. Incluye panel operativo, informes, buscador global, filtros combinados,
-exportaciones CSV/JSON por módulo y asistente CSV de contactos con lotes grandes
-atómicos. Animales, perfiles voluntarios y solicitudes también tienen CSV
-verificado (docs/ANIMAL_IMPORT.md y docs/RELATED_IMPORT.md).
-Los movimientos CSV incluyen correcciones enlazadas verificadas
-(docs/FINANCE_IMPORT.md). Donaciones CSV agrupan materiales con ingreso/stock únicos (docs/DONATION_IMPORT.md).
-JSON por módulos reconstruye relaciones y archivos sin repetir efectos
-(docs/MODULE_JSON_IMPORT.md). La demo opcional EN/ES tiene retirada segura con protección del trabajo real
-(docs/DEMO.md). La fecha de entrada/devolución ya admite corrección coordinada
-(docs/HISTORY_CORRECTIONS.md). **Faltan otras correcciones de hechos y aceptación integral. Utiliza solo datos de prueba.**
+Abre `index.html` directamente después de descomprimir la carpeta completa. No hace
+falta servidor ni instalar nada. Todo se carga desde la carpeta (CSP sin conexiones).
 
-La evidencia inicial de viabilidad incluye Chrome, Edge y Firefox. Los últimos
-recorridos funcionales están acreditados en Chrome y Edge de Windows; no se
-extiende esa aceptación a Firefox actual ni a dispositivos físicos.
-El desarrollo queda preparado para relevo; el estado vigente y la siguiente
-acción se conservan en [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+## Datos y traslado
 
-Abre `index.html` directamente después de descargar y descomprimir la carpeta
-completa. No hace falta servidor ni instalar herramientas. La sonda anterior
-sigue disponible en `tests/viability/index.html`, solo para desarrollo.
+Los datos residen en el almacenamiento del navegador, no junto al HTML. Copiar la
+carpeta o clonar este repositorio no traslada esos datos. Para cambiar de equipo,
+genera una copia completa, compruébala volviendo a seleccionarla y restáurala en el
+otro equipo. Los documentos «guardados fuera» se trasladan por separado.
+
+## Compatibilidad comprobada
+
+Chrome y Microsoft Edge en Windows, con recorridos funcionales automatizados en
+navegador real (docs/COMPATIBILITY.md). Firefox, macOS, Linux, Android, iOS y
+dispositivos físicos no se han verificado con esta versión.
+
+## Pendiente antes de publicar comercialmente
+
+- **Licencia comercial:** LICENSE.txt sigue pendiente de definir por el titular.
+- Prueba con personas usuarias reales, lector de pantalla y dispositivos físicos.
+- Reversión de cambios de situación (por ejemplo, un fallecimiento registrado por
+  error): hoy solo se corrigen las fechas; está indicado en Ayuda → Limitaciones.
+
+## Documentación técnica
 
 - [Estado y siguiente paso](docs/PROJECT_STATUS.md)
 - [Requisitos originales completos](docs/REQUIREMENTS.es.md)
@@ -47,26 +49,12 @@ sigue disponible en `tests/viability/index.html`, solo para desarrollo.
 - [Reglas e invariantes](docs/BUSINESS_RULES.md)
 - [Compatibilidad y evidencia](docs/COMPATIBILITY.md)
 - [Procedimiento de pruebas](docs/TEST_PLAN.md)
-
-## Datos y traslado
-
-Los datos de prueba residen en el perfil del navegador, no junto al HTML.
-Copiar la carpeta o clonar este repositorio no traslada el almacenamiento del
-navegador. Para trasladar la organización, genera una copia completa, descarga
-y vuelve a seleccionar/verificar el archivo; restaura en el otro equipo. Las
-referencias a archivos externos requieren trasladar sus originales por separado.
-La aceptación comercial integral sigue pendiente. Utilizar datos sintéticos.
-
-## Desarrollo y continuidad
-
-Se conserva cada avance coherente con commits en este repositorio. La instrucción
-vigente del usuario es guardar y subir los avances cuando quede **menos del 10 %**
-del cupo de 5 horas. Se actualiza `docs/PROJECT_STATUS.md` con pruebas, límites y
-siguiente paso para continuar desde otro PC. No se consume un reinicio de cuota
-sin petición expresa.
-
-Las fases funcionales solo comienzan después de resolver los bloqueos de viabilidad del documento. La compatibilidad anunciada se limitará a combinaciones realmente comprobadas. La licencia comercial está pendiente de revisión; no se ha publicado el producto en Etsy.
+- [Relevo de desarrollo](docs/CONTINUE_HERE.md)
 
 ## Comprobaciones para desarrolladores
 
-`node tests/static-checks.cjs` verifica la sintaxis y las restricciones de recursos locales. Los procedimientos de navegador y sus requisitos se documentan en `docs/TEST_PLAN.md`. El diagnóstico funciona sin Node.js; Node.js solo es una herramienta de desarrollo.
+`node tests/static-checks.cjs` verifica sintaxis y restricciones de recursos locales.
+`node tests/e2e/regression.cjs --browser chrome --label <etiqueta>` ejecuta todas las
+suites en navegador real. `node tests/release/build-package.cjs` genera el ZIP de
+distribución en `.tmp/dist/`. Node.js solo es una herramienta de desarrollo: el
+producto no lo necesita.

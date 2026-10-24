@@ -7,7 +7,7 @@ lógica futura aborta la actualización conservando incluso la versión física.
 Ambos casos se prueban en `tests/integration/business.js` bajo `file://` en los
 tres navegadores; evidencia en `ENVIRONMENT_TESTS.md`.
 
-Versiones actuales: app `0.2.0-dev`, DB `2`, esquema `1`, backup `1`. No existen
+Versiones actuales: app `1.0.0`, DB `2`, esquema `1`, backup `1`. No existen
 versiones de esquema de negocio anteriores publicadas: solo se admite esquema
 1/formato 1. Las transformaciones lógicas futuras siguen el contrato siguiente;
 no se declara un migrador de versiones antiguas que aún no existen.

@@ -1,9 +1,31 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-24. Versión de trabajo: `0.2.0-dev`.
-Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
+Actualizado: 2026-10-24. Versión de producción: `1.0.0`.
+Versiones: `appVersion 1.0.0`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
+
+## Versión de producción 1.0.0 — 2026-10-24
+
+Por indicación del usuario, la aplicación pasa a versión de producción: se retira el
+aviso «Versión de prueba» de todas las pantallas, `appVersion` pasa a `1.0.0` (DB 2,
+esquema 1 y copia 1 sin cambios; las copias anteriores se siguen restaurando) y la
+Ayuda muestra «Limitaciones conocidas» en lugar de los límites de desarrollo. README
+ES/EN reescritos para el usuario final; notas de versión (RELEASE_NOTES.md) incluidas
+en el ZIP, cuyo nombre lleva la versión. LICENSE.txt sigue pendiente del titular.
+Revisión completa del inglés (~1.150 cadenas) y segunda pasada del español en
+importación, JSON entre instalaciones, correcciones, papelera/espacio, demostración y
+los 19 capítulos de Ayuda; queda resuelto el pendiente «revisar en.js con la misma
+profundidad». Los textos se aplican como bloque final validado de cada diccionario.
+Comprobado: 923 estáticas, pruebas Node y regresión Chrome
+`regression-2026-10-24-release-1.0.0-chrome.json` 35 suites / 487 comprobaciones sin fallos.
+
+Revisión de pendientes frente a REQUIREMENTS.es.md: los módulos obligatorios tienen
+interfaz y evidencia. Quedan: licencia comercial (decisión del titular); reversión de
+cambios de situación como un fallecimiento erróneo (no exigida expresamente; hoy se
+corrigen fechas); lecturas por índices para volúmenes muy grandes (~1 s a 60k);
+Firefox actual, macOS/Linux, móviles y tabletas físicos, lector de pantalla y prueba
+con personas usuarias, que requieren equipos o personas.
 
 ## Rediseño visual — 2026-10-24
 
@@ -298,9 +320,9 @@ FINANCE_UI.md y DONATIONS_INVENTORY_UI.md.
 
 ## Límites y pendientes
 
-- **No utilizar información real todavía.** Falta aceptación final del producto, optimizar
-  rendimiento (medido en VOLUME.md), revisión manual de accesibilidad (la automática
-  está en ACCESSIBILITY.md) y escenarios adicionales de cada módulo.
+- Versión de producción 1.0.0 por decisión del usuario (2026-10-24). Siguen sin
+  hacerse: revisión manual de accesibilidad con lector de pantalla (la automática
+  está en ACCESSIBILITY.md), prueba con personas usuarias y dispositivos físicos.
 - La captura fría, el refresco tras escritura y la validación relacional siguen
   recorriendo el dataset completo: O(N). Las lecturas repetidas ya reutilizan
   una captura inmutable con anclajes nativos (READ_CACHE.md). Volumen se mide en

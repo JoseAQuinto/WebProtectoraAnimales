@@ -73,7 +73,6 @@ small{font-size:.875rem}
 .language-label{display:flex;align-items:center;gap:8px;font-size:.8125rem;font-weight:600;color:var(--ink-2)}
 .topbar select{min-width:104px;min-height:34px;padding:4px 30px 4px 10px;font-size:.875rem}
 .button.menu-toggle{display:none}
-.development{font-size:.8125rem;padding:6px 32px;background:var(--ochre-tint);color:var(--ochre);border-bottom:1px solid var(--ochre-line)}
 .content{width:100%;max-width:1240px;margin:0 auto;padding:28px 32px 64px}
 .content>section,.content>.card,.content>nav{margin-bottom:20px}
 
@@ -357,7 +356,6 @@ dialog form>.form-actions{position:sticky;bottom:0;z-index:2;justify-content:fle
 .sidebar{padding:16px 10px}
 .content{padding:24px 22px 56px}
 .topbar{padding:8px 22px}
-.development{padding:6px 22px}
 .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:1100px) and (min-width:901px){.topbar .badge{display:none}}
@@ -374,7 +372,6 @@ dialog form>.form-actions{position:sticky;bottom:0;z-index:2;justify-content:fle
 .top-actions{gap:10px}
 .language-label>span{display:none}
 .content{padding:20px 16px 48px}
-.development{padding:6px 16px}
 .grid{grid-template-columns:minmax(0,1fr)}
 .page-heading{display:block;margin-bottom:16px}
 .page-heading>.button,.page-heading>.actions{margin-top:14px}
@@ -438,7 +435,7 @@ dialog form>.form-actions .button{flex:1}
 .pager>button:disabled+span:has(+button:disabled){display:none}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.button:active{transform:none}}
 @media print{
-.sidebar,.topbar,.development,.actions,.button,.notice,dialog,.tabs{display:none!important}
+.sidebar,.topbar,.actions,.button,.notice,dialog,.tabs{display:none!important}
 .shell{display:block}
 .content{padding:0;max-width:none}
 .card{box-shadow:none;break-inside:avoid;border-color:#bbb}

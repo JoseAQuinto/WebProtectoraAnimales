@@ -1,34 +1,35 @@
 # Rescue Manager — inicio rápido
 
-Versión de desarrollo `0.2.0-dev`. Utiliza datos ficticios: la aceptación comercial
-está pendiente. La guía interna está en **Ayuda**, disponible sin conexión en ES/EN.
+Gestión para protectoras de animales que funciona sin Internet, sin cuentas y sin
+suscripción. Versión `1.0.0`. La guía completa está en **Ayuda**, dentro de la
+aplicación, en español e inglés.
 
-1. Descarga y **descomprime toda la carpeta** antes de abrirla. Conserva juntos
-   HTML, CSS, scripts, datos y bibliotecas locales.
-2. Abre **index.html** directamente. No necesitas servidor ni instalar herramientas.
-3. Los últimos recorridos funcionales acreditan Chrome y Edge en Windows. La
-   evidencia histórica de Firefox no acredita esta versión; móviles/tabletas
-   físicos, macOS y Linux siguen pendientes.
-4. Funciona sin Internet. Los archivos del producto se cargan localmente.
-5. Crea una organización o restaura una copia completa. Elige idioma, moneda y
-   zona; revisa Configuración antes de introducir registros sintéticos.
-6. **Los datos están en el perfil del navegador**, no junto a index.html. Otra
-   carpeta, navegador o perfil puede mostrar otro almacenamiento. El modo privado
-   y borrar datos del navegador pueden hacerlos desaparecer.
-7. Genera y descarga copias completas desde Copias, **vuelve a seleccionar el
-   archivo para verificarlo** y consérvalo fuera del navegador. Las copias JSON
-   no están cifradas; protege su contenido.
-8. Para cambiar de equipo/navegador, lleva la copia verificada y restáurala en
-   el destino. Comprueba cifras y documentos antes de retirar el origen. Los
-   documentos externos requieren trasladar sus originales por separado.
-9. Antes de actualizar, crea/verifica una copia y conserva temporalmente la
-   versión anterior. Cierra otras pestañas, descomprime la nueva versión y abre
-   su index.html. Verifica los datos tras las migraciones; restaura si cambió
-   el almacenamiento. El código anterior no revierte una base ya migrada.
-10. Esta versión local no requiere cuenta ni suscripción y no sincroniza datos
-    entre equipos. La licencia comercial y distribución final siguen pendientes.
+1. **Descomprime toda la carpeta** antes de abrirla. Mantén juntos los archivos
+   HTML, CSS, scripts, datos, fuentes y bibliotecas.
+2. Abre **index.html** directamente (doble clic). No hace falta servidor ni instalar nada.
+3. **Navegadores comprobados:** Chrome y Microsoft Edge en Windows. Otros
+   navegadores, Mac, Linux, móviles y tabletas pueden funcionar, pero no se han
+   verificado: haz una copia de seguridad antes de usarlos.
+4. **Sin Internet:** todo se carga desde la carpeta. La aplicación no envía datos a
+   ningún sitio.
+5. **Primer uso:** crea tu protectora (nombre, idioma, moneda y zona horaria) o
+   restaura una copia completa. Revisa Configuración antes de empezar a registrar.
+6. **Dónde están tus datos:** en el almacenamiento del navegador, no junto a
+   index.html. Otra carpeta, otro navegador o el modo privado muestran otro
+   almacenamiento, y borrar los datos del navegador los elimina.
+7. **Copias de seguridad:** en Copias de seguridad descarga una copia completa y
+   **vuelve a seleccionarla para comprobarla**. Guárdala fuera del equipo. Las copias
+   no tienen contraseña: protege esos archivos porque contienen datos personales.
+8. **Cambiar de ordenador o de navegador:** lleva la copia comprobada y restáurala
+   en el destino. Revisa cifras y documentos antes de dejar de usar el original. Los
+   documentos «guardados fuera» se trasladan aparte.
+9. **Actualizar:** haz y comprueba una copia, conserva la versión anterior unos
+   días, cierra las demás pestañas, descomprime la versión nueva y abre su
+   index.html. Comprueba tus datos; si no aparecen, restaura la copia.
+10. **Sin suscripciones:** no hay cuentas, pagos periódicos ni sincronización entre
+    equipos.
 
-No borres el almacenamiento para resolver errores. Revisa Ayuda → Solución de
-problemas y conserva el perfil original y las copias verificadas.
+Si algo falla, no borres los datos del navegador: consulta Ayuda → Solución de
+problemas y conserva tus copias comprobadas.
 
-Para desarrollo y relevo (solo en el repositorio de código, no incluido en el ZIP de distribución): docs/CONTINUE_HERE.md.
+Licencia: consulta LICENSE.txt. Componentes de terceros: THIRD_PARTY_NOTICES.txt.

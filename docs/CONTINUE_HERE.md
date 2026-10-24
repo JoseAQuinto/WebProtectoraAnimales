@@ -1,9 +1,9 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint: **2026-10-24**, rama **main**, app **0.2.0-dev**.
+Checkpoint: **2026-10-24**, rama **main**, app **1.0.0** (producción por decisión del usuario).
 DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
-**Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
+**Versión de producción 1.0.0; licencia comercial pendiente del titular. Este chat no es necesario.**
 
 ## Rediseño visual 2026-10-24
 

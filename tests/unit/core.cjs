@@ -21,7 +21,8 @@ assert.equal(i18n.t('records.count', { count: 1 }), '1 registro');
 assert.equal(i18n.t('records.count', { count: 0 }), '0 registros');
 assert.equal(i18n.t('missing.key'), root.locales.es['errors.missingTranslation']);
 assert.equal(i18n.t('toString'), root.locales.es['errors.missingTranslation']);
-assert.equal(warnings.length, 2);
+// Missing-translation warnings are only printed by development builds (appVersion with -dev).
+assert.equal(warnings.length, root.config.appVersion.includes('-dev') ? 2 : 0);
 // Dynamic section/enum labels once escaped literal-string checks and broke all animal tabs.
 const dynamicGroups = { 'a.tab.':['info','health','foster','adoption','expenses','documents','history'],
   'q.priority.':['low','medium','high','urgent'], 'q.urgency.':['overdue','today','next_week','later','closed'],

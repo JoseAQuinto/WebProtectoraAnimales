@@ -1,5 +1,10 @@
 # Guía interna EN/ES — 2026-10-18
 
+**Actualización 2026-10-24 (versión 1.0.0):** el apartado de límites pasa a
+«Limitaciones conocidas / Known limitations», con lenguaje de producto final:
+navegadores comprobados, almacenamiento local sin sincronización, ausencia de usuarios,
+cambios de situación que no se deshacen y tiempo de primera apertura con muchos datos.
+
 `#help` está disponible sin organización. Destaca dónde se guardan los datos y
 ofrece índice navegable con 19 capítulos: inicio, configuración, animales,
 contactos/voluntarios, salud, acogida, adopciones/devoluciones, tareas, finanzas,

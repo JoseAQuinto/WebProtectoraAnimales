@@ -1,5 +1,24 @@
 # Historial de cambios
 
+## Versión de producción 1.0.0 — 2026-10-24
+
+- Por decisión del usuario, la aplicación pasa a producción: `appVersion` 1.0.0 (DB 2,
+  esquema 1 y copia 1 sin cambios). Se retira el aviso «Versión de prueba» de todas las
+  pantallas y la clave `app.development`; Ayuda muestra «Limitaciones conocidas».
+- Revisión completa del inglés (unas 1.150 cadenas) a partir del español claro, con
+  inglés estadounidense coherente; segunda pasada al español en importación, JSON
+  entre instalaciones, correcciones de historial, papelera, espacio y demostración.
+  Los 19 capítulos de la guía de Ayuda reescritos en ambos idiomas. Los textos nuevos
+  se aplican como bloque final de cada diccionario, con marcadores `{…}` validados.
+- README ES/EN para la persona usuaria final, RELEASE_NOTES.md incluido en el ZIP y
+  nombre del ZIP con versión (`rescue-manager-1.0.0.zip`). LICENSE.txt sigue pendiente
+  de que el titular defina la licencia comercial.
+- Pruebas: core.cjs espera avisos de traducción solo en versiones `-dev`; cuatro
+  comprobaciones E2E usan la clave traducida en vez de un texto literal antiguo;
+  package-ui exige notas de versión y licencias de las fuentes.
+- 923 estáticas y pruebas Node sin fallos; regresión Chrome completa
+  `regression-2026-10-24-release-1.0.0-chrome.json` 35 suites / 487 comprobaciones sin fallos.
+
 ## Rediseño visual «Cuaderno de refugio» — 2026-10-24
 
 - Sistema de diseño nuevo (docs/DESIGN_SYSTEM.md): papel salvia, tinta de bosque,

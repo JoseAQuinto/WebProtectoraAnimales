@@ -3,9 +3,11 @@
 Leer primero `docs/PROJECT_STATUS.md` y `docs/REQUIREMENTS.es.md` completos;
 el alcance original no puede recortarse para aparentar producto terminado.
 Para trasladar el trabajo a otro equipo, empezar por `docs/CONTINUE_HERE.md`.
-El checkpoint de 2026-10-16 es un relevo de desarrollo revisado y parcial,
-no una aplicación comercial terminada. No repetir como pendientes pruebas
-que ya tengan evidencia vigente ni dar por implementados los módulos sin UI.
+Desde el 2026-10-24, por decisión del usuario, la aplicación es la versión de
+producción 1.0.0: la interfaz ya no muestra avisos de versión de prueba. Siguen
+pendientes la licencia comercial del titular y las verificaciones que requieren
+personas o dispositivos (PROJECT_STATUS.md). No repetir como pendientes pruebas
+que ya tengan evidencia vigente.
 
 ## Autorización del usuario
 

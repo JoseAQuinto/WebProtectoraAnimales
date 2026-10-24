@@ -1,11 +1,11 @@
 /* Developer-only builder of the distribution ZIP. It is not part of the package and never publishes anything.
    Contents: index.html, every file it loads (scripts, styles and their @imports), upstream vendor originals and
-   licenses, LICENSE.txt, THIRD_PARTY_NOTICES.txt and the bilingual quick-start READMEs. Deterministic: sorted
+   licenses, LICENSE.txt, THIRD_PARTY_NOTICES.txt, the bilingual quick-start READMEs and the release notes. Deterministic: sorted
    paths, fixed timestamps and raw DEFLATE, so the same sources give the same bytes. */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), zlib = require('node:zlib'), crypto = require('node:crypto');
 const root = path.resolve(__dirname, '../..');
-const extra = ['LICENSE.txt', 'THIRD_PARTY_NOTICES.txt', 'README.en.md', 'README.es.md'];
+const extra = ['LICENSE.txt', 'THIRD_PARTY_NOTICES.txt', 'README.en.md', 'README.es.md', 'RELEASE_NOTES.md'];
 const table = Array.from({ length: 256 }, (_, n) => { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; return c >>> 0; });
 const crc32 = bytes => { let c = 0xffffffff; for (const byte of bytes) c = table[(c ^ byte) & 0xff] ^ (c >>> 8); return (c ^ 0xffffffff) >>> 0; };
 function files() {
@@ -35,6 +35,7 @@ function build(target, prefix = 'rescue-manager') {
 }
 module.exports = { build, files };
 if (require.main === module) {
-  const target = process.argv[2] || path.join(root, '.tmp', 'dist', 'rescue-manager.zip'), value = build(path.resolve(target));
+  const version = /appVersion:\s*'([^']+)'/.exec(fs.readFileSync(path.join(root, 'js', 'config.js'), 'utf8'))[1];
+  const target = process.argv[2] || path.join(root, '.tmp', 'dist', 'rescue-manager-' + version + '.zip'), value = build(path.resolve(target));
   console.log(JSON.stringify({ target: value.target, bytes: value.bytes, sha256: value.sha256, files: value.files.length }, null, 2));
 }
