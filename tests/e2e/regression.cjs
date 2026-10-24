@@ -22,7 +22,7 @@ async function main() {
     if (Object.prototype.hasOwnProperty.call(options, key) && key !== 'machine') throw Error('Duplicate option: ' + key);
     options[key] = process.argv[i + 1];
   }
-  if (!['chrome', 'edge'].includes(options.browser) || !/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,100}$/.test(options.label || '')) throw Error('Choose a browser and a safe unique label');
+  if (!['chrome', 'edge', 'firefox'].includes(options.browser) || !/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,100}$/.test(options.label || '')) throw Error('Choose a browser and a safe unique label');
   const selected = options.suites ? options.suites.split(',') : [...suites];
   if (!selected.length || new Set(selected).size !== selected.length || selected.some(name => !suites.includes(name))) throw Error('Choose known, distinct suite names from --list');
   if (options['volume-steps']) {

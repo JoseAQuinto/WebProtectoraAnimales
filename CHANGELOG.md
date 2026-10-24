@@ -1,5 +1,11 @@
 # Historial de cambios
 
+## Firefox estable 158.0.1 preparado — 2026-10-24
+
+- Descarga oficial autorizada, firma de Mozilla verificada, extraída sin instalar.
+- Lanzador común con WebDriver BiDi (moz-firefox) y ejecutores aceptan --browser firefox.
+- Sin ejecución aún: el sandbox de comandos de la sesión hace que Firefox se cierre al arrancar.
+
 ## Iconos SVG locales — 2026-10-24
 
 - 23 iconos propios de trazo (createElementNS, decorativos) en navegación, marca y foto

@@ -13,7 +13,7 @@ for (let index = 0; index < argumentsList.length; index += 2) {
   if (!['browser', 'executable', 'output', 'machine'].includes(key) || !argumentsList[index + 1]) throw new Error('Use --browser chrome|edge, --executable PATH, --output NAME.json, --machine LABEL');
   options[key] = argumentsList[index + 1];
 }
-if (!['chrome', 'edge'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output filename');
+if (!['chrome', 'edge', 'firefox'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output filename');
 const result = { format: 'rescue-manager-storage-core-test', version: 1, browser: options.browser, machine: options.machine,
   startedAt: new Date().toISOString(), operatingSystem: { type: os.type(), release: os.release(), version: os.version() },
   launches: [], closures: [], checks: [], pageErrors: [], externalRequests: [],

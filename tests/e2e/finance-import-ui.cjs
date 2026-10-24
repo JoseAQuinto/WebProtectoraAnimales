@@ -5,7 +5,7 @@ const { pathToFileURL } = require('node:url'), { launch } = require('./chromium.
 const root = path.resolve(__dirname, '../..'), options = { browser: 'chrome', output: 'finance-import-ui-chrome.json', machine: 'unspecified' };
 for (let index = 2; index < process.argv.length; index += 2) { const key = process.argv[index].replace(/^--/, '');
   if (!['browser', 'output', 'machine', 'executable'].includes(key) || !process.argv[index + 1]) throw new Error('Use --browser --output --machine --executable'); options[key] = process.argv[index + 1]; }
-if (!['chrome', 'edge'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output');
+if (!['chrome', 'edge', 'firefox'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output');
 const output = path.join(root, 'tests/results', options.output), hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const result = { format: 'rescue-manager-finance-import-ui-test', version: 1, browser: options.browser, machine: options.machine, startedAt: new Date().toISOString(),
   operatingSystem: { type: os.type(), release: os.release(), version: os.version() }, checks: [], launches: [], closures: [], screenshots: [], pageErrors: [], consoleErrors: [], externalRequests: [],

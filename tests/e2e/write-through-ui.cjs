@@ -5,7 +5,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),os=require('node:
 const {pathToFileURL}=require('node:url'),{launch}=require('./chromium.cjs');
 const root=path.resolve(__dirname,'../..'),options={browser:'chrome',machine:'unspecified',output:'write-through-ui-chrome.json'};
 for(let i=2;i<process.argv.length;i+=2){const key=process.argv[i].replace(/^--/,'');if(!['browser','machine','output','executable'].includes(key)||!process.argv[i+1])throw Error('Use --browser --machine --output --executable');options[key]=process.argv[i+1];}
-if(!['chrome','edge'].includes(options.browser)||!/^[a-zA-Z0-9._-]+\.json$/.test(options.output))throw Error('Invalid options');
+if(!['chrome','edge','firefox'].includes(options.browser)||!/^[a-zA-Z0-9._-]+\.json$/.test(options.output))throw Error('Invalid options');
 const output=path.join(root,'tests/results',options.output),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const result={format:'rescue-manager-write-through-ui-test',version:1,browser:options.browser,machine:options.machine,startedAt:new Date().toISOString(),operatingSystem:{type:os.type(),release:os.release()},checks:[],measurements:[],launches:[],closures:[],pageErrors:[],consoleErrors:[],externalRequests:[],
   limitations:['IDBIndex.prototype.getAll is wrapped in the page only to count byDataset reads; it returns the native result unchanged.','Fixtures and writes use real production services; one stale-lease probe calls the real repository path directly and is labelled.','Timings come from this machine and are not guaranteed limits.','No business service is mocked.']};

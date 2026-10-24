@@ -9,7 +9,7 @@ for (let index = 0; index < args.length; index += 2) {
   if (!['browser', 'output', 'machine', 'executable', 'mode', 'resume-profile'].includes(key) || !args[index + 1]) throw new Error('Use --browser --output --machine --executable --mode --resume-profile');
   options[key] = args[index + 1];
 }
-if (!['chrome', 'edge'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output) || !['all', 'viewport'].includes(options.mode)) throw new Error('Invalid browser, output or mode');
+if (!['chrome', 'edge', 'firefox'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output) || !['all', 'viewport'].includes(options.mode)) throw new Error('Invalid browser, output or mode');
 if ((options.mode === 'viewport') !== !!options['resume-profile']) throw new Error('Viewport mode requires --resume-profile; all mode requires a fresh profile');
 const result = { format: 'rescue-manager-workspace-ui-test', version: 2, browser: options.browser, machine: options.machine, mode: options.mode,
   operatingSystem: { type: os.type(), release: os.release(), version: os.version() }, startedAt: new Date().toISOString(), checks: [], launches: [], closures: [],

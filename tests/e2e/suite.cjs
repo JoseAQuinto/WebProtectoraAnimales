@@ -14,7 +14,7 @@ for (let index = 0; index < args.length; index += 2) {
   if (!['browser', 'page', 'output', 'machine', 'executable'].includes(key) || !args[index + 1]) throw new Error('Use --browser, --page, --output, --machine, --executable');
   options[key] = args[index + 1];
 }
-if (!['chrome', 'edge'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output filename');
+if (!['chrome', 'edge', 'firefox'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output filename');
 const html = path.resolve(root, options.page);
 if (!html.startsWith(root + path.sep)) throw new Error('Page must be inside the test checkout');
 const result = {

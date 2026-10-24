@@ -17,7 +17,7 @@ for (let index = 2; index < process.argv.length; index += 2) {
   if (!['browser', 'machine', 'output', 'executable', 'mode'].includes(key) || !value) throw new Error('Use --browser, --machine, --output, --executable, --mode all|crashes');
   options[key] = value;
 }
-if (!['chrome', 'edge'].includes(options.browser) || !['all', 'crashes'].includes(options.mode) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser, mode or output filename');
+if (!['chrome', 'edge', 'firefox'].includes(options.browser) || !['all', 'crashes'].includes(options.mode) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser, mode or output filename');
 const result = { format: 'rescue-manager-recovery-test', version: 1, browser: options.browser, machine: options.machine,
   startedAt: new Date().toISOString(), operatingSystem: { type: os.type(), release: os.release(), version: os.version() },
   mode: options.mode, launches: [], closures: [], forcedClosures: [], checks: [], pageErrors: [], consoleErrors: [], externalRequests: [],

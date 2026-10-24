@@ -12,11 +12,13 @@ const { descendants, verifiedRoot, withoutNativeExited } = require('./owned-proc
 const execFileAsync = promisify(execFile);
 const root = path.resolve(__dirname, '../..');
 const runtime = process.env.PLAYWRIGHT_PATH || path.join(os.homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const { chromium } = require(runtime);
+const { chromium, firefox } = require(runtime);
 const pause = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 const binaries = {
   chrome: process.env.RM_CHROME_BINARY || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  edge: process.env.RM_EDGE_BINARY || 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
+  edge: process.env.RM_EDGE_BINARY || 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+  // Official Mozilla release extracted under .tools (never installed); driven through WebDriver BiDi.
+  firefox: process.env.RM_FIREFOX_BINARY || path.join(root, '.tools', 'firefox-158.0.1', 'core', 'firefox.exe')
 };
 
 async function powershell(source) {
@@ -45,9 +47,39 @@ function requireThat(condition, message) {
   if (!condition) throw new Error(message);
 }
 
+// Stock Firefox through Playwright's WebDriver BiDi channel. Playwright owns the process; closure is verified by
+// checking that no process still references this profile. CDP-only helpers (CDP sessions, printToPDF, native file
+// selection through DOM.setFileInputFiles) are unavailable in this engine and must be reported as such by suites.
+async function launchFirefox(profile, result, denyStorage, options) {
+  const executable = options.executable || binaries.firefox;
+  requireThat(!denyStorage, 'Storage denial preference is only implemented for Chromium profiles');
+  await fs.access(executable);
+  await fs.mkdir(profile, { recursive: true });
+  const startedAt = Date.now();
+  const context = await firefox.launchPersistentContext(profile, { channel: 'moz-firefox', executablePath: executable, headless: true, args: ['--no-remote'], acceptDownloads: true });
+  await context.setOffline(true);
+  const browser = context.browser(), version = { product: 'Firefox/' + (browser?.version() || 'unknown'), protocol: 'WebDriver BiDi' };
+  result.launches.push({ startedAt: new Date(startedAt).toISOString(), executable, profile: path.relative(root, profile), args: ['--headless', '--no-remote', '--remote-debugging-port=0'], version, storageDeniedPreference: false });
+  let closed = false;
+  return { browser, context, child: null, version, async close() {
+    if (closed) return; closed = true;
+    await Promise.race([context.close().catch(() => {}), pause(15000)]);
+    const marker = path.resolve(profile).toLowerCase();
+    let remaining = [], inspectionError = null;
+    try { const deadline = Date.now() + 10000; do { remaining = (await processes()).filter(row => String(row.CommandLine || '').toLowerCase().includes(marker)); if (remaining.length) await pause(250); } while (remaining.length && Date.now() < deadline); }
+    catch (error) { inspectionError = String(error); }
+    const closure = { method: 'BrowserContext.close (Playwright-owned Firefox)', remainingProcesses: remaining, inspectionError, forcedTermination: false, checkedAt: new Date().toISOString() };
+    result.closures.push(closure);
+    requireThat(!inspectionError, 'Could not inspect Firefox processes: ' + inspectionError);
+    requireThat(remaining.length === 0, 'Firefox processes remained after close');
+    return closure;
+  } };
+}
+
 async function launch(name, profile, result, denyStorage = false, options = {}) {
+  if (name === 'firefox') return launchFirefox(profile, result, denyStorage, options);
   const executable = options.executable || binaries[name];
-  requireThat(executable, 'Unsupported browser; use chrome or edge');
+  requireThat(executable, 'Unsupported browser; use chrome, edge or firefox');
   await fs.access(executable);
   await fs.mkdir(profile, { recursive: true });
   const activePort = path.join(profile, 'DevToolsActivePort');

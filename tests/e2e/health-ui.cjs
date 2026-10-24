@@ -9,7 +9,7 @@ for (let index = 0; index < args.length; index += 2) {
   if (!['browser', 'output', 'machine', 'executable'].includes(key) || !args[index + 1]) throw new Error('Use --browser --output --machine --executable');
   options[key] = args[index + 1];
 }
-if (!['chrome', 'edge'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output');
+if (!['chrome', 'edge', 'firefox'].includes(options.browser) || !/^[a-zA-Z0-9._-]+\.json$/.test(options.output)) throw new Error('Invalid browser or output');
 const output = path.join(root, 'tests/results', options.output), hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const result = { format: 'rescue-manager-health-ui-test', version: 1, browser: options.browser, machine: options.machine,
   operatingSystem: { type: os.type(), release: os.release(), version: os.version() }, startedAt: new Date().toISOString(), checks: [], launches: [], closures: [],

@@ -5,7 +5,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),os=require('node:
 const {pathToFileURL}=require('node:url'),{launch}=require('./chromium.cjs');
 const root=path.resolve(__dirname,'../..'),options={browser:'chrome',machine:'unspecified',output:'memory-ui-chrome.json',steps:'0,10000,50000'};
 for(let i=2;i<process.argv.length;i+=2){const key=process.argv[i].replace(/^--/,'');if(!['browser','machine','output','executable','steps'].includes(key)||!process.argv[i+1])throw Error('Use --browser --machine --output --executable --steps');options[key]=process.argv[i+1];}
-if(!['chrome','edge'].includes(options.browser)||!/^[a-zA-Z0-9._-]+\.json$/.test(options.output))throw Error('Invalid options');
+if(!['chrome','edge','firefox'].includes(options.browser)||!/^[a-zA-Z0-9._-]+\.json$/.test(options.output))throw Error('Invalid options');
 const steps=options.steps.split(',').map(Number);if(!steps.every((v,i)=>Number.isSafeInteger(v)&&v>=0&&(!i||v>steps[i-1])))throw Error('Invalid steps');
 const output=path.join(root,'tests/results',options.output),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const result={format:'rescue-manager-memory-ui-test',version:1,browser:options.browser,machine:options.machine,startedAt:new Date().toISOString(),steps,operatingSystem:{type:os.type(),release:os.release(),cpus:os.cpus().length,totalMemoryBytes:os.totalmem()},checks:[],measurements:[],launches:[],closures:[],pageErrors:[],consoleErrors:[],externalRequests:[],

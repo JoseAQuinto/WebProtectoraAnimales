@@ -19,7 +19,8 @@ queda es ~154 ms a 50k (INCREMENTAL_VALIDATION.md): no se acota más. Iconos SVG
 locales (ICONS.md); regresión `regression-2026-10-24-icons-*` 70 rondas / 974 sin
 fallos; 313 Node / 922 estáticas. Siguiente acción: lo pendiente requiere personas o
 equipos (revisión manual con lector de pantalla, dispositivos físicos, Firefox actual
-cuando el usuario lo autorice, licencia del titular); como ingeniería opcional,
+(ya autorizado y descargado: FIREFOX_CURRENT.md; falta ejecutar las suites desde un
+terminal sin sandbox con el comando indicado allí), licencia del titular); como ingeniería opcional,
 listas por índices para la primera lectura tras abrir (~1 s a 60k).
 
 ## Cierre de hoy por indicación del usuario — 2026-10-21
