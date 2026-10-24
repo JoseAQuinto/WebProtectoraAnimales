@@ -16,7 +16,7 @@ registro (INCREMENTAL_VALIDATION.md; 50k: 1,98 s → 0,91 s por escritura; regre
 313 Node / 917 estáticas). Memoria del heap JS medida con el protocolo de Chromium
 (MEMORY.md; 10/10 por motor, sin acumulación). La parte global de la validación que
 queda es ~154 ms a 50k (INCREMENTAL_VALIDATION.md): no se acota más. Iconos SVG
-locales (ICONS.md); regresión  70 rondas / 974 sin
+locales (ICONS.md); regresión `regression-2026-10-24-icons-*` 70 rondas / 974 sin
 fallos; 313 Node / 922 estáticas. Siguiente acción: lo pendiente requiere personas o
 equipos (revisión manual con lector de pantalla, dispositivos físicos, Firefox actual
 cuando el usuario lo autorice, licencia del titular); como ingeniería opcional,
