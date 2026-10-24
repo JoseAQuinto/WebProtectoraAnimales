@@ -1,9 +1,18 @@
 # Continuar desde otro PC o con otra IA
 
-Checkpoint: **2026-10-21**, rama **main**, app **0.2.0-dev**.
+Checkpoint: **2026-10-24**, rama **main**, app **0.2.0-dev**.
 DB **2**, schema **1**, backup **1**, sin cambios de formato.
 Repositorio: https://github.com/JoseAQuinto/WebProtectoraAnimales.git
 **Producto incompleto: solo datos sintéticos. Este chat no es necesario.**
+
+## Avance 2026-10-24
+
+Caché de lectura con escritura directa (WRITE_THROUGH_CACHE.md): tras cada 
+confirmado se publica el estado validado con los anclajes escritos; la lectura
+siguiente no relee tablas. 10/10 por motor y regresión 70 rondas / 974 comprobaciones
+sin fallos (). Siguiente acción: omitir solo las
+comprobaciones por registro de filas ya validadas en esta pestaña (mismo día y
+organización), manteniendo relaciones e invariantes globales completas.
 
 ## Cierre de hoy por indicación del usuario — 2026-10-21
 

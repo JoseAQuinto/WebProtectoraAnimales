@@ -1,9 +1,17 @@
 # Estado del proyecto
 
-Actualizado: 2026-10-21. Versión de trabajo: `0.2.0-dev`.
+Actualizado: 2026-10-24. Versión de trabajo: `0.2.0-dev`.
 Versiones: `appVersion 0.2.0-dev`, `dbVersion 2`, `schemaVersion 1`,
 `backupFormatVersion 1`. Este bloque no modifica el formato persistido.
 Entrada de relevo: [CONTINUE_HERE.md](CONTINUE_HERE.md).
+
+## Avance — 2026-10-24
+
+Reanudado desde df5c2c9 tras fetch/pull --ff-only (avances del 21-10 de otra sesión
+incorporados; árbol limpio). Caché con escritura directa: la lectura tras escribir
+ya no relee tablas (WRITE_THROUGH_CACHE.md; 20k registros: 1 ms frente a 323–394 ms).
+write-through-ui 10/10 por motor; regresión completa 70 rondas / 974 comprobaciones,
+0 fallos. 310 Node / 917 estáticas. Formatos sin cambios.
 
 ## Cierre de hoy — 2026-10-21
 

@@ -1,0 +1,298 @@
+{
+  "format": "rescue-manager-regression-run",
+  "version": 1,
+  "browser": "chrome",
+  "label": "2026-10-24-write-through",
+  "machine": "windows-wip",
+  "startedAt": "2026-10-24T07:15:18.088Z",
+  "status": "passed",
+  "runs": [
+    {
+      "suite": "a11y-ui",
+      "report": "a11y-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 11,
+      "failedChecks": 0
+    },
+    {
+      "suite": "adoption-register-ui",
+      "report": "adoption-register-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 10,
+      "failedChecks": 0
+    },
+    {
+      "suite": "animal-filters-ui",
+      "report": "animal-filters-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 10,
+      "failedChecks": 0
+    },
+    {
+      "suite": "animal-import-ui",
+      "report": "animal-import-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 15,
+      "failedChecks": 0
+    },
+    {
+      "suite": "animal-print-ui",
+      "report": "animal-print-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 11,
+      "failedChecks": 0
+    },
+    {
+      "suite": "asset-retention-ui",
+      "report": "asset-retention-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 20,
+      "failedChecks": 0
+    },
+    {
+      "suite": "contact-import-ui",
+      "report": "contact-import-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 13,
+      "failedChecks": 0
+    },
+    {
+      "suite": "dashboard-ui",
+      "report": "dashboard-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 10,
+      "failedChecks": 0
+    },
+    {
+      "suite": "demo-ui",
+      "report": "demo-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 15,
+      "failedChecks": 0
+    },
+    {
+      "suite": "document-dates-ui",
+      "report": "document-dates-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 17,
+      "failedChecks": 0
+    },
+    {
+      "suite": "donation-import-ui",
+      "report": "donation-import-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 16,
+      "failedChecks": 0
+    },
+    {
+      "suite": "finance-import-ui",
+      "report": "finance-import-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 16,
+      "failedChecks": 0
+    },
+    {
+      "suite": "finance-ui",
+      "report": "finance-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 12,
+      "failedChecks": 0
+    },
+    {
+      "suite": "health-ui",
+      "report": "health-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 12,
+      "failedChecks": 0
+    },
+    {
+      "suite": "history-adoption-ui",
+      "report": "history-adoption-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 17,
+      "failedChecks": 0
+    },
+    {
+      "suite": "history-corrections-ui",
+      "report": "history-corrections-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 17,
+      "failedChecks": 0
+    },
+    {
+      "suite": "history-departure-ui",
+      "report": "history-departure-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 18,
+      "failedChecks": 0
+    },
+    {
+      "suite": "history-linked-facts-ui",
+      "report": "history-linked-facts-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 17,
+      "failedChecks": 0
+    },
+    {
+      "suite": "history-workflow-ui",
+      "report": "history-workflow-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 18,
+      "failedChecks": 0
+    },
+    {
+      "suite": "integral-ui",
+      "report": "integral-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 9,
+      "failedChecks": 0
+    },
+    {
+      "suite": "module-exports-ui",
+      "report": "module-exports-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 10,
+      "failedChecks": 0
+    },
+    {
+      "suite": "module-import-ui",
+      "report": "module-import-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 22,
+      "failedChecks": 0
+    },
+    {
+      "suite": "nav-diagnostics-ui",
+      "report": "nav-diagnostics-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 10,
+      "failedChecks": 0
+    },
+    {
+      "suite": "package-ui",
+      "report": "package-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 8,
+      "failedChecks": 0
+    },
+    {
+      "suite": "related-import-ui",
+      "report": "related-import-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 16,
+      "failedChecks": 0
+    },
+    {
+      "suite": "read-cache-ui",
+      "report": "read-cache-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 17,
+      "failedChecks": 0
+    },
+    {
+      "suite": "resources-reports-ui",
+      "report": "resources-reports-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 12,
+      "failedChecks": 0
+    },
+    {
+      "suite": "retention-ui",
+      "report": "retention-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 18,
+      "failedChecks": 0
+    },
+    {
+      "suite": "search-history-ui",
+      "report": "search-history-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 10,
+      "failedChecks": 0
+    },
+    {
+      "suite": "settings-configuration-ui",
+      "report": "settings-configuration-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 13,
+      "failedChecks": 0
+    },
+    {
+      "suite": "trash-purge-ui",
+      "report": "trash-purge-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 19,
+      "failedChecks": 0
+    },
+    {
+      "suite": "weights-history-ui",
+      "report": "weights-history-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 9,
+      "failedChecks": 0
+    },
+    {
+      "suite": "workflows-ui",
+      "report": "workflows-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 16,
+      "failedChecks": 0
+    },
+    {
+      "suite": "workspace-ui",
+      "report": "workspace-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 13,
+      "failedChecks": 0
+    },
+    {
+      "suite": "write-through-ui",
+      "report": "write-through-ui-2026-10-24-write-through-chrome.json",
+      "exitCode": 0,
+      "status": "passed",
+      "checks": 10,
+      "failedChecks": 0
+    }
+  ],
+  "limitations": [
+    "Only the selected existing suites are executed. Each report retains its scope, hashes and limitations.",
+    "No physical device, screen reader, Firefox or commercial acceptance is inferred from this summary.",
+    "Performance timings depend on machine load; run volume separately when comparing latency."
+  ],
+  "completedAt": "2026-10-24T07:26:03.444Z",
+  "checks": 487
+}

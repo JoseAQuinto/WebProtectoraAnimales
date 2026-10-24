@@ -1,5 +1,11 @@
 # Historial de cambios
 
+## Caché de lectura con escritura directa — 2026-10-24
+
+- mutate expone (no enumerable) los anclajes que escribe; commit publica el estado
+  validado tras transaction.complete. Lectura tras escribir a 20k: 1 ms (antes ~330 ms).
+- write-through-ui 10/10 por motor; regresión completa 70 rondas / 974 comprobaciones.
+
 ## Cierre y relevo por petición del usuario — 2026-10-21
 
 - Bloque funcional terminado y subido hasta bd22f65; parada de desarrollo por hoy.

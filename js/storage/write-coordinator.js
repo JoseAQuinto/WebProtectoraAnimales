@@ -145,10 +145,15 @@
               finalized = true;
               const value = nextRevision(active.revision);
               const now = new Date().toISOString();
-              tx.objectStore('meta').put({ key: 'active', datasetId: options.datasetId, revision: value });
-              tx.objectStore('datasets').put({ ...dataset, dataRevision: nextRevision(dataset.dataRevision), updatedAt: now });
+              const activeRecord = { key: 'active', datasetId: options.datasetId, revision: value };
+              const datasetRecord = { ...dataset, dataRevision: nextRevision(dataset.dataRevision), updatedAt: now };
+              tx.objectStore('meta').put(activeRecord);
+              tx.objectStore('datasets').put(datasetRecord);
               log.add({ datasetId: options.datasetId, id: options.operationId, fingerprint: options.fingerprint, revisionBefore: active.revision, revisionAfter: value, result, createdAt: now });
-              api.setResult({ operationId: options.operationId, revision: value, activeRevision: value, duplicate: false, result });
+              const outcome = { operationId: options.operationId, revision: value, activeRevision: value, duplicate: false, result };
+              // Exact anchors written here; repositories may publish its validated state once the transaction completes.
+              Object.defineProperty(outcome, 'written', { value: Object.freeze({ active: activeRecord, dataset: datasetRecord, connection: tx.db }) });
+              api.setResult(outcome);
             }
             function store(name) {
               requireInput(options.stores.includes(name), 'Store is outside the declared mutation');
